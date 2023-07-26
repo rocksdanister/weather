@@ -52,7 +52,7 @@ p {
 }
 
 #content-demo-header {
-  font-family: var(--font2);
+  /* font-family: var(--font2); */
   padding: 22.5px 0 0 50px;
   transform: translateZ(25px);
   position: absolute;
