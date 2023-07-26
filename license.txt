@@ -1,0 +1,16 @@
+For shader license see the corresponding file.
+
+Icons by icons8
+https://icons8.com
+
+Fluent Emoji MIT License
+https://github.com/microsoft/fluentui-emoji
+
+vanilla-tilt.js MIT License
+https://github.com/micku7zu/vanilla-tilt.js
+
+Noto Sans font licensed under SIL Open Font Licesnse (OFL)
+https://fonts.google.com/noto/specimen/Noto+Sans
+
+Averua Sans Libre SIL Open Font Licesnse (OFL)
+https://fonts.google.com/specimen/Averia+Sans+Libre

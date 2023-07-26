@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather App by rocksdanister</title>
+    <meta name="description" content="Windows native weather app powered by DirectX" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/controls.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <!-- background -->
+    <div id="container"></div>
+
+    <div class="wrapper">
+      <div id="content-demo" data-tilt data-tilt-speed="1000" data-tilt-startX="-5" data-tilt-reset-to-start="true">
+        <div id="content-demo-header">
+          <div id="content-demo-header-weather-icons">
+            <img id="content-demo-header-weather-icon-snow" width="50" src="assets/icons/cloud_with_snow_3d.png" />
+            <img
+              id="content-demo-header-weather-icon-rain"
+              style="display: none"
+              width="50"
+              src="assets/icons/cloud_with_rain_3d.png"
+            />
+            <img
+              id="content-demo-header-weather-icon-cloudy"
+              style="display: none"
+              width="50"
+              src="assets/icons/cloud_3d.png"
+            />
+            <div id="content-demo-header-weather-label">Snow</div>
+          </div>
+          <div id="content-demo-header-stats">
+            <div id="content-demo-header-stats-pollen">Low</div>
+            <div id="content-demo-header-stats-wind">14 km/h</div>
+            <div id="content-demo-header-stats-humidity">90%</div>
+            <div id="content-demo-header-stats-visibility">20 km</div>
+            <div id="content-demo-header-stats-pressure">1050 mb</div>
+            <div id="content-demo-header-stats-dew">60°</div>
+          </div>
+        </div>
+        <video id="demo_clip" class="video" loop muted autoplay>
+          <source src="assets/app_demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div id="content-download">
+        <h1>Coming soon</h1>
+        <p>Windows native weather app powered by DirectX</p>
+        <button class="acrylic-button" style="visibility: collapse"><span>Download</span></button>
+        <!-- <ms-store-badge productid="todo" size="large" theme="dark" animation="on"></ms-store-badge> -->
+      </div>
+    </div>
+
+    <div class="floating-container">
+      <div class="floating-button">+</div>
+      <div class="element-container">
+        <a target="_blank" href="mailto: awoo.git@gmail.com" title="awoo.git@gmail.com">
+          <span class="float-element tooltip-left">
+            <img
+              style="width: inherit; height: inherit; border-radius: 0"
+              src="assets/icons/filled-message.png"
+              alt="filled-message"
+            />
+          </span>
+        </a>
+        <a target="_blank" href="https://github.com/rocksdanister/weather" title="Source code">
+          <span class="float-element">
+            <img
+              style="width: inherit; height: inherit; border-radius: inherit"
+              src="assets/icons/github.png"
+              alt="github"
+            />
+          </span>
+        </a>
+        <a target="_blank" href="https://rocksdanister.com" title="About">
+          <span class="float-element">
+            <img
+              alt="github profile"
+              style="width: 45px; height: 45px; border-radius: inherit"
+              src="https://avatars.githubusercontent.com/rocksdanister"
+              class="avatar"
+            />
+          </span>
+        </a>
+      </div>
+    </div>
+  </body>
+  <!-- <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+  <!-- load in this order -->
+  <script src="js/controls.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/vanilla-tilt.min.js"></script>
+  <script src="js/index.js"></script>
+  <!-- <script>
+    if (window.location.href.indexOf("https://www.rocksdanister.com/lively/") > -1) {
+      let script = document.createElement("script");
+      script.setAttribute("src", "//gc.zgo.at/count.js");
+      script.setAttribute("data-goatcounter", "https://rocksdanister.goatcounter.com/count");
+      script.setAttribute("async", "");
+      document.body.appendChild(script);
+    }
+  </script> -->
+</html>

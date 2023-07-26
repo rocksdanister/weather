@@ -1,0 +1,112 @@
+:root {
+  --color-font1: white;
+  --color-font2: rgba(255, 255, 255, 0.8);
+  --font1: "Averia Sans Libre", cursive;
+  --font2: "Noto Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font1);
+  font-style: normal;
+  font-size: 24px;
+  background: url(../assets/temp_background.webp) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: var(--color-font1);
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+h1 {
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: -15px;
+}
+
+p {
+  color: var(--color-font2);
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* threejs background */
+#container {
+  position: fixed;
+  right: 0;
+  transform: scale(1.09);
+  z-index: -10;
+  opacity: 0; /*set to 1 after sceneLoaded event*/
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#content-demo {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+#content-demo-header {
+  font-family: var(--font2);
+  padding: 22.5px 0 0 50px;
+  transform: translateZ(25px);
+  position: absolute;
+  pointer-events: none;
+}
+
+#content-demo-header-weather-label {
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  padding: 0 0 0 5px;
+}
+
+#content-demo-header-weather-icons {
+  display: flex;
+  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+#content-demo-header-stats {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 20px;
+  left: 5px;
+  font-size: 12px;
+  display: grid;
+  gap: 0 50px;
+  grid-template-columns: 22.5px 22.5px 22.5px 22.5px 22.5px 22.5px;
+  white-space: nowrap;
+}
+
+#content-download {
+  margin-left: 25px;
+}
+
+.video {
+  height: 330px;
+  transition: 0.5s;
+  position: relative;
+  object-fit: fill;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*portrait mode*/
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
