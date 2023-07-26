@@ -323,16 +323,16 @@ Copyright (c) 2023 Vincent Van Goggles (https://codepen.io/Gogh/pen/XzrNZd)
   font-size: 16px;
 }
 .floating-container .float-element:nth-child(1) {
-  /* background: #323753;
-  box-shadow: 0px 5px 15px rgba(50, 55, 83, 0.5); */
+  background: #3089c5;
+  box-shadow: 0px 1px 10px rgba(48, 137, 197, 0.5);
 }
 .floating-container .float-element:nth-child(2) {
-  /* background: #e7e9ea;
-  box-shadow: 0px 5px 15px rgba(231, 233, 234, 0.5); */
+  background: #e7e9ea;
+  box-shadow: 0px 1px 10px rgba(231, 233, 234, 0.5);
 }
 .floating-container .float-element:nth-child(3) {
-  /* background: #ecc500;
-  box-shadow: 0px 5px 15px rgba(236, 197, 0, 0.5); */
+  background: #ecc500;
+  box-shadow: 0px 1px 10px rgba(236, 197, 0, 0.5);
 }
 .float-element :hover {
   transform: scale(1.15);
