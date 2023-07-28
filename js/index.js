@@ -1,5 +1,5 @@
 //video headers
-var videoClip = document.getElementById("demo_clip");
+var videoClip = document.getElementById("demo-clip");
 videoClip.addEventListener("timeupdate", myFunction);
 
 var weatherHeader = document.getElementById("content-demo-header-weather-label");

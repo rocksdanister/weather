@@ -86,13 +86,20 @@ p {
   margin-left: 25px;
 }
 
+#demo-clip-border {
+  height: 330px;
+  /* border: 1px solid rgba(134, 140, 147, 0.5); */
+  outline: 1px solid rgba(134, 140, 147, 0.5);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 .video {
   height: 330px;
   transition: 0.5s;
   position: relative;
   object-fit: fill;
   border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes fade-in {
