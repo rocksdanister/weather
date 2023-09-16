@@ -8,10 +8,7 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Noto+Sans&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
     <!-- styles -->
     <link rel="stylesheet" href="styles/controls.css" />
     <link rel="stylesheet" href="styles/style.css" />
@@ -22,33 +19,7 @@
     <div id="container"></div>
 
     <div class="wrapper">
-      <div id="content-demo" data-tilt data-tilt-speed="1000" data-tilt-startX="-5" data-tilt-reset-to-start="true">
-        <div id="content-demo-header">
-          <div id="content-demo-header-weather-icons">
-            <img id="content-demo-header-weather-icon-snow" width="50" src="assets/icons/cloud_with_snow_3d.png" />
-            <img
-              id="content-demo-header-weather-icon-rain"
-              style="display: none"
-              width="50"
-              src="assets/icons/cloud_with_rain_3d.png"
-            />
-            <img
-              id="content-demo-header-weather-icon-cloudy"
-              style="display: none"
-              width="50"
-              src="assets/icons/cloud_3d.png"
-            />
-            <div id="content-demo-header-weather-label">Snow</div>
-          </div>
-          <div id="content-demo-header-stats">
-            <div id="content-demo-header-stats-pollen">Low</div>
-            <div id="content-demo-header-stats-wind">14 km/h</div>
-            <div id="content-demo-header-stats-humidity">90%</div>
-            <div id="content-demo-header-stats-visibility">20 km</div>
-            <div id="content-demo-header-stats-pressure">1050 mb</div>
-            <div id="content-demo-header-stats-dew">60°</div>
-          </div>
-        </div>
+      <div id="content-demo" data-tilt-max="5" data-tilt data-tilt-speed="1000" data-tilt-startY="0" data-tilt-reset-to-start="true">
         <div id="demo-clip-border">
           <video id="demo-clip" class="video" disablePictureInPicture loop muted autoplay>
             <source src="assets/app_demo.mp4" type="video/mp4" />

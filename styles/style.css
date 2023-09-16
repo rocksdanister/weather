@@ -1,7 +1,7 @@
 :root {
   --color-font1: white;
   --color-font2: rgba(255, 255, 255, 0.8);
-  --font1: "Averia Sans Libre", cursive;
+  --font1: "Noto Sans", sans-serif;
   --font2: "Noto Sans", sans-serif;
 }
 
@@ -22,11 +22,13 @@ body {
 
 h1 {
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 36px;
   margin-bottom: -15px;
 }
 
 p {
   color: var(--color-font2);
+  font-size: 21px;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -51,55 +53,24 @@ p {
   transform: perspective(1000px);
 }
 
-#content-demo-header {
-  /* font-family: var(--font2); */
-  padding: 22.5px 0 0 50px;
-  transform: translateZ(25px);
-  position: absolute;
-  pointer-events: none;
-}
-
-#content-demo-header-weather-label {
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 24px;
-  padding: 0 0 0 5px;
-}
-
-#content-demo-header-weather-icons {
-  display: flex;
-  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.5));
-}
-
-#content-demo-header-stats {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  position: relative;
-  top: 20px;
-  left: 5px;
-  font-size: 12px;
-  display: grid;
-  gap: 0 50px;
-  grid-template-columns: 22.5px 22.5px 22.5px 22.5px 22.5px 22.5px;
-  white-space: nowrap;
-}
-
 #content-download {
   margin-left: 25px;
 }
 
 #demo-clip-border {
-  height: 330px;
+  height: 480px;
   /* border: 1px solid rgba(134, 140, 147, 0.5); */
   outline: 1px solid rgba(134, 140, 147, 0.5);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .video {
-  height: 330px;
+  height: 480px;
   transition: 0.5s;
   position: relative;
   object-fit: fill;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 @keyframes fade-in {
@@ -115,5 +86,8 @@ p {
 @media screen and (max-width: 1000px) {
   .wrapper {
     flex-direction: column;
+  }
+  .video, #demo-clip-border {
+    height: 320px;
   }
 }
