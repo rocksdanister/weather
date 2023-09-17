@@ -56,6 +56,7 @@ p {
 
 #demo-clip-border {
   height: 480px;
+  width: 554px;
   /* border: 1px solid rgba(134, 140, 147, 0.5); */
   outline: 1px solid rgba(134, 140, 147, 0.5);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
@@ -64,6 +65,7 @@ p {
 
 .video {
   height: 480px;
+  width: 554px;
   transition: 0.5s;
   position: relative;
   object-fit: fill;
@@ -226,6 +228,7 @@ p {
 
   .video, #demo-clip-border {
     height: 320px;
+    width: 369px;
   }
 
   #weather-header {
