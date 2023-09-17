@@ -48,13 +48,10 @@ p {
   height: 100vh;
 }
 
+/* Parallax */
 #content-demo {
   transform-style: preserve-3d;
   transform: perspective(1000px);
-}
-
-#content-download {
-  margin-left: 25px;
 }
 
 #demo-clip-border {
@@ -73,6 +70,90 @@ p {
   border-radius: 5px;
 }
 
+#dynamic-labels {
+  transform: translateZ(25px);
+  pointer-events: none;
+}
+
+#day-selector {
+  position: absolute;
+  padding: 113px 0 0 85px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: 1fr;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.day-text {
+  width: 50px; 
+  margin-right: 35px
+}
+
+#weather-header {
+  position: absolute;
+  padding: 35px 0 0 202px;
+}
+
+#weather-header-city {
+  font-size: 16px;
+  text-align: center;
+}
+
+#weather-header-temp {
+  font-size: 21px;
+  text-align: center;
+}
+
+#weather-header-label {
+  font-size: 12px;
+  text-align: center;
+  opacity: 0.4;
+}
+
+#card-uv {
+  position: absolute;
+  padding: 285px 0 0 80px;
+}
+
+#card-uv-desc {
+  font-size: 10px;
+  opacity: 0.4;
+}
+
+#card-humidity {
+  position: absolute;
+  padding: 304px 0 0 403px;
+  font-size: 14px;
+}
+
+#card-wind {
+  position: absolute;
+  padding: 402px 0 0 117px;
+  font-size: 11px;
+}
+
+#card-aqi {
+  position: absolute;
+  padding: 380px 0 0 208px;
+}
+
+#card-aqi-desc {
+  font-size: 10px;
+  opacity: 0.4;
+}
+
+#card-pressure {
+  position: absolute;
+  padding: 385px 0 0 362px;
+  font-size: 18px;
+}
+
+/* Download */
+#content-download {
+  margin-left: 25px;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -87,7 +168,72 @@ p {
   .wrapper {
     flex-direction: column;
   }
+
   .video, #demo-clip-border {
     height: 320px;
+  }
+
+  #weather-header {
+    position: absolute;
+    padding: 20px 0 0 140px;
+  }
+  
+  #weather-header-city {
+    font-size: 10px;
+    text-align: center;
+  }
+  
+  #weather-header-temp {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  #weather-header-label {
+    font-size: 9px;
+    text-align: center;
+    opacity: 0.4;
+  }
+
+  #day-selector {
+    padding: 75px 0 0 55px;
+    font-size: 7px;
+    gap: 4px;
+  }
+
+  .day-text {
+    margin-right: 10px;
+  }
+
+  #card-uv {
+    padding: 190px 0 0 55px;
+    font-size: 16px;
+  }
+  
+  #card-uv-desc {
+    font-size: 9px;
+  }
+  
+  #card-humidity {
+    padding: 202px 0 0 267px;
+    font-size: 10px;
+  }
+  
+  #card-wind {
+    padding: 267px 0 0 77px;
+    font-size: 8px;
+  }
+  
+  #card-aqi {
+    padding: 255px 0 0 140px;
+    font-size: 16px;
+  }
+  
+  #card-aqi-desc {
+    font-size: 9px;
+  }
+  
+  #card-pressure {
+    padding: 260px 0 0 240px;
+    font-size: 14px;
   }
 }

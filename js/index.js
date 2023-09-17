@@ -1,3 +1,64 @@
+//video headers
+var videoClip = document.getElementById("demo-clip");
+videoClip.addEventListener("timeupdate", videoFunction);
+
+var headerTemp = document.getElementById("weather-header-temp");
+var headerLabel = document.getElementById("weather-header-label");
+var cardUvIndex = document.getElementById("card-uv-number");
+var cardHumidity = document.getElementById("card-humidity");
+var cardWind = document.getElementById("card-wind");
+var cardAqi = document.getElementById("card-aqi-number");
+var cardPressure = document.getElementById("card-pressure");
+
+function videoFunction() {
+  if (videoClip.currentTime >= 6.75) setWeatherHeaders("fog");
+  else if (videoClip.currentTime >= 4) setWeatherHeaders("snow");
+  else if (videoClip.currentTime >= 2.25 )setWeatherHeaders("rain");
+  else setWeatherHeaders("overcast");
+}
+
+function setWeatherHeaders(weather)
+{
+  switch(weather) {
+    case "fog":
+      headerTemp.innerHTML = "3 °C";
+      headerLabel.innerHTML = "Fog";
+      cardUvIndex.innerHTML = "1";
+      cardHumidity.innerHTML = "67%"
+      cardWind.innerHTML = "6 kmh";
+      cardAqi.innerHTML = "8";
+      cardPressure.innerHTML = "1000 mb"
+      break;
+    case "snow":
+      headerTemp.innerHTML = "4 °C";
+      headerLabel.innerHTML = "Snow";
+      cardUvIndex.innerHTML = "0";
+      cardHumidity.innerHTML = "69%"
+      cardWind.innerHTML = "16 kmh";
+      cardAqi.innerHTML = "8";
+      cardPressure.innerHTML = "1007 mb"
+      break;
+    case "rain":
+      headerTemp.innerHTML = "12 °C";
+      headerLabel.innerHTML = "Slight Rain";
+      cardUvIndex.innerHTML = "0";
+      cardHumidity.innerHTML = "65%"
+      cardWind.innerHTML = "18 kmh";
+      cardAqi.innerHTML = "20";
+      cardPressure.innerHTML = "1015 mb"
+      break;  
+    case "overcast":
+      headerTemp.innerHTML = "15 °C";
+      headerLabel.innerHTML = "Overcast";
+      cardUvIndex.innerHTML = "1";
+      cardHumidity.innerHTML = "64%"
+      cardWind.innerHTML = "14 kmh";
+      cardAqi.innerHTML = "15";
+      cardPressure.innerHTML = "1001 mb"
+      break;
+  }
+}
+
 //threejs scene first run
 document.addEventListener("sceneLoaded", () => {
   if (container.style.opacity == 0) setVisible(container);
