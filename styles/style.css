@@ -91,6 +91,10 @@ p {
   margin-right: 35px
 }
 
+.day-icon {
+  filter: drop-shadow(1px 1px 2px rgba(45, 45, 45, 0.5));
+}
+
 #weather-header {
   position: absolute;
   padding: 35px 0 0 202px;
