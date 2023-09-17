@@ -169,6 +169,29 @@ p {
   margin-left: 25px;
 }
 
+/*loading progressbar*/
+.indeterminate-progress-bar {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  background-color: #d1d5db;
+  height: 5px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  animation: fade-in 1s ease;
+}
+
+.indeterminate-progress-bar__progress {
+  background-color: #c9939a;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: indeterminate-progress-bar;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -178,10 +201,27 @@ p {
   }
 }
 
+@keyframes indeterminate-progress-bar {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 /*portrait mode*/
 @media screen and (max-width: 1000px) {
   .wrapper {
     flex-direction: column;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+  
+  p {
+    font-size: 18px;
   }
 
   .video, #demo-clip-border {
