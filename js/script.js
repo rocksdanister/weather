@@ -27,7 +27,7 @@ let shaders = [
       u_normal: { value: 0.5, type: "f" },
       u_zoom: { value: 2.61, type: "f" },
       u_panning: { value: false, type: "b" },
-      u_post_processing: { value: true, type: "b" },
+      u_post_processing: { value: false, type: "b" },
       u_lightning: { value: false, type: "b" },
       u_mouse: { value: new THREE.Vector4(), type: "v4" },
       u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight), type: "v2" },
@@ -161,7 +161,6 @@ function disposeVideoElement(video) {
 function debugMenu() {
   try {
     debugScale();
-    debugCloud();
   } catch (ex) {
     console.log(ex);
   }
@@ -178,9 +177,4 @@ function debugScale() {
     .onChange(function () {
       setScale(settings.scale);
     });
-}
-
-function debugCloud() {
-  gui.add(material.uniforms.u_fog, "value").name("Fog");
-  gui.add(material.uniforms.u_scale, "value", 0, 2, 0.01).name("Size1");
 }

@@ -203,6 +203,6 @@ void main() {
     }
     col *= 1. - dot(UV -= .5, UV) * 1.; // vignette
 
-    col =  mix(Desaturate(col), col, 0.5);
+    //col =  mix(Desaturate(col), col, 0.5);
     gl_FragColor = vec4(col * u_brightness, 1);
 }
