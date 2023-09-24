@@ -12,6 +12,8 @@
     <!-- styles -->
     <link rel="stylesheet" href="styles/controls.css" />
     <link rel="stylesheet" href="styles/style.css" />
+    <!-- preload preview -->
+    <link rel="preload" href="assets/temp_background.webp" as="image" />
     <meta charset="utf-8" />
   </head>
   <body>
@@ -84,7 +86,7 @@
         </div>
         <!-- Demo clip -->
         <div id="demo-clip-border">
-          <video id="demo-clip" class="video" disablePictureInPicture loop muted autoplay>
+          <video poster="assets/temp_poster.webp" id="demo-clip" class="video" disablePictureInPicture loop muted autoplay>
             <source src="assets/app_demo_lq.mp4" type="video/mp4" />
           </video>
         </div>
