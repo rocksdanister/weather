@@ -1,5 +1,7 @@
-# Weather
-Windows native weather app powered by DirectX
+# Lively Weather
+[![Crowdin](https://badges.crowdin.net/lively-weather/localized.svg)](https://crowdin.com/project/lively-weather)
+
+Windows native weather app powered by DirectX12
 
 https://github.com/rocksdanister/weather/assets/17554161/f61f8305-f8f6-444c-a082-7a1485cd32fe
 
