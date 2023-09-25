@@ -1,0 +1,99 @@
+﻿<UserControl
+    x:Class="Drizzle.UI.UWP.UserControls.AirQualityCard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Drizzle.UI.UWP.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Loaded="UserControl_Loaded"
+    SizeChanged="UserControl_SizeChanged"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Margin="10,5,0,0"
+            Opacity="0.4"
+            Orientation="Horizontal"
+            Spacing="4">
+            <FontIcon
+                FontFamily="{StaticResource CustomIconFonts}"
+                FontSize="16"
+                Glyph="&#xE900;" />
+            <TextBlock x:Uid="TitleAirQuality" />
+        </StackPanel>
+        <!--<muxc:AnimatedVisualPlayer
+            Grid.RowSpan="2"
+            Width="200"
+            Height="205"
+            Margin="0,-40,-100,0"
+            Opacity="0.1"
+            PlaybackRate="0.75">
+            <visuals:FogBig />
+        </muxc:AnimatedVisualPlayer>-->
+        <StackPanel
+            Grid.Row="1"
+            Margin="10,0,0,0"
+            VerticalAlignment="Center"
+            Spacing="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    FontSize="40"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind Value, Mode=OneWay}"
+                    Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
+            </StackPanel>
+            <TextBlock
+                FontSize="14"
+                Opacity="0.4"
+                Text="{x:Bind Message, Mode=OneWay}" />
+        </StackPanel>
+
+        <Canvas
+            x:Name="canvas"
+            Grid.Row="2"
+            Margin="0,25,0,0">
+            <Rectangle
+                x:Name="sliderLine"
+                Canvas.Left="0"
+                Canvas.Top="2.5"
+                Width="350"
+                Height="5"
+                RadiusX="2.5"
+                RadiusY="2.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Offset="0.0" Color="Green" />
+                        <GradientStop Offset="0.25" Color="Yellow" />
+                        <GradientStop Offset="0.5" Color="Orange" />
+                        <GradientStop Offset="0.75" Color="OrangeRed" />
+                        <GradientStop Offset="1.0" Color="Red" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Ellipse
+                x:Name="sliderKnob"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Width="10"
+                Height="10"
+                Fill="White"
+                Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
+        </Canvas>
+    </Grid>
+</UserControl>

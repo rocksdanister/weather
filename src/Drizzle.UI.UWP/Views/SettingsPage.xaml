@@ -1,0 +1,137 @@
+﻿<Page
+    x:Class="Drizzle.UI.UWP.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:local="using:Drizzle.UI.UWP.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel Padding="0,0,10,0" Spacing="3">
+                <TextBlock
+                    x:Uid="TitleGeneral"
+                    Margin="1,0,0,5"
+                    Style="{StaticResource BodyStrongTextBlockStyle}" />
+
+                <labs:SettingsCard x:Uid="ThemeSettings" Visibility="Collapsed">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE771;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox SelectedIndex="{x:Bind viewModel.SelectedAppThemeIndex, Mode=TwoWay}">
+                        <ComboBoxItem x:Uid="ThemeAuto" />
+                        <ComboBoxItem x:Uid="ThemeDark" />
+                        <ComboBoxItem x:Uid="ThemeLight" />
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="LanguageSettings" Padding="15,0,15,15">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE775;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <StackPanel
+                        Padding="-150,75,0,0"
+                        Orientation="Horizontal"
+                        Spacing="2.5">
+                        <HyperlinkButton x:Uid="LanguageSettingsHelpTranslate" NavigateUri="https://crwd.in/lively-weather" />
+                        <ComboBox
+                            MinWidth="165"
+                            IsEnabled="False"
+                            SelectedIndex="0">
+                            <ComboBoxItem x:Uid="LanguageSettingsItemSystemDefault" />
+                        </ComboBox>
+                    </StackPanel>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard
+                    x:Uid="OpenLogs"
+                    Command="{x:Bind viewModel.OpenLogsCommand}"
+                    IsClickEnabled="True">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE9F9;" />
+                    </labs:SettingsCard.HeaderIcon>
+                </labs:SettingsCard>
+
+                <TextBlock
+                    x:Uid="TitlePerformance"
+                    Margin="1,0,0,5"
+                    Style="{StaticResource BodyStrongTextBlockStyle}" />
+
+                <labs:SettingsCard x:Uid="QualitySettings" IsEnabled="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE91B;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedAppPerformanceIndex, Mode=TwoWay}">
+                        <ComboBoxItem x:Uid="QualityPotato" />
+                        <ComboBoxItem x:Uid="QualityPerformance" />
+                        <ComboBoxItem x:Uid="QualityQuality" />
+                        <ComboBoxItem x:Uid="QualityDynamic" />
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="FrameRateSettings" IsEnabled="False">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90D;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <Slider
+                        MinWidth="200"
+                        Maximum="120"
+                        Minimum="12"
+                        Value="60" />
+                </labs:SettingsCard>
+                <muxc:InfoBar
+                    IsClosable="False"
+                    IsIconVisible="False"
+                    IsOpen="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
+                    Severity="Error">
+                    <TextBlock
+                        x:Uid="DescPerformanceIssue"
+                        Padding="10"
+                        TextWrapping="WrapWholeWords" />
+                </muxc:InfoBar>
+
+                <TextBlock
+                    x:Uid="TitleWeather"
+                    Margin="1,0,0,5"
+                    Style="{StaticResource BodyStrongTextBlockStyle}" />
+
+                <labs:SettingsCard x:Uid="WeatherProviderSettings">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="0">
+                        <ComboBoxItem>Open-Meteo</ComboBoxItem>
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="WeatherUnitSettings">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xECC6;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherUnitIndex, Mode=TwoWay}">
+                        <ComboBoxItem x:Uid="WeatherUnitMetric" />
+                        <ComboBoxItem x:Uid="WeatherUnitImperial" />
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard
+                    x:Uid="CustomBackgroundSettings"
+                    IsEnabled="False"
+                    Visibility="Collapsed">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE8B9;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ToggleSwitch IsOn="{x:Bind viewModel.Custombackground, Mode=TwoWay}" />
+                </labs:SettingsCard>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

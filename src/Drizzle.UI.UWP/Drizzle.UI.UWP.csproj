@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E585FFF2-9A5D-4461-A94B-34FB4F829B15}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Drizzle.UI.UWP</RootNamespace>
+    <AssemblyName>Drizzle.UI.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <LangVersion>latest</LangVersion>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageCertificateThumbprint>F466A3D48EC9E164B60856CC2E3630CB1B2E43AA</PackageCertificateThumbprint>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <!--
+      Workarounds for ILT0005: Out of memory.
+      https://github.com/CommunityToolkit/Tooling-Windows-Submodule/blob/86db77d8b0736d45e5c5b023745261b7970f475d/ProjectHeads/Head.Uwp.props#L29C18-L29C18
+    -->
+    <!--<IlcParameters>/ExtraNutcArguments:"/d2threads1"</IlcParameters>
+    <SingleThreadNUTC>true</SingleThreadNUTC>
+    <Use64BitCompiler>true</Use64BitCompiler>
+    <OutOfProcPDB>true</OutOfProcPDB>-->
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AnimatedVisuals\ClearDay.cs" />
+    <Compile Include="AnimatedVisuals\ClearNight.cs" />
+    <Compile Include="AnimatedVisuals\Cloudy.cs" />
+    <Compile Include="AnimatedVisuals\Drizzle.cs" />
+    <Compile Include="AnimatedVisuals\DrizzleExtreme.cs" />
+    <Compile Include="AnimatedVisuals\FogBig.cs" />
+    <Compile Include="AnimatedVisuals\LocationSearch.cs" />
+    <Compile Include="AnimatedVisuals\SadEmoji.cs" />
+    <Compile Include="AnimatedVisuals\SleetExtreme.cs" />
+    <Compile Include="AnimatedVisuals\Hail.cs" />
+    <Compile Include="AnimatedVisuals\RainExtreme.cs" />
+    <Compile Include="AnimatedVisuals\Sleet.cs" />
+    <Compile Include="AnimatedVisuals\SnowExtreme.cs" />
+    <Compile Include="AnimatedVisuals\Fog.cs" />
+    <Compile Include="AnimatedVisuals\Overcast.cs" />
+    <Compile Include="AnimatedVisuals\Rain.cs" />
+    <Compile Include="AnimatedVisuals\Snow.cs" />
+    <Compile Include="AnimatedVisuals\SummerLeaves.cs" />
+    <Compile Include="AnimatedVisuals\SunCircle.cs" />
+    <Compile Include="AnimatedVisuals\SunCircle2.cs" />
+    <Compile Include="AnimatedVisuals\Sunrise.cs" />
+    <Compile Include="AnimatedVisuals\Sunset.cs" />
+    <Compile Include="AnimatedVisuals\Thunderstorms.cs" />
+    <Compile Include="AnimatedVisuals\ThunderstormsExtreme.cs" />
+    <Compile Include="AnimatedVisuals\Water.cs" />
+    <Compile Include="AnimatedVisuals\Wind.cs" />
+    <Compile Include="AnimatedVisuals\WindSimple.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ComputeSharpFloat3ToColorConverter.cs" />
+    <Compile Include="Converters\DateTimeToDayConverter.cs" />
+    <Compile Include="Converters\DateTimeToShortTimeConverter.cs" />
+    <Compile Include="Converters\DegreesToCardinalConverter.cs" />
+    <Compile Include="Converters\NullOrEmptyArrayToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullVisibilityConverter.cs" />
+    <Compile Include="Converters\WmoWeatherToAnimatedVisualConverter.cs" />
+    <Compile Include="Converters\WmoWeatherToFluentIconConverter.cs" />
+    <Compile Include="Converters\WmoWeatherToStringConverter.cs" />
+    <Compile Include="Extensions\ThemeExtensions.cs" />
+    <Compile Include="Factories\IWeatherViewModelFactory.cs" />
+    <Compile Include="Factories\WeatherViewModelFactory.cs" />
+    <Compile Include="Helpers\FilePickerUtil.cs" />
+    <Compile Include="Helpers\GeolocationUtil.cs" />
+    <Compile Include="Helpers\LinkUtil.cs" />
+    <Compile Include="Services\AppUpdaterService.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\DiskCacheService.cs" />
+    <Compile Include="Services\LocalSettings.cs" />
+    <Compile Include="Services\Navigator.cs" />
+    <Compile Include="Services\SystemInfoProvider.cs" />
+    <Compile Include="UserControls\AirQualityCard.xaml.cs">
+      <DependentUpon>AirQualityCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CompassCard.xaml.cs">
+      <DependentUpon>CompassCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DailyGraph.xaml.cs">
+      <DependentUpon>DailyGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HumidityCard.xaml.cs">
+      <DependentUpon>HumidityCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ImageEx.xaml.cs">
+      <DependentUpon>ImageEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PressureCard.xaml.cs">
+      <DependentUpon>PressureCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SunCard.xaml.cs">
+      <DependentUpon>SunCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UVCard.xaml.cs">
+      <DependentUpon>UVCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VisibilityCard.xaml.cs">
+      <DependentUpon>VisibilityCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DepthEstimateView.xaml.cs">
+      <DependentUpon>DepthEstimateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScreensaverPage.xaml.cs">
+      <DependentUpon>ScreensaverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnsupportedGpuPage.xaml.cs">
+      <DependentUpon>UnsupportedGpuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Backgrounds\Depth\2\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\2\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\1\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\1\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\3\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\3\image.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\0.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\1.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\2.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\3.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\4.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\5.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\6.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\7.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\8.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\9.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\1.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\0\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\0\image.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\0.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\2.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\3.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\4.jpg" />
+    <Content Include="Assets\Icons\backhand_index_pointing_up_3d_default.png" />
+    <Content Include="Assets\Icons\cactus_3d.png" />
+    <Content Include="Assets\Icons\chart_increasing_3d.png" />
+    <Content Include="Assets\Icons\grinning_face_3d.png" />
+    <Content Include="Assets\Icons\thinking_face_3d.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\placeholder_icon_cloud_96.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Weather\Fluent Icons\3n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\0d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\0n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\1d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\1n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\3d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\2d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\48n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\48d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\2n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\45d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\45n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\56n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\56d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\51n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\53n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\57n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\57d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\61n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\61d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\55n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\55d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\51d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\53d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\63n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\65n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\65d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\67n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\67d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\66n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\86n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\86d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\85n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\85d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\71n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\71d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\73n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\73d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\77n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\77d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\75n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\75d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\63d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\80d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\80n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\81d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\81n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\82d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\82n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\99n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\99d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\96d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\95n.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\95d.svg" />
+    <Content Include="Assets\Weather\Fluent Icons\66d.svg" />
+    <Content Include="Assets\Icons\yawning_face_3d.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="UserControls\AirQualityCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CompassCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DailyGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HumidityCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ImageEx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PressureCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SunCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UVCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VisibilityCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DepthEstimateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShellPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScreensaverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UnsupportedGpuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
+      <Version>0.0.18</Version>
+    </PackageReference>
+    <PackageReference Include="ComputeSharp">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="ComputeSharp.Uwp">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>7.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>7.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>7.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Media">
+      <Version>7.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.8.5</Version>
+    </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>5.2.4</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Extensions.Logging">
+      <Version>5.3.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Drizzle.Common\Drizzle.Common.csproj">
+      <Project>{1cc71c1d-6019-41fa-8226-b11d7c8d38e0}</Project>
+      <Name>Drizzle.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drizzle.ImageProcessing\Drizzle.ImageProcessing.csproj">
+      <Project>{3c878d0b-851c-406e-98cd-ba919dc6d844}</Project>
+      <Name>Drizzle.ImageProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drizzle.ML\Drizzle.ML.csproj">
+      <Project>{35150613-17c2-4df1-aeec-1d34a92af72d}</Project>
+      <Name>Drizzle.ML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drizzle.Models\Drizzle.Models.csproj">
+      <Project>{2f87f3a9-ac2e-4942-a6ed-eaabab8c17df}</Project>
+      <Name>Drizzle.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Drizzle.Weather\Drizzle.Weather.csproj">
+      <Project>{229b68b2-8e13-47b8-a6f9-2298f7f22957}</Project>
+      <Name>Drizzle.Weather</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\WindowsEx.UI.Core.winmd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="WindowsEx.UI.Core, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\WindowsEx.UI.Core.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\CustomIcons.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\Drizzle.UI.Shared\Drizzle.UI.Shared.projitems" Label="Shared" />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

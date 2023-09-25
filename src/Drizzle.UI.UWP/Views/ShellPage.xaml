@@ -1,0 +1,492 @@
+﻿<Page
+    x:Class="Drizzle.UI.UWP.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+    xmlns:animation="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:computesharp="using:ComputeSharp.Uwp"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
+    xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Drizzle.UI.UWP.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    x:Name="mainPage"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
+    Background="Black"
+    IsTabStop="True"
+    mc:Ignorable="d">
+    <!--  Background is black for dip-to-black like shader transition effect  -->
+
+    <Page.Resources>
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
+        <converters:EmptyStringToObjectConverter
+            x:Key="StringToBoolConverter"
+            EmptyValue="False"
+            NotEmptyValue="True" />
+        <converters:StringVisibilityConverter x:Key="StringVisibilityConverter" />
+        <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+        <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
+        <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+    </Page.Resources>
+
+    <Grid
+        PointerMoved="Grid_PointerMoved"
+        PointerPressed="Grid_PointerPressed"
+        PointerReleased="Grid_PointerReleased">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  Background  -->
+        <Grid Grid.RowSpan="2">
+            <computesharp:AnimatedComputeShaderPanel
+                x:Name="shaderPanel1"
+                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
+                IsPaused="{x:Bind shellVm.IsPausedShader1, Mode=OneWay}"
+                IsVerticalSyncEnabled="True"
+                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader1, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader1.ShaderRunner, Mode=OneWay}"
+                Visibility="{x:Bind shellVm.SelectedShader1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                <animation:Implicit.ShowAnimations>
+                    <animation:OpacityAnimation
+                        EasingMode="EaseOut"
+                        EasingType="Linear"
+                        From="0"
+                        To="1.0"
+                        Duration="0:0:1" />
+                </animation:Implicit.ShowAnimations>
+                <animation:Implicit.HideAnimations>
+                    <animation:OpacityAnimation
+                        EasingMode="EaseOut"
+                        EasingType="Linear"
+                        To="0"
+                        Duration="0:0:1" />
+                </animation:Implicit.HideAnimations>
+            </computesharp:AnimatedComputeShaderPanel>
+            <computesharp:AnimatedComputeShaderPanel
+                x:Name="shaderPanel2"
+                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
+                IsPaused="{x:Bind shellVm.IsPausedShader2, Mode=OneWay}"
+                IsVerticalSyncEnabled="True"
+                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader2, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader2.ShaderRunner, Mode=OneWay}"
+                Visibility="{x:Bind shellVm.SelectedShader2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                <animation:Implicit.ShowAnimations>
+                    <animation:OpacityAnimation
+                        EasingMode="EaseOut"
+                        EasingType="Linear"
+                        From="0"
+                        To="1.0"
+                        Duration="0:0:1" />
+                </animation:Implicit.ShowAnimations>
+                <animation:Implicit.HideAnimations>
+                    <animation:OpacityAnimation
+                        EasingMode="EaseOut"
+                        EasingType="Linear"
+                        To="0"
+                        Duration="0:0:1" />
+                </animation:Implicit.HideAnimations>
+            </computesharp:AnimatedComputeShaderPanel>
+            <!--  Fallback background  -->
+            <customControls:ImageEx
+                Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"
+                Stretch="UniformToFill"
+                Visibility="{x:Bind shellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <!--  Improve visibility  -->
+            <Rectangle Fill="{ThemeResource BackgroundOverlayBrush}" />
+        </Grid>
+
+        <!--  Add location message  -->
+        <Grid Grid.RowSpan="2" Visibility="{x:Bind shellVm.IsShowAddLocation, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:1" />
+            </animation:Implicit.ShowAnimations>
+            <!--<animation:Implicit.HideAnimations>
+                <animation:OpacityAnimation
+                    From="1"
+                    To="0"
+                    Duration="0:0:1" />
+            </animation:Implicit.HideAnimations>-->
+            <Grid.Background>
+                <media:BackdropBlurBrush Amount="8" />
+            </Grid.Background>
+            <StackPanel
+                Margin="0,0,0,100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="5"
+                Visibility="{x:Bind shellVm.IsFetchingWeather, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay, ConverterParameter=Reverse}">
+                <muxc:AnimatedVisualPlayer
+                    Width="200"
+                    Height="200"
+                    PlaybackRate="0.75">
+                    <visuals:LocationSearch />
+                </muxc:AnimatedVisualPlayer>
+                <!--<FontIcon FontSize="50" Glyph="&#xE707;" />-->
+                <TextBlock
+                    x:Uid="TitleAddLocation"
+                    Margin="0,-60,0,0"
+                    FontSize="24"
+                    FontWeight="SemiBold" />
+            </StackPanel>
+            <StackPanel
+                Margin="0,0,0,100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="5"
+                Visibility="{x:Bind shellVm.IsFetchingWeather, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                <muxc:AnimatedVisualPlayer
+                    Width="200"
+                    Height="200"
+                    PlaybackRate="0.75">
+                    <visuals:Wind />
+                </muxc:AnimatedVisualPlayer>
+                <TextBlock
+                    x:Uid="TitleFetchingData"
+                    Margin="0,-60,0,0"
+                    FontSize="24"
+                    FontWeight="SemiBold" />
+            </StackPanel>
+        </Grid>
+
+        <!--  Improves top visibility  -->
+        <Rectangle
+            Grid.RowSpan="2"
+            Fill="{ThemeResource TitleBarGradientBrush}"
+            Visibility="{x:Bind shellVm.IsMainPage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+        <!--  Custom Titlebar  -->
+        <Grid
+            x:Name="AppTitleBar"
+            Background="Transparent"
+            Canvas.ZIndex="1">
+            <!--  Width of the padding columns is set in LayoutMetricsChanged handler.  -->
+            <!--
+                Using padding columns instead of Margin ensures that the background
+                paints the area under the caption control buttons (for transparent buttons).
+            -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
+                <ColumnDefinition />
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="1"
+                Width="16"
+                Height="16"
+                Margin="8,0,0,0"
+                HorizontalAlignment="Left"
+                Source="ms-appx:///Assets/placeholder_icon_cloud_96.png" />
+            <TextBlock
+                x:Name="AppTitleTextBlock"
+                Grid.Column="1"
+                Margin="28,0,0,0"
+                VerticalAlignment="Center"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="Lively Weather (Beta)"
+                Visibility="Collapsed" />
+        </Grid>
+        <!--
+            This control has a higher z-order than AppTitleBar,
+            so it receives user input.
+        -->
+        <AutoSuggestBox
+            x:Name="AppTitleSearch"
+            x:Uid="AppTitlebarSearch"
+            Width="300"
+            Height="32"
+            Margin="35,0,0,0"
+            HorizontalAlignment="Left"
+            Background="{ThemeResource SystemAltLowColor}"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="{x:Bind shellVm.IsFetchingWeather, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+            ItemsSource="{x:Bind shellVm.SearchSuggestions, Mode=OneWay}"
+            QueryIcon="Find"
+            QuerySubmitted="TitleSearchBox_QuerySubmitted"
+            SuggestionChosen="TitleSearchBox_SuggestionChosen"
+            TextChanged="TitleSearchBox_TextChanged"
+            UpdateTextOnSelect="False"
+            Visibility="{x:Bind shellVm.IsMainPage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:1" />
+            </animation:Implicit.ShowAnimations>
+            <AutoSuggestBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Name}" /><Run Text=", " /><Run Text="{Binding Admin1}" /><Run Text=", " /><Run Text="{Binding Country}" />
+                    </TextBlock>
+                </DataTemplate>
+            </AutoSuggestBox.ItemTemplate>
+        </AutoSuggestBox>
+        <muxc:ProgressBar
+            x:Name="AppTitleSearchProgress"
+            Width="290"
+            Margin="35,30,0,0"
+            HorizontalAlignment="Left"
+            Canvas.ZIndex="2"
+            Foreground="{ThemeResource SystemAccentColorLight3}"
+            IsIndeterminate="{x:Bind shellVm.IsWorking, Mode=OneWay}"
+            Visibility="{x:Bind shellVm.IsWorking, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+        <!--  Menu  -->
+        <CommandBar
+            Grid.Row="1"
+            Width="Auto"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Right"
+            Background="Transparent"
+            Canvas.ZIndex="1"
+            DefaultLabelPosition="Right"
+            IsOpen="False"
+            Visibility="{x:Bind shellVm.IsMainPage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <AppBarButton
+                Width="50"
+                Command="{x:Bind shellVm.ScreensaverCommand}"
+                Icon="Pictures"
+                IsEnabled="{x:Bind shellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+                LabelPosition="Collapsed">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="ScreensaverTooltip" />
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton
+                    Command="{x:Bind shellVm.SettingsCommand}"
+                    Icon="Setting"
+                    Label="Settings" />
+                <AppBarButton
+                    Command="{x:Bind shellVm.HelpCommand}"
+                    Icon="Help"
+                    Label="Help" />
+                <AppBarButton
+                    Command="{x:Bind shellVm.AboutCommand}"
+                    Icon="Message"
+                    Label="About" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+
+        <muxc:NavigationView
+            x:Name="navView"
+            x:Uid="LocationNavView"
+            Grid.RowSpan="2"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleButtonVisible="{x:Bind shellVm.IsMainPage, Mode=OneWay}"
+            IsSettingsVisible="False"
+            OpenPaneLength="322"
+            PaneClosing="NavView_PaneClosing"
+            PaneDisplayMode="LeftMinimal"
+            PaneOpening="NavView_PaneOpening"
+            PointerPressed="NavView_PointerPressed"
+            Style="{StaticResource NavigationViewStyleTopMargin}">
+            <muxc:NavigationView.Resources>
+                <!--  https://github.com/microsoft/microsoft-ui-xaml/blob/main/dev/NavigationView/NavigationView.xaml  -->
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
+                <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent" />
+                <AcrylicBrush
+                    x:Key="NavigationViewDefaultPaneBackground"
+                    FallbackColor="{ThemeResource SystemChromeAltHighColor}"
+                    TintColor="{ThemeResource SystemAltMediumColor}"
+                    TintOpacity=".6" />
+            </muxc:NavigationView.Resources>
+            <muxc:NavigationView.PaneFooter>
+                <Button
+                    Margin="2,0,2,0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Command="{x:Bind shellVm.RefreshCommand}"
+                    Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                    <ToolTipService.ToolTip>
+                        <TextBlock x:Uid="RefreshWeatherTooltip" />
+                    </ToolTipService.ToolTip>
+                    <StackPanel
+                        MinHeight="25"
+                        Orientation="Horizontal"
+                        Spacing="2">
+                        <FontIcon
+                            Margin="0,2.5,5,0"
+                            FontSize="12"
+                            Glyph="&#xE72C;" />
+                        <TextBlock x:Uid="RefreshWeather" VerticalAlignment="Center" />
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                    </StackPanel>
+                </Button>
+            </muxc:NavigationView.PaneFooter>
+            <muxc:NavigationView.PaneCustomContent>
+                <ListView
+                    Width="318"
+                    ItemsSource="{x:Bind shellVm.Weathers}"
+                    SelectedItem="{x:Bind shellVm.SelectedLocation, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Grid.Column="0"
+                                    Padding="0,10,0,10"
+                                    Orientation="Vertical"
+                                    Spacing="4">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding Location.Name}" />
+                                    <TextBlock
+                                        Opacity="0.4"
+                                        Style="{StaticResource BodyTextBlockStyle}"
+                                        Text="{Binding Today.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="21">
+                                    <Run Text="{Binding Today.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                    <Run Text="{Binding Today.TemperatureUnit, Mode=OneWay}" />
+                                </TextBlock>
+                                <!--
+                                    ElementName binding not working?
+                                    Command="{Binding DeleteLocationCommand, ElementName=rootPage}"
+                                    CommandParameter="{Binding}"
+                                -->
+                                <Button
+                                    Grid.Column="2"
+                                    Height="58"
+                                    Margin="10,0,-10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Stretch"
+                                    Background="#258B0000"
+                                    Click="DeleteLocationButton_Click"
+                                    ToolTipService.ToolTip="Remove">
+                                    <Button.Resources>
+                                        <ResourceDictionary>
+                                            <ResourceDictionary.ThemeDictionaries>
+                                                <ResourceDictionary x:Key="Dark">
+                                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#55ff0000" />
+                                                </ResourceDictionary>
+                                                <ResourceDictionary x:Key="Light">
+                                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#55ff0000" />
+                                                </ResourceDictionary>
+                                            </ResourceDictionary.ThemeDictionaries>
+                                        </ResourceDictionary>
+                                    </Button.Resources>
+                                    <FontIcon
+                                        FontSize="12"
+                                        Glyph="&#xE74D;"
+                                        Opacity="0.75" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </muxc:NavigationView.PaneCustomContent>
+            <!--  Main Content  -->
+            <ScrollViewer Margin="0,25,0,0">
+                <Frame x:Name="MainFrame" />
+            </ScrollViewer>
+        </muxc:NavigationView>
+        <Rectangle
+            x:Name="navViewOverlay"
+            Grid.RowSpan="2"
+            Margin="320,0,0,0"
+            Canvas.ZIndex="2"
+            Visibility="Collapsed">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0" Color="{ThemeResource SystemAltLowColor}" />
+                    <GradientStop Offset="1" Color="{ThemeResource SystemAltMediumColor}" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:3" />
+            </animation:Implicit.ShowAnimations>
+        </Rectangle>
+
+        <!--  Welcome message  -->
+        <muxc:TeachingTip
+            BorderBrush="LightBlue"
+            BorderThickness="0,3,0,0"
+            IsOpen="{x:Bind shellVm.IsFirstRun, Mode=OneTime}"
+            PlacementMargin="0,25,-15,0"
+            PreferredPlacement="TopRight">
+            <local:WelcomePage />
+        </muxc:TeachingTip>
+
+        <!--  Unsupported GPU notice  -->
+        <muxc:TeachingTip
+            BorderBrush="Red"
+            BorderThickness="0,3,0,0"
+            IsOpen="{x:Bind shellVm.IsHardwareAccelerationMissingNotify, Mode=OneTime}"
+            PlacementMargin="0,32,-15,0"
+            PreferredPlacement="TopRight">
+            <local:UnsupportedGpuPage />
+        </muxc:TeachingTip>
+
+        <!--  Show errors if any  -->
+        <muxc:InfoBar
+            x:Uid="InfoError"
+            Grid.Row="1"
+            Canvas.ZIndex="2"
+            Closed="ErrorInfoBar_Closed"
+            IsOpen="{x:Bind shellVm.ErrorMessage, Mode=OneWay, Converter={StaticResource StringToBoolConverter}}"
+            Severity="Error"
+            Visibility="{x:Bind shellVm.ErrorMessage, Mode=OneWay, Converter={StaticResource StringVisibilityConverter}}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
+            </animation:Implicit.ShowAnimations>
+            <StackPanel Margin="0,0,0,10" Spacing="5">
+                <ScrollViewer MaxHeight="300">
+                    <TextBlock Text="{x:Bind shellVm.ErrorMessage, Mode=OneWay}" TextWrapping="Wrap" />
+                </ScrollViewer>
+                <HyperlinkButton x:Uid="LearnMore" NavigateUri="https://github.com/rocksdanister/weather/wiki/Frequently-Asked-Questions-(FAQ)" />
+            </StackPanel>
+        </muxc:InfoBar>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <!--  width is >=650  -->
+                        <AdaptiveTrigger MinWindowWidth="650" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="AppTitleTextBlock.Visibility" Value="Visible" />
+                        <Setter Target="AppTitleSearch.Margin" Value="0" />
+                        <Setter Target="AppTitleSearch.Width" Value="360" />
+                        <Setter Target="AppTitleSearch.HorizontalAlignment" Value="Center" />
+                        <Setter Target="AppTitleSearchProgress.HorizontalAlignment" Value="Center" />
+                        <Setter Target="AppTitleSearchProgress.Width" Value="350" />
+                        <Setter Target="AppTitleSearchProgress.Margin" Value="0, 30, 0, 0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

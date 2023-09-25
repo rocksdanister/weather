@@ -1,0 +1,632 @@
+﻿<Page
+    x:Class="Drizzle.UI.UWP.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
+    xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Drizzle.UI.UWP.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    x:Name="rootPage"
+    Background="Transparent"
+    Loaded="Page_Loaded"
+    NavigationCacheMode="Required"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!--<media:AttachedCardShadow
+            x:Key="CommonShadow"
+            Offset="0"
+            Color="#FF000000" />-->
+        <ThemeShadow x:Name="BackgroundGridShadow" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+        <customConverters:BooleanToVisibilityConverter x:Key="VisibilityConverter" />
+        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <customConverters:WmoWeatherToFluentIconConverter x:Key="WmoWeatherToFluentIconConverter" />
+        <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
+        <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+        <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+
+        <Style x:Name="CardFlyout" TargetType="FlyoutPresenter">
+            <Setter Property="MinWidth" Value="430" />
+            <Setter Property="CornerRadius" Value="5" />
+            <!--<Setter Property="Background" Value="{ThemeResource SystemControlAcrylicElementBrush}" />-->
+        </Style>
+
+
+        <Style x:Name="CardBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="{ThemeResource CardBorderBrush}" />
+            <Setter Property="BorderThickness" Value="0,1,0,0" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+
+        <Style x:Key="LargeToolTip" TargetType="ToolTip">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolTip">
+                        <ContentPresenter
+                            x:Name="LayoutRoot"
+                            MaxWidth="2000"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTransitions="{TemplateBinding ContentTransitions}"
+                            CornerRadius="5"
+                            TextWrapping="Wrap">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="OpenStates">
+                                    <VisualState x:Name="Closed">
+                                        <Storyboard>
+                                            <FadeOutThemeAnimation TargetName="LayoutRoot" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Opened">
+                                        <Storyboard>
+                                            <FadeInThemeAnimation TargetName="LayoutRoot" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ContentPresenter>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <!--  Shadow background  -->
+        <Grid x:Name="BackgroundGrid" />
+
+        <!--  Main Content  -->
+        <Grid
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:1" />
+            </animations:Implicit.ShowAnimations>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="300" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Weather Header  -->
+            <StackPanel
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                Orientation="Vertical"
+                Spacing="2"
+                ToolTipService.Placement="Bottom">
+                <ToolTipService.ToolTip>
+                    <TextBlock>
+                        <Run x:Uid="RefreshWeather" />
+                        <Run Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                    </TextBlock>
+                </ToolTipService.ToolTip>
+                <!--<muxc:AnimatedVisualPlayer
+                           Width="65"
+                           Height="65"
+                           Source="{x:Bind shellVm.SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />-->
+                <!--  x:Bind cannot be null/empty for image: https://stackoverflow.com/questions/31897154/xbind-image-with-null-string  -->
+                <!--<Image
+                               Width="75"
+                               Height="75"
+                               Margin="0,0,0,-15"
+                               VerticalAlignment="Bottom"
+                               Stretch="UniformToFill">
+                               <Image.Source>
+                                   <SvgImageSource
+                                       RasterizePixelHeight="100"
+                                       RasterizePixelWidth="100"
+                                       UriSource="{Binding SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToFluentIconConverter}}" />
+                               </Image.Source>
+                           </Image>-->
+                <!--  https://stackoverflow.com/questions/7543846/how-to-remove-additional-padding-from-a-wpf-textblock/7543887  -->
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Bind shellVm.SelectedLocation.Location.Name, Mode=OneWay}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="34"
+                    HorizontalTextAlignment="Center">
+                    <Run Text="{x:Bind shellVm.SelectedWeather.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                    <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Center" Spacing="2">
+                    <TextBlock
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        Text="{x:Bind shellVm.SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                    <TextBlock
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.4"
+                        Style="{StaticResource BodyTextBlockStyle}">
+                        <Run x:Uid="FeelsLikeTemperature" />
+                        <Run Text="{x:Bind shellVm.SelectedWeather.FeelsLike, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                        <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <!--  Stack 1  -->
+            <StackPanel
+                Grid.Row="1"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Day selector/Weekly  -->
+                <Border
+                    Width="240"
+                    Height="300"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,8">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <!--  x:Bind have bug here, ref:  -->
+                    <ListView
+                        Height="300"
+                        Padding="0,2,0,0"
+                        Background="{ThemeResource CardBackgroundBrush}"
+                        ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
+                        SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid MinHeight="42">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="50" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
+                                    <muxc:AnimatedVisualPlayer
+                                        Grid.Column="1"
+                                        Width="35"
+                                        Height="35"
+                                        Margin="0,-5,0,0"
+                                        Source="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
+                                    <TextBlock
+                                        Grid.Column="2"
+                                        VerticalAlignment="Center"
+                                        HorizontalTextAlignment="Center">
+                                        <Run Text="{Binding Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                        <Run Text="{Binding TemperatureUnit, Mode=OneWay}" />
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+                <!--  Hourly graph  -->
+                <Border
+                    Width="540"
+                    Height="300"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="24" />
+                    </Border.Background>
+                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout
+                                FlyoutPresenterStyle="{StaticResource CardFlyout}"
+                                Placement="Bottom"
+                                ShouldConstrainToRootBounds="False">
+                                <StackPanel Width="400" Spacing="10">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        FontSize="32"
+                                        Opacity="0.4"
+                                        TextWrapping="WrapWholeWords">
+                                        ---
+                                    </TextBlock>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:DailyGraph
+                            Width="540"
+                            Height="300"
+                            Step="2"
+                            ValueFormat="{}{0:F0}°"
+                            Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
+                    </Button>
+                </Border>
+            </StackPanel>
+
+            <!--  Stack 2  -->
+            <StackPanel
+                Grid.Row="2"
+                Margin="0,10,0,0"
+                Orientation="Vertical"
+                Spacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <!--  UV  -->
+                    <Border
+                        Width="240"
+                        Shadow="{StaticResource BackgroundGridShadow}"
+                        Style="{StaticResource CardBorder}"
+                        Translation="0,0,16">
+                        <Border.Background>
+                            <media:BackdropBlurBrush Amount="12" />
+                        </Border.Background>
+                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                            <Button.Flyout>
+                                <Flyout
+                                    FlyoutPresenterStyle="{StaticResource CardFlyout}"
+                                    Placement="Right"
+                                    ShouldConstrainToRootBounds="False">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <customControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightYellow"
+                                            Step="3"
+                                            Value="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" />
+                                        <TextBlock
+                                            FontSize="13"
+                                            Opacity="0.4"
+                                            TextWrapping="WrapWholeWords">
+                                            World Health Organization UVI
+                                        </TextBlock>
+                                        <Line Stroke="#50ffffff" X2="400" />
+                                        <TextBlock x:Uid="TitleAboutUVIndex" FontWeight="SemiBold" />
+                                        <TextBlock x:Uid="DescAboutUVIndex" TextWrapping="WrapWholeWords" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <customControls:UVCard
+                                Width="240"
+                                Height="175"
+                                Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
+                        </Button>
+                    </Border>
+                    <!--  Sunrise-Sunset  -->
+                    <Border
+                        Width="290"
+                        Shadow="{StaticResource BackgroundGridShadow}"
+                        Style="{StaticResource CardBorder}"
+                        Translation="0,0,16">
+                        <Border.Background>
+                            <media:BackdropBlurBrush Amount="12" />
+                        </Border.Background>
+                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                            <Button.Flyout>
+                                <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            FontSize="32"
+                                            Opacity="0.4"
+                                            TextWrapping="WrapWholeWords">
+                                            ---
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <customControls:SunCard
+                                Width="290"
+                                Height="175"
+                                Sunrise="{x:Bind shellVm.SelectedWeather.Sunrise, Mode=OneWay}"
+                                Sunset="{x:Bind shellVm.SelectedWeather.Sunset, Mode=OneWay}"
+                                TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}" />
+                        </Button>
+                    </Border>
+                    <!--  Humidity  -->
+                    <Border
+                        Width="240"
+                        Shadow="{StaticResource BackgroundGridShadow}"
+                        Style="{StaticResource CardBorder}"
+                        Translation="0,0,16">
+                        <Border.Background>
+                            <media:BackdropBlurBrush Amount="12" />
+                        </Border.Background>
+                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                            <Button.Flyout>
+                                <Flyout
+                                    FlyoutPresenterStyle="{StaticResource CardFlyout}"
+                                    Placement="Left"
+                                    ShouldConstrainToRootBounds="False">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <customControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightBlue"
+                                            Step="3"
+                                            ValueFormat="{}{0}%"
+                                            Value="{x:Bind shellVm.SelectedWeather.HourlyHumidity, Mode=OneWay}" />
+                                        <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
+                                            <Run>The dew point is</Run>
+                                            <Run Text="{x:Bind shellVm.SelectedWeather.DewPoint, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                            <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
+                                        </TextBlock>
+                                        <Line Stroke="#50ffffff" X2="400" />
+                                        <TextBlock x:Uid="TitleAboutHumidity" FontWeight="SemiBold" />
+                                        <TextBlock x:Uid="DescAboutHumidity" TextWrapping="WrapWholeWords" />
+                                        <Line Stroke="#50ffffff" X2="400" />
+                                        <TextBlock x:Uid="TitleAboutDewPoint" FontWeight="SemiBold" />
+                                        <TextBlock x:Uid="DescAboutDewPoint" TextWrapping="WrapWholeWords" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <customControls:HumidityCard
+                                Width="240"
+                                Height="175"
+                                Humidity="{x:Bind shellVm.SelectedWeather.Humidity, Mode=OneWay}" />
+                        </Button>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <!--  Stack 3  -->
+            <StackPanel
+                Grid.Row="3"
+                Margin="0,10,0,0"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Wind  -->
+                <Border
+                    Width="240"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="LightGray"
+                                        Step="3"
+                                        ValueFormat="{}{0:F0}"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyWindSpeed, Mode=OneWay}" />
+                                    <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
+                                        <Run>The gust speed is</Run>
+                                        <Run Text="{x:Bind shellVm.SelectedWeather.GustSpeed, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                        <Run Text="{x:Bind shellVm.SelectedWeather.WindSpeedUnit, Mode=OneWay}" />
+                                    </TextBlock>
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock x:Uid="TitleAboutWindSpeed" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutWindSpeed" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:CompassCard
+                            Width="240"
+                            Height="175"
+                            Direction="{x:Bind shellVm.SelectedWeather.WindDirection, Mode=OneWay}"
+                            Unit="{x:Bind shellVm.SelectedWeather.WindSpeedUnit, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.WindSpeed, Mode=OneWay}" />
+                    </Button>
+                </Border>
+                <!--  AQI  -->
+                <Border
+                    Width="290"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="Gray"
+                                        Step="3"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" />
+                                    <TextBlock
+                                        FontSize="13"
+                                        Opacity="0.4"
+                                        TextWrapping="WrapWholeWords">
+                                        Scale is United States (AQI)
+                                    </TextBlock>
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock x:Uid="TitleAboutAQI" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutAQI" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:AirQualityCard
+                            Width="290"
+                            Height="175"
+                            Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
+                    </Button>
+                </Border>
+                <!--  Pressure  -->
+                <Border
+                    Width="240"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}">
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="LightYellow"
+                                        Step="4"
+                                        ValueFormat="{}{0:F0}"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyPressure, Mode=OneWay}" />
+                                    <TextBlock
+                                        FontSize="13"
+                                        Opacity="0.4"
+                                        TextWrapping="WrapWholeWords">
+                                        ---
+                                    </TextBlock>
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock x:Uid="TitleAboutPressure" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutPressure" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:PressureCard
+                            Width="240"
+                            Height="175"
+                            Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
+                    </Button>
+                </Border>
+                <!--  Visibility  -->
+                <Border
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16"
+                    Visibility="Collapsed">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}">
+                                <StackPanel Width="400" Spacing="5">
+                                    <TextBlock TextWrapping="WrapWholeWords">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                        nisi ut aliquip ex ea commodo consequat.
+                                    </TextBlock>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:VisibilityCard
+                            Width="150"
+                            Height="175"
+                            Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                    </Button>
+                </Border>
+            </StackPanel>
+
+            <!--  Suggestions  -->
+            <!--<StackPanel
+                    Grid.Row="3"
+                    Padding="0,10,0,10"
+                    Orientation="Vertical"
+                    Visibility="Collapsed">
+                    <TextBlock FontWeight="SemiBold">SUGGESTIONS FOR YOUR DAY</TextBlock>
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                        <Border
+                            BorderBrush="#3FFFFFFF"
+                            BorderThickness="0,1,0,0"
+                            CornerRadius="5"
+                            Shadow="{StaticResource BackgroundGridShadow}"
+                            Translation="0,0,16">
+                            <Border.Background>
+                                <media:BackdropBlurBrush Amount="12" />
+                            </Border.Background>
+                            <StackPanel
+                                Width="150"
+                                Height="80"
+                                Padding="10,5,0,0"
+                                Background="{ThemeResource CardBackgroundBrush}"
+                                BorderBrush="Green"
+                                BorderThickness="2.5,0,0,0">
+                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
+                                <TextBlock Opacity="0.4">Umbrella</TextBlock>
+                                <TextBlock FontWeight="SemiBold">Needed</TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <Border
+                            Margin="8,0,0,0"
+                            BorderBrush="#3FFFFFFF"
+                            BorderThickness="0,1,0,0"
+                            CornerRadius="5"
+                            Shadow="{StaticResource BackgroundGridShadow}"
+                            Translation="0,0,16">
+                            <Border.Background>
+                                <media:BackdropBlurBrush Amount="12" />
+                            </Border.Background>
+                            <StackPanel
+                                Width="150"
+                                Height="80"
+                                Padding="10,5,0,0"
+                                Background="{ThemeResource CardBackgroundBrush}"
+                                BorderBrush="Yellow"
+                                BorderThickness="2.5,0,0,0">
+                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
+                                <TextBlock Opacity="0.4">Outdoors</TextBlock>
+                                <TextBlock FontWeight="SemiBold">Poor</TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <Border
+                            Margin="8,0,0,0"
+                            BorderBrush="#3FFFFFFF"
+                            BorderThickness="0,1,0,0"
+                            CornerRadius="5"
+                            Shadow="{StaticResource BackgroundGridShadow}"
+                            Translation="0,0,16">
+                            <Border.Background>
+                                <media:BackdropBlurBrush Amount="12" />
+                            </Border.Background>
+                            <StackPanel
+                                Width="150"
+                                Height="80"
+                                Padding="10,5,0,0"
+                                Background="{ThemeResource CardBackgroundBrush}"
+                                BorderBrush="Yellow"
+                                BorderThickness="2.5,0,0,0">
+                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
+                                <TextBlock Opacity="0.4">Clothing</TextBlock>
+                                <TextBlock FontWeight="SemiBold">Breathabke</TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <Border
+                            Margin="8,0,0,0"
+                            BorderBrush="#3FFFFFFF"
+                            BorderThickness="0,1,0,0"
+                            CornerRadius="5"
+                            Shadow="{StaticResource BackgroundGridShadow}"
+                            Translation="0,0,16">
+                            <Border.Background>
+                                <media:BackdropBlurBrush Amount="12" />
+                            </Border.Background>
+                            <StackPanel
+                                Width="150"
+                                Height="80"
+                                Padding="10,5,0,0"
+                                Background="{ThemeResource CardBackgroundBrush}"
+                                BorderBrush="Green"
+                                BorderThickness="2.5,0,0,0">
+                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
+                                <TextBlock Opacity="0.4">Heat stroke</TextBlock>
+                                <TextBlock FontWeight="SemiBold">Safe</TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>-->
+        </Grid>
+    </Grid>
+</Page>
