@@ -187,9 +187,9 @@
                 Grid.Column="1"
                 Width="16"
                 Height="16"
-                Margin="8,0,0,0"
+                Margin="8,2.5,0,0"
                 HorizontalAlignment="Left"
-                Source="ms-appx:///Assets/placeholder_icon_cloud_96.png" />
+                Source="ms-appx:///Assets/icon_96.png" />
             <TextBlock
                 x:Name="AppTitleTextBlock"
                 Grid.Column="1"
