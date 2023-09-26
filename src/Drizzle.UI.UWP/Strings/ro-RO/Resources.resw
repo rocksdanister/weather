@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Salut, sunt Dani John cunoscut și ca Rocksdanister. Creez software distractiv ca acesta. Îți mulțumesc că ți-ai acordat timp să arunci o privire la munca mea.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Scăzut</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Moderat</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Nesănătos pentru grupuri sensibile</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Nesănătos</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Foarte nesănătos</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Periculos</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Ascundeți întotdeauna meniul când este inactiv</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Căutați un loc</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Notificare software terță parte</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Răsfoire</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Fundal</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Căutați actualizări</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Zi/Noapte</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iterații</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Mărime</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Sugerați o caracteristică sau raportează o problemă</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Include imaginile selectate de utilizator în efecte meteo</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Fundal Personalizat</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Orizontal</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>AQI este conceput pentru a oferi informații cu privire la efectele celor mai frecvenți cinci poluanți atmosferici asupra sănătății. Este o scară cuprinsă între 0 și 500, unde valorile mai ridicate indică o poluare atmosferică mai gravă și riscuri mai mari pentru sănătate.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>Temperatura punctului de rouă este o măsură absolută a cantităţii de vapori de apă din aer. Atunci când temperatura în punctul de rouă şi temperatura aerului sunt egale, umiditatea relativă este de 100%. În acest moment, aerul este complet saturat cu vapori de apă, conducând la condensare sub formă de rouă, ceaţă sau nori.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Umiditatea relativă este o măsură a cantităţii de vapori de apă prezenţi în aer, în comparaţie cu cantitatea maximă pe care aerul o poate menţine la această temperatură. Acesta este exprimat ca procent şi oferă informaţii despre cât de aproape este aerul de saturaţie.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Presiunea barometrică, cunoscută și ca presiunea atmosferică, este măsura presiunii aerului într-o anumită zonă.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>Indicele UV (UVI) al Organizației Mondiale a Sănătății măsoară rezistența radiațiilor ultraviolete care produc arsuri solare. Este o scară lineară care variază de la 0 la 11+, unde valorile mai ridicate indică un risc mai mare de expunere la razele UV şi şanse mai mari de arsuri solare şi leziuni ale pielii care ar putea duce în cele din urmă la cancer de piele.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>Viteza vântului este viteza cu care aerul se deplasează orizontal peste un anumit punct. Este o cantitate atmosferică fundamentală, cauzată de trecerea aerului de la presiune ridicată la cea scăzută, de obicei din cauza schimbărilor de temperatură. Rafalele sunt o creștere bruscă a vitezei vântului peste viteza medie a vântului. De obicei durează mai puțin de 20 de secunde.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Se aproximează adâncimea..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>Procesorul grafic de sistem (GPU) nu acceptă caracteristicile DX12 necesare, deci unele funcționalități sunt dezactivate.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Pentru această caracteristică trebuiesc descărcate fișiere suplimentare</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Se simte ca</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplitudine</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Gradient de culoare</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Rata cadrelor de animație</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Contribuiți la acest program traducându-l în alte limbi.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Ajutați la Traducere</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>Aplicația trebuie să fie repornită după selectarea altei limbi</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Limbă</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Ajutați la traducere!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>La fel ca Windows</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Aflați mai multe</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Locații fixate</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Deschideți jurnalele</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Politica de colectare a datelor</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dinamic</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Performanță</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Cartof</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Calitate</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Preset privind calitatea redării vizuale</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Calitate</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intensitate</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Luminozitate</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Panoramare</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Mărire</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Ultima actualizare</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Reîmprospătare</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Restabilire valori implicite</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Screensaver</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Estompare</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Înghețare</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Post-Procesare</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Viteză</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Adâncime</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Straturi</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Lățime</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Licență software</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Arată niște susținere aruncând o stea</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Cod sursă</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Despre</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Anulare</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Continuă</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>Aproximare Adâncime cu AI</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Ajutor</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Setări</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automat</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Întunecat</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Luminos</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Schimbați culoarea aplicației</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Temă</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>Despre Indicele de calitate a aerului (ICA)</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>Despre Punctul de Rouă</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>Despre Umiditate Relativă</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>Despre Presiune</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Despre Indicele UV</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>Despre Viteza Vântului și Rafale</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Adăugați o locație pentru a începe.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Calitatea Aerului</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Contribuitori</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Descărcare</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Descărcare Necesară</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Preluare date, vă rugăm așteptați.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Salut</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Umiditate</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Performanță</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Presiune</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Soare</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Răsărit</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Apus</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>Indice UV</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Atenție</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Meteo</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Vânt</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Bun</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Înalt</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Foarte înaltă</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Sursa datelor meteo</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Furnizor</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperial</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Arată măsurile în</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Unitate</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Pagina web oficială</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Bun venit la aplicația mea meteo! Te rog să reții că această aplicație este încă în versiune beta și că unele caracteristici s-ar putea să nu funcționeze așa cum era de așteptat. Lucrez din greu pentru a îmbunătăți aplicația și a o face mai bună. Vă mulțumesc pentru înțelegere și răbdare.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Cer Senin</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>În Mare Clar</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Parțial Înnorat</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Înnorat</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Ceață</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Chiciură</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Burniță Ușoară</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Burniță Moderată</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Burniță Densă</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Burniță Înghețată Ușoară</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Burniță Înghețată Densă</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Ploaie Ușoară</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Ploaie Moderată</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Ploaie Torențială</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Ploaie Ușoară Înghețată</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Ploaie Torențială Înghețată</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Ninsoare Ușoară</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Ninsoare Moderată</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Ninsoare Puternică</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Fulgi de Zăpadă</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Averse Ușoare</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Averse Moderate</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Averse Violente</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Ninsoare Slabă</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Ninsoare Abundentă</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Furtună</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Furtună cu Grindină Ușoară</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Furtună cu Grindină Abundentă</value>
+  </data>
+</root>
