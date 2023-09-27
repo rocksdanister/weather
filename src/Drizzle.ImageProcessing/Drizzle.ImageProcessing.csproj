@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ComputeSharp" Version="2.0.3" />
+    <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.1" />
+    <PackageReference Include="ComputeSharp" Version="2.1.0" />
     <!--<PackageReference Include="ComputeSharp.Dynamic" Version="2.0.3" />-->
     <PackageReference Include="SixLabors.ImageSharp" Version="2.1.4" />
   </ItemGroup>
