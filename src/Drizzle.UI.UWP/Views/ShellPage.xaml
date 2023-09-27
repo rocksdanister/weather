@@ -267,17 +267,17 @@
             </AppBarButton>
             <CommandBar.SecondaryCommands>
                 <AppBarButton
+                    x:Uid="AppBarSettings"
                     Command="{x:Bind shellVm.SettingsCommand}"
-                    Icon="Setting"
-                    Label="Settings" />
+                    Icon="Setting" />
                 <AppBarButton
+                    x:Uid="AppBarHelp"
                     Command="{x:Bind shellVm.HelpCommand}"
-                    Icon="Help"
-                    Label="Help" />
+                    Icon="Help" />
                 <AppBarButton
+                    x:Uid="AppBarAbout"
                     Command="{x:Bind shellVm.AboutCommand}"
-                    Icon="Message"
-                    Label="About" />
+                    Icon="Message" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
 

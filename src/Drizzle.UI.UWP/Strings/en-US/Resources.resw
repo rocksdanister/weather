@@ -141,6 +141,15 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Always hide menu when idle</value>
   </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
     <value>Search a place</value>
   </data>

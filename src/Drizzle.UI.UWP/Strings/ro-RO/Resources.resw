@@ -141,6 +141,15 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Ascundeți întotdeauna meniul când este inactiv</value>
   </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Despre</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Ajutor</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Setări</value>
+  </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
     <value>Căutați un loc</value>
   </data>

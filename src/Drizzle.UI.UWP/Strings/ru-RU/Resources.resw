@@ -141,6 +141,15 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Всегда скрывать меню при бездействии</value>
   </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
     <value>Искать место</value>
   </data>
