@@ -23,7 +23,7 @@ https://github.com/rocksdanister/weather/assets/17554161/f12c8ab1-20db-4ced-9086
 
 ## Download
 
-Coming soon
+https://www.microsoft.com/store/apps/9PP0MFQFVSC5
 
 ## Building
 
