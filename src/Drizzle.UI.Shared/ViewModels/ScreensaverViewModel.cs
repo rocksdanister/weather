@@ -409,7 +409,7 @@ namespace Drizzle.UI.UWP.ViewModels
             SelectedRainBackground = RainBackgrounds.FirstOrDefault(x => x.Image == ShellVm.RainProperty.ImagePath);
             SelectedSnowBackground = SnowBackgrounds.FirstOrDefault(x => x.Image == ShellVm.SnowProperty.ImagePath);
             SelectedDepthBackground = DepthBackgrounds.FirstOrDefault(x => x.Image == ShellVm.DepthProperty.ImagePath);
-            SelectedFogBackground = DepthBackgrounds.FirstOrDefault(x => x.Image == ShellVm.DepthProperty.ImagePath);
+            SelectedFogBackground = DepthBackgrounds.FirstOrDefault(x => x.Image == ShellVm.FogProperty.ImagePath);
         }
 
         private async Task<StorageFile> ShowImageDialog()
