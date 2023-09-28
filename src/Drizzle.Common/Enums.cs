@@ -16,7 +16,8 @@ namespace Drizzle.Common
     public enum UserWeatherUnits
     {
         metric,
-        imperial
+        imperial,
+        hybrid
     }
 
     public enum AppPerformance

@@ -95,6 +95,8 @@ namespace Drizzle.UI.UWP
                 var region = new GeographicRegion();
                 if (region.CodeTwoLetter == "US")
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.imperial);
+                else if (region.CodeTwoLetter == "GB")
+                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.hybrid);
             }
 
             // For this application dark/light theme does not make sense

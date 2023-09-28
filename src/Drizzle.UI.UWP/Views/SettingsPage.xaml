@@ -119,6 +119,7 @@
                     <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherUnitIndex, Mode=TwoWay}">
                         <ComboBoxItem x:Uid="WeatherUnitMetric" />
                         <ComboBoxItem x:Uid="WeatherUnitImperial" />
+                        <ComboBoxItem x:Uid="WeatherUnitHybrid" />
                     </ComboBox>
                 </labs:SettingsCard>
 

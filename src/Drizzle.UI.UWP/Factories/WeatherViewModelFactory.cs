@@ -3,6 +3,7 @@ using Drizzle.UI.UWP.ViewModels;
 using System.Linq;
 using Drizzle.Weather.Helpers;
 using Drizzle.Models;
+using System;
 
 namespace Drizzle.UI.UWP.Factories
 {
@@ -22,6 +23,11 @@ namespace Drizzle.UI.UWP.Factories
                 case WeatherUnits.imperial:
                     weatherForecast.ToImperial();
                     break;
+                case WeatherUnits.hybrid: 
+                    weatherForecast.ToHybrid();
+                    break;
+                default:
+                    throw new NotImplementedException();
             }
 
             weatherVm.TimeZone = weatherForecast.TimeZone;

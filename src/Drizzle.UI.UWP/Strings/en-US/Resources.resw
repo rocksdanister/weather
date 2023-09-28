@@ -465,6 +465,9 @@
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
     <value>Provider</value>
   </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hybrid</value>
+  </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Imperial</value>
   </data>

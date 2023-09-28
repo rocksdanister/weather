@@ -14,6 +14,7 @@ public static class WeatherUtil
     {
         if (forecast.Units.Unit != WeatherUnits.imperial)
         {
+            var isMiles = forecast.Units.Unit == WeatherUnits.hybrid;
             for (int i = 0; i < 7; i++)
             {
                 var weather = forecast.Daily[i];
@@ -21,15 +22,19 @@ public static class WeatherUtil
                 weather.TemperatureMax = CelsiusToFahrenheit(weather.TemperatureMax);
                 weather.ApparentTemperatureMin = CelsiusToFahrenheit(weather.ApparentTemperatureMin);
                 weather.ApparentTemperatureMax = CelsiusToFahrenheit(weather.ApparentTemperatureMax);
-                weather.WindSpeed = KmToMi(weather.WindSpeed);
-                weather.GustSpeed = KmToMi(weather.GustSpeed);
                 weather.Temperature = CelsiusToFahrenheit(weather.Temperature);
                 weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
-                weather.Visibility = KmToMi(weather.Visibility);
                 weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
                 weather.HourlyTemperature = weather.HourlyTemperature.Select(x => CelsiusToFahrenheit(x)).ToArray();
-                weather.HourlyVisibility = weather.HourlyVisibility.Select(x => KmToMi(x)).ToArray();
-                weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => KmToMi(x)).ToArray();
+
+                if (!isMiles)
+                {
+                    weather.WindSpeed = KmToMi(weather.WindSpeed);
+                    weather.GustSpeed = KmToMi(weather.GustSpeed);
+                    weather.Visibility = KmToMi(weather.Visibility);
+                    weather.HourlyVisibility = weather.HourlyVisibility.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => KmToMi(x)).ToArray();
+                }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.imperial);
         }
@@ -40,24 +45,64 @@ public static class WeatherUtil
     {
         if (forecast.Units.Unit != WeatherUnits.metric)
         {
+            var isCelsius = forecast.Units.Unit == WeatherUnits.hybrid;
             for (int i = 0; i < 7; i++)
             {
                 var weather = forecast.Daily[i];
-                weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
-                weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
-                weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
-                weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
                 weather.WindSpeed = MiToKm(weather.WindSpeed);
                 weather.GustSpeed = MiToKm(weather.GustSpeed);
-                weather.Temperature = FahrenheitToCelsius(weather.Temperature);
-                weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                 weather.Visibility = MiToKm(weather.Visibility);
-                weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                weather.HourlyTemperature = weather.HourlyTemperature.Select(x => FahrenheitToCelsius(x)).ToArray();
                 weather.HourlyVisibility = weather.HourlyVisibility.Select(x => MiToKm(x)).ToArray();
                 weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => MiToKm(x)).ToArray();
+
+                if (!isCelsius)
+                {
+                    weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
+                    weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
+                    weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
+                    weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
+                    weather.Temperature = FahrenheitToCelsius(weather.Temperature);
+                    weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
+                    weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
+                    weather.HourlyTemperature = weather.HourlyTemperature.Select(x => FahrenheitToCelsius(x)).ToArray();
+                }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.metric);
+        }
+        return forecast;
+    }
+
+    public static ForecastWeather ToHybrid(this ForecastWeather forecast)
+    {
+        if (forecast.Units.Unit != WeatherUnits.hybrid)
+        {
+            var isMiles = forecast.Units.Unit == WeatherUnits.imperial;
+            var isCelsius = forecast.Units.Unit == WeatherUnits.metric;
+            for (int i = 0; i < 7; i++)
+            {
+                var weather = forecast.Daily[i];
+                if (!isCelsius)
+                {
+                    weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
+                    weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
+                    weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
+                    weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
+                    weather.Temperature = FahrenheitToCelsius(weather.Temperature);
+                    weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
+                    weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
+                    weather.HourlyTemperature = weather.HourlyTemperature.Select(x => FahrenheitToCelsius(x)).ToArray();
+                }
+
+                if (!isMiles)
+                {
+                    weather.WindSpeed = KmToMi(weather.WindSpeed);
+                    weather.GustSpeed = KmToMi(weather.GustSpeed);
+                    weather.Visibility = KmToMi(weather.Visibility);
+                    weather.HourlyVisibility = weather.HourlyVisibility.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => KmToMi(x)).ToArray();
+                }
+            }
+            forecast.Units = new ForecastWeatherUnits(WeatherUnits.hybrid);
         }
         return forecast;
     }

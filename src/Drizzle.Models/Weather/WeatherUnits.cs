@@ -7,5 +7,6 @@ namespace Drizzle.Models.Weather;
 public enum WeatherUnits
 {
     metric,
-    imperial
+    imperial,
+    hybrid
 }

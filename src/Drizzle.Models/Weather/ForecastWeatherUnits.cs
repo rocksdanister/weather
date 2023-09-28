@@ -15,7 +15,7 @@ namespace Drizzle.Models.Weather
                         TemperatureUnit = "°C";
                         WindSpeedUnit = "kmh";
                         VisibilityUnit = "km";
-                        PressureUnit = "mb";
+                        PressureUnit = "hPa/mb";
                     }
                     break;
                 case WeatherUnits.imperial:
@@ -23,7 +23,15 @@ namespace Drizzle.Models.Weather
                         TemperatureUnit = "°F";
                         WindSpeedUnit = "mph";
                         VisibilityUnit = "mi";
-                        PressureUnit = "mb";
+                        PressureUnit = "hPa/mb";
+                    }
+                    break;
+                case WeatherUnits.hybrid:
+                    {
+                        TemperatureUnit = "°C";
+                        WindSpeedUnit = "mph";
+                        VisibilityUnit = "mi";
+                        PressureUnit = "hPa/mb";
                     }
                     break;
             }
