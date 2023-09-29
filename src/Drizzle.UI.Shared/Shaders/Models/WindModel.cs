@@ -36,13 +36,9 @@ public partial class WindModel : BaseModel
 
     public string DepthPath { get; set; }
 
-    public static float DefaultBrightness { get; } = 0.75f;
+    public WindModel() : base(ShaderTypes.fog) { }
 
-    public static float DefaultSaturation { get; } = 1f;
-
-    public WindModel() : base(ShaderTypes.fog, DefaultBrightness, DefaultSaturation) { }
-
-    public WindModel(WindModel obj) : base(ShaderTypes.fog, DefaultBrightness, DefaultSaturation)
+    public WindModel(WindModel obj) : base(ShaderTypes.fog)
     {
         this.Color1 = obj.Color1;
         this.color2 = obj.Color2;

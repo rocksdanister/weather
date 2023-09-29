@@ -139,7 +139,7 @@ public readonly partial struct Wind : IPixelShader<float4>
         float4 color = new float4(rez + imageTexture.Sample(uv + parallax).RGB, 1f);
 
         color = saturation < 1f ? Hlsl.Lerp(Desaturate(color), color, saturation) : color;
-        return color * brightness;
+        return color * brightness * 0.75f;
     }
 }
 

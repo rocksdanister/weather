@@ -23,13 +23,9 @@ public partial class DepthModel : BaseModel
 
     public string DepthPath { get; set; }
 
-    public static float DefaultBrightness { get; } = 1f;
+    public DepthModel() : base(ShaderTypes.depth) { }
 
-    public static float DefaultSaturation { get; } = 1f;
-
-    public DepthModel() : base(ShaderTypes.depth, DefaultBrightness, DefaultSaturation) { }
-
-    public DepthModel(DepthModel properties) : base(ShaderTypes.depth, DefaultBrightness, DefaultSaturation)
+    public DepthModel(DepthModel properties) : base(ShaderTypes.depth)
     {
         this.Mouse = properties.Mouse;
         this.IntensityX = properties.IntensityX;

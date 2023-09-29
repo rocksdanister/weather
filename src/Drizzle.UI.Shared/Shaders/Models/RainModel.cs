@@ -41,13 +41,9 @@ public partial class RainModel : BaseModel
     [ObservableProperty]
     private float inertia = 0.04f;
 
-    public static float DefaultBrightness { get; } = 0.9f;
+    public RainModel() : base(ShaderTypes.rain) { }
 
-    public static float DefaultSaturation { get; } = 1f;
-
-    public RainModel() : base(ShaderTypes.rain, DefaultBrightness, DefaultSaturation) { }
-
-    public RainModel(RainModel properties) : base(ShaderTypes.rain, DefaultBrightness, DefaultSaturation)
+    public RainModel(RainModel properties) : base(ShaderTypes.rain)
     {
         this.Speed = properties.Speed;
         this.Intensity = properties.Intensity;

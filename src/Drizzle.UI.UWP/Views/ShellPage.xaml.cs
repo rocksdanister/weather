@@ -148,11 +148,11 @@ namespace Drizzle.UI.UWP.Views
                 case CoreWindowActivationState.CodeActivated:
                 case CoreWindowActivationState.PointerActivated:
                     {
-                        shellVm.DepthProperty.Saturation = DepthModel.DefaultSaturation;
-                        shellVm.SnowProperty.Saturation = SnowModel.DefaultSaturation;
-                        shellVm.RainProperty.Saturation = RainModel.DefaultSaturation;
-                        shellVm.FogProperty.Saturation = WindModel.DefaultSaturation;
-                        shellVm.CloudsProperty.Saturation = CloudsModel.DefaultSaturation;
+                        shellVm.DepthProperty.Saturation =
+                            shellVm.SnowProperty.Saturation =
+                            shellVm.RainProperty.Saturation =
+                            shellVm.FogProperty.Saturation =
+                            shellVm.CloudsProperty.Saturation = 1f;
 
                         shellVm.SnowProperty.TimeMultiplier =
                             shellVm.CloudsProperty.TimeMultiplier =

@@ -13,7 +13,7 @@ public static class AssetImageConstants
     public static IReadOnlyList<string> RainAssets { get; } = new List<string>{
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Snow", "0.jpg"),
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Rain", "0.jpg"),
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Rain", "1.jpg"),
+        //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Rain", "1.jpg"),
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Rain", "2.jpg"),
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Rain", "3.jpg"),
         //Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Backgrounds", "Snow", "3.jpg"),

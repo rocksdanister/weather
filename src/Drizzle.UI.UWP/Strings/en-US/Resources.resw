@@ -156,6 +156,12 @@
   <data name="Attribution.Content" xml:space="preserve">
     <value>Third party software notice</value>
   </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Adjust background brightness</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Browse</value>
   </data>

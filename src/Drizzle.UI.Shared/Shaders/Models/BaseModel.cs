@@ -12,16 +12,14 @@ public abstract class BaseModel : ObservableObject
 
     public float4 Mouse { get; set; } = float4.Zero;
 
-    public float Brightness { get; set; }
+    public float Brightness { get; set; } = 1f;
 
-    public float Saturation { get; set; }
+    public float Saturation { get; set; } = 1f;
 
     public float TimeMultiplier { get; set; } = 1f;
 
-    protected BaseModel(ShaderTypes type, float brightness, float saturation)
+    protected BaseModel(ShaderTypes type)
     {
         this.Type = type;
-        this.Brightness = brightness;
-        this.Saturation = saturation;
     }
 }

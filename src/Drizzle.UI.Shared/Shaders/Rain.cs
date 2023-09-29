@@ -224,6 +224,6 @@ public readonly partial struct Rain : IPixelShader<float4>
         col *= 1f - Hlsl.Dot(UV, UV) * 1f; // vignette
 
         col = saturation < 1f ? Hlsl.Lerp(Desaturate(col), col, saturation) : col;
-        return new float4(col*brightness, 1);
+        return new float4(col*brightness *0.9f, 1f);
     }
 }

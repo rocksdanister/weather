@@ -51,6 +51,18 @@
                     </StackPanel>
                 </labs:SettingsCard>
 
+                <labs:SettingsCard x:Uid="BackgroundBrightnessSettings" IsEnabled="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE706;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <Slider
+                        MinWidth="200"
+                        Maximum="1"
+                        Minimum="0.5"
+                        StepFrequency="0.05"
+                        Value="{x:Bind viewModel.BackgroundBrightness, Mode=TwoWay}" />
+                </labs:SettingsCard>
+
                 <labs:SettingsCard
                     x:Uid="OpenLogs"
                     Command="{x:Bind viewModel.OpenLogsCommand}"
@@ -77,7 +89,7 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="FrameRateSettings" IsEnabled="False">
+                <labs:SettingsCard x:Uid="FrameRateSettings" Visibility="Collapsed">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90D;" />
                     </labs:SettingsCard.HeaderIcon>

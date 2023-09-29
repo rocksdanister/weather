@@ -22,6 +22,7 @@ namespace Drizzle.UI.UWP.ViewModels
             this.userSettings = userSettings;
 
             Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
+            BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
             SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
             SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
@@ -81,6 +82,19 @@ namespace Drizzle.UI.UWP.ViewModels
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, value);
 
                 SetProperty(ref _selectedWeatherUnitIndex, value);
+            }
+        }
+
+        private float _backgroundBrightness;
+        public float BackgroundBrightness
+        {
+            get => _backgroundBrightness;
+            set
+            {
+                if (userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness) != value)
+                    userSettings.Set(UserSettingsConstants.BackgroundBrightness, value);
+
+                SetProperty(ref _backgroundBrightness, value);
             }
         }
 

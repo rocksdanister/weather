@@ -38,13 +38,9 @@ public partial class SnowModel : BaseModel
 
     public string ImagePath { get; set; }
 
-    public static float DefaultBrightness { get; } = 1f;
+    public SnowModel() : base(ShaderTypes.snow) { }
 
-    public static float DefaultSaturation { get; } = 1f;
-
-    public SnowModel() : base(ShaderTypes.snow, DefaultBrightness, DefaultSaturation) { }
-
-    public SnowModel(SnowModel properties) : base(ShaderTypes.snow, DefaultBrightness, DefaultSaturation)
+    public SnowModel(SnowModel properties) : base(ShaderTypes.snow)
     {
         this.Speed = properties.Speed;
         this.MoveSpeed = properties.MoveSpeed;

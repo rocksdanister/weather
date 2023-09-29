@@ -27,6 +27,8 @@ public static class UserSettingsConstants
 
     public const string CacheWeather = "CacheWeather";
 
+    public const string BackgroundBrightness = "BackgroundBrightness";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -38,6 +40,7 @@ public static class UserSettingsConstants
         { PinnedLocations, Array.Empty<LocationModel>() },
         { SelectedLocation, null },
         { MaxPinnedLocations, 3 },
-        { CacheWeather, true }
+        { CacheWeather, true },
+        { BackgroundBrightness, 1f },
     };
 }

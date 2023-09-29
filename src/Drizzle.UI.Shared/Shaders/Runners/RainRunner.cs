@@ -70,7 +70,7 @@ public sealed class RainRunner : IShaderRunner
         currentProperties.Zoom = ShaderUtil.Lerp(currentProperties.Zoom, properties().Zoom, 0.1f);
         currentProperties.Normal = ShaderUtil.Lerp(currentProperties.Normal, properties().Normal, 0.05f);
         currentProperties.PostProcessing = ShaderUtil.Lerp(currentProperties.PostProcessing, properties().PostProcessing, 0.05f);
-        currentProperties.Brightness = ShaderUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.01f);
+        currentProperties.Brightness = ShaderUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
         currentProperties.Saturation = ShaderUtil.Lerp(currentProperties.Saturation, properties().Saturation, 0.01f);
         currentProperties.TimeMultiplier = ShaderUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
         // Mouse

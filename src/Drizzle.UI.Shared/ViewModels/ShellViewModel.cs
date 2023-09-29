@@ -70,6 +70,8 @@ namespace Drizzle.UI.UWP.ViewModels
                     UpdateQualitySettings();
                 else if (e == UserSettingsConstants.WeatherUnit)
                     await UpdateWeather();
+                else if (e == UserSettingsConstants.BackgroundBrightness)
+                    UpdateBrightness();
             };
 
             navigator.ContentPageChanged += (s, e) => {
@@ -452,7 +454,6 @@ namespace Drizzle.UI.UWP.ViewModels
                         CloudsProperty.Scale = property.Scale;
                         CloudsProperty.Iterations = property.Iterations;
                         CloudsProperty.Speed = property.Speed;
-                        CloudsProperty.Brightness = property.Brightness;
                         CloudsProperty.IsDayNightShift = property.IsDayNightShift;
                     }
                     break;
@@ -465,7 +466,6 @@ namespace Drizzle.UI.UWP.ViewModels
                         RainProperty.Intensity = property.Intensity;
                         RainProperty.PostProcessing =property.PostProcessing;
                         RainProperty.IsLightning = property.IsLightning;
-                        RainProperty.Brightness = property.Brightness;
                         RainProperty.IsPanning = property.IsPanning;
                         RainProperty.IsFreezing = property.IsFreezing;
 
@@ -593,6 +593,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 SelectedShader1 = null;
             }
             UpdateShaderScale();
+            UpdateBrightness();
 
             // Reset mouse
             RainProperty.Mouse =
@@ -637,6 +638,16 @@ namespace Drizzle.UI.UWP.ViewModels
                     }
                     break;
             }
+        }
+
+        private void UpdateBrightness()
+        {
+            var brightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
+            RainProperty.Brightness =
+                SnowProperty.Brightness =
+                FogProperty.Brightness =
+                DepthProperty.Brightness =
+                CloudsProperty.Brightness = brightness;
         }
     }
 }

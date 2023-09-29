@@ -265,11 +265,14 @@
                     <TextBlock x:Uid="ScreensaverTooltip" />
                 </ToolTipService.ToolTip>
             </AppBarButton>
+            <AppBarSeparator />
+            <AppBarButton
+                x:Uid="AppBarSettings"
+                Width="50"
+                Command="{x:Bind shellVm.SettingsCommand}"
+                Icon="Setting"
+                LabelPosition="Collapsed" />
             <CommandBar.SecondaryCommands>
-                <AppBarButton
-                    x:Uid="AppBarSettings"
-                    Command="{x:Bind shellVm.SettingsCommand}"
-                    Icon="Setting" />
                 <AppBarButton
                     x:Uid="AppBarHelp"
                     Command="{x:Bind shellVm.HelpCommand}"
