@@ -13,48 +13,47 @@ var cardPressure = document.getElementById("card-pressure");
 function videoFunction() {
   if (videoClip.currentTime >= 6.75) setWeatherHeaders("fog");
   else if (videoClip.currentTime >= 4) setWeatherHeaders("snow");
-  else if (videoClip.currentTime >= 2.25 )setWeatherHeaders("rain");
+  else if (videoClip.currentTime >= 2.25) setWeatherHeaders("rain");
   else setWeatherHeaders("overcast");
 }
 
-function setWeatherHeaders(weather)
-{
-  switch(weather) {
+function setWeatherHeaders(weather) {
+  switch (weather) {
     case "fog":
       headerTemp.innerHTML = "3 °C";
       headerLabel.innerHTML = "Fog";
       cardUvIndex.innerHTML = "1";
-      cardHumidity.innerHTML = "67%"
+      cardHumidity.innerHTML = "67%";
       cardWind.innerHTML = "6 kmh";
       cardAqi.innerHTML = "8";
-      cardPressure.innerHTML = "1000 mb"
+      cardPressure.innerHTML = "1000 mb";
       break;
     case "snow":
       headerTemp.innerHTML = "4 °C";
       headerLabel.innerHTML = "Snow";
       cardUvIndex.innerHTML = "0";
-      cardHumidity.innerHTML = "69%"
+      cardHumidity.innerHTML = "69%";
       cardWind.innerHTML = "16 kmh";
       cardAqi.innerHTML = "8";
-      cardPressure.innerHTML = "1007 mb"
+      cardPressure.innerHTML = "1007 mb";
       break;
     case "rain":
       headerTemp.innerHTML = "12 °C";
       headerLabel.innerHTML = "Slight Rain";
       cardUvIndex.innerHTML = "0";
-      cardHumidity.innerHTML = "65%"
+      cardHumidity.innerHTML = "65%";
       cardWind.innerHTML = "18 kmh";
       cardAqi.innerHTML = "20";
-      cardPressure.innerHTML = "1015 mb"
-      break;  
+      cardPressure.innerHTML = "1015 mb";
+      break;
     case "overcast":
       headerTemp.innerHTML = "15 °C";
       headerLabel.innerHTML = "Overcast";
       cardUvIndex.innerHTML = "1";
-      cardHumidity.innerHTML = "64%"
+      cardHumidity.innerHTML = "64%";
       cardWind.innerHTML = "14 kmh";
       cardAqi.innerHTML = "15";
-      cardPressure.innerHTML = "1001 mb"
+      cardPressure.innerHTML = "1001 mb";
       break;
   }
 }
@@ -81,5 +80,16 @@ function hasClass(element, className) {
 }
 
 function scrollToElement(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+  document
+    .getElementById(id)
+    .scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
 }
+
+//override badge size
+window.onload = (e) => {
+  const styleOverride = document.createElement("style");
+  styleOverride.innerHTML = "div > img.large { width:220px; height:auto }";
+  document
+    .querySelector("ms-store-badge")
+    .shadowRoot.appendChild(styleOverride);
+};
