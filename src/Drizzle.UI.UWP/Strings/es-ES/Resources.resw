@@ -118,43 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Salut, sunt Dani John cunoscut și ca Rocksdanister. Creez software distractiv ca acesta. Îți mulțumesc că ți-ai acordat timp să arunci o privire la munca mea.</value>
+    <value>Hola, soy Dani John, también conocido como rocksdanister. Hago software divertido como este. Gracias por tomar un tiempo para ver mi trabajo.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Scăzut</value>
+    <value>Buena</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Moderat</value>
+    <value>Moderada</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Nesănătos pentru grupuri sensibile</value>
+    <value>Insalubre para grupos sensibles</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Nesănătos</value>
+    <value>Insalubre</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Foarte nesănătos</value>
+    <value>Muy insalubre</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Periculos</value>
+    <value>Peligrosa</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Ascundeți întotdeauna meniul când este inactiv</value>
+    <value>Esconder menú siempre al estar inactivo</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Despre</value>
+    <value>Sobre</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>Ajutor</value>
+    <value>Ayuda</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>Setări</value>
+    <value>Configuración</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Căutați un loc</value>
+    <value>Buscar una ubicación</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Notificare software terță parte</value>
+    <value>Aviso de software de terceros</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>Adjust background brightness</value>
@@ -163,313 +163,313 @@
     <value>Brightness</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Răsfoire</value>
+    <value>Examinar este equipo</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>Fundal</value>
+    <value>Fondo</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Căutați actualizări</value>
+    <value>Buscar actualizaciones</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Zi/Noapte</value>
+    <value>Día/Noche</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Iterații</value>
+    <value>Iteraciones</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Mărime</value>
+    <value>Escala</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Sugerați o caracteristică sau raportează o problemă</value>
+    <value>Sugerir una función o reportar un bug</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Contact</value>
+    <value>Contacto</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Include imaginile selectate de utilizator în efecte meteo</value>
+    <value>Incluir imágenes seleccionadas en efectos de clima</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Fundal Personalizat</value>
+    <value>Fondo personalizado</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Orizontal</value>
+    <value>Horizontal</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
     <value>Vertical</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI este conceput pentru a oferi informații cu privire la efectele celor mai frecvenți cinci poluanți atmosferici asupra sănătății. Este o scară cuprinsă între 0 și 500, unde valorile mai ridicate indică o poluare atmosferică mai gravă și riscuri mai mari pentru sănătate.</value>
+    <value>El ICA está diseñado para mostrar información sobre los efectos en la salud de los cinco contaminantes de aire más comunes. Es una escala que va de 0 a 500, con valores altos indicando más contaminación y riesgos sanitarios más altos.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>Temperatura punctului de rouă este o măsură absolută a cantităţii de vapori de apă din aer. Atunci când temperatura în punctul de rouă şi temperatura aerului sunt egale, umiditatea relativă este de 100%. În acest moment, aerul este complet saturat cu vapori de apă, conducând la condensare sub formă de rouă, ceaţă sau nori.</value>
+    <value>Temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100%. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>Umiditatea relativă este o măsură a cantităţii de vapori de apă prezenţi în aer, în comparaţie cu cantitatea maximă pe care aerul o poate menţine la această temperatură. Acesta este exprimat ca procent şi oferă informaţii despre cât de aproape este aerul de saturaţie.</value>
+    <value>La humedad relativa es una medición de la cantidad de vapor de agua presente en el aire comparada a la máxima cantidad que el aire puede contener a esa temperatura. Se expresa como un porcentaje y muestra información sobre la cercanía del aire a la saturación.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Presiunea barometrică, cunoscută și ca presiunea atmosferică, este măsura presiunii aerului într-o anumită zonă.</value>
+    <value>La presión barométrica, también conocida como presión atmosférica, es la medición de la presión del aire en un área.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>Indicele UV (UVI) al Organizației Mondiale a Sănătății măsoară rezistența radiațiilor ultraviolete care produc arsuri solare. Este o scară lineară care variază de la 0 la 11+, unde valorile mai ridicate indică un risc mai mare de expunere la razele UV şi şanse mai mari de arsuri solare şi leziuni ale pielii care ar putea duce în cele din urmă la cancer de piele.</value>
+    <value>El Índice UV de la Organización Mundial de la Salud (UVI) mide la fuerza de radiación ultravioleta que quema la piel. Es una escala lineal que va de 0 a 11+, con valores más altos indicando un mayor riesgo de exposición a rayos UV y mayores posibilidades de quemaduras en la piel que podrían producir cancer de piel.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Viteza vântului este viteza cu care aerul se deplasează orizontal peste un anumit punct. Este o cantitate atmosferică fundamentală, cauzată de trecerea aerului de la presiune ridicată la cea scăzută, de obicei din cauza schimbărilor de temperatură. Rafalele sunt o creștere bruscă a vitezei vântului peste viteza medie a vântului. De obicei durează mai puțin de 20 de secunde.</value>
+    <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media, y duran menos de 20 segundos.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Se aproximează adâncimea..</value>
+    <value>Aproximando profundidad..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Procesorul grafic de sistem (GPU) nu acceptă caracteristicile DX12 necesare, deci unele funcționalități sunt dezactivate.</value>
+    <value>El procesador gráfico del sistema (GPU) no soporta las funciones DX12 necesarias, así que algunas funciones están desactivadas.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>Pentru această caracteristică trebuiesc descărcate fișiere suplimentare</value>
+    <value>Archivos adicionales necesitan ser descargados para esto</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Se simte ca</value>
+    <value>Sensación</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>Amplitudine</value>
+    <value>Amplitud</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Gradient de culoare</value>
+    <value>Degradado de Color</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Rata cadrelor de animație</value>
+    <value>Framerate de animación</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>Eroare</value>
+    <value>Error</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribuiți la acest program traducându-l în alte limbi.</value>
+    <value>Contribuye a este programa traduciéndolo a otros idiomas.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Ajutați la Traducere</value>
+    <value>Ayudar a Traducir</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>Aplicația trebuie să fie repornită după selectarea altei limbi</value>
+    <value>La app necesita reiniciarse al seleccionar otro idioma</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Limbă</value>
+    <value>Idioma</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Ajutați la traducere!</value>
+    <value>¡Ayuda a traducir!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>La fel ca Windows</value>
+    <value>Predeterminado del sistema</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Aflați mai multe</value>
+    <value>Saber más</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Locații fixate</value>
+    <value>Ubicaciones Ancladas</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Deschideți jurnalele</value>
+    <value>Logs Abiertos</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Politica de colectare a datelor</value>
+    <value>Política de datos</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Dinamic</value>
+    <value>Dinámica</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Performanță</value>
+    <value>Rendimiento</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Cartof</value>
+    <value>Patata</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Calitate</value>
+    <value>Calidad</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Preset privind calitatea redării vizuale</value>
+    <value>Calidad predeterminada del render visual</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Calitate</value>
+    <value>Calidad</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Intensitate</value>
+    <value>Intensidad</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Luminozitate</value>
+    <value>Iluminación</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Panoramare</value>
+    <value>Panorámica</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Mărire</value>
+    <value>Zoom</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Ultima actualizare</value>
+    <value>Última actualización</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Reîmprospătare</value>
+    <value>Actualizar</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Restabilire valori implicite</value>
+    <value>Volver a Predeterminado</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Screensaver</value>
+    <value>Salvapantallas</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Estompare</value>
+    <value>Difuminar</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Înghețare</value>
+    <value>Nieve</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Post-Procesare</value>
+    <value>Procesamiento</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Viteză</value>
+    <value>Velocidad</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Adâncime</value>
+    <value>Profundidad</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Straturi</value>
+    <value>Capas</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Lățime</value>
+    <value>Ancho</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Licență software</value>
+    <value>Licencia de software</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Arată niște susținere aruncând o stea</value>
+    <value>Muestra apoyo enviando una estrella</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Cod sursă</value>
+    <value>Código Fuente</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Despre</value>
+    <value>Sobre mí</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Anulare</value>
+    <value>Cancelar</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Continuă</value>
+    <value>Continuar</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Aproximare Adâncime cu AI</value>
+    <value>Aproximación de Profundidad IA</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Ajutor</value>
+    <value>Ayuda</value>
   </data>
   <data name="StringOk" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Setări</value>
+    <value>Configuración</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Automat</value>
+    <value>Automático</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Întunecat</value>
+    <value>Oscuro</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Luminos</value>
+    <value>Claro</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Schimbați culoarea aplicației</value>
+    <value>Cambiar el color de la aplicación</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Temă</value>
+    <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Despre Indicele de calitate a aerului (ICA)</value>
+    <value>Acerca del Índice de Calidad del Aire (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Despre Punctul de Rouă</value>
+    <value>Acerca de la Temperatura de Rocío</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Despre Umiditate Relativă</value>
+    <value>Acerca de la Humedad Relativa</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Despre Presiune</value>
+    <value>Acerca de la Presión</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Despre Indicele UV</value>
+    <value>Acerca del Índice UV</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Despre Viteza Vântului și Rafale</value>
+    <value>Acerca de la Velocidad del Viento</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Adăugați o locație pentru a începe.</value>
+    <value>Añade una ubicación para empezar.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Calitatea Aerului</value>
+    <value>Calidad del Aire</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Contribuitori</value>
+    <value>Contribuyentes</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Descărcare</value>
+    <value>Descargar</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Descărcare Necesară</value>
+    <value>Descarga Necesaria</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Preluare date, vă rugăm așteptați.</value>
+    <value>Obteniendo datos, por favor espera.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
     <value>General</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Salut</value>
+    <value>Hola</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Umiditate</value>
+    <value>Humedad</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Performanță</value>
+    <value>Rendimiento</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Presiune</value>
+    <value>Presión</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Soare</value>
+    <value>Sol</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Răsărit</value>
+    <value>Amanecer</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Apus</value>
+    <value>Anochecer</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>Indice UV</value>
+    <value>Índice UV</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Atenție</value>
+    <value>Advertencia</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Meteo</value>
+    <value>Clima</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Vânt</value>
+    <value>Viento</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Bun</value>
+    <value>Bueno</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>Înalt</value>
+    <value>Alto</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Foarte înaltă</value>
+    <value>Muy Alto</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Sursa datelor meteo</value>
+    <value>Fuente de datos del clima</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Furnizor</value>
+    <value>Proveedor</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybrid</value>
@@ -478,105 +478,105 @@
     <value>Imperial</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Metric</value>
+    <value>Métrico</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Arată măsurile în</value>
+    <value>Mostrar medidas en</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Unitate</value>
+    <value>Unidad</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Pagina web oficială</value>
+    <value>Sitio web oficial</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Site web</value>
+    <value>Sitio web</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Bun venit la aplicația mea meteo! Te rog să reții că această aplicație este încă în versiune beta și că unele caracteristici s-ar putea să nu funcționeze așa cum era de așteptat. Lucrez din greu pentru a îmbunătăți aplicația și a o face mai bună. Vă mulțumesc pentru înțelegere și răbdare.</value>
+    <value>¡Bienvenido a mi aplicación del tiempo! Ten en cuenta que esta app está todavía en fase beta y algunas características pueden no funcionar como esperado. Estoy trabajando duro para mejorar la app y hacerla mejor. Gracias por tu comprensión y paciencia.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Cer Senin</value>
+    <value>Despejado</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>În Mare Clar</value>
+    <value>Mayormente Despejado</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Parțial Înnorat</value>
+    <value>Parcialmente Nublado</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Înnorat</value>
+    <value>Cielo Cubierto</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Ceață</value>
+    <value>Niebla</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Chiciură</value>
+    <value>Niebla Con Escarcha</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Burniță Ușoară</value>
+    <value>Llovizna Ligera</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Burniță Moderată</value>
+    <value>Llovizna Moderada</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Burniță Densă</value>
+    <value>Llovizna Densa</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Burniță Înghețată Ușoară</value>
+    <value>Llovizna Gélida Ligera</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Burniță Înghețată Densă</value>
+    <value>Llovizna Gélida Densa</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Ploaie Ușoară</value>
+    <value>Lluvia Ligera</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Ploaie Moderată</value>
+    <value>Lluvia Moderada</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Ploaie Torențială</value>
+    <value>Lluvia Fuerte</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Ploaie Ușoară Înghețată</value>
+    <value>Lluvia Gélida Ligera</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Ploaie Torențială Înghețată</value>
+    <value>Lluvia Gélida Fuerte</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Ninsoare Ușoară</value>
+    <value>Nieve Ligera</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Ninsoare Moderată</value>
+    <value>Nieve Moderada</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Ninsoare Puternică</value>
+    <value>Nieve Fuerte</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Fulgi de Zăpadă</value>
+    <value>Copos de Nieve</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Averse Ușoare</value>
+    <value>Rachas de Lluvia Ligera</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Averse Moderate</value>
+    <value>Rachas de Lluvia Moderada</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Averse Violente</value>
+    <value>Rachas de Lluvia Violenta</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Ninsoare Slabă</value>
+    <value>Nevadas Ligeras</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Ninsoare Abundentă</value>
+    <value>Nevadas Fuertes</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Furtună</value>
+    <value>Tormenta Eléctrica</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Furtună cu Grindină Ușoară</value>
+    <value>Tormenta Eléctrica con Lluvia Ligera</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Furtună cu Grindină Abundentă</value>
+    <value>Tormenta Eléctrica con Lluvia Fuerte</value>
   </data>
 </root>

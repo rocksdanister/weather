@@ -156,6 +156,12 @@
   <data name="Attribution.Content" xml:space="preserve">
     <value>Уведомление о использовании стороннего ПО</value>
   </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Adjust background brightness</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Brightness</value>
+  </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Просмотреть</value>
   </data>
@@ -464,6 +470,9 @@
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
     <value>Провайдер</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hybrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Имперский</value>
