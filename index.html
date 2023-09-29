@@ -34,7 +34,7 @@
         data-tilt-reset-to-start="true"
       >
         <div id="dynamic-labels">
-          <img id="app-icon" src="assets/icon_100.webp" width="12" height="12">
+          <img id="app-icon" src="assets/icon_100.webp" width="12" height="12" />
           <div id="weather-header">
             <div id="weather-header-city">Edmonton, Canada</div>
             <div id="weather-header-temp">3 °C</div>
@@ -87,7 +87,15 @@
         </div>
         <!-- Demo clip -->
         <div id="demo-clip-border">
-          <video poster="assets/temp_poster.webp" id="demo-clip" class="video" disablePictureInPicture loop muted autoplay>
+          <video
+            poster="assets/temp_poster.webp"
+            id="demo-clip"
+            class="video"
+            disablePictureInPicture
+            loop
+            muted
+            autoplay
+          >
             <source src="assets/app_demo_lq.mp4" type="video/mp4" />
           </video>
         </div>
@@ -96,10 +104,7 @@
         <h1>Lively Weather</h1>
         <p>Weather app, real weather, real time.</p>
         <!-- <button class="acrylic-button"><span>Download</span></button> -->
-        <ms-store-badge
-        productid="9PP0MFQFVSC5"
-        language="en-US"
-        animation="on">      
+        <ms-store-badge productid="9PP0MFQFVSC5" size="large" animation="on" />
       </div>
     </div>
 
@@ -142,13 +147,5 @@
   <script src="js/script.js"></script>
   <script src="js/vanilla-tilt.min.js"></script>
   <script src="js/index.js"></script>
-  <!-- <script>
-    if (window.location.href.indexOf("https://www.rocksdanister.com/lively/") > -1) {
-      let script = document.createElement("script");
-      script.setAttribute("src", "//gc.zgo.at/count.js");
-      script.setAttribute("data-goatcounter", "https://rocksdanister.goatcounter.com/count");
-      script.setAttribute("async", "");
-      document.body.appendChild(script);
-    }
-  </script> -->
+  <script data-goatcounter="https://weather.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </html>
