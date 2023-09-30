@@ -121,22 +121,22 @@
     <value>Привет, я Дани Джон, также известный как rocksdanister. Я создаю забавные программы, подобные этой. Спасибо, что нашли время посмотреть на мои работы.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Хорошо</value>
+    <value>Хороший</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Модерировать</value>
+    <value>Умеренный</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Вредно для чувствительных групп</value>
+    <value>Вредный для чувствительных групп</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Вредно</value>
+    <value>Вредный</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Очень вредно</value>
+    <value>Очень вредный</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Опасное</value>
+    <value>Опасный</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Всегда скрывать меню при бездействии</value>
@@ -157,10 +157,10 @@
     <value>Уведомление о использовании стороннего ПО</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Adjust background brightness</value>
+    <value>Регулировка яркости заднего фона</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Яркость</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Просмотреть</value>
@@ -472,7 +472,7 @@
     <value>Провайдер</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Гибрид</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Имперский</value>

@@ -118,465 +118,465 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Ciao, sono John anche chiamato Rocksdanister. Creo software divertenti come questo. Grazie di aver usato un po' del tuo tempo per vedere i miei lavori.</value>
+    <value>Hallo! Ich bin Dani John, auch bekannt als rocksdanister. Ich mache Spaß-Software wie diese. Danke, dass du dir die Zeit genommen hast, meine Arbeit anzusehen.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Buona</value>
+    <value>Gut</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Moderata</value>
+    <value>Mäßig</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Pericolosa per i gruppi sensibili</value>
+    <value>Ungesund für sensible Gruppen</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Pericolosa</value>
+    <value>Ungesund</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Molto pericolosa</value>
+    <value>Sehr ungesund</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Rischiosa</value>
+    <value>Gefährlich</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Nascondi sempre il menù quando inattivo</value>
+    <value>Menü immer im Leerlauf ausblenden</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Informazioni</value>
+    <value>Über die App</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Hilfe</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Einstellungen</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Trova un luogo</value>
+    <value>Nach Ort suchen</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Avviso software di terze parti</value>
+    <value>Software von Drittanbietern</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Regola la luminosità dello sfondo</value>
+    <value>Hintergrundhelligkeit anpassen</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Luminosità</value>
+    <value>Helligkeit</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Sfoglia</value>
+    <value>Durchsuchen</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>Sfondo</value>
+    <value>Hintergrund</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Verifica aggiornamenti</value>
+    <value>Nach Updates suchen</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Giorno/Notte</value>
+    <value>Tag/Nacht</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Iterazioni</value>
+    <value>Iterationen</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Scala</value>
+    <value>Skalierung</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Suggerisci una funzionalità o segnala un bug</value>
+    <value>Feature vorschlagen oder Bug melden</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Contatti</value>
+    <value>Kontakt</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Includi le immagini selezionate dall'utente negli effetti meteo</value>
+    <value>Benutzerdefinierte Bilder in Wettereffekte einbeziehen</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Sfondo Personalizzato</value>
+    <value>Benutzerdefinierter Hintergrund</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Orizzontale</value>
+    <value>Horizontal</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Verticale</value>
+    <value>Vertikal</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>L' AQI è progettato per fornire informazioni sugli effetti sulla salute dei cinque inquinanti atmosferici più comuni. Si tratta di una scala che va da 0 a 500, con valori più elevati che indicano un inquinamento atmosferico più grave e maggiori rischi per la salute.</value>
+    <value>Der AQI soll Informationen über die gesundheitlichen Auswirkungen der fünf häufigsten Luftschadstoffe liefern. Es handelt sich um eine Skala von 0 bis 500, wobei höhere Werte auf eine stärkere Luftverschmutzung und größere Gesundheitsrisiken hindeuten.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>La temperatura del punto di rugiada è una misura assoluta della quantità di vapore acqueo nell'aria. Quando la temperatura del punto di rugiada e la temperatura dell'aria sono uguali, l'umidità relativa è 100%. A questo punto, l'aria è completamente satura di vapore acqueo, portando a condensazione sotto forma di rugiada, nebbia, o nuvole.</value>
+    <value>Die Taupunkttemperatur ist ein absolutes Maß für die Menge an Wasserdampf in der Luft. Wenn die Taupunkttemperatur und die Lufttemperatur gleich sind, beträgt die relative Luftfeuchtigkeit 100%. An diesem Punkt ist die Luft vollständig mit Wasserdampf gesättigt, was zu Kondensation in Form von Tau, Nebel oder Wolken führt.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>L'umidità relativa è una misura della quantità di vapore acqueo presente nell'aria rispetto alla quantità massima che l'aria potrebbe mantenere a tale temperatura. È espresso in percentuale e fornisce informazioni sulla vicinanza dell'aria alla saturazione.</value>
+    <value>Die relative Luftfeuchtigkeit ist ein Maß für die Menge an Wasserdampf in der Luft, verglichen mit der maximalen Menge, die die Luft bei dieser Temperatur halten könnte. Er wird als Prozentsatz ausgedrückt und gibt Auskunft darüber, wie nahe die Luft der Sättigung ist.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>La pressione barometrica, nota anche come pressione atmosferica, è la misura della pressione dell'aria in una data zona.</value>
+    <value>Barometrischer Druck, auch bekannt als atmosphärischer Druck, ist die Messung des Luftdrucks in einem bestimmten Bereich.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>L'indice UV (UVI) dell'Organizzazione Mondiale della Sanità misura la forza della radiazione ultravioletta che provoca scottature. È una scala lineare che va da 0 a 11+, con valori più elevati che indicano un maggiore rischio di esposizione ai raggi UV e un aumento delle probabilità di scottature e danni cutanei che potrebbero in ultima analisi portare al cancro della pelle.</value>
+    <value>Der UV-Index der Weltgesundheitsorganisation (UVI) misst die Stärke der sonnenverbrennenden UV-Strahlung. Es ist eine lineare Skala zwischen 0 und 11+, mit höheren Werten für ein höheres Risiko des Aussetzens gegenüber UV-Strahlen und erhöhten Wahrscheinlichkeit von Sonnenbränden und Hautschäden, die letztlich zu Hautkrebs führen könnten.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>La velocità del vento è la velocità con cui l'aria si muove orizzontalmente oltre un dato punto. Si tratta di una quantità atmosferica fondamentale causata dal passaggio di aria da alta a bassa pressione, di solito a causa di cambiamenti di temperatura. Le raffiche sono un improvviso aumento della velocità del vento sopra la sua velocità media. Di solito dura meno di 20 secondi.</value>
+    <value>Die Windgeschwindigkeit ist die Geschwindigkeit, mit der sich die Luft horizontal nach einem bestimmten Punkt bewegt. Es ist eine grundlegende atmosphärische Menge, die durch Luftbewegungen von hohem zu niedrigem Druck verursacht wird, in der Regel durch Temperaturschwankungen. Windböen sind ein plötzlicher Anstieg der Windgeschwindigkeit über die durchschnittliche Windgeschwindigkeit. Sie dauern in der Regel weniger als 20 Sekunden.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Approssimando la profondità..</value>
+    <value>Tiefe wird abgeschätzt..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Il processore grafico di sistema (GPU) non supporta le funzioni DX12 richieste, quindi alcune funzionalità sono disabilitate.</value>
+    <value>Der System-Grafikprozessor (GPU) unterstützt nicht die benötigten DX12-Funktionen, daher sind einige Funktionen deaktiviert.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>È necessario scaricare file aggiuntivi per questa funzionalità</value>
+    <value>Für diese Funktion müssen zusätzliche Dateien heruntergeladen werden</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Percepita</value>
+    <value>Gefühlte</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>Ampiezza</value>
+    <value>Amplitude</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Sfumatura Colore</value>
+    <value>Farbverlauf</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Framerate animazione</value>
+    <value>Animations-Bildrate</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>Errore</value>
+    <value>Fehler</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribuisci a questo programma traducendolo in altre lingue.</value>
+    <value>Trage zu diesem Programm bei, indem du es in andere Sprachen übersetzt.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Aiuta a tradurre</value>
+    <value>Beim Übersetzen helfen</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>L'applicazione deve essere riavviata quando si seleziona un'altra lingua</value>
+    <value>Die App muss neu gestartet werden, wenn eine andere Sprache ausgewählt wird</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Sprache</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Aiuta a tradurre!</value>
+    <value>Hilf beim Übersetzen!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Come per Windows</value>
+    <value>Gleiches wie Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Scopri di più</value>
+    <value>Mehr erfahren</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Località salvate</value>
+    <value>Angepinnte Orte</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Apri i log</value>
+    <value>Logs öffnen</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Politica di raccolta dati</value>
+    <value>Datenschutzerklärung</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Dinamica</value>
+    <value>Dynamisch</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Prestazioni</value>
+    <value>Leistung</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Patata</value>
+    <value>Kartoffel</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Qualità</value>
+    <value>Qualität</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Qualità di visualizzazione preimpostata</value>
+    <value>Voreinstellung für Visuelle Renderqualität</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Qualità</value>
+    <value>Qualität</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Intensità</value>
+    <value>Intensität</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Fulmini</value>
+    <value>Blitz</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>Normale</value>
+    <value>Normal</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Panoramica</value>
+    <value>Schwenken</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Zoom</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Ultimo aggiornamento</value>
+    <value>Zuletzt aktualisiert</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Aggiorna</value>
+    <value>Aktualisieren</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Ripristina Predefiniti</value>
+    <value>Standard wiederherstellen</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Salvaschermo</value>
+    <value>Bildschirmschoner</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Sfoca</value>
+    <value>Blur</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Congelamento</value>
+    <value>Einfrieren</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
     <value>Post Processing</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Velocità</value>
+    <value>Geschwindigkeit</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Profondità</value>
+    <value>Tiefe</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Livelli</value>
+    <value>Ebenen</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Larghezza</value>
+    <value>Breite</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Licenza software</value>
+    <value>Softwarelizenz</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Mostra un po' di affetto lasciando una stella</value>
+    <value>Zeige etwas Liebe durch das Verteilen eines Sterns</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Codice Sorgente</value>
+    <value>Quellcode</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Informazioni</value>
+    <value>Über den Entwickler</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Abbrechen</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Continua</value>
+    <value>Weiter</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Approssimazione di profondità IA</value>
+    <value>KI-Tiefenabschätzung</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Hilfe</value>
   </data>
   <data name="StringOk" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Impostazioni</value>
+    <value>Einstellungen</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Automatico</value>
+    <value>Auto</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Dunkel</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Hell</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Cambia il colore dell'applicazione</value>
+    <value>Farbe der Anwendung ändern</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Tema</value>
+    <value>Thema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Informazioni Sull'Indice Di Qualità Dell'Aria (AQI)</value>
+    <value>Über Luftqualitätsindex (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Informazioni sul punto di rugiada</value>
+    <value>Über Taupunkt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Informazioni Sull'Umidità Relativa</value>
+    <value>Über relative Luftfeuchtigkeit</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Informazioni Sulla Pressione</value>
+    <value>Über Druck</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Informazioni sull'indice UV</value>
+    <value>Über UV-Index</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Informazioni sulla Velocità del Vento e Raffiche</value>
+    <value>Über Windgeschwindigkeit und Windböen</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Aggiungi una posizione per iniziare.</value>
+    <value>Füge einen Ort hinzu, um loszulegen.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Qualità dell'aria</value>
+    <value>Luftqualität</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Collaboratori</value>
+    <value>Mitwirkende</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Scarica</value>
+    <value>Herunterladen</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Download Richiesto</value>
+    <value>Download erforderlich</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Recupero dati, attendere.</value>
+    <value>Daten werden abgerufen, bitte warten.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>Generale</value>
+    <value>Allgemein</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Ciao</value>
+    <value>Hallo</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Umidità</value>
+    <value>Luftfeuchtigkeit</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Prestazioni</value>
+    <value>Leistung</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Pressione</value>
+    <value>Druck</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Sole</value>
+    <value>Sonne</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Alba</value>
+    <value>Sonnenaufgang</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Tramonto</value>
+    <value>Sonnenuntergang</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>Indice UV</value>
+    <value>UV-Index</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Attenzione</value>
+    <value>Warnung</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Meteo</value>
+    <value>Wetter</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Vento</value>
+    <value>Wind</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Buono</value>
+    <value>Gut</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>Alto</value>
+    <value>Hoch</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Molto Alto</value>
+    <value>Sehr Hoch</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Fonte dati meteo</value>
+    <value>Wetterdatenquelle</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Fornitore</value>
+    <value>Anbieter</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Combinato</value>
+    <value>Hybrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>Imperiale</value>
+    <value>Imperialistisch</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Metrico</value>
+    <value>Metrisch</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Mostra misure in</value>
+    <value>Maße anzeigen in</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Unità di misura</value>
+    <value>Maßeinheiten</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Pagina web ufficiale</value>
+    <value>Offizielle Website</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Sito web</value>
+    <value>Website</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Benvenuto nella mia app meteo! Ti prego di notare che questa app è ancora in beta e alcune funzionalità potrebbero non funzionare come previsto. Sto lavorando duramente per migliorare l'app e renderla migliore. Grazie per la tua comprensione e pazienza.</value>
+    <value>Willkommen bei meiner Wetter-App! Bitte beachte, dass diese App noch in der Beta-Phase ist und einige Funktionen möglicherweise nicht wie erwartet funktionieren. Ich arbeite daran, die App zu verbessern. Vielen Dank für dein Verständnis und deine Geduld.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Cielo Sereno</value>
+    <value>Wolkenlos</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Per lo più sereno</value>
+    <value>Überwiegend klar</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Parzialmente nuvoloso</value>
+    <value>Teilweise bewölkt</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Coperto</value>
+    <value>Bewölkt</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Nebbioso</value>
+    <value>Nebel</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Brina</value>
+    <value>Raureif Nebel Ablagerungen</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Pioviggine Leggera</value>
+    <value>Leichter Nieselregen</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Pioviggine Moderata</value>
+    <value>Moderater Nieselregen</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Pioviggine Intensa</value>
+    <value>Dichter Nieselregen</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Pioviggine Sopraffusa Leggera</value>
+    <value>Leichter gefrierender Nieselregen</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Pioviggine Sopraffusa Densa</value>
+    <value>Dichter gefrierender Nieselregen</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Pioggia Leggera</value>
+    <value>Leichter Regen</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Pioggia Moderata</value>
+    <value>Mäßiger Regen</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Pioggia Intensa</value>
+    <value>Starker Regen</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Leggera Pioggia Ghiacciata</value>
+    <value>Leichter gefrierender Regen</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Densa Pioggia Ghiacciata</value>
+    <value>Schwerer gefrierender Regen</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Nevicata Leggera</value>
+    <value>Leichter Schneefall</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Nevicata Moderata</value>
+    <value>Mäßiger Schneefall</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Nevicata Pesante</value>
+    <value>Schwerer Schneefall</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Nevischio</value>
+    <value>Schneekörner</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Rovescio</value>
+    <value>Leichte Regenschauer</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Rovescio Moderato</value>
+    <value>Mäßige Regenschauer</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Rovescio Violento</value>
+    <value>Heftige Regenschauer</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Leggera Nevicata</value>
+    <value>Leichte Schneeschauer</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Pesante Nevicata</value>
+    <value>Heftige Schneeschauer</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Temporale</value>
+    <value>Gewitter</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Temporale con Grandine Leggera</value>
+    <value>Gewitter mit leichtem Hagel</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Temporale con Grandine Pesante</value>
+    <value>Gewitter mit starkem Hagel</value>
   </data>
 </root>

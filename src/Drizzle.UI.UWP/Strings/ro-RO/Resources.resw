@@ -157,10 +157,10 @@
     <value>Notificare software terță parte</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Adjust background brightness</value>
+    <value>Reglaţi luminozitatea fundalului</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Luminozitate</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Răsfoire</value>
@@ -472,7 +472,7 @@
     <value>Furnizor</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Hibrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Imperial</value>
