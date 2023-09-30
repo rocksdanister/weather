@@ -51,7 +51,7 @@
                     </StackPanel>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="BackgroundBrightnessSettings" IsEnabled="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime}">
+                <labs:SettingsCard x:Uid="BackgroundBrightnessSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE706;" />
                     </labs:SettingsCard.HeaderIcon>
@@ -77,7 +77,7 @@
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
 
-                <labs:SettingsCard x:Uid="QualitySettings" IsEnabled="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime}">
+                <labs:SettingsCard x:Uid="QualitySettings" IsEnabled="{x:Bind viewModel.ShellVm.IsHardwareAccelerated, Mode=OneTime}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE91B;" />
                     </labs:SettingsCard.HeaderIcon>
@@ -102,7 +102,7 @@
                 <muxc:InfoBar
                     IsClosable="False"
                     IsIconVisible="False"
-                    IsOpen="{x:Bind viewModel.IsHardwareAccelerated, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
+                    IsOpen="{x:Bind viewModel.ShellVm.IsHardwareAccelerated, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
                     Severity="Error">
                     <TextBlock
                         x:Uid="DescPerformanceIssue"

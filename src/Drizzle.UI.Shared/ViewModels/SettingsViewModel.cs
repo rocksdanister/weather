@@ -20,18 +20,16 @@ namespace Drizzle.UI.UWP.ViewModels
         public SettingsViewModel(IUserSettings userSettings, ShellViewModel shellVm)
         {
             this.userSettings = userSettings;
+            this.ShellVm = shellVm;
 
             Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
             BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
             SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
             SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
-
-            IsHardwareAccelerated = shellVm.IsHardwareAccelerated;
         }
 
-        [ObservableProperty]
-        private bool isHardwareAccelerated = true;
+        public ShellViewModel ShellVm { get; }
 
         private bool _customBackground;
         public bool Custombackground
