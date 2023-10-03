@@ -118,465 +118,465 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Xin chào, tôi là Dani John còn được biết đến với cái tên rocksdanister. Tôi tạo phần mềm cho vui như cái này. Cảm ơn vì đã dành thời gian xem qua tác phẩm của tôi.</value>
+    <value>Hei, jeg er Dani John også kjent som rocksdanister. Jeg lager morsom programvare. som dette Takk for at dutar deg tid til å se på arbeidet mitt.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Tốt</value>
+    <value>God</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Vừa phải</value>
+    <value>Moderat</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Không tốt cho nhóm người nhạy cảm</value>
+    <value>Helseutfordring for sensitive personer</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Không tốt cho sức khỏe</value>
+    <value>Helsemessig utfordrende</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Cực kỳ không tốt</value>
+    <value>Veldig risikabelt</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Nguy hiểm</value>
+    <value>Livsfarlig</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Luôn ẩn menu khi không sử dụng</value>
+    <value>Skjul alltid menyen når inaktiv</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Giới thiệu</value>
+    <value>Om</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>Trợ giúp</value>
+    <value>Hjelp</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>Cài đặt</value>
+    <value>Innstillinger</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Tìm một địa điểm</value>
+    <value>Søk etter sted</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Ghi nhận phần mềm bên thứ ba</value>
+    <value>3. parts programvare merknad</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Chỉnh độ sáng nền</value>
+    <value>Juster bakgrunnsklarhet</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Độ sáng</value>
+    <value>Klarhet</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Duyệt</value>
+    <value>Se over</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>Hình nền</value>
+    <value>Bakgrunn</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Kiểm tra phiên bản mới</value>
+    <value>Se etter oppdateringer</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Ngày/Đêm</value>
+    <value>Dag/natt</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Số vòng</value>
+    <value>Gjentagelser</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Tỷ lệ</value>
+    <value>Skala</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Gợi ý chức năng mới hoặc báo lỗi</value>
+    <value>Foreslå en aktivitet, eller raqpporter feil</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Liên hệ</value>
+    <value>Kontakt</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Bao gồm những hình ảnh do người dùng chọn vào hiệu ứng thời tiết</value>
+    <value>Inkluder brukervalgte bilder i vær effektene</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Hình nền tự chọn</value>
+    <value>Egendefinert bakgrunn</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Chiều ngang</value>
+    <value>Vannrett</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Chiều dọc</value>
+    <value>Loddrett</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>Chỉ số chất lượng không khí được thiết kế để cung cấp thông tin về ảnh hưởng đến sức khỏe của 5 chất gây ô nhiễm không khí phổ biến nhất. Đây là thang đo có phạm vi từ 0 đến 500, với số càng lớn ám chỉ ô nhiễm không khí càng nặng và càng ảnh hưởng đến sức khỏe hơn.</value>
+    <value>AQI er utformet for å gi informasjon om helsevirkningene av de fem vanligste luftforurensningene. Det er et omfang som varierer fra 0 til 500, med høyere verdier som indikerer mer alvorlig luftforurensning og større helsefare.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>Nhiệt độ điểm sương là thước đo tuyệt đối về lượng hơi nước trong không khí. Khi nhiệt độ điểm sương bằng với nhiệt độ không khí, độ ẩm tương đối là 100%. Tại điểm này, không khí đã bão hòa hoàn toàn với hơi nước, dẫn đến sự ngưng tụ hình thành giọt sương, sương mù, hoặc mây.</value>
+    <value>Duggpunktstemperatur er et absolutt mål for mengden vanndamp i luften. Når duggpunkttemperaturen og lufttemperaturen er lik, er den relative fuktigheten 100 %. På dette tidspunktet er luften fullstendig mettet med vanndamp, som fører til kondensering i form av dugg, tåke eller skyer.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>Độ ẩm tương đối là thước đo lượng hơi nước hiện tại có trong không khí so với lượng hơi nước tối đa mà không khí có thể giữ ở trong nhiệt độ đó. Nó được biểu thị bằng số phần trăm và cung cấp thông tin về mức độ độ bão hòa của không khí.</value>
+    <value>Relativ fuktighet er et mål på mengden vanndamp som finnes i luften sammenlignet med største mengden luften kan holde ved den temperaturen. Den uttrykkes i prosent og gir informasjon om hvor nær luften er metning.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Khí áp kế, hay còn gọi là áp suất khí quyển, là thước đo áp suất không khí trong một khu vực nhất định.</value>
+    <value>Barometrisk trykk, også kjent som atmosfærisk trykk, er måling av lufttrykk i et gitt område.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>Chỉ số UV (UVI) của Tổ chức Y tế Thế giới đo cường độ bức xạ cực tím gây cháy nắng. Nó là một thang đó tuyến tính có phạm vi từ 0 đến 11+, với số càng lớn ám chỉ nguy cơ tiếp xúc với tia UV cao hơn và tăng khả năng cháy nắng và hư da mà cuối cùng có thể dẫn đến ung thư da.</value>
+    <value>Verdens helseorganisasjons UV-indeks (UVI) måler styrken av solbrenthetsproduserende ultrafiolett stråling. Det er en lineær skala som varierer fra 0 til 11+, høyere verdier som indikerer større risiko for eksponering for UV-stråler og økt mulighet for solbrenthet og hudskader som til slutt kan føre til hudkreft.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Tốc độ gió là vận tốc gió di chuyển theo chiều ngang qua một điểm nhất định. Nó là một lượng khí quyển cốt lõi do không khí chuyển động từ nơi có áp suất cao đến nơi có áp suất thấp, thường là do sự thay đổi nhiệt độ. Gió giật là do tốc độ gió tăng đột ngột vượt mức tốc độ trung bình. Thường nó chỉ kéo dài ít hơn 20 giây.</value>
+    <value>Vindhastighet er den hastigheten luften beveger seg med horisontalt forbi et gitt punkt. Den er en grunnleggende atmosfærisk mengde som forårsakes av at luft beveger seg fra høyt til lavt trykk, vanligvis på grunn av temperaturendringer. Vindkaster en plutselig økning i vindhastighet over gjennomsnittshastigheten for vind. Den varer vanligvis i mindre enn 20 sekunder.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Ước lượng chiều sâu..</value>
+    <value>Tilnærmet dybde..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Bộ xử lý đồ họa hệ thống (GPU) không hỗ trợ các chức năng DX12 cần thiết, nên vài chức năng sẽ bị vô hiệu hóa.</value>
+    <value>Systemgrafikkprosessoren (GPU) støtter ikke de nødvendige DX12-funksjonene, så enkelte funksjoner er deaktivert.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>Các tệp bổ sung cần được tải xuống cho tính năng này</value>
+    <value>Ytterligere filer må lastes ned for denne funksjonen</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Nhiệt độ cảm nhận</value>
+    <value>Føles som</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>Biên độ</value>
+    <value>Amplitude</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Độ dốc màu</value>
+    <value>Farge gradering</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Tốc độ khung hình chuyển động</value>
+    <value>Animasjonens bildefrekvens</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
-    <value>FPS</value>
+    <value>Bildefrekvens</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>Lỗi</value>
+    <value>Feil</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Đóng góp vào chương trình này bằng cách dịch nó sang các ngôn ngữ khác.</value>
+    <value>Bidra til dette programmet ved å oversette det til andre språk.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Tham gia dịch</value>
+    <value>Hjelp med å oversette</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>Ứng dụng cần được khởi động lại khi chọn ngôn ngữ khác</value>
+    <value>Programmet må startes på nytt når du velger et annet språk</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Ngôn ngữ</value>
+    <value>Språk</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Tham gia dịch!</value>
+    <value>Hjelp til med oversettelse!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Giống với Windows</value>
+    <value>Samme som Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Tìm hiểu thêm</value>
+    <value>Finn ut mer</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Các địa điểm đã ghim</value>
+    <value>Festede steder</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Mở nhật ký</value>
+    <value>Åpne logg</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Chính sách thu thập dữ liệu</value>
+    <value>Retningslinjer for datainnsamling</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Linh hoạt</value>
+    <value>Dynamisk</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Hiệu suất</value>
+    <value>Ytelse</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Củ khoai</value>
+    <value>Potet</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Chất lượng</value>
+    <value>Kvalitet</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Cài đặt chất lượng kết xuất hình ảnh</value>
+    <value>Forhåndsstillt visuell kvalitet</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Chất lượng</value>
+    <value>Kvalitet</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Độ lớn</value>
+    <value>Intensitet</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Tia chớp</value>
+    <value>Lyn</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>Tiêu chuẩn</value>
+    <value>Normal</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Lia ảnh</value>
+    <value>Panorering</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Thu phóng</value>
+    <value>Forstørr</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Cập nhật lần cuối</value>
+    <value>Sist oppdatert</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Tải lại</value>
+    <value>Oppdater</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Cài đặt ban đầu</value>
+    <value>Gjenopprett standard</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Màn hình chờ</value>
+    <value>Skjermsparer</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Làm mờ</value>
+    <value>Uklarhet</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Đóng băng</value>
+    <value>Frysende</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Xử lý hậu cảnh</value>
+    <value>Etterbehandling</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Tốc độ</value>
+    <value>Hastighet</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Chiều sâu</value>
+    <value>Dybde</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Số lớp</value>
+    <value>Lag</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Chiều ngang</value>
+    <value>Bredde</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Bản quyền phần mềm</value>
+    <value>Programvarelisens</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Thể hiện sự yêu thích bằng cách tặng một sao</value>
+    <value>Vis litt kjærlighet ved å sende en stjerne</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Mã nguồn</value>
+    <value>Kildekode</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Giới thiệu</value>
+    <value>Om</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Hủy</value>
+    <value>Avbryt</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Tiếp tục</value>
+    <value>Fortsett</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Ước lượng độ sâu AI</value>
+    <value>AI dybdeantagelse</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Trợ giúp</value>
+    <value>Hjelp</value>
   </data>
   <data name="StringOk" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Cài đặt</value>
+    <value>Innstillinger</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Hệ thống</value>
+    <value>Auto</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Tối</value>
+    <value>Mørk</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Sáng</value>
+    <value>Lys</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Thay đổi màu ứng dụng</value>
+    <value>Endre programfarge</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Giao diện</value>
+    <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Về Chỉ Số Chất Lượng Không Khí (AQI)</value>
+    <value>Om luftkvalitetsindeks (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Về Điểm Sương</value>
+    <value>Om Duggpunkt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Về Độ Ẩm Tương Đối</value>
+    <value>Om relativ fuktighet</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Về Áp Suất</value>
+    <value>Om Trykk</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Về Chỉ Số UV</value>
+    <value>Om UV-indeksen</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Về Tốc Độ Gió và Gió Giật</value>
+    <value>Om vindhastighet og -endringer</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Thêm một địa điểm để bắt đầu.</value>
+    <value>Legg til en plassering for å komme i gang.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Chất lượng không khí</value>
+    <value>Luftkvalitet</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Người đóng góp</value>
+    <value>Bidragsytere</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Tải về</value>
+    <value>Last ned</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Cần tải xuống</value>
+    <value>Nedlastning påkrevd</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Đang tìm dữ liệu, vui lòng chờ.</value>
+    <value>Henter data, vennligst vent.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>Chung</value>
+    <value>Generelt</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Xin chào</value>
+    <value>Hallo</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Độ ẩm</value>
+    <value>Fuktighet</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Hiệu suất</value>
+    <value>Ytelse</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Áp suất</value>
+    <value>Trykk</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Mặt trời</value>
+    <value>Sol</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Mọc</value>
+    <value>Soloppgang</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Lặn</value>
+    <value>Solnedgang</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>Chỉ số UV</value>
+    <value>UV-indeks</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Cảnh báo</value>
+    <value>Advarsel</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Thời tiết</value>
+    <value>Vær</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Gió</value>
+    <value>Vind</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Tốt</value>
+    <value>Godt</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>Cao</value>
+    <value>Høy</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Rất cao</value>
+    <value>Veldig Høy</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Nguồn dữ liệu thời tiết</value>
+    <value>Værdatakilde</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Bên cung cấp</value>
+    <value>Leverandør</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>Đơn vị Anh</value>
+    <value>Imperial</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Đơn vị mét</value>
+    <value>Metrisk</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Hiện các chỉ số bằng</value>
+    <value>Vis målinger i</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Đơn vị</value>
+    <value>Enhet</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Trang web chính thức</value>
+    <value>Offisiell nettside</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Trang web</value>
+    <value>Nettside</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Chào mừng đến với ứng dụng thời tiết của tôi! Vui lòng chú ý rằng ứng dụng này vẫn còn trong giai đoạn thử nghiệm và vài tính năng có thể không hoạt động như mong đợi. Tôi đang làm việc hết sức để cải thiện ứng dụng cho tốt hơn. Cảm ơn cho sự thấu hiểu và lòng kiên nhẫn của bạn.</value>
+    <value>Velkommen til min vær-app! Vær oppmerksom på at denne appen fortsatt er i beta, og at noen funksjoner ikke virker som forventet. Jeg jobber hardt for å forbedre appen og gjøre den bedre. Takk for din forståelse og tålmodighet.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Trởi quang đãng</value>
+    <value>Skyfritt</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Nắng nhẹ</value>
+    <value>Hovedsakelig klar</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Mây rải rác</value>
+    <value>Delvis Skyet</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Trời âm u</value>
+    <value>Overskyet</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Có sương mù</value>
+    <value>Tåke</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Có sương muối</value>
+    <value>Kondensskapende tåke</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Mưa phùn thưa thớt</value>
+    <value>Lett yr</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Có mưa phùn</value>
+    <value>Moderat yr</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Mưa phùn dầy đặc</value>
+    <value>Tett yr</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Mưa phùn băng giá thưa thớt</value>
+    <value>Lett underkjølt yr</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Mưa phùn băng giá dầy đặc</value>
+    <value>Tett underkjølt Duskregn</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Mưa nhỏ</value>
+    <value>Litt regn</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Có mưa</value>
+    <value>Moderat Nedbør</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Mưa lớn</value>
+    <value>Kraftig regn</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Mưa băng giá nhỏ</value>
+    <value>Lett underkjølt regn</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Mưa băng giá lớn</value>
+    <value>Kraftig underkjølt regn</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Tuyết rơi nhẹ nhàng</value>
+    <value>Lett snøfall</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Tuyết rơi</value>
+    <value>Moderat snøfall</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Tuyết rơi nặng hạt</value>
+    <value>Tett snøfall</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Có hạt tuyết</value>
+    <value>Snøkorn</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Mưa rào nhẹ</value>
+    <value>Lette regnbyger</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Có mưa rào</value>
+    <value>Moderate regnbyger</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Mưa rào dữ dội</value>
+    <value>Voldsomme regnbyger</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Mưa tuyết nhẹ</value>
+    <value>Lette snøbyger</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Mưa tuyết lớn</value>
+    <value>Kraftige snøbyger</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Mưa giông</value>
+    <value>Tordenvær</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Có giông với mưa đá nhỏ</value>
+    <value>Tordenvær med lett hagl</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Có giông với mưa đá lớn</value>
+    <value>Tordenvær med mye hagl</value>
   </data>
 </root>
