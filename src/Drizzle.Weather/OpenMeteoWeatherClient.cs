@@ -12,6 +12,7 @@ using Drizzle.Common.Services;
 using System.IO;
 using Microsoft.Extensions.Logging;
 using Drizzle.Models.Weather.OpenMeteo;
+using Drizzle.Weather.Helpers;
 
 namespace Drizzle.Weather;
 
@@ -69,7 +70,8 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 HourlyOptionsParameter.dewpoint_2m,
                 HourlyOptionsParameter.pressure_msl,
                 HourlyOptionsParameter.windspeed_10m,
-                HourlyOptionsParameter.winddirection_10m
+                HourlyOptionsParameter.winddirection_10m,
+                HourlyOptionsParameter.apparent_temperature,
             },
         };
         var response = await GetWeatherForecastAsync(options);
@@ -82,10 +84,12 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastWeatherUnits(WeatherUnits.metric),
         };
         var dailyWeather = new List<DailyWeather>();
-        var dailyVisibility = GetMidrangeDaily(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x));
-        var dailyHumidity = GetMidrangeDaily(response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x));
-        var dailyDewPoint = GetMidrangeDaily(response.Hourly.Dewpoint_2m.Select(x => x is null ? 0 : (float)x));
-        var dailyPressure = GetMidrangeDaily(response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x));
+        var dailyVisibility = CalculateDailyValue(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyHumidity = CalculateDailyValue(response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyDewPoint = CalculateDailyValue(response.Hourly.Dewpoint_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyPressure = CalculateDailyValue(response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyTemperature = CalculateDailyValue(response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyApparentTemperature = CalculateDailyValue(response.Hourly.Apparent_temperature.Select(x => x is null ? 0 : (float)x), response.Timezone);
         for (int i = 0; i < 7; i++)
         {
             var weather = new DailyWeather
@@ -100,8 +104,8 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 ApparentTemperatureMax = response.Daily.Apparent_temperature_max[i],
                 WindSpeed = response.Daily.Windspeed_10m_max[i],
                 GustSpeed = response.Daily.Windgusts_10m_max[i],
-                Temperature = Midrange(response.Daily.Temperature_2m_min[i], response.Daily.Temperature_2m_max[i]),
-                ApparentTemperature = Midrange(response.Daily.Apparent_temperature_min[i], response.Daily.Apparent_temperature_max[i]),
+                Temperature = dailyTemperature[i],
+                ApparentTemperature = dailyApparentTemperature[i],
                 Visibility = dailyVisibility[i]/1000f, //meter -> km
                 Humidity = (int)dailyHumidity[i],
                 DewPoint = dailyDewPoint[i],
@@ -147,8 +151,8 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
         };
         var dailyAirQuality = new List<DailyAirQuality>();
-        var dailyAQI = GetMidrangeDaily(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), 5);
-        var dailyUV = GetMidrangeDaily(response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x), 5);
+        var dailyAQI = CalculateDailyValue(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
+        var dailyUV = CalculateDailyValue(response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
         for (int i = 0; i < 5; i++)
         {
             var airQuality = new DailyAirQuality
@@ -465,40 +469,53 @@ public class OpenMeteoWeatherClient : IWeatherClient
 
     #region helpers
 
-    private static IReadOnlyList<float> GetMidrangeDaily(IEnumerable<float> values, int days = 7)
+    private static IReadOnlyList<float> CalculateDailyValue(IEnumerable<float> values, string timezone, int days = 7)
     {
         var result = new List<float>();
+        var currentHour = WeatherUtil.GetLocalTime(DateTime.Now, timezone)?.Hour ?? DateTime.Now.Hour;
         for (int i = 0; i < days; i++)
         {
             // 0 - 23, 24 - 47, 48 - 72..
             var items = values.Skip(i * 24).Take(24);
-            var midrange = Midrange(items);
-            result.Add(midrange);
+            result.Add(items.ElementAt(currentHour));
         }
         return result;
     }
 
-    private static IReadOnlyList<float> GetAverageDaily(IEnumerable<float> values, int days = 7)
-    {
-        var result = new List<float>();
-        for (int i = 0; i < days; i++)
-        {
-            // 0 - 23, 24 - 47, 48 - 72..
-            var items = values.Skip(i * 24).Take(24);
-            if (items is not null)
-            {
-                var average = Average(items);
-                result.Add(average);
-            }
-        }
-        return result;
-    }
+    //private static IReadOnlyList<float> GetMidrangeDaily(IEnumerable<float> values, int days = 7)
+    //{
+    //    var result = new List<float>();
+    //    for (int i = 0; i < days; i++)
+    //    {
+    //        // 0 - 23, 24 - 47, 48 - 72..
+    //        var items = values.Skip(i * 24).Take(24);
+    //        var midrange = Midrange(items);
+    //        result.Add(midrange);
+    //    }
+    //    return result;
+    //}
 
-    private static float Midrange(float min, float max) => (min + max) / 2f;
+    //private static IReadOnlyList<float> GetAverageDaily(IEnumerable<float> values, int days = 7)
+    //{
+    //    var result = new List<float>();
+    //    for (int i = 0; i < days; i++)
+    //    {
+    //        // 0 - 23, 24 - 47, 48 - 72..
+    //        var items = values.Skip(i * 24).Take(24);
+    //        if (items is not null)
+    //        {
+    //            var average = Average(items);
+    //            result.Add(average);
+    //        }
+    //    }
+    //    return result;
+    //}
 
-    private static float Midrange(IEnumerable<float> values) => (values.Min() + values.Max()) / 2f;
+    //private static float Midrange(float min, float max) => (min + max) / 2f;
 
-    private static float Average(IEnumerable<float> values) => values.Sum() / values.Count();
+    //private static float Midrange(IEnumerable<float> values) => (values.Min() + values.Max()) / 2f;
+
+    //private static float Average(IEnumerable<float> values) => values.Sum() / values.Count();
 
     private static DateTime ISO8601ToDateTime(string iso8601String) =>
         DateTime.Parse(iso8601String, CultureInfo.InvariantCulture);
