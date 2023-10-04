@@ -91,5 +91,8 @@ namespace Drizzle.Models
 
         [ObservableProperty]
         private string pressureUnit;
+
+        public float CurrentHourlyTemp => HourlyTemp[DateTime.Now.Hour];
+        public float CurrentFeelsLikeTemp => CurrentHourlyTemp + (FeelsLike-Temperature);
     }
 }

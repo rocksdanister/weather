@@ -147,7 +147,7 @@
                     HorizontalAlignment="Center"
                     FontSize="34"
                     HorizontalTextAlignment="Center">
-                    <Run Text="{x:Bind shellVm.SelectedWeather.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                    <Run Text="{x:Bind shellVm.SelectedWeather.CurrentHourlyTemp, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
                     <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
                 </TextBlock>
                 <StackPanel HorizontalAlignment="Center" Spacing="2">
@@ -160,7 +160,7 @@
                         Opacity="0.4"
                         Style="{StaticResource BodyTextBlockStyle}">
                         <Run x:Uid="FeelsLikeTemperature" />
-                        <Run Text="{x:Bind shellVm.SelectedWeather.FeelsLike, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                        <Run Text="{x:Bind shellVm.SelectedWeather.CurrentFeelsLikeTemp, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
                         <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
                     </TextBlock>
                 </StackPanel>
