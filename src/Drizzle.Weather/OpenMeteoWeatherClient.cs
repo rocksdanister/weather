@@ -72,6 +72,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 HourlyOptionsParameter.windspeed_10m,
                 HourlyOptionsParameter.winddirection_10m,
                 HourlyOptionsParameter.apparent_temperature,
+                HourlyOptionsParameter.weathercode,
             },
         };
         var response = await GetWeatherForecastAsync(options);
@@ -84,17 +85,19 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastWeatherUnits(WeatherUnits.metric),
         };
         var dailyWeather = new List<DailyWeather>();
-        var dailyVisibility = CalculateDailyValue(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyHumidity = CalculateDailyValue(response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyDewPoint = CalculateDailyValue(response.Hourly.Dewpoint_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyPressure = CalculateDailyValue(response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyTemperature = CalculateDailyValue(response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyApparentTemperature = CalculateDailyValue(response.Hourly.Apparent_temperature.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyVisibility = GetDailyValue(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyHumidity = GetDailyValue(response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyDewPoint = GetDailyValue(response.Hourly.Dewpoint_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyPressure = GetDailyValue(response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyTemperature = GetDailyValue(response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyApparentTemperature = GetDailyValue(response.Hourly.Apparent_temperature.Select(x => x is null ? 0 : (float)x), response.Timezone);
+        var dailyWeatherCode = GetDailyValue(response.Hourly.Weathercode.Select(x => x is null ? 0 : (float)x), response.Timezone);
         for (int i = 0; i < 7; i++)
         {
             var weather = new DailyWeather
             {
-                WeatherCode = (int)response.Daily.Weathercode[i],
+                // Hourly weather for today, otherwise severe weather for the day
+                WeatherCode = i == 0 ? (int)dailyWeatherCode[i] : (int)response.Daily.Weathercode[i],
                 Date = ISO8601ToDateTime(response.Daily.Time[i]),
                 Sunrise = ISO8601ToDateTime(response.Daily.Sunrise[i]),
                 Sunset = ISO8601ToDateTime(response.Daily.Sunset[i]),
@@ -151,8 +154,8 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
         };
         var dailyAirQuality = new List<DailyAirQuality>();
-        var dailyAQI = CalculateDailyValue(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
-        var dailyUV = CalculateDailyValue(response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
+        var dailyAQI = GetDailyValue(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
+        var dailyUV = GetDailyValue(response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
         for (int i = 0; i < 5; i++)
         {
             var airQuality = new DailyAirQuality
@@ -469,7 +472,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
 
     #region helpers
 
-    private static IReadOnlyList<float> CalculateDailyValue(IEnumerable<float> values, string timezone, int days = 7)
+    private static IReadOnlyList<float> GetDailyValue(IEnumerable<float> values, string timezone, int days = 7)
     {
         var result = new List<float>();
         var currentHour = WeatherUtil.GetLocalTime(DateTime.Now, timezone)?.Hour ?? DateTime.Now.Hour;
