@@ -23,6 +23,9 @@ namespace Drizzle.Models
         private float temperature;
 
         [ObservableProperty]
+        private int[] hourlyWeatherCode;
+
+        [ObservableProperty]
         private float[] hourlyTemp;
 
         [ObservableProperty]

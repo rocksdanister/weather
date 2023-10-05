@@ -114,6 +114,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 DewPoint = dailyDewPoint[i],
                 Pressure = dailyPressure[i],
                 WindDirection = response.Daily.Winddirection_10m_dominant[i],
+                HourlyWeatherCode = response.Hourly.Weathercode.Select(x => x is null ? 0 : (int)x).Skip(i * 24).Take(24).ToArray(),
                 HourlyTemperature = response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
                 HourlyVisibility = response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x/1000).Skip(i * 24).Take(24).ToArray(),
                 HourlyHumidity = response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),

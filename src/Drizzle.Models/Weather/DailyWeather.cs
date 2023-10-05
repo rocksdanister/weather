@@ -38,6 +38,8 @@ public class DailyWeather
 
     public DateTime Sunset { get; set; }
 
+    public int[] HourlyWeatherCode { get; set; }
+
     public float[] HourlyTemperature { get; set; }
 
     public float[] HourlyVisibility { get; set; }
