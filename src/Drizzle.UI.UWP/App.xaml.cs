@@ -98,6 +98,12 @@ namespace Drizzle.UI.UWP
                 else if (region.CodeTwoLetter == "GB")
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.hybrid);
             }
+            else if (SystemInformation.Instance.IsAppUpdated)
+            {
+                logger.LogInformation("App updated, performing maintenance..");
+                // Clear cache incase any changes made to the impl
+                Services.GetRequiredService<ICacheService>().Clear();
+            }
 
             // For this application dark/light theme does not make sense
             // Interface design will be done assuming current theme is dark
