@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Ciao, sono John anche chiamato Rocksdanister. Creo software divertenti come questo. Grazie di aver usato un po' del tuo tempo per vedere i miei lavori.</value>
+    <value>Ciao, sono John anche chiamato rocksdanister. Creo software divertenti come questo. Grazie di aver usato un po' del tuo tempo per vedere i miei lavori.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Buona</value>
@@ -199,7 +199,7 @@
     <value>Verticale</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>L' AQI è progettato per fornire informazioni sugli effetti sulla salute dei cinque inquinanti atmosferici più comuni. Si tratta di una scala che va da 0 a 500, con valori più elevati che indicano un inquinamento atmosferico più grave e maggiori rischi per la salute.</value>
+    <value>L'Indice di Qualità dell'Aria è progettato per fornire informazioni sugli effetti sulla salute dei cinque inquinanti atmosferici più comuni. Si tratta di una scala che va da 0 a 500, con valori più elevati che indicano un inquinamento atmosferico più grave e maggiori rischi per la salute.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La temperatura del punto di rugiada è una misura assoluta della quantità di vapore acqueo nell'aria. Quando la temperatura del punto di rugiada e la temperatura dell'aria sono uguali, l'umidità relativa è 100%. A questo punto, l'aria è completamente satura di vapore acqueo, portando a condensazione sotto forma di rugiada, nebbia, o nuvole.</value>
@@ -385,22 +385,22 @@
     <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Informazioni Sull'Indice Di Qualità Dell'Aria (AQI)</value>
+    <value>Informazioni sull'Indice di Qualità dell'Aria (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Informazioni sul punto di rugiada</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Informazioni Sull'Umidità Relativa</value>
+    <value>Informazioni sull'umidità relativa</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Informazioni Sulla Pressione</value>
+    <value>Informazioni sulla pressione</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Informazioni sull'indice UV</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Informazioni sulla Velocità del Vento e Raffiche</value>
+    <value>Informazioni sulla velocità del vento e raffiche</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Aggiungi una posizione per iniziare.</value>
@@ -418,7 +418,7 @@
     <value>Download Richiesto</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Recupero dati, attendere.</value>
+    <value>Recupero dati, attendi.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
     <value>Generale</value>

@@ -472,7 +472,7 @@
     <value>Bên cung cấp</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Cả hai</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Đơn vị Anh</value>

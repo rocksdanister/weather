@@ -124,7 +124,7 @@
     <value>Gut</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Mäßig</value>
+    <value>Moderat</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
     <value>Ungesund für sensible Gruppen</value>
@@ -139,7 +139,7 @@
     <value>Gefährlich</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Menü immer im Leerlauf ausblenden</value>
+    <value>Menü im Leerlauf immer ausblenden</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>Über die App</value>
@@ -151,7 +151,7 @@
     <value>Einstellungen</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Nach Ort suchen</value>
+    <value>Nach einem Ort suchen</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
     <value>Software von Drittanbietern</value>
@@ -205,16 +205,16 @@
     <value>Die Taupunkttemperatur ist ein absolutes Maß für die Menge an Wasserdampf in der Luft. Wenn die Taupunkttemperatur und die Lufttemperatur gleich sind, beträgt die relative Luftfeuchtigkeit 100%. An diesem Punkt ist die Luft vollständig mit Wasserdampf gesättigt, was zu Kondensation in Form von Tau, Nebel oder Wolken führt.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>Die relative Luftfeuchtigkeit ist ein Maß für die Menge an Wasserdampf in der Luft, verglichen mit der maximalen Menge, die die Luft bei dieser Temperatur halten könnte. Er wird als Prozentsatz ausgedrückt und gibt Auskunft darüber, wie nahe die Luft der Sättigung ist.</value>
+    <value>Die relative Luftfeuchtigkeit ist ein Maß für die Menge an Wasserdampf in der Luft, verglichen mit der maximalen Menge, die die Luft bei dieser Temperatur aufnehmen kann. Sie wird als Prozentsatz ausgedrückt und gibt Auskunft darüber, wie nahe die Luft der Sättigung ist.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Barometrischer Druck, auch bekannt als atmosphärischer Druck, ist die Messung des Luftdrucks in einem bestimmten Bereich.</value>
+    <value>Barometrischer Druck, auch bekannt als atmosphärischer Druck, ist das Maß des Luftdrucks in einem bestimmten Bereich.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>Der UV-Index der Weltgesundheitsorganisation (UVI) misst die Stärke der sonnenverbrennenden UV-Strahlung. Es ist eine lineare Skala zwischen 0 und 11+, mit höheren Werten für ein höheres Risiko des Aussetzens gegenüber UV-Strahlen und erhöhten Wahrscheinlichkeit von Sonnenbränden und Hautschäden, die letztlich zu Hautkrebs führen könnten.</value>
+    <value>Der UV-Index der Weltgesundheitsorganisation (UVI) misst die Stärke der Sonnenbrand erzeugenden UV-Strahlung. Es ist eine lineare Skala zwischen 0 und 11+, wobei höhere Werte für ein höheres Risiko beim Aussetzen von UV-Strahlen und eine erhöhte Wahrscheinlichkeit von Sonnenbränden und Hautschäden stehen, was letztendlich zu Hautkrebs führen kann.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Die Windgeschwindigkeit ist die Geschwindigkeit, mit der sich die Luft horizontal nach einem bestimmten Punkt bewegt. Es ist eine grundlegende atmosphärische Menge, die durch Luftbewegungen von hohem zu niedrigem Druck verursacht wird, in der Regel durch Temperaturschwankungen. Windböen sind ein plötzlicher Anstieg der Windgeschwindigkeit über die durchschnittliche Windgeschwindigkeit. Sie dauern in der Regel weniger als 20 Sekunden.</value>
+    <value>Die Windgeschwindigkeit ist die Geschwindigkeit, mit der sich die Luft horizontal an einem bestimmten Punkt vorbeibewegt. Sie ist eine grundlegende atmosphärische Größe, die durch Luftbewegungen von hohem zu niedrigem Druck verursacht wird, in der Regel durch Temperaturschwankungen. Windböen sind plötzliche Anstiege der Windgeschwindigkeit über die durchschnittliche Windgeschwindigkeit. Sie dauern in der Regel weniger als 20 Sekunden.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>Tiefe wird abgeschätzt..</value>
@@ -226,7 +226,7 @@
     <value>Für diese Funktion müssen zusätzliche Dateien heruntergeladen werden</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Gefühlte</value>
+    <value>Gefühlt</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
     <value>Amplitude</value>
@@ -259,7 +259,7 @@
     <value>Hilf beim Übersetzen!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Gleiches wie Windows</value>
+    <value>Wie Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Mehr erfahren</value>
@@ -286,7 +286,7 @@
     <value>Qualität</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Voreinstellung für Visuelle Renderqualität</value>
+    <value>Voreinstellung für visuelle Renderqualität</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
     <value>Qualität</value>
@@ -319,13 +319,13 @@
     <value>Bildschirmschoner</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Blur</value>
+    <value>Unschärfe</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
     <value>Einfrieren</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Post Processing</value>
+    <value>Nachbearbeitung</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Geschwindigkeit</value>
@@ -343,7 +343,7 @@
     <value>Softwarelizenz</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Zeige etwas Liebe durch das Verteilen eines Sterns</value>
+    <value>Zeige etwas Liebe und lasse einen Stern da</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
     <value>Quellcode</value>
@@ -370,7 +370,7 @@
     <value>Einstellungen</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Auto</value>
+    <value>Automatisch</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
     <value>Dunkel</value>
@@ -382,25 +382,25 @@
     <value>Farbe der Anwendung ändern</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Thema</value>
+    <value>Erscheinungsbild</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Über Luftqualitätsindex (AQI)</value>
+    <value>Über den Luftqualitätsindex (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Über Taupunkt</value>
+    <value>Über den Taupunkt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Über relative Luftfeuchtigkeit</value>
+    <value>Über die relative Luftfeuchtigkeit</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Über Druck</value>
+    <value>Über den Luftdruck</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Über UV-Index</value>
+    <value>Über den UV-Index</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Über Windgeschwindigkeit und Windböen</value>
+    <value>Über die Windgeschwindigkeit und Windböen</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Füge einen Ort hinzu, um loszulegen.</value>
@@ -433,7 +433,7 @@
     <value>Leistung</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Druck</value>
+    <value>Luftdruck</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sonne</value>
@@ -475,7 +475,7 @@
     <value>Hybrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>Imperialistisch</value>
+    <value>Imperial</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
     <value>Metrisch</value>
@@ -511,7 +511,7 @@
     <value>Nebel</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Raureif Nebel Ablagerungen</value>
+    <value>Nebel mit Raureif-Ablagerungen</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Leichter Nieselregen</value>
@@ -523,7 +523,7 @@
     <value>Dichter Nieselregen</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Leichter gefrierender Nieselregen</value>
+    <value>Leichter Schnee-Nieselregen</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>Dichter gefrierender Nieselregen</value>
@@ -532,7 +532,7 @@
     <value>Leichter Regen</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Mäßiger Regen</value>
+    <value>Milder Regen</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
     <value>Starker Regen</value>
@@ -541,16 +541,16 @@
     <value>Leichter gefrierender Regen</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Schwerer gefrierender Regen</value>
+    <value>Starker Schneeregen</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
     <value>Leichter Schneefall</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Mäßiger Schneefall</value>
+    <value>Milder Schneefall</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Schwerer Schneefall</value>
+    <value>Starker Schneefall</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
     <value>Schneekörner</value>
@@ -559,7 +559,7 @@
     <value>Leichte Regenschauer</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Mäßige Regenschauer</value>
+    <value>Milde Regenschauer</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
     <value>Heftige Regenschauer</value>
@@ -568,7 +568,7 @@
     <value>Leichte Schneeschauer</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Heftige Schneeschauer</value>
+    <value>Starke Schneeschauer</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
     <value>Gewitter</value>

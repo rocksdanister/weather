@@ -118,465 +118,465 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>我是Dani John，也叫 rocksdanister 。我喜欢开发有趣的产品，感谢使用我的产品。</value>
+    <value>Здравейте, аз съм Дани Джон, известен също като rocksdanister. Създавам забавен софтуер като този. Благодаря ви, че отделихте време да разгледате работата ми.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>优良</value>
+    <value>Добро</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>适中</value>
+    <value>Средно</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>对敏感人群有害</value>
+    <value>Нездравословно за чувствителни групи</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>有害</value>
+    <value>Нездравословно</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>非常有害</value>
+    <value>Много нездравословно</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>危险</value>
+    <value>Опасно</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>空闲状态下隐藏菜单</value>
+    <value>Винаги скривай менюто, когато не е активно</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>关于</value>
+    <value>Относно</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>帮助</value>
+    <value>Помощ</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>设置</value>
+    <value>Настройки</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>搜索地点</value>
+    <value>Търси локация</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>第三方软件声明</value>
+    <value>Уведомление за софтуер от трети страни</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>调节背景亮度</value>
+    <value>Регулиране на яркостта на фона</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>Яркост</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>浏览</value>
+    <value>Отвори</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>背景</value>
+    <value>Фон</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>检查更新</value>
+    <value>Провери за нова версия</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>日间/夜间</value>
+    <value>Ден/Нощ</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>迭代次数</value>
+    <value>Повторение</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>刻度</value>
+    <value>Мащаб</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>建议一个功能或报告一个错误</value>
+    <value>Предложете функция или докладвайте грешка</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>联系我们</value>
+    <value>За връзка</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>在天气效果中包含用户选中的图像</value>
+    <value>Включване на избрани от потребителя изображения в метеорологичните ефекти</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>自定义背景</value>
+    <value>Персонализиран фон</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>水平</value>
+    <value>Хоризонтално</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>垂直</value>
+    <value>Вертикално</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI 旨在提供有关五种最常见空气污染物对健康影响的信息。 该数值范围为 0 到 500，数值越高表示空气污染越严重，健康风险也越大。</value>
+    <value>Индексът AQI е предназначен да предоставя информация за въздействието върху здравето на петте най-често срещани замърсители на въздуха. Това е скала, която варира от 0 до 500, като по-високите стойности означават по-силно замърсяване на въздуха и по-големи рискове за здравето.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。</value>
+    <value>Температурата на точката на оросяване е абсолютна мярка за количеството водни пари във въздуха. Когато температурата на точката на оросяване и температурата на въздуха са равни, относителната влажност е 100%. В този момент въздухът е напълно наситен с водни пари, което води до кондензация под формата на роса, мъгла или облаци.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>相对湿度是空气中存在的水蒸气量与该温度下空气所能容纳的最大水蒸气量相比的量度。 它以百分比表示，提供有关空气接近饱和程度的信息。</value>
+    <value>Относителната влажност е мярка за количеството водни пари във въздуха в сравнение с максималното количество, което въздухът може да побере при тази температура. Тя се изразява в проценти и дава информация за това колко близо е въздухът до насищане.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>气压，也称为大气压力，是给定区域内气压的测量值。</value>
+    <value>Барометричното налягане, известно също като атмосферно налягане, е мярка за налягането на въздуха в дадена област.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>世界卫生组织的紫外线指数 (UVI) 衡量的是导致晒伤的紫外线辐射的强度。 它是一个范围从 0 到 11+ 的线性标度，值越高表示暴露于紫外线的风险越大，晒伤和皮肤损伤的机会也越大，最终可能导致皮肤癌。</value>
+    <value>Ултравиолетовият индекс (UVI) на Световната здравна организация измерва силата на ултравиолетовата радиация, която предизвиква слънчево изгаряне. Той представлява линейна скала, която варира от 0 до 11+, като по-високите стойности показват по-голям риск от излагане на ултравиолетови лъчи и повишена вероятност от слънчево изгаряне и увреждане на кожата, което в крайна сметка може да доведе до рак на кожата.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>风速是空气水平移动经过给定点的速率。 它是由空气从高压移动到低压而引起的基本大气量，通常是由于温度的变化。 阵风是指风速突然增加到高于平均风速。 它通常持续不到 20 秒。</value>
+    <value>Скоростта на вятъра е скоростта, с която въздухът се движи хоризонтално покрай дадена точка. Това е основна атмосферна величина, която се дължи на движението на въздуха от високо към ниско налягане, обикновено поради промени в температурата. Поривите на вятъра са внезапно увеличение на скоростта на вятъра над средната скорост на вятъра. Обикновено трае по-малко от 20 секунди.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>近似景深</value>
+    <value>Приблизителна дълбочина..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>系统图形处理器 (GPU) 不支持所需的 DX12 功能，因此某些功能被禁用。</value>
+    <value>Графичният процесор (GPU) на системата не поддържа необходимите функции на DX12, поради което някои функции са деактивирани.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>需要为此功能下载附加文件</value>
+    <value>За тази функция трябва да се изтеглят допълнителни файлове</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>体感温度</value>
+    <value>Усеща се като</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>幅度</value>
+    <value>Амплитуда</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>色彩渐变</value>
+    <value>Цвят на градиента</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>动画帧率</value>
+    <value>Скорост на анимацията</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
-    <value>帧率</value>
+    <value>Честота на кадрите</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>错误</value>
+    <value>Грешка</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>将其翻译成其他语言，对本应用作出贡献。</value>
+    <value>Допринесете за тази програма, като я преведете на други езици.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>Помогнете с превода</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>选择另一种语言时需要重启应用程序</value>
+    <value>При избиране на друг език приложението трябва да се рестартира</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>语言</value>
+    <value>Език</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>Помогнете с превода!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>系统语言</value>
+    <value>Също като при Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>了解更多</value>
+    <value>Научете повече</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>已保存位置</value>
+    <value>Закачени локации</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>打开日志</value>
+    <value>Отвори лога</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>数据收集政策</value>
+    <value>Политика за събиране на данни</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>动态</value>
+    <value>Динамична</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>性能</value>
+    <value>Производителност</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>土豆</value>
+    <value>Картоф</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>质量</value>
+    <value>Качество</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>视觉渲染质量预设</value>
+    <value>Предварително зададено качество на визуализиране</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>质量</value>
+    <value>Качество</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>Наситеност</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>闪电</value>
+    <value>Светкавици</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>法线</value>
+    <value>Обичайно</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>平移</value>
+    <value>Панорамиране</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>缩放</value>
+    <value>Мащабиране</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>最后更新于</value>
+    <value>Последно обновено</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>刷新</value>
+    <value>Опресни</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>预设</value>
+    <value>Възстанови първоначалните настройки</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>屏保</value>
+    <value>Скрийнсейвър</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>模糊</value>
+    <value>Замъгли</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>霜冻</value>
+    <value>Замръзване</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>后处理特效</value>
+    <value>Обработка</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>速度</value>
+    <value>Скорост</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>深度</value>
+    <value>Дълбочина</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>层数</value>
+    <value>Слоеве</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>宽度</value>
+    <value>Ширина</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>软件许可</value>
+    <value>Софтуерен лиценз</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>请星标该项目以表喜爱</value>
+    <value>Покажете любовта си, като поставите звезда</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>源码</value>
+    <value>Изходен код</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>关于</value>
+    <value>Относно</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>取消</value>
+    <value>Отказ</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>继续</value>
+    <value>Продължи</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI 景深近似</value>
+    <value>Приближаване на дълбочината с AI</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>帮助</value>
+    <value>Помощ</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>确定</value>
+    <value>Добре</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>设置</value>
+    <value>Настройки</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>自动</value>
+    <value>Автом</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>深色</value>
+    <value>Тъмна</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>浅色</value>
+    <value>Светла</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>更改程序外观颜色</value>
+    <value>Промяна на цвета на приложението</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>主题</value>
+    <value>Облик</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>关于空气质量指数 (AQI)</value>
+    <value>Относно индекса за качество на въздуха (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>关于露点</value>
+    <value>За точката на оросяване</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>关于相对湿度</value>
+    <value>За относителната влажност</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>关于气压</value>
+    <value>За налягането</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>关于紫外线指数</value>
+    <value>За UV индекса</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>关于风速和阵风</value>
+    <value>За скоростта и поривите на вятъра</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>添加一个位置以开始。</value>
+    <value>Добавете местоположение, за да започнете.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>空气质量</value>
+    <value>Качество на въздуха</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>贡献者</value>
+    <value>Приносители</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>下载</value>
+    <value>Изтегли</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>需要下载</value>
+    <value>Изисква се изтегляне</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>正在获取数据，请稍候。</value>
+    <value>Извличане на данни, моля изчакайте.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>常规设置</value>
+    <value>Общи</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>您好</value>
+    <value>Здравейте</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>空气湿度</value>
+    <value>Влажност</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>性能</value>
+    <value>Производителност</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>气压</value>
+    <value>Налягане</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>日出和日落时间</value>
+    <value>Слънце</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>日出</value>
+    <value>Изгрев</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>日落</value>
+    <value>Залез</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>紫外线指数</value>
+    <value>UV индекс</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>警告</value>
+    <value>Внимание</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>天气</value>
+    <value>Време</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>风速</value>
+    <value>Вятър</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>良好</value>
+    <value>Добър</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>高</value>
+    <value>Висок</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>非常高</value>
+    <value>Много висок</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>天气数据源</value>
+    <value>Източник на метеорологични данни</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>提供者</value>
+    <value>Доставчик</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>混合</value>
+    <value>Хибрид</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>英制</value>
+    <value>Британски</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>公制</value>
+    <value>Метрични</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>显示测量单位</value>
+    <value>Покажете измерванията в</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>单位</value>
+    <value>Единица</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>官方网站</value>
+    <value>Официална страница</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>网站</value>
+    <value>Сайт</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>欢迎使用我开发的天气应用！请注意这个应用仍然处于测试阶段，一些功能可能无法正常工作。 我正在努力改进应用，使其变得更好。感谢您的理解和耐心。</value>
+    <value>Добре дошли в моето приложение за времето! Моля, имайте предвид, че това приложение все още е в бета версия и някои функции може да не работят според очакванията. Работя усилено, за да подобря приложението и да го направя по-добро. Благодаря ви за разбирането и търпението.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>晴天</value>
+    <value>Ясно небе</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>大部晴朗</value>
+    <value>Предимно ясно</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>晴间多云</value>
+    <value>Частична облачност</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>阴天</value>
+    <value>Променлива облачност</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>雾</value>
+    <value>Мъгла</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>沉积雾凇</value>
+    <value>Започващ скреж</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>毛毛细雨</value>
+    <value>Лека мъгла</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>中度细雨</value>
+    <value>Умерена мъгла</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>浓密细雨</value>
+    <value>Гъста мъгла</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>微冻细雨</value>
+    <value>Лек хладен дъжд</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>密冻细雨</value>
+    <value>Гъст дъжд</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>微微小雨</value>
+    <value>Слаб дъжд</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>中度降雨</value>
+    <value>Умерен дъжд</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>倾盆大雨</value>
+    <value>Силен дъжд</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>轻微冻雨</value>
+    <value>Лек хладен дъжд</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>重度冻雨</value>
+    <value>Силен хладен дъжд</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>轻微降雪</value>
+    <value>Слаб снеговалеж</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>中度降雪</value>
+    <value>Умерен снеговалеж</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>重度降雪</value>
+    <value>Силен снеговалеж</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>雪花飘落</value>
+    <value>Едър снеговалеж</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>微微阵雨</value>
+    <value>Лек дъжд</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>中度阵雨</value>
+    <value>Умерен дъжд</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>强烈阵雨</value>
+    <value>Силни дъждове</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>小阵雪</value>
+    <value>Леки превалявания от сняг</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>强阵雪</value>
+    <value>Силни превалявания от сняг</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>雷暴</value>
+    <value>Гръмотевична буря</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>雷暴 伴有小冰雹</value>
+    <value>Гръмотевична буря с лека градушка</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>雷暴 伴有大冰雹</value>
+    <value>Гръмотевична буря със силна градушка</value>
   </data>
 </root>

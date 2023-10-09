@@ -385,6 +385,13 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <PRIResource Include="Strings\tr-TR\Resources.resw" />
+    <PRIResource Include="Strings\uk-UA\Resources.resw" />
+    <PRIResource Include="Strings\pl-PL\Resources.resw" />
+    <PRIResource Include="Strings\fa-IR\Resources.resw" />
+    <PRIResource Include="Strings\el-GR\Resources.resw" />
+    <PRIResource Include="Strings\fi-FI\Resources.resw" />
+    <PRIResource Include="Strings\bg-BG\Resources.resw" />
     <PRIResource Include="Strings\no-NO\Resources.resw" />
     <PRIResource Include="Strings\pt-BR\Resources.resw" />
     <PRIResource Include="Strings\de-DE\Resources.resw" />

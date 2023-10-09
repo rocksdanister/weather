@@ -118,465 +118,465 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>我是Dani John，也叫 rocksdanister 。我喜欢开发有趣的产品，感谢使用我的产品。</value>
+    <value>Cześć, jestem Dani John znany również jako rocksdanister. Tworzę takie zabawne oprogramowanie. Dziękujemy za poświęcenie czasu mojej pracy.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>优良</value>
+    <value>Dobra</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>适中</value>
+    <value>Umiarkowany</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>对敏感人群有害</value>
+    <value>Niezdrowy dla grup szczególnego ryzyka</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>有害</value>
+    <value>Groźne dla zdrowia</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>非常有害</value>
+    <value>Bardzo niezdrowe warunki</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>危险</value>
+    <value>Szkodliwy</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>空闲状态下隐藏菜单</value>
+    <value>Zawsze ukrywaj menu podczas bezczynności</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>关于</value>
+    <value>O aplikacji</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>帮助</value>
+    <value>Pomoc</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>设置</value>
+    <value>Ustawienia</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>搜索地点</value>
+    <value>Wyszukaj miejscowość...</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>第三方软件声明</value>
+    <value>Uwaga dotycząca oprogramowania stron trzecich</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>调节背景亮度</value>
+    <value>Dostosuj jasność tła</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>Jasność</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>浏览</value>
+    <value>Przeglądaj</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>背景</value>
+    <value>Tło</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>检查更新</value>
+    <value>Sprawdź czy są dostępna jest aktualizacja</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>日间/夜间</value>
+    <value>Dzień / Noc</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>迭代次数</value>
+    <value>Iteracje</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>刻度</value>
+    <value>Skalowanie</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>建议一个功能或报告一个错误</value>
+    <value>Zasugeruj funkcję lub zgłoś błąd</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>联系我们</value>
+    <value>Kontakt</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>在天气效果中包含用户选中的图像</value>
+    <value>Dołącz wybrane przez użytkownika obrazy w efektach pogodowych</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>自定义背景</value>
+    <value>Własne tło</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>水平</value>
+    <value>Poziomo</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>垂直</value>
+    <value>Pionowo</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI 旨在提供有关五种最常见空气污染物对健康影响的信息。 该数值范围为 0 到 500，数值越高表示空气污染越严重，健康风险也越大。</value>
+    <value>Celem AQI jest dostarczanie informacji na temat skutków zdrowotnych pięciu najpowszechniejszych zanieczyszczeń powietrza. Jest to skala mieszcząca się w zakresie od 0 do 500, przy czym wyższe wartości wskazują na poważniejsze zanieczyszczenie powietrza i większe zagrożenia dla zdrowia.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。</value>
+    <value>Temperatura punktu rosy jest bezwzględną miarą ilości pary wodnej w powietrzu. Jeżeli temperatura punktu rosy i temperatura powietrza są równe, wilgotność względna wynosi 100 %. W tym momencie powietrze jest całkowicie nasycone odparowaniem wody, co prowadzi do kondensacji w postaci dech, mgły lub chmur.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>相对湿度是空气中存在的水蒸气量与该温度下空气所能容纳的最大水蒸气量相比的量度。 它以百分比表示，提供有关空气接近饱和程度的信息。</value>
+    <value>Wilgotność względna jest miarą ilości pary wodnej znajdującej się w powietrzu w porównaniu do maksymalnej ilości, jaką powietrze może utrzymać w tej temperaturze. Jest wyrażony jako procent i dostarcza informacji na temat tego, jak blisko powietrza jest nasycone.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>气压，也称为大气压力，是给定区域内气压的测量值。</value>
+    <value>Ciśnienie barometryczne, znane również jako ciśnienie atmosferyczne, jest miarą ciśnienia powietrza na danym obszarze.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>世界卫生组织的紫外线指数 (UVI) 衡量的是导致晒伤的紫外线辐射的强度。 它是一个范围从 0 到 11+ 的线性标度，值越高表示暴露于紫外线的风险越大，晒伤和皮肤损伤的机会也越大，最终可能导致皮肤癌。</value>
+    <value>Wskaźnik UV Światowej Organizacji Zdrowia (UVI) mierzy wytrzymałość promieniowania ultrafioletowego wytwarzającego oparzenie słoneczne. Jest to skala liniowa wahająca się od 0 do 11+, z wyższymi wartościami wskazującymi na większe ryzyko narażenia na promieniowanie UV i zwiększone ryzyko oparzeń słonecznych i uszkodzeń skóry, które mogą ostatecznie prowadzić do raka skóry.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>风速是空气水平移动经过给定点的速率。 它是由空气从高压移动到低压而引起的基本大气量，通常是由于温度的变化。 阵风是指风速突然增加到高于平均风速。 它通常持续不到 20 秒。</value>
+    <value>Prędkość wiatru jest szybkością, z jaką powietrze porusza się poziomo po danym punkcie. Jest to podstawowa ilość atmosferyczna spowodowana przechodzeniem powietrza z wysokiego do niskiego ciśnienia, zazwyczaj z powodu zmian temperatury. Gusty to nagły wzrost prędkości wiatru powyżej średniej prędkości wiatru. Zwykle trwa mniej niż 20 sekund.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>近似景深</value>
+    <value>Przybliżona głębokość..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>系统图形处理器 (GPU) 不支持所需的 DX12 功能，因此某些功能被禁用。</value>
+    <value>Systemowy procesor grafiki (GPU) nie obsługuje wymaganych funkcji DX12, więc niektóre funkcje są wyłączone.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>需要为此功能下载附加文件</value>
+    <value>Dodatkowe pliki muszą być pobrane dla tej funkcji</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>体感温度</value>
+    <value>Odczuwalna</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>幅度</value>
+    <value>Amplituda</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>色彩渐变</value>
+    <value>Kolor gradientu</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>动画帧率</value>
+    <value>Animacja klatek</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
-    <value>帧率</value>
+    <value>FPS (kl./s)</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>错误</value>
+    <value>Błąd</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>将其翻译成其他语言，对本应用作出贡献。</value>
+    <value>Przyczyń się do tego programu tłumacząc go na inne języki.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>Pomóż w tłumaczeniu</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>选择另一种语言时需要重启应用程序</value>
+    <value>Aplikacja musi zostać uruchomiona ponownie po wybraniu innego języka</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>语言</value>
+    <value>Język</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>Pomóż w tłumaczeniu</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>系统语言</value>
+    <value>Tak samo jak w Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>了解更多</value>
+    <value>Dowiedz się więcej</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>已保存位置</value>
+    <value>Przypięte lokalizace</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>打开日志</value>
+    <value>Otwórz dziennik zdarzeń</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>数据收集政策</value>
+    <value>Polityka gromadzenia danych</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>动态</value>
+    <value>Dynamiczna</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>性能</value>
+    <value>Wydajność</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>土豆</value>
+    <value>Kartofel</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>质量</value>
+    <value>Jakość</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>视觉渲染质量预设</value>
+    <value>Jakość wyświetlanej animacji</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>质量</value>
+    <value>Jakość</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>Intensywność</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>闪电</value>
+    <value>Pioruny</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>法线</value>
+    <value>Wypukłość</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>平移</value>
+    <value>Przesuwanie</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>缩放</value>
+    <value>Przybliżenie</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>最后更新于</value>
+    <value>Zaktualizowano</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>刷新</value>
+    <value>Odśwież</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>预设</value>
+    <value>Przywróć domyślne</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>屏保</value>
+    <value>Wygaszacz ekranu</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>模糊</value>
+    <value>Rozmycie</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>霜冻</value>
+    <value>Szron</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>后处理特效</value>
+    <value>Efekt końcowy</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>速度</value>
+    <value>Prędkość</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>深度</value>
+    <value>Głębia</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>层数</value>
+    <value>Warstwy</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>宽度</value>
+    <value>Szerokość</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>软件许可</value>
+    <value>Licencja oprogramowania</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>请星标该项目以表喜爱</value>
+    <value>Okaż wsparcie dla projektu, dając gwiazdkę</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>源码</value>
+    <value>Kod źródłowy</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>关于</value>
+    <value>O aplikacji</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>取消</value>
+    <value>Anuluj</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>继续</value>
+    <value>Kontynuuj</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI 景深近似</value>
+    <value>Kalkulacje SI</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>帮助</value>
+    <value>Pomoc</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>确定</value>
+    <value>Potwierdź</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>设置</value>
+    <value>Ustawienia</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>自动</value>
+    <value>Automatyczny</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>深色</value>
+    <value>Ciemny motyw</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>浅色</value>
+    <value>Jasny motyw</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>更改程序外观颜色</value>
+    <value>Zmień kolor aplikacji</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>主题</value>
+    <value>Motyw</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>关于空气质量指数 (AQI)</value>
+    <value>O indeksie jakości powietrza (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>关于露点</value>
+    <value>O punkcie rosy</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>关于相对湿度</value>
+    <value>O wilgotności względnej</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>关于气压</value>
+    <value>O ciśnieniu</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>关于紫外线指数</value>
+    <value>O indeksie UV</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>关于风速和阵风</value>
+    <value>O prędkości i podmuchach wiatru</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>添加一个位置以开始。</value>
+    <value>Dodaj lokalizację, aby rozpocząć.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>空气质量</value>
+    <value>Jakość powietrza</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>贡献者</value>
+    <value>Współtwórcy</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>下载</value>
+    <value>Pobierz</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>需要下载</value>
+    <value>Wymagane pobranie</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>正在获取数据，请稍候。</value>
+    <value>Pobieranie danych, proszę czekać.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>常规设置</value>
+    <value>Ogólne</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>您好</value>
+    <value>Cześć</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>空气湿度</value>
+    <value>Wilgotność powietrza</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>性能</value>
+    <value>Wydajność</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>气压</value>
+    <value>Ciśnienie</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>日出和日落时间</value>
+    <value>Słońce</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>日出</value>
+    <value>Wschód słońca</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>日落</value>
+    <value>Zachód słońca</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>紫外线指数</value>
+    <value>Indeks UV</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>警告</value>
+    <value>Ostrzeżenie</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>天气</value>
+    <value>Pogoda</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>风速</value>
+    <value>Wiatr</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>良好</value>
+    <value>Dobra</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>高</value>
+    <value>Wysoki</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>非常高</value>
+    <value>Bardzo wysoki</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>天气数据源</value>
+    <value>Źródła danych pogodowych</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>提供者</value>
+    <value>Dostawca</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>混合</value>
+    <value>Hybrydowa</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>英制</value>
+    <value>Calowe</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>公制</value>
+    <value>Metryczne</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>显示测量单位</value>
+    <value>Wyświetl pomiary w</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>单位</value>
+    <value>Jednostka </value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>官方网站</value>
+    <value>Oficjalna strona internetowa</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>网站</value>
+    <value>Strona internetowa</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>欢迎使用我开发的天气应用！请注意这个应用仍然处于测试阶段，一些功能可能无法正常工作。 我正在努力改进应用，使其变得更好。感谢您的理解和耐心。</value>
+    <value>Witaj w mojej aplikacji pogodowej! Pamiętaj, że ta aplikacja jest nadal w wersji beta i niektóre funkcje mogą nie działać zgodnie z oczekiwaniami. Ciężko pracuję nad udoskonaleniem aplikacji i ulepszeniem jej. Dziękujemy za zrozumienie i cierpliwość.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>晴天</value>
+    <value>Czyste niebo</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>大部晴朗</value>
+    <value>Częściowe zachmurzenie</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>晴间多云</value>
+    <value>Częściowe zachmurzenie</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>阴天</value>
+    <value>Zachmurzenie</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>雾</value>
+    <value>Mgła</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>沉积雾凇</value>
+    <value>Szadź</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>毛毛细雨</value>
+    <value>Lekka mżawka</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>中度细雨</value>
+    <value>Umiarkowana mgła</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>浓密细雨</value>
+    <value>Gęsta mżawka</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>微冻细雨</value>
+    <value>Lekka marznąca mżawka</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>密冻细雨</value>
+    <value>Gęsta marznąca mżawka</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>微微小雨</value>
+    <value>Lekki deszcz</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>中度降雨</value>
+    <value>Umiarkowany deszcz</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>倾盆大雨</value>
+    <value>Ulewny deszcz</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>轻微冻雨</value>
+    <value>Lekki marznący deszcz</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>重度冻雨</value>
+    <value>Ulewny marznący deszcz</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>轻微降雪</value>
+    <value>Lekkie opady śniegu</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>中度降雪</value>
+    <value>Umiarkowane opady śniegu</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>重度降雪</value>
+    <value>Obfite opady śniegu</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>雪花飘落</value>
+    <value>Ziarnisty śnieg</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>微微阵雨</value>
+    <value>Lekki deszcz</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>中度阵雨</value>
+    <value>Umiarkowany deszcz</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>强烈阵雨</value>
+    <value>Gwałtowny deszcz</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>小阵雪</value>
+    <value>Przelotne opady śniegu</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>强阵雪</value>
+    <value>Silne przelotne opady śniegu</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>雷暴</value>
+    <value>Burza z piorunami</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>雷暴 伴有小冰雹</value>
+    <value>Burza z lekkim gradem</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>雷暴 伴有大冰雹</value>
+    <value>Burza z ciężkim gradem</value>
   </data>
 </root>

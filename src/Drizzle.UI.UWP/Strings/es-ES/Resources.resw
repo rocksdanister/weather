@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Hola, soy Dani John, también conocido como rocksdanister. Hago software divertido como este. Gracias por tomar un tiempo para ver mi trabajo.</value>
+    <value>Hola, soy Dani John también conocido como rocksdanister. Hago programas divertidos como este. Gracias por tomarte el tiempo de ver mi trabajo.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Buena</value>
@@ -127,22 +127,22 @@
     <value>Moderada</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Insalubre para grupos sensibles</value>
+    <value>No saludable para grupos sensibles</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
     <value>Insalubre</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Muy insalubre</value>
+    <value>Muy poco saludable</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Peligrosa</value>
+    <value>Peligroso</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Esconder menú siempre al estar inactivo</value>
+    <value>Ocultar el menú cuando esté inactivo</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Sobre</value>
+    <value>Acerca de</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
     <value>Ayuda</value>
@@ -151,19 +151,19 @@
     <value>Configuración</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Buscar una ubicación</value>
+    <value>Buscar un lugar</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Aviso de software de terceros</value>
+    <value>Licencias de código abierto</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Adjust background brightness</value>
+    <value>Ajustar brillo de fondo</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Brillo</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Examinar este equipo</value>
+    <value>Examinar</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
     <value>Fondo</value>
@@ -181,13 +181,13 @@
     <value>Escala</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Sugerir una función o reportar un bug</value>
+    <value>Sugiere una función o informa de un error</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
     <value>Contacto</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Incluir imágenes seleccionadas en efectos de clima</value>
+    <value>Incluir imágenes seleccionadas en los efectos de clima</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
     <value>Fondo personalizado</value>
@@ -199,10 +199,10 @@
     <value>Vertical</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>El ICA está diseñado para mostrar información sobre los efectos en la salud de los cinco contaminantes de aire más comunes. Es una escala que va de 0 a 500, con valores altos indicando más contaminación y riesgos sanitarios más altos.</value>
+    <value>El índice de calidad del aire (ICA) está diseñado para proporcionar información sobre los efectos para la salud de los cinco contaminantes del aire más comunes. Se trata de una escala que va de 0 a 500, en la que los valores más altos indican una contaminación del aire más grave y mayores riesgos para la salud.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>Temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100%. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
+    <value>La temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100 %. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>La humedad relativa es una medición de la cantidad de vapor de agua presente en el aire comparada a la máxima cantidad que el aire puede contener a esa temperatura. Se expresa como un porcentaje y muestra información sobre la cercanía del aire a la saturación.</value>
@@ -214,13 +214,13 @@
     <value>El Índice UV de la Organización Mundial de la Salud (UVI) mide la fuerza de radiación ultravioleta que quema la piel. Es una escala lineal que va de 0 a 11+, con valores más altos indicando un mayor riesgo de exposición a rayos UV y mayores posibilidades de quemaduras en la piel que podrían producir cancer de piel.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media, y duran menos de 20 segundos.</value>
+    <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media y duran menos de 20 segundos.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>Aproximando profundidad..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>El procesador gráfico del sistema (GPU) no soporta las funciones DX12 necesarias, así que algunas funciones están desactivadas.</value>
+    <value>Tu tarjeta gráfica no soporta las funciones que ofrece Directx 12, así que algunas funciones están desactivadas.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Archivos adicionales necesitan ser descargados para esto</value>
@@ -232,10 +232,10 @@
     <value>Amplitud</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Degradado de Color</value>
+    <value>Degradado de color</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Framerate de animación</value>
+    <value>Cuadros por segundo de la animación</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS</value>
@@ -244,16 +244,16 @@
     <value>Error</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribuye a este programa traduciéndolo a otros idiomas.</value>
+    <value>Contribuye a esta aplicación traduciéndolo a otros idiomas.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Ayudar a Traducir</value>
+    <value>Ayúdanos a Traducir</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>La app necesita reiniciarse al seleccionar otro idioma</value>
+    <value>Es necesario reiniciar la aplicación cuando se selecciona otro idioma.</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Idiomas</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
     <value>¡Ayuda a traducir!</value>
@@ -268,10 +268,10 @@
     <value>Ubicaciones Ancladas</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Logs Abiertos</value>
+    <value>Abrir registros</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Política de datos</value>
+    <value>Política de recopilación de datos</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
     <value>Dinámica</value>
@@ -325,7 +325,7 @@
     <value>Nieve</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Procesamiento</value>
+    <value>Postprocesado</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Velocidad</value>
@@ -385,7 +385,7 @@
     <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Acerca del Índice de Calidad del Aire (AQI)</value>
+    <value>Acerca del Índice de Calidad del Aire (ICA)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Acerca de la Temperatura de Rocío</value>
@@ -415,7 +415,7 @@
     <value>Descargar</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Descarga Necesaria</value>
+    <value>Descarga necesaria</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
     <value>Obteniendo datos, por favor espera.</value>
@@ -472,7 +472,7 @@
     <value>Proveedor</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Híbrido</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Imperial</value>
@@ -493,90 +493,90 @@
     <value>Sitio web</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>¡Bienvenido a mi aplicación del tiempo! Ten en cuenta que esta app está todavía en fase beta y algunas características pueden no funcionar como esperado. Estoy trabajando duro para mejorar la app y hacerla mejor. Gracias por tu comprensión y paciencia.</value>
+    <value>¡Te doy la bienvenida a mi aplicación tiempo! Ten en cuenta que esta aplicación aún está en fase beta y algunas características pueden no funcionar como se esperaba. Estoy trabajando duro para mejorar la app y hacerla mejor. Gracias por tu comprensión y paciencia.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
     <value>Despejado</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Mayormente Despejado</value>
+    <value>Mayormente despejado</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Parcialmente Nublado</value>
+    <value>Parcialmente nublado</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Cielo Cubierto</value>
+    <value>Nublado</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
     <value>Niebla</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Niebla Con Escarcha</value>
+    <value>Niebla Con escarcha</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Llovizna Ligera</value>
+    <value>Llovizna ligera</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Llovizna Moderada</value>
+    <value>Llovizna moderada</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Llovizna Densa</value>
+    <value>Llovizna densa</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Llovizna Gélida Ligera</value>
+    <value>Llovizna gélida ligera</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Llovizna Gélida Densa</value>
+    <value>Llovizna gélida densa</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Lluvia Ligera</value>
+    <value>Lluvia ligera</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Lluvia Moderada</value>
+    <value>Lluvia moderada</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Lluvia Fuerte</value>
+    <value>Lluvia fuerte</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Lluvia Gélida Ligera</value>
+    <value>Lluvia gélida ligera</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Lluvia Gélida Fuerte</value>
+    <value>Lluvia gélida fuerte</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Nieve Ligera</value>
+    <value>Nieve ligera</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Nieve Moderada</value>
+    <value>Nieve moderada</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Nieve Fuerte</value>
+    <value>Nieve fuerte</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Copos de Nieve</value>
+    <value>Copos de nieve</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Rachas de Lluvia Ligera</value>
+    <value>Chubascos ligeros</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Rachas de Lluvia Moderada</value>
+    <value>Chubascos moderada</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Rachas de Lluvia Violenta</value>
+    <value>Chubascos violenta</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Nevadas Ligeras</value>
+    <value>Nevadas ligeras</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Nevadas Fuertes</value>
+    <value>Nevadas fuertes</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Tormenta Eléctrica</value>
+    <value>Tormenta eléctrica</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Tormenta Eléctrica con Lluvia Ligera</value>
+    <value>Tormenta eléctrica con lluvia ligera</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Tormenta Eléctrica con Lluvia Fuerte</value>
+    <value>Tormenta eléctrica con lluvia fuerte</value>
   </data>
 </root>
