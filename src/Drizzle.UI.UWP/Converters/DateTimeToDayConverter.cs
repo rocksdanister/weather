@@ -15,7 +15,7 @@ public class DateTimeToDayConverter : IValueConverter
     {
         try
         {
-            return ((DateTime)value).DayOfWeek.GetDayName();
+            return ((DateTime)value).DayOfWeek.GetDayName((parameter as string ?? string.Empty).Equals("Short"));
         }
         catch
         {

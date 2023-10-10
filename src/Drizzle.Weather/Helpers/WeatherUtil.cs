@@ -107,14 +107,10 @@ public static class WeatherUtil
         return forecast;
     }
 
-    public static string GetDayName(this DayOfWeek value)
+    public static string GetDayName(this DayOfWeek value, bool isAbbreviation = false)
     {
-        return DateTimeFormatInfo.CurrentInfo.GetDayName(value);
-    }
-
-    public static string GetAbbreviatedDayName(this DayOfWeek value)
-    {
-        return DateTimeFormatInfo.CurrentInfo.GetAbbreviatedDayName(value);
+        return isAbbreviation ? 
+            DateTimeFormatInfo.CurrentInfo.GetAbbreviatedDayName(value) : DateTimeFormatInfo.CurrentInfo.GetDayName(value);
     }
 
     public static DateTime? GetLocalTime(DateTime time, string timezone)

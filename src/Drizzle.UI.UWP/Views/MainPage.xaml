@@ -194,12 +194,13 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="35" />
+                                        <ColumnDefinition Width="25" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
-                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
+                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}, ConverterParameter=Short}" />
                                     <muxc:AnimatedVisualPlayer
                                         Grid.Column="1"
                                         Width="35"
@@ -209,10 +210,14 @@
                                     <TextBlock
                                         Grid.Column="2"
                                         VerticalAlignment="Center"
-                                        HorizontalTextAlignment="Center">
-                                        <Run Text="{Binding Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
-                                        <Run Text="{Binding TemperatureUnit, Mode=OneWay}" />
-                                    </TextBlock>
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding TemperatureMax, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}°'}" />
+                                    <TextBlock
+                                        Grid.Column="3"
+                                        VerticalAlignment="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Opacity="0.6"
+                                        Text="{Binding TemperatureMin, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}°'}" />
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>

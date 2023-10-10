@@ -40,6 +40,8 @@ namespace Drizzle.UI.UWP.Factories
                     LocationName = weatherForecast.Name,
                     WeatherCode = weatherForecast.Daily[i].WeatherCode,
                     Temperature = weatherForecast.Daily[i].Temperature,
+                    TemperatureMin = weatherForecast.Daily[i].TemperatureMin,
+                    TemperatureMax = weatherForecast.Daily[i].TemperatureMax,
                     TemperatureUnit = weatherForecast.Units.TemperatureUnit,
                     FeelsLike = weatherForecast.Daily[i].ApparentTemperature,
                     WindSpeed = weatherForecast.Daily[i].WindSpeed,
