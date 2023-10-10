@@ -282,12 +282,14 @@
                                         <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsDepthPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <Slider
                                                 x:Uid="DepthHorizontal"
+                                                IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
                                                 Maximum="2.5"
                                                 Minimum=".01"
                                                 StepFrequency="0.01"
                                                 Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityX, Mode=TwoWay}" />
                                             <Slider
                                                 x:Uid="DepthVertical"
+                                                IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
                                                 Maximum="2.5"
                                                 Minimum=".01"
                                                 StepFrequency="0.01"

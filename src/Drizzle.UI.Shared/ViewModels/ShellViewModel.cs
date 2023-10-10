@@ -66,12 +66,21 @@ namespace Drizzle.UI.UWP.ViewModels
             };
 
             userSettings.SettingSet += async(s, e) => {
-                if (e == UserSettingsConstants.Performance)
-                    UpdateQualitySettings();
-                else if (e == UserSettingsConstants.WeatherUnit)
-                    await UpdateWeather();
-                else if (e == UserSettingsConstants.BackgroundBrightness)
-                    UpdateBrightness();
+                switch (e)
+                {
+                    case UserSettingsConstants.Performance:
+                        UpdateQualitySettings();
+                        break;
+                    case UserSettingsConstants.WeatherUnit:
+                        await UpdateWeather();
+                        break;
+                    case UserSettingsConstants.BackgroundBrightness:
+                        UpdateBrightness();
+                        break;
+                    case UserSettingsConstants.ReducedMotion:
+                        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+                        break;
+                }
             };
 
             navigator.ContentPageChanged += (s, e) => {
@@ -82,6 +91,7 @@ namespace Drizzle.UI.UWP.ViewModels
             IsFirstRun = SystemInformation.Instance.IsFirstRun;
             weatherClient.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
             maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
+            IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
 
             var gpu = GraphicsDevice.GetDefault();
             IsHardwareAccelerated = gpu.IsHardwareAccelerated;
@@ -150,6 +160,9 @@ namespace Drizzle.UI.UWP.ViewModels
         /// </summary>
         [ObservableProperty]
         private bool isFallbackBackground = false;
+
+        [ObservableProperty]
+        private bool isReducedMotion = false;
 
         [ObservableProperty]
         private CloudsModel cloudsProperty = new();

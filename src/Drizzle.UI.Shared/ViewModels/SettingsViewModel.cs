@@ -22,11 +22,13 @@ namespace Drizzle.UI.UWP.ViewModels
             this.userSettings = userSettings;
             this.ShellVm = shellVm;
 
-            Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
+            ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+            BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
             BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
-            SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
-            SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
+            Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
+            SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
+            SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         }
 
         public ShellViewModel ShellVm { get; }
@@ -70,6 +72,19 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
+        private bool _BackgroundPause;
+        public bool BackgroundPause
+        {
+            get => _BackgroundPause;
+            set
+            {
+                if (userSettings.Get<bool>(UserSettingsConstants.BackgroundPause) != value)
+                    userSettings.Set(UserSettingsConstants.BackgroundPause, value);
+
+                SetProperty(ref _BackgroundPause, value);
+            }
+        }
+
         private int _selectedWeatherUnitIndex;
         public int SelectedWeatherUnitIndex
         {
@@ -93,6 +108,19 @@ namespace Drizzle.UI.UWP.ViewModels
                     userSettings.Set(UserSettingsConstants.BackgroundBrightness, value);
 
                 SetProperty(ref _backgroundBrightness, value);
+            }
+        }
+
+        private bool _reducedMotion;
+        public bool ReducedMotion
+        {
+            get => _reducedMotion;
+            set
+            {
+                if (userSettings.Get<bool>(UserSettingsConstants.ReducedMotion) != value)
+                    userSettings.Set(UserSettingsConstants.ReducedMotion, value);
+
+                SetProperty(ref _reducedMotion, value);
             }
         }
 

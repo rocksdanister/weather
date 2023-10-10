@@ -51,18 +51,6 @@
                     </StackPanel>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="BackgroundBrightnessSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE706;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <Slider
-                        MinWidth="200"
-                        Maximum="1"
-                        Minimum="0.5"
-                        StepFrequency="0.05"
-                        Value="{x:Bind viewModel.BackgroundBrightness, Mode=TwoWay}" />
-                </labs:SettingsCard>
-
                 <labs:SettingsCard
                     x:Uid="OpenLogs"
                     Command="{x:Bind viewModel.OpenLogsCommand}"
@@ -87,6 +75,16 @@
                         <ComboBoxItem x:Uid="QualityQuality" />
                         <ComboBoxItem x:Uid="QualityDynamic" />
                     </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="PauseIfBackgroundSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE769;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <CheckBox
+                        MinWidth="0"
+                        Padding="0"
+                        IsChecked="{x:Bind viewModel.BackgroundPause, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
                 <labs:SettingsCard x:Uid="FrameRateSettings" Visibility="Collapsed">
@@ -143,6 +141,33 @@
                         <FontIcon Glyph="&#xE8B9;" />
                     </labs:SettingsCard.HeaderIcon>
                     <ToggleSwitch IsOn="{x:Bind viewModel.Custombackground, Mode=TwoWay}" />
+                </labs:SettingsCard>
+
+                <TextBlock
+                    x:Uid="TitleAccessibility"
+                    Margin="1,0,0,5"
+                    Style="{StaticResource BodyStrongTextBlockStyle}" />
+
+                <labs:SettingsCard x:Uid="BackgroundBrightnessSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE706;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <Slider
+                        MinWidth="200"
+                        Maximum="1"
+                        Minimum="0.5"
+                        StepFrequency="0.05"
+                        Value="{x:Bind viewModel.BackgroundBrightness, Mode=TwoWay}" />
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="ReduceMotionSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE776;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <CheckBox
+                        MinWidth="0"
+                        Padding="0"
+                        IsChecked="{x:Bind viewModel.ReducedMotion, Mode=TwoWay}" />
                 </labs:SettingsCard>
             </StackPanel>
         </ScrollViewer>

@@ -48,6 +48,7 @@ namespace Drizzle.UI.UWP.Views
         private readonly ShellViewModel shellVm;
         private readonly INavigator navigator;
         private readonly ILogger<ShellPage> logger;
+        private readonly IUserSettings userSettings;
 
         // Timer 
         private readonly DispatcherTimer dispatcherTimer = new();
@@ -63,6 +64,7 @@ namespace Drizzle.UI.UWP.Views
             this.shellVm = App.Services.GetRequiredService<ShellViewModel>();
             this.navigator = App.Services.GetRequiredService<INavigator>();
             this.logger = App.Services.GetRequiredService<ILogger<ShellPage>>();
+            this.userSettings = App.Services.GetRequiredService<IUserSettings>();
             this.DataContext = shellVm;
 
             if (App.IsTenFoot)
@@ -126,23 +128,32 @@ namespace Drizzle.UI.UWP.Views
         // Animation playback
         private void CoreWindow_Activated(CoreWindow sender, WindowActivatedEventArgs args)
         {
+            // Titlebar
+            if (args.WindowActivationState == CoreWindowActivationState.Deactivated)
+                AppTitleTextBlock.Foreground = new SolidColorBrush(Colors.Gray);
+            else
+                AppTitleTextBlock.Foreground = new SolidColorBrush(this.ActualTheme == ElementTheme.Dark ? Colors.White : Colors.Black);
+
             switch (args.WindowActivationState)
             {
                 case CoreWindowActivationState.Deactivated:
                     {
-                        shellVm.DepthProperty.Saturation = 
-                            shellVm.SnowProperty.Saturation = 
-                            shellVm.RainProperty.Saturation  = 
-                            shellVm.FogProperty.Saturation = 
-                            shellVm.CloudsProperty.Saturation = 0.1f;
+                        if (userSettings.Get<bool>(UserSettingsConstants.BackgroundPause))
+                        {
+                            shellVm.DepthProperty.Saturation =
+                                shellVm.SnowProperty.Saturation =
+                                shellVm.RainProperty.Saturation =
+                                shellVm.FogProperty.Saturation =
+                                shellVm.CloudsProperty.Saturation = 0.1f;
 
-                        shellVm.SnowProperty.TimeMultiplier =
-                            shellVm.CloudsProperty.TimeMultiplier =
-                            shellVm.FogProperty.TimeMultiplier =
-                            shellVm.RainProperty.TimeMultiplier = 0.1f;
+                            shellVm.SnowProperty.TimeMultiplier =
+                                shellVm.CloudsProperty.TimeMultiplier =
+                                shellVm.FogProperty.TimeMultiplier =
+                                shellVm.RainProperty.TimeMultiplier = 0.1f;
 
-                        isWindowDeactivated = true;
-                        deactivatedStopwatch.Start();
+                            isWindowDeactivated = true;
+                            deactivatedStopwatch.Start();
+                        }
                     }
                     break;
                 case CoreWindowActivationState.CodeActivated:
@@ -165,19 +176,13 @@ namespace Drizzle.UI.UWP.Views
                     }
                     break;
             }
-
-            // Titlebar
-            if (args.WindowActivationState == CoreWindowActivationState.Deactivated)
-                AppTitleTextBlock.Foreground = new SolidColorBrush(Colors.Gray);
-            else
-                AppTitleTextBlock.Foreground = new SolidColorBrush(this.ActualTheme == ElementTheme.Dark ? Colors.White : Colors.Black);
         }
 
         // Window movement
         private void MainPage_WindowPositionChanged(CoreWindow sender, object args)
         {
-            // Skip when clicking
-            if (sender.ActivationMode == CoreWindowActivationMode.Deactivated)
+            // Skip when clicking or user preference
+            if (sender.ActivationMode == CoreWindowActivationMode.Deactivated || userSettings.Get<bool>(UserSettingsConstants.ReducedMotion))
                 return;
 
             //ref: https://stackoverflow.com/questions/31936154/get-screen-resolution-in-win10-uwp-app
@@ -227,8 +232,13 @@ namespace Drizzle.UI.UWP.Views
                 shellVm.CloudsProperty.Mouse = mouse;
                 shellVm.SnowProperty.Mouse = mouse;
             }
-            shellVm.DepthProperty.Mouse = mouse;
-            shellVm.FogProperty.Mouse = mouse;
+
+            // User preference
+            if (!shellVm.IsReducedMotion)
+            {
+                shellVm.DepthProperty.Mouse = mouse;
+                shellVm.FogProperty.Mouse = mouse;
+            }
         }
 
         private void Grid_PointerPressed(object sender, PointerRoutedEventArgs e)

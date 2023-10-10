@@ -23,10 +23,10 @@ public partial class WindModel : BaseModel
 
     // Depth parallax
     [ObservableProperty]
-    private float parallaxIntensityX = 0.75f;
+    private float parallaxIntensityX = 0.5f;
 
     [ObservableProperty]
-    private float parallaxIntensityY = 1f;
+    private float parallaxIntensityY = 0.5f;
 
     public float MaxSpeed { get; } = 10f;
 

@@ -29,6 +29,10 @@ public static class UserSettingsConstants
 
     public const string BackgroundBrightness = "BackgroundBrightness";
 
+    public const string ReducedMotion = "ReducedMotion";
+
+    public const string BackgroundPause = "BackgroundPause";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -42,5 +46,7 @@ public static class UserSettingsConstants
         { MaxPinnedLocations, 3 },
         { CacheWeather, true },
         { BackgroundBrightness, 1f },
+        { ReducedMotion, false },
+        { BackgroundPause, true }
     };
 }

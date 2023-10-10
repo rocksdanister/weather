@@ -11,10 +11,10 @@ public partial class DepthModel : BaseModel
 {
     // Binding not working for Float2
     [ObservableProperty]
-    private float intensityX = 0.75f;
+    private float intensityX = 0.5f;
 
     [ObservableProperty]
-    private float intensityY = 1f;
+    private float intensityY = 0.5f;
 
     [ObservableProperty]
     private bool isBlur = false;
