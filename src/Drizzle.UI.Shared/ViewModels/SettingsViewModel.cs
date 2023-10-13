@@ -72,16 +72,16 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
-        private bool _BackgroundPause;
+        private bool _backgroundPause;
         public bool BackgroundPause
         {
-            get => _BackgroundPause;
+            get => _backgroundPause;
             set
             {
                 if (userSettings.Get<bool>(UserSettingsConstants.BackgroundPause) != value)
                     userSettings.Set(UserSettingsConstants.BackgroundPause, value);
 
-                SetProperty(ref _BackgroundPause, value);
+                SetProperty(ref _backgroundPause, value);
             }
         }
 
