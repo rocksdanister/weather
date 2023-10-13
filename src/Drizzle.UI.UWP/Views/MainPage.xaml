@@ -250,12 +250,15 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:DailyGraph
-                            Width="540"
-                            Height="300"
-                            Step="2"
-                            ValueFormat="{}{0:F0}°"
-                            Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
+                        <Grid>
+                            <customControls:DailyGraph
+                                Width="540"
+                                Height="300"
+                                Step="2"
+                                ValueFormat="{}{0:F0}°"
+                                Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
+                            <customControls:HourlyWeatherVisuals Step="2" WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
+                        </Grid>
                     </Button>
                 </Border>
             </StackPanel>

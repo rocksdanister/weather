@@ -194,6 +194,9 @@
     <Compile Include="UserControls\DailyGraph.xaml.cs">
       <DependentUpon>DailyGraph.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HourlyWeatherVisuals.xaml.cs">
+      <DependentUpon>HourlyWeatherVisuals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HumidityCard.xaml.cs">
       <DependentUpon>HumidityCard.xaml</DependentUpon>
     </Compile>
@@ -418,6 +421,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\DailyGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HourlyWeatherVisuals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

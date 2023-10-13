@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="Drizzle.UI.UWP.UserControls.HourlyWeatherVisuals"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Drizzle.UI.UWP.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <GridView
+            Margin="-2.5,0,0,20"
+            Padding="0"
+            VerticalAlignment="Bottom"
+            ItemsSource="{x:Bind WeatherCodes, Mode=OneWay}"
+            SelectionMode="None">
+            <GridView.Resources>
+                <Thickness x:Key="GridViewItemRevealBorderThemeThickness">0</Thickness>
+            </GridView.Resources>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <muxc:AnimatedVisualPlayer
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        Source="{Binding Path='', Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="0.5,0,0,0" />
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
+    </Grid>
+</UserControl>

@@ -145,12 +145,12 @@ namespace Drizzle.UI.UWP.UserControls
             int segments = Value.Count();
             var min = Value.Min();
             var max = Value.Max();
-            var normalizedData = Value.Select(x => ConvertToRange(min, max, 0.2f, 0.5f, x)).ToArray();
+            var normalizedData = Value.Select(x => ConvertToRange(min, max, 0.25f, 0.55f, x)).ToArray();
 
             using var cpb = new CanvasPathBuilder(args.DrawingSession);
             cpb.BeginFigure(new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))));
             DrawText(time[0], args, new Vector2(5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
-            DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))) + new Vector2(5f, -25f), textColor); // Y-axis
+            DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, new Vector2(5f, (float)(canvas.ActualHeight * (1 - normalizedData[0]))) + new Vector2(5f, -25f), textColor); // Y-axis
 
             double total = normalizedData[0];
 
@@ -181,7 +181,7 @@ namespace Drizzle.UI.UWP.UserControls
                 // Label alternatingly
                 if (i % Step == 0)
                 {
-                    DrawText(time[i], args, new Vector2(pos.X, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
+                    DrawText(time[i], args, new Vector2(pos.X + 5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
                     //DrawText($"{Value[i]:00.0}{Unit}", args, pos + new Vector2(0f, -25f), Colors.White); // Y-axis
                     DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(0f, -25f), textColor); // Y-axis
                 }
