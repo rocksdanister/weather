@@ -166,6 +166,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ComputeSharpFloat3ToColorConverter.cs" />
     <Compile Include="Converters\DateTimeToDayConverter.cs" />
+    <Compile Include="Converters\DateTimeToDayNameConverter.cs" />
     <Compile Include="Converters\DateTimeToShortTimeConverter.cs" />
     <Compile Include="Converters\DegreesToCardinalConverter.cs" />
     <Compile Include="Converters\NullOrEmptyArrayToVisibilityConverter.cs" />

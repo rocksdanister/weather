@@ -32,7 +32,6 @@
         <converters:StringVisibilityConverter x:Key="StringVisibilityConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
         <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
         <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />

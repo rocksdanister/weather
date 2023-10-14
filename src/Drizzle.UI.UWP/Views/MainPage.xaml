@@ -30,6 +30,7 @@
         <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
         <customConverters:WmoWeatherToFluentIconConverter x:Key="WmoWeatherToFluentIconConverter" />
         <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
+        <customConverters:DateTimeToDayNameConverter x:Key="DateTimeToDayNameConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
         <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
 
@@ -192,6 +193,7 @@
                             <DataTemplate>
                                 <Grid MinHeight="42">
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="35" />
@@ -200,20 +202,24 @@
                                     <TextBlock
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
-                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}, ConverterParameter=Short}" />
-                                    <muxc:AnimatedVisualPlayer
+                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
+                                    <TextBlock
                                         Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayNameConverter}, ConverterParameter=Short}" />
+                                    <muxc:AnimatedVisualPlayer
+                                        Grid.Column="2"
                                         Width="35"
                                         Height="35"
                                         Margin="0,-5,0,0"
                                         Source="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
                                     <TextBlock
-                                        Grid.Column="2"
+                                        Grid.Column="3"
                                         VerticalAlignment="Center"
                                         HorizontalTextAlignment="Center"
                                         Text="{Binding TemperatureMax, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}°'}" />
                                     <TextBlock
-                                        Grid.Column="3"
+                                        Grid.Column="4"
                                         VerticalAlignment="Center"
                                         HorizontalTextAlignment="Center"
                                         Opacity="0.6"
