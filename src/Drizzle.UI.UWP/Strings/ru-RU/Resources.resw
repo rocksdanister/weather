@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Открыть журналы</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Приостановка визуального отображения когда приложение не на переднем плане</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Политика сбора данных</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Масштаб</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Уменьшить движения</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Последнее обновление</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>О скорости и порывах ветра</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Доступность</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Добавьте местоположение, чтобы начать.</value>

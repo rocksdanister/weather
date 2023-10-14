@@ -157,7 +157,7 @@
     <value>Kolmannen osapuolen ohjelmistoilmoitus</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Muuta kirkkaustasoa</value>
+    <value>Muuta taustan kirkkaustasoa</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
     <value>Kirkkaus</value>
@@ -214,7 +214,7 @@
     <value>Maailman terveysjärjestön UV-indeksi (UVI) mittaa auringonpaloa tuottavan ultraviolettisäteilyn voimakkuutta. Se on lineaarinen asteikko, joka vaihtelee välillä 0 - 11+, missä korkeammat arvot viittaavat suurempaan UV-säteilyaltistuksen riskiin ja lisääntyneeseen auringonpolttamisen ja ihovaurioiden mahdollisuuteen, ja mikä voi lopulta johtaa ihosyöpään.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Tuuli ilmakehässä liikkuva maanpinnan suuntainen ilmavirtaus. Se on perustavanlaatuinen ilmakehän ominaisuus mikä johtuu ilman virtauksesta korkeasta matalaan paineeseen, johtuen muutoksista lämpötilassa. Puuskat ovat äkillisiä nousuja tuulen nopeudessa jotka ylittävät keskimääräisen tuulen nopeuden. Puuskat kestävät yleensä alle 20 sekuntia.</value>
+    <value>Tuuli on ilmakehässä liikkuva maanpinnan suuntainen ilmavirtaus. Se on perustavanlaatuinen ilmakehän ominaisuus mikä johtuu ilman virtauksesta korkeasta matalaan paineeseen, johtuen muutoksista lämpötilassa. Puuskat ovat äkillisiä nousuja tuulen nopeudessa jotka ylittävät keskimääräisen tuulen nopeuden. Puuskat kestävät yleensä alle 20 sekuntia.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>Arvioidaan syvyyttä..</value>
@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Avaa lokit</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Keskeytä visuaaliset tehosteet kun sovellus on taustalla</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Tiedonkeruukäytäntö</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Zoomaus</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Poista liiketehoste käytöstä</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Viimeksi päivitetty</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Tietoa tuulen nopeudesta ja puuskoista</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Helppokäyttötoiminnot</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Lisää sijainti aloittaaksesi.</value>

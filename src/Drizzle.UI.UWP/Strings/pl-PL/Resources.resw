@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Cześć, jestem Dani John znany również jako rocksdanister. Tworzę takie zabawne oprogramowanie. Dziękujemy za poświęcenie czasu mojej pracy.</value>
+    <value>Cześć, jestem Dani John znany również jako rocksdanister. Tworzę różne zabawne programy. Dziękuję za poświęcenie czasu mojej pracy.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Dobra</value>
@@ -235,7 +235,7 @@
     <value>Kolor gradientu</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Animacja klatek</value>
+    <value>Ilość klatek animacji</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS (kl./s)</value>
@@ -244,7 +244,7 @@
     <value>Błąd</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Przyczyń się do tego programu tłumacząc go na inne języki.</value>
+    <value>Przyczyń się do rozwoju programu, tłumacząc go na inne języki.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
     <value>Pomóż w tłumaczeniu</value>
@@ -265,10 +265,13 @@
     <value>Dowiedz się więcej</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Przypięte lokalizace</value>
+    <value>Przypięte lokalizacje</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Otwórz dziennik zdarzeń</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Wstrzymaj animacje, kiedy aplikacja działa na pierwszym planie.</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Polityka gromadzenia danych</value>
@@ -283,13 +286,13 @@
     <value>Kartofel</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Jakość</value>
+    <value>Wysoka jakość</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
     <value>Jakość wyświetlanej animacji</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Jakość</value>
+    <value>Jakość grafiki</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
     <value>Intensywność</value>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Przybliżenie</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Zredukowany ruch</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Zaktualizowano</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>O prędkości i podmuchach wiatru</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Dostępność</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Dodaj lokalizację, aby rozpocząć.</value>

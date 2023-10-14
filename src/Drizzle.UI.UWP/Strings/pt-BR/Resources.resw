@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Abrir registros</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pausar visuais quando o aplicativo não estiver em primeiro plano</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Política de coleta de dados</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Zoom</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Movimento reduzido</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Última atualização</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Sobre a velocidade do vento e rajadas</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Acessibilidade</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Adicione um local para começar.</value>

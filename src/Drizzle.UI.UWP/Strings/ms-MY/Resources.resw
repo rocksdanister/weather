@@ -118,474 +118,474 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Hola, soy Dani John también conocido como rocksdanister. Hago programas divertidos como este. Gracias por tomarte el tiempo de ver mi trabajo.</value>
+    <value>Hai, saya Dani John juga dikenali sebagai rocksdanister. Saya mencipta perisian yang menarik seperti ini. Terima kasih kerana mengambil masa menilai dan melihat hasil kerja saya.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Buena</value>
+    <value>Bagus</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Moderada</value>
+    <value>Sederhana</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>No saludable para grupos sensibles</value>
+    <value>Tidak sihat bagi golongan sensitif</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Insalubre</value>
+    <value>Tidak sihat</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Muy poco saludable</value>
+    <value>Sangat tidak sihat</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Peligroso</value>
+    <value>Berbahaya</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Ocultar el menú cuando esté inactivo</value>
+    <value>Sorokkan menu apabila tidak aktif</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Acerca de</value>
+    <value>Tentang Lively</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>Ayuda</value>
+    <value>Bantuan</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>Configuración</value>
+    <value>Tetapan</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Buscar un lugar</value>
+    <value>Cari lokasi</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Licencias de código abierto</value>
+    <value>Notis perisian parti ketiga</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Ajustar brillo de fondo</value>
+    <value>Ubahsuai kecerahan latarbelakang</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brillo</value>
+    <value>Kecerahan</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Examinar</value>
+    <value>Layari</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>Fondo</value>
+    <value>Latar belakang</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Buscar actualizaciones</value>
+    <value>Semak kemaskini</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Día/Noche</value>
+    <value>Siang/Malam</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Iteraciones</value>
+    <value>Iterasi</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Escala</value>
+    <value>Skala</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Sugiere una función o informa de un error</value>
+    <value>Cadangkan fitur atau laporkan masalah</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Contacto</value>
+    <value>Hubungi</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Incluir imágenes seleccionadas en los efectos de clima</value>
+    <value>Gunakan gambar pilihan pengguna pada efek cuaca</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Fondo personalizado</value>
+    <value>Latar Belakang Tersuai</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Horizontal</value>
+    <value>Melintang</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Vertical</value>
+    <value>Menegak</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>El índice de calidad del aire (ICA) está diseñado para proporcionar información sobre los efectos para la salud de los cinco contaminantes del aire más comunes. Se trata de una escala que va de 0 a 500, en la que los valores más altos indican una contaminación del aire más grave y mayores riesgos para la salud.</value>
+    <value>Indeks Kualiti Udara dicipta bagi memaparkan maklumat mengenai efek kesihatan bagi lima pencemaran udara yang kerap berlaku pada skala 0 hingga 500. Nilai yang lebih tinggi menandakan tahap pencemaran udara yang lebih serius.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>La temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100 %. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
+    <value>Titik cuaca embun ialah suatu sukatan komposisi wap air di dalam udara. Apabila titik cuaca embun dan cuaca udara adalah sama, kelembapan relatif ialah 100%. Pada tahap ini, udara mengandungi wap air sepenuhnya, menyebabkan kondensasi berlaku dalam bentuk embun, kabus atau awanan.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>La humedad relativa es una medición de la cantidad de vapor de agua presente en el aire comparada a la máxima cantidad que el aire puede contener a esa temperatura. Se expresa como un porcentaje y muestra información sobre la cercanía del aire a la saturación.</value>
+    <value>Kelembapan relatif ialah suatu ukuran wap air yang hadir di dalam udara berbanding kadar maksimum yang mampu disimpan pada suatu suhu. Ianya ditakrifkan sebagai suatu peratusan dan menandakan berapa hampir untuk udara disaturasikan.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>La presión barométrica, también conocida como presión atmosférica, es la medición de la presión del aire en un área.</value>
+    <value>Tekanan barometik, juga dikenali sebagai tekanan atmosferik, ialah suatu sukatan tekanan udara di sesuatu kawasan.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>El Índice UV de la Organización Mundial de la Salud (UVI) mide la fuerza de radiación ultravioleta que quema la piel. Es una escala lineal que va de 0 a 11+, con valores más altos indicando un mayor riesgo de exposición a rayos UV y mayores posibilidades de quemaduras en la piel que podrían producir cancer de piel.</value>
+    <value>Indeks UV oleh Organisasi Kesihatan Dunia (WHO) merupakan ukuran intensiti matahari menghasilkan sinaran ultraungu sebagai skala linear dalam lingkungan 0 hingga 11+. Ukuran lebih tinggi menandakan lebih tinggi risiko pendedahan terhadap sinaran ultraungu dan kebarangkalian kerosakan kulit yang boleh menyebabkan kanser kulit.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media y duran menos de 20 segundos.</value>
+    <value>Kelajuan udara ialah kadar pergerakan udara secara melintang pada suatu titik yang diberi. Merupakan asas kuantiti atmosferik yang disebabkan oleh udara bergerak dari tekanan tinggi ke rendah, biasanya disebabkan oleh perubahan cuaca.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Aproximando profundidad..</value>
+    <value>Menilai kedalaman..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Tu tarjeta gráfica no soporta las funciones que ofrece Directx 12, así que algunas funciones están desactivadas.</value>
+    <value>Unit pemprosesan grafik (GPU) anda tidak menyokong fitur DX12 yang diperlukan. Fitur tertentu telah dinyahaktifkan.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>Archivos adicionales necesitan ser descargados para esto</value>
+    <value>Terdapat fail tambahan yang perlu dimuat turun bagi fitur ini</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Sensación</value>
+    <value>Terasa seperti</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
     <value>Amplitud</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Degradado de color</value>
+    <value>Kecerunan warna</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Cuadros por segundo de la animación</value>
+    <value>Kadar FPS animasi</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>Error</value>
+    <value>Ralat</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribuye a esta aplicación traduciéndolo a otros idiomas.</value>
+    <value>Bantu terjemah aplikasi ini ke bahasa lain.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Ayúdanos a Traducir</value>
+    <value>Bantu Menterjemah</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>Es necesario reiniciar la aplicación cuando se selecciona otro idioma.</value>
+    <value>Aplikasi perlu dilancarkan semula apabila memilih bahasa yang lain</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Idiomas</value>
+    <value>Bahasa</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>¡Ayuda a traducir!</value>
+    <value>Bantu menterjemah!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Predeterminado del sistema</value>
+    <value>Sama seperti Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Saber más</value>
+    <value>Ketahui lebih lanjut</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Ubicaciones Ancladas</value>
+    <value>Lokasi dipin</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Abrir registros</value>
+    <value>Buka log</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pausar animación cuando la aplicación esté en segundo plano</value>
+    <value>Jeda jika aplikasi tidak difokuskan</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Política de recopilación de datos</value>
+    <value>Dasar Pengumpulan Data</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Dinámica</value>
+    <value>Dinamik</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Rendimiento</value>
+    <value>Prestasi</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Patata</value>
+    <value>Kentang</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Calidad</value>
+    <value>Kualiti</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Calidad predeterminada del render visual</value>
+    <value>Preset render kualiti visual</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Calidad</value>
+    <value>Kualiti</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Intensidad</value>
+    <value>Intensiti</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Iluminación</value>
+    <value>Pengcahayaan</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>Normal</value>
+    <value>Biasa</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Panorámica</value>
+    <value>Penataan</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Zoom</value>
+    <value>Zum</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Movimiento de fondo reducido</value>
+    <value>Kurang animasi</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Última actualización</value>
+    <value>Kemas kini terakhir</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Actualizar</value>
+    <value>Muat semula</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Volver a Predeterminado</value>
+    <value>Kembalikan asal</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Salvapantallas</value>
+    <value>Screensaver</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Difuminar</value>
+    <value>Pengaburan</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Nieve</value>
+    <value>Pembekuan</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Postprocesado</value>
+    <value>Pasca-pemprosesan</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Velocidad</value>
+    <value>Kelajuan</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Profundidad</value>
+    <value>Kedalaman</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Capas</value>
+    <value>Lapisan</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Ancho</value>
+    <value>Lebar</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Licencia de software</value>
+    <value>Lesen perisian</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Muestra apoyo enviando una estrella</value>
+    <value>Letakkan bintang di Lively jika anda menyukai program ini</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Código Fuente</value>
+    <value>Kod Sumber</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Sobre mí</value>
+    <value>Tentang Lively</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Batal</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Continuar</value>
+    <value>Teruskan</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Aproximación de Profundidad IA</value>
+    <value>Penganggaran Kedalaman AI</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Ayuda</value>
+    <value>Bantuan</value>
   </data>
   <data name="StringOk" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Configuración</value>
+    <value>Tetapan</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Automático</value>
+    <value>Automatik</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Oscuro</value>
+    <value>Gelap</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Claro</value>
+    <value>Cerah</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Cambiar el color de la aplicación</value>
+    <value>Tukar warna aplikasi</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
     <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Acerca del Índice de Calidad del Aire (ICA)</value>
+    <value>Mengenai Indeks Kualiti Udara (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Acerca de la Temperatura de Rocío</value>
+    <value>Mengenai titik embun</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Acerca de la Humedad Relativa</value>
+    <value>Mengenai kelembapan relatif</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Acerca de la Presión</value>
+    <value>Mengenai tekanan</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Acerca del Índice UV</value>
+    <value>Mengenai Indeks UV</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Acerca de la Velocidad del Viento</value>
+    <value>Mengenai kelajuan angin</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accesibilidad</value>
+    <value>Kebolehcapaian</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Añade una ubicación para empezar.</value>
+    <value>Tambah lokasi untuk mula.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Calidad del Aire</value>
+    <value>Kualiti udara</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Contribuyentes</value>
+    <value>Penyumbang</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Descargar</value>
+    <value>Muat turun</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Descarga necesaria</value>
+    <value>Muat turun diperlukan</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Obteniendo datos, por favor espera.</value>
+    <value>Memuatkan data, sila tunggu.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Umum</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Hola</value>
+    <value>Helo</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Humedad</value>
+    <value>Kelembapan</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Rendimiento</value>
+    <value>Prestasi</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Presión</value>
+    <value>Tekanan</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Sol</value>
+    <value>Matahari</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Amanecer</value>
+    <value>Fajar</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Anochecer</value>
+    <value>Matahari terbenam</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>Índice UV</value>
+    <value>Indeks UV</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Advertencia</value>
+    <value>Amaran</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Clima</value>
+    <value>Cuaca</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Viento</value>
+    <value>Angin</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Bueno</value>
+    <value>Bagus</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>Alto</value>
+    <value>Tinggi</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Muy Alto</value>
+    <value>Sangat Tinggi</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Fuente de datos del clima</value>
+    <value>Sumber data cuaca</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Proveedor</value>
+    <value>Penyedia</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Híbrido</value>
+    <value>Hibrid</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Imperial</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Métrico</value>
+    <value>Metrik</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Mostrar medidas en</value>
+    <value>Tunjukkan ukuran sebagai</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Unidad</value>
+    <value>Unit</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Sitio web oficial</value>
+    <value>Laman web rasmi</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Sitio web</value>
+    <value>Laman web</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>¡Te doy la bienvenida a mi aplicación tiempo! Ten en cuenta que esta aplicación aún está en fase beta y algunas características pueden no funcionar como se esperaba. Estoy trabajando duro para mejorar la app y hacerla mejor. Gracias por tu comprensión y paciencia.</value>
+    <value>Selamat datang ke app cuaca saya! Aplikasi ini masih dalam pembangunan dan mungkin tidak berfungsi seperti yang dijangkakan. Saya sedang bekerja keras untuk memperbaiki aplikasi ini. Terima kasih kerana memahami dan bersabar.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Despejado</value>
+    <value>Langit cerah</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Mayormente despejado</value>
+    <value>Sebahagian Besar Cerah</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Parcialmente nublado</value>
+    <value>Sebahagian mendung</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Nublado</value>
+    <value>Mendung</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Niebla</value>
+    <value>Kabus</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Niebla Con escarcha</value>
+    <value>Kabus depositing</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Llovizna ligera</value>
+    <value>Gerimis rendah</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Llovizna moderada</value>
+    <value>Gerimis sederhana</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Llovizna densa</value>
+    <value>Gerimis lebat</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Llovizna gélida ligera</value>
+    <value>Gerimis Sejuk Ringan</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Llovizna gélida densa</value>
+    <value>Gerimis Sejuk Lebat</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Lluvia ligera</value>
+    <value>Hujan renyai</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Lluvia moderada</value>
+    <value>Hujan sederhana</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Lluvia fuerte</value>
+    <value>Hujan lebat</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Lluvia gélida ligera</value>
+    <value>Hujan sejuk renyai</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Lluvia gélida fuerte</value>
+    <value>Hujan sejuk lebat</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Nieve ligera</value>
+    <value>Salji ringan</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Nieve moderada</value>
+    <value>Salju sederhana</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Nieve fuerte</value>
+    <value>Salji lebat</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Copos de nieve</value>
+    <value>Butiran Salji</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Chubascos ligeros</value>
+    <value>Hujan ringan</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Chubascos moderada</value>
+    <value>Hujan sederhana</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Chubascos violenta</value>
+    <value>Hujan sangat lebat</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Nevadas ligeras</value>
+    <value>Hujan salji ringan</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Nevadas fuertes</value>
+    <value>Hujan salji lebat</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Tormenta eléctrica</value>
+    <value>Ribut petir</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Tormenta eléctrica con lluvia ligera</value>
+    <value>Ribut petir dan hujan</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Tormenta eléctrica con lluvia fuerte</value>
+    <value>Ribut petir dan hujan lebat</value>
   </data>
 </root>

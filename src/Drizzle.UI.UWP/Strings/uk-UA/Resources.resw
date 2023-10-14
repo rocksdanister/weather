@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Відкрити логи</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Призупиняти візуалізацію, коли програма у фоновому режимі</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Політика збирання даних</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Збільшення</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Зменшена рухомість</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Востаннє оновлено</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Про швидкість та пориви вітру</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Спеціальні можливості</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Додайте місце, щоби розпочати.</value>

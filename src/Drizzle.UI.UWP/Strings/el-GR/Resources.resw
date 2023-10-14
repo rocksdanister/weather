@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Άνοιγμα αρχείων καταγραφής</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Παύση οπτικών όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Πολιτική συλλογής δεδομένων</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Μεγέθυνση</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Μειωμένη κίνηση</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Τελευταία ενημέρωση</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Σχετικά με Ταχύτητα και Ριπές Ανέμου</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Προσβασιμότητα</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Προσθέστε μια τοποθεσία για να ξεκινήσετε.</value>

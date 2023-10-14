@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Deschideți jurnalele</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pause visual when application not foreground</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Politica de colectare a datelor</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Mărire</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Reduced motion</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Ultima actualizare</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Despre Viteza Vântului și Rafale</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Accessibility</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Adăugați o locație pentru a începe.</value>

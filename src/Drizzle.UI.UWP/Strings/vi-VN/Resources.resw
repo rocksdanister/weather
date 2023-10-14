@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Mở nhật ký</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pause visual when application not foreground</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Chính sách thu thập dữ liệu</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Thu phóng</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Reduced motion</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Cập nhật lần cuối</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Về Tốc Độ Gió và Gió Giật</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Accessibility</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Thêm một địa điểm để bắt đầu.</value>

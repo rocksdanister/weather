@@ -157,10 +157,10 @@
     <value>Üçüncü taraf yazılım bildirimi</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Adjust background brightness</value>
+    <value>Arka plan parlaklığını ayarla</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brightness</value>
+    <value>Parlaklık</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Taramak</value>
@@ -259,324 +259,336 @@
     <value>Çevirmeye yardım et!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as Windows</value>
+    <value>Windows ile aynı</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Learn More</value>
+    <value>Daha Fazla Bilgi Edinin</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Pinned Locations</value>
+    <value>Sabitlenmiş Konum</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Open logs</value>
+    <value>Günlükleri aç</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Uygulama ön planda olmadığında görsel duraklat</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Data collection policy</value>
+    <value>Veri toplama politikası
+</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Dynamic</value>
+    <value>Dinamik</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Performance</value>
+    <value>Performance
+</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
     <value>Potato</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Quality</value>
+    <value>Kaliteli</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Visual render quality preset</value>
+    <value>Görsel oluşturma kalitesi ön ayarı</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Quality</value>
+    <value>Kalite</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Intensity</value>
+    <value>Yoğunluk</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Lightning</value>
+    <value>Yıldırım</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
     <value>Normal</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Panning</value>
+    <value>Kaydırma</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Zoom</value>
+    <value>Yakınlaştır</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Azaltılmış hareket</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Last updated</value>
+    <value>Son güncelleme</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Yenile</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Restore Default</value>
+    <value>Varsayılanı Geri Yükle</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Screensaver</value>
+    <value>Ekran Koruyucu</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Blur</value>
+    <value>Bulanıklık</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Freezing</value>
+    <value>Dondurucu</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Post Processing</value>
+    <value>İşlem sonrası</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Speed</value>
+    <value>Hız</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Depth</value>
+    <value>Derinlik</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Layers</value>
+    <value>Katmanlar</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Width</value>
+    <value>Genişlik</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Software license</value>
+    <value>Yazılım lisansı</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Show some love by dropping a star</value>
+    <value>Bir yıldız bırakarak biraz sevgi göster</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Source Code</value>
+    <value>Kaynak Kodu</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>About</value>
+    <value>Hakkında</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>İptal etmek</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Continue</value>
+    <value>Devam Et</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI Depth Approximation</value>
+    <value>AI Derinlik Yaklaşımı</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Help</value>
+    <value>Yardım</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>Ok</value>
+    <value>Tamam</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ayarlar</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Auto</value>
+    <value>Otomatik</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>Koyu</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>Açık</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Change the application color</value>
+    <value>Uygulama rengini değiştirme</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Theme</value>
+    <value>Tema</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>About Air Quality Index (AQI)</value>
+    <value>Hava Kalitesi Endeksi (AQI) Hakkında</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>About Dew point</value>
+    <value>Çiğlenme noktası hakkında</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>About Relative Humidity</value>
+    <value>Bağıl Nem Hakkında</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>About Pressure</value>
+    <value>Basınç Hakkında</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>About the UV Index</value>
+    <value>UV İndeksi Hakkında</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>About Wind Speed and Gusts</value>
+    <value>Rüzgar Hızı ve Rüzgarlar Hakkında</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Erişilebilirlik</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Add a location to get started.</value>
+    <value>Başlamak için bir konum ekleyin.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Air Quality</value>
+    <value>Hava Kalitesi</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Contributors</value>
+    <value>Katkıda Bulunanlar</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Download</value>
+    <value>İndirmek</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Download Required</value>
+    <value>İndirme Gerekli</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Fetching data, please wait.</value>
+    <value>Veri getiriliyor, lütfen bekleyin.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Genel</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Hello</value>
+    <value>Merhaba</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Humidity</value>
+    <value>Nem</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Performance</value>
+    <value>Performans</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Pressure</value>
+    <value>Basınç</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Sun</value>
+    <value>Güneş</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Sunrise</value>
+    <value>Gün Doğumu</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Sunset</value>
+    <value>Gün Batımı</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>UV Index</value>
+    <value>UV İndeksi</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Warning</value>
+    <value>Uyarı</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Weather</value>
+    <value>Hava</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Wind</value>
+    <value>Rüzgar</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Good</value>
+    <value>İyi</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>High</value>
+    <value>Yüksek</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Very High</value>
+    <value>Çok Yüksek</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Weather data source</value>
+    <value>Hava durumu veri kaynağı</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Provider</value>
+    <value>Sağlayıcı</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Hibrit</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>Imperial</value>
+    <value>Emperyal</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Metric</value>
+    <value>Metrik</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Show measurements in</value>
+    <value>Ölçümleri göster</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Unit</value>
+    <value>Birim</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Official webpage</value>
+    <value>Resmi web sayfası</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Website</value>
+    <value>İnternet sitesi</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Welcome to my weather app! Please note that this app is still in beta and some features may not work as expected. I am working hard to improve the app and make it better. Thank you for your understanding and patience.</value>
+    <value>Hava durumu uygulamama hoş geldiniz! Lütfen bu uygulamanın hala beta sürümünde olduğunu ve bazı özelliklerin beklendiği gibi çalışmayabileceğini unutmayın. Uygulamayı geliştirmek ve daha iyi hale getirmek için çok çalışıyorum. Anlayışınız ve sabrınız için teşekkür ederiz.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Clear Sky</value>
+    <value>Açık Gökyüzü</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Mainly Clear</value>
+    <value>Esas olarak Açık</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Partly Cloudy</value>
+    <value>Parçalı Bulutlu</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Overcast</value>
+    <value>Bulutlu</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Fog</value>
+    <value>Sis</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Depositing Rime Fog</value>
+    <value>Kırağı Sisi Birikintisi</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Light Drizzle</value>
+    <value>Hafif Çiseleme</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Moderate Drizzle</value>
+    <value>Orta Derecede Çiseleme</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Dense Drizzle</value>
+    <value>Yoğun Çiseleme</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Light Freezing Drizzle</value>
+    <value>Hafif Dondurucu Çiseleme</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Dense Freezing Drizzle</value>
+    <value>Yoğun Dondurucu Çiseleme</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Slight Rain</value>
+    <value>Hafif Yağmur</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Moderate Rain</value>
+    <value>Ilımlı Yağmur</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Heavy Rain</value>
+    <value>Şiddetli Yağmur</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Light Freezing Rain</value>
+    <value>Hafif Dondurucu Yağmur</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Heavy Freezing Rain</value>
+    <value>Şiddetli Dondurucu Yağmur</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Slight Snow Fall</value>
+    <value>Hafif Kar Yağışı</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Moderate Snow Fall</value>
+    <value>Orta Derecede Kar Yağışı</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Heavy Snow Fall</value>
+    <value>Şiddetli Kar Yağışı</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Snow Grains</value>
+    <value>Kar Taneleri</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Slight Rain Showers</value>
+    <value>Hafif Yağmur Duşları</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Moderate Rain Showers</value>
+    <value>Orta Derecede Sağanak Yağış</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Violent Rain Showers</value>
+    <value>Şiddetli Sağanak Yağış
+</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Slight Snow Showers</value>
+    <value>Hafif Kar Yağışı</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Heavy Snow Showers</value>
+    <value>Yoğun Kar Yağışı</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Thunderstorm</value>
+    <value>Fırtına</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Thunderstorm with Light Hail</value>
+    <value>Hafif Dolu Fırtına</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Thunderstorm with Heavy Hail</value>
+    <value>Şiddetli Dolu Fırtınası</value>
   </data>
 </root>

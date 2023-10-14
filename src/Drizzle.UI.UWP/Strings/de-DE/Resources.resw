@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Logs öffnen</value>
   </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pausiere die Bewegung, wenn die App nicht im Vordergrund ist</value>
+  </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Datenschutzerklärung</value>
   </data>
@@ -305,6 +308,9 @@
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
     <value>Zoom</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Reduzierte Bewegung</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Zuletzt aktualisiert</value>
@@ -401,6 +407,9 @@
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Über die Windgeschwindigkeit und Windböen</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Zugänglichkeit</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Füge einen Ort hinzu, um loszulegen.</value>
@@ -523,7 +532,7 @@
     <value>Dichter Nieselregen</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Leichter Schnee-Nieselregen</value>
+    <value>Leichter Schneefall</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>Dichter gefrierender Nieselregen</value>
@@ -568,7 +577,7 @@
     <value>Leichte Schneeschauer</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Starke Schneeschauer</value>
+    <value>Heftige Schneeschauer</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
     <value>Gewitter</value>
