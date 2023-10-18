@@ -2,26 +2,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ComputeSharp.BokehBlur.Processors;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Processors;
-using ImageSharpRgba32 = SixLabors.ImageSharp.PixelFormats.Rgba32;
 
 namespace Drizzle.ImageProcessing;
 
 public static class ImageUtil
 {
-    //public static void GaussianBlurCompute(string src, string dest, float sigma)
-    //{
-    //    Configuration.Default.PreferContiguousImageBuffers = true;
-
-    //    using Image<ImageSharpRgba32> image = Image.Load<ImageSharpRgba32>(src);
-    //    image.Mutate(c => c.ApplyProcessor(new HlslGaussianBlurProcessor(sigma)));
-    //    image.Save(dest);
-    //}
-
     /// <summary>
     /// Gaussian image blur (CPU)
     /// </summary>
