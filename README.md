@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Files Logo" src="resources/hero.jpg" width="450" />
+  <img alt="Lively Weather logo" src="resources/hero.jpg" width="450" />
   <h2 align="center">Lively Weather</h2>
 </p>
 
