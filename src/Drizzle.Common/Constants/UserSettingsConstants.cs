@@ -43,7 +43,7 @@ public static class UserSettingsConstants
         { OpenWeatherMapKey, string.Empty },
         { PinnedLocations, Array.Empty<LocationModel>() },
         { SelectedLocation, null },
-        { MaxPinnedLocations, 3 },
+        { MaxPinnedLocations, 5 },
         { CacheWeather, true },
         { BackgroundBrightness, 1f },
         { ReducedMotion, false },

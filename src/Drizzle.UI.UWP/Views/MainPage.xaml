@@ -158,7 +158,7 @@
                         Text="{x:Bind shellVm.SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
                     <TextBlock
                         HorizontalTextAlignment="Center"
-                        Opacity="0.4"
+                        Opacity="0.6"
                         Style="{StaticResource BodyTextBlockStyle}">
                         <Run x:Uid="FeelsLikeTemperature" />
                         <Run Text="{x:Bind shellVm.SelectedWeather.FeelsLike, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />

@@ -47,7 +47,7 @@
         </Grid.RowDefinitions>
 
         <!--  Background  -->
-        <Grid Grid.RowSpan="2">
+        <Grid Grid.RowSpan="2" Padding="-5">
             <computesharp:AnimatedComputeShaderPanel
                 x:Name="shaderPanel1"
                 IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
