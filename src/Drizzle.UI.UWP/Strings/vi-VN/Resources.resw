@@ -271,7 +271,7 @@
     <value>Mở nhật ký</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Tạm ngừng hoạt ảnh khi ứng dụng chạy nền</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Chính sách thu thập dữ liệu</value>
@@ -310,7 +310,7 @@
     <value>Thu phóng</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>Giảm chuyển động</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Cập nhật lần cuối</value>
@@ -409,7 +409,7 @@
     <value>Về Tốc Độ Gió và Gió Giật</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>Trợ năng</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Thêm một địa điểm để bắt đầu.</value>

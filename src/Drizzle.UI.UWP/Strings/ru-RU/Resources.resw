@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Привет, я Дани Джон, также известный как rocksdanister. Я создаю забавные программы, подобные этой. Спасибо, что нашли время посмотреть на мои работы.</value>
+    <value>Привет, я Дэни Джон, также известный как rocksdanister. Я создаю забавные программы, подобные этой. Спасибо, что нашли время посмотреть мои работы.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Хороший</value>

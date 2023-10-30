@@ -121,10 +121,10 @@
     <value>Salut, je suis Dani John aussi connu comme rocksdanister. Je fais un logiciel amusant comme ça. Merci d'avoir pris le temps de regarder mon travail.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Bon</value>
+    <value>Satisfaisant</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Modéré</value>
+    <value>Moderato</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
     <value>Mauvais pour les groupes sensibles</value>
@@ -268,10 +268,10 @@
     <value>Lieux favoris</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Ouvrir les journaux</value>
+    <value>Ouvrir le journal</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Pause visuelle lorsque l'application n'est pas au premier plan</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Politique de récupération des données</value>
@@ -310,7 +310,7 @@
     <value>Zoomer</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>Mouvement réduit</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Dernière mise à jour</value>
@@ -409,7 +409,7 @@
     <value>À propos de la vitesse du vent et des rafales</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>Accessibilité</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Ajouter un lieu pour commencer.</value>

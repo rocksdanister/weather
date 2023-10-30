@@ -310,7 +310,7 @@
     <value>缩放</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>减少界面动画效果</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>最后更新于</value>

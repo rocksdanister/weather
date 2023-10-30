@@ -271,7 +271,7 @@
     <value>Отвори лога</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Паузирай визуализациите, когато приложението не е на преден план</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Политика за събиране на данни</value>
@@ -310,7 +310,7 @@
     <value>Мащабиране</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>Намалено движение</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Последно обновено</value>
@@ -409,7 +409,7 @@
     <value>За скоростта и поривите на вятъра</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>Достъпност</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Добавете местоположение, за да започнете.</value>

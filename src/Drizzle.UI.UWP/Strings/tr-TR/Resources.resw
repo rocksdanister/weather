@@ -163,13 +163,13 @@
     <value>Parlaklık</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Taramak</value>
+    <value>Dosyalardan seç</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
     <value>Arka plan</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Güncellemeyi kontrol et</value>
+    <value>Güncellemeleri kontrol et</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
     <value>Gündüz / Gece</value>
@@ -184,7 +184,7 @@
     <value>Bir özellik öner veya bir hata bildir</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Bağlantı</value>
+    <value>Bağlantıya geç</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
     <value>Kullanıcı tarafından seçilen görüntüleri hava efektlerine dahil edin</value>
@@ -199,7 +199,7 @@
     <value>Dikey</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI, en yaygın beş hava kirleticisinin sağlığa etkileri hakkında bilgi sağlamak üzere tasarlanmıştır. Daha şiddetli hava kirliliğine ve daha büyük sağlık risklerine işaret eden daha yüksek değerlere sahip, 0 ile 500 arasında değişen bir ölçektir.</value>
+    <value>Hava Kalitesi İndeksi(AQI), en yaygın beş hava kirleticisinin sağlığa etkileri hakkında bilgi sağlamak üzere tasarlanmıştır. Daha yüksek değerlerin daha şiddetli hava kirliliği ve daha büyük sağlık tehlikelerine işaret ettiği, 0 ile 500 arasında değişen bir ölçektir.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Çiğlenme noktası sıcaklığı, havadaki su buharı miktarının mutlak bir ölçüsüdür. Çiğlenme noktası sıcaklığı ve hava sıcaklığı eşit olduğunda bağıl nem% 100'dür. Bu noktada, hava tamamen su buharı ile doyurulur ve çiğ, sis veya bulutlar şeklinde yoğunlaşmaya neden olur.</value>
@@ -217,7 +217,7 @@
     <value>Rüzgar hızı, havanın belirli bir noktayı yatay olarak geçme hızıdır. Genellikle sıcaklıktaki değişikliklerden dolayı yüksekten alçak basınca hareket eden havanın neden olduğu temel bir atmosferik miktardır. Konuklar rüzgar hızında ortalama rüzgar hızının üzerinde ani bir artış olur. Genellikle 20 saniyeden az sürer.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Yaklaşık derinlik..</value>
+    <value>Derinlik ortalaması hesaplanıyor..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Sistem grafik işlemcisi (GPU) gerekli DX12 özelliklerini desteklemez, bu nedenle bazı işlevler devre dışı bırakılır.</value>
@@ -226,7 +226,7 @@
     <value>Bu özellik için ek dosyaların indirilmesi gerekir</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Gibi geliyor</value>
+    <value>Hissedilen</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
     <value>Genlik</value>
@@ -265,27 +265,25 @@
     <value>Daha Fazla Bilgi Edinin</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Sabitlenmiş Konum</value>
+    <value>Sabitlenmiş Konumlar</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Günlükleri aç</value>
+    <value>Kayıtları aç</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Uygulama ön planda olmadığında görsel duraklat</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Veri toplama politikası
-</value>
+    <value>Veri toplama politikası</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
     <value>Dinamik</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Performance
-</value>
+    <value>Performans</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Potato</value>
+    <value>Patates</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
     <value>Kaliteli</value>
@@ -294,7 +292,7 @@
     <value>Görsel oluşturma kalitesi ön ayarı</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Kalite</value>
+    <value>Kaliteli</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
     <value>Yoğunluk</value>
@@ -309,7 +307,7 @@
     <value>Kaydırma</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Yakınlaştır</value>
+    <value>Yakınlaştırma</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
     <value>Azaltılmış hareket</value>
@@ -327,13 +325,13 @@
     <value>Ekran Koruyucu</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Bulanıklık</value>
+    <value>Bulanıklaştır</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
     <value>Dondurucu</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>İşlem sonrası</value>
+    <value>Çekim Sonrası İşleme</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Hız</value>
@@ -360,13 +358,13 @@
     <value>Hakkında</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>İptal etmek</value>
+    <value>İptal et</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
     <value>Devam Et</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI Derinlik Yaklaşımı</value>
+    <value>Yapay Zeka Derinlik Ortalaması</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Yardım</value>
@@ -423,7 +421,7 @@
     <value>Katkıda Bulunanlar</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>İndirmek</value>
+    <value>İndiriyor</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
     <value>İndirme Gerekli</value>
@@ -462,7 +460,7 @@
     <value>Uyarı</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Hava</value>
+    <value>Hava durumu</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
     <value>Rüzgar</value>
@@ -492,13 +490,13 @@
     <value>Metrik</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Ölçümleri göster</value>
+    <value>Gösterilecek ölçüm birimi</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Birim</value>
+    <value>Ölçüm Birimi</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Resmi web sayfası</value>
+    <value>Resmi internet sitesi</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
     <value>İnternet sitesi</value>
@@ -510,7 +508,7 @@
     <value>Açık Gökyüzü</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Esas olarak Açık</value>
+    <value>Çoğunlukla Açık</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Parçalı Bulutlu</value>
@@ -543,7 +541,7 @@
     <value>Hafif Yağmur</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Ilımlı Yağmur</value>
+    <value>Orta Derecede Yağmur</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
     <value>Şiddetli Yağmur</value>
@@ -567,26 +565,25 @@
     <value>Kar Taneleri</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Hafif Yağmur Duşları</value>
+    <value>Hafif Sağanak</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Orta Derecede Sağanak Yağış</value>
+    <value>Orta Derecede Sağanak</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Şiddetli Sağanak Yağış
-</value>
+    <value>Şiddetli Sağanak</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Hafif Kar Yağışı</value>
+    <value>Hafif Kar Sağanğı</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Yoğun Kar Yağışı</value>
+    <value>Yoğun Kar Sağanağı</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
     <value>Fırtına</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Hafif Dolu Fırtına</value>
+    <value>Hafif Dolu Fırtınası</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Şiddetli Dolu Fırtınası</value>

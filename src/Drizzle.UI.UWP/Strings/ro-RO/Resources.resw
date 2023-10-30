@@ -271,7 +271,7 @@
     <value>Deschideți jurnalele</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Pune în pauză efectele vizuale când aplicația nu este in prim-plan</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Politica de colectare a datelor</value>
@@ -310,7 +310,7 @@
     <value>Mărire</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>Mișcare redusă</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Ultima actualizare</value>
@@ -409,7 +409,7 @@
     <value>Despre Viteza Vântului și Rafale</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>Accesibilitate</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Adăugați o locație pentru a începe.</value>
