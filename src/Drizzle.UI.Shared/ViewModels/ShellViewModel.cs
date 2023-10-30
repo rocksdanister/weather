@@ -358,6 +358,12 @@ namespace Drizzle.UI.UWP.ViewModels
                     Weathers.Insert(index, tmp);
                     SelectedLocation = tmp;
                 }
+                else if (index == -1)
+                {
+                    // Selected location not found, this can happen if max pinned location is reduced from the previous.
+                    // We will remove last location to keep max pinned count same since when loading locations we only take max pinned.
+                    Weathers.RemoveAt(Weathers.Count - 1);
+                }
 
                 // Update order
                 userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Weathers.Select(x => x.Location).ToArray());
