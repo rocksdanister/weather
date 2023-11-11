@@ -78,7 +78,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         UpdateBrightness();
                         break;
                     case UserSettingsConstants.ReducedMotion:
-                        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+                        UpdateMotionSettings();
                         break;
                 }
             };
@@ -463,6 +463,7 @@ namespace Drizzle.UI.UWP.ViewModels
         /// <param name="updateImage">Force background change, use existing background otherwise.</param>
         public void SetWeatherAnimation(WmoWeatherCode code, bool updateImage = false)
         {
+            float speedFactor = IsReducedMotion ? 0.35f : 1.0f;
             string randomBackground = null;
             var obj = code.GetWeather();
             switch (obj.Type)
@@ -472,7 +473,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         var property = obj as CloudsModel;
                         CloudsProperty.Scale = property.Scale;
                         CloudsProperty.Iterations = property.Iterations;
-                        CloudsProperty.Speed = property.Speed;
+                        CloudsProperty.Speed = property.Speed * speedFactor;
                         CloudsProperty.IsDayNightShift = property.IsDayNightShift;
                     }
                     break;
@@ -481,7 +482,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         var property = obj as RainModel;
                         RainProperty.Zoom = property.Zoom;
                         RainProperty.Normal = property.Normal;
-                        RainProperty.Speed = property.Speed;
+                        RainProperty.Speed = property.Speed * speedFactor;
                         RainProperty.Intensity = property.Intensity;
                         RainProperty.PostProcessing =property.PostProcessing;
                         RainProperty.IsLightning = property.IsLightning;
@@ -498,7 +499,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         var property = obj as SnowModel;
                         SnowProperty.Layers = property.Layers;
                         SnowProperty.Depth = property.Depth;
-                        SnowProperty.Speed = property.Speed;
+                        SnowProperty.Speed = property.Speed * speedFactor;
                         SnowProperty.Width = property.Width;
                         SnowProperty.IsBlur = property.IsBlur;
                         SnowProperty.IsLightning = property.IsLightning;
@@ -530,7 +531,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         var property = obj as WindModel;
                         FogProperty.Color1 = property.Color1;
                         FogProperty.Color2 = property.Color2;
-                        FogProperty.Speed = property.Speed;
+                        FogProperty.Speed = property.Speed * speedFactor;
                         FogProperty.Amplitude = property.Amplitude;
                         FogProperty.ParallaxIntensityX = property.ParallaxIntensityX;
                         FogProperty.ParallaxIntensityY = property.ParallaxIntensityY;
@@ -626,6 +627,12 @@ namespace Drizzle.UI.UWP.ViewModels
         {
             var quality = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
             IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
+            SetWeatherAnimation(SelectedWeatherAnimation);
+        }
+
+        private void UpdateMotionSettings()
+        {
+            IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
             SetWeatherAnimation(SelectedWeatherAnimation);
         }
 
