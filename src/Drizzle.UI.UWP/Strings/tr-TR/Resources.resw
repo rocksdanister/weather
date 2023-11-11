@@ -217,7 +217,7 @@
     <value>Rüzgar hızı, havanın belirli bir noktayı yatay olarak geçme hızıdır. Genellikle sıcaklıktaki değişikliklerden dolayı yüksekten alçak basınca hareket eden havanın neden olduğu temel bir atmosferik miktardır. Konuklar rüzgar hızında ortalama rüzgar hızının üzerinde ani bir artış olur. Genellikle 20 saniyeden az sürer.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Derinlik ortalaması hesaplanıyor..</value>
+    <value>Derinlik hesaplanıyor..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Sistem grafik işlemcisi (GPU) gerekli DX12 özelliklerini desteklemez, bu nedenle bazı işlevler devre dışı bırakılır.</value>
@@ -283,7 +283,7 @@
     <value>Performans</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Patates</value>
+    <value>Çok düşük</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
     <value>Kaliteli</value>
@@ -292,7 +292,7 @@
     <value>Görsel oluşturma kalitesi ön ayarı</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Kaliteli</value>
+    <value>Kalite</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
     <value>Yoğunluk</value>
@@ -313,7 +313,7 @@
     <value>Azaltılmış hareket</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Son güncelleme</value>
+    <value>En son güncellenen tarih</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Yenile</value>
@@ -328,7 +328,7 @@
     <value>Bulanıklaştır</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Dondurucu</value>
+    <value>Donma</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
     <value>Çekim Sonrası İşleme</value>
@@ -421,7 +421,7 @@
     <value>Katkıda Bulunanlar</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>İndiriyor</value>
+    <value>İndir</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
     <value>İndirme Gerekli</value>

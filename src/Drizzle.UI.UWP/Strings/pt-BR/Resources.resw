@@ -247,7 +247,7 @@
     <value>Contribua para este programa, traduzindo-o para outras línguas.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Ajude a traduzir</value>
+    <value>Ajude a Traduzir</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
     <value>O aplicativo precisa ser reiniciado quando outro idioma for selecionado</value>
@@ -259,7 +259,7 @@
     <value>Ajude a traduzir!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Igual ao Windows</value>
+    <value>Padrão do Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Saiba mais</value>

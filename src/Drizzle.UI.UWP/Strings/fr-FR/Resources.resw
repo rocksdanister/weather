@@ -124,7 +124,7 @@
     <value>Satisfaisant</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Moderato</value>
+    <value>Modéré</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
     <value>Mauvais pour les groupes sensibles</value>

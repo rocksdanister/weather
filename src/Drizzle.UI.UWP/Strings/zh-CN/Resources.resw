@@ -271,7 +271,7 @@
     <value>打开日志</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>当应用程序没有前台时暂停可见</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>数据收集政策</value>
@@ -409,7 +409,7 @@
     <value>关于风速和阵风</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>无障碍功能</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>添加一个位置以开始。</value>
