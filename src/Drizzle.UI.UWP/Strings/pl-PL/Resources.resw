@@ -121,7 +121,7 @@
     <value>Cześć, jestem Dani John znany również jako rocksdanister. Tworzę różne zabawne programy. Dziękuję za poświęcenie czasu mojej pracy.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Dobra</value>
+    <value>Dobrze</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
     <value>Umiarkowany</value>
@@ -130,19 +130,19 @@
     <value>Niezdrowy dla grup szczególnego ryzyka</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Groźne dla zdrowia</value>
+    <value>Niezdrowe</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Bardzo niezdrowe warunki</value>
+    <value>Bardzo niezdrowe</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Szkodliwy</value>
+    <value>Niebezpieczne</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Zawsze ukrywaj menu podczas bezczynności</value>
+    <value>Zawsze ukryj menu podczas bezczynności</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>O aplikacji</value>
+    <value>O</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
     <value>Pomoc</value>
@@ -151,10 +151,10 @@
     <value>Ustawienia</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Wyszukaj miejscowość...</value>
+    <value>Wyszukaj miasto</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Uwaga dotycząca oprogramowania stron trzecich</value>
+    <value>Powiadomienie o programie zewnętrznym</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>Dostosuj jasność tła</value>
@@ -169,34 +169,34 @@
     <value>Tło</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Sprawdź czy są dostępna jest aktualizacja</value>
+    <value>Sprawdź aktualizacje</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Dzień / Noc</value>
+    <value>Dzień/Noc</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Iteracje</value>
+    <value>Powtórzenia</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Skalowanie</value>
+    <value>Skala</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Zasugeruj funkcję lub zgłoś błąd</value>
+    <value>Zaproponuj funkcję lub zgłoś błąd</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
     <value>Kontakt</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Dołącz wybrane przez użytkownika obrazy w efektach pogodowych</value>
+    <value>Uwzględnij wybrane przez użytkownika obrazy w efektach pogodowych</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Własne tło</value>
+    <value>Niestandardowe Tło</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Poziomo</value>
+    <value>Horyzontalny</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Pionowo</value>
+    <value>Pionowy</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Celem AQI jest dostarczanie informacji na temat skutków zdrowotnych pięciu najpowszechniejszych zanieczyszczeń powietrza. Jest to skala mieszcząca się w zakresie od 0 do 500, przy czym wyższe wartości wskazują na poważniejsze zanieczyszczenie powietrza i większe zagrożenia dla zdrowia.</value>
@@ -256,10 +256,10 @@
     <value>Język</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Pomóż w tłumaczeniu</value>
+    <value>Pomóż w tłumaczeniu!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Tak samo jak w Windows</value>
+    <value>Samo jak w Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Dowiedz się więcej</value>
@@ -283,7 +283,7 @@
     <value>Wydajność</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Kartofel</value>
+    <value>Ziemniak</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
     <value>Wysoka jakość</value>
@@ -313,7 +313,7 @@
     <value>Zredukowany ruch</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Zaktualizowano</value>
+    <value>Ostatnia aktualizacja</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Odśwież</value>
@@ -355,7 +355,7 @@
     <value>Kod źródłowy</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>O aplikacji</value>
+    <value>O</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
     <value>Anuluj</value>
@@ -364,7 +364,7 @@
     <value>Kontynuuj</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Kalkulacje SI</value>
+    <value>Kalkulacje AI</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Pomoc</value>
