@@ -24,6 +24,12 @@ namespace Drizzle.UI.UWP.ViewModels
         private string timeZone;
 
         [ObservableProperty]
+        private float minTemp;
+
+        [ObservableProperty]
+        private float maxTemp;
+
+        [ObservableProperty]
         private ObservableCollection<WeatherModel> daily = new();
 
         // For location selector

@@ -78,6 +78,24 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty StepProperty =
             DependencyProperty.Register("Step", typeof(int), typeof(DailyGraph), new PropertyMetadata(1, OnDependencyPropertyChanged));
 
+        public float? MinValue
+        {
+            get { return (float?)GetValue(MinValueProperty); }
+            set { SetValue(MinValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MinValueProperty =
+            DependencyProperty.Register("MinValue", typeof(float?), typeof(DailyGraph), new PropertyMetadata(null));
+
+        public float? MaxValue
+        {
+            get { return (float?)GetValue(MaxValueProperty); }
+            set { SetValue(MaxValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MaxValueProperty =
+            DependencyProperty.Register("MaxValue", typeof(float?), typeof(DailyGraph), new PropertyMetadata(null));
+
         // Issue: https://github.com/MicrosoftDocs/windows-dev-docs/issues/237
         public Color Gradient1
         {
@@ -143,9 +161,9 @@ namespace Drizzle.UI.UWP.UserControls
 
             int movingAverageRange = 4;
             int segments = Value.Count();
-            var min = Value.Min();
-            var max = Value.Max();
-            var normalizedData = Value.Select(x => ConvertToRange(min, max, 0.25f, 0.55f, x)).ToArray();
+            var min = MinValue != null ? MinValue : Value.Min();
+            var max = MaxValue != null ? MaxValue : Value.Max();
+            var normalizedData = Value.Select(x => ConvertToRange((float)min, (float)max, 0.25f, 0.55f, x)).ToArray();
 
             using var cpb = new CanvasPathBuilder(args.DrawingSession);
             cpb.BeginFigure(new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))));

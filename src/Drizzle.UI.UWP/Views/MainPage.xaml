@@ -260,6 +260,8 @@
                             <customControls:DailyGraph
                                 Width="540"
                                 Height="300"
+                                MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
+                                MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
                                 Step="2"
                                 ValueFormat="{}{0:F0}°"
                                 Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />

@@ -33,6 +33,8 @@ namespace Drizzle.UI.UWP.Factories
             weatherVm.TimeZone = weatherForecast.TimeZone;
             weatherVm.FetchTime = weatherForecast.FetchTime;
             weatherVm.Location = new LocationModel(weatherForecast.Name, weatherForecast.Latitude, weatherForecast.Longitude);
+            weatherVm.MaxTemp = weatherForecast.Daily[0].TemperatureMax;
+            weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;
             for (int i = 0; i < weatherForecast.Daily.Count(); i++)
             {
                 var tmp = new WeatherModel()
@@ -64,6 +66,8 @@ namespace Drizzle.UI.UWP.Factories
                     Sunrise = weatherForecast.Daily[i].Sunrise,
                     Sunset = weatherForecast.Daily[i].Sunset
                 };
+                weatherVm.MaxTemp = tmp.TemperatureMax > weatherVm.MaxTemp ? tmp.TemperatureMax : weatherVm.MaxTemp;
+                weatherVm.MinTemp = tmp.TemperatureMin < weatherVm.MinTemp ? tmp.TemperatureMin : weatherVm.MinTemp;
                 weatherVm.Daily.Add(tmp);
             }
             for (int i = 0; i < airQualityForecast.Daily.Count(); i++)
