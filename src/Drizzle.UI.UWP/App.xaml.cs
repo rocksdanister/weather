@@ -133,6 +133,7 @@ namespace Drizzle.UI.UWP
                     Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"), 
                     TimeSpan.FromHours(1)))
                 .AddSingleton<IDepthEstimate, MiDaS>()
+                .AddSingleton<ISoundService, SoundService>()
                 //.AddSingleton<IWeatherClient>((e) => new OpenWeatherMapWeatherClient(
                 //    e.GetRequiredService<IHttpClientFactory>(),
                 //    e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.OpenWeatherMapKey)))

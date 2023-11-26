@@ -124,8 +124,9 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
-        private RelayCommand _openLogsCommand;
-        public RelayCommand OpenLogsCommand => _openLogsCommand ??= new RelayCommand(async() => {
+        [RelayCommand]
+        private async Task OpenLogs()
+        {
             var localFolder = ApplicationData.Current.LocalFolder;
             var logsFolder = await localFolder.GetFolderAsync("Logs");
             var sortedLogs = (await logsFolder.GetFilesAsync()).OrderByDescending(f => f.DateCreated);
@@ -133,6 +134,6 @@ namespace Drizzle.UI.UWP.ViewModels
 
             if (latestLog != null)
                 await Launcher.LaunchFileAsync(latestLog);
-        });
+        }
     }
 }

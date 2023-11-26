@@ -158,11 +158,13 @@
     <Compile Include="AnimatedVisuals\Thunderstorms.cs" />
     <Compile Include="AnimatedVisuals\ThunderstormsExtreme.cs" />
     <Compile Include="AnimatedVisuals\Water.cs" />
+    <Compile Include="AnimatedVisuals\Waves.cs" />
     <Compile Include="AnimatedVisuals\Wind.cs" />
     <Compile Include="AnimatedVisuals\WindSimple.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\AudioVolumeGlyphConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ComputeSharpFloat3ToColorConverter.cs" />
     <Compile Include="Converters\DateTimeToDayConverter.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Services\DiskCacheService.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\Navigator.cs" />
+    <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="UserControls\AirQualityCard.xaml.cs">
       <DependentUpon>AirQualityCard.xaml</DependentUpon>
@@ -206,6 +209,9 @@
     </Compile>
     <Compile Include="UserControls\PressureCard.xaml.cs">
       <DependentUpon>PressureCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SoundControl.xaml.cs">
+      <DependentUpon>SoundControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SunCard.xaml.cs">
       <DependentUpon>SunCard.xaml</DependentUpon>
@@ -290,6 +296,13 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\Sounds\thunderstorm.m4a" />
+    <Content Include="Assets\Sounds\rain_light.m4a" />
+    <Content Include="Assets\Sounds\forest.m4a" />
+    <Content Include="Assets\Sounds\rain_freezing.m4a" />
+    <Content Include="Assets\Sounds\rain.m4a" />
+    <Content Include="Assets\Sounds\wind.m4a" />
+    <Content Include="Assets\Sounds\snow.m4a" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
@@ -442,6 +455,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PressureCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SoundControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

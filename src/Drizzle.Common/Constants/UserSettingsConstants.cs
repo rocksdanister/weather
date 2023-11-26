@@ -33,6 +33,8 @@ public static class UserSettingsConstants
 
     public const string BackgroundPause = "BackgroundPause";
 
+    public const string SoundVolume = "SoundVolume";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -47,6 +49,7 @@ public static class UserSettingsConstants
         { CacheWeather, true },
         { BackgroundBrightness, 1f },
         { ReducedMotion, false },
-        { BackgroundPause, true }
+        { BackgroundPause, true },
+        { SoundVolume, 0 },
     };
 }

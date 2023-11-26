@@ -10,20 +10,16 @@ using Drizzle.UI.Shared.Shaders.Helpers;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Runners;
 using Drizzle.UI.UWP.Factories;
-using Drizzle.UI.UWP.Views;
 using Drizzle.Weather;
-using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Drizzle.UI.UWP.ViewModels
 {
@@ -33,6 +29,7 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly INavigator navigator;
         private readonly IDialogService dialogService;
         private readonly IWeatherClient weatherClient;
+        private readonly ISoundService soundService;
         private readonly ICacheService cacheService;
         private readonly IWeatherViewModelFactory weatherViewModelFactory;
         private readonly ILogger logger;
@@ -45,6 +42,7 @@ namespace Drizzle.UI.UWP.ViewModels
             INavigator navigator,
             ICacheService cacheService,
             IWeatherClient weatherClient,
+            ISoundService soundService,
             IDialogService dialogService,
             IWeatherViewModelFactory weatherViewModelFactory,
             ILogger<ShellViewModel> logger)
@@ -53,6 +51,7 @@ namespace Drizzle.UI.UWP.ViewModels
             this.navigator = navigator;
             this.dialogService = dialogService;
             this.weatherClient = weatherClient;
+            this.soundService = soundService;
             this.cacheService = cacheService;
             this.weatherViewModelFactory = weatherViewModelFactory;
             this.logger = logger;
@@ -89,9 +88,13 @@ namespace Drizzle.UI.UWP.ViewModels
             };
 
             IsFirstRun = SystemInformation.Instance.IsFirstRun;
+            // For best user experience when volume is 0, pause audio.
+            soundService.AutoPause = true;
+            // Cache the weather data to reduce API calls when app is re-opened.
             weatherClient.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
             maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
             IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+            SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);
 
             var gpu = GraphicsDevice.GetDefault();
             IsHardwareAccelerated = gpu.IsHardwareAccelerated;
@@ -227,6 +230,17 @@ namespace Drizzle.UI.UWP.ViewModels
         [ObservableProperty]
         private bool isFetchingLocation = false;
 
+        private bool _isUpdatingWeather = false;
+        public bool IsUpdatingWeather
+        {
+            get => _isUpdatingWeather;
+            set
+            {
+                soundService.IsMuted = value;
+                SetProperty(ref _isUpdatingWeather, value);
+            }
+        }
+
         [ObservableProperty]
         private bool isWorking = false;
 
@@ -235,47 +249,64 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private string errorMessage;
+        
+        private int _soundVolume;
+        public int SoundVolume
+        {
+            get => _soundVolume;
+            set
+            {
+                if (userSettings.Get<int>(UserSettingsConstants.SoundVolume) != value)
+                    userSettings.Set(UserSettingsConstants.SoundVolume, value);
 
-        private bool canRefreshCommand = true;
-        private RelayCommand _refreshCommand;
-        public RelayCommand RefreshCommand => _refreshCommand ??= new RelayCommand(async() => {
+                soundService.Volume = value;
+                SetProperty(ref _soundVolume, value);
+            }
+        }
+
+        private bool CanRefreshCommand { get; set; } = true;
+
+        [RelayCommand(CanExecute = nameof(CanRefreshCommand))]
+        private async Task RefreshWeather()
+        {
             try
             {
-                canRefreshCommand = false;
-                RefreshCommand.NotifyCanExecuteChanged();
+                CanRefreshCommand = false;
+                RefreshWeatherCommand.NotifyCanExecuteChanged();
 
                 cacheService.Clear();
                 await UpdateWeather();
             }
             finally
             {
-                canRefreshCommand = true;
-                RefreshCommand.NotifyCanExecuteChanged();
+                CanRefreshCommand = true;
+                RefreshWeatherCommand.NotifyCanExecuteChanged();
             }
-        }, () => canRefreshCommand);
+        }
 
-        private RelayCommand<WeatherViewModel> _deleteLocationCommand;
-        public RelayCommand<WeatherViewModel> DeleteLocationCommand => _deleteLocationCommand ??= new RelayCommand<WeatherViewModel>((obj) => {
-            if (obj is not null)
-            {
-                Weathers.Remove(obj);
-                // If selecteditem is deleted
-                SelectedLocation ??= Weathers.Any() ? Weathers[0] : null;
-                userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Weathers.Select(x => x.Location).ToArray());
-            }
-        });
+        [RelayCommand]
+        private void DeleteLocation(WeatherViewModel obj)
+        {
+            if (obj is null)
+                return;
 
-        private RelayCommand _screensaverCommand;
-        public RelayCommand ScreensaverCommand => _screensaverCommand ??= new RelayCommand(() => navigator.ToScreensaver());
+            Weathers.Remove(obj);
+            // If selecteditem is deleted
+            SelectedLocation ??= Weathers.Any() ? Weathers[0] : null;
+            userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Weathers.Select(x => x.Location).ToArray());
+        }
 
-        private RelayCommand _helpCommand;
-        public RelayCommand HelpCommand => _helpCommand ??= new RelayCommand(async () => await dialogService.ShowHelpDialogAsync());
+        [RelayCommand]
+        private void OpenScreensaver() => navigator.ToScreensaver();
 
-        private RelayCommand _aboutCommand;
-        public RelayCommand AboutCommand => _aboutCommand ??= new RelayCommand(async () => await dialogService.ShowAboutDialogAsync());
+        [RelayCommand]
+        private async Task OpenHelp() => await dialogService.ShowHelpDialogAsync();
 
-        private RelayCommand _settingsCommand;
-        public RelayCommand SettingsCommand => _settingsCommand ??= new RelayCommand(async () => await dialogService.ShowSettingsDialogAsync());
+        [RelayCommand]
+        private async Task OpenAbout() => await dialogService.ShowAboutDialogAsync();
+
+        [RelayCommand]
+        private async Task OpenSettings() => await dialogService.ShowSettingsDialogAsync();
 
         /// <summary>
         /// Fetch and set weather animations.
@@ -325,6 +356,7 @@ namespace Drizzle.UI.UWP.ViewModels
         {
             try
             {
+                IsUpdatingWeather = true;
                 var locations = userSettings.GetAndDeserialize<LocationModel[]>(UserSettingsConstants.PinnedLocations).Take(maxPinnedLocations).ToList();
                 var selection = userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation);
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
@@ -372,6 +404,10 @@ namespace Drizzle.UI.UWP.ViewModels
             {
                 logger.LogError(ex.ToString());
             }
+            finally
+            {
+                IsUpdatingWeather = false;
+            }
         }
 
         private async Task UpdateWeather()
@@ -384,6 +420,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 if (!Weathers.Any())
                     return;
 
+                IsUpdatingWeather = true;
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
                 var weatherCopy = Weathers.ToList();
                 var selectionCopy = SelectedLocation;
@@ -391,7 +428,7 @@ namespace Drizzle.UI.UWP.ViewModels
 
                 for (int i = 0; i < weatherCopy.Count; i++)
                 {
-                    // Uses cache if configured and convertion takes place in the viewmodel
+                    // Uses cache if configured and unit convertion takes place in the viewmodel
                     (var weather, var airQuality) = await FetchWeather(weatherCopy[i].Location.Name, weatherCopy[i].Location.Latitude, weatherCopy[i].Location.Longitude);
                     Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units));
                 }
@@ -404,6 +441,7 @@ namespace Drizzle.UI.UWP.ViewModels
             finally
             {
                 weatherUpdatingLock.Release();
+                IsUpdatingWeather = false;
             }
         }
 
@@ -547,9 +585,16 @@ namespace Drizzle.UI.UWP.ViewModels
                     break;
             }
             SetShader(obj.Type);
+            SetWeatherSound(code);
             SelectedWeatherAnimation = code;
             FallbackBackground = IsFallbackBackground ? 
                 randomBackground ?? Path.Combine(AssetImageConstants.DepthAssets[rnd.Next(AssetImageConstants.DepthAssets.Count)], "image.jpg") : null;
+        }
+
+        private void SetWeatherSound(WmoWeatherCode code)
+        {
+            soundService.SetSource(code);
+            soundService.Play();
         }
 
         /// <summary>

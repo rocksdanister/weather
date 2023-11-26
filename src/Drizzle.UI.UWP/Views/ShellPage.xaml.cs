@@ -49,6 +49,7 @@ namespace Drizzle.UI.UWP.Views
         private readonly INavigator navigator;
         private readonly ILogger<ShellPage> logger;
         private readonly IUserSettings userSettings;
+        private readonly ISoundService soundService;
 
         // Timer 
         private readonly DispatcherTimer dispatcherTimer = new();
@@ -65,6 +66,7 @@ namespace Drizzle.UI.UWP.Views
             this.navigator = App.Services.GetRequiredService<INavigator>();
             this.logger = App.Services.GetRequiredService<ILogger<ShellPage>>();
             this.userSettings = App.Services.GetRequiredService<IUserSettings>();
+            this.soundService = App.Services.GetRequiredService<ISoundService>();
             this.DataContext = shellVm;
 
             if (App.IsTenFoot)
@@ -151,6 +153,7 @@ namespace Drizzle.UI.UWP.Views
                                 shellVm.FogProperty.TimeMultiplier =
                                 shellVm.RainProperty.TimeMultiplier = 0.1f;
 
+                            soundService.Pause();
                             isWindowDeactivated = true;
                             deactivatedStopwatch.Start();
                         }
@@ -170,6 +173,7 @@ namespace Drizzle.UI.UWP.Views
                             shellVm.RainProperty.TimeMultiplier =
                             shellVm.FogProperty.TimeMultiplier = 1f;
 
+                        soundService.Play();
                         isWindowDeactivated = false;
                         deactivatedStopwatch.Reset();
                         shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = false;

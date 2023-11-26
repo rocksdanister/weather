@@ -123,12 +123,15 @@ namespace Drizzle.UI.UWP.ViewModels
 
         public ShellViewModel ShellVm { get; }
 
-        private RelayCommand _restoreCommand;
-        public RelayCommand RestoreCommand => _restoreCommand ??= new RelayCommand(() =>
-            ShellVm.SetWeatherAnimation(ShellVm.SelectedWeatherAnimation, false));
+        [RelayCommand]
+        private void Restore()
+        {
+            ShellVm.SetWeatherAnimation(ShellVm.SelectedWeatherAnimation, false);
+        }
 
-        private RelayCommand _goBackCommand;
-        public RelayCommand GoBackCommand => _goBackCommand ??= new RelayCommand(() => {
+        [RelayCommand]
+        private void GoBack()
+        {
             if (IsFullScreen)
                 navigator.ToFullscreen(false);
 
@@ -146,12 +149,13 @@ namespace Drizzle.UI.UWP.ViewModels
 
             ShellVm.IsMouseDrag = false;
             ShellVm.PropertyChanged -= ShellVm_PropertyChanged;
-        });
+        }
 
-        private RelayCommand _fullscreenCommand;
-        public RelayCommand FullscreenCommand => _fullscreenCommand ??= new RelayCommand(() =>
-            IsFullScreen = navigator.ToFullscreen(!IsFullScreen)
-        );
+        [RelayCommand]
+        private void FullScreen()
+        {
+            IsFullScreen = navigator.ToFullscreen(!IsFullScreen);
+        }
 
         private void ShellVm_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
@@ -255,8 +259,8 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
-        private RelayCommand _rainBackgroundChangeCommand;
-        public RelayCommand RainBackgroundChangeCommand => _rainBackgroundChangeCommand ??= new RelayCommand(async () =>
+        [RelayCommand]
+        private async Task RainBackgroundChange()
         {
             IsBusy = true;
             var file = await ShowImageDialog();
@@ -272,10 +276,10 @@ namespace Drizzle.UI.UWP.ViewModels
                 SelectedRainBackground = selection;
             }
             IsBusy = false;
-        });
+        }
 
-        private RelayCommand _snowBackgroundChangeCommand;
-        public RelayCommand SnowBackgroundChangeCommand => _snowBackgroundChangeCommand ??= new RelayCommand(async () =>
+        [RelayCommand]
+        private async Task SnowBackgroundChange()
         {
             IsBusy = true;
             var file = await ShowImageDialog();
@@ -291,10 +295,10 @@ namespace Drizzle.UI.UWP.ViewModels
                 SelectedSnowBackground = selection;
             }
             IsBusy = false;
-        });
+        }
 
-        private RelayCommand _depthBackgrounChangeCommand;
-        public RelayCommand DepthBackgroundChangeCommand => _depthBackgrounChangeCommand ??= new RelayCommand(async () =>
+        [RelayCommand]
+        private async Task DepthBackgroundChange()
         {
             var path = await dialogService.ShowDepthCreationDialogAsync();
             if (path is not null)
@@ -303,10 +307,10 @@ namespace Drizzle.UI.UWP.ViewModels
                 DepthBackgrounds.Add(selection);
                 SelectedDepthBackground = selection;
             }
-        });
+        }
 
-        private RelayCommand _fogBackgrounChangeCommand;
-        public RelayCommand FogBackgroundChangeCommand => _fogBackgrounChangeCommand ??= new RelayCommand(async () =>
+        [RelayCommand]
+        private async Task FogBackgroundChange()
         {
             var path = await dialogService.ShowDepthCreationDialogAsync();
             if (path is not null)
@@ -316,52 +320,52 @@ namespace Drizzle.UI.UWP.ViewModels
                 DepthBackgrounds.Add(selection);
                 SelectedFogBackground = selection;
             }
-        });
+        }
 
-        private RelayCommand<UserImageModel> _rainBackgroundDeleteCommand;
-        public RelayCommand<UserImageModel> RainBackgroundDeleteCommand =>
-            _rainBackgroundDeleteCommand ??= new RelayCommand<UserImageModel>(async (obj) => {
-                if (obj is not null && obj.IsEditable)
-                {
-                    SelectedRainBackground = SelectedRainBackground != obj ? SelectedRainBackground : RainBackgrounds[0];
-                    RainBackgrounds.Remove(obj);
-                    await (await StorageFile.GetFileFromPathAsync(obj.Image)).DeleteAsync();
-                }
-            });
+        [RelayCommand]
+        private async Task RainBackgroundDelete(UserImageModel obj)
+        {
+            if (obj is not null && obj.IsEditable)
+            {
+                SelectedRainBackground = SelectedRainBackground != obj ? SelectedRainBackground : RainBackgrounds[0];
+                RainBackgrounds.Remove(obj);
+                await (await StorageFile.GetFileFromPathAsync(obj.Image)).DeleteAsync();
+            }
+        }
 
-        private RelayCommand<UserImageModel> _snowBackgroundDeleteCommand;
-        public RelayCommand<UserImageModel> SnowBackgroundDeleteCommand =>
-            _snowBackgroundDeleteCommand ??= new RelayCommand<UserImageModel>(async (obj) => {
-                if (obj is not null && obj.IsEditable)
-                {
-                    SelectedSnowBackground = SelectedSnowBackground != obj ? SelectedSnowBackground : SnowBackgrounds[0];
-                    SnowBackgrounds.Remove(obj);
-                    await (await StorageFile.GetFileFromPathAsync(obj.Image)).DeleteAsync();
-                }
-            });
+        [RelayCommand]
+        private async Task SnowBackgroundDelete(UserImageModel obj)
+        {
+            if (obj is not null && obj.IsEditable)
+            {
+                SelectedSnowBackground = SelectedSnowBackground != obj ? SelectedSnowBackground : SnowBackgrounds[0];
+                SnowBackgrounds.Remove(obj);
+                await (await StorageFile.GetFileFromPathAsync(obj.Image)).DeleteAsync();
+            }
+        }
 
-        private RelayCommand<UserImageModel> _depthBackgroundDeleteCommand;
-        public RelayCommand<UserImageModel> DepthBackgroundDeleteCommand =>
-            _depthBackgroundDeleteCommand ??= new RelayCommand<UserImageModel>(async (obj) => {
-                if (obj is not null && obj.IsEditable)
-                {
-                    SelectedDepthBackground = SelectedDepthBackground != obj ? SelectedDepthBackground : DepthBackgrounds[0];
-                    DepthBackgrounds.Remove(obj);
-                    await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(obj.Image))).DeleteAsync();
-                }
-            });
+        [RelayCommand]
+        private async Task DepthBackgroundDelete(UserImageModel obj)
+        {
+            if (obj is not null && obj.IsEditable)
+            {
+                SelectedDepthBackground = SelectedDepthBackground != obj ? SelectedDepthBackground : DepthBackgrounds[0];
+                DepthBackgrounds.Remove(obj);
+                await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(obj.Image))).DeleteAsync();
+            }
+        }
 
-        private RelayCommand<UserImageModel> _fogBackgroundDeleteCommand;
-        public RelayCommand<UserImageModel> FogBackgroundDeleteCommand =>
-            _fogBackgroundDeleteCommand ??= new RelayCommand<UserImageModel>(async (obj) => {
-                if (obj is not null && obj.IsEditable)
-                {
-                    // Shared with depth backgrounds
-                    SelectedFogBackground = SelectedFogBackground != obj ? SelectedFogBackground : DepthBackgrounds[0];
-                    DepthBackgrounds.Remove(obj);
-                    await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(obj.Image))).DeleteAsync();
-                }
-            });
+        [RelayCommand]
+        private async Task FogBackgroundDelete(UserImageModel obj)
+        {
+            if (obj is not null && obj.IsEditable)
+            {
+                // Shared with depth backgrounds
+                SelectedFogBackground = SelectedFogBackground != obj ? SelectedFogBackground : DepthBackgrounds[0];
+                DepthBackgrounds.Remove(obj);
+                await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(obj.Image))).DeleteAsync();
+            }
+        }
 
         private async Task InitializeBackgrounds()
         {

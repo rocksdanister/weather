@@ -35,6 +35,7 @@
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
         <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
         <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+        <customConverters:AudioVolumeGlyphConverter x:Key="AudioVolumeGlyphConverter" />
     </Page.Resources>
 
     <Grid
@@ -255,8 +256,19 @@
             IsOpen="False"
             Visibility="{x:Bind shellVm.IsMainPage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
             <AppBarButton
+                MaxWidth="50"
+                Icon="{x:Bind shellVm.SoundVolume, Mode=OneWay, Converter={StaticResource AudioVolumeGlyphConverter}}"
+                LabelPosition="Collapsed"
+                ToolTipService.ToolTip="Sound">
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <customControls:SoundControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton
                 Width="50"
-                Command="{x:Bind shellVm.ScreensaverCommand}"
+                Command="{x:Bind shellVm.OpenScreensaverCommand}"
                 Icon="Pictures"
                 IsEnabled="{x:Bind shellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
                 LabelPosition="Collapsed">
@@ -268,17 +280,17 @@
             <AppBarButton
                 x:Uid="AppBarSettings"
                 Width="50"
-                Command="{x:Bind shellVm.SettingsCommand}"
+                Command="{x:Bind shellVm.OpenSettingsCommand}"
                 Icon="Setting"
                 LabelPosition="Collapsed" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton
                     x:Uid="AppBarHelp"
-                    Command="{x:Bind shellVm.HelpCommand}"
+                    Command="{x:Bind shellVm.OpenHelpCommand}"
                     Icon="Help" />
                 <AppBarButton
                     x:Uid="AppBarAbout"
-                    Command="{x:Bind shellVm.AboutCommand}"
+                    Command="{x:Bind shellVm.OpenAboutCommand}"
                     Icon="Message" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
@@ -313,7 +325,7 @@
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
                     BorderBrush="Transparent"
-                    Command="{x:Bind shellVm.RefreshCommand}"
+                    Command="{x:Bind shellVm.RefreshWeatherCommand}"
                     Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
                     <ToolTipService.ToolTip>
                         <TextBlock x:Uid="RefreshWeatherTooltip" />

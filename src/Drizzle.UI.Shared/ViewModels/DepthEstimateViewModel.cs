@@ -36,7 +36,7 @@ namespace Drizzle.UI.UWP.ViewModels
             this.downloader = downloader;
 
             IsModelExists = CheckModel();
-            _canRunCommand = IsModelExists && SelectedImage is not null;
+            CanRunCommand = IsModelExists && SelectedImage is not null;
             RunCommand.NotifyCanExecuteChanged();
         }
 
@@ -73,19 +73,14 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
-        private bool _canRunCommand = false;
-        private RelayCommand _runCommand;
-        public RelayCommand RunCommand => _runCommand ??= new RelayCommand(async () => await CreateDepthAsset(), () => _canRunCommand);
+        private bool CanRunCommand { get; set; } = false;
 
-        private bool _canDownloadModelCommand = true;
-        private RelayCommand _downloadModelCommand;
-        public RelayCommand DownloadModelCommand => _downloadModelCommand ??= new RelayCommand(async () => await DownloadModel(), () => _canDownloadModelCommand);
+        private bool CanCancelCommand { get; set; } = true;
 
-        private bool _canCancelCommand = true;
-        private RelayCommand _cancelCommand;
-        public RelayCommand CancelCommand => _cancelCommand ??= new RelayCommand(CancelOperations, () => _canCancelCommand);
+        private bool CanDownloadModelCommand { get; set; } = true;
 
-        private async Task CreateDepthAsset()
+        [RelayCommand(CanExecute = nameof(CanRunCommand))]
+        private async Task Run()
         {
             var localFolder = ApplicationData.Current.LocalFolder;
             var cacheFolder = await localFolder.CreateFolderAsync("Backgrounds", CreationCollisionOption.OpenIfExists);
@@ -98,9 +93,9 @@ namespace Drizzle.UI.UWP.ViewModels
             try
             {
                 IsRunning = true;
-                _canRunCommand = false;
+                CanRunCommand = false;
                 RunCommand.NotifyCanExecuteChanged();
-                _canCancelCommand = false;
+                CanCancelCommand = false;
                 CancelCommand.NotifyCanExecuteChanged();
 
                 await Task.Run(async () =>
@@ -154,16 +149,24 @@ namespace Drizzle.UI.UWP.ViewModels
             finally
             {
                 IsRunning = false;
-                _canCancelCommand = true;
+                CanCancelCommand = true;
                 CancelCommand.NotifyCanExecuteChanged();
             }
         }
 
+
+        [RelayCommand(CanExecute = nameof(CanCancelCommand))]
+        private void Cancel()
+        {
+            downloader?.Cancel();
+        }
+
+        [RelayCommand(CanExecute = nameof(CanDownloadModelCommand))]
         private async Task DownloadModel()
         {
             try
             {
-                _canDownloadModelCommand = false;
+                CanDownloadModelCommand = false;
                 DownloadModelCommand.NotifyCanExecuteChanged();
 
                 var uri = new Uri("https://github.com/rocksdanister/lively-ml-models/releases/download/v1.0.0.0/model.onnx");
@@ -188,7 +191,7 @@ namespace Drizzle.UI.UWP.ViewModels
                             IsModelExists = CheckModel();
                             BackgroundImage = IsModelExists ? SelectedImage : BackgroundImage;
 
-                            _canRunCommand = IsModelExists;
+                            CanRunCommand = IsModelExists;
                             RunCommand.NotifyCanExecuteChanged();
                         }
                         else
@@ -209,11 +212,6 @@ namespace Drizzle.UI.UWP.ViewModels
             //    _canDownloadModelCommand = true;
             //    DownloadModelCommand.NotifyCanExecuteChanged();
             //}
-        }
-
-        private void CancelOperations()
-        {
-            downloader?.Cancel();
         }
 
         private bool CheckModel() => File.Exists(modelPath);

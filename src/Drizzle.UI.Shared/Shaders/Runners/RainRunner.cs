@@ -65,7 +65,7 @@ public sealed class RainRunner : IShaderRunner
 
     private void UpdateProperties()
     {
-        // Smoothing
+        // Smoothing, value is increased by small step % every frame
         currentProperties.Intensity = ShaderUtil.Lerp(currentProperties.Intensity, properties().Intensity, 0.05f);
         currentProperties.Zoom = ShaderUtil.Lerp(currentProperties.Zoom, properties().Zoom, 0.1f);
         currentProperties.Normal = ShaderUtil.Lerp(currentProperties.Normal, properties().Normal, 0.05f);

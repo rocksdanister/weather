@@ -5,6 +5,7 @@
     xmlns:animation="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Drizzle.UI.UWP.Views"
@@ -135,7 +136,7 @@
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="12" />
                     </Border.Background>
-                    <Button Command="{x:Bind viewModel.FullscreenCommand}">
+                    <Button Command="{x:Bind viewModel.FullScreenCommand}">
                         <Grid>
                             <FontIcon Glyph="{x:Bind viewModel.IsFullScreen, Mode=OneWay, Converter={StaticResource BoolToFullScreenGlyphConverter}}" />
                         </Grid>
@@ -476,7 +477,10 @@
                                             </ItemsPanelTemplate>
                                         </GridView.ItemsPanel>
                                     </GridView>
-                                    <CheckBox x:Uid="AlwaysHideScreensaverMenu" IsChecked="{x:Bind viewModel.AutoHideMenu, Mode=TwoWay}" />
+                                    <Grid>
+                                        <customControls:SoundControl HorizontalAlignment="Right" Volume="{x:Bind viewModel.ShellVm.SoundVolume, Mode=TwoWay}" />
+                                        <CheckBox x:Uid="AlwaysHideScreensaverMenu" IsChecked="{x:Bind viewModel.AutoHideMenu, Mode=TwoWay}" />
+                                    </Grid>
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
