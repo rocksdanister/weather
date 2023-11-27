@@ -258,8 +258,10 @@
             <AppBarButton
                 MaxWidth="50"
                 Icon="{x:Bind shellVm.SoundVolume, Mode=OneWay, Converter={StaticResource AudioVolumeGlyphConverter}}"
-                LabelPosition="Collapsed"
-                ToolTipService.ToolTip="Sound">
+                LabelPosition="Collapsed">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="SoundControlTooltip" />
+                </ToolTipService.ToolTip>
                 <AppBarButton.Flyout>
                     <Flyout>
                         <customControls:SoundControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
@@ -282,7 +284,11 @@
                 Width="50"
                 Command="{x:Bind shellVm.OpenSettingsCommand}"
                 Icon="Setting"
-                LabelPosition="Collapsed" />
+                LabelPosition="Collapsed">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="SettingsTooltip" />
+                </ToolTipService.ToolTip>
+            </AppBarButton>
             <CommandBar.SecondaryCommands>
                 <AppBarButton
                     x:Uid="AppBarHelp"
