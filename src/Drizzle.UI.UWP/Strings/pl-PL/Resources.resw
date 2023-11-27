@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Wygaszacz ekranu</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Rozmycie</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Licencja oprogramowania</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Dźwięk</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Okaż wsparcie dla projektu, dając gwiazdkę</value>

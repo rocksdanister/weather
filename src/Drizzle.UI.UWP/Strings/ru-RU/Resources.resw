@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Заставка</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Размытие</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Лицензия на ПО</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Системный звук</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Проявите любовь, подарив звезду</value>

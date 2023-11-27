@@ -160,7 +160,7 @@
     <value>Helderheid van de achtergrond aanpassen</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Hederheid</value>
+    <value>Helderheid</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>Ontdek</value>
@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Schermbeveiliging</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Vervaging</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Software licenties</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Geluid</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Toon wat liefde door een ster achter te laten</value>

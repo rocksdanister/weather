@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>スクリーンセーバー</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>設定</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>ぼかし効果</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>ソフトウェア ライセンス</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>サウンド</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Star を付けて感謝を伝える</value>

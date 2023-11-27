@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Protetor de Tela</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Desfoque</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Licença de software</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Som</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Mostre seu apoio dando uma estrela</value>

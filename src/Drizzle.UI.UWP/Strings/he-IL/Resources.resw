@@ -160,7 +160,7 @@
     <value>Adjust background brightness</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Brightness</value>
+    <value>בהירות</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
     <value>דפדף</value>
@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>שומר מסך</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>טשטוש</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>רשיון תוכנה</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>צליל</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>הראה קצת אהבה על ידי הפלת כוכב</value>
@@ -409,7 +415,7 @@
     <value>מידע על מהירות הרוח והמשבים</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>נגישות</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>הוסף מיקום להתחיל.</value>

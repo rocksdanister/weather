@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>屏保</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>模糊</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>软件许可</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>声音</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>请星标该项目以表喜爱</value>

@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Màn hình chờ</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Làm mờ</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Bản quyền phần mềm</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Âm thanh</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Thể hiện sự yêu thích bằng cách tặng một sao</value>

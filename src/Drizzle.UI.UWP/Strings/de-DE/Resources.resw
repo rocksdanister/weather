@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Bildschirmschoner</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Unschärfe</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Softwarelizenz</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Sound</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Zeige etwas Liebe und lasse einen Stern da</value>

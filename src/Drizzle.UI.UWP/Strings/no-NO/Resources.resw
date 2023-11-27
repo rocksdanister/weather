@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Skjermsparer</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Innstillinger</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Uklarhet</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Programvarelisens</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Lyd</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Vis litt kjærlighet ved å sende en stjerne</value>
@@ -409,7 +415,7 @@
     <value>Om vindhastighet og -endringer</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>Hjelpemiddel</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
     <value>Legg til en plassering for å komme i gang.</value>

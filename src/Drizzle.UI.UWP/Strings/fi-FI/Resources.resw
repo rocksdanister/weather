@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Näytönsäästäjä</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Sumennus</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Ohjelmistolisenssit</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Ääni</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Näytä hieman rakkautta pudottamalla tähti</value>

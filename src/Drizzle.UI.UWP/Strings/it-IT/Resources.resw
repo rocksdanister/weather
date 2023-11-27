@@ -324,6 +324,9 @@
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Salvaschermo</value>
   </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
     <value>Sfoca</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>Licenza software</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Suono</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
     <value>Mostra un po' di affetto lasciando una stella</value>
