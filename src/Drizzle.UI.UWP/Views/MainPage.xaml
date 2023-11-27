@@ -517,7 +517,8 @@
                     </Button>
                 </Border>
                 <!--  Visibility  -->
-                <Border
+                <!--  Issue: https://github.com/rocksdanister/weather/issues/37  -->
+                <!--<Border
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16"
@@ -543,7 +544,7 @@
                             Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}"
                             Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
                     </Button>
-                </Border>
+                </Border>-->
             </StackPanel>
 
             <!--  Suggestions  -->
