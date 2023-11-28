@@ -15,7 +15,7 @@ namespace Drizzle.UI.UWP.Services
 {
     public class SoundService : ISoundService
     {
-        private WmoWeatherCode currentTrackCode = (WmoWeatherCode)(-99);
+        private WmoWeatherCode currentAudiokey = (WmoWeatherCode)(-99);
         private readonly MediaPlayer mediaPlayer;
         private readonly ILogger logger;
         private bool disposedValue;
@@ -74,11 +74,17 @@ namespace Drizzle.UI.UWP.Services
 
         public void SetSource(WmoWeatherCode code)
         {
-            if (currentTrackCode == code)
+            if (currentAudiokey == code)
                 return;
 
-            currentTrackCode = code;
-            mediaPlayer.Source = MediaSource.CreateFromUri(GetAudioAsset(code));
+            var newAudio = audioAssets[code];
+            if (audioAssets.TryGetValue(currentAudiokey, out Uri uri) && uri == newAudio) {
+                // Skip if same audio source already loaded
+            }
+            else {
+                mediaPlayer.Source = MediaSource.CreateFromUri(newAudio);
+            }
+            currentAudiokey = code;
         }
 
         public void Play()
@@ -107,41 +113,37 @@ namespace Drizzle.UI.UWP.Services
         }
 
 #pragma warning disable S1075 // URIs should not be hardcoded
-        private static Uri GetAudioAsset(WmoWeatherCode weatherCode)
+        private static readonly IReadOnlyDictionary<WmoWeatherCode, Uri> audioAssets = new Dictionary<WmoWeatherCode, Uri>()
         {
-            return weatherCode switch
-            {
-                WmoWeatherCode.ClearSky => new Uri("ms-appx:///Assets/Sounds/forest.m4a"),
-                WmoWeatherCode.MainlyClear => new Uri("ms-appx:///Assets/Sounds/forest.m4a"),
-                WmoWeatherCode.PartlyCloudy => new Uri("ms-appx:///Assets/Sounds/wind.m4a"),
-                WmoWeatherCode.Overcast => new Uri("ms-appx:///Assets/Sounds/wind.m4a"),
-                WmoWeatherCode.Fog => new Uri("ms-appx:///Assets/Sounds/wind.m4a"),
-                WmoWeatherCode.DepositingRimeFog => new Uri("ms-appx:///Assets/Sounds/wind.m4a"),
-                WmoWeatherCode.LightDrizzle => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.ModerateDrizzle => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.DenseDrizzle => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.LightFreezingDrizzle => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.DenseFreezingDrizzle => new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a"),
-                WmoWeatherCode.SlightRain => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.ModerateRain => new Uri("ms-appx:///Assets/Sounds/rain.m4a"),
-                WmoWeatherCode.HeavyRain => new Uri("ms-appx:///Assets/Sounds/rain.m4a"),
-                WmoWeatherCode.LightFreezingRain => new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a"),
-                WmoWeatherCode.HeavyFreezingRain => new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a"),
-                WmoWeatherCode.SlightSnowFall => new Uri("ms-appx:///Assets/Sounds/snow.m4a"),
-                WmoWeatherCode.ModerateSnowFall => new Uri("ms-appx:///Assets/Sounds/snow.m4a"),
-                WmoWeatherCode.HeavySnowFall => new Uri("ms-appx:///Assets/Sounds/rain.m4a"),
-                WmoWeatherCode.SnowGrains => new Uri("ms-appx:///Assets/Sounds/rain.m4a"),
-                WmoWeatherCode.SlightRainShowers => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.ModerateRainShowers => new Uri("ms-appx:///Assets/Sounds/rain_light.m4a"),
-                WmoWeatherCode.ViolentRainShowers => new Uri("ms-appx:///Assets/Sounds/rain.m4a"),
-                WmoWeatherCode.SlightSnowShowers => new Uri("ms-appx:///Assets/Sounds/snow.m4a"),
-                WmoWeatherCode.HeavySnowShowers => new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a"),
-                WmoWeatherCode.Thunderstorm => new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a"),
-                WmoWeatherCode.ThunderstormLightHail => new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a"),
-                WmoWeatherCode.ThunderstormHeavyHail => new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a"),
-                _ => throw new NotImplementedException(),
-            };
-        }
+            { WmoWeatherCode.ClearSky, new Uri("ms-appx:///Assets/Sounds/forest.m4a") },
+            { WmoWeatherCode.MainlyClear, new Uri("ms-appx:///Assets/Sounds/forest.m4a") },
+            { WmoWeatherCode.PartlyCloudy, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.Overcast, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.Fog, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.DepositingRimeFog, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.LightDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.ModerateDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.DenseDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.LightFreezingDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.DenseFreezingDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.SlightRain, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.ModerateRain, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.HeavyRain, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.LightFreezingRain, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.HeavyFreezingRain, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.SlightSnowFall, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.ModerateSnowFall, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.HeavySnowFall, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.SnowGrains, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.SlightRainShowers, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.ModerateRainShowers, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.ViolentRainShowers, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.SlightSnowShowers, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.HeavySnowShowers, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.Thunderstorm, new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a") },
+            { WmoWeatherCode.ThunderstormLightHail, new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a") },
+            { WmoWeatherCode.ThunderstormHeavyHail, new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a") }
+        };
 #pragma warning restore S1075 // URIs should not be hardcoded
 
         protected virtual void Dispose(bool disposing)
