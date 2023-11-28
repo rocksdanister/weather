@@ -296,9 +296,11 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\Sounds\forest.m4a" />
+    <Content Include="Assets\Sounds\rain_freezing_thunder.m4a" />
+    <Content Include="Assets\Sounds\rain_light_2.m4a" />
     <Content Include="Assets\Sounds\thunderstorm.m4a" />
     <Content Include="Assets\Sounds\rain_light.m4a" />
-    <Content Include="Assets\Sounds\forest.m4a" />
     <Content Include="Assets\Sounds\rain_freezing.m4a" />
     <Content Include="Assets\Sounds\rain.m4a" />
     <Content Include="Assets\Sounds\wind.m4a" />
