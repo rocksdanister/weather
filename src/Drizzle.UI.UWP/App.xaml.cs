@@ -144,7 +144,7 @@ namespace Drizzle.UI.UWP
                 .AddTransient<DepthEstimateViewModel>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IDownloadUtil, HttpDownloadUtil>()
-                //https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+                // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()
                 // Remove HttpClientFactory logging
                 .RemoveAll<IHttpMessageHandlerBuilderFilter>()
@@ -152,7 +152,8 @@ namespace Drizzle.UI.UWP
                 {
                     // Configure Logging with NLog
                     loggingBuilder.ClearProviders();
-                    loggingBuilder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                    // https://github.com/NLog/NLog.Extensions.Logging/issues/389
+                    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
                     loggingBuilder.AddNLog("Nlog.config");
                 })
                 .BuildServiceProvider();
