@@ -33,6 +33,8 @@ public static class UserSettingsConstants
 
     public const string BackgroundPause = "BackgroundPause";
 
+    public const string BackgroundPauseAudio = "BackgroundPauseAudio";
+
     public const string SoundVolume = "SoundVolume";
 
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -50,6 +52,7 @@ public static class UserSettingsConstants
         { BackgroundBrightness, 1f },
         { ReducedMotion, false },
         { BackgroundPause, true },
+        { BackgroundPauseAudio, true },
         { SoundVolume, 0 },
     };
 }

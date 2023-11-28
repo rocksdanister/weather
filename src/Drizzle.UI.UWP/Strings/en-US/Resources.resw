@@ -270,6 +270,9 @@
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Open logs</value>
   </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
+  </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pause visual when application not foreground</value>
   </data>

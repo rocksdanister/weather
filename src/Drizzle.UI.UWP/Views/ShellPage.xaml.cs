@@ -153,10 +153,12 @@ namespace Drizzle.UI.UWP.Views
                                 shellVm.FogProperty.TimeMultiplier =
                                 shellVm.RainProperty.TimeMultiplier = 0.1f;
 
-                            soundService.Pause();
                             isWindowDeactivated = true;
                             deactivatedStopwatch.Start();
                         }
+
+                        if (userSettings.Get<bool>(UserSettingsConstants.BackgroundPauseAudio))
+                            soundService.Pause();
                     }
                     break;
                 case CoreWindowActivationState.CodeActivated:

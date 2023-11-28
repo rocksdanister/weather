@@ -24,6 +24,7 @@ namespace Drizzle.UI.UWP.ViewModels
 
             ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
             BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
+            BackgroundPauseAudio = userSettings.Get<bool>(UserSettingsConstants.BackgroundPauseAudio);
             BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
             Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
@@ -82,6 +83,19 @@ namespace Drizzle.UI.UWP.ViewModels
                     userSettings.Set(UserSettingsConstants.BackgroundPause, value);
 
                 SetProperty(ref _backgroundPause, value);
+            }
+        }
+
+        private bool _backgroundPauseAudio;
+        public bool BackgroundPauseAudio
+        {
+            get => _backgroundPauseAudio;
+            set
+            {
+                if (userSettings.Get<bool>(UserSettingsConstants.BackgroundPauseAudio) != value)
+                    userSettings.Set(UserSettingsConstants.BackgroundPauseAudio, value);
+
+                SetProperty(ref _backgroundPauseAudio, value);
             }
         }
 

@@ -87,6 +87,16 @@
                         IsChecked="{x:Bind viewModel.BackgroundPause, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
+                <labs:SettingsCard x:Uid="PauseIfBackgroundAudioSettings">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE8D6;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <CheckBox
+                        MinWidth="0"
+                        Padding="0"
+                        IsChecked="{x:Bind viewModel.BackgroundPauseAudio, Mode=TwoWay}" />
+                </labs:SettingsCard>
+
                 <labs:SettingsCard x:Uid="FrameRateSettings" Visibility="Collapsed">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90D;" />
