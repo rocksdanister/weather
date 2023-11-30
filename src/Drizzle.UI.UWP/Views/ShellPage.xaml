@@ -465,6 +465,16 @@
             <local:UnsupportedGpuPage />
         </muxc:TeachingTip>
 
+        <!--  Updated notification  -->
+        <muxc:TeachingTip
+            BorderBrush="{ThemeResource SystemControlBackgroundAccentBrush}"
+            BorderThickness="0,3,0,0"
+            IsOpen="{x:Bind shellVm.IsAppUpdated, Mode=OneTime}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <local:UpdateCompletePage />
+        </muxc:TeachingTip>
+
         <!--  Show errors if any  -->
         <muxc:InfoBar
             x:Uid="InfoError"

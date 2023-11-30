@@ -133,6 +133,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedVisuals\Confetti.cs" />
     <Compile Include="AnimatedVisuals\ClearDay.cs" />
     <Compile Include="AnimatedVisuals\ClearNight.cs" />
     <Compile Include="AnimatedVisuals\Cloudy.cs" />
@@ -246,6 +247,9 @@
     </Compile>
     <Compile Include="Views\UnsupportedGpuPage.xaml.cs">
       <DependentUpon>UnsupportedGpuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateCompletePage.xaml.cs">
+      <DependentUpon>UpdateCompletePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -505,6 +509,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UnsupportedGpuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateCompletePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

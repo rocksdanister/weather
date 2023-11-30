@@ -88,6 +88,7 @@ namespace Drizzle.UI.UWP.ViewModels
             };
 
             IsFirstRun = SystemInformation.Instance.IsFirstRun;
+            IsAppUpdated = SystemInformation.Instance.IsAppUpdated;
             // For best user experience when volume is 0, pause audio.
             soundService.AutoPause = true;
             // Cache the weather data to reduce API calls when app is re-opened.
@@ -214,6 +215,9 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private bool isMainPage = true;
+
+        [ObservableProperty]
+        private bool isAppUpdated = false;
 
         /// <summary>
         /// Animate shader on mouse drag
