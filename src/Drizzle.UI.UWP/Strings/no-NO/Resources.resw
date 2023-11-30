@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Ytterligere filer må lastes ned for denne funksjonen</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Sjekk ut hva som er nytt</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Føles som</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Åpne logg</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pause visual when application not foreground</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Solnedgang</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Oppdatering fullført</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-indeks</value>

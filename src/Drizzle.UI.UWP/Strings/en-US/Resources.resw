@@ -466,7 +466,7 @@
     <value>Sunset</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
-    <value>Updated Completed</value>
+    <value>Update Completed</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV Index</value>

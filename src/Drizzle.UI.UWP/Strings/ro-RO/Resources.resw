@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Pentru această caracteristică trebuiesc descărcate fișiere suplimentare</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Vezi ce e nou</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Se simte ca</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Deschideți jurnalele</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pune în pauză efectele vizuale când aplicația nu este in prim-plan</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Apus</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Actualizare completă</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indice UV</value>

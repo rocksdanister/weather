@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>נדרש להוריד קבצים נוספים עבור פעולה זו</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>בדוק מה חדש</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>מרגיש כמו</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>פתח יומנים</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pause visual when application not foreground</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>שקיעה</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>העדכון הושלם</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>מדד UV</value>

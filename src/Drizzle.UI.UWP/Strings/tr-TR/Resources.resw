@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Bu özellik için ek dosyaların indirilmesi gerekir</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Yeniliklere göz atın</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Hissedilen</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Kayıtları aç</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Uygulama ön planda olmadığında görsel duraklat</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Gün Batımı</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Güncelleme tamamlandı</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV İndeksi</value>

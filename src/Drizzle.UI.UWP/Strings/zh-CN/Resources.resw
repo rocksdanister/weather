@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>需要为此功能下载附加文件</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>查看新变化</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>体感温度</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>打开日志</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>当应用程序没有前台时暂停可见</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>日落</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>更新完成</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>紫外线指数</value>

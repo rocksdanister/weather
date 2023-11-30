@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Dodatkowe pliki muszą być pobrane dla tej funkcji</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Sprawdź, co jest nowego</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Odczuwalna</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Otwórz dziennik zdarzeń</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Wstrzymaj animacje, kiedy aplikacja działa na pierwszym planie.</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Zachód słońca</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Aktualizacja zakończona</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indeks UV</value>

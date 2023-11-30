@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>برای این ویژگی لازم هست که فایل های بیشتری دانلود شود</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Check out what's new</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>احساس میکند</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Open logs</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pause visual when application not foreground</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>غروب آفتاب</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Update Completed</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>شاخص پرتو فرا بنفش</value>

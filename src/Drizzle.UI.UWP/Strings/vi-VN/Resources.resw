@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Các tệp bổ sung cần được tải xuống cho tính năng này</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Kiểm tra xem có gì mới</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Nhiệt độ cảm nhận</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Mở nhật ký</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Tạm ngừng hoạt ảnh khi ứng dụng chạy nền</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Lặn</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Cập nhật hoàn tất</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Chỉ số UV</value>

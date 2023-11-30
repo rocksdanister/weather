@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Πρέπει να κατέβουν επιπλέον αρχεία για αυτή τη δυνατότητα</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Δείτε τι νέο υπάρχει</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Αίσθηση</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Άνοιγμα αρχείων καταγραφής</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Παύση οπτικών όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Δύση</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Η ενημέρωση ολοκληρώθηκε</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Δείκτης UV</value>

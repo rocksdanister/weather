@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Voor deze functie moeten extra bestanden worden gedownload</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Bekijk wat er nieuw is</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Gevoelstemperatuur</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Logboeken openen</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Visuele effecten pauzeren wanneer applicatie niet de voorgrond is</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Zonsondergang</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Bijwerking voltooid</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-index</value>

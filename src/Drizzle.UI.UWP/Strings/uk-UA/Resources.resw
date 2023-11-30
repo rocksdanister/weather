@@ -225,6 +225,9 @@
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Для цієї функції потрібно завантажити додаткові файли</value>
   </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Перевірте, що нового</value>
+  </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Відчувається як</value>
   </data>
@@ -269,6 +272,9 @@
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
     <value>Відкрити логи</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Призупиняти візуалізацію, коли програма у фоновому режимі</value>
@@ -458,6 +464,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Захід сонця</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Оновлено</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>УФ-індекс</value>
