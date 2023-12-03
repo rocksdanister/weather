@@ -2,6 +2,7 @@
 using System;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Helpers;
+using Drizzle.Weather.Helpers;
 #if WINDOWS_UWP
 using ComputeSharp.Uwp;
 #else
@@ -43,7 +44,7 @@ public sealed class CloudsRunner : IShaderRunner
             currentProperties.Iterations,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            IsDaytime() ? 0.75f : 0.25f, 
+            WeatherUtil.IsDaytime() ? 0.75f : 0.25f, 
             currentProperties.IsDayNightShift));
 
         return true;
@@ -79,17 +80,5 @@ public sealed class CloudsRunner : IShaderRunner
             return (hour - 18) / 24f;
         else
             return hour / 24f + 0.25f;
-    }
-
-    /// <summary>
-    /// True if 6 AM to 6 PM, false otherwise
-    /// </summary>
-    private static bool IsDaytime()
-    {
-        DateTime now = DateTime.Now;
-        TimeSpan timeOfDay = now.TimeOfDay;
-        TimeSpan start = new TimeSpan(6, 0, 0);
-        TimeSpan end = new TimeSpan(18, 0, 0);
-        return timeOfDay >= start && timeOfDay <= end;
     }
 }

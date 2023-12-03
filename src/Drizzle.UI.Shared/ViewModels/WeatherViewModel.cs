@@ -24,6 +24,9 @@ namespace Drizzle.UI.UWP.ViewModels
         private string timeZone;
 
         [ObservableProperty]
+        private bool isDaytime;
+
+        [ObservableProperty]
         private float minTemp;
 
         [ObservableProperty]

@@ -1,4 +1,5 @@
 ﻿using Drizzle.Models.Weather;
+using Drizzle.Models.Weather.OpenMeteo;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -113,6 +114,9 @@ public static class WeatherUtil
             DateTimeFormatInfo.CurrentInfo.GetAbbreviatedDayName(value) : DateTimeFormatInfo.CurrentInfo.GetDayName(value);
     }
 
+    public static DateTime? GetLocalTime(string timezone) => 
+        GetLocalTime(DateTime.Now, timezone);
+
     public static DateTime? GetLocalTime(DateTime time, string timezone)
     {
         try
@@ -124,6 +128,30 @@ public static class WeatherUtil
         {
             return null;
         }
+    }
+
+    /// <summary>
+    /// True if 6 AM to 6 PM, false otherwise
+    /// </summary>
+    public static bool IsDaytime()
+    {
+        var time = DateTime.Now;
+        var timeOfDay = time.TimeOfDay;
+        var start = new TimeSpan(6, 0, 0);
+        var end = new TimeSpan(18, 0, 0);
+        return timeOfDay >= start && timeOfDay <= end;
+    }
+
+    /// <summary>
+    /// True if 6 AM to 6 PM, false otherwise
+    /// </summary>
+    public static bool IsDaytime(string timezone)
+    {
+        var localTime = GetLocalTime(timezone) ?? DateTime.Now;
+        var timeOfDay = localTime.TimeOfDay;
+        var start = new TimeSpan(6, 0, 0);
+        var end = new TimeSpan(18, 0, 0);
+        return timeOfDay >= start && timeOfDay <= end;
     }
 
     public static float CelsiusToFahrenheit(float celsius) => celsius * 9f / 5f + 32f;

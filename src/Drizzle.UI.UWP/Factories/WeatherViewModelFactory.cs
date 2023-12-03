@@ -32,6 +32,7 @@ namespace Drizzle.UI.UWP.Factories
 
             weatherVm.TimeZone = weatherForecast.TimeZone;
             weatherVm.FetchTime = weatherForecast.FetchTime;
+            weatherVm.IsDaytime = WeatherUtil.IsDaytime(weatherForecast.TimeZone);
             weatherVm.Location = new LocationModel(weatherForecast.Name, weatherForecast.Latitude, weatherForecast.Longitude);
             weatherVm.MaxTemp = weatherForecast.Daily[0].TemperatureMax;
             weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;

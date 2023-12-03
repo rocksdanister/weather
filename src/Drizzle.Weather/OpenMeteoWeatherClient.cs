@@ -476,7 +476,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
     private static IReadOnlyList<float> GetDailyValue(IEnumerable<float> values, string timezone, int days = 7)
     {
         var result = new List<float>();
-        var currentHour = WeatherUtil.GetLocalTime(DateTime.Now, timezone)?.Hour ?? DateTime.Now.Hour;
+        var currentHour = WeatherUtil.GetLocalTime(timezone)?.Hour ?? DateTime.Now.Hour;
         for (int i = 0; i < days; i++)
         {
             // 0 - 23, 24 - 47, 48 - 72..
