@@ -21,6 +21,8 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Newtonsoft.Json.Linq;
 using Drizzle.Common.Extensions;
 using Microsoft.Extensions.Logging;
+using Drizzle.Weather.Helpers;
+
 
 #if WINDOWS_UWP
 using Windows.Storage.Pickers;
@@ -56,9 +58,11 @@ namespace Drizzle.UI.UWP.ViewModels
             UpdateWeatherSelection();
             ShellVm.PropertyChanged += ShellVm_PropertyChanged;
 
+            // If no location available then use current system time
+            var isDaytime = shellVm?.SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime();
             foreach (int i in Enum.GetValues(typeof(WmoWeatherCode)))
             {
-                Weathers.Add(new ScreensaverModel(i));
+                Weathers.Add(new ScreensaverModel(i, isDaytime));
             }
             SelectedWeather = Weathers.FirstOrDefault(x => x.WeatherCode == (int)ShellVm.SelectedWeatherAnimation);
 

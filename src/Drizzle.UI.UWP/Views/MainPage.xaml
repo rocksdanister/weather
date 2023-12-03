@@ -7,6 +7,7 @@
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Drizzle.Models"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -27,12 +28,9 @@
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="VisibilityConverter" />
-        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
-        <customConverters:WmoWeatherToFluentIconConverter x:Key="WmoWeatherToFluentIconConverter" />
         <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
         <customConverters:DateTimeToDayNameConverter x:Key="DateTimeToDayNameConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
-        <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
 
         <Style x:Name="CardFlyout" TargetType="FlyoutPresenter">
             <Setter Property="MinWidth" Value="430" />
@@ -155,7 +153,7 @@
                     <TextBlock
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource BodyTextBlockStyle}"
-                        Text="{x:Bind shellVm.SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                        Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(shellVm.SelectedWeather.WeatherCode), Mode=OneWay}" />
                     <TextBlock
                         HorizontalTextAlignment="Center"
                         Opacity="0.6"
@@ -190,7 +188,7 @@
                         ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
                         SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
                         <ListView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="data:WeatherModel">
                                 <Grid MinHeight="42">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="25" />
@@ -212,7 +210,7 @@
                                         Width="35"
                                         Height="35"
                                         Margin="0,-5,0,0"
-                                        Source="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
+                                        Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}" />
                                     <TextBlock
                                         Grid.Column="3"
                                         VerticalAlignment="Center"
@@ -265,7 +263,10 @@
                                 Step="2"
                                 ValueFormat="{}{0:F0}°"
                                 Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
-                            <customControls:HourlyWeatherVisuals Step="2" WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
+                            <customControls:HourlyWeatherVisuals
+                                IsDaytime="{x:Bind shellVm.SelectedWeather.IsDaytime, Mode=OneWay}"
+                                Step="2"
+                                WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
                         </Grid>
                     </Button>
                 </Border>

@@ -174,9 +174,7 @@
     <Compile Include="Converters\DegreesToCardinalConverter.cs" />
     <Compile Include="Converters\NullOrEmptyArrayToVisibilityConverter.cs" />
     <Compile Include="Converters\NullVisibilityConverter.cs" />
-    <Compile Include="Converters\WmoWeatherToAnimatedVisualConverter.cs" />
-    <Compile Include="Converters\WmoWeatherToFluentIconConverter.cs" />
-    <Compile Include="Converters\WmoWeatherToStringConverter.cs" />
+    <Compile Include="Converters\WmoWeatherConverter.cs" />
     <Compile Include="Extensions\ThemeExtensions.cs" />
     <Compile Include="Factories\IWeatherViewModelFactory.cs" />
     <Compile Include="Factories\WeatherViewModelFactory.cs" />

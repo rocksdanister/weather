@@ -10,10 +10,12 @@
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Drizzle.Models"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:viewmodels="using:Drizzle.UI.UWP.ViewModels"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="mainPage"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
@@ -33,8 +35,6 @@
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
-        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
-        <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
         <customConverters:AudioVolumeGlyphConverter x:Key="AudioVolumeGlyphConverter" />
     </Page.Resources>
 
@@ -355,7 +355,7 @@
                     ItemsSource="{x:Bind shellVm.Weathers}"
                     SelectedItem="{x:Bind shellVm.SelectedLocation, Mode=TwoWay}">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="viewmodels:WeatherViewModel">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -370,19 +370,19 @@
                                     <TextBlock
                                         VerticalAlignment="Center"
                                         FontWeight="SemiBold"
-                                        Text="{Binding Location.Name}" />
+                                        Text="{x:Bind Location.Name, Mode=OneWay}" />
                                     <TextBlock
                                         Opacity="0.4"
                                         Style="{StaticResource BodyTextBlockStyle}"
-                                        Text="{Binding Today.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                                        Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(Today.WeatherCode), Mode=OneWay}" />
                                 </StackPanel>
                                 <TextBlock
                                     Grid.Column="1"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     FontSize="21">
-                                    <Run Text="{Binding Today.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
-                                    <Run Text="{Binding Today.TemperatureUnit, Mode=OneWay}" />
+                                    <Run Text="{x:Bind Today.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                    <Run Text="{x:Bind Today.TemperatureUnit, Mode=OneWay}" />
                                 </TextBlock>
                                 <!--
                                     ElementName binding not working?

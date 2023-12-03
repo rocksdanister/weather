@@ -100,5 +100,8 @@ namespace Drizzle.Models
 
         [ObservableProperty]
         private string pressureUnit;
+
+        [ObservableProperty]
+        private bool isDaytime;
     }
 }

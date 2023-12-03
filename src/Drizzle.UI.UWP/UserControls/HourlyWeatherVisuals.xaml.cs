@@ -17,6 +17,15 @@ namespace Drizzle.UI.UWP.UserControls
 {
     public sealed partial class HourlyWeatherVisuals : UserControl
     {
+        public HourlyData[] Value
+        {
+            get { return (HourlyData[])GetValue(ValueProperty); }
+            private set { SetValue(ValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty ValueProperty =
+            DependencyProperty.Register("Value", typeof(HourlyData[]), typeof(HourlyWeatherVisuals), new PropertyMetadata(Array.Empty<HourlyData>()));
+
         public int[] WeatherCodes
         {
             get { return (int[])GetValue(WeatherCodesProperty); }
@@ -24,11 +33,19 @@ namespace Drizzle.UI.UWP.UserControls
             {
                 var stepValue = value?.Where((value, index) => (index % Step) == 0).ToArray();
                 SetValue(WeatherCodesProperty, stepValue);
+
+                Value = [];
+                if (stepValue is not null)
+                {
+                    Value = new HourlyData[stepValue.Length];
+                    for (int i = 0; i < stepValue.Length; i++)
+                        Value[i] = new HourlyData(stepValue[i], IsDaytime);
+                }
             }
         }
 
         public static readonly DependencyProperty WeatherCodesProperty =
-            DependencyProperty.Register("WeatherCodes", typeof(int[]), typeof(DailyGraph), new PropertyMetadata(Array.Empty<int>()));
+            DependencyProperty.Register("WeatherCodes", typeof(int[]), typeof(HourlyWeatherVisuals), new PropertyMetadata(Array.Empty<int>()));
 
         public int Step
         {
@@ -37,11 +54,32 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty StepProperty =
-            DependencyProperty.Register("Step", typeof(int), typeof(DailyGraph), new PropertyMetadata(1));
+            DependencyProperty.Register("Step", typeof(int), typeof(HourlyWeatherVisuals), new PropertyMetadata(1));
+
+        public bool IsDaytime
+        {
+            get { return (bool)GetValue(IsDaytimeProperty); }
+            set { SetValue(IsDaytimeProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsDaytimeProperty =
+            DependencyProperty.Register("IsDaytime", typeof(bool), typeof(HourlyWeatherVisuals), new PropertyMetadata(false));
 
         public HourlyWeatherVisuals()
         {
             this.InitializeComponent();
+        }
+    }
+
+    public class HourlyData
+    {
+        public int WeatherCode { get; set; }
+        public bool IsDaytime { get; set; }
+
+        public HourlyData(int weatherCode, bool isDaytime)
+        {
+            this.WeatherCode = weatherCode;
+            this.IsDaytime = isDaytime;
         }
     }
 }

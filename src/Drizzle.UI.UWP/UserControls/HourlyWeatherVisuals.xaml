@@ -12,26 +12,23 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
-    </UserControl.Resources>
     <Grid>
         <GridView
             Margin="-2.5,0,0,20"
             Padding="0"
             VerticalAlignment="Bottom"
-            ItemsSource="{x:Bind WeatherCodes, Mode=OneWay}"
+            ItemsSource="{x:Bind Value, Mode=OneWay}"
             SelectionMode="None">
             <GridView.Resources>
                 <Thickness x:Key="GridViewItemRevealBorderThemeThickness">0</Thickness>
             </GridView.Resources>
             <GridView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="local:HourlyData">
                     <muxc:AnimatedVisualPlayer
                         Width="30"
                         Height="30"
                         Margin="0,0,0,0"
-                        Source="{Binding Mode=OneWay, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
+                        Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}" />
                 </DataTemplate>
             </GridView.ItemTemplate>
             <GridView.ItemContainerStyle>

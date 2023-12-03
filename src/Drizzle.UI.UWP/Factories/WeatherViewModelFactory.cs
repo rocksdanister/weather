@@ -32,10 +32,10 @@ namespace Drizzle.UI.UWP.Factories
 
             weatherVm.TimeZone = weatherForecast.TimeZone;
             weatherVm.FetchTime = weatherForecast.FetchTime;
-            weatherVm.IsDaytime = WeatherUtil.IsDaytime(weatherForecast.TimeZone);
             weatherVm.Location = new LocationModel(weatherForecast.Name, weatherForecast.Latitude, weatherForecast.Longitude);
             weatherVm.MaxTemp = weatherForecast.Daily[0].TemperatureMax;
             weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;
+            var isDayTime = WeatherUtil.IsDaytime(weatherForecast.TimeZone);
             for (int i = 0; i < weatherForecast.Daily.Count(); i++)
             {
                 var tmp = new WeatherModel()
@@ -65,7 +65,8 @@ namespace Drizzle.UI.UWP.Factories
                     HourlyWindSpeed = weatherForecast.Daily[i].HourlyWindSpeed,
                     Date = weatherForecast.Daily[i].Date,
                     Sunrise = weatherForecast.Daily[i].Sunrise,
-                    Sunset = weatherForecast.Daily[i].Sunset
+                    Sunset = weatherForecast.Daily[i].Sunset,
+                    IsDaytime = isDayTime,
                 };
                 weatherVm.MaxTemp = tmp.TemperatureMax > weatherVm.MaxTemp ? tmp.TemperatureMax : weatherVm.MaxTemp;
                 weatherVm.MinTemp = tmp.TemperatureMin < weatherVm.MinTemp ? tmp.TemperatureMin : weatherVm.MinTemp;
@@ -79,7 +80,7 @@ namespace Drizzle.UI.UWP.Factories
                 weatherVm.Daily[i].HourlyUltravioletIndex = airQualityForecast.Daily[i].HourlyUV;
             }
             weatherVm.Today = weatherVm.Daily[0];
-
+            
             return weatherVm;
         }
     }

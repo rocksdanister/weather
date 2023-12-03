@@ -8,6 +8,7 @@
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Drizzle.Models"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -36,10 +37,7 @@
             FalseValue="0.5"
             TrueValue="1.0" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <customConverters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
-        <customConverters:WmoWeatherToFluentIconConverter x:Key="WmoWeatherToFluentIconConverter" />
         <customConverters:ComputeSharpFloat3ToColorConverter x:Key="ComputeSharpFloat3ToColorConverter" />
-        <customConverters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
         <DataTemplate x:Key="GridViewBackgroundDataTemplate">
             <Grid Width="50" Height="50">
                 <Grid.ContextFlyout>
@@ -445,7 +443,7 @@
                                 <StackPanel Padding="2.5,2.5,0,0">
                                     <GridView ItemsSource="{x:Bind viewModel.Weathers}" SelectedItem="{x:Bind viewModel.SelectedWeather, Mode=TwoWay}">
                                         <GridView.ItemTemplate>
-                                            <DataTemplate>
+                                            <DataTemplate x:DataType="data:ScreensaverModel">
                                                 <Grid
                                                     Width="100"
                                                     Height="100"
@@ -458,14 +456,14 @@
                                                         Grid.Row="0"
                                                         Width="55"
                                                         Height="55"
-                                                        Source="{Binding WeatherCode, Converter={StaticResource WmoWeatherToAnimatedVisualConverter}}" />
+                                                        Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}" />
                                                     <Border
                                                         Grid.Row="1"
                                                         Padding="5"
                                                         Background="{ThemeResource SystemAltMediumLowColor}">
                                                         <TextBlock
                                                             FontSize="12"
-                                                            Text="{Binding WeatherCode, Converter={StaticResource WmoWeatherToStringConverter}}"
+                                                            Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(WeatherCode), Mode=OneWay}"
                                                             TextWrapping="WrapWholeWords" />
                                                     </Border>
                                                 </Grid>
