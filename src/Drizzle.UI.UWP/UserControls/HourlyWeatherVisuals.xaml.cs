@@ -39,7 +39,10 @@ namespace Drizzle.UI.UWP.UserControls
                 {
                     Value = new HourlyData[stepValue.Length];
                     for (int i = 0; i < stepValue.Length; i++)
-                        Value[i] = new HourlyData(stepValue[i], IsDaytime);
+                    {
+                        var hour = i * Step;
+                        Value[i] = new HourlyData(stepValue[i], hour >= 6 && hour < 18);
+                    }
                 }
             }
         }
@@ -55,15 +58,6 @@ namespace Drizzle.UI.UWP.UserControls
 
         public static readonly DependencyProperty StepProperty =
             DependencyProperty.Register("Step", typeof(int), typeof(HourlyWeatherVisuals), new PropertyMetadata(1));
-
-        public bool IsDaytime
-        {
-            get { return (bool)GetValue(IsDaytimeProperty); }
-            set { SetValue(IsDaytimeProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsDaytimeProperty =
-            DependencyProperty.Register("IsDaytime", typeof(bool), typeof(HourlyWeatherVisuals), new PropertyMetadata(false));
 
         public HourlyWeatherVisuals()
         {

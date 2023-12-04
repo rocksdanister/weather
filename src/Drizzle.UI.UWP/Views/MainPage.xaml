@@ -263,10 +263,7 @@
                                 Step="2"
                                 ValueFormat="{}{0:F0}°"
                                 Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
-                            <customControls:HourlyWeatherVisuals
-                                IsDaytime="{x:Bind shellVm.SelectedWeather.IsDaytime, Mode=OneWay}"
-                                Step="2"
-                                WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
+                            <customControls:HourlyWeatherVisuals Step="2" WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
                         </Grid>
                     </Button>
                 </Border>
