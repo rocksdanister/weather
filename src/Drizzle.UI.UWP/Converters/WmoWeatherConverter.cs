@@ -50,7 +50,7 @@ namespace Drizzle.UI.UWP.Converters
         {
             { WmoWeatherCode.ClearSky, new ClearDay() },
             { WmoWeatherCode.MainlyClear, new Cloudy() },
-            { WmoWeatherCode.PartlyCloudy, new Cloudy() },
+            { WmoWeatherCode.PartlyCloudy, new PartlyCloudyDay() },
             { WmoWeatherCode.Overcast, new Overcast() },
             { WmoWeatherCode.Fog, new Fog() },
             { WmoWeatherCode.DepositingRimeFog, new Fog() },
@@ -82,7 +82,7 @@ namespace Drizzle.UI.UWP.Converters
         {
             { WmoWeatherCode.ClearSky, new ClearNight() },
             { WmoWeatherCode.MainlyClear, new Cloudy() },
-            { WmoWeatherCode.PartlyCloudy, new Cloudy() },
+            { WmoWeatherCode.PartlyCloudy, new PartlyCloudyNight() },
             { WmoWeatherCode.Overcast, new Overcast() },
             { WmoWeatherCode.Fog, new Fog() },
             { WmoWeatherCode.DepositingRimeFog, new Fog() },

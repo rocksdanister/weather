@@ -141,6 +141,8 @@
     <Compile Include="AnimatedVisuals\DrizzleExtreme.cs" />
     <Compile Include="AnimatedVisuals\FogBig.cs" />
     <Compile Include="AnimatedVisuals\LocationSearch.cs" />
+    <Compile Include="AnimatedVisuals\PartlyCloudyDay.cs" />
+    <Compile Include="AnimatedVisuals\PartlyCloudyNight.cs" />
     <Compile Include="AnimatedVisuals\SadEmoji.cs" />
     <Compile Include="AnimatedVisuals\SleetExtreme.cs" />
     <Compile Include="AnimatedVisuals\Hail.cs" />
