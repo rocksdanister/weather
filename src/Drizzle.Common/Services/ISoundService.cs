@@ -12,7 +12,7 @@ namespace Drizzle.Common.Services
         public bool AutoPause { get; set; }
         public bool IsMuted { get; set; }
         public int Volume { get; set; }
-        public void SetSource(WmoWeatherCode code);
+        public void SetSource(WmoWeatherCode code, bool isDaytime);
         public void Play();
         public void Pause();
     }

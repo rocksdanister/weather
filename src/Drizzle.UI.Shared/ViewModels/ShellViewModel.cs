@@ -11,6 +11,7 @@ using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Runners;
 using Drizzle.UI.UWP.Factories;
 using Drizzle.Weather;
+using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
@@ -597,7 +598,7 @@ namespace Drizzle.UI.UWP.ViewModels
 
         private void SetWeatherSound(WmoWeatherCode code)
         {
-            soundService.SetSource(code);
+            soundService.SetSource(code, SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime());
             soundService.Play();
         }
 

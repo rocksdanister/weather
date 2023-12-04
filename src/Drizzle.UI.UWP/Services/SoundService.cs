@@ -16,6 +16,7 @@ namespace Drizzle.UI.UWP.Services
     public class SoundService : ISoundService
     {
         private WmoWeatherCode currentAudiokey = (WmoWeatherCode)(-99);
+        private bool currentIsDaytime = false;
         private readonly MediaPlayer mediaPlayer;
         private readonly ILogger logger;
         private bool disposedValue;
@@ -72,19 +73,23 @@ namespace Drizzle.UI.UWP.Services
             set => mediaPlayer.IsMuted = value;
         }
 
-        public void SetSource(WmoWeatherCode code)
+        public void SetSource(WmoWeatherCode code, bool isDaytime)
         {
-            if (currentAudiokey == code)
+            if (currentAudiokey == code && isDaytime == currentIsDaytime)
                 return;
 
-            var newAudio = audioAssets[code];
-            if (audioAssets.TryGetValue(currentAudiokey, out Uri uri) && uri == newAudio) {
+            var newAudio = isDaytime ? dayAudioAssets[code] : nightAudioAssets[code];
+            if (currentIsDaytime && dayAudioAssets.TryGetValue(currentAudiokey, out Uri dayUri) && dayUri == newAudio) {
+                // Skip if same audio source already loaded
+            }
+            else if (!currentIsDaytime && nightAudioAssets.TryGetValue(currentAudiokey, out Uri nightUri) && nightUri == newAudio) {
                 // Skip if same audio source already loaded
             }
             else {
                 mediaPlayer.Source = MediaSource.CreateFromUri(newAudio);
             }
             currentAudiokey = code;
+            currentIsDaytime = isDaytime;
         }
 
         public void Play()
@@ -113,10 +118,42 @@ namespace Drizzle.UI.UWP.Services
         }
 
 #pragma warning disable S1075 // URIs should not be hardcoded
-        private static readonly IReadOnlyDictionary<WmoWeatherCode, Uri> audioAssets = new Dictionary<WmoWeatherCode, Uri>()
+        private static readonly IReadOnlyDictionary<WmoWeatherCode, Uri> dayAudioAssets = new Dictionary<WmoWeatherCode, Uri>()
         {
             { WmoWeatherCode.ClearSky, new Uri("ms-appx:///Assets/Sounds/forest.m4a") },
             { WmoWeatherCode.MainlyClear, new Uri("ms-appx:///Assets/Sounds/forest.m4a") },
+            { WmoWeatherCode.PartlyCloudy, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.Overcast, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.Fog, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.DepositingRimeFog, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
+            { WmoWeatherCode.LightDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light_2.m4a") },
+            { WmoWeatherCode.ModerateDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.DenseDrizzle, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.LightFreezingDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.DenseFreezingDrizzle, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.SlightRain, new Uri("ms-appx:///Assets/Sounds/rain_light_2.m4a") },
+            { WmoWeatherCode.ModerateRain, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.HeavyRain, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.LightFreezingRain, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.HeavyFreezingRain, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.SlightSnowFall, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.ModerateSnowFall, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.HeavySnowFall, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.SnowGrains, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.SlightRainShowers, new Uri("ms-appx:///Assets/Sounds/rain_light_2.m4a") },
+            { WmoWeatherCode.ModerateRainShowers, new Uri("ms-appx:///Assets/Sounds/rain_light.m4a") },
+            { WmoWeatherCode.ViolentRainShowers, new Uri("ms-appx:///Assets/Sounds/rain.m4a") },
+            { WmoWeatherCode.SlightSnowShowers, new Uri("ms-appx:///Assets/Sounds/snow.m4a") },
+            { WmoWeatherCode.HeavySnowShowers, new Uri("ms-appx:///Assets/Sounds/rain_freezing.m4a") },
+            { WmoWeatherCode.Thunderstorm, new Uri("ms-appx:///Assets/Sounds/thunderstorm.m4a") },
+            { WmoWeatherCode.ThunderstormLightHail, new Uri("ms-appx:///Assets/Sounds/rain_freezing_thunder.m4a") },
+            { WmoWeatherCode.ThunderstormHeavyHail, new Uri("ms-appx:///Assets/Sounds/rain_freezing_thunder.m4a") }
+        };
+
+        private static readonly IReadOnlyDictionary<WmoWeatherCode, Uri> nightAudioAssets = new Dictionary<WmoWeatherCode, Uri>()
+        {
+            { WmoWeatherCode.ClearSky, new Uri("ms-appx:///Assets/Sounds/night.m4a") },
+            { WmoWeatherCode.MainlyClear, new Uri("ms-appx:///Assets/Sounds/night.m4a") },
             { WmoWeatherCode.PartlyCloudy, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
             { WmoWeatherCode.Overcast, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
             { WmoWeatherCode.Fog, new Uri("ms-appx:///Assets/Sounds/wind.m4a") },
