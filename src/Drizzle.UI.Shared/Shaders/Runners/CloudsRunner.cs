@@ -2,7 +2,6 @@
 using System;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Helpers;
-using Drizzle.Weather.Helpers;
 #if WINDOWS_UWP
 using ComputeSharp.Uwp;
 #else
@@ -44,7 +43,7 @@ public sealed class CloudsRunner : IShaderRunner
             currentProperties.Iterations,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            WeatherUtil.IsDaytime() ? 0.75f : 0.25f, 
+            currentProperties.IsDaytime ? 0.75f : 0.25f, 
             currentProperties.IsDayNightShift));
 
         return true;
@@ -65,6 +64,7 @@ public sealed class CloudsRunner : IShaderRunner
         currentProperties.Iterations = properties().Iterations;
         currentProperties.Speed = properties().Speed;
         currentProperties.IsDayNightShift = properties().IsDayNightShift;
+        currentProperties.IsDaytime = properties().IsDaytime;
     }
 
     /// <summary>

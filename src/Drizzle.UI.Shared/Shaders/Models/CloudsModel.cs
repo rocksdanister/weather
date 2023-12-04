@@ -21,6 +21,9 @@ public partial class CloudsModel : BaseModel
     [ObservableProperty]
     private bool isDayNightShift = true;
 
+    [ObservableProperty]
+    private bool isDaytime = false;
+
     public CloudsModel() : base(ShaderTypes.clouds) { }
 
     public CloudsModel(CloudsModel properties) : base(ShaderTypes.clouds)
@@ -30,5 +33,6 @@ public partial class CloudsModel : BaseModel
         this.Mouse = properties.Mouse;
         this.Saturation = properties.Saturation;
         this.IsDayNightShift = properties.IsDayNightShift;
+        this.IsDaytime = properties.IsDaytime;
     }
 }

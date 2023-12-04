@@ -517,6 +517,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         CloudsProperty.Scale = property.Scale;
                         CloudsProperty.Iterations = property.Iterations;
                         CloudsProperty.Speed = property.Speed * speedFactor;
+                        CloudsProperty.IsDaytime = SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime();
                         CloudsProperty.IsDayNightShift = property.IsDayNightShift;
                     }
                     break;
@@ -592,6 +593,7 @@ namespace Drizzle.UI.UWP.ViewModels
             SetShader(obj.Type);
             SetWeatherSound(code);
             SelectedWeatherAnimation = code;
+            // Can be null if shader has no texture input
             FallbackBackground = IsFallbackBackground ? 
                 randomBackground ?? Path.Combine(AssetImageConstants.DepthAssets[rnd.Next(AssetImageConstants.DepthAssets.Count)], "image.jpg") : null;
         }
