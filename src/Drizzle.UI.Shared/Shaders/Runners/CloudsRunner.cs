@@ -16,6 +16,7 @@ public sealed class CloudsRunner : IShaderRunner
     private readonly CloudsModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
+    private float currentTimeStep = 0.75f;
 
     public CloudsRunner()
     {
@@ -43,7 +44,7 @@ public sealed class CloudsRunner : IShaderRunner
             currentProperties.Iterations,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            currentProperties.IsDaytime ? 0.75f : 0.25f, 
+            currentTimeStep, 
             currentProperties.IsDayNightShift));
 
         return true;
@@ -55,6 +56,7 @@ public sealed class CloudsRunner : IShaderRunner
         currentProperties.Brightness = ShaderUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
         currentProperties.Saturation = ShaderUtil.Lerp(currentProperties.Saturation, properties().Saturation, 0.01f);
         currentProperties.TimeMultiplier = ShaderUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+        currentTimeStep = ShaderUtil.Lerp(currentTimeStep, currentProperties.IsDaytime ? 0.75f : 0.25f, 0.025f);
         // Mouse
         currentProperties.Mouse = properties().Mouse;
         mouseOffset.X += (1.5f * properties().Mouse.X - mouseOffset.X) * 0.08f;
