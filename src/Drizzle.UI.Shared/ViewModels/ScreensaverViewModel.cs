@@ -36,18 +36,21 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly ILogger logger;
         private readonly INavigator navigator;
         private readonly IDialogService dialogService;
+        private readonly IAssetReader assetReader;
         private readonly IUserSettings userSettings;
         private readonly WmoWeatherCode defaultWeatherAnimation;
 
         public ScreensaverViewModel(ShellViewModel shellVm,
             INavigator navigator,
             ILogger<ScreensaverViewModel> logger,
+            IAssetReader assetReader,
             IDialogService dialogService,
             IUserSettings userSettings)
         {
             this.ShellVm = shellVm;
             this.navigator = navigator;
             this.dialogService = dialogService;
+            this.assetReader = assetReader;
             this.userSettings = userSettings;
             this.logger = logger;
 
@@ -374,17 +377,17 @@ namespace Drizzle.UI.UWP.ViewModels
         private async Task InitializeBackgrounds()
         {
             // Defaults
-            foreach (var item in AssetImageConstants.RainAssets)
+            foreach (var item in assetReader.GetBackgrounds(ShaderTypes.rain))
             {
-                RainBackgrounds.Add(new(Path.GetFileNameWithoutExtension(item), item, false));
+                RainBackgrounds.Add(new(item.Name, item.FilePath, false));
             }
-            foreach (var item in AssetImageConstants.SnowAssets)
+            foreach (var item in assetReader.GetBackgrounds(ShaderTypes.snow))
             {
-                SnowBackgrounds.Add(new(Path.GetFileNameWithoutExtension(item), item, false));
+                SnowBackgrounds.Add(new(item.Name, item.FilePath, false));
             }
-            foreach (var item in AssetImageConstants.DepthAssets)
+            foreach (var item in assetReader.GetBackgrounds(ShaderTypes.depth))
             {
-                DepthBackgrounds.Add(new("", Path.Combine(item, "image.jpg"), false));
+                DepthBackgrounds.Add(new(item.Name, item.FilePath, false));
             }
 
             // Create cache directory

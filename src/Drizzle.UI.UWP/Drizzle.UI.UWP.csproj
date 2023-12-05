@@ -184,6 +184,7 @@
     <Compile Include="Helpers\GeolocationUtil.cs" />
     <Compile Include="Helpers\LinkUtil.cs" />
     <Compile Include="Services\AppUpdaterService.cs" />
+    <Compile Include="Services\AssetReader.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\DiskCacheService.cs" />
     <Compile Include="Services\LocalSettings.cs" />
@@ -401,6 +402,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Backgrounds\Data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

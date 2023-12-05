@@ -17,6 +17,7 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -27,6 +28,7 @@ namespace Drizzle.UI.UWP.ViewModels
     public partial class ShellViewModel : ObservableObject
     {
         private readonly IUserSettings userSettings;
+        private readonly IAssetReader assetReader;
         private readonly INavigator navigator;
         private readonly IDialogService dialogService;
         private readonly IWeatherClient weatherClient;
@@ -40,6 +42,7 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly int maxPinnedLocations;
 
         public ShellViewModel(IUserSettings userSettings,
+            IAssetReader assetReader,
             INavigator navigator,
             ICacheService cacheService,
             IWeatherClient weatherClient,
@@ -49,6 +52,7 @@ namespace Drizzle.UI.UWP.ViewModels
             ILogger<ShellViewModel> logger)
         {
             this.userSettings = userSettings;
+            this.assetReader = assetReader;
             this.navigator = navigator;
             this.dialogService = dialogService;
             this.weatherClient = weatherClient;
@@ -506,9 +510,9 @@ namespace Drizzle.UI.UWP.ViewModels
         /// <param name="updateImage">Force background change, use existing background otherwise.</param>
         public void SetWeatherAnimation(WmoWeatherCode code, bool updateImage = false)
         {
-            float speedFactor = IsReducedMotion ? 0.35f : 1.0f;
-            string randomBackground = null;
             var obj = code.GetWeather();
+            var speedFactor = IsReducedMotion ? 0.35f : 1.0f;
+            var randomBackground = assetReader.GetRandomBackground(obj.Type);
             switch (obj.Type)
             {
                 case ShaderTypes.clouds:
@@ -533,9 +537,8 @@ namespace Drizzle.UI.UWP.ViewModels
                         RainProperty.IsPanning = property.IsPanning;
                         RainProperty.IsFreezing = property.IsFreezing;
 
-                        randomBackground = AssetImageConstants.RainAssets[rnd.Next(AssetImageConstants.RainAssets.Count)];
                         if (updateImage || RainProperty.ImagePath is null)
-                            RainProperty.ImagePath = randomBackground;
+                            RainProperty.ImagePath = randomBackground.FilePath;
                     }
                     break;
                 case ShaderTypes.snow:
@@ -549,9 +552,8 @@ namespace Drizzle.UI.UWP.ViewModels
                         SnowProperty.IsLightning = property.IsLightning;
                         SnowProperty.PostProcessing = property.PostProcessing;
 
-                        randomBackground = AssetImageConstants.SnowAssets[rnd.Next(AssetImageConstants.SnowAssets.Count)];
                         if (updateImage || SnowProperty.ImagePath is null)
-                            SnowProperty.ImagePath = randomBackground;
+                            SnowProperty.ImagePath = randomBackground.FilePath;
                     }
                     break;
                 case ShaderTypes.depth:
@@ -561,12 +563,10 @@ namespace Drizzle.UI.UWP.ViewModels
                         DepthProperty.IntensityY = property.IntensityY;
                         DepthProperty.IsBlur = property.IsBlur;
 
-                        var index = rnd.Next(AssetImageConstants.DepthAssets.Count);
-                        randomBackground = Path.Combine(AssetImageConstants.DepthAssets[index], "image.jpg");
                         if (updateImage || (DepthProperty.ImagePath is null || DepthProperty.DepthPath is null))
                         {
-                            DepthProperty.ImagePath = randomBackground;
-                            DepthProperty.DepthPath = Path.Combine(AssetImageConstants.DepthAssets[index], "depth.jpg");
+                            DepthProperty.ImagePath = randomBackground.FilePath;
+                            DepthProperty.DepthPath = randomBackground.DepthPath;
                         }
                     }
                     break;
@@ -580,12 +580,10 @@ namespace Drizzle.UI.UWP.ViewModels
                         FogProperty.ParallaxIntensityX = property.ParallaxIntensityX;
                         FogProperty.ParallaxIntensityY = property.ParallaxIntensityY;
 
-                        var index = rnd.Next(AssetImageConstants.DepthAssets.Count);
-                        randomBackground = Path.Combine(AssetImageConstants.DepthAssets[index], "image.jpg");
                         if (updateImage || (FogProperty.ImagePath is null || FogProperty.DepthPath is null))
                         {
-                            FogProperty.ImagePath = randomBackground;
-                            FogProperty.DepthPath = Path.Combine(AssetImageConstants.DepthAssets[index], "depth.jpg");
+                            FogProperty.ImagePath = randomBackground.FilePath;
+                            FogProperty.DepthPath = randomBackground.DepthPath;
                         }
                     }
                     break;
@@ -595,7 +593,7 @@ namespace Drizzle.UI.UWP.ViewModels
             SelectedWeatherAnimation = code;
             // Can be null if shader has no texture input
             FallbackBackground = IsFallbackBackground ? 
-                randomBackground ?? Path.Combine(AssetImageConstants.DepthAssets[rnd.Next(AssetImageConstants.DepthAssets.Count)], "image.jpg") : null;
+                randomBackground?.FilePath ?? assetReader.GetRandomBackground(ShaderTypes.depth).FilePath : null;
         }
 
         private void SetWeatherSound(WmoWeatherCode code)
@@ -609,15 +607,15 @@ namespace Drizzle.UI.UWP.ViewModels
         /// </summary>
         public void RandomWeatherAnimationBackgrounds()
         {
-            var fogIndex = rnd.Next(AssetImageConstants.DepthAssets.Count);
-            var depthIndex = rnd.Next(AssetImageConstants.DepthAssets.Count);
-            FogProperty.ImagePath = Path.Combine(AssetImageConstants.DepthAssets[fogIndex], "image.jpg");
-            FogProperty.DepthPath = Path.Combine(AssetImageConstants.DepthAssets[fogIndex], "depth.jpg");
-            DepthProperty.ImagePath = Path.Combine(AssetImageConstants.DepthAssets[depthIndex], "image.jpg");
-            DepthProperty.DepthPath = Path.Combine(AssetImageConstants.DepthAssets[depthIndex], "depth.jpg");
+            var fogAsset = assetReader.GetRandomBackground(ShaderTypes.fog);
+            var depthAsset = assetReader.GetRandomBackground(ShaderTypes.depth);
+            FogProperty.ImagePath = fogAsset.FilePath;
+            FogProperty.DepthPath = fogAsset.DepthPath;
+            DepthProperty.ImagePath = depthAsset.FilePath;
+            DepthProperty.DepthPath = depthAsset.DepthPath;
 
-            RainProperty.ImagePath = AssetImageConstants.RainAssets[rnd.Next(AssetImageConstants.RainAssets.Count)];
-            SnowProperty.ImagePath = AssetImageConstants.SnowAssets[rnd.Next(AssetImageConstants.SnowAssets.Count)];
+            RainProperty.ImagePath = assetReader.GetRandomBackground(ShaderTypes.rain).FilePath;
+            SnowProperty.ImagePath = assetReader.GetRandomBackground(ShaderTypes.snow).FilePath;
         }
 
         /// <summary>

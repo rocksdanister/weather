@@ -18,7 +18,7 @@ namespace Drizzle.Common.Helpers
             var tmp = (T)serializer.Deserialize(file, typeof(T));
 
             //if file is corrupted, json can return null.
-            return tmp != null ? tmp : throw new ArgumentNullException("json null/corrupt");
+            return tmp != null ? tmp : throw new InvalidOperationException("json null/corrupt");
         }
 
         public static void Save<T>(string filePath, T data)

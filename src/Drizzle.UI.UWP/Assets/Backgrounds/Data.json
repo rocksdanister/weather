@@ -1,0 +1,281 @@
+[
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\0.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#8399a7",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\2.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#1c2220",
+    "WeatherCode": [
+      61,
+      63,
+      65,
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\3.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#1a1e20",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\4.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#606d78",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\6.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "##444641",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\7.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#695c8f",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\8.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#433f34",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Rain\\9.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#51443e",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\0.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#474355",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\1.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#9ca0a6",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\2.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#344a53",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\3.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#8c8a92",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\4.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#8e9aa0",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Depth\\0\\image.jpg",
+    "DepthPath": "Depth\\0\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#5a6557",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Depth\\1\\image.jpg",
+    "DepthPath": "Depth\\1\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#5b5948",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Depth\\2\\image.jpg",
+    "DepthPath": "Depth\\2\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#66675a",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Depth\\3\\image.jpg",
+    "DepthPath": "Depth\\3\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#876c77",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": ""
+  }
+]
