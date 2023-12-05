@@ -42,12 +42,19 @@ namespace Drizzle.UI.UWP.Services
 
         public ImageAssetModel GetRandomBackground(ShaderTypes shader, bool isDaytime)
         {
+            // This shader has no texture input
+            if (shader == ShaderTypes.clouds)
+                return null;
+
             var selection = GetBackgrounds(shader, isDaytime);
             return selection.Any() ? selection.ElementAt(rnd.Next(selection.Count())) : null;
         }
 
         public ImageAssetModel GetRandomBackground(ShaderTypes shader)
         {
+            if (shader == ShaderTypes.clouds)
+                return null;
+
             var selection = GetBackgrounds(shader);
             return selection.Any() ? selection.ElementAt(rnd.Next(selection.Count())) : null;
         }

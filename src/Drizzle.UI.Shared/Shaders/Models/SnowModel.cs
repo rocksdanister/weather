@@ -54,5 +54,6 @@ public partial class SnowModel : BaseModel
         this.Saturation = properties.Saturation;
         this.IsLightning = properties.IsLightning;
         this.PostProcessing = properties.PostProcessing;
+        this.IsDaytime = properties.IsDaytime;
     }
 }

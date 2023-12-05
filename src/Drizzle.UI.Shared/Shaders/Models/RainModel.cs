@@ -58,5 +58,6 @@ public partial class RainModel : BaseModel
         this.MoveSpeed = properties.MoveSpeed;
         this.Saturation = properties.Saturation;
         this.PostProcessing = properties.PostProcessing;
+        this.IsDaytime = properties.IsDaytime;
     }
 }

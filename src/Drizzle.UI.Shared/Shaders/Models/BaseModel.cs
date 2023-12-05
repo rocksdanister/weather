@@ -18,6 +18,8 @@ public abstract class BaseModel : ObservableObject
 
     public float TimeMultiplier { get; set; } = 1f;
 
+    public bool IsDaytime { get; set; } = true;
+
     protected BaseModel(ShaderTypes type)
     {
         this.Type = type;

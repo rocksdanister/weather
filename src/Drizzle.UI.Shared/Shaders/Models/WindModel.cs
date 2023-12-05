@@ -38,17 +38,18 @@ public partial class WindModel : BaseModel
 
     public WindModel() : base(ShaderTypes.fog) { }
 
-    public WindModel(WindModel obj) : base(ShaderTypes.fog)
+    public WindModel(WindModel properties) : base(ShaderTypes.fog)
     {
-        this.Color1 = obj.Color1;
-        this.color2 = obj.Color2;
-        this.speed = obj.Speed;
-        this.Amplitude = obj.Amplitude;
-        this.ImagePath = obj.ImagePath;
-        this.DepthPath = obj.DepthPath;
-        this.Saturation = obj.Saturation;
-        this.parallaxIntensityX = obj.ParallaxIntensityX;
-        this.parallaxIntensityY = obj.ParallaxIntensityY;
+        this.Color1 = properties.Color1;
+        this.color2 = properties.Color2;
+        this.speed = properties.Speed;
+        this.Amplitude = properties.Amplitude;
+        this.ImagePath = properties.ImagePath;
+        this.DepthPath = properties.DepthPath;
+        this.Saturation = properties.Saturation;
+        this.parallaxIntensityX = properties.ParallaxIntensityX;
+        this.parallaxIntensityY = properties.ParallaxIntensityY;
+        this.IsDaytime = properties.IsDaytime;
     }
 
 }

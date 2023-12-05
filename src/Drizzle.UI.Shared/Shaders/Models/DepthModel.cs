@@ -33,5 +33,6 @@ public partial class DepthModel : BaseModel
         this.ImagePath = properties.ImagePath;
         this.DepthPath = properties.DepthPath;
         this.Saturation = properties.Saturation;
+        this.IsDaytime = properties.IsDaytime;
     }
 }

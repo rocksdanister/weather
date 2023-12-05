@@ -61,11 +61,9 @@ namespace Drizzle.UI.UWP.ViewModels
             UpdateWeatherSelection();
             ShellVm.PropertyChanged += ShellVm_PropertyChanged;
 
-            // If no location available then use current system time
-            var isDaytime = shellVm?.SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime();
             foreach (int i in Enum.GetValues(typeof(WmoWeatherCode)))
             {
-                Weathers.Add(new ScreensaverModel(i, isDaytime));
+                Weathers.Add(new ScreensaverModel(i, shellVm.IsSelectedLocationDaytime));
             }
             SelectedWeather = Weathers.FirstOrDefault(x => x.WeatherCode == (int)ShellVm.SelectedWeatherAnimation);
 

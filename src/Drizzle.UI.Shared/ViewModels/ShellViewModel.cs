@@ -142,9 +142,17 @@ namespace Drizzle.UI.UWP.ViewModels
                     SetWeatherAnimation(WmoWeatherCode.ClearSky);
                 }
                 SelectedWeather = value?.Today;
+                // If no location available then assume current system location
+                IsSelectedLocationDaytime = SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
                 SetProperty(ref _selectedLocation, value);
             }
         }
+
+        /// <summary>
+        /// Is the user selected location currently daytime, if none selected uses system time.
+        /// </summary>
+        [ObservableProperty]
+        private bool isSelectedLocationDaytime;
 
         // Currently selected day
         private WeatherModel _selectedWeather;
@@ -511,8 +519,10 @@ namespace Drizzle.UI.UWP.ViewModels
         public void SetWeatherAnimation(WmoWeatherCode code, bool updateImage = false)
         {
             var obj = code.GetWeather();
+            // Reduce overall animation speed
             var speedFactor = IsReducedMotion ? 0.35f : 1.0f;
-            var randomBackground = assetReader.GetRandomBackground(obj.Type);
+            // Fallback to available asset if day/night not available
+            var randomBackground = assetReader.GetRandomBackground(obj.Type, IsSelectedLocationDaytime) ?? assetReader.GetRandomBackground(obj.Type);
             switch (obj.Type)
             {
                 case ShaderTypes.clouds:
@@ -521,7 +531,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         CloudsProperty.Scale = property.Scale;
                         CloudsProperty.Iterations = property.Iterations;
                         CloudsProperty.Speed = property.Speed * speedFactor;
-                        CloudsProperty.IsDaytime = SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime();
+                        CloudsProperty.IsDaytime = IsSelectedLocationDaytime;
                         CloudsProperty.IsDayNightShift = property.IsDayNightShift;
                     }
                     break;
@@ -536,9 +546,12 @@ namespace Drizzle.UI.UWP.ViewModels
                         RainProperty.IsLightning = property.IsLightning;
                         RainProperty.IsPanning = property.IsPanning;
                         RainProperty.IsFreezing = property.IsFreezing;
-
-                        if (updateImage || RainProperty.ImagePath is null)
+                        // If force update, loaded background is not the required day/night type or texture missing.
+                        if (updateImage || RainProperty.IsDaytime != IsSelectedLocationDaytime || RainProperty.ImagePath is null)
+                        {
                             RainProperty.ImagePath = randomBackground.FilePath;
+                        }
+                        RainProperty.IsDaytime = IsSelectedLocationDaytime;
                     }
                     break;
                 case ShaderTypes.snow:
@@ -552,8 +565,11 @@ namespace Drizzle.UI.UWP.ViewModels
                         SnowProperty.IsLightning = property.IsLightning;
                         SnowProperty.PostProcessing = property.PostProcessing;
 
-                        if (updateImage || SnowProperty.ImagePath is null)
+                        if (updateImage || SnowProperty.IsDaytime != IsSelectedLocationDaytime || SnowProperty.ImagePath is null)
+                        {
                             SnowProperty.ImagePath = randomBackground.FilePath;
+                        }
+                        SnowProperty.IsDaytime = IsSelectedLocationDaytime;
                     }
                     break;
                 case ShaderTypes.depth:
@@ -563,11 +579,12 @@ namespace Drizzle.UI.UWP.ViewModels
                         DepthProperty.IntensityY = property.IntensityY;
                         DepthProperty.IsBlur = property.IsBlur;
 
-                        if (updateImage || (DepthProperty.ImagePath is null || DepthProperty.DepthPath is null))
+                        if (updateImage || DepthProperty.IsDaytime != IsSelectedLocationDaytime || (DepthProperty.ImagePath is null || DepthProperty.DepthPath is null))
                         {
                             DepthProperty.ImagePath = randomBackground.FilePath;
                             DepthProperty.DepthPath = randomBackground.DepthPath;
                         }
+                        DepthProperty.IsDaytime = IsSelectedLocationDaytime;
                     }
                     break;
                 case ShaderTypes.fog:
@@ -580,20 +597,27 @@ namespace Drizzle.UI.UWP.ViewModels
                         FogProperty.ParallaxIntensityX = property.ParallaxIntensityX;
                         FogProperty.ParallaxIntensityY = property.ParallaxIntensityY;
 
-                        if (updateImage || (FogProperty.ImagePath is null || FogProperty.DepthPath is null))
+                        if (updateImage || FogProperty.IsDaytime != IsSelectedLocationDaytime || (FogProperty.ImagePath is null || FogProperty.DepthPath is null))
                         {
                             FogProperty.ImagePath = randomBackground.FilePath;
                             FogProperty.DepthPath = randomBackground.DepthPath;
                         }
+                        FogProperty.IsDaytime = IsSelectedLocationDaytime;
                     }
                     break;
             }
             SetShader(obj.Type);
             SetWeatherSound(code);
             SelectedWeatherAnimation = code;
-            // Can be null if shader has no texture input
-            FallbackBackground = IsFallbackBackground ? 
-                randomBackground?.FilePath ?? assetReader.GetRandomBackground(ShaderTypes.depth).FilePath : null;
+            FallbackBackground = IsFallbackBackground ?
+                // Can be null if shader has no texture input
+                randomBackground?.FilePath ??
+                // Pick depth asset as replacement for missing texture
+                assetReader.GetRandomBackground(ShaderTypes.depth, IsSelectedLocationDaytime)?.FilePath ??
+                // Fallback to available asset if day/night depth asset not available
+                assetReader.GetRandomBackground(ShaderTypes.depth)?.FilePath :
+                // Fallback background disabled
+                null;
         }
 
         private void SetWeatherSound(WmoWeatherCode code)
