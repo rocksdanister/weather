@@ -629,17 +629,21 @@ namespace Drizzle.UI.UWP.ViewModels
         /// <summary>
         /// Update all weather backgrounds to random image from shuffle
         /// </summary>
-        public void RandomWeatherAnimationBackgrounds()
+        public void RandomizeWeatherBackgrounds()
         {
-            var fogAsset = assetReader.GetRandomBackground(ShaderTypes.fog);
-            var depthAsset = assetReader.GetRandomBackground(ShaderTypes.depth);
+            // Fallback to available asset if day/night not available
+            var fogAsset = assetReader.GetRandomBackground(ShaderTypes.fog, FogProperty.IsDaytime) ?? assetReader.GetRandomBackground(ShaderTypes.fog);
+            var depthAsset = assetReader.GetRandomBackground(ShaderTypes.depth, DepthProperty.IsDaytime) ?? assetReader.GetRandomBackground(ShaderTypes.depth);
+            var rainAsset = assetReader.GetRandomBackground(ShaderTypes.rain, RainProperty.IsDaytime) ?? assetReader.GetRandomBackground(ShaderTypes.rain);
+            var snowAsset = assetReader.GetRandomBackground(ShaderTypes.snow, SnowProperty.IsDaytime) ?? assetReader.GetRandomBackground(ShaderTypes.snow);
+
             FogProperty.ImagePath = fogAsset.FilePath;
             FogProperty.DepthPath = fogAsset.DepthPath;
             DepthProperty.ImagePath = depthAsset.FilePath;
             DepthProperty.DepthPath = depthAsset.DepthPath;
 
-            RainProperty.ImagePath = assetReader.GetRandomBackground(ShaderTypes.rain).FilePath;
-            SnowProperty.ImagePath = assetReader.GetRandomBackground(ShaderTypes.snow).FilePath;
+            RainProperty.ImagePath = rainAsset.FilePath;
+            SnowProperty.ImagePath = snowAsset.FilePath;
         }
 
         /// <summary>

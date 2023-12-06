@@ -77,5 +77,6 @@ public sealed class DepthRunner : IShaderRunner
         currentProperties.IntensityX = properties().IntensityX;
         currentProperties.IntensityY = properties().IntensityY;
         currentProperties.IsBlur = properties().IsBlur;
+        currentProperties.IsDaytime = properties().IsDaytime;
     }
 }

@@ -85,5 +85,6 @@ public sealed class SnowRunner : IShaderRunner
         currentProperties.Layers = properties().Layers;
         currentProperties.IsBlur = properties().IsBlur;
         currentProperties.IsLightning = properties().IsLightning;
+        currentProperties.IsDaytime = properties().IsDaytime;
     }
 }

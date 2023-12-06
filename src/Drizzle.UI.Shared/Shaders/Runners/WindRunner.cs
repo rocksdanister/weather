@@ -91,5 +91,6 @@ public class WindRunner : IShaderRunner
         currentProperties.Amplitude = properties().Amplitude;
         currentProperties.ParallaxIntensityX = properties().ParallaxIntensityX;
         currentProperties.ParallaxIntensityY = properties().ParallaxIntensityY;
+        currentProperties.IsDaytime = properties().IsDaytime;
     }
 }

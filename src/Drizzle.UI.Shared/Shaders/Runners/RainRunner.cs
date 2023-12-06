@@ -84,6 +84,7 @@ public sealed class RainRunner : IShaderRunner
         currentProperties.IsLightning = properties().IsLightning;
         currentProperties.IsPanning = properties().IsPanning;
         currentProperties.Speed = properties().Speed;
+        currentProperties.IsDaytime = properties().IsDaytime;
     }
 }
 

@@ -39,6 +39,7 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly IAssetReader assetReader;
         private readonly IUserSettings userSettings;
         private readonly WmoWeatherCode defaultWeatherAnimation;
+        private readonly bool isResetBackgroundsOnExit;
 
         public ScreensaverViewModel(ShellViewModel shellVm,
             INavigator navigator,
@@ -53,6 +54,13 @@ namespace Drizzle.UI.UWP.ViewModels
             this.assetReader = assetReader;
             this.userSettings = userSettings;
             this.logger = logger;
+
+            // Useful for testing/demo, on release prevent user selection outside screensaver page.
+#if DEBUG
+            isResetBackgroundsOnExit = false;
+#else
+            isResetBackgroundsOnExit = true;
+#endif
 
             // Mouse drag effect only in screensaver mode
             ShellVm.IsMouseDrag = true;
@@ -142,15 +150,18 @@ namespace Drizzle.UI.UWP.ViewModels
 
             navigator.NavigateTo(ContentPageType.Main);
 
-#if DEBUG
-            // Restore weather, keep background for testing
-            ShellVm.SetWeatherAnimation(defaultWeatherAnimation, false);
-            logger.LogDebug("Navigating to mainpage while maintaining selected backgrounds.");
-#else
-            // Reset all backgrounds to stock
-            ShellVm.RandomWeatherAnimationBackgrounds();
-            ShellVm.SetWeatherAnimation(defaultWeatherAnimation, false);
-#endif
+            if (isResetBackgroundsOnExit)
+            {
+                // Reset all backgrounds to stock
+                ShellVm.RandomizeWeatherBackgrounds();
+                ShellVm.SetWeatherAnimation(defaultWeatherAnimation, false);
+            }
+            else
+            {
+                // Restore weather, keep background for testing
+                ShellVm.SetWeatherAnimation(defaultWeatherAnimation, false);
+                logger.LogDebug("Navigating to mainpage while maintaining selected backgrounds.");
+            }
 
             ShellVm.IsMouseDrag = false;
             ShellVm.PropertyChanged -= ShellVm_PropertyChanged;
