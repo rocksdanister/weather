@@ -36,6 +36,7 @@
             x:Key="BoolToOpacityConverter"
             FalseValue="0.5"
             TrueValue="1.0" />
+        <customConverters:TimeToIsDaytimeVisibilityConverter x:Key="TimeToIsDaytimeVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <customConverters:ComputeSharpFloat3ToColorConverter x:Key="ComputeSharpFloat3ToColorConverter" />
         <DataTemplate x:Key="GridViewBackgroundDataTemplate">
@@ -48,11 +49,28 @@
                             Text="Delete" />
                     </MenuFlyout>
                 </Grid.ContextFlyout>
-                <Image Source="{Binding Image}" Stretch="UniformToFill" />
+                <Image
+                    Opacity="0.75"
+                    Source="{Binding Image}"
+                    Stretch="UniformToFill" />
+                <Grid Visibility="{Binding IsEditable, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Reverse}">
+                    <!--  Moon  -->
+                    <FontIcon
+                        FontFamily="{StaticResource CustomIconFonts}"
+                        Foreground="LightGray"
+                        Glyph="&#xE90E;"
+                        Visibility="{Binding Time, Mode=OneTime, Converter={StaticResource TimeToIsDaytimeVisibilityConverter}, ConverterParameter=Reverse}" />
+                    <!--  Sun  -->
+                    <FontIcon
+                        FontFamily="{StaticResource CustomIconFonts}"
+                        Foreground="Yellow"
+                        Glyph="&#xE904;"
+                        Visibility="{Binding Time, Mode=OneTime, Converter={StaticResource TimeToIsDaytimeVisibilityConverter}}" />
+                </Grid>
                 <FontIcon
+                    FontFamily="{StaticResource CustomIconFonts}"
                     Foreground="{ThemeResource SystemAccentColorLight3}"
-                    Glyph="&#xE77B;"
-                    Opacity="1"
+                    Glyph="&#xE90F;"
                     Visibility="{Binding IsEditable, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}}" />
                 <!--  Not working ?!  -->
                 <!--<Button

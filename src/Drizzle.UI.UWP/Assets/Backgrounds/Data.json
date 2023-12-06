@@ -152,7 +152,7 @@
     "FilePath": "Snow\\1.jpg",
     "DepthPath": null,
     "Time": [
-      "0001-01-01T21:00:00"
+      "0001-01-01T12:00:00"
     ],
     "ColorHex": "#9ca0a6",
     "WeatherCode": [
@@ -184,7 +184,7 @@
     "FilePath": "Snow\\3.jpg",
     "DepthPath": null,
     "Time": [
-      "0001-01-01T21:00:00"
+      "0001-01-01T12:00:00"
     ],
     "ColorHex": "#8c8a92",
     "WeatherCode": [
@@ -200,9 +200,25 @@
     "FilePath": "Snow\\4.jpg",
     "DepthPath": null,
     "Time": [
-      "0001-01-01T21:00:00"
+      "0001-01-01T12:00:00"
     ],
     "ColorHex": "#8e9aa0",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": ""
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "",
+    "FilePath": "Snow\\5.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#2e6069",
     "WeatherCode": [
       71,
       73,

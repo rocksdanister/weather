@@ -176,6 +176,7 @@
     <Compile Include="Converters\DegreesToCardinalConverter.cs" />
     <Compile Include="Converters\NullOrEmptyArrayToVisibilityConverter.cs" />
     <Compile Include="Converters\NullVisibilityConverter.cs" />
+    <Compile Include="Converters\TimeToIsDaytimeVisibilityConverter.cs" />
     <Compile Include="Converters\WmoWeatherConverter.cs" />
     <Compile Include="Extensions\ThemeExtensions.cs" />
     <Compile Include="Factories\IWeatherViewModelFactory.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Assets\Backgrounds\Snow\2.jpg" />
     <Content Include="Assets\Backgrounds\Snow\3.jpg" />
     <Content Include="Assets\Backgrounds\Snow\4.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\5.jpg" />
     <Content Include="Assets\Icons\backhand_index_pointing_up_3d_default.png" />
     <Content Include="Assets\Icons\cactus_3d.png" />
     <Content Include="Assets\Icons\chart_increasing_3d.png" />

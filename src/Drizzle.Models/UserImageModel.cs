@@ -10,10 +10,11 @@ namespace Drizzle.Models;
 /// </summary>
 public partial class UserImageModel : ObservableObject
 {
-    public UserImageModel(string title, string image, bool isEditable)
+    public UserImageModel(string title, string image, DateTime time, bool isEditable)
     {
         this.Title = title;
         this.Image = image;
+        this.time = time;
         this.IsEditable = isEditable;
     }
 
@@ -22,6 +23,9 @@ public partial class UserImageModel : ObservableObject
 
     [ObservableProperty]
     private string image;
+
+    [ObservableProperty]
+    private DateTime time;
 
     /// <summary>
     /// Is the image modifiable or is it preloaded asset

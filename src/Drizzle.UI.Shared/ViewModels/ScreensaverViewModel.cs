@@ -276,7 +276,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 using var stream = await file.OpenStreamForReadAsync();
                 ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
 
-                var selection = new UserImageModel(file.DisplayName, imagePath, true);
+                var selection = new UserImageModel(file.DisplayName, imagePath, DateTime.Now, true);
                 RainBackgrounds.Add(selection);
                 SelectedRainBackground = selection;
             }
@@ -295,7 +295,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 using var stream = await file.OpenStreamForReadAsync();
                 ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
 
-                var selection = new UserImageModel(file.DisplayName, imagePath, true);
+                var selection = new UserImageModel(file.DisplayName, imagePath, DateTime.Now, true);
                 SnowBackgrounds.Add(selection);
                 SelectedSnowBackground = selection;
             }
@@ -308,7 +308,7 @@ namespace Drizzle.UI.UWP.ViewModels
             var path = await dialogService.ShowDepthCreationDialogAsync();
             if (path is not null)
             {
-                var selection = new UserImageModel("", Path.Combine(path, "image.jpg"), true);
+                var selection = new UserImageModel("", Path.Combine(path, "image.jpg"), DateTime.Now, true);
                 DepthBackgrounds.Add(selection);
                 SelectedDepthBackground = selection;
             }
@@ -320,7 +320,7 @@ namespace Drizzle.UI.UWP.ViewModels
             var path = await dialogService.ShowDepthCreationDialogAsync();
             if (path is not null)
             {
-                var selection = new UserImageModel("", Path.Combine(path, "image.jpg"), true);
+                var selection = new UserImageModel("", Path.Combine(path, "image.jpg"), DateTime.Now, true);
                 // Share same directory of files
                 DepthBackgrounds.Add(selection);
                 SelectedFogBackground = selection;
@@ -377,15 +377,15 @@ namespace Drizzle.UI.UWP.ViewModels
             // Defaults
             foreach (var item in assetReader.GetBackgrounds(ShaderTypes.rain))
             {
-                RainBackgrounds.Add(new(item.Name, item.FilePath, false));
+                RainBackgrounds.Add(new(item.Name, item.FilePath, item.Time[0], false));
             }
             foreach (var item in assetReader.GetBackgrounds(ShaderTypes.snow))
             {
-                SnowBackgrounds.Add(new(item.Name, item.FilePath, false));
+                SnowBackgrounds.Add(new(item.Name, item.FilePath, item.Time[0], false));
             }
             foreach (var item in assetReader.GetBackgrounds(ShaderTypes.depth))
             {
-                DepthBackgrounds.Add(new(item.Name, item.FilePath, false));
+                DepthBackgrounds.Add(new(item.Name, item.FilePath, item.Time[0], false));
             }
 
             // Create cache directory
@@ -398,15 +398,15 @@ namespace Drizzle.UI.UWP.ViewModels
             // Populate cache
             foreach (var item in await rainCacheFolder.GetFilesAsync())
             {
-                RainBackgrounds.Add(new(item.DisplayName, item.Path, true));
+                RainBackgrounds.Add(new(item.DisplayName, item.Path, DateTime.Now, true));
             }
             foreach (var item in await snowCacheFolder.GetFilesAsync())
             {
-                SnowBackgrounds.Add(new(item.DisplayName, item.Path, true));
+                SnowBackgrounds.Add(new(item.DisplayName, item.Path, DateTime.Now, true));
             }
             foreach (var item in await depthCacheFolder.GetFoldersAsync())
             {
-                DepthBackgrounds.Add(new("", Path.Combine(item.Path, "image.jpg"), true));
+                DepthBackgrounds.Add(new("", Path.Combine(item.Path, "image.jpg"), DateTime.Now, true));
             }
 
             // Current selection
