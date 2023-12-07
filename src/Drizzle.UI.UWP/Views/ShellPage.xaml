@@ -352,7 +352,7 @@
             <muxc:NavigationView.PaneCustomContent>
                 <ListView
                     Width="318"
-                    ItemsSource="{x:Bind shellVm.Weathers}"
+                    ItemsSource="{x:Bind shellVm.WeathersSorted}"
                     SelectedItem="{x:Bind shellVm.SelectedLocation, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:WeatherViewModel">

@@ -91,8 +91,10 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Stretch"
             Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <!--  Delay is added because on startup there is an unknown updown motion(?)  -->
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
+                    Delay="0:0:0.1"
                     From="0"
                     To="1.0"
                     Duration="0:0:1" />

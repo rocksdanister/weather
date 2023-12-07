@@ -14,6 +14,7 @@ using Drizzle.Weather;
 using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,7 +39,6 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly ILogger logger;
 
         private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
-        private readonly Random rnd = new();
         private readonly int maxPinnedLocations;
 
         public ShellViewModel(IUserSettings userSettings,
@@ -60,7 +60,7 @@ namespace Drizzle.UI.UWP.ViewModels
             this.cacheService = cacheService;
             this.weatherViewModelFactory = weatherViewModelFactory;
             this.logger = logger;
-       
+
             shaderRunnerViewModels = new ShaderRunnerViewModel[]{
                 new ShaderRunnerViewModel(new SnowRunner(() => SnowProperty), ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f),
                 new ShaderRunnerViewModel(new CloudsRunner(() => CloudsProperty), ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f),
@@ -68,6 +68,9 @@ namespace Drizzle.UI.UWP.ViewModels
                 new ShaderRunnerViewModel(new DepthRunner(() => DepthProperty), ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f),
                 new ShaderRunnerViewModel(new WindRunner(() => FogProperty), ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f),
             };
+
+            WeathersSorted = new AdvancedCollectionView(Weathers, true);
+            WeathersSorted.SortDescriptions.Add(new SortDescription(nameof(WeatherViewModel.SortOrder), SortDirection.Ascending));
 
             userSettings.SettingSet += async(s, e) => {
                 switch (e)
@@ -116,6 +119,9 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<Location> searchSuggestions = new();
+
+        [ObservableProperty]
+        private AdvancedCollectionView weathersSorted;
 
         [ObservableProperty]
         private ObservableCollection<WeatherViewModel> weathers = new();
@@ -308,9 +314,17 @@ namespace Drizzle.UI.UWP.ViewModels
                 return;
 
             Weathers.Remove(obj);
-            // If selecteditem is deleted
+            // If selected item is deleted
             SelectedLocation ??= Weathers.Any() ? Weathers[0] : null;
-            userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Weathers.Select(x => x.Location).ToArray());
+
+            // Update SortOrder maximum values
+            for (int i = 0; i < Weathers.Count; i++)
+            {
+                Weathers[i].SortOrder = Weathers[i].SortOrder > obj.SortOrder ? 
+                    Weathers[i].SortOrder - 1 : Weathers[i].SortOrder;
+            }
+            // Update saved pinned locations
+            StoreLocationsSorted();
         }
 
         [RelayCommand]
@@ -347,6 +361,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 // Update view
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
                 var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units);
+                weatherVm.SortOrder = Weathers.Count;
                 Weathers.Add(weatherVm);
 
                 // Selects location and weather animation
@@ -356,8 +371,9 @@ namespace Drizzle.UI.UWP.ViewModels
                 // For selection only, animation change is skipped
                 //SelectedWeather = SelectedLocation.Daily[0];
 
-                var locations = Weathers.Select(x => x.Location);
-                userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, locations.ToArray());
+                //var locations = Weathers.Select(x => x.Location);
+                //userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, locations.ToArray());
+                StoreLocationsSorted();
             }
             catch (Exception ex)
             {
@@ -398,24 +414,23 @@ namespace Drizzle.UI.UWP.ViewModels
                     Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units));
                 }
 
-                // Reorder since we fetched the selection first
                 var index = locations.FindIndex(x => x.Latitude == selection.Latitude && x.Longitude == selection.Longitude);
-                if (index > 0)
-                {
-                    var tmp = Weathers[0];
-                    Weathers.RemoveAt(0);
-                    Weathers.Insert(index, tmp);
-                    SelectedLocation = tmp;
-                }
-                else if (index == -1)
+                if (index == -1)
                 {
                     // Selected location not found, this can happen if max pinned location is reduced from the previous.
                     // We will remove last location to keep max pinned count same since when loading locations we only take max pinned.
                     Weathers.RemoveAt(Weathers.Count - 1);
+                    // Selection will be first fetched item
+                    index = 0;
                 }
-
+                // Reorder since we fetched the selection first
+                Weathers[0].SortOrder = index;
+                for (int i = 1; i < Weathers.Count; i++)
+                {
+                    Weathers[i].SortOrder = i > index ? i : i - 1;
+                }
                 // Update order
-                userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Weathers.Select(x => x.Location).ToArray());
+                StoreLocationsSorted();
             }
             catch (Exception ex)
             {
@@ -752,6 +767,12 @@ namespace Drizzle.UI.UWP.ViewModels
                 FogProperty.Brightness =
                 DepthProperty.Brightness =
                 CloudsProperty.Brightness = brightness;
+        }
+
+        private void StoreLocationsSorted()
+        {
+            var sortedLocations = Weathers.OrderBy(x => x.SortOrder).Select(x => x.Location).ToArray();
+            userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, sortedLocations);
         }
     }
 }

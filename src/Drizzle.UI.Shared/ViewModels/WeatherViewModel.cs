@@ -15,6 +15,9 @@ namespace Drizzle.UI.UWP.ViewModels
     public sealed partial class WeatherViewModel : ObservableObject
     {
         [ObservableProperty]
+        private int sortOrder;
+
+        [ObservableProperty]
         private LocationModel location;
 
         [ObservableProperty]
