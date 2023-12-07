@@ -324,7 +324,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 }
             }
             // If selected item is deleted
-            SelectedLocation ??= Weathers.Any() ? Weathers[0] : null;
+            SelectedLocation ??= Weathers.OrderBy(x => x.SortOrder).FirstOrDefault();
             // Update saved pinned locations
             StoreLocationsSorted();
         }
