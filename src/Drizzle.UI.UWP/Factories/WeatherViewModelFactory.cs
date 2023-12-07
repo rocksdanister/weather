@@ -12,9 +12,11 @@ namespace Drizzle.UI.UWP.Factories
         public WeatherViewModel CreateWeatherViewModel(
             ForecastWeather weatherForecast,
             ForecastAirQuality airQualityForecast,
+            int sortOrder,
             WeatherUnits units = WeatherUnits.metric)
         {
             var weatherVm = new WeatherViewModel();
+            weatherVm.SortOrder = sortOrder;
             switch (units)
             {
                 case WeatherUnits.metric:

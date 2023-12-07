@@ -314,15 +314,17 @@ namespace Drizzle.UI.UWP.ViewModels
                 return;
 
             Weathers.Remove(obj);
+            using (WeathersSorted.DeferRefresh())
+            {
+                // Update SortOrder maximum values
+                for (int i = 0; i < Weathers.Count; i++)
+                {
+                    Weathers[i].SortOrder = Weathers[i].SortOrder > obj.SortOrder ?
+                        Weathers[i].SortOrder - 1 : Weathers[i].SortOrder;
+                }
+            }
             // If selected item is deleted
             SelectedLocation ??= Weathers.Any() ? Weathers[0] : null;
-
-            // Update SortOrder maximum values
-            for (int i = 0; i < Weathers.Count; i++)
-            {
-                Weathers[i].SortOrder = Weathers[i].SortOrder > obj.SortOrder ? 
-                    Weathers[i].SortOrder - 1 : Weathers[i].SortOrder;
-            }
             // Update saved pinned locations
             StoreLocationsSorted();
         }
@@ -360,19 +362,16 @@ namespace Drizzle.UI.UWP.ViewModels
 
                 // Update view
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
-                var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units);
-                weatherVm.SortOrder = Weathers.Count;
+                var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, Weathers.Count, units);
                 Weathers.Add(weatherVm);
 
                 // Selects location and weather animation
                 SelectedLocation = weatherVm;
                 // Force weather animation background change
-                SetWeatherAnimation((WmoWeatherCode)SelectedLocation.Daily[0].WeatherCode, true);
+                SetWeatherAnimation((WmoWeatherCode)SelectedLocation.Today.WeatherCode, true);
                 // For selection only, animation change is skipped
                 //SelectedWeather = SelectedLocation.Daily[0];
 
-                //var locations = Weathers.Select(x => x.Location);
-                //userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, locations.ToArray());
                 StoreLocationsSorted();
             }
             catch (Exception ex)
@@ -411,7 +410,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 foreach (var location in remainingLocations)
                 {
                     (var weather, var airQuality) = await FetchWeather(location.Name, location.Latitude, location.Longitude);
-                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units));
+                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, 0, units));
                 }
 
                 var index = locations.FindIndex(x => x.Latitude == selection.Latitude && x.Longitude == selection.Longitude);
@@ -462,7 +461,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 {
                     // Uses cache if configured and unit convertion takes place in the viewmodel
                     (var weather, var airQuality) = await FetchWeather(weatherCopy[i].Location.Name, weatherCopy[i].Location.Latitude, weatherCopy[i].Location.Longitude);
-                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, units));
+                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, i, units));
                 }
                 SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == selectionCopy.Location.Latitude && x.Location.Longitude == selectionCopy.Location.Longitude);
             }
