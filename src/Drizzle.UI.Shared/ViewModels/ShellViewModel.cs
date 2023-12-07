@@ -454,7 +454,7 @@ namespace Drizzle.UI.UWP.ViewModels
 
                 IsUpdatingWeather = true;
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
-                var weatherCopy = Weathers.ToList();
+                var weatherCopy = Weathers.OrderBy(x => x.SortOrder).ToList();
                 var selectionCopy = SelectedLocation;
                 Weathers.Clear();
 
