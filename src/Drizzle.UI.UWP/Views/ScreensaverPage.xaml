@@ -13,6 +13,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="rootPage"
     Background="Transparent"
     Loaded="Page_Loaded"
@@ -39,8 +40,12 @@
         <customConverters:TimeToIsDaytimeVisibilityConverter x:Key="TimeToIsDaytimeVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <customConverters:ComputeSharpFloat3ToColorConverter x:Key="ComputeSharpFloat3ToColorConverter" />
+        <Style x:Name="BackgroundFlyoutPresenter" TargetType="FlyoutPresenter">
+            <Setter Property="MinWidth" Value="470" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
         <DataTemplate x:Key="GridViewBackgroundDataTemplate">
-            <Grid Width="50" Height="50">
+            <Grid Width="70" Height="70">
                 <Grid.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem
@@ -49,26 +54,41 @@
                             Text="Delete" />
                     </MenuFlyout>
                 </Grid.ContextFlyout>
-                <Image
-                    Opacity="0.75"
-                    Source="{Binding Image}"
-                    Stretch="UniformToFill" />
-                <Grid Visibility="{Binding IsEditable, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Reverse}">
+                <Image Source="{Binding Image}" Stretch="UniformToFill" />
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="{ThemeResource SystemAltMediumColor}" />
+                            <GradientStop Offset="0.5" Color="#33000000" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                </Grid>
+                <Grid
+                    Padding="2.5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Visibility="{Binding IsEditable, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Reverse}">
                     <!--  Moon  -->
                     <FontIcon
                         FontFamily="{StaticResource CustomIconFonts}"
+                        FontSize="24"
                         Foreground="LightGray"
                         Glyph="&#xE90E;"
                         Visibility="{Binding Time, Mode=OneTime, Converter={StaticResource TimeToIsDaytimeVisibilityConverter}, ConverterParameter=Reverse}" />
                     <!--  Sun  -->
                     <FontIcon
                         FontFamily="{StaticResource CustomIconFonts}"
+                        FontSize="24"
                         Foreground="Yellow"
                         Glyph="&#xE904;"
                         Visibility="{Binding Time, Mode=OneTime, Converter={StaticResource TimeToIsDaytimeVisibilityConverter}}" />
                 </Grid>
                 <FontIcon
+                    Margin="2.5"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
                     FontFamily="{StaticResource CustomIconFonts}"
+                    FontSize="24"
                     Foreground="{ThemeResource SystemAccentColorLight3}"
                     Glyph="&#xE90F;"
                     Visibility="{Binding IsEditable, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -216,13 +236,10 @@
                                                 Value="{x:Bind viewModel.ShellVm.SnowProperty.PostProcessing, Mode=TwoWay}" />
                                             <Button x:Uid="ChangeBackground">
                                                 <Button.Flyout>
-                                                    <Flyout Closing="Flyout_Closing" Placement="Bottom">
-                                                        <Flyout.FlyoutPresenterStyle>
-                                                            <Style TargetType="FlyoutPresenter">
-                                                                <Setter Property="MinWidth" Value="300" />
-                                                                <Setter Property="CornerRadius" Value="5" />
-                                                            </Style>
-                                                        </Flyout.FlyoutPresenterStyle>
+                                                    <Flyout
+                                                        Closing="Flyout_Closing"
+                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                        Placement="Bottom">
                                                         <StackPanel Spacing="4">
                                                             <GridView
                                                                 ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
@@ -272,13 +289,10 @@
                                                 Value="{x:Bind viewModel.ShellVm.RainProperty.PostProcessing, Mode=TwoWay}" />
                                             <Button x:Uid="ChangeBackground">
                                                 <Button.Flyout>
-                                                    <Flyout Closing="Flyout_Closing" Placement="Bottom">
-                                                        <Flyout.FlyoutPresenterStyle>
-                                                            <Style TargetType="FlyoutPresenter">
-                                                                <Setter Property="MinWidth" Value="300" />
-                                                                <Setter Property="CornerRadius" Value="5" />
-                                                            </Style>
-                                                        </Flyout.FlyoutPresenterStyle>
+                                                    <Flyout
+                                                        Closing="Flyout_Closing"
+                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                        Placement="Bottom">
                                                         <StackPanel Spacing="4">
                                                             <GridView
                                                                 ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
@@ -313,13 +327,10 @@
                                                 Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityY, Mode=TwoWay}" />
                                             <Button x:Uid="ChangeBackground">
                                                 <Button.Flyout>
-                                                    <Flyout Closing="Flyout_Closing" Placement="Bottom">
-                                                        <Flyout.FlyoutPresenterStyle>
-                                                            <Style TargetType="FlyoutPresenter">
-                                                                <Setter Property="MinWidth" Value="300" />
-                                                                <Setter Property="CornerRadius" Value="5" />
-                                                            </Style>
-                                                        </Flyout.FlyoutPresenterStyle>
+                                                    <Flyout
+                                                        Closing="Flyout_Closing"
+                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                        Placement="Bottom">
                                                         <StackPanel Spacing="4">
                                                             <GridView
                                                                 ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
@@ -378,13 +389,10 @@
                                                 Value="{x:Bind viewModel.ShellVm.FogProperty.ParallaxIntensityY, Mode=TwoWay}" />
                                             <Button x:Uid="ChangeBackground">
                                                 <Button.Flyout>
-                                                    <Flyout Closing="Flyout_Closing" Placement="Bottom">
-                                                        <Flyout.FlyoutPresenterStyle>
-                                                            <Style TargetType="FlyoutPresenter">
-                                                                <Setter Property="MinWidth" Value="300" />
-                                                                <Setter Property="CornerRadius" Value="5" />
-                                                            </Style>
-                                                        </Flyout.FlyoutPresenterStyle>
+                                                    <Flyout
+                                                        Closing="Flyout_Closing"
+                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                        Placement="Bottom">
                                                         <StackPanel Spacing="4">
                                                             <GridView
                                                                 ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
