@@ -274,7 +274,7 @@
     <value>ログを開く</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>ウィンドウがアクティブでないときにオーディオを一時停止する</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>ウィンドウがアクティブでないときにビジュアルを一時停止する</value>

@@ -274,7 +274,7 @@
     <value>Logs öffnen</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Wiedergabe pausieren, wenn Anwendung nicht im Vordergrund ist</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pausiere die Bewegung, wenn die App nicht im Vordergrund ist</value>

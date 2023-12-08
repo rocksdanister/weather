@@ -274,7 +274,7 @@
     <value>Відкрити логи</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Призупиняти звук, коли програма у фоновому режимі</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Призупиняти візуалізацію, коли програма у фоновому режимі</value>

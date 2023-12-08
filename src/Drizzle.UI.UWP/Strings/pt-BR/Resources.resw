@@ -274,7 +274,7 @@
     <value>Abrir registros</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Pausar o áudio quando o aplicativo não estiver em primeiro plano</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Pausar visuais quando o aplicativo não estiver em primeiro plano</value>

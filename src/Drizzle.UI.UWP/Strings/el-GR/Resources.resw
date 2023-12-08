@@ -274,7 +274,7 @@
     <value>Άνοιγμα αρχείων καταγραφής</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Παύση ήχου όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Παύση οπτικών όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
