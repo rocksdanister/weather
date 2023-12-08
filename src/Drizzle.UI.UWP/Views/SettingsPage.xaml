@@ -61,6 +61,41 @@
                 </labs:SettingsCard>
 
                 <TextBlock
+                    x:Uid="TitleWeather"
+                    Margin="1,0,0,5"
+                    Style="{StaticResource BodyStrongTextBlockStyle}" />
+
+                <labs:SettingsCard x:Uid="WeatherProviderSettings" IsEnabled="False">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="0">
+                        <ComboBoxItem>Open-Meteo</ComboBoxItem>
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="WeatherUnitSettings">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xECC6;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherUnitIndex, Mode=TwoWay}">
+                        <ComboBoxItem x:Uid="WeatherUnitMetric" />
+                        <ComboBoxItem x:Uid="WeatherUnitImperial" />
+                        <ComboBoxItem x:Uid="WeatherUnitHybrid" />
+                    </ComboBox>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard
+                    x:Uid="CustomBackgroundSettings"
+                    IsEnabled="False"
+                    Visibility="Collapsed">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE8B9;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ToggleSwitch IsOn="{x:Bind viewModel.Custombackground, Mode=TwoWay}" />
+                </labs:SettingsCard>
+
+                <TextBlock
                     x:Uid="TitlePerformance"
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
@@ -117,41 +152,6 @@
                         Padding="10"
                         TextWrapping="WrapWholeWords" />
                 </muxc:InfoBar>
-
-                <TextBlock
-                    x:Uid="TitleWeather"
-                    Margin="1,0,0,5"
-                    Style="{StaticResource BodyStrongTextBlockStyle}" />
-
-                <labs:SettingsCard x:Uid="WeatherProviderSettings">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <ComboBox MinWidth="165" SelectedIndex="0">
-                        <ComboBoxItem>Open-Meteo</ComboBoxItem>
-                    </ComboBox>
-                </labs:SettingsCard>
-
-                <labs:SettingsCard x:Uid="WeatherUnitSettings">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xECC6;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherUnitIndex, Mode=TwoWay}">
-                        <ComboBoxItem x:Uid="WeatherUnitMetric" />
-                        <ComboBoxItem x:Uid="WeatherUnitImperial" />
-                        <ComboBoxItem x:Uid="WeatherUnitHybrid" />
-                    </ComboBox>
-                </labs:SettingsCard>
-
-                <labs:SettingsCard
-                    x:Uid="CustomBackgroundSettings"
-                    IsEnabled="False"
-                    Visibility="Collapsed">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE8B9;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <ToggleSwitch IsOn="{x:Bind viewModel.Custombackground, Mode=TwoWay}" />
-                </labs:SettingsCard>
 
                 <TextBlock
                     x:Uid="TitleAccessibility"

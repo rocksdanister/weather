@@ -164,6 +164,41 @@
   },
   {
     "MetaDataVersion": 1,
+    "Name": "Milky Way Galaxy",
+    "FilePath": "Rain\\12.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#312e2f",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/milky-way-galaxy-433155/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Starry Sky Over Mountains",
+    "FilePath": "Rain\\13.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#23384f",
+    "WeatherCode": [
+      61,
+      63,
+      65,
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/starry-sky-over-mountains-2469122/"
+  },
+  {
+    "MetaDataVersion": 1,
     "Name": "Silhouette Of Mountains During Dawn",
     "FilePath": "Snow\\0.jpg",
     "DepthPath": null,
@@ -172,6 +207,9 @@
     ],
     "ColorHex": "#474355",
     "WeatherCode": [
+      61,
+      63,
+      65,
       71,
       73,
       75
@@ -244,19 +282,19 @@
   },
   {
     "MetaDataVersion": 1,
-    "Name": "Aurora Lights",
+    "Name": "Aurora Northern Lights",
     "FilePath": "Snow\\5.jpg",
     "DepthPath": null,
     "Time": [
       "0001-01-01T21:00:00"
     ],
-    "ColorHex": "#2e6069",
+    "ColorHex": "#226087",
     "WeatherCode": [
       71,
       73,
       75
     ],
-    "Attribution": "https://www.pexels.com/photo/aurora-lights-1693095/"
+    "Attribution": "https://pixabay.com/photos/aurora-northern-lights-1197753/"
   },
   {
     "MetaDataVersion": 1,
@@ -273,6 +311,22 @@
       75
     ],
     "Attribution": "https://www.pexels.com/photo/silhouette-of-trees-under-starry-night-3801516/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Empty Road Between High Rise Buildings",
+    "FilePath": "Snow\\7.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#3a454d",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/empty-road-between-high-rise-buildings-4190056/"
   },
   {
     "MetaDataVersion": 1,
@@ -327,20 +381,20 @@
   },
   {
     "MetaDataVersion": 1,
-    "Name": "Calm Sea at Colorful Sunset",
+    "Name": "Green Field",
     "FilePath": "Depth\\3\\image.jpg",
     "DepthPath": "Depth\\3\\depth.jpg",
     "Time": [
       "0001-01-01T12:00:00"
     ],
-    "ColorHex": "#876c77",
+    "ColorHex": "#85995d",
     "WeatherCode": [
       0,
       1,
       45,
       48
     ],
-    "Attribution": "https://www.pexels.com/photo/calm-sea-at-colorful-sunset-5707562/"
+    "Attribution": "https://www.pexels.com/photo/green-field-259280/"
   },
   {
     "MetaDataVersion": 1,
@@ -409,5 +463,39 @@
       48
     ],
     "Attribution": "https://pixabay.com/photos/city-walkway-trees-sidewalk-avenue-2045453/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Scenic View Of Rocky Mountain During Evening",
+    "FilePath": "Depth\\8\\image.jpg",
+    "DepthPath": "Depth\\8\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#192026",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/scenic-view-of-rocky-mountain-during-evening-1624438/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Cropland duiring Nighttime",
+    "FilePath": "Depth\\9\\image.jpg",
+    "DepthPath": "Depth\\9\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#1b5163",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/cropland-duiring-night-time-1743165/"
   }
 ]

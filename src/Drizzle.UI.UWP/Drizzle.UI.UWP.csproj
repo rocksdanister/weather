@@ -277,6 +277,10 @@
     <Content Include="Assets\Backgrounds\Depth\6\image.jpg" />
     <Content Include="Assets\Backgrounds\Depth\7\depth.jpg" />
     <Content Include="Assets\Backgrounds\Depth\7\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\8\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\8\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\9\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\9\image.jpg" />
     <Content Include="Assets\Backgrounds\Rain\0.jpg" />
     <Content Include="Assets\Backgrounds\Rain\1.jpg" />
     <Content Include="Assets\Backgrounds\Rain\2.jpg" />
@@ -289,6 +293,8 @@
     <Content Include="Assets\Backgrounds\Rain\9.jpg" />
     <Content Include="Assets\Backgrounds\Rain\10.jpg" />
     <Content Include="Assets\Backgrounds\Rain\11.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\12.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\13.jpg" />
     <Content Include="Assets\Backgrounds\Snow\1.jpg" />
     <Content Include="Assets\Backgrounds\Depth\0\depth.jpg" />
     <Content Include="Assets\Backgrounds\Depth\0\image.jpg" />
@@ -296,8 +302,9 @@
     <Content Include="Assets\Backgrounds\Snow\2.jpg" />
     <Content Include="Assets\Backgrounds\Snow\3.jpg" />
     <Content Include="Assets\Backgrounds\Snow\4.jpg" />
-    <Content Include="Assets\Backgrounds\Snow\5.jpg" />
     <Content Include="Assets\Backgrounds\Snow\6.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\5.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\7.jpg" />
     <Content Include="Assets\Icons\backhand_index_pointing_up_3d_default.png" />
     <Content Include="Assets\Icons\cactus_3d.png" />
     <Content Include="Assets\Icons\chart_increasing_3d.png" />

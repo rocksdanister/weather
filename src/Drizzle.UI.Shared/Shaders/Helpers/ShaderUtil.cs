@@ -51,7 +51,10 @@ public static class ShaderUtil
         {
             WmoWeatherCode.ClearSky => new DepthModel(),
             WmoWeatherCode.MainlyClear => new DepthModel(),
-            WmoWeatherCode.PartlyCloudy => new CloudsModel(),
+            WmoWeatherCode.PartlyCloudy => new CloudsModel()
+            {
+                Scale = 0.45f,
+            },
             WmoWeatherCode.Overcast => new CloudsModel(),
             WmoWeatherCode.Fog => new WindModel(),
             WmoWeatherCode.DepositingRimeFog => new WindModel()
