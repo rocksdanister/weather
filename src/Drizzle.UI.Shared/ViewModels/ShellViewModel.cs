@@ -313,6 +313,11 @@ namespace Drizzle.UI.UWP.ViewModels
             if (obj is null)
                 return;
 
+            if (SelectedLocation == obj)
+            {
+                // If selected item is to be deleted, change selection first
+                SelectedLocation = Weathers.Where(x => x != obj).OrderBy(x => x.SortOrder).FirstOrDefault();
+            }
             Weathers.Remove(obj);
             using (WeathersSorted.DeferRefresh())
             {
@@ -323,8 +328,6 @@ namespace Drizzle.UI.UWP.ViewModels
                         Weathers[i].SortOrder - 1 : Weathers[i].SortOrder;
                 }
             }
-            // If selected item is deleted
-            SelectedLocation ??= Weathers.OrderBy(x => x.SortOrder).FirstOrDefault();
             // Update saved pinned locations
             StoreLocationsSorted();
         }
@@ -423,10 +426,13 @@ namespace Drizzle.UI.UWP.ViewModels
                     index = 0;
                 }
                 // Reorder since we fetched the selection first
-                Weathers[0].SortOrder = index;
-                for (int i = 1; i < Weathers.Count; i++)
+                using (WeathersSorted.DeferRefresh())
                 {
-                    Weathers[i].SortOrder = i > index ? i : i - 1;
+                    Weathers[0].SortOrder = index;
+                    for (int i = 1; i < Weathers.Count; i++)
+                    {
+                        Weathers[i].SortOrder = i > index ? i : i - 1;
+                    }
                 }
                 // Update order
                 StoreLocationsSorted();
