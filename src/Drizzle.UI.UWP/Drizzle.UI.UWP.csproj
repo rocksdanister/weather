@@ -269,6 +269,14 @@
     <Content Include="Assets\Backgrounds\Depth\1\image.jpg" />
     <Content Include="Assets\Backgrounds\Depth\3\depth.jpg" />
     <Content Include="Assets\Backgrounds\Depth\3\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\4\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\4\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\5\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\5\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\6\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\6\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\7\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\7\image.jpg" />
     <Content Include="Assets\Backgrounds\Rain\0.jpg" />
     <Content Include="Assets\Backgrounds\Rain\1.jpg" />
     <Content Include="Assets\Backgrounds\Rain\2.jpg" />
@@ -280,6 +288,7 @@
     <Content Include="Assets\Backgrounds\Rain\8.jpg" />
     <Content Include="Assets\Backgrounds\Rain\9.jpg" />
     <Content Include="Assets\Backgrounds\Rain\10.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\11.jpg" />
     <Content Include="Assets\Backgrounds\Snow\1.jpg" />
     <Content Include="Assets\Backgrounds\Depth\0\depth.jpg" />
     <Content Include="Assets\Backgrounds\Depth\0\image.jpg" />

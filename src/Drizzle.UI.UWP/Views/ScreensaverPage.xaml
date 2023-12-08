@@ -46,6 +46,9 @@
         </Style>
         <DataTemplate x:Key="GridViewBackgroundDataTemplate">
             <Grid Width="70" Height="70">
+                <!--<ToolTipService.ToolTip>
+                    <TextBlock Text="{Binding Title, Mode=OneTime}" />
+                </ToolTipService.ToolTip>-->
                 <Grid.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem

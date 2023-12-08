@@ -425,14 +425,11 @@ namespace Drizzle.UI.UWP.ViewModels
                     // Selection will be first fetched item
                     index = 0;
                 }
-                // Reorder since we fetched the selection first
-                using (WeathersSorted.DeferRefresh())
+                // Reorder since we fetched the selection first, DeferRefresh is causing issue
+                Weathers[0].SortOrder = index;
+                for (int i = 1; i < Weathers.Count; i++)
                 {
-                    Weathers[0].SortOrder = index;
-                    for (int i = 1; i < Weathers.Count; i++)
-                    {
-                        Weathers[i].SortOrder = i > index ? i : i - 1;
-                    }
+                    Weathers[i].SortOrder = i > index ? i : i - 1;
                 }
                 // Update order
                 StoreLocationsSorted();
