@@ -135,6 +135,9 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedLocation;
             set
             {
+                SelectedWeather = value?.Today;
+                // If no location available then assume current system location
+                IsSelectedLocationDaytime = SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
                 if (value is not null)
                 {
                     IsShowAddLocation = false;
@@ -147,9 +150,6 @@ namespace Drizzle.UI.UWP.ViewModels
                     // Default animation
                     SetWeatherAnimation(WmoWeatherCode.ClearSky);
                 }
-                SelectedWeather = value?.Today;
-                // If no location available then assume current system location
-                IsSelectedLocationDaytime = SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
                 SetProperty(ref _selectedLocation, value);
             }
         }
