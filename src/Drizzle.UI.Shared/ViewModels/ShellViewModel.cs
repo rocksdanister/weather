@@ -135,30 +135,38 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedLocation;
             set
             {
-                SelectedWeather = value?.Today;
-                // If no location available then assume current system location
-                IsSelectedLocationDaytime = SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
-                if (value is not null)
+                if (SetProperty(ref _selectedLocation, value))
                 {
-                    IsShowAddLocation = false;
-                    if (userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation) != value.Location)
+                    SelectedWeather = value?.Today;
+                    IsShowAddLocation = value is null;
+                    if (value is not null && userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation) != value.Location)
                         userSettings.SetAndSerialize(UserSettingsConstants.SelectedLocation, value.Location);
                 }
-                else
-                {
-                    IsShowAddLocation = true;
-                    // Default animation
-                    SetWeatherAnimation(WmoWeatherCode.ClearSky);
-                }
-                SetProperty(ref _selectedLocation, value);
             }
         }
 
-        /// <summary>
-        /// Is the user selected location currently daytime, if none selected uses system time.
-        /// </summary>
-        [ObservableProperty]
-        private bool isSelectedLocationDaytime;
+
+        private bool _isShowAddLocation;
+        public bool IsShowAddLocation
+        {
+            get => _isShowAddLocation;
+            set
+            {
+                if (SetProperty(ref _isShowAddLocation, value) && value)
+                {
+                    // Default animation
+                    SetWeatherAnimation(WmoWeatherCode.ClearSky);
+                }
+            }
+        }
+
+        ///// <summary>
+        ///// Is the user selected location currently daytime, if none selected uses system time.
+        ///// </summary>
+        public bool IsSelectedLocationDaytime
+        {
+            get => SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
+        }
 
         // Currently selected day
         private WeatherModel _selectedWeather;
@@ -167,11 +175,10 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWeather;
             set
             {
-                if (value is not null)
+                if (SetProperty(ref _selectedWeather, value) && value is not null)
                 {
                     SetWeatherAnimation((WmoWeatherCode)value.WeatherCode);
                 }
-                SetProperty(ref _selectedWeather, value);
             }
         }
 
@@ -266,9 +273,6 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private bool isWorking = false;
-
-        [ObservableProperty]
-        private bool isShowAddLocation = false;
 
         [ObservableProperty]
         private string errorMessage;
@@ -371,7 +375,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 // Selects location and weather animation
                 SelectedLocation = weatherVm;
                 // Force weather animation background change
-                SetWeatherAnimation((WmoWeatherCode)SelectedLocation.Today.WeatherCode, true);
+                //SetWeatherAnimation((WmoWeatherCode)SelectedLocation.Today.WeatherCode, true);
                 // For selection only, animation change is skipped
                 //SelectedWeather = SelectedLocation.Daily[0];
 
@@ -397,7 +401,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
 
                 // Set default animation, setting it here instead of constructor to avoid ComputeSharp/UWP Windowsize issue.
-                SelectedLocation = null;
+                IsShowAddLocation = true;
 
                 if (!locations.Any())
                 {
@@ -639,7 +643,7 @@ namespace Drizzle.UI.UWP.ViewModels
 
         private void SetWeatherSound(WmoWeatherCode code)
         {
-            soundService.SetSource(code, SelectedLocation?.Today?.IsDaytime ?? WeatherUtil.IsDaytime());
+            soundService.SetSource(code, IsSelectedLocationDaytime);
             soundService.Play();
         }
 
