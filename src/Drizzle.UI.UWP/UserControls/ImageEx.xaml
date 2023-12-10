@@ -17,6 +17,8 @@
 
     <Grid>
         <Image
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
             Source="{x:Bind SourceA, Mode=OneWay}"
             Stretch="{x:Bind Stretch, Mode=OneWay}"
             Visibility="{x:Bind IsSourceAVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
@@ -37,6 +39,8 @@
             </animations:Implicit.HideAnimations>
         </Image>
         <Image
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
             Source="{x:Bind SourceB, Mode=OneWay}"
             Stretch="{x:Bind Stretch, Mode=OneWay}"
             Visibility="{x:Bind IsSourceBVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
