@@ -38,6 +38,7 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly IWeatherViewModelFactory weatherViewModelFactory;
         private readonly ILogger logger;
 
+        private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.ClearSky;
         private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
         private readonly int maxPinnedLocations;
 
@@ -139,23 +140,16 @@ namespace Drizzle.UI.UWP.ViewModels
                 {
                     SelectedWeather = value?.Today;
                     IsShowAddLocation = value is null;
-                    if (value is not null && userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation) != value.Location)
-                        userSettings.SetAndSerialize(UserSettingsConstants.SelectedLocation, value.Location);
-                }
-            }
-        }
-
-
-        private bool _isShowAddLocation;
-        public bool IsShowAddLocation
-        {
-            get => _isShowAddLocation;
-            set
-            {
-                if (SetProperty(ref _isShowAddLocation, value) && value)
-                {
-                    // Default animation
-                    SetWeatherAnimation(WmoWeatherCode.ClearSky);
+                    if (value is not null)
+                    {
+                        if (userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation) != value.Location)
+                            userSettings.SetAndSerialize(UserSettingsConstants.SelectedLocation, value.Location);
+                    }
+                    else
+                    {
+                        // Play default animation if all locations removed
+                        SetWeatherAnimation(defaultAnimation);
+                    }
                 }
             }
         }
@@ -256,6 +250,9 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private bool isFetchingWeather = false;
+
+        [ObservableProperty]
+        private bool isShowAddLocation;
 
         [ObservableProperty]
         private bool isFetchingLocation = false;
@@ -401,7 +398,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
 
                 // Set default animation, setting it here instead of constructor to avoid ComputeSharp/UWP Windowsize issue.
-                IsShowAddLocation = true;
+                SetWeatherAnimation(defaultAnimation);
 
                 if (!locations.Any())
                 {
