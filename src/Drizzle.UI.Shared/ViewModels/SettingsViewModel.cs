@@ -30,6 +30,7 @@ namespace Drizzle.UI.UWP.ViewModels
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
             SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
             SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
+            SelectedWeatherProviderIndex = (int)userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
         }
 
         public ShellViewModel ShellVm { get; }
@@ -112,6 +113,41 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
+        private int _selectedWeatherProviderIndex;
+        public int SelectedWeatherProviderIndex
+        {
+            get => _selectedWeatherProviderIndex;
+            set
+            {
+                if (userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider) != (WeatherProviders)value)
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, value);
+
+                var settingsKey = GetWeatherProviderSettingsKey((WeatherProviders)value);
+                IsApiKeyRequired = settingsKey != null;
+                SelectedApiKey = settingsKey != null ? userSettings.Get<string>(settingsKey) : string.Empty;
+
+                SetProperty(ref _selectedWeatherProviderIndex, value);
+            }
+        }
+
+        [ObservableProperty]
+        private bool isApiKeyRequired;
+
+        private string _selectedApiKey;
+        public string SelectedApiKey
+        {
+            get => _selectedApiKey;
+            set
+            {
+                var weatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
+                var settingsKey = GetWeatherProviderSettingsKey(weatherProvider);
+                if (settingsKey != null && userSettings.Get<string>(settingsKey) != value)
+                    userSettings.Set(settingsKey, value);
+
+                SetProperty(ref _selectedApiKey, value);
+            }
+        }
+
         private float _backgroundBrightness;
         public float BackgroundBrightness
         {
@@ -148,6 +184,16 @@ namespace Drizzle.UI.UWP.ViewModels
 
             if (latestLog != null)
                 await Launcher.LaunchFileAsync(latestLog);
+        }
+
+        private static string GetWeatherProviderSettingsKey(WeatherProviders provider)
+        {
+            return provider switch
+            {
+                WeatherProviders.OpenMeteo => null,
+                WeatherProviders.OpenWeatherMap => UserSettingsConstants.OpenWeatherMapKey,
+                _ => null,
+            };
         }
     }
 }

@@ -65,14 +65,25 @@
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
 
-                <labs:SettingsCard x:Uid="WeatherProviderSettings" IsEnabled="False">
-                    <labs:SettingsCard.HeaderIcon>
+                <labs:SettingsExpander x:Uid="WeatherProviderSettings" IsExpanded="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                    <labs:SettingsExpander.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <ComboBox MinWidth="165" SelectedIndex="0">
-                        <ComboBoxItem>Open-Meteo</ComboBoxItem>
-                    </ComboBox>
-                </labs:SettingsCard>
+                    </labs:SettingsExpander.HeaderIcon>
+                    <labs:SettingsExpander.Content>
+                        <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherProviderIndex, Mode=TwoWay}">
+                            <ComboBoxItem>Open-Meteo</ComboBoxItem>
+                            <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
+                        </ComboBox>
+                    </labs:SettingsExpander.Content>
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard Header="API Key" IsEnabled="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <HyperlinkButton NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources">Learn more</HyperlinkButton>
+                                <TextBox MinWidth="250" Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </labs:SettingsCard>
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
 
                 <labs:SettingsCard x:Uid="WeatherUnitSettings">
                     <labs:SettingsCard.HeaderIcon>

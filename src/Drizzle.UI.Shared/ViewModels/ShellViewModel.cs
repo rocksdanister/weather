@@ -32,15 +32,17 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly IAssetReader assetReader;
         private readonly INavigator navigator;
         private readonly IDialogService dialogService;
-        private readonly IWeatherClient weatherClient;
         private readonly ISoundService soundService;
         private readonly ICacheService cacheService;
+        private readonly IWeatherClientFactory weatherClientFactory;
         private readonly IWeatherViewModelFactory weatherViewModelFactory;
         private readonly ILogger logger;
 
         private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.ClearSky;
         private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
         private readonly int maxPinnedLocations;
+
+        private IWeatherClient weatherClient;
 
         public ShellViewModel(IUserSettings userSettings,
             IAssetReader assetReader,
@@ -58,9 +60,12 @@ namespace Drizzle.UI.UWP.ViewModels
             this.dialogService = dialogService;
             this.soundService = soundService;
             this.cacheService = cacheService;
+            this.weatherClientFactory = weatherClientFactory;
             this.weatherViewModelFactory = weatherViewModelFactory;
-            this.weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
             this.logger = logger;
+
+            // User selected weather provider.
+            this.weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
 
             shaderRunnerViewModels = new ShaderRunnerViewModel[]{
                 new ShaderRunnerViewModel(new SnowRunner(() => SnowProperty), ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f),
@@ -87,6 +92,9 @@ namespace Drizzle.UI.UWP.ViewModels
                         break;
                     case UserSettingsConstants.ReducedMotion:
                         UpdateMotionSettings();
+                        break;
+                    case UserSettingsConstants.SelectedWeatherProvider:
+                        UpdateWeatherProvider();
                         break;
                 }
             };
@@ -770,6 +778,15 @@ namespace Drizzle.UI.UWP.ViewModels
                 FogProperty.Brightness =
                 DepthProperty.Brightness =
                 CloudsProperty.Brightness = brightness;
+        }
+
+        private void UpdateWeatherProvider()
+        {
+            // Clear current data since its not reliabily possible to fetch same locations using different provider.
+            Weathers.Clear();
+            userSettings.SetAndSerialize<LocationModel>(UserSettingsConstants.SelectedLocation, null);
+            userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Array.Empty<LocationModel>());
+            weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
         }
 
         private void StoreLocationsSorted()
