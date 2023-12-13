@@ -135,15 +135,17 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<IDepthEstimate, MiDaS>()
                 .AddSingleton<ISoundService, SoundService>()
                 .AddSingleton<IAssetReader, AssetReader>()
-                //.AddSingleton<IWeatherClient>((e) => new OpenWeatherMapWeatherClient(
-                //    e.GetRequiredService<IHttpClientFactory>(),
-                //    e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.OpenWeatherMapKey)))
                 .AddSingleton<IWeatherClient, OpenMeteoWeatherClient>()
+                .AddSingleton<IWeatherClient>((e) => new OpenWeatherMapWeatherClient(
+                    e.GetRequiredService<IHttpClientFactory>(),
+                    e.GetRequiredService<ICacheService>(),
+                    e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.OpenWeatherMapKey)))
                 // Transient
                 .AddTransient<AboutViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<DepthEstimateViewModel>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
+                .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
                 .AddTransient<IDownloadUtil, HttpDownloadUtil>()
                 // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()

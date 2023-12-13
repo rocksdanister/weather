@@ -46,7 +46,7 @@ namespace Drizzle.UI.UWP.ViewModels
             IAssetReader assetReader,
             INavigator navigator,
             ICacheService cacheService,
-            IWeatherClient weatherClient,
+            IWeatherClientFactory weatherClientFactory,
             ISoundService soundService,
             IDialogService dialogService,
             IWeatherViewModelFactory weatherViewModelFactory,
@@ -56,10 +56,10 @@ namespace Drizzle.UI.UWP.ViewModels
             this.assetReader = assetReader;
             this.navigator = navigator;
             this.dialogService = dialogService;
-            this.weatherClient = weatherClient;
             this.soundService = soundService;
             this.cacheService = cacheService;
             this.weatherViewModelFactory = weatherViewModelFactory;
+            this.weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
             this.logger = logger;
 
             shaderRunnerViewModels = new ShaderRunnerViewModel[]{

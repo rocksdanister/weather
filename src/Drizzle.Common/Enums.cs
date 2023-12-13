@@ -35,6 +35,12 @@ namespace Drizzle.Common
         light
     }
 
+    public enum WeatherProviders
+    {
+        OpenMeteo,
+        OpenWeatherMap
+    }
+
     public enum WmoWeatherCode
     {
         ClearSky = 0,

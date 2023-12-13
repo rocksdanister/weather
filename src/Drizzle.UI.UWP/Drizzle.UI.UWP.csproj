@@ -179,7 +179,9 @@
     <Compile Include="Converters\TimeToIsDaytimeVisibilityConverter.cs" />
     <Compile Include="Converters\WmoWeatherConverter.cs" />
     <Compile Include="Extensions\ThemeExtensions.cs" />
+    <Compile Include="Factories\IWeatherClientFactory.cs" />
     <Compile Include="Factories\IWeatherViewModelFactory.cs" />
+    <Compile Include="Factories\WeatherClientFactory.cs" />
     <Compile Include="Factories\WeatherViewModelFactory.cs" />
     <Compile Include="Helpers\FilePickerUtil.cs" />
     <Compile Include="Helpers\GeolocationUtil.cs" />

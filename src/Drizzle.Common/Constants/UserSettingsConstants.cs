@@ -37,6 +37,8 @@ public static class UserSettingsConstants
 
     public const string SoundVolume = "SoundVolume";
 
+    public const string SelectedWeatherProvider = "SelectedWeatherProvider";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -54,5 +56,6 @@ public static class UserSettingsConstants
         { BackgroundPause, true },
         { BackgroundPauseAudio, true },
         { SoundVolume, 0 },
+        { SelectedWeatherProvider, WeatherProviders.OpenMeteo },
     };
 }

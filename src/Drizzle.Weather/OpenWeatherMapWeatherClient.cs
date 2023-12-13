@@ -12,11 +12,13 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 {
     public bool UseCache { get; set; } = false;
 
+    private readonly ICacheService cacheService;
     private readonly HttpClient httpClient;
     private readonly string apiKey;
 
-    public OpenWeatherMapWeatherClient(IHttpClientFactory httpClientFactory, string apiKey)
+    public OpenWeatherMapWeatherClient(IHttpClientFactory httpClientFactory, ICacheService cacheService, string apiKey)
     {
+        this.cacheService = cacheService;
         this.httpClient = httpClientFactory.CreateClient();
         this.apiKey = apiKey;
     }
