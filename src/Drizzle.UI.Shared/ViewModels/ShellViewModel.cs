@@ -101,7 +101,7 @@ namespace Drizzle.UI.UWP.ViewModels
             // For best user experience when volume is 0, pause audio.
             soundService.AutoPause = true;
             // Cache the weather data to reduce API calls when app is re-opened.
-            weatherClient.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
+            cacheService.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
             maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
             IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
             SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);

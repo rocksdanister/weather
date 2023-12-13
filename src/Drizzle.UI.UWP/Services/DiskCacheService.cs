@@ -13,6 +13,7 @@ namespace Drizzle.UI.UWP.Services
 {
     public class DiskCacheService : ICacheService
     {
+        public bool UseCache { get; set; } = true;
         public DateTime LastAccessTime { get; private set; }
 
         private readonly HttpClient httpClient;
@@ -106,7 +107,7 @@ namespace Drizzle.UI.UWP.Services
             var fileName = GetCacheFileName(uri);
             var filePath = Path.Combine(cacheDir, fileName);
             var (isFileOutOfDateOrNotFound, lastAccessTime) = IsFileOutOfDateOrNotFoundWithLastAccesstime(filePath, duration);
-            if (isFileOutOfDateOrNotFound)
+            if (isFileOutOfDateOrNotFound || !UseCache)
             {
                 var buffer = await httpClient.GetByteArrayAsync(uri);
                 await File.WriteAllBytesAsync(filePath, buffer);

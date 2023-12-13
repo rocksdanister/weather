@@ -8,8 +8,6 @@ namespace Drizzle.Weather;
 
 public interface IWeatherClient
 {
-    bool UseCache { get; set; }
-
     Task<ForecastWeather> QueryForecastAsync(float latitude, float longitude);
 
     //Task<ForecastWeather> QueryForecastAsync(string place);

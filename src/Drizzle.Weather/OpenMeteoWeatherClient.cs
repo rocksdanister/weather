@@ -20,8 +20,6 @@ namespace Drizzle.Weather;
 // MIT License Copyright(c) 2022 AlienDwarf
 public class OpenMeteoWeatherClient : IWeatherClient
 {
-    public bool UseCache { get; set; } = false;
-
     private readonly string weatherApiUrl = "https://api.open-meteo.com/v1/forecast";
     private readonly string geocodeApiUrl = "https://geocoding-api.open-meteo.com/v1/search";
     private readonly string airQualityApiUrl = "https://air-quality-api.open-meteo.com/v1/air-quality";
@@ -124,7 +122,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             };
             dailyWeather.Add(weather);
         }
-        result.FetchTime = UseCache ? cacheService.LastAccessTime : DateTime.Now;
+        result.FetchTime = cacheService.LastAccessTime;
         result.Daily = dailyWeather;
         return result;
     }
@@ -169,7 +167,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             };
             dailyAirQuality.Add(airQuality);
         }
-        result.FetchTime = UseCache ? cacheService.LastAccessTime : DateTime.Now;
+        result.FetchTime = cacheService.LastAccessTime;
         result.Daily = dailyAirQuality;
         return result;
     }
@@ -219,38 +217,18 @@ public class OpenMeteoWeatherClient : IWeatherClient
     {
         logger.LogInformation("Fetching weather forecast..");
         var url = MergeUrlWithOptions(weatherApiUrl, options);
-        if (UseCache)
-        {
-            using var stream = await cacheService.GetFileStreamFromCacheAsync(url);
-            if (stream is not null)
-            {
-                logger.LogInformation($"Cached weather forecast {cacheService.LastAccessTime}.");
-                return await JsonSerializer.DeserializeAsync<WeatherForecast>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-            }
-        }
-
-        using HttpResponseMessage response = await httpClient.GetAsync(url);
-        response.EnsureSuccessStatusCode();
-        return await JsonSerializer.DeserializeAsync<WeatherForecast>(await response.Content.ReadAsStreamAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
+        logger.LogInformation($"Cached weather forecast {cacheService.LastAccessTime}.");
+        return await JsonSerializer.DeserializeAsync<WeatherForecast>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
 
     private async Task<AirQuality?> GetAirQualityAsync(AirQualityOptions options)
     {
         logger.LogInformation("Fetching airquality forecast..");
         var url = MergeUrlWithOptions(airQualityApiUrl, options);
-        if (UseCache)
-        {
-            using var stream = await cacheService.GetFileStreamFromCacheAsync(url);
-            if (stream is not null)
-            {
-                logger.LogInformation($"Cached airquality forecast {cacheService.LastAccessTime}.");
-                return await JsonSerializer.DeserializeAsync<AirQuality>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-            }
-        }
-
-        using HttpResponseMessage response = await httpClient.GetAsync(url);
-        response.EnsureSuccessStatusCode();
-        return await JsonSerializer.DeserializeAsync<AirQuality>(await response.Content.ReadAsStreamAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
+        logger.LogInformation($"Cached airquality forecast {cacheService.LastAccessTime}.");
+        return await JsonSerializer.DeserializeAsync<AirQuality>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
 
     private async Task<GeocodingApiResponse?> GetGeocodingDataAsync(GeocodingOptions options)

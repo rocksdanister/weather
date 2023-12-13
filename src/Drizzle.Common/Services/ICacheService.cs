@@ -20,6 +20,7 @@ namespace Drizzle.Common.Services
         /// Delete all cache items
         /// </summary>
         void Clear();
+        bool UseCache { get; set; }
         Task<byte[]> GetFileFromCacheAsync(string url, bool throwException = false);
         Task<byte[]> GetFileFromCacheAsync(Uri uri, bool throwException = false);
         Task<Stream> GetFileStreamFromCacheAsync(string url, bool throwException = false);
