@@ -8,6 +8,8 @@ namespace Drizzle.Weather;
 
 public interface IWeatherClient
 {
+    string ApiKey { get; set; }
+
     Task<ForecastWeather> QueryForecastAsync(float latitude, float longitude);
 
     //Task<ForecastWeather> QueryForecastAsync(string place);

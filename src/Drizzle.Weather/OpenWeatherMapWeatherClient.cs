@@ -10,7 +10,7 @@ namespace Drizzle.Weather;
 
 public class OpenWeatherMapWeatherClient : IWeatherClient
 {
-    public bool UseCache { get; set; } = false;
+    public string ApiKey { get; set; }
 
     private readonly ICacheService cacheService;
     private readonly HttpClient httpClient;

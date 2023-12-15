@@ -20,6 +20,9 @@ namespace Drizzle.Weather;
 // MIT License Copyright(c) 2022 AlienDwarf
 public class OpenMeteoWeatherClient : IWeatherClient
 {
+    // Not required for this client
+    public string ApiKey { get; set; }
+
     private readonly string weatherApiUrl = "https://api.open-meteo.com/v1/forecast";
     private readonly string geocodeApiUrl = "https://geocoding-api.open-meteo.com/v1/search";
     private readonly string airQualityApiUrl = "https://air-quality-api.open-meteo.com/v1/air-quality";

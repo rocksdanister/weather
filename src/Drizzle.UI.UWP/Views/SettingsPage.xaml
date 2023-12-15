@@ -65,25 +65,29 @@
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
 
-                <labs:SettingsExpander x:Uid="WeatherProviderSettings" IsExpanded="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
-                    <labs:SettingsExpander.HeaderIcon>
+                <labs:SettingsCard x:Uid="WeatherProviderSettings">
+                    <labs:SettingsCard.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
-                    </labs:SettingsExpander.HeaderIcon>
-                    <labs:SettingsExpander.Content>
-                        <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherProviderIndex, Mode=TwoWay}">
-                            <ComboBoxItem>Open-Meteo</ComboBoxItem>
-                            <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
-                        </ComboBox>
-                    </labs:SettingsExpander.Content>
-                    <labs:SettingsExpander.Items>
-                        <labs:SettingsCard Header="API Key" IsEnabled="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal" Spacing="5">
-                                <HyperlinkButton NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources">Learn more</HyperlinkButton>
-                                <TextBox MinWidth="250" Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            </StackPanel>
-                        </labs:SettingsCard>
-                    </labs:SettingsExpander.Items>
-                </labs:SettingsExpander>
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherProviderIndex, Mode=TwoWay}">
+                        <ComboBoxItem>Open-Meteo</ComboBoxItem>
+                        <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
+                    </ComboBox>
+                </labs:SettingsCard>
+                <labs:SettingsCard Header="API Key" Visibility="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE785;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <HyperlinkButton Grid.Column="1" NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources">Learn more</HyperlinkButton>
+                        <TextBox
+                            Grid.Column="0"
+                            MinWidth="275"
+                            MaxWidth="275"
+                            PlaceholderText="Enter API key here"
+                            Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </labs:SettingsCard>
 
                 <labs:SettingsCard x:Uid="WeatherUnitSettings">
                     <labs:SettingsCard.HeaderIcon>

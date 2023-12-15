@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Drizzle.Common;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
+using Drizzle.UI.UWP.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,11 @@ namespace Drizzle.UI.UWP.ViewModels
     public sealed partial class SettingsViewModel : ObservableObject
     {
         private readonly IUserSettings userSettings;
+        private readonly IWeatherClientFactory weatherClientFactory;
 
-        public SettingsViewModel(IUserSettings userSettings, ShellViewModel shellVm)
+        public SettingsViewModel(IUserSettings userSettings, ShellViewModel shellVm, IWeatherClientFactory weatherClientFactory)
         {
+            this.weatherClientFactory = weatherClientFactory;
             this.userSettings = userSettings;
             this.ShellVm = shellVm;
 
@@ -122,7 +125,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 if (userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider) != (WeatherProviders)value)
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, value);
 
-                var settingsKey = GetWeatherProviderSettingsKey((WeatherProviders)value);
+                var settingsKey = GetWeatherProviderApiSettingsKey((WeatherProviders)value);
                 IsApiKeyRequired = settingsKey != null;
                 SelectedApiKey = settingsKey != null ? userSettings.Get<string>(settingsKey) : string.Empty;
 
@@ -140,9 +143,12 @@ namespace Drizzle.UI.UWP.ViewModels
             set
             {
                 var weatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
-                var settingsKey = GetWeatherProviderSettingsKey(weatherProvider);
+                var settingsKey = GetWeatherProviderApiSettingsKey(weatherProvider);
                 if (settingsKey != null && userSettings.Get<string>(settingsKey) != value)
+                {
                     userSettings.Set(settingsKey, value);
+                    weatherClientFactory.GetInstance(weatherProvider).ApiKey = value;
+                }
 
                 SetProperty(ref _selectedApiKey, value);
             }
@@ -186,7 +192,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 await Launcher.LaunchFileAsync(latestLog);
         }
 
-        private static string GetWeatherProviderSettingsKey(WeatherProviders provider)
+        private static string GetWeatherProviderApiSettingsKey(WeatherProviders provider)
         {
             return provider switch
             {
