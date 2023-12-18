@@ -22,7 +22,13 @@ public class OpenMeteoWeatherClient : IWeatherClient
 {
     // Not required for this client
     public string ApiKey { get; set; }
+    public bool IsReverseGeocodingSupported => false;
+    public bool IsApiKeyRequired => false;
 
+    // API Ref:
+    // https://open-meteo.com/en/docs
+    // https://open-meteo.com/en/docs/geocoding-api
+    // https://open-meteo.com/en/docs/air-quality-api
     private readonly string weatherApiUrl = "https://api.open-meteo.com/v1/forecast";
     private readonly string geocodeApiUrl = "https://geocoding-api.open-meteo.com/v1/search";
     private readonly string airQualityApiUrl = "https://air-quality-api.open-meteo.com/v1/air-quality";
@@ -84,6 +90,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Longitude = longitude,
             TimeZone = response.Timezone,
             Units = new ForecastWeatherUnits(WeatherUnits.metric),
+            ForecastInterval = 1,
         };
         var dailyWeather = new List<DailyWeather>();
         var dailyVisibility = GetDailyValue(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x), response.Timezone);
@@ -154,6 +161,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Longitude = longitude,
             TimeZone = response.Timezone,
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
+            ForecastInterval = 1,
         };
         var dailyAirQuality = new List<DailyAirQuality>();
         var dailyAQI = GetDailyValue(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
@@ -214,6 +222,11 @@ public class OpenMeteoWeatherClient : IWeatherClient
             result = result.OrderByDescending(x => x.DisplayName.StartsWith(place, StringComparison.InvariantCultureIgnoreCase)).ToList();
 
         return result;
+    }
+
+    public Task<IReadOnlyList<Location>> GetLocationDataAsync(float latitude, float longitude)
+    {
+        throw new NotSupportedException();
     }
 
     private async Task<WeatherForecast?> GetWeatherForecastAsync(WeatherForecastOptions options)

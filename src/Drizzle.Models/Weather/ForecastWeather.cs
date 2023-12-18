@@ -13,4 +13,8 @@ public class ForecastWeather
     public DateTime FetchTime { get; set; }
     public ForecastWeatherUnits Units { get; set; }
     public IReadOnlyList<DailyWeather> Daily { get; set; }
+    /// <summary>
+    /// Hour between forecast data
+    /// </summary>
+    public int ForecastInterval { get; set; }
 }

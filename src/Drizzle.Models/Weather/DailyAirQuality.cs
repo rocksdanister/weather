@@ -6,9 +6,9 @@ namespace Drizzle.Models.Weather;
 
 public class DailyAirQuality
 {
-    public int AQI { get; set; }
+    public int? AQI { get; set; }
 
-    public float UV { get; set; }
+    public float? UV { get; set; }
 
     public DateTime Date { get; set; }
 

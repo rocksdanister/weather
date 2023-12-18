@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Drizzle.Models.Weather.OpenWeatherMap;
 
@@ -8,65 +9,45 @@ namespace Drizzle.Models.Weather.OpenWeatherMap;
 // Ref: https://openweathermap.org/current
 public class Current
 {
-    public class Root
-    {
-        public Coord Coord { get; set; }
-        public List<Weather> Weather { get; set; }
-        public string Base { get; set; }
-        public Main Main { get; set; }
-        public int Visibility { get; set; }
-        public Wind Wind { get; set; }
-        public Clouds Clouds { get; set; }
-        public int Dt { get; set; }
-        public Sys Sys { get; set; }
-        public int Timezone { get; set; }
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Cod { get; set; }
-    }
+    [JsonPropertyName("coord")]
+    public Coord Coord { get; set; }
 
-    public class Coord
-    {
-        public double Lon { get; set; }
-        public double Lat { get; set; }
-    }
+    [JsonPropertyName("weather")]
+    public List<WeatherCondition> Weather { get; set; }
 
-    public class Weather
-    {
-        public int Id { get; set; }
-        public string Main { get; set; }
-        public string Description { get; set; }
-        public string Icon { get; set; }
-    }
+    [JsonPropertyName("base")]
+    public string Base { get; set; }
 
-    public class Main
-    {
-        public double Temp { get; set; }
-        public double FeelsLike { get; set; }
-        public double TempMin { get; set; }
-        public int TempMax { get; set; }
-        public int Pressure { get; set; }
-        public int Humidity { get; set; }
-    }
+    [JsonPropertyName("main")]
+    public Main Main { get; set; }
 
-    public class Wind
-    {
-        public double Speed { get; set; }
-        public int Deg { get; set; }
-        public double Gust { get; set; }
-    }
+    [JsonPropertyName("visibility")]
+    public float Visibility { get; set; }
 
-    public class Clouds
-    {
-        public int All { get; set; }
-    }
+    [JsonPropertyName("wind")]
+    public Wind Wind { get; set; }
 
-    public class Sys
-    {
-        public int Type { get; set; }
-        public int Id { get; set; }
-        public string Country { get; set; }
-        public int Sunrise { get; set; }
-        public int Sunset { get; set; }
-    }
+    [JsonPropertyName("rain")]
+    public Rain Rain { get; set; }
+
+    [JsonPropertyName("clouds")]
+    public Clouds Clouds { get; set; }
+
+    [JsonPropertyName("dt")]
+    public int Dt { get; set; }
+
+    [JsonPropertyName("sys")]
+    public CurrentSys Sys { get; set; }
+
+    [JsonPropertyName("timezone")]
+    public int Timezone { get; set; }
+
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("name")]
+    public string Name { get; set; }
+
+    //[JsonPropertyName("cod")]
+    //public int Cod { get; set; }
 }

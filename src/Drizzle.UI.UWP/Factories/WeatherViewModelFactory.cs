@@ -37,6 +37,9 @@ namespace Drizzle.UI.UWP.Factories
             weatherVm.Location = new LocationModel(weatherForecast.Name, weatherForecast.Latitude, weatherForecast.Longitude);
             weatherVm.MaxTemp = weatherForecast.Daily[0].TemperatureMax;
             weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;
+            weatherVm.ForecastInterval = weatherForecast.ForecastInterval;
+            // If 24hr data available then skip 1, else show all
+            weatherVm.GraphDisplayStep = weatherForecast.ForecastInterval == 1 ? 2 : 1;
             var isDayTime = WeatherUtil.IsDaytime(weatherForecast.TimeZone);
             for (int i = 0; i < weatherForecast.Daily.Count(); i++)
             {
@@ -76,8 +79,8 @@ namespace Drizzle.UI.UWP.Factories
             }
             for (int i = 0; i < airQualityForecast.Daily.Count(); i++)
             {
-                weatherVm.Daily[i].AirQualityIndex = airQualityForecast.Daily[i].AQI;
-                weatherVm.Daily[i].UltravioletIndex = (int)airQualityForecast.Daily[i].UV;
+                weatherVm.Daily[i].AirQualityIndex = airQualityForecast.Daily[i].AQI ?? null;
+                weatherVm.Daily[i].UltravioletIndex = (int?)airQualityForecast.Daily[i].UV ?? null;
                 weatherVm.Daily[i].HourlyAirQualityIndex = airQualityForecast.Daily[i].HourlyAQI;
                 weatherVm.Daily[i].HourlyUltravioletIndex = airQualityForecast.Daily[i].HourlyUV;
             }

@@ -52,11 +52,13 @@
                 IsIndeterminate="False"
                 Value="100" />
             <muxc:AnimatedVisualPlayer
-                Width="95"
-                Height="95"
-                Opacity="0.1"
-                PlaybackRate="0.25">
-                <visuals:WindSimple />
+                Width="300"
+                Height="300"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Opacity="0.5"
+                PlaybackRate="0.5">
+                <visuals:Birds />
             </muxc:AnimatedVisualPlayer>
             <FontIcon
                 Width="100"

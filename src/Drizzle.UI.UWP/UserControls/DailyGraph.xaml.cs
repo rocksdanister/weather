@@ -1,27 +1,17 @@
-﻿using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Brushes;
+﻿using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace Drizzle.UI.UWP.UserControls
 {
@@ -96,6 +86,24 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty MaxValueProperty =
             DependencyProperty.Register("MaxValue", typeof(float?), typeof(DailyGraph), new PropertyMetadata(null));
 
+        public DateTime StartTime
+        {
+            get { return (DateTime)GetValue(StartTimeProperty); }
+            set { SetValue(StartTimeProperty, value); }
+        }
+
+        public static readonly DependencyProperty StartTimeProperty =
+            DependencyProperty.Register("StartTime", typeof(DateTime), typeof(DailyGraph), new PropertyMetadata(DateTime.Today));
+
+        public int Interval
+        {
+            get { return (int)GetValue(IntervalProperty); }
+            set { SetValue(IntervalProperty, value); }
+        }
+
+        public static readonly DependencyProperty IntervalProperty =
+            DependencyProperty.Register("Interval", typeof(int), typeof(DailyGraph), new PropertyMetadata(1));
+
         // Issue: https://github.com/MicrosoftDocs/windows-dev-docs/issues/237
         public Color Gradient1
         {
@@ -118,14 +126,6 @@ namespace Drizzle.UI.UWP.UserControls
             if (e.Property == StepProperty)
                 obj.Step = (int)e.NewValue;
         }
-
-        /// <summary>
-        /// Time string in 24h format for the day.
-        /// </summary>
-        private readonly string[] time = {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00",
-                        "06:00", "07:00", "08:00", "09:00", "10:00", "11:00",
-                        "12:00", "13:00", "14:00", "15:00", "16:00", "17:00",
-                        "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"};
 
         private Color labelColor = Color.FromArgb(100, 255, 255, 255);
         private Color lineColor = Color.FromArgb(50, 255, 255, 255);
@@ -167,7 +167,7 @@ namespace Drizzle.UI.UWP.UserControls
 
             using var cpb = new CanvasPathBuilder(args.DrawingSession);
             cpb.BeginFigure(new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))));
-            DrawText(time[0], args, new Vector2(5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
+            DrawText(GetElapsedTimeString(StartTime, 0), args, new Vector2(5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
             DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, new Vector2(5f, (float)(canvas.ActualHeight * (1 - normalizedData[0]))) + new Vector2(5f, -25f), textColor); // Y-axis
 
             double total = normalizedData[0];
@@ -199,7 +199,7 @@ namespace Drizzle.UI.UWP.UserControls
                 // Label alternatingly
                 if (i % Step == 0)
                 {
-                    DrawText(time[i], args, new Vector2(pos.X + 5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
+                    DrawText(GetElapsedTimeString(StartTime, Interval * i), args, new Vector2(pos.X + 5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
                     //DrawText($"{Value[i]:00.0}{Unit}", args, pos + new Vector2(0f, -25f), Colors.White); // Y-axis
                     DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(0f, -25f), textColor); // Y-axis
                 }
@@ -268,6 +268,11 @@ namespace Drizzle.UI.UWP.UserControls
         {
             float scale = (newEnd - newStart) / (oldEnd - oldStart);
             return newStart + ((value - oldStart) * scale);
+        }
+
+        private static string GetElapsedTimeString(DateTime start, int elapsed)
+        {
+            return start.AddHours(elapsed).ToString("HH:mm");
         }
     }
 }

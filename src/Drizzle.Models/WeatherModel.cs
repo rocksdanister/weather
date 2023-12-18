@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Drizzle.Models.Weather;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -77,10 +78,10 @@ namespace Drizzle.Models
         private DateTime date;
 
         [ObservableProperty]
-        private DateTime sunrise;
+        private DateTime? sunrise;
 
         [ObservableProperty]
-        private DateTime sunset;
+        private DateTime? sunset;
 
         [ObservableProperty]
         private int? airQualityIndex = null;

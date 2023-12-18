@@ -1,5 +1,6 @@
 ﻿using Drizzle.Models.Weather;
 using Drizzle.Models.Weather.OpenMeteo;
+using GeoTimeZone;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,7 +17,7 @@ public static class WeatherUtil
         if (forecast.Units.Unit != WeatherUnits.imperial)
         {
             var isMiles = forecast.Units.Unit == WeatherUnits.hybrid;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < forecast.Daily.Count; i++)
             {
                 var weather = forecast.Daily[i];
                 weather.TemperatureMin = CelsiusToFahrenheit(weather.TemperatureMin);
@@ -26,15 +27,15 @@ public static class WeatherUtil
                 weather.Temperature = CelsiusToFahrenheit(weather.Temperature);
                 weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
                 weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
-                weather.HourlyTemperature = weather.HourlyTemperature.Select(x => CelsiusToFahrenheit(x)).ToArray();
+                weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => CelsiusToFahrenheit(x)).ToArray();
 
                 if (!isMiles)
                 {
                     weather.WindSpeed = KmToMi(weather.WindSpeed);
                     weather.GustSpeed = KmToMi(weather.GustSpeed);
                     weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility.Select(x => KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => KmToMi(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.imperial);
@@ -47,14 +48,14 @@ public static class WeatherUtil
         if (forecast.Units.Unit != WeatherUnits.metric)
         {
             var isCelsius = forecast.Units.Unit == WeatherUnits.hybrid;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < forecast.Daily.Count; i++)
             {
                 var weather = forecast.Daily[i];
                 weather.WindSpeed = MiToKm(weather.WindSpeed);
                 weather.GustSpeed = MiToKm(weather.GustSpeed);
                 weather.Visibility = MiToKm(weather.Visibility);
-                weather.HourlyVisibility = weather.HourlyVisibility.Select(x => MiToKm(x)).ToArray();
-                weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => MiToKm(x)).ToArray();
+                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => MiToKm(x)).ToArray();
+                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => MiToKm(x)).ToArray();
 
                 if (!isCelsius)
                 {
@@ -65,7 +66,7 @@ public static class WeatherUtil
                     weather.Temperature = FahrenheitToCelsius(weather.Temperature);
                     weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                     weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature.Select(x => FahrenheitToCelsius(x)).ToArray();
+                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => FahrenheitToCelsius(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.metric);
@@ -79,7 +80,7 @@ public static class WeatherUtil
         {
             var isMiles = forecast.Units.Unit == WeatherUnits.imperial;
             var isCelsius = forecast.Units.Unit == WeatherUnits.metric;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < forecast.Daily.Count; i++)
             {
                 var weather = forecast.Daily[i];
                 if (!isCelsius)
@@ -91,7 +92,7 @@ public static class WeatherUtil
                     weather.Temperature = FahrenheitToCelsius(weather.Temperature);
                     weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                     weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature.Select(x => FahrenheitToCelsius(x)).ToArray();
+                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => FahrenheitToCelsius(x)).ToArray();
                 }
 
                 if (!isMiles)
@@ -99,8 +100,8 @@ public static class WeatherUtil
                     weather.WindSpeed = KmToMi(weather.WindSpeed);
                     weather.GustSpeed = KmToMi(weather.GustSpeed);
                     weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility.Select(x => KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => KmToMi(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.hybrid);
@@ -152,6 +153,24 @@ public static class WeatherUtil
         var start = new TimeSpan(6, 0, 0);
         var end = new TimeSpan(18, 0, 0);
         return timeOfDay >= start && timeOfDay <= end;
+    }
+
+    //ref: https://stackoverflow.com/questions/33639571/get-local-time-based-on-coordinates
+    public static string GetTimeZone(double latitude, double longitude)
+    {
+        string tzIana = TimeZoneLookup.GetTimeZone(latitude, longitude).Result;
+        return TZConvert.IanaToWindows(tzIana);
+    }
+
+    public static DateTime UnixToDateTime(long unix)
+    {
+        return DateTimeOffset.FromUnixTimeSeconds(unix).UtcDateTime;
+    }
+
+    public static DateTime UnixToLocalDateTime(long unix, string timezone)
+    {
+        var time = UnixToDateTime(unix);
+        return (DateTime)GetLocalTime(time, timezone);
     }
 
     public static float CelsiusToFahrenheit(float celsius) => celsius * 9f / 5f + 32f;

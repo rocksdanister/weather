@@ -9,7 +9,8 @@ namespace Drizzle.Weather;
 public interface IWeatherClient
 {
     string ApiKey { get; set; }
-
+    bool IsApiKeyRequired { get; }
+    bool IsReverseGeocodingSupported { get; }
     Task<ForecastWeather> QueryForecastAsync(float latitude, float longitude);
 
     //Task<ForecastWeather> QueryForecastAsync(string place);
@@ -19,4 +20,6 @@ public interface IWeatherClient
     //Task<ForecastAirQuality> QueryAirQualityAsync(string place);
 
     Task<IReadOnlyList<Location>> GetLocationDataAsync(string place);
+
+    Task<IReadOnlyList<Location>> GetLocationDataAsync(float latitude, float longitude);
 }

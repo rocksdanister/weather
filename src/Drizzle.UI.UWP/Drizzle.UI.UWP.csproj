@@ -133,6 +133,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedVisuals\Missing.cs" />
+    <Compile Include="AnimatedVisuals\Birds.cs" />
     <Compile Include="AnimatedVisuals\Confetti.cs" />
     <Compile Include="AnimatedVisuals\ClearDay.cs" />
     <Compile Include="AnimatedVisuals\ClearNight.cs" />
@@ -202,9 +204,6 @@
     </Compile>
     <Compile Include="UserControls\DailyGraph.xaml.cs">
       <DependentUpon>DailyGraph.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\HourlyWeatherVisuals.xaml.cs">
-      <DependentUpon>HourlyWeatherVisuals.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HumidityCard.xaml.cs">
       <DependentUpon>HumidityCard.xaml</DependentUpon>
@@ -472,10 +471,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\DailyGraph.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\HourlyWeatherVisuals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

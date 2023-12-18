@@ -37,6 +37,12 @@ namespace Drizzle.UI.UWP.ViewModels
 
         // For location selector
         [ObservableProperty]
-        WeatherModel today;
+        private WeatherModel today;
+
+        [ObservableProperty]
+        private int forecastInterval;
+
+        [ObservableProperty]
+        private int graphDisplayStep;
     }
 }

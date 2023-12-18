@@ -13,6 +13,7 @@
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="rootPage"
     Background="Transparent"
     Loaded="Page_Loaded"
@@ -246,13 +247,12 @@
                                 Placement="Bottom"
                                 ShouldConstrainToRootBounds="False">
                                 <StackPanel Width="400" Spacing="10">
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        FontSize="32"
-                                        Opacity="0.4"
-                                        TextWrapping="WrapWholeWords">
-                                        ---
-                                    </TextBlock>
+                                    <muxc:AnimatedVisualPlayer
+                                        Width="125"
+                                        Height="125"
+                                        PlaybackRate="0.5">
+                                        <visuals:Missing />
+                                    </muxc:AnimatedVisualPlayer>
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
@@ -260,12 +260,13 @@
                             <customControls:DailyGraph
                                 Width="540"
                                 Height="300"
+                                Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
                                 MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
                                 MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
-                                Step="2"
+                                StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                Step="{x:Bind shellVm.SelectedLocation.GraphDisplayStep, Mode=OneWay}"
                                 ValueFormat="{}{0:F0}°"
                                 Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
-                            <customControls:HourlyWeatherVisuals Step="2" WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}" />
                         </Grid>
                     </Button>
                 </Border>
@@ -331,13 +332,12 @@
                             <Button.Flyout>
                                 <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
                                     <StackPanel Width="400" Spacing="10">
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            FontSize="32"
-                                            Opacity="0.4"
-                                            TextWrapping="WrapWholeWords">
-                                            ---
-                                        </TextBlock>
+                                        <muxc:AnimatedVisualPlayer
+                                            Width="125"
+                                            Height="125"
+                                            PlaybackRate="0.5">
+                                            <visuals:Missing />
+                                        </muxc:AnimatedVisualPlayer>
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
@@ -459,12 +459,12 @@
                                         Gradient1="Gray"
                                         Step="3"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" />
-                                    <TextBlock
+                                    <!--<TextBlock
                                         FontSize="13"
                                         Opacity="0.4"
                                         TextWrapping="WrapWholeWords">
                                         Scale is United States (AQI)
-                                    </TextBlock>
+                                    </TextBlock>-->
                                     <Line Stroke="#50ffffff" X2="400" />
                                     <TextBlock x:Uid="TitleAboutAQI" FontWeight="SemiBold" />
                                     <TextBlock x:Uid="DescAboutAQI" TextWrapping="WrapWholeWords" />

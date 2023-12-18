@@ -34,9 +34,9 @@ public class DailyWeather
 
     public float WindDirection { get; set; }
 
-    public DateTime Sunrise { get; set; }
+    public DateTime? Sunrise { get; set; }
 
-    public DateTime Sunset { get; set; }
+    public DateTime? Sunset { get; set; }
 
     public int[] HourlyWeatherCode { get; set; }
 

@@ -13,7 +13,7 @@ namespace Drizzle.UI.UWP.Converters
         {
             try
             {
-                return ((DateTime)value).ToShortTimeString();
+                return value is null ? "---" : ((DateTime)value).ToShortTimeString();
             }
             catch
             {

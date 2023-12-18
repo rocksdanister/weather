@@ -13,4 +13,8 @@ public class ForecastAirQuality
     public DateTime FetchTime { get; set; }
     public ForecastAirQualityUnits Units { get; set; }
     public IReadOnlyList<DailyAirQuality> Daily { get; set; }
+    /// <summary>
+    /// Hour between forecast data
+    /// </summary>
+    public int ForecastInterval { get; set; }
 }

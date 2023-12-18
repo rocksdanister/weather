@@ -22,10 +22,10 @@ namespace Drizzle.UI.UWP.UserControls
 {
     public sealed partial class SunCard : UserControl
     {
-        public DateTime Sunrise
+        public DateTime? Sunrise
         {
             get { 
-                return (DateTime)GetValue(SunriseProperty); 
+                return (DateTime?)GetValue(SunriseProperty); 
             }
             set 
             {
@@ -35,12 +35,12 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty SunriseProperty =
-            DependencyProperty.Register("Sunrise", typeof(DateTime), typeof(SunCard), new PropertyMetadata(DateTime.Today.AddHours(6)));
+            DependencyProperty.Register("Sunrise", typeof(DateTime?), typeof(SunCard), new PropertyMetadata(DateTime.Today.AddHours(6)));
 
-        public DateTime Sunset
+        public DateTime? Sunset
         {
             get { 
-                return (DateTime)GetValue(SunsetProperty); 
+                return (DateTime?)GetValue(SunsetProperty); 
             }
             set 
             { 
@@ -50,7 +50,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty SunsetProperty =
-            DependencyProperty.Register("Sunset", typeof(DateTime), typeof(SunCard), new PropertyMetadata(DateTime.Today.AddHours(18)));
+            DependencyProperty.Register("Sunset", typeof(DateTime?), typeof(SunCard), new PropertyMetadata(DateTime.Today.AddHours(18)));
 
         public string TimeZone
         {
@@ -80,6 +80,10 @@ namespace Drizzle.UI.UWP.UserControls
 
         private void Update()
         {
+            // Place the sun start position if no data available
+            DateTime sunrise = Sunrise ?? DateTime.Today.AddDays(1), 
+                sunset = Sunset ?? DateTime.Today.AddDays(2);
+
             var width = canvas.ActualWidth;
             var height = canvas.ActualHeight;
 
@@ -91,7 +95,7 @@ namespace Drizzle.UI.UWP.UserControls
 
             // Sun position
             var localTime = WeatherUtil.GetLocalTime(TimeZone) ?? DateTime.Now;
-            var timePercent = GetTimePercent(localTime, Sunrise, Sunset);
+            var timePercent = GetTimePercent(localTime, sunrise, sunset);
             var angle = timePercent/100 * 180;
             var radians = DegreeToRadians(180 + angle);
 
