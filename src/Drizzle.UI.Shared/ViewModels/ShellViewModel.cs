@@ -98,7 +98,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         UpdateMotionSettings();
                         break;
                     case UserSettingsConstants.SelectedWeatherProvider:
-                        UpdateWeatherProvider();
+                        await UpdateWeatherProvider();
                         break;
                 }
             };
@@ -531,8 +531,11 @@ namespace Drizzle.UI.UWP.ViewModels
                 var weather = await weatherClient.QueryForecastAsync(latitude, longitude);
                 var airQuality = await weatherClient.QueryAirQualityAsync(latitude, longitude);
                 // Some providers don't have Reverse Geocoding api
-                weather.Name ??= name;
-                airQuality.Name ??= name;
+                if (string.IsNullOrEmpty(weather.Name))
+                {
+                    weather.Name = name;
+                    airQuality.Name = name;
+                }
                 return (weather, airQuality);
             }
             finally
@@ -813,14 +816,40 @@ namespace Drizzle.UI.UWP.ViewModels
                 CloudsProperty.Brightness = brightness;
         }
 
-        private void UpdateWeatherProvider()
+        private async Task UpdateWeatherProvider()
         {
-            // Clear current data since its not reliabily possible to fetch same locations using different provider.
+            var selection = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
+            weatherClient = weatherClientFactory.GetInstance(selection);
+            IsShowDetectLocation = weatherClient.IsReverseGeocodingSupported;
+
+            if (selection == WeatherProviders.OpenMeteo)
+            {
+                // Clear since location name not available (what if the new location is approximate.)
+                ClearLocations();
+            }
+            else
+            {
+                // Try to fetch using same (lat, long).
+                // Can fail if the approximate location not available.
+                if (weatherClient.IsApiKeyRequired)
+                {
+                    if (!string.IsNullOrWhiteSpace(weatherClient.ApiKey))
+                        await UpdateWeather();
+                    else
+                        ClearLocations();
+                }
+                else
+                {
+                    await UpdateWeather();
+                }
+            }
+        }
+
+        private void ClearLocations()
+        {
             Weathers.Clear();
             userSettings.SetAndSerialize<LocationModel>(UserSettingsConstants.SelectedLocation, null);
             userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Array.Empty<LocationModel>());
-            weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
-            IsShowDetectLocation = weatherClient.IsReverseGeocodingSupported;
         }
 
         private void StoreLocationsSorted()

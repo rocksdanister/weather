@@ -143,8 +143,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
     public async Task<IReadOnlyList<Location>> GetLocationDataAsync(string place)
     {
         LocationData[] response;
-        var s = place.Split(',');
-        if (s.Count() == 2 && float.TryParse(s[0], out var latitude) && float.TryParse(s[1], out var longitude))
+        var split = place.Split(',');
+        if (split.Count() == 2 && float.TryParse(split[0], out var latitude) && float.TryParse(split[1], out var longitude))
             response = await GetReverseGeocodingDataAsync(latitude, longitude, 5);
         else
             response = await GetGeocodingDataAsync(place, 5);
