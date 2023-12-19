@@ -186,12 +186,12 @@
     <Compile Include="Factories\WeatherClientFactory.cs" />
     <Compile Include="Factories\WeatherViewModelFactory.cs" />
     <Compile Include="Helpers\FilePickerUtil.cs" />
-    <Compile Include="Helpers\GeolocationUtil.cs" />
     <Compile Include="Helpers\LinkUtil.cs" />
     <Compile Include="Services\AppUpdaterService.cs" />
     <Compile Include="Services\AssetReader.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\DiskCacheService.cs" />
+    <Compile Include="Services\GeolocationService.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\SoundService.cs" />

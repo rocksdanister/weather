@@ -36,6 +36,7 @@ namespace Drizzle.UI.UWP.ViewModels
         private readonly ICacheService cacheService;
         private readonly IWeatherClientFactory weatherClientFactory;
         private readonly IWeatherViewModelFactory weatherViewModelFactory;
+        private readonly IGeolocationService geolocationService;
         private readonly ILogger logger;
 
         private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.ClearSky;
@@ -52,6 +53,7 @@ namespace Drizzle.UI.UWP.ViewModels
             ISoundService soundService,
             IDialogService dialogService,
             IWeatherViewModelFactory weatherViewModelFactory,
+            IGeolocationService geolocationService,
             ILogger<ShellViewModel> logger)
         {
             this.userSettings = userSettings;
@@ -62,10 +64,12 @@ namespace Drizzle.UI.UWP.ViewModels
             this.cacheService = cacheService;
             this.weatherClientFactory = weatherClientFactory;
             this.weatherViewModelFactory = weatherViewModelFactory;
+            this.geolocationService = geolocationService;
             this.logger = logger;
 
             // User selected weather provider.
             this.weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
+            this.IsShowDetectLocation = weatherClient.IsReverseGeocodingSupported;
 
             shaderRunnerViewModels = new ShaderRunnerViewModel[]{
                 new ShaderRunnerViewModel(new SnowRunner(() => SnowProperty), ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f),
@@ -265,6 +269,9 @@ namespace Drizzle.UI.UWP.ViewModels
         [ObservableProperty]
         private bool isFetchingLocation = false;
 
+        [ObservableProperty]
+        private bool isShowDetectLocation = false;
+
         private bool _isUpdatingWeather = false;
         public bool IsUpdatingWeather
         {
@@ -313,6 +320,32 @@ namespace Drizzle.UI.UWP.ViewModels
             {
                 CanRefreshCommand = true;
                 RefreshWeatherCommand.NotifyCanExecuteChanged();
+            }
+        }
+
+        private bool CanDetectLocationCommand { get; set; } = true;
+
+        [RelayCommand(CanExecute = nameof(CanDetectLocationCommand))]
+        private async Task DetectLocation()
+        {
+            try
+            {
+                CanDetectLocationCommand = false;
+                DetectLocationCommand.NotifyCanExecuteChanged();
+
+                // Get coordinates
+                var pos = await geolocationService.GetLocationAsync();
+                await SetWeather(null, pos.Latitude, pos.Longitude);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                ErrorMessage = ex.ToString();
+            }
+            finally
+            {
+                CanDetectLocationCommand = true;
+                DetectLocationCommand.NotifyCanExecuteChanged();
             }
         }
 
@@ -787,6 +820,7 @@ namespace Drizzle.UI.UWP.ViewModels
             userSettings.SetAndSerialize<LocationModel>(UserSettingsConstants.SelectedLocation, null);
             userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, Array.Empty<LocationModel>());
             weatherClient = weatherClientFactory.GetInstance(userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider));
+            IsShowDetectLocation = weatherClient.IsReverseGeocodingSupported;
         }
 
         private void StoreLocationsSorted()

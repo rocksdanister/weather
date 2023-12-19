@@ -257,6 +257,15 @@
             Visibility="{x:Bind shellVm.IsMainPage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
             <AppBarButton
                 MaxWidth="50"
+                Command="{x:Bind shellVm.DetectLocationCommand}"
+                LabelPosition="Collapsed"
+                Visibility="{x:Bind shellVm.IsShowDetectLocation, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Viewbox >
+                    <FontIcon  FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE911;" />
+                </Viewbox>
+            </AppBarButton>
+            <AppBarButton
+                MaxWidth="50"
                 Icon="{x:Bind shellVm.SoundVolume, Mode=OneWay, Converter={StaticResource AudioVolumeGlyphConverter}}"
                 LabelPosition="Collapsed">
                 <ToolTipService.ToolTip>

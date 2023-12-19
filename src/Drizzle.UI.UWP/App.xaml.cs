@@ -128,6 +128,7 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<IUserSettings, LocalSettings>()
                 //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
+                .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(
                     e.GetRequiredService<IHttpClientFactory>(), 
                     Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"), 

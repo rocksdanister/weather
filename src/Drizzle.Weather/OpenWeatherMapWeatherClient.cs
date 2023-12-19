@@ -32,6 +32,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
     private readonly string forecastApiUrl = "https://api.openweathermap.org/data/2.5/forecast?";
     private readonly string currentApiUrl = "https://api.openweathermap.org/data/2.5/weather?";
     private readonly string geocodeApiUrl = "https://api.openweathermap.org/geo/1.0/direct?";
+    private readonly string reverseGeocodeApiUrl = "http://api.openweathermap.org/geo/1.0/reverse?";
     private readonly string airQualityApiUrl = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?";
 
     public OpenWeatherMapWeatherClient(IHttpClientFactory httpClientFactory, ICacheService cacheService, string apiKey)
@@ -48,6 +49,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
         var result = new ForecastWeather()
         {
+            Name = !string.IsNullOrEmpty(forecastResponse.City.Name) ? $"{forecastResponse.City.Name}, {forecastResponse.City.Country}" : null,
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = WeatherUtil.GetTimeZone(latitude, longitude),
@@ -140,7 +142,13 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
     public async Task<IReadOnlyList<Location>> GetLocationDataAsync(string place)
     {
-        var response = await GetGeocodingDataAsync(place, 5);
+        LocationData[] response;
+        var s = place.Split(',');
+        if (s.Count() == 2 && float.TryParse(s[0], out var latitude) && float.TryParse(s[1], out var longitude))
+            response = await GetReverseGeocodingDataAsync(latitude, longitude, 5);
+        else
+            response = await GetGeocodingDataAsync(place, 5);
+
         var result = new List<Location>();
         foreach (var item in response)
         {
@@ -162,10 +170,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         return result;
     }
 
-    public Task<IReadOnlyList<Location>> GetLocationDataAsync(float latitude, float longitude)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IReadOnlyList<Location>> GetLocationDataAsync(float latitude, float longitude) =>
+        await GetLocationDataAsync($"{latitude}, {longitude}");
 
     private async Task<AirQuality> GetAirQualityForecastDataAsync(float latitude, float longitude)
     {
@@ -191,6 +197,14 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
     private async Task<LocationData[]> GetGeocodingDataAsync(string place, int limit)
     {
         using HttpResponseMessage response = await httpClient.GetAsync($"{geocodeApiUrl}q={place}&limit={limit}&appid={ApiKey}");
+        response.EnsureSuccessStatusCode();
+
+        return await JsonSerializer.DeserializeAsync<LocationData[]>(await response.Content.ReadAsStreamAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+    }
+
+    private async Task<LocationData[]> GetReverseGeocodingDataAsync(float latitude, float longitude, int limit)
+    {
+        using HttpResponseMessage response = await httpClient.GetAsync($"{reverseGeocodeApiUrl}lat={latitude}&lon={longitude}&limit={limit}&appid={ApiKey}");
         response.EnsureSuccessStatusCode();
 
         return await JsonSerializer.DeserializeAsync<LocationData[]>(await response.Content.ReadAsStreamAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
