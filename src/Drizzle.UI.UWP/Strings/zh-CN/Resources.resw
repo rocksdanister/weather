@@ -274,10 +274,10 @@
     <value>打开日志</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>当程序不在前台时关闭音频</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>当应用程序没有前台时暂停可见</value>
+    <value>当程序不在前台时暂停视觉效果</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>数据收集政策</value>

@@ -274,7 +274,7 @@
     <value>Открыть журналы</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Приостановить звук, когда приложение не переднего плана</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Приостановка визуального отображения когда приложение не на переднем плане</value>
