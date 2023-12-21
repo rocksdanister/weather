@@ -133,6 +133,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedIcons\Geotag.cs" />
     <Compile Include="AnimatedVisuals\Missing.cs" />
     <Compile Include="AnimatedVisuals\Birds.cs" />
     <Compile Include="AnimatedVisuals\Confetti.cs" />

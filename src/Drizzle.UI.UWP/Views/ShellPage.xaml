@@ -11,6 +11,7 @@
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:Drizzle.Models"
+    xmlns:icons="using:Drizzle.UI.UWP.AnimatedIcons"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -260,9 +261,14 @@
                 Command="{x:Bind shellVm.DetectLocationCommand}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind shellVm.IsShowDetectLocation, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                <Viewbox >
-                    <FontIcon  FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE911;" />
-                </Viewbox>
+                <!--<FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE911;" />-->
+                <muxc:AnimatedVisualPlayer
+                    x:Name="GeotagAnimation"
+                    Width="50"
+                    Height="50"
+                    AutoPlay="False">
+                    <icons:Geotag />
+                </muxc:AnimatedVisualPlayer>
             </AppBarButton>
             <AppBarButton
                 MaxWidth="50"

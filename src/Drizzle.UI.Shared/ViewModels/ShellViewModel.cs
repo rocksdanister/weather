@@ -323,16 +323,11 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
-        private bool CanDetectLocationCommand { get; set; } = true;
-
-        [RelayCommand(CanExecute = nameof(CanDetectLocationCommand))]
+        [RelayCommand]
         private async Task DetectLocation()
         {
             try
             {
-                CanDetectLocationCommand = false;
-                DetectLocationCommand.NotifyCanExecuteChanged();
-
                 // Get coordinates
                 var pos = await geolocationService.GetLocationAsync();
                 await SetWeather(null, pos.Latitude, pos.Longitude);
@@ -341,11 +336,6 @@ namespace Drizzle.UI.UWP.ViewModels
             {
                 logger.LogError(ex.ToString());
                 ErrorMessage = ex.ToString();
-            }
-            finally
-            {
-                CanDetectLocationCommand = true;
-                DetectLocationCommand.NotifyCanExecuteChanged();
             }
         }
 

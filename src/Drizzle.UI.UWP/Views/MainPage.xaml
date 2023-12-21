@@ -256,18 +256,17 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <Grid>
-                            <customControls:DailyGraph
-                                Width="540"
-                                Height="300"
-                                Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
-                                MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
-                                MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
-                                StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
-                                Step="{x:Bind shellVm.SelectedLocation.GraphDisplayStep, Mode=OneWay}"
-                                ValueFormat="{}{0:F0}°"
-                                Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
-                        </Grid>
+                        <customControls:DailyGraph
+                            Width="540"
+                            Height="300"
+                            Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
+                            MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
+                            MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
+                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                            Step="{x:Bind shellVm.SelectedLocation.GraphDisplayStep, Mode=OneWay}"
+                            ValueFormat="{}{0:F0}°"
+                            WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
                     </Button>
                 </Border>
             </StackPanel>

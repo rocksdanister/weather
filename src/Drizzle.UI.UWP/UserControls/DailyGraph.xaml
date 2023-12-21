@@ -5,8 +5,10 @@
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Drizzle.Models.UserControls"
     xmlns:local="using:Drizzle.UI.UWP.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     ActualThemeChanged="UserControl_ActualThemeChanged"
@@ -18,14 +20,37 @@
     </UserControl.Resources>
 
     <Grid CornerRadius="5">
+        <!--  No data  -->
         <Image
             Margin="25"
             Source="ms-appx:///Assets/Icons/chart_increasing_3d.png"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToVisibilityConverter}, ConverterParameter=Reverse}" />
+        <!--  Hourly graph  -->
         <canvas:CanvasControl
             x:Name="canvas"
             CreateResources="Canvas_CreateResources"
             Draw="Canvas_OnDraw"
             PointerMoved="Canvas_PointerMoved" />
+        <!--  Hourly weather condition  -->
+        <ItemsControl ItemsSource="{x:Bind Conditions, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="data:HourlyConditions">
+                    <!--  Canvas (Left, Top) not working: https://stackoverflow.com/questions/22324359/add-n-rectangles-to-canvas-with-mvvm-in-wpf  -->
+                    <muxc:AnimatedVisualPlayer
+                        Width="30"
+                        Height="30"
+                        Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}">
+                        <muxc:AnimatedVisualPlayer.RenderTransform>
+                            <TranslateTransform X="{x:Bind Left, Mode=OneWay}" Y="{x:Bind Top, Mode=OneWay}" />
+                        </muxc:AnimatedVisualPlayer.RenderTransform>
+                    </muxc:AnimatedVisualPlayer>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>

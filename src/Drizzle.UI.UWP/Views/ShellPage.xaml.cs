@@ -34,6 +34,7 @@ using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Shaders.Models;
 using Microsoft.Extensions.Logging;
 using System.Threading;
+using Drizzle.UI.UWP.AnimatedVisuals;
 
 namespace Drizzle.UI.UWP.Views
 {
@@ -120,6 +121,15 @@ namespace Drizzle.UI.UWP.Views
             {
                 if (e == ContentPageType.Screensaver)
                     navView.IsPaneOpen = false;
+            };
+
+            shellVm.DetectLocationCommand.CanExecuteChanged += (s, e) => 
+            {
+                // Could not get AnimatedIcon to work (asking for IAnimatedVisualSource2 ?) and wanted looping, so using player.
+                if (!GeotagAnimation.IsPlaying)
+                    _ = GeotagAnimation.PlayAsync(0, 1, true);
+                else
+                    GeotagAnimation.Stop();
             };
 
             dispatcherTimer.Tick += DispatcherTimer_Tick;
