@@ -18,16 +18,16 @@ namespace Drizzle.Models
         private string locationName = "---";
 
         [ObservableProperty]
-        private float feelsLike;
+        private float? feelsLike;
 
         [ObservableProperty]
-        private float temperature;
+        private float? temperature;
 
         [ObservableProperty]
-        private float temperatureMin;
+        private float? temperatureMin;
 
         [ObservableProperty]
-        private float temperatureMax;
+        private float? temperatureMax;
 
         [ObservableProperty]
         private int[] hourlyWeatherCode;
@@ -54,25 +54,25 @@ namespace Drizzle.Models
         private float[] hourlyWindSpeed;
 
         [ObservableProperty]
-        private float windSpeed;
+        private float? windSpeed;
 
         [ObservableProperty]
-        private float gustSpeed;
+        private float? gustSpeed;
 
         [ObservableProperty]
-        private float windDirection;
+        private float? windDirection;
 
         [ObservableProperty]
-        private int humidity;
+        private int? humidity;
 
         [ObservableProperty]
-        private float visibility;
+        private float? visibility;
 
         [ObservableProperty]
-        private float pressure;
+        private float? pressure;
 
         [ObservableProperty]
-        private float dewPoint;
+        private float? dewPoint;
 
         [ObservableProperty]
         private DateTime date;

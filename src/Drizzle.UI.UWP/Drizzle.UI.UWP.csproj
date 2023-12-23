@@ -177,6 +177,7 @@
     <Compile Include="Converters\DateTimeToDayNameConverter.cs" />
     <Compile Include="Converters\DateTimeToShortTimeConverter.cs" />
     <Compile Include="Converters\DegreesToCardinalConverter.cs" />
+    <Compile Include="Converters\NullableConverter.cs" />
     <Compile Include="Converters\NullOrEmptyArrayToVisibilityConverter.cs" />
     <Compile Include="Converters\NullVisibilityConverter.cs" />
     <Compile Include="Converters\TimeToIsDaytimeVisibilityConverter.cs" />

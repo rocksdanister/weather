@@ -61,6 +61,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         var dailyGroup = forecastResponse.List.GroupBy(x => WeatherUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
         var dailyWeather = new List<DailyWeather>();
         var index = 0;
+        // Unit ref: https://openweathermap.org/weather-data
         foreach (var day in dailyGroup)
         {
             var selection = GetValueCloseToTime(day, result.TimeZone);
@@ -76,8 +77,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 // Not available
                 //ApparentTemperatureMin =
                 //ApparentTemperatureMax =
-                WindSpeed = index == 0 ? currentResponse.Wind.Speed : selection.Wind.Speed,
-                GustSpeed = index == 0 ? currentResponse.Wind.Gust : selection.Wind.Gust,
+                WindSpeed = index == 0 ? currentResponse.Wind.Speed * 3.6f : selection.Wind.Speed * 3.6f, // meter/s -> km/h
+                GustSpeed = index == 0 ? currentResponse.Wind.Gust * 3.6f : selection.Wind.Gust * 3.6f,
                 Temperature = index == 0 ? currentResponse.Main.Temp : selection.Main.Temp,
                 ApparentTemperature = index == 0 ? currentResponse.Main.FeelsLike : selection.Main.FeelsLike,
                 Visibility = index == 0 ? currentResponse.Main.FeelsLike / 1000f : selection.Visibility / 1000f, //meter -> km
@@ -85,7 +86,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 // Not available
                 //DewPoint = 
                 Pressure = index == 0 ? currentResponse.Main.Pressure : selection.Main.Pressure,
-                WindDirection = index == 0 ? currentResponse.Wind.Deg : selection.Wind.Deg,
+                WindDirection = index == 0 ? WeatherUtil.MeteorologicalDegreeToRegular(currentResponse.Wind.Deg) : WeatherUtil.MeteorologicalDegreeToRegular(selection.Wind.Deg),
                 HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
                 HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
                 HourlyVisibility = day.Select(x => x.Visibility).ToArray(),

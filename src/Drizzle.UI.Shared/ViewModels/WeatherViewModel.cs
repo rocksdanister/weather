@@ -27,10 +27,10 @@ namespace Drizzle.UI.UWP.ViewModels
         private string timeZone;
 
         [ObservableProperty]
-        private float minTemp;
+        private float? minTemp;
 
         [ObservableProperty]
-        private float maxTemp;
+        private float? maxTemp;
 
         [ObservableProperty]
         private ObservableCollection<WeatherModel> daily = new();
@@ -44,5 +44,8 @@ namespace Drizzle.UI.UWP.ViewModels
 
         [ObservableProperty]
         private int graphDisplayStep;
+
+        [ObservableProperty]
+        private int graphSmallDisplayStep;
     }
 }

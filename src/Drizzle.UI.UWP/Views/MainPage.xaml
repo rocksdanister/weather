@@ -298,7 +298,8 @@
                                             Width="400"
                                             Height="300"
                                             Gradient1="LightYellow"
-                                            Step="3"
+                                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                            Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" />
                                         <TextBlock
                                             FontSize="13"
@@ -368,7 +369,8 @@
                                             Width="400"
                                             Height="300"
                                             Gradient1="LightBlue"
-                                            Step="3"
+                                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                            Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                             ValueFormat="{}{0}%"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyHumidity, Mode=OneWay}" />
                                         <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
@@ -417,7 +419,8 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="LightGray"
-                                        Step="3"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                         ValueFormat="{}{0:F0}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyWindSpeed, Mode=OneWay}" />
                                     <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
@@ -456,7 +459,8 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="Gray"
-                                        Step="3"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" />
                                     <!--<TextBlock
                                         FontSize="13"
@@ -493,7 +497,8 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="LightYellow"
-                                        Step="4"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                         ValueFormat="{}{0:F0}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyPressure, Mode=OneWay}" />
                                     <TextBlock

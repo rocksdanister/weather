@@ -8,31 +8,31 @@ public class DailyWeather
 {
     public int WeatherCode { get; set; }
 
-    public float TemperatureMin { get; set; }
+    public float? TemperatureMin { get; set; }
 
-    public float TemperatureMax { get; set; }
+    public float? TemperatureMax { get; set; }
 
-    public float Temperature { get; set; }
+    public float? Temperature { get; set; }
 
-    public float ApparentTemperatureMax { get; set; }
+    public float? ApparentTemperatureMax { get; set; }
 
-    public float ApparentTemperatureMin { get; set; }
+    public float? ApparentTemperatureMin { get; set; }
 
-    public float ApparentTemperature { get; set; }
+    public float? ApparentTemperature { get; set; }
 
-    public int Humidity { get; set; }
+    public int? Humidity { get; set; }
 
-    public float Visibility { get; set; }
+    public float? Visibility { get; set; }
 
-    public float Pressure { get; set; }
+    public float? Pressure { get; set; }
 
-    public float DewPoint { get; set; }
+    public float? DewPoint { get; set; }
 
-    public float WindSpeed { get; set; }
+    public float? WindSpeed { get; set; }
 
-    public float GustSpeed { get; set; }
+    public float? GustSpeed { get; set; }
 
-    public float WindDirection { get; set; }
+    public float? WindDirection { get; set; }
 
     public DateTime? Sunrise { get; set; }
 

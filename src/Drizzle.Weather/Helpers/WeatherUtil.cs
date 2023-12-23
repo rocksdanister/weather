@@ -20,22 +20,22 @@ public static class WeatherUtil
             for (int i = 0; i < forecast.Daily.Count; i++)
             {
                 var weather = forecast.Daily[i];
-                weather.TemperatureMin = CelsiusToFahrenheit(weather.TemperatureMin);
+                weather.TemperatureMin =  CelsiusToFahrenheit(weather.TemperatureMin);
                 weather.TemperatureMax = CelsiusToFahrenheit(weather.TemperatureMax);
                 weather.ApparentTemperatureMin = CelsiusToFahrenheit(weather.ApparentTemperatureMin);
                 weather.ApparentTemperatureMax = CelsiusToFahrenheit(weather.ApparentTemperatureMax);
                 weather.Temperature = CelsiusToFahrenheit(weather.Temperature);
                 weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
                 weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
-                weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => CelsiusToFahrenheit(x)).ToArray();
+                weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)CelsiusToFahrenheit(x)).ToArray();
 
                 if (!isMiles)
                 {
                     weather.WindSpeed = KmToMi(weather.WindSpeed);
                     weather.GustSpeed = KmToMi(weather.GustSpeed);
                     weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmToMi(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.imperial);
@@ -54,8 +54,8 @@ public static class WeatherUtil
                 weather.WindSpeed = MiToKm(weather.WindSpeed);
                 weather.GustSpeed = MiToKm(weather.GustSpeed);
                 weather.Visibility = MiToKm(weather.Visibility);
-                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => MiToKm(x)).ToArray();
-                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => MiToKm(x)).ToArray();
+                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)MiToKm(x)).ToArray();
+                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MiToKm(x)).ToArray();
 
                 if (!isCelsius)
                 {
@@ -66,7 +66,7 @@ public static class WeatherUtil
                     weather.Temperature = FahrenheitToCelsius(weather.Temperature);
                     weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                     weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => FahrenheitToCelsius(x)).ToArray();
+                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.metric);
@@ -92,7 +92,7 @@ public static class WeatherUtil
                     weather.Temperature = FahrenheitToCelsius(weather.Temperature);
                     weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                     weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => FahrenheitToCelsius(x)).ToArray();
+                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
                 }
 
                 if (!isMiles)
@@ -100,8 +100,8 @@ public static class WeatherUtil
                     weather.WindSpeed = KmToMi(weather.WindSpeed);
                     weather.GustSpeed = KmToMi(weather.GustSpeed);
                     weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => KmToMi(x)).ToArray();
+                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)KmToMi(x)).ToArray();
+                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmToMi(x)).ToArray();
                 }
             }
             forecast.Units = new ForecastWeatherUnits(WeatherUnits.hybrid);
@@ -173,15 +173,20 @@ public static class WeatherUtil
         return (DateTime)GetLocalTime(time, timezone);
     }
 
-    public static float CelsiusToFahrenheit(float celsius) => celsius * 9f / 5f + 32f;
+    // Lifted operators
+    // Ref: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
-    public static float FahrenheitToCelsius(float fahrenheit) => (fahrenheit - 32f) * 5f / 9f;
+    public static float? CelsiusToFahrenheit(float? celsius) => celsius * 9f / 5f + 32f;
 
-    public static float KmToMi(float speed) => speed / 1.6093440006147f;
+    public static float? FahrenheitToCelsius(float? fahrenheit) => (fahrenheit - 32f) * 5f / 9f;
 
-    public static float MiToKm(float distance) => distance * 1.6093440006147f;
+    public static float? KmToMi(float? speed) => speed / 1.6093440006147f;
 
-    public static float KmToFt(float distace) => distace * 3280.839895f;
+    public static float? MiToKm(float? distance) => distance * 1.6093440006147f;
 
-    public static float FtToKm(float feet) => feet / 3280.839895f;
+    public static float? KmToFt(float? distace) => distace * 3280.839895f;
+
+    public static float? FtToKm(float? feet) => feet / 3280.839895f;
+
+    public static float? MeteorologicalDegreeToRegular(float? degree) => (degree + 180f) % 360f;
 }

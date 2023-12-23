@@ -17,9 +17,9 @@ namespace Drizzle.UI.UWP.UserControls
 {
     public sealed partial class HumidityCard : UserControl
     {
-        public float Humidity
+        public float? Humidity
         {
-            get { return (float)GetValue(HumidityProperty); }
+            get { return (float?)GetValue(HumidityProperty); }
             set 
             { 
                 SetValue(HumidityProperty, value); 
@@ -27,7 +27,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty HumidityProperty =
-            DependencyProperty.Register("Humidity", typeof(float), typeof(HumidityCard), new PropertyMetadata(0f));
+            DependencyProperty.Register("Humidity", typeof(float?), typeof(HumidityCard), new PropertyMetadata(null));
 
         public HumidityCard()
         {

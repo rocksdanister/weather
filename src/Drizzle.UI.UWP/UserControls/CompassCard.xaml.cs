@@ -20,18 +20,27 @@ namespace Drizzle.UI.UWP.UserControls
 {
     public sealed partial class CompassCard : UserControl
     {
-        public float Direction
+        public float? Value
         {
-            get { return (float)GetValue(DirectionProperty); }
+            get { return (float?)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty ValueProperty =
+            DependencyProperty.Register("Value", typeof(float?), typeof(CompassCard), new PropertyMetadata(null));
+
+        public float? Direction
+        {
+            get { return (float?)GetValue(DirectionProperty); }
             set
             {
                 SetValue(DirectionProperty, value);
-                DirectionNormalized = Direction;
+                DirectionNormalized = Direction ?? 0;
             }
         }
 
         public static readonly DependencyProperty DirectionProperty =
-            DependencyProperty.Register("Direction", typeof(float), typeof(CompassCard), new PropertyMetadata(0f));
+            DependencyProperty.Register("Direction", typeof(float?), typeof(CompassCard), new PropertyMetadata(null));
 
         public float DirectionNormalized
         {
@@ -45,16 +54,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty DirectionNormalizedProperty =
-            DependencyProperty.Register("DirectionNormalized", typeof(float), typeof(CompassCard), new PropertyMetadata(0f));
-
-        public float Value
-        {
-            get { return (float)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
-        }
-
-        public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(string), typeof(CompassCard), new PropertyMetadata(0f));
+            DependencyProperty.Register("DirectionNormalized", typeof(float), typeof(CompassCard), new PropertyMetadata(null));
 
         public string Unit
         {

@@ -14,6 +14,9 @@ namespace Drizzle.UI.UWP.Converters
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            if (value == null)
+                return "---";
+
             float degree = (float)value < 0 ? 360 + (float)value : (float)value;
             int index = (int)Math.Round(degree % 360 / 45);
             return cardinals[index];
