@@ -70,6 +70,7 @@
             Grid.Row="2"
             Margin="0,25,0,0"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <!--  Color ref: https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf  -->
             <Rectangle
                 x:Name="sliderLine"
                 Canvas.Left="0"
@@ -80,11 +81,12 @@
                 RadiusY="2.5">
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Offset="0.0" Color="Green" />
-                        <GradientStop Offset="0.25" Color="Yellow" />
-                        <GradientStop Offset="0.5" Color="Orange" />
-                        <GradientStop Offset="0.75" Color="OrangeRed" />
-                        <GradientStop Offset="1.0" Color="Red" />
+                        <GradientStop Offset="0.0" Color="#00e400" />
+                        <GradientStop Offset="0.2" Color="#ffff00" />
+                        <GradientStop Offset="0.4" Color="#ff7e00 " />
+                        <GradientStop Offset="0.6" Color="#ff0000 " />
+                        <GradientStop Offset="0.8" Color="#8f3f97" />
+                        <GradientStop Offset="1.0" Color="#7e0023 " />
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
