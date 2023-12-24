@@ -525,6 +525,9 @@
   <data name="WmoWeatherString1" xml:space="preserve">
     <value>Mainly Clear</value>
   </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Partly Cloudy</value>
   </data>
@@ -536,6 +539,9 @@
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
     <value>Depositing Rime Fog</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Light Drizzle</value>
@@ -551,6 +557,9 @@
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>Dense Freezing Drizzle</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Slight Rain</value>

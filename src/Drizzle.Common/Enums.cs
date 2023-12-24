@@ -41,12 +41,18 @@ namespace Drizzle.Common
         OpenWeatherMap
     }
 
+    //Ref:
+    // https://www.nodc.noaa.gov/archive/arc0021/0002199/1.1/data/0-data/HTML/WMO-CODE/WMO4677.HTM
+    // https://open-meteo.com/en/docs
     public enum WmoWeatherCode
     {
         ClearSky = 0,
         MainlyClear = 1,
         PartlyCloudy = 2,
         Overcast = 3,
+        Haze = 5,
+        Dust = 6,
+        Mist = 10,
         Fog = 45,
         DepositingRimeFog = 48,
         LightDrizzle = 51,

@@ -17,6 +17,9 @@ public static class ShaderUtil
             WmoWeatherCode.MainlyClear => ShaderTypes.depth,
             WmoWeatherCode.PartlyCloudy => ShaderTypes.clouds,
             WmoWeatherCode.Overcast => ShaderTypes.clouds,
+            WmoWeatherCode.Haze => ShaderTypes.fog,
+            WmoWeatherCode.Dust => ShaderTypes.fog,
+            WmoWeatherCode.Mist => ShaderTypes.fog,
             WmoWeatherCode.Fog => ShaderTypes.fog,
             WmoWeatherCode.DepositingRimeFog => ShaderTypes.fog,
             WmoWeatherCode.LightDrizzle => ShaderTypes.rain,
@@ -56,6 +59,20 @@ public static class ShaderUtil
                 Scale = 0.45f,
             },
             WmoWeatherCode.Overcast => new CloudsModel(),
+            WmoWeatherCode.Haze => new WindModel()
+            {
+                Color1 = new Float3(0.8f, .8f, .76f)
+            },
+            WmoWeatherCode.Dust => new WindModel()
+            {
+                Color1 = new Float3(0.7f, .6f, .43f),
+            },
+            WmoWeatherCode.Mist => new WindModel()
+            {
+                Color1 = new Float3(0.8f, .85f, .85f),
+                Amplitude = 0.4f,
+                Speed = 4.0f
+            },
             WmoWeatherCode.Fog => new WindModel(),
             WmoWeatherCode.DepositingRimeFog => new WindModel()
             {

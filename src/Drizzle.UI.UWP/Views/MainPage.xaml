@@ -373,7 +373,10 @@
                                             Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                             ValueFormat="{}{0}%"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyHumidity, Mode=OneWay}" />
-                                        <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
+                                        <TextBlock
+                                            Opacity="0.4"
+                                            TextWrapping="WrapWholeWords"
+                                            Visibility="{x:Bind shellVm.SelectedWeather.DewPoint, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
                                             <Run>The dew point is</Run>
                                             <Run Text="{x:Bind shellVm.SelectedWeather.DewPoint, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
                                             <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
@@ -501,12 +504,6 @@
                                         Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
                                         ValueFormat="{}{0:F0}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyPressure, Mode=OneWay}" />
-                                    <TextBlock
-                                        FontSize="13"
-                                        Opacity="0.4"
-                                        TextWrapping="WrapWholeWords">
-                                        ---
-                                    </TextBlock>
                                     <Line Stroke="#50ffffff" X2="400" />
                                     <TextBlock x:Uid="TitleAboutPressure" FontWeight="SemiBold" />
                                     <TextBlock x:Uid="DescAboutPressure" TextWrapping="WrapWholeWords" />
