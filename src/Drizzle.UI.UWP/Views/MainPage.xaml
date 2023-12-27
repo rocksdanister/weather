@@ -102,7 +102,7 @@
             </animations:Implicit.ShowAnimations>
             <Grid.RowDefinitions>
                 <RowDefinition Height="150" />
-                <RowDefinition Height="300" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -176,7 +176,6 @@
                 <!--  Day selector/Weekly  -->
                 <Border
                     Width="240"
-                    Height="300"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
@@ -185,8 +184,7 @@
                     </Border.Background>
                     <!--  x:Bind have bug here, ref:  -->
                     <ListView
-                        Height="300"
-                        Padding="0,2,0,0"
+                        Padding="0,2,0,2"
                         Background="{ThemeResource CardBackgroundBrush}"
                         ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
                         SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
@@ -233,14 +231,17 @@
                 <!--  Hourly graph  -->
                 <Border
                     Width="540"
-                    Height="300"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="24" />
                     </Border.Background>
-                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                    <Button
+                        Padding="0"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
                             <Flyout
                                 FlyoutPresenterStyle="{StaticResource CardFlyout}"
@@ -258,7 +259,6 @@
                         </Button.Flyout>
                         <customControls:DailyGraph
                             Width="540"
-                            Height="300"
                             Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
                             MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
                             MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
