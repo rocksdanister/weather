@@ -239,7 +239,9 @@
                     </Border.Background>
                     <Button
                         Padding="0"
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
                         VerticalContentAlignment="Stretch"
                         Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
@@ -258,7 +260,6 @@
                             </Flyout>
                         </Button.Flyout>
                         <customControls:DailyGraph
-                            Width="540"
                             Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
                             MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
                             MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
@@ -281,13 +282,20 @@
                     <!--  UV  -->
                     <Border
                         Width="240"
+                        Height="175"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
                         <Border.Background>
                             <media:BackdropBlurBrush Amount="12" />
                         </Border.Background>
-                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button
+                            Padding="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Background="{ThemeResource CardBackgroundBrush}">
                             <Button.Flyout>
                                 <Flyout
                                     FlyoutPresenterStyle="{StaticResource CardFlyout}"
@@ -313,22 +321,26 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:UVCard
-                                Width="240"
-                                Height="175"
-                                Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
+                            <customControls:UVCard Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
                         </Button>
                     </Border>
                     <!--  Sunrise-Sunset  -->
                     <Border
                         Width="290"
+                        Height="175"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
                         <Border.Background>
                             <media:BackdropBlurBrush Amount="12" />
                         </Border.Background>
-                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button
+                            Padding="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Background="{ThemeResource CardBackgroundBrush}">
                             <Button.Flyout>
                                 <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
                                     <StackPanel Width="400" Spacing="10">
@@ -342,8 +354,6 @@
                                 </Flyout>
                             </Button.Flyout>
                             <customControls:SunCard
-                                Width="290"
-                                Height="175"
                                 Sunrise="{x:Bind shellVm.SelectedWeather.Sunrise, Mode=OneWay}"
                                 Sunset="{x:Bind shellVm.SelectedWeather.Sunset, Mode=OneWay}"
                                 TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}" />
@@ -352,13 +362,20 @@
                     <!--  Humidity  -->
                     <Border
                         Width="240"
+                        Height="175"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
                         <Border.Background>
                             <media:BackdropBlurBrush Amount="12" />
                         </Border.Background>
-                        <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                        <Button
+                            Padding="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Background="{ThemeResource CardBackgroundBrush}">
                             <Button.Flyout>
                                 <Flyout
                                     FlyoutPresenterStyle="{StaticResource CardFlyout}"
@@ -390,10 +407,7 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:HumidityCard
-                                Width="240"
-                                Height="175"
-                                Humidity="{x:Bind shellVm.SelectedWeather.Humidity, Mode=OneWay}" />
+                            <customControls:HumidityCard Humidity="{x:Bind shellVm.SelectedWeather.Humidity, Mode=OneWay}" />
                         </Button>
                     </Border>
                 </StackPanel>
@@ -408,13 +422,20 @@
                 <!--  Wind  -->
                 <Border
                     Width="240"
+                    Height="175"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="12" />
                     </Border.Background>
-                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
                             <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
                                 <StackPanel Width="400" Spacing="10">
@@ -438,8 +459,6 @@
                             </Flyout>
                         </Button.Flyout>
                         <customControls:CompassCard
-                            Width="240"
-                            Height="175"
                             Direction="{x:Bind shellVm.SelectedWeather.WindDirection, Mode=OneWay}"
                             Unit="{x:Bind shellVm.SelectedWeather.WindSpeedUnit, Mode=OneWay}"
                             Value="{x:Bind shellVm.SelectedWeather.WindSpeed, Mode=OneWay}" />
@@ -448,13 +467,20 @@
                 <!--  AQI  -->
                 <Border
                     Width="290"
+                    Height="175"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="12" />
                     </Border.Background>
-                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
                             <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
                                 <StackPanel Width="400" Spacing="10">
@@ -477,22 +503,26 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:AirQualityCard
-                            Width="290"
-                            Height="175"
-                            Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
+                        <customControls:AirQualityCard Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Pressure  -->
                 <Border
                     Width="240"
+                    Height="175"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="12" />
                     </Border.Background>
-                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
                             <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}">
                                 <StackPanel Width="400" Spacing="10">
@@ -510,11 +540,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:PressureCard
-                            Width="240"
-                            Height="175"
-                            Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}"
-                            Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
+                        <customControls:PressureCard Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Visibility  -->
