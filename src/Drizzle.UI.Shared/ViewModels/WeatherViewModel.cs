@@ -43,9 +43,15 @@ namespace Drizzle.UI.UWP.ViewModels
         private int forecastInterval;
 
         [ObservableProperty]
+        private int forecastAQInterval;
+
+        [ObservableProperty]
         private int graphDisplayStep;
 
         [ObservableProperty]
         private int graphSmallDisplayStep;
+
+        [ObservableProperty]
+        private int graphAQSmallDisplayStep;
     }
 }

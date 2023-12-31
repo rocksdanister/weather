@@ -489,7 +489,7 @@
                                         Height="300"
                                         Gradient1="Gray"
                                         StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
-                                        Step="{x:Bind shellVm.SelectedLocation.GraphSmallDisplayStep, Mode=OneWay}"
+                                        Step="{x:Bind shellVm.SelectedLocation.GraphAQSmallDisplayStep, Mode=OneWay}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" />
                                     <!--<TextBlock
                                         FontSize="13"

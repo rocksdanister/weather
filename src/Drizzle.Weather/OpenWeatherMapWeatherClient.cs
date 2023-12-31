@@ -114,7 +114,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             Longitude = longitude,
             TimeZone = WeatherUtil.GetTimeZone(latitude, longitude),
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
-            ForecastInterval = 3,
+            ForecastInterval = 1,
         };
 
         // Group the data based on date
