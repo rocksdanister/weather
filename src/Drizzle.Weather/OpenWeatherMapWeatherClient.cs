@@ -33,7 +33,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
     private readonly string currentApiUrl = "https://api.openweathermap.org/data/2.5/weather?";
     private readonly string geocodeApiUrl = "https://api.openweathermap.org/geo/1.0/direct?";
     private readonly string reverseGeocodeApiUrl = "http://api.openweathermap.org/geo/1.0/reverse?";
-    private readonly string airQualityApiUrl = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?";
+    private readonly string airQualityForecastApiUrl = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?";
+    private readonly string airQualityCurrentApiUrl = "http://api.openweathermap.org/data/2.5/air_pollution?";
 
     public OpenWeatherMapWeatherClient(IHttpClientFactory httpClientFactory, ICacheService cacheService, string apiKey)
     {
@@ -104,7 +105,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
     public async Task<ForecastAirQuality> QueryAirQualityAsync(float latitude, float longitude)
     {
-        var response = await GetAirQualityForecastDataAsync(latitude, longitude);
+        var currentResponse = await GetAirQualityCurrentDataAsync(latitude, longitude);
+        var forecastResponse = await GetAirQualityForecastDataAsync(latitude, longitude);
 
         var result = new ForecastAirQuality()
         {
@@ -116,25 +118,24 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         };
 
         // Group the data based on date
-        var dailyGroup = response.List.GroupBy(x => WeatherUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        var dailyGroup = forecastResponse.List.GroupBy(x => WeatherUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
         var dailyAirQuality = new List<DailyAirQuality>();
+        var index = 0;
         foreach (var day in dailyGroup)
         {
             var selection = GetValueCloseToTime(day, result.TimeZone);
             var airQuality = new DailyAirQuality
             {
-                // TODO: Convert OpenWeather to US AQI
-                // https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf
-                // https://openweathermap.org/api/air-pollution
-                // https://openweathermap.org/air-pollution-index-levels
-                AQI = null,//selection.Main.Aqi,
                 Date = WeatherUtil.UnixToLocalDateTime(selection.Dt, result.TimeZone),
-                //HourlyAQI = day.Select(x => (float)x.Main.Aqi).ToArray(),
+                // Only calculating for the current day for the time being
+                AQI = index == 0 ? CalculateAqi(currentResponse.List[0].Components) : null,
+                HourlyAQI = index == 0 ? day.Select(x => CalculateAqi(x.Components) ?? 0f).ToArray() : null,
                 // Not available
                 //HourlyUV = null,
                 //UV = null,
             };
             dailyAirQuality.Add(airQuality);
+            index++;
         }
         result.FetchTime = cacheService.LastAccessTime;
         result.Daily = dailyAirQuality;
@@ -176,7 +177,14 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
     private async Task<AirQuality> GetAirQualityForecastDataAsync(float latitude, float longitude)
     {
-        var url = $"{airQualityApiUrl}lat={latitude}&lon={longitude}&appid={ApiKey}&units=metric";
+        var url = $"{airQualityForecastApiUrl}lat={latitude}&lon={longitude}&appid={ApiKey}&units=metric";
+        using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
+        return await JsonSerializer.DeserializeAsync<AirQuality>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+    }
+
+    private async Task<AirQuality> GetAirQualityCurrentDataAsync(float latitude, float longitude)
+    {
+        var url = $"{airQualityCurrentApiUrl}lat={latitude}&lon={longitude}&appid={ApiKey}&units=metric";
         using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
         return await JsonSerializer.DeserializeAsync<AirQuality>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
@@ -221,6 +229,19 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
     {
         var currentTime = WeatherUtil.GetLocalTime(timezone)?.TimeOfDay ?? DateTime.Now.TimeOfDay;
         return day.OrderBy(t => Math.Abs((WeatherUtil.UnixToLocalDateTime(t.Dt, timezone).TimeOfDay - currentTime).Ticks)).First();
+    }
+
+    private static int? CalculateAqi(AQComponents components)
+    {
+        var aqiPM2_5 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.PM2_5, components.Pm25);
+        var aqiPM10 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.PM10, components.Pm10);
+        var aqiNO2 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.NO2, components.No2);
+        var aqiSO2 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.SO2, components.So2);
+        var aqiCO = AirQualityUtil.GetAirQuality(Models.AQI.Particle.CO, components.Co);
+        var aqiO3 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.O3_8h, components.O3);
+
+        var aqiValues = new int?[] { aqiPM2_5, aqiPM10, aqiNO2, aqiSO2, aqiCO, aqiO3 };
+        return aqiValues.Max();
     }
 
     // Ref:

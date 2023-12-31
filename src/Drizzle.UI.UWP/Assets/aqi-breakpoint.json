@@ -1,0 +1,358 @@
+[{
+    "code": "0",
+    "unit": "0",
+    "period": "24",
+    "concentrations": [{
+      "min": 0.0,
+      "max": 12.0,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 12.1,
+      "max": 35.4,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 35.5,
+      "max": 55.4,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 55.5,
+      "max": 150.4,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 150.5,
+      "max": 250.4,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 250.5,
+      "max": 350.4,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 350.5,
+      "max": 500.4,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  },
+  {
+    "code": "1",
+    "unit": "0",
+    "period": "24",
+    "concentrations": [{
+      "min": 0,
+      "max": 54,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 55,
+      "max": 154,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 155,
+      "max": 254,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 255,
+      "max": 354,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 355,
+      "max": 424,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 425,
+      "max": 504,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 505,
+      "max": 604,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  },
+  {
+    "code": "2",
+    "unit": "1",
+    "period": "1",
+    "concentrations": [{
+      "min": 0,
+      "max": 53,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 54,
+      "max": 100,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 101,
+      "max": 360,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 361,
+      "max": 649,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 650,
+      "max": 1249,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 1250,
+      "max": 1649,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 1650,
+      "max": 2049,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  },
+  {
+    "code": "3",
+    "unit": "1",
+    "period": "1",
+    "concentrations": [{
+      "min": 0,
+      "max": 35,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 36,
+      "max": 75,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 76,
+      "max": 185,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 186,
+      "max": 304,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 305,
+      "max": 604,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 605,
+      "max": 804,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 805,
+      "max": 1004,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  },
+  {
+    "code": "4",
+    "unit": "1",
+    "period": "8",
+    "concentrations": [{
+      "min": 0,
+      "max": 4400,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 4500,
+      "max": 9400,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 9500,
+      "max": 12400,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 12500,
+      "max": 15400,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 15500,
+      "max": 30400,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 30500,
+      "max": 40400,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 40500,
+      "max": 50400,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  },
+  {
+    "code": "5",
+    "unit": "1",
+    "period": "8",
+    "concentrations": [{
+      "min": 0,
+      "max": 54,
+      "index": {
+        "min": 0,
+        "max": 50
+      }
+    }, {
+      "min": 55,
+      "max": 70,
+      "index": {
+        "min": 51,
+        "max": 100
+      }
+    }, {
+      "min": 71,
+      "max": 85,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 86,
+      "max": 105,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 106,
+      "max": 200,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }]
+  },
+  {
+    "code": "6",
+    "unit": "1",
+    "period": "1",
+    "concentrations": [{
+      "min": 125,
+      "max": 164,
+      "index": {
+        "min": 101,
+        "max": 150
+      }
+    }, {
+      "min": 165,
+      "max": 204,
+      "index": {
+        "min": 151,
+        "max": 200
+      }
+    }, {
+      "min": 205,
+      "max": 404,
+      "index": {
+        "min": 201,
+        "max": 300
+      }
+    }, {
+      "min": 405,
+      "max": 504,
+      "index": {
+        "min": 301,
+        "max": 400
+      }
+    }, {
+      "min": 505,
+      "max": 604,
+      "index": {
+        "min": 401,
+        "max": 500
+      }
+    }]
+  }
+]
