@@ -94,7 +94,7 @@ namespace Drizzle.UI.UWP.UserControls
             Canvas.SetTop(sunLine, height/2 - 25);
 
             // Sun position
-            var localTime = WeatherUtil.GetLocalTime(TimeZone) ?? DateTime.Now;
+            var localTime = TimeUtil.GetLocalTime(TimeZone) ?? DateTime.Now;
             var timePercent = GetTimePercent(localTime, sunrise, sunset);
             var angle = timePercent/100 * 180;
             var radians = DegreeToRadians(180 + angle);

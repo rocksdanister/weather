@@ -53,13 +53,13 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             Name = !string.IsNullOrEmpty(forecastResponse.City.Name) ? $"{forecastResponse.City.Name}, {forecastResponse.City.Country}" : null,
             Latitude = latitude,
             Longitude = longitude,
-            TimeZone = WeatherUtil.GetTimeZone(latitude, longitude),
+            TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
             Units = new ForecastWeatherUnits(WeatherUnits.metric),
             ForecastInterval = 3,
         };
 
         // Group the data based on date as key
-        var dailyGroup = forecastResponse.List.GroupBy(x => WeatherUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
         var dailyWeather = new List<DailyWeather>();
         var index = 0;
         // Unit ref: https://openweathermap.org/weather-data
@@ -69,10 +69,10 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             var weather = new DailyWeather()
             {
                 WeatherCode = (int)OpenWeatherMapCodeToWmo(selection.Weather[0].Id),
-                Date = WeatherUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
+                Date = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
                 // Only current day
-                Sunrise = index == 0 ? WeatherUtil.UnixToLocalDateTime(currentResponse.Sys.Sunrise, result.TimeZone) : null,
-                Sunset = index == 0 ? WeatherUtil.UnixToLocalDateTime(currentResponse.Sys.Sunset, result.TimeZone) : null,
+                Sunrise = index == 0 ? TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunrise, result.TimeZone) : null,
+                Sunset = index == 0 ? TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunset, result.TimeZone) : null,
                 TemperatureMin = day.OrderBy(x => x.Main.TempMin).First().Main.TempMin,
                 TemperatureMax = day.OrderByDescending(x => x.Main.TempMax).First().Main.TempMax,
                 // Not available
@@ -112,13 +112,13 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         {
             Latitude = latitude,
             Longitude = longitude,
-            TimeZone = WeatherUtil.GetTimeZone(latitude, longitude),
+            TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
             ForecastInterval = 1,
         };
 
         // Group the data based on date
-        var dailyGroup = forecastResponse.List.GroupBy(x => WeatherUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
         var dailyAirQuality = new List<DailyAirQuality>();
         var index = 0;
         foreach (var day in dailyGroup)
@@ -126,7 +126,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             var selection = GetValueCloseToTime(day, result.TimeZone);
             var airQuality = new DailyAirQuality
             {
-                Date = WeatherUtil.UnixToLocalDateTime(selection.Dt, result.TimeZone),
+                Date = TimeUtil.UnixToLocalDateTime(selection.Dt, result.TimeZone),
                 // Only calculating for the current day for the time being
                 AQI = index == 0 ? CalculateAqi(currentResponse.List[0].Components) : null,
                 HourlyAQI = index == 0 ? day.Select(x => CalculateAqi(x.Components) ?? 0f).ToArray() : null,
@@ -221,14 +221,14 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
     private static ForecastList GetValueCloseToTime(IGrouping<DateTime, ForecastList> day, string timezone)
     {
-        var currentTime = WeatherUtil.GetLocalTime(timezone)?.TimeOfDay ?? DateTime.Now.TimeOfDay;
-        return day.OrderBy(t => Math.Abs((WeatherUtil.UnixToLocalDateTime(t.Dt, timezone).TimeOfDay - currentTime).Ticks)).First();
+        var currentTime = TimeUtil.GetLocalTime(timezone)?.TimeOfDay ?? DateTime.Now.TimeOfDay;
+        return day.OrderBy(t => Math.Abs((TimeUtil.UnixToLocalDateTime(t.Dt, timezone).TimeOfDay - currentTime).Ticks)).First();
     }
 
     private static AQList GetValueCloseToTime(IGrouping<DateTime, AQList> day, string timezone)
     {
-        var currentTime = WeatherUtil.GetLocalTime(timezone)?.TimeOfDay ?? DateTime.Now.TimeOfDay;
-        return day.OrderBy(t => Math.Abs((WeatherUtil.UnixToLocalDateTime(t.Dt, timezone).TimeOfDay - currentTime).Ticks)).First();
+        var currentTime = TimeUtil.GetLocalTime(timezone)?.TimeOfDay ?? DateTime.Now.TimeOfDay;
+        return day.OrderBy(t => Math.Abs((TimeUtil.UnixToLocalDateTime(t.Dt, timezone).TimeOfDay - currentTime).Ticks)).First();
     }
 
     private static int? CalculateAqi(AQComponents components)

@@ -43,7 +43,7 @@ namespace Drizzle.UI.UWP.Factories
             weatherVm.GraphDisplayStep = weatherForecast.ForecastInterval == 1 ? 2 : 1;
             weatherVm.GraphSmallDisplayStep = weatherForecast.ForecastInterval == 1 ? 3 : 1;
             weatherVm.GraphAQSmallDisplayStep = airQualityForecast.ForecastInterval == 1 ? 3 : 1;
-            var isDayTime = WeatherUtil.IsDaytime(weatherForecast.TimeZone);
+            var isDayTime = TimeUtil.IsDaytime(weatherForecast.TimeZone);
             for (int i = 0; i < weatherForecast.Daily.Count(); i++)
             {
                 var tmp = new WeatherModel()

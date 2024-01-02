@@ -171,7 +171,7 @@ namespace Drizzle.UI.UWP.ViewModels
         ///// </summary>
         public bool IsSelectedLocationDaytime
         {
-            get => SelectedWeather?.IsDaytime ?? WeatherUtil.IsDaytime();
+            get => SelectedWeather?.IsDaytime ?? TimeUtil.IsDaytime();
         }
 
         // Currently selected day
