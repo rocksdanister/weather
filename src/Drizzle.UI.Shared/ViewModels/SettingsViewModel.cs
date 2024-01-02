@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.System;
 
@@ -18,12 +19,16 @@ namespace Drizzle.UI.UWP.ViewModels
     {
         private readonly IUserSettings userSettings;
         private readonly IWeatherClientFactory weatherClientFactory;
+        private readonly ResourceLoader resourceLoader;
 
         public SettingsViewModel(IUserSettings userSettings, ShellViewModel shellVm, IWeatherClientFactory weatherClientFactory)
         {
             this.weatherClientFactory = weatherClientFactory;
             this.userSettings = userSettings;
             this.ShellVm = shellVm;
+
+            if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
+                resourceLoader = ResourceLoader.GetForCurrentView();
 
             ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
             BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
@@ -187,7 +192,8 @@ namespace Drizzle.UI.UWP.ViewModels
                 await Launcher.LaunchFileAsync(latestLog);
         }
 
-        public bool UpdateWeatherProvider()
+        // Save settings that require confirmation here
+        public void OnClose()
         {
             var newWeatherProvider = (WeatherProviders)SelectedWeatherProviderIndex;
             var currentWeatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
@@ -199,15 +205,13 @@ namespace Drizzle.UI.UWP.ViewModels
                 if (currentWeatherProvider == newWeatherProvider)
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, WeatherProviders.OpenMeteo);
 
-                return false;
+                ShellVm.ErrorMessage = resourceLoader?.GetString("APIKeyMissingRestoredDefault/Text");
             }
             else
             {
                 // If provider updated, save state.
                 if (currentWeatherProvider != newWeatherProvider)
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, SelectedWeatherProviderIndex);
-
-                return true;
             }
         }
 

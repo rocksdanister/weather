@@ -74,17 +74,20 @@
                         <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
                     </ComboBox>
                 </labs:SettingsCard>
-                <labs:SettingsCard Header="API Key" Visibility="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                <labs:SettingsCard x:Uid="WeatherProviderKeySettings" Visibility="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE785;" />
                     </labs:SettingsCard.HeaderIcon>
                     <StackPanel Orientation="Horizontal" Spacing="5">
-                        <HyperlinkButton Grid.Column="1" NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources">Learn more</HyperlinkButton>
+                        <HyperlinkButton
+                            x:Uid="LearnMore"
+                            Grid.Column="1"
+                            NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources" />
                         <TextBox
+                            x:Uid="WeatherProviderKeySettingsTextbox"
                             Grid.Column="0"
                             MinWidth="275"
                             MaxWidth="275"
-                            PlaceholderText="Enter API key here"
                             Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </labs:SettingsCard>
