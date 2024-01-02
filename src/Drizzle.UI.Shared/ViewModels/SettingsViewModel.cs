@@ -122,14 +122,10 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWeatherProviderIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider) != (WeatherProviders)value)
-                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, value);
-
+                SetProperty(ref _selectedWeatherProviderIndex, value);
                 var settingsKey = GetWeatherProviderApiSettingsKey((WeatherProviders)value);
                 IsApiKeyRequired = settingsKey != null;
                 SelectedApiKey = settingsKey != null ? userSettings.Get<string>(settingsKey) : string.Empty;
-
-                SetProperty(ref _selectedWeatherProviderIndex, value);
             }
         }
 
@@ -142,14 +138,13 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedApiKey;
             set
             {
-                var weatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
+                var weatherProvider = (WeatherProviders)SelectedWeatherProviderIndex;
                 var settingsKey = GetWeatherProviderApiSettingsKey(weatherProvider);
                 if (settingsKey != null && userSettings.Get<string>(settingsKey) != value)
                 {
                     userSettings.Set(settingsKey, value);
                     weatherClientFactory.GetInstance(weatherProvider).ApiKey = value;
                 }
-
                 SetProperty(ref _selectedApiKey, value);
             }
         }
@@ -190,6 +185,30 @@ namespace Drizzle.UI.UWP.ViewModels
 
             if (latestLog != null)
                 await Launcher.LaunchFileAsync(latestLog);
+        }
+
+        public bool UpdateWeatherProvider()
+        {
+            var newWeatherProvider = (WeatherProviders)SelectedWeatherProviderIndex;
+            var currentWeatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
+            var newWeatherProvidersettingsKey = GetWeatherProviderApiSettingsKey(newWeatherProvider);
+            // If the newly selected provider require key and its missing.
+            if (newWeatherProvidersettingsKey != null && string.IsNullOrWhiteSpace(userSettings.Get<string>(newWeatherProvidersettingsKey)))
+            {
+                // If key is removed from already selected provider, restore default.
+                if (currentWeatherProvider == newWeatherProvider)
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, WeatherProviders.OpenMeteo);
+
+                return false;
+            }
+            else
+            {
+                // If provider updated, save state.
+                if (currentWeatherProvider != newWeatherProvider)
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, SelectedWeatherProviderIndex);
+
+                return true;
+            }
         }
 
         private static string GetWeatherProviderApiSettingsKey(WeatherProviders provider)

@@ -122,7 +122,6 @@ namespace Drizzle.UI.UWP
             return new ServiceCollection()
                 // Singleton
                 .AddSingleton<ShellViewModel>()
-                .AddSingleton<SettingsViewModel>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IUserSettings, LocalSettings>()
@@ -143,6 +142,7 @@ namespace Drizzle.UI.UWP
                     e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.OpenWeatherMapKey)))
                 // Transient
                 .AddTransient<AboutViewModel>()
+                .AddTransient<SettingsViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<DepthEstimateViewModel>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()

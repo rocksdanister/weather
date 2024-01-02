@@ -33,16 +33,25 @@ public class DialogService : IDialogService
 
     public async Task ShowSettingsDialogAsync()
     {
+        var weatherProviderUpdated = false;
+        var vm = App.Services.GetRequiredService<SettingsViewModel>();
         var dialog = new ContentDialog()
         {
             Title = resourceLoader?.GetString("StringSettings"),
-            Content = new SettingsPage(),
+            Content = new SettingsPage(vm),
             CloseButtonText = resourceLoader?.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         };
         //dialog.Resources["ContentDialogMaxWidth"] = 1200;
         dialog.Resources["ContentDialogMinWidth"] = 650;
+        dialog.Closed += (s, e) =>
+        {
+            weatherProviderUpdated = vm.UpdateWeatherProvider();
+        };
         await dialog.ShowAsync();
+
+        if (!weatherProviderUpdated)
+            App.Services.GetRequiredService<ShellViewModel>().ErrorMessage = "Required API key is missing for the selected weather provider, settings reverted.";
     }
 
     public async Task ShowAboutDialogAsync()

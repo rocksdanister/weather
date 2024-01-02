@@ -26,11 +26,11 @@ namespace Drizzle.UI.UWP.Views
     {
         private readonly SettingsViewModel viewModel;
 
-        public SettingsPage()
+        public SettingsPage(SettingsViewModel vm)
         {
             this.InitializeComponent();
-            this.viewModel = App.Services.GetRequiredService<SettingsViewModel>();
-            this.DataContext = viewModel;
+            this.viewModel = vm;
+            this.DataContext = vm;
         }
     }
 }
