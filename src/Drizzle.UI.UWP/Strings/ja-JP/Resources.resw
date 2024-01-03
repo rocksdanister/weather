@@ -141,6 +141,9 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>アイドル状態のときは常にメニューを非表示にする</value>
   </data>
+  <data name="APIKeyMissingRestoredDefault.Text" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>このアプリについて</value>
   </data>
@@ -489,6 +492,12 @@
   <data name="UVIndex2" xml:space="preserve">
     <value>非常に高い</value>
   </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Enter the required API key</value>
+  </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>気象データの提供元</value>
   </data>
@@ -525,6 +534,9 @@
   <data name="WmoWeatherString1" xml:space="preserve">
     <value>晴れ</value>
   </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>ところにより曇り</value>
   </data>
@@ -536,6 +548,9 @@
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
     <value>霧氷が積もる</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>軽い霧雨</value>
@@ -551,6 +566,9 @@
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>濃い着氷性の霧雨</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>小雨</value>

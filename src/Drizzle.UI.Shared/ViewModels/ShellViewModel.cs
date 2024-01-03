@@ -812,26 +812,15 @@ namespace Drizzle.UI.UWP.ViewModels
             weatherClient = weatherClientFactory.GetInstance(selection);
             IsShowDetectLocation = weatherClient.IsReverseGeocodingSupported;
 
-            if (selection == WeatherProviders.OpenMeteo)
+            if (!weatherClient.IsReverseGeocodingSupported)
             {
-                // Clear since location name not available (what if the new location is approximate.)
+                // Location name not be available and can return nearby location which may not be the same.
                 ClearLocations();
             }
             else
             {
-                // Try to fetch using same (lat, long).
-                // Can fail if the approximate location not available.
-                if (weatherClient.IsApiKeyRequired)
-                {
-                    if (!string.IsNullOrWhiteSpace(weatherClient.ApiKey))
-                        await UpdateWeather();
-                    else
-                        ClearLocations();
-                }
-                else
-                {
-                    await UpdateWeather();
-                }
+                // Try to fetch using same (lat, long), can fail if the location not available.
+                await UpdateWeather();
             }
         }
 

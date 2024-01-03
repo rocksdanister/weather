@@ -141,6 +141,9 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Skjul alltid menyen når inaktiv</value>
   </data>
+  <data name="APIKeyMissingRestoredDefault.Text" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>Om</value>
   </data>
@@ -489,6 +492,12 @@
   <data name="UVIndex2" xml:space="preserve">
     <value>Veldig Høy</value>
   </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Enter the required API key</value>
+  </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Værdatakilde</value>
   </data>
@@ -525,6 +534,9 @@
   <data name="WmoWeatherString1" xml:space="preserve">
     <value>Hovedsakelig klar</value>
   </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Delvis Skyet</value>
   </data>
@@ -536,6 +548,9 @@
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
     <value>Kondensskapende tåke</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Lett yr</value>
@@ -551,6 +566,9 @@
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>Tett underkjølt Duskregn</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Litt regn</value>

@@ -87,7 +87,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 // Not available
                 //DewPoint = 
                 Pressure = index == 0 ? currentResponse.Main.Pressure : selection.Main.Pressure,
-                WindDirection = index == 0 ? WeatherUtil.MeteorologicalDegreeToRegular(currentResponse.Wind.Deg) : WeatherUtil.MeteorologicalDegreeToRegular(selection.Wind.Deg),
+                WindDirection = index == 0 ? currentResponse.Wind.Deg : selection.Wind.Deg,
                 HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
                 HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
                 HourlyVisibility = day.Select(x => x.Visibility).ToArray(),

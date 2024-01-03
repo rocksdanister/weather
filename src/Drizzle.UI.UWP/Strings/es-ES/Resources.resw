@@ -141,6 +141,9 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Ocultar el menú cuando esté inactivo</value>
   </data>
+  <data name="APIKeyMissingRestoredDefault.Text" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -489,6 +492,12 @@
   <data name="UVIndex2" xml:space="preserve">
     <value>Muy Alto</value>
   </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Enter the required API key</value>
+  </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Fuente de datos del clima</value>
   </data>
@@ -525,6 +534,9 @@
   <data name="WmoWeatherString1" xml:space="preserve">
     <value>Mayormente despejado</value>
   </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Parcialmente nublado</value>
   </data>
@@ -536,6 +548,9 @@
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
     <value>Niebla Con escarcha</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Llovizna ligera</value>
@@ -551,6 +566,9 @@
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
     <value>Llovizna gélida densa</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Lluvia ligera</value>

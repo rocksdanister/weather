@@ -15,6 +15,8 @@ namespace Drizzle.Weather.Helpers
         private static readonly string aqiAssetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "aqi-breakpoint.json");
         private readonly static List<Breakpoints> breakpoints = GetbreakPoints();
 
+        // aqi-breakpoint.json ref:
+        // https://github.com/ThangLeQuoc/aqi-calculator#calculation-formula
         public static int? GetAirQuality(Particle particle, double concentration_in_ug_per_m3)
         {
             var element = breakpoints.Find(x => x.Code == particle);

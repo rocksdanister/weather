@@ -123,6 +123,4 @@ public static class WeatherUtil
     public static float? KmToFt(float? distace) => distace * 3280.839895f;
 
     public static float? FtToKm(float? feet) => feet / 3280.839895f;
-
-    public static float? MeteorologicalDegreeToRegular(float? degree) => (degree + 180f) % 360f;
 }
