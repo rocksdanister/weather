@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
 
 namespace Drizzle.UI.UWP.Services
@@ -14,6 +15,14 @@ namespace Drizzle.UI.UWP.Services
     // https://learn.microsoft.com/en-us/windows/uwp/maps-and-location/get-location
     public class GeolocationService : IGeolocationService
     {
+        private readonly ResourceLoader resourceLoader;
+
+        public GeolocationService()
+        {
+            if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
+                resourceLoader = ResourceLoader.GetForCurrentView();
+        }
+
         public async Task<GeoLocation> GetLocationAsync()
         {
             var accessStatus = await Geolocator.RequestAccessAsync();
@@ -32,9 +41,9 @@ namespace Drizzle.UI.UWP.Services
                         Longitude = (float)pos.Coordinate.Point.Position.Longitude 
                     };
                 case GeolocationAccessStatus.Denied:
-                    throw new AccessDeniedException("Access to location is denied.");
+                    throw new AccessDeniedException(resourceLoader?.GetString("StringGeolocationErrorAccessDenied"));
                 case GeolocationAccessStatus.Unspecified:
-                    throw new UnspecifiedException("Location unspecified error.");
+                    throw new UnspecifiedException(resourceLoader?.GetString("StringGeolocationErrorAccessUnspecified"));
                 default:
                     throw new NotImplementedException();
             }

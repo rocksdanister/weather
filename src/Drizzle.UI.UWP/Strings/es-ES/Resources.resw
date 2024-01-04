@@ -141,9 +141,6 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Ocultar el menú cuando esté inactivo</value>
   </data>
-  <data name="APIKeyMissingRestoredDefault.Text" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
-  </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -381,6 +378,12 @@
   <data name="StringDepthApprox" xml:space="preserve">
     <value>Aproximación de Profundidad IA</value>
   </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Access to location is denied, check Windows settings.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Access to location is unspecified, check Windows settings.</value>
+  </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Ayuda</value>
   </data>
@@ -389,6 +392,9 @@
   </data>
   <data name="StringSettings" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Automático</value>

@@ -205,7 +205,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 if (currentWeatherProvider == newWeatherProvider)
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, WeatherProviders.OpenMeteo);
 
-                ShellVm.ErrorMessage = resourceLoader?.GetString("APIKeyMissingRestoredDefault/Text");
+                ShellVm.ErrorMessage = resourceLoader?.GetString("StringWeatherKeyMissingRestoredDefault");
             }
             else
             {

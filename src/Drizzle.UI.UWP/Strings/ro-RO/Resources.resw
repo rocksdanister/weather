@@ -141,9 +141,6 @@
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
     <value>Ascundeți întotdeauna meniul când este inactiv</value>
   </data>
-  <data name="APIKeyMissingRestoredDefault.Text" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
-  </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>Despre</value>
   </data>
@@ -381,6 +378,12 @@
   <data name="StringDepthApprox" xml:space="preserve">
     <value>Aproximare Adâncime cu AI</value>
   </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Access to location is denied, check Windows settings.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Access to location is unspecified, check Windows settings.</value>
+  </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Ajutor</value>
   </data>
@@ -389,6 +392,9 @@
   </data>
   <data name="StringSettings" xml:space="preserve">
     <value>Setări</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Automat</value>
