@@ -205,6 +205,9 @@
     <Compile Include="UserControls\AirQualityCard.xaml.cs">
       <DependentUpon>AirQualityCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CompassCard.xaml.cs">
       <DependentUpon>CompassCard.xaml</DependentUpon>
     </Compile>
@@ -475,6 +478,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="UserControls\AirQualityCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Clock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

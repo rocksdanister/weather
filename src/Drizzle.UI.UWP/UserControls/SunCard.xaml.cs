@@ -136,7 +136,10 @@ namespace Drizzle.UI.UWP.UserControls
             }
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e) => Update();
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Update();
+        }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
