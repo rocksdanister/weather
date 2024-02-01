@@ -154,22 +154,24 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
 
         var result = new List<Location>();
         var languageTag = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-
         foreach (var item in response)
         {
             string localName = null;
-            item.LocalNames?.TryGetValue(languageTag, out localName);
+            // Default is English, ignore.
+            if (languageTag != "en")
+                item.LocalNames?.TryGetValue(languageTag, out localName);
 
             var tmp = new Location()
             {
                 Name = localName ?? item.Name,
+                DisplayName = localName ?? item.Name,
                 Country = item.Country,
                 Admin1 = item.State,
                 Latitude = item.Lat,
                 Longitude = item.Lon,
             };
-            tmp.DisplayName = tmp.Name;
-            if (languageTag == "en")
+            // Do not append English names if localized.
+            if (localName is null)
             {
                 if (item.State is not null && !item.State.Equals(item.Name, StringComparison.InvariantCulture))
                     tmp.DisplayName += $", {item.State}";

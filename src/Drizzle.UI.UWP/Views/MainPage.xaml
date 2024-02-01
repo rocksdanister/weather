@@ -87,6 +87,15 @@
         <!--  Shadow background  -->
         <Grid x:Name="BackgroundGrid" />
 
+        <!--  Local time clock  -->
+        <customControls:Clock
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Opacity="0.5"
+            TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
+            Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
+
         <!--  Main Content  -->
         <Grid
             HorizontalAlignment="Center"
@@ -159,14 +168,13 @@
                         Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(shellVm.SelectedWeather.WeatherCode), Mode=OneWay}" />
                     <TextBlock
                         HorizontalTextAlignment="Center"
-                        Opacity="0.8"
+                        Opacity="0.7"
                         Style="{StaticResource BodyTextBlockStyle}">
                         <Run x:Uid="FeelsLikeTemperature" />
                         <Run Text="{x:Bind shellVm.SelectedWeather.FeelsLike, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
                         <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
                     </TextBlock>
                 </StackPanel>
-                <customControls:Clock Opacity="0.6" HorizontalAlignment="Center" TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}" />
             </StackPanel>
 
             <!--  Stack 1  -->
