@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -152,21 +153,29 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             response = await GetGeocodingDataAsync(place, 5);
 
         var result = new List<Location>();
+        var languageTag = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+
         foreach (var item in response)
         {
+            string localName = null;
+            item.LocalNames?.TryGetValue(languageTag, out localName);
+
             var tmp = new Location()
             {
-                Name = item.Name,
+                Name = localName ?? item.Name,
                 Country = item.Country,
                 Admin1 = item.State,
                 Latitude = item.Lat,
                 Longitude = item.Lon,
             };
-            tmp.DisplayName = item.Name;
-            if (item.State is not null && !item.State.Equals(item.Name, StringComparison.InvariantCulture))
-                tmp.DisplayName += $", {item.State}";
-            else if (item.Country is not null && !item.Country.Equals(item.Name, StringComparison.InvariantCulture))
-                tmp.DisplayName += $", {item.Country}";
+            tmp.DisplayName = tmp.Name;
+            if (languageTag == "en")
+            {
+                if (item.State is not null && !item.State.Equals(item.Name, StringComparison.InvariantCulture))
+                    tmp.DisplayName += $", {item.State}";
+                else if (item.Country is not null && !item.Country.Equals(item.Name, StringComparison.InvariantCulture))
+                    tmp.DisplayName += $", {item.Country}";
+            }
             result.Add(tmp);
         }
         return result;

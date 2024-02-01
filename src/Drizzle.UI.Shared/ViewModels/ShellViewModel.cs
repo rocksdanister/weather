@@ -520,8 +520,9 @@ namespace Drizzle.UI.UWP.ViewModels
                 // Uses disk cache if configured
                 var weather = await weatherClient.QueryForecastAsync(latitude, longitude);
                 var airQuality = await weatherClient.QueryAirQualityAsync(latitude, longitude);
-                // Some providers don't have Reverse Geocoding api
-                if (string.IsNullOrEmpty(weather.Name))
+                // Null when provider is missing reverse geocoding, GPS location.
+                // Use Fetch location since its localized name (if available.) 
+                if (!string.IsNullOrEmpty(name))
                 {
                     weather.Name = name;
                     airQuality.Name = name;

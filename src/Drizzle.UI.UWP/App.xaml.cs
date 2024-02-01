@@ -93,10 +93,15 @@ namespace Drizzle.UI.UWP
             {
                 // Update before viewModel initialization
                 var region = new GeographicRegion();
-                if (region.CodeTwoLetter == "US")
-                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.imperial);
-                else if (region.CodeTwoLetter == "GB")
-                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.hybrid);
+                switch (region.CodeTwoLetter)
+                {
+                    case "US":
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.imperial);
+                        break;
+                    case "GB":
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.hybrid);
+                        break;
+                }
             }
             else if (SystemInformation.Instance.IsAppUpdated)
             {
