@@ -12,8 +12,8 @@ public class LocationData
     [JsonPropertyName("name")]
     public string Name { get; set; }
 
-    //[JsonPropertyName("local_names")]
-    //public object LocalNames { get; set; }
+    [JsonPropertyName("local_names")]
+    public Dictionary<string, string> LocalNames { get; set; }
 
     [JsonPropertyName("lat")]
     public float Lat { get; set; }
