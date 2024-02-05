@@ -34,7 +34,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty TimeZoneProperty =
-            DependencyProperty.Register("TimeZone", typeof(string), typeof(Clock), new PropertyMetadata("Asia/Kolkata"));
+            DependencyProperty.Register("TimeZone", typeof(string), typeof(Clock), new PropertyMetadata(null));
 
         public DateTime? Time
         {
@@ -52,7 +52,7 @@ namespace Drizzle.UI.UWP.UserControls
             this.InitializeComponent();
 
             dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 1, 0);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
             dispatcherTimer.Start();
         }
 

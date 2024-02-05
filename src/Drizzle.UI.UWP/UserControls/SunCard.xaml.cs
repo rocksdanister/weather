@@ -65,7 +65,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty TimeZoneProperty =
-            DependencyProperty.Register("TimeZone", typeof(string), typeof(SunCard), new PropertyMetadata("Asia/Kolkata"));
+            DependencyProperty.Register("TimeZone", typeof(string), typeof(SunCard), new PropertyMetadata(null));
 
         private readonly DispatcherTimer dispatcherTimer = new();
 

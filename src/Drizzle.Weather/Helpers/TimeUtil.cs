@@ -20,6 +20,9 @@ namespace Drizzle.Weather.Helpers
 
         public static DateTime? GetLocalTime(DateTime time, string timezone)
         {
+            if (string.IsNullOrEmpty(timezone))
+                return null;
+
             try
             {
                 var timeZoneInfo = TZConvert.GetTimeZoneInfo(timezone);
