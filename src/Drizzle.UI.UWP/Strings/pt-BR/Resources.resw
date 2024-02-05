@@ -379,10 +379,10 @@
     <value>Aproximação de profundidade por IA</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>O acesso à localização foi negado, verifique as configurações do Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>O acesso à localização não está especificado, verifique as configurações do Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Ajuda</value>
@@ -394,7 +394,7 @@
     <value>Configurações</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>A chave de API necessária está faltando no provedor de tempo selecionado, configurações revertidas.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Automático</value>
@@ -499,10 +499,10 @@
     <value>Muito Alto</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>Chave API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Insira a chave API requerida</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Fonte de dados meteorológicos</value>
@@ -541,7 +541,7 @@
     <value>Majoritariamente limpo</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Neblina</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Parcialmente nublado</value>
@@ -556,7 +556,7 @@
     <value>Formação de névoa de sincelo</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Nevoeiro</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Chuvisco leve</value>
@@ -574,7 +574,7 @@
     <value>Chuvisco Congelante Denso</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Poeira</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Chuva leve</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Hei, jeg er Dani John også kjent som rocksdanister. Jeg lager morsom programvare. som dette Takk for at dutar deg tid til å se på arbeidet mitt.</value>
+    <value>Hei, jeg er Dani John også kjent som rocksdanister. Jeg lager morsom programvare som dette. Takk for at du tar deg tid til å se på arbeidet mitt.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>God</value>
@@ -274,10 +274,10 @@
     <value>Åpne logg</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Pause lyden når programmet ikke er i forgrunnen</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Pause animasjoner når programmet ikke er i forgrunnen</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Retningslinjer for datainnsamling</value>
@@ -316,7 +316,7 @@
     <value>Forstørr</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>Reduser animasjoner og bevegelse</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
     <value>Sist oppdatert</value>
@@ -379,10 +379,10 @@
     <value>AI dybdeantagelse</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Posisjonsdata er utilgjengelig, sjekk Windows-instillinger.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Posisjonsdatatilgang er uspesifisert, sjekk Windows-instillinger.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Hjelp</value>
@@ -394,7 +394,7 @@
     <value>Innstillinger</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Påkrevd API-nøkkel mangler for valgt værdataleverandør, innstillinger er tilbakestilt.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Auto</value>
@@ -499,10 +499,10 @@
     <value>Veldig Høy</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>API-nøkkel</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Angi påkrevd API-nøkkel</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Værdatakilde</value>
@@ -541,7 +541,7 @@
     <value>Hovedsakelig klar</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Lett tåke</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Delvis Skyet</value>
@@ -556,7 +556,7 @@
     <value>Kondensskapende tåke</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Dis</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Lett yr</value>
@@ -574,7 +574,7 @@
     <value>Tett underkjølt Duskregn</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Støv</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Litt regn</value>

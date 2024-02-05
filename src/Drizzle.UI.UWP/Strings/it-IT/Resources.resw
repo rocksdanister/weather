@@ -274,7 +274,7 @@
     <value>Apri i log</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Blocca effetti sonori quando l' applicazione non è in primo piano</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Blocca effetti grafici quando l'applicazione non è in primo piano</value>
@@ -379,10 +379,10 @@
     <value>Approssimazione di profondità IA</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Accesso alla posizione negato, controllare le impostazioni Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Accesso alla posizione non specificato, controllare le impostazioni Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Aiuto</value>
@@ -394,7 +394,7 @@
     <value>Impostazioni</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>LA chiave API richiesta è mancante per il provider meteo selezionato, le impostazioni sono state annullate.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Automatico</value>
@@ -499,10 +499,10 @@
     <value>Molto Alto</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>Chiave API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Inserisci la chiave API richiesta</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Fonte dati meteo</value>
@@ -541,7 +541,7 @@
     <value>Per lo più sereno</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Nebbiolina</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Parzialmente nuvoloso</value>
@@ -556,7 +556,7 @@
     <value>Brina</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Foschia</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Pioviggine Leggera</value>
@@ -574,7 +574,7 @@
     <value>Pioviggine Sopraffusa Densa</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Polvere</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Pioggia Leggera</value>

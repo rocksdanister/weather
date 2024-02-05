@@ -379,10 +379,10 @@
     <value>AI 景深近似</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>无法获取位置信息，请检查Windows设置</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>未指定访问位置的权限，请指定Windows设置</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>帮助</value>
@@ -394,7 +394,7 @@
     <value>设置</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>所选天气服务提供商缺少API密钥，设置已还原</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>自动</value>
@@ -499,10 +499,10 @@
     <value>非常高</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>API密钥</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>输入所需的API密钥</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>天气数据源</value>
@@ -541,7 +541,7 @@
     <value>大部晴朗</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>薄雾</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>晴间多云</value>
@@ -556,7 +556,7 @@
     <value>沉积雾凇</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>霾</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>毛毛细雨</value>
@@ -574,7 +574,7 @@
     <value>密冻细雨</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>沙尘</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>微微小雨</value>
