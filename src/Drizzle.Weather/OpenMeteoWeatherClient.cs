@@ -92,45 +92,50 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastWeatherUnits(WeatherUnits.metric),
             ForecastInterval = 1,
         };
+
+        var index = 0;
         var dailyWeather = new List<DailyWeather>();
-        var dailyVisibility = GetDailyValue(response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyHumidity = GetDailyValue(response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyDewPoint = GetDailyValue(response.Hourly.Dewpoint_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyPressure = GetDailyValue(response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyTemperature = GetDailyValue(response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyApparentTemperature = GetDailyValue(response.Hourly.Apparent_temperature.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        var dailyWeatherCode = GetDailyValue(response.Hourly.Weathercode.Select(x => x is null ? 0 : (float)x), response.Timezone);
-        for (int i = 0; i < 7; i++)
+        var parsedResponse = GroupByDate(response);
+        var currentTime = TimeUtil.GetLocalTime(response.Timezone) ?? DateTime.Now;
+        foreach (var item in parsedResponse)
         {
+            var date = item.Key;
+            var value = item.Value;
+            var currentHourValue = value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First();
+
+            // If data is starting from previous day then discard, can happen(?) if close to midnight.
+            if (index == 0 && date.Date != currentTime.Date)
+                continue;
+
             var weather = new DailyWeather
             {
                 // Hourly weather for today, otherwise severe weather for the day
-                WeatherCode = i == 0 ? (int)dailyWeatherCode[i] : (int)response.Daily.Weathercode[i],
-                Date = ISO8601ToDateTime(response.Daily.Time[i]),
-                Sunrise = ISO8601ToDateTime(response.Daily.Sunrise[i]),
-                Sunset = ISO8601ToDateTime(response.Daily.Sunset[i]),
-                TemperatureMin = response.Daily.Temperature_2m_min[i],
-                TemperatureMax = response.Daily.Temperature_2m_max[i],
-                ApparentTemperatureMin = response.Daily.Apparent_temperature_min[i],
-                ApparentTemperatureMax = response.Daily.Apparent_temperature_max[i],
-                WindSpeed = response.Daily.Windspeed_10m_max[i],
-                GustSpeed = response.Daily.Windgusts_10m_max[i],
-                Temperature = dailyTemperature[i],
-                ApparentTemperature = dailyApparentTemperature[i],
-                Visibility = dailyVisibility[i]/1000f, //meter -> km
-                Humidity = (int)dailyHumidity[i],
-                DewPoint = dailyDewPoint[i],
-                Pressure = dailyPressure[i],
-                WindDirection = response.Daily.Winddirection_10m_dominant[i],
-                HourlyWeatherCode = response.Hourly.Weathercode.Select(x => x is null ? 0 : (int)x).Skip(i * 24).Take(24).ToArray(),
-                HourlyTemperature = response.Hourly.Temperature_2m.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                HourlyVisibility = response.Hourly.Visibility.Select(x => x is null ? 0 : (float)x/1000).Skip(i * 24).Take(24).ToArray(),
-                HourlyHumidity = response.Hourly.Relativehumidity_2m.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                HourlyPressure = response.Hourly.Pressure_msl.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                HourlyWindSpeed = response.Hourly.Windspeed_10m.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                //HourlyTime = response.Hourly.Time.Select(x => IsoToDateTime(x)).ToArray(),
+                WeatherCode = index == 0 ? (int)currentHourValue.WeatherCode : (int)value.Daily.WeatherCode,
+                Date = date,
+                Sunrise = value.Daily?.Sunrise,
+                Sunset = value.Daily?.Sunset,
+                TemperatureMin = value.Daily?.TemperatureMin,
+                TemperatureMax = value.Daily?.TemperatureMax,
+                ApparentTemperatureMin = value.Daily?.ApparentTemperatureMin,
+                ApparentTemperatureMax = value.Daily?.ApparentTemperatureMax,
+                WindSpeed = value.Daily?.WindSpeed,
+                GustSpeed = value.Daily?.GustSpeed,
+                Temperature = currentHourValue.Temperature,
+                ApparentTemperature = currentHourValue.ApparentTemperature,
+                Visibility = currentHourValue.Visibility / 1000f, //meter -> km
+                Humidity = (int)currentHourValue.Humidity,
+                DewPoint = currentHourValue.DewPoint,
+                Pressure = currentHourValue.Pressure,
+                WindDirection = value.Daily?.WindDirection,
+                HourlyWeatherCode = value.Hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
+                HourlyTemperature = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
+                HourlyVisibility = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Visibility).ToArray(),
+                HourlyHumidity = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Humidity).ToArray(),
+                HourlyPressure = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Pressure).ToArray(),
+                HourlyWindSpeed = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.WindSpeed).ToArray(),
             };
             dailyWeather.Add(weather);
+            index++;
         }
         result.FetchTime = cacheService.LastAccessTime;
         result.Daily = dailyWeather;
@@ -141,6 +146,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
     {
         var options = new AirQualityOptions
         {
+            Timezone = "auto",
             Latitude = latitude,
             Longitude = longitude,
             Hourly = new()
@@ -163,20 +169,31 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Units = new ForecastAirQualityUnits(WeatherUnits.metric),
             ForecastInterval = 1,
         };
+
+        var index = 0;
         var dailyAirQuality = new List<DailyAirQuality>();
-        var dailyAQI = GetDailyValue(response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
-        var dailyUV = GetDailyValue(response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x), response.Timezone, 5);
-        for (int i = 0; i < 5; i++)
+        var parsedResponse = GroupByDate(response);
+        var currentTime = TimeUtil.GetLocalTime(response.Timezone) ?? DateTime.Now;
+        foreach (var item in parsedResponse)
         {
+            var date = item.Key;
+            var value = item.Value;
+            var currentHourValue = value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First();
+
+            // If data is starting from previous day then discard, can happen(?) if close to midnight.
+            if (index == 0 && date.Date != currentTime.Date)
+                continue;
+
             var airQuality = new DailyAirQuality
             {
-                UV = dailyUV[i],
-                AQI = (int)dailyAQI[i],
-                HourlyAQI = response.Hourly.Us_aqi.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                HourlyUV = response.Hourly.Uv_index.Select(x => x is null ? 0 : (float)x).Skip(i * 24).Take(24).ToArray(),
-                Date = ISO8601ToDateTime(response.Hourly.Time[i * 24]),
+                Date = date,
+                UV = currentHourValue.UV,
+                AQI = (int)(currentHourValue.AQI ?? 0),
+                HourlyAQI = value.Hourly.Select(x => x.AQI is null ? 0 : (float)x.AQI).ToArray(),
+                HourlyUV = value.Hourly.Select(x => x.UV is null ? 0 : (float)x.UV).ToArray(),
             };
             dailyAirQuality.Add(airQuality);
+            index++;
         }
         result.FetchTime = cacheService.LastAccessTime;
         result.Daily = dailyAirQuality;
@@ -467,56 +484,120 @@ public class OpenMeteoWeatherClient : IWeatherClient
 
     #region helpers
 
-    private static IReadOnlyList<float> GetDailyValue(IEnumerable<float> values, string timezone, int days = 7)
+    private static Dictionary<DateTime, AirQualityForecastParser> GroupByDate(AirQuality forecast)
     {
-        var result = new List<float>();
-        var currentHour = TimeUtil.GetLocalTime(timezone)?.Hour ?? DateTime.Now.Hour;
-        for (int i = 0; i < days; i++)
+        var dailyData = new Dictionary<DateTime, AirQualityForecastParser>();
+        for (var i = 0; i < forecast.Hourly.Time.Count(); i++)
         {
-            // 0 - 23, 24 - 47, 48 - 72..
-            var items = values.Skip(i * 24).Take(24);
-            result.Add(items.ElementAt(currentHour));
+            var time = TimeUtil.ISO8601ToDateTime(forecast.Hourly.Time[i]);
+            var date = time.Date;
+
+            if (!dailyData.ContainsKey(date))
+                dailyData[date] = new();
+
+            dailyData[date].Hourly.Add(new HourlyAirQualityParser
+            {
+                Time = time,
+                AQI = forecast.Hourly.Us_aqi[i],
+                UV = forecast.Hourly.Uv_index[i]
+            });
         }
-        return result;
+        return dailyData;
     }
 
-    //private static IReadOnlyList<float> GetMidrangeDaily(IEnumerable<float> values, int days = 7)
-    //{
-    //    var result = new List<float>();
-    //    for (int i = 0; i < days; i++)
-    //    {
-    //        // 0 - 23, 24 - 47, 48 - 72..
-    //        var items = values.Skip(i * 24).Take(24);
-    //        var midrange = Midrange(items);
-    //        result.Add(midrange);
-    //    }
-    //    return result;
-    //}
+    private static Dictionary<DateTime, WeatherForecastParser> GroupByDate(WeatherForecast forecast)
+    {
+        var dailyData = new Dictionary<DateTime, WeatherForecastParser>();
+        for (int i = 0; i < forecast.Hourly.Time.Count(); i++)
+        {
+            var time = TimeUtil.ISO8601ToDateTime(forecast.Hourly.Time[i]);
+            var date = time.Date;
 
-    //private static IReadOnlyList<float> GetAverageDaily(IEnumerable<float> values, int days = 7)
-    //{
-    //    var result = new List<float>();
-    //    for (int i = 0; i < days; i++)
-    //    {
-    //        // 0 - 23, 24 - 47, 48 - 72..
-    //        var items = values.Skip(i * 24).Take(24);
-    //        if (items is not null)
-    //        {
-    //            var average = Average(items);
-    //            result.Add(average);
-    //        }
-    //    }
-    //    return result;
-    //}
+            if (!dailyData.ContainsKey(date))
+                dailyData[date] = new();
 
-    //private static float Midrange(float min, float max) => (min + max) / 2f;
+            dailyData[date].Hourly.Add(new HourlyWeatherParser
+            {
+                Time = time,
+                WeatherCode = forecast.Hourly.Weathercode[i],
+                Visibility = forecast.Hourly.Visibility[i],
+                Temperature = forecast.Hourly.Temperature_2m[i],
+                ApparentTemperature = forecast.Hourly.Apparent_temperature[i],
+                Humidity = forecast.Hourly.Relativehumidity_2m[i],
+                DewPoint = forecast.Hourly.Dewpoint_2m[i],
+                Pressure = forecast.Hourly.Pressure_msl[i],
+                WindSpeed = forecast.Hourly.Windspeed_10m[i],
+            });
+        }
 
-    //private static float Midrange(IEnumerable<float> values) => (values.Min() + values.Max()) / 2f;
+        foreach (var item in dailyData)
+        {
+            var date = item.Key;
+            var index = Array.FindIndex(forecast.Daily.Time, x => TimeUtil.ISO8601ToDateTime(x).Date == date);
+            if (index >= 0)
+            {
+                dailyData[date].Daily = new DailyWeatherParser()
+                {
+                    WeatherCode = (int)forecast.Daily.Weathercode[index],
+                    TemperatureMin = forecast.Daily.Temperature_2m_min[index],
+                    TemperatureMax = forecast.Daily.Temperature_2m_max[index],
+                    ApparentTemperatureMin = forecast.Daily.Apparent_temperature_min[index],
+                    ApparentTemperatureMax = forecast.Daily.Apparent_temperature_max[index],
+                    WindDirection = forecast.Daily.Winddirection_10m_dominant[index],
+                    WindSpeed = forecast.Daily.Windspeed_10m_max[index],
+                    GustSpeed = forecast.Daily.Windgusts_10m_max[index],
+                    Sunrise = TimeUtil.ISO8601ToDateTime(forecast.Daily.Sunrise[index]),
+                    Sunset = TimeUtil.ISO8601ToDateTime(forecast.Daily.Sunset[index]),
+                };
+            }
+        }
+        return dailyData;
+    }
 
-    //private static float Average(IEnumerable<float> values) => values.Sum() / values.Count();
+    private sealed class AirQualityForecastParser
+    {
+        public List<HourlyAirQualityParser> Hourly = [];
+    }
 
-    private static DateTime ISO8601ToDateTime(string iso8601String) =>
-        DateTime.Parse(iso8601String, CultureInfo.InvariantCulture);
+    private sealed class WeatherForecastParser
+    {
+        public List<HourlyWeatherParser> Hourly = [];
+        public DailyWeatherParser Daily;
+    }
+
+    private sealed class HourlyAirQualityParser
+    {
+        public DateTime Time { get; set; }
+        public float? AQI { get; set; }
+        public float? UV { get; set; }
+    }
+
+    private sealed class HourlyWeatherParser
+    {
+        public DateTime Time { get; set; }
+        public int? WeatherCode { get; set; }
+        public float? Temperature { get; set; }
+        public float? ApparentTemperature { get; set; }
+        public float? Visibility { get; set; }
+        public float? Humidity { get; set; }
+        public float? DewPoint { get; set; }
+        public float? Pressure { get; set; }
+        public float? WindSpeed { get; set; }
+    }
+
+    private sealed class DailyWeatherParser
+    {
+        public int? WeatherCode { get; set; }
+        public float? TemperatureMin { get; set; }
+        public float? TemperatureMax { get; set; }
+        public float? ApparentTemperatureMin { get; set; }
+        public float? ApparentTemperatureMax { get; set; }
+        public float? WindDirection { get; set; }
+        public float? WindSpeed { get; set; }
+        public float? GustSpeed { get; set; }
+        public DateTime? Sunrise { get; set; }
+        public DateTime? Sunset { get; set; }
+    }
 
     #endregion //helpers
 }

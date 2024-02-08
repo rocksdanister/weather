@@ -75,5 +75,10 @@ namespace Drizzle.Weather.Helpers
             var time = UnixToDateTime(unix);
             return (DateTime)GetLocalTime(time, timezone);
         }
+
+        public static DateTime ISO8601ToDateTime(string iso8601String)
+        {
+            return DateTime.Parse(iso8601String, CultureInfo.InvariantCulture);
+        }
     }
 }
