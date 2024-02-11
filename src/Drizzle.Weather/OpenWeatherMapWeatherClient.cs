@@ -70,7 +70,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             var weather = new DailyWeather()
             {
                 WeatherCode = (int)OpenWeatherMapCodeToWmo(selection.Weather[0].Id),
-                Date = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
+                StartTime = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
                 // Only current day
                 Sunrise = index == 0 ? TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunrise, result.TimeZone) : null,
                 Sunset = index == 0 ? TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunset, result.TimeZone) : null,
@@ -127,7 +127,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             var selection = GetValueCloseToTime(day, result.TimeZone);
             var airQuality = new DailyAirQuality
             {
-                Date = TimeUtil.UnixToLocalDateTime(selection.Dt, result.TimeZone),
+                StartTime = TimeUtil.UnixToLocalDateTime(selection.Dt, result.TimeZone),
                 // Only calculating for the current day for the time being
                 AQI = index == 0 ? CalculateAqi(currentResponse.List[0].Components) : null,
                 HourlyAQI = index == 0 ? day.Select(x => CalculateAqi(x.Components) ?? 0f).ToArray() : null,

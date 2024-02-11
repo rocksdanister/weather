@@ -10,7 +10,7 @@ public class DailyAirQuality
 
     public float? UV { get; set; }
 
-    public DateTime Date { get; set; }
+    public DateTime StartTime { get; set; }
 
     public float[] HourlyAQI { get; set; }
 

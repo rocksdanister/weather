@@ -101,17 +101,22 @@ public class OpenMeteoWeatherClient : IWeatherClient
         {
             var date = item.Key;
             var value = item.Value;
-            var currentHourValue = value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First();
-
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && date.Date != currentTime.Date)
                 continue;
 
+            var currentValue = index == 0 ?
+                // Select the weather closest to current time.
+                value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First() :
+                // Select a point in time for the severe predicted weather for the day.
+                value.Hourly.Find(x => x.WeatherCode == value.Daily.WeatherCode) ??
+                // Alternatively select a point in time for maximum occuring weather condition.
+                value.Hourly.OrderByDescending(code => value.Hourly.Count(hourly => hourly.WeatherCode == code.WeatherCode)).First();
+
             var weather = new DailyWeather
             {
-                // Hourly weather for today, otherwise severe weather for the day
-                WeatherCode = index == 0 ? (int)currentHourValue.WeatherCode : (int)value.Daily.WeatherCode,
-                Date = date,
+                StartTime = value.Hourly[0].Time,
+                WeatherCode = (int)currentValue.WeatherCode,
                 Sunrise = value.Daily?.Sunrise,
                 Sunset = value.Daily?.Sunset,
                 TemperatureMin = value.Daily?.TemperatureMin,
@@ -120,12 +125,12 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 ApparentTemperatureMax = value.Daily?.ApparentTemperatureMax,
                 WindSpeed = value.Daily?.WindSpeed,
                 GustSpeed = value.Daily?.GustSpeed,
-                Temperature = currentHourValue.Temperature,
-                ApparentTemperature = currentHourValue.ApparentTemperature,
-                Visibility = currentHourValue.Visibility / 1000f, //meter -> km
-                Humidity = (int)currentHourValue.Humidity,
-                DewPoint = currentHourValue.DewPoint,
-                Pressure = currentHourValue.Pressure,
+                Temperature = currentValue.Temperature,
+                ApparentTemperature = currentValue.ApparentTemperature,
+                Visibility = currentValue.Visibility / 1000f, //meter -> km
+                Humidity = (int?)currentValue.Humidity,
+                DewPoint = currentValue.DewPoint,
+                Pressure = currentValue.Pressure,
                 WindDirection = value.Daily?.WindDirection,
                 HourlyWeatherCode = value.Hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
                 HourlyTemperature = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
@@ -178,17 +183,22 @@ public class OpenMeteoWeatherClient : IWeatherClient
         {
             var date = item.Key;
             var value = item.Value;
-            var currentHourValue = value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First();
 
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && date.Date != currentTime.Date)
                 continue;
 
+            var currentValue = index == 0 ?
+                // Select the pollution closest to current time.
+                value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First() :
+                // Select worst case pollution.
+                value.Hourly.OrderByDescending(x => x.AQI).First();
+
             var airQuality = new DailyAirQuality
             {
-                Date = date,
-                UV = currentHourValue.UV,
-                AQI = (int)(currentHourValue.AQI ?? 0),
+                StartTime = value.Hourly[0].Time,
+                UV = currentValue.UV,
+                AQI = (int)(currentValue.AQI ?? 0),
                 HourlyAQI = value.Hourly.Select(x => x.AQI is null ? 0 : (float)x.AQI).ToArray(),
                 HourlyUV = value.Hourly.Select(x => x.UV is null ? 0 : (float)x.UV).ToArray(),
             };
@@ -559,17 +569,17 @@ public class OpenMeteoWeatherClient : IWeatherClient
         public List<HourlyAirQualityParser> Hourly = [];
     }
 
-    private sealed class WeatherForecastParser
-    {
-        public List<HourlyWeatherParser> Hourly = [];
-        public DailyWeatherParser Daily;
-    }
-
     private sealed class HourlyAirQualityParser
     {
         public DateTime Time { get; set; }
         public float? AQI { get; set; }
         public float? UV { get; set; }
+    }
+
+    private sealed class WeatherForecastParser
+    {
+        public List<HourlyWeatherParser> Hourly = [];
+        public DailyWeatherParser Daily;
     }
 
     private sealed class HourlyWeatherParser

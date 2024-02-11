@@ -50,7 +50,5 @@ public class DailyWeather
 
     public float[] HourlyWindSpeed { get; set; }
 
-    public DateTime Date { get; set; }
-
-    //public IReadOnlyList<DateTime> HourlyTime { get; set; }
+    public DateTime StartTime { get; set; }
 }

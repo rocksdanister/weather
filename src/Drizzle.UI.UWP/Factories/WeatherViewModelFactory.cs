@@ -71,7 +71,7 @@ namespace Drizzle.UI.UWP.Factories
                     HourlyHumidity = weatherForecast.Daily[i].HourlyHumidity,
                     HourlyPressure = weatherForecast.Daily[i].HourlyPressure,
                     HourlyWindSpeed = weatherForecast.Daily[i].HourlyWindSpeed,
-                    Date = weatherForecast.Daily[i].Date,
+                    Date = weatherForecast.Daily[i].StartTime,
                     Sunrise = weatherForecast.Daily[i].Sunrise,
                     Sunset = weatherForecast.Daily[i].Sunset,
                     IsDaytime = isDayTime,
