@@ -1,4 +1,5 @@
-﻿using Drizzle.Models.Weather;
+﻿using Drizzle.Common;
+using Drizzle.Models.Weather;
 using Drizzle.Models.Weather.OpenMeteo;
 using GeoTimeZone;
 using System;
@@ -109,6 +110,50 @@ public static class WeatherUtil
         return forecast;
     }
 
+    public static WeatherSeverityLevel GetSeverity(WmoWeatherCode weatherCode)
+    {
+        switch (weatherCode)
+        {
+            case WmoWeatherCode.ClearSky:
+            case WmoWeatherCode.MainlyClear:
+            case WmoWeatherCode.PartlyCloudy:
+            case WmoWeatherCode.Overcast:
+            case WmoWeatherCode.Haze:
+            case WmoWeatherCode.Dust:
+                return WeatherSeverityLevel.NotSevere;
+            case WmoWeatherCode.Mist:
+            case WmoWeatherCode.Fog:
+            case WmoWeatherCode.DepositingRimeFog:
+            case WmoWeatherCode.LightDrizzle:
+            case WmoWeatherCode.ModerateDrizzle:
+            case WmoWeatherCode.SlightRain:
+            case WmoWeatherCode.SlightSnowFall:
+            case WmoWeatherCode.SnowGrains:
+            case WmoWeatherCode.SlightRainShowers:
+            case WmoWeatherCode.SlightSnowShowers:
+                return WeatherSeverityLevel.Mild;
+            case WmoWeatherCode.DenseDrizzle:
+            case WmoWeatherCode.LightFreezingDrizzle:
+            case WmoWeatherCode.DenseFreezingDrizzle:
+            case WmoWeatherCode.ModerateRain:
+            case WmoWeatherCode.LightFreezingRain:
+            case WmoWeatherCode.ModerateSnowFall:
+            case WmoWeatherCode.ModerateRainShowers:
+                return WeatherSeverityLevel.Moderate;
+            case WmoWeatherCode.HeavyRain:
+            case WmoWeatherCode.HeavyFreezingRain:
+            case WmoWeatherCode.HeavySnowFall:
+            case WmoWeatherCode.ViolentRainShowers:
+            case WmoWeatherCode.HeavySnowShowers:
+            case WmoWeatherCode.Thunderstorm:
+            case WmoWeatherCode.ThunderstormLightHail:
+            case WmoWeatherCode.ThunderstormHeavyHail:
+                return WeatherSeverityLevel.Severe;
+            default:
+                throw new NotImplementedException();
+        }
+    }
+
     // Lifted operators
     // Ref: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
@@ -123,4 +168,12 @@ public static class WeatherUtil
     public static float? KmToFt(float? distace) => distace * 3280.839895f;
 
     public static float? FtToKm(float? feet) => feet / 3280.839895f;
+
+    public enum WeatherSeverityLevel
+    {
+        NotSevere = 0,
+        Mild = 1,
+        Moderate = 2,
+        Severe = 3
+    }
 }

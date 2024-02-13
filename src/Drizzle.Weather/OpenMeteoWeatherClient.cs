@@ -111,7 +111,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 // Select a point in time for the severe predicted weather for the day.
                 value.Hourly.Find(x => x.WeatherCode == value.Daily.WeatherCode) ??
                 // Alternatively select a point in time for maximum occuring weather condition.
-                value.Hourly.OrderByDescending(code => value.Hourly.Count(hourly => hourly.WeatherCode == code.WeatherCode)).First();
+                value.Hourly.Where(x => x.WeatherCode != null).OrderByDescending(code => value.Hourly.Count(hourly => hourly.WeatherCode == code.WeatherCode)).First();
 
             var weather = new DailyWeather
             {
@@ -192,7 +192,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 // Select the pollution closest to current time.
                 value.Hourly.OrderBy(x => Math.Abs((x.Time.TimeOfDay - currentTime.TimeOfDay).Ticks)).First() :
                 // Select worst case pollution.
-                value.Hourly.OrderByDescending(x => x.AQI).First();
+                value.Hourly.Where(x => x.AQI != null).OrderByDescending(x => x.AQI).First();
 
             var airQuality = new DailyAirQuality
             {
