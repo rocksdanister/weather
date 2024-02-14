@@ -274,7 +274,7 @@
     <value>Отвори лога</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Спиране на звука, когато приложението не е на преден план</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Паузирай визуализациите, когато приложението не е на преден план</value>
@@ -379,10 +379,10 @@
     <value>Приближаване на дълбочината с AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Достъпът до местоположението е отказан, проверете настройките на Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Достъпът до местоположението е неустановен, проверете настройките на Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Помощ</value>
@@ -394,7 +394,7 @@
     <value>Настройки</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Задължителен API ключ липсва за избрания доставчик на информация за времето, настройките са върнати.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Автом</value>
@@ -499,10 +499,10 @@
     <value>Много висок</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>API ключ</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Въведете необходимия API ключ</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Източник на метеорологични данни</value>
@@ -541,7 +541,7 @@
     <value>Предимно ясно</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Мъгла</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Частична облачност</value>
@@ -574,7 +574,7 @@
     <value>Гъст дъжд</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Прах</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Слаб дъжд</value>
