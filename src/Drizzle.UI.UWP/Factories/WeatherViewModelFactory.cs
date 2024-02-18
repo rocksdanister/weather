@@ -39,10 +39,6 @@ namespace Drizzle.UI.UWP.Factories
             weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;
             weatherVm.ForecastInterval = weatherForecast.ForecastInterval;
             weatherVm.ForecastAQInterval = airQualityForecast.ForecastInterval;
-            // If 24hr data available then skip 1, else show all
-            weatherVm.GraphDisplayStep = weatherForecast.ForecastInterval == 1 ? 2 : 1;
-            weatherVm.GraphSmallDisplayStep = weatherForecast.ForecastInterval == 1 ? 3 : 1;
-            weatherVm.GraphAQSmallDisplayStep = airQualityForecast.ForecastInterval == 1 ? 3 : 1;
             var isDayTime = TimeUtil.IsDaytime(weatherForecast.TimeZone);
             for (int i = 0; i < weatherForecast.Daily.Count(); i++)
             {

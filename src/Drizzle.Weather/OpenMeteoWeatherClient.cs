@@ -113,9 +113,12 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 // Alternatively select a point in time for maximum occuring weather condition.
                 value.Hourly.Where(x => x.WeatherCode != null).OrderByDescending(code => value.Hourly.Count(hourly => hourly.WeatherCode == code.WeatherCode)).First();
 
+            // Skip previous hour values if present.
+            var hourly = index == 0 ? value.Hourly.Where(x => x.Time >= currentValue.Time) : value.Hourly;
+
             var weather = new DailyWeather
             {
-                StartTime = value.Hourly[0].Time,
+                StartTime = hourly.First().Time,
                 WeatherCode = (int)currentValue.WeatherCode,
                 Sunrise = value.Daily?.Sunrise,
                 Sunset = value.Daily?.Sunset,
@@ -132,12 +135,12 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 DewPoint = currentValue.DewPoint,
                 Pressure = currentValue.Pressure,
                 WindDirection = value.Daily?.WindDirection,
-                HourlyWeatherCode = value.Hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
-                HourlyTemperature = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
-                HourlyVisibility = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Visibility).ToArray(),
-                HourlyHumidity = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Humidity).ToArray(),
-                HourlyPressure = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.Pressure).ToArray(),
-                HourlyWindSpeed = value.Hourly.Select(x => x.Temperature is null ? 0 : (float)x.WindSpeed).ToArray(),
+                HourlyWeatherCode = hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
+                HourlyTemperature = hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
+                HourlyVisibility = hourly.Select(x => x.Visibility is null ? 0 : (float)x.Visibility).ToArray(),
+                HourlyHumidity = hourly.Select(x => x.Humidity is null ? 0 : (float)x.Humidity).ToArray(),
+                HourlyPressure = hourly.Select(x => x.Pressure is null ? 0 : (float)x.Pressure).ToArray(),
+                HourlyWindSpeed = hourly.Select(x => x.WindSpeed is null ? 0 : (float)x.WindSpeed).ToArray(),
             };
             dailyWeather.Add(weather);
             index++;
@@ -194,13 +197,16 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 // Select worst case pollution.
                 value.Hourly.Where(x => x.AQI != null).OrderByDescending(x => x.AQI).First();
 
+            // Skip previous hour values if present.
+            var hourly = index == 0 ? value.Hourly.Where(x => x.Time >= currentValue.Time) : value.Hourly;
+
             var airQuality = new DailyAirQuality
             {
-                StartTime = value.Hourly[0].Time,
+                StartTime = hourly.First().Time,
                 UV = currentValue.UV,
                 AQI = (int)(currentValue.AQI ?? 0),
-                HourlyAQI = value.Hourly.Select(x => x.AQI is null ? 0 : (float)x.AQI).ToArray(),
-                HourlyUV = value.Hourly.Select(x => x.UV is null ? 0 : (float)x.UV).ToArray(),
+                HourlyAQI = hourly.Select(x => x.AQI is null ? 0 : (float)x.AQI).ToArray(),
+                HourlyUV = hourly.Select(x => x.UV is null ? 0 : (float)x.UV).ToArray(),
             };
             dailyAirQuality.Add(airQuality);
             index++;

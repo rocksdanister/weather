@@ -53,22 +53,6 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty ValueFormatProperty =
             DependencyProperty.Register("ValueFormat", typeof(string), typeof(DailyGraph), new PropertyMetadata("{0}"));
 
-        /// <summary>
-        /// Pattern to show data points, =1 show all, =2 skip 1..
-        /// </summary>
-        public int Step
-        {
-            get { return (int)GetValue(StepProperty); }
-            set
-            {
-                SetValue(StepProperty, value);
-                canvas?.Invalidate();
-            }
-        }
-
-        public static readonly DependencyProperty StepProperty =
-            DependencyProperty.Register("Step", typeof(int), typeof(DailyGraph), new PropertyMetadata(1, OnDependencyPropertyChanged));
-
         public float? MinValue
         {
             get { return (float?)GetValue(MinValueProperty); }
@@ -124,13 +108,6 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty Gradient1Property =
             DependencyProperty.Register("Gradient1", typeof(Color), typeof(DailyGraph), new PropertyMetadata(Color.FromArgb(100, 255, 255, 255)));
 
-        private static void OnDependencyPropertyChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
-        {
-            var obj = s as DailyGraph;
-            if (e.Property == StepProperty)
-                obj.Step = (int)e.NewValue;
-        }
-
         public HourlyConditions[] Conditions
         {
             get { return (HourlyConditions[])GetValue(ConditionsProperty); }
@@ -143,22 +120,7 @@ namespace Drizzle.UI.UWP.UserControls
         public int[] WeatherCodes
         {
             get { return (int[])GetValue(WeatherCodesProperty); }
-            set
-            {
-                var stepValue = value?.Where((value, index) => (index % Step) == 0).ToArray();
-                SetValue(WeatherCodesProperty, stepValue);
-
-                Conditions = [];
-                if (stepValue is not null)
-                {
-                    Conditions = new HourlyConditions[stepValue.Length];
-                    for (int i = 0; i < stepValue.Length; i++)
-                    {
-                        var hour = StartTime.Hour + i * Step * Interval;
-                        Conditions[i] = new HourlyConditions(stepValue[i], hour >= 6 && hour < 18, 0, 0);
-                    }
-                }
-            }
+            set { SetValue(WeatherCodesProperty, value); }
         }
 
         public static readonly DependencyProperty WeatherCodesProperty =
@@ -192,18 +154,23 @@ namespace Drizzle.UI.UWP.UserControls
             // Keeping track for icons
             var pts = new List<Vector2>();
 
-            using var brush = new CanvasLinearGradientBrush(canvas, new CanvasGradientStop[] {
+            using var brush = new CanvasLinearGradientBrush(canvas, [
                 new CanvasGradientStop { Position = 0.0f, Color = Gradient1 },
                 new CanvasGradientStop { Position = 1.0f, Color = Colors.Transparent }
-            });
+            ]);
             brush.StartPoint = new Vector2(0, 0);
             brush.EndPoint = new Vector2(0, (float)canvas.ActualHeight);
 
             int movingAverageRange = 4;
+            // Maximum number of elements to draw
             int segments = Value.Count();
             var min = MinValue != null ? MinValue : Value.Min();
             var max = MaxValue != null ? MaxValue : Value.Max();
             var normalizedData = Value.Select(x => ConvertToRange((float)min, (float)max, 0.25f, 0.55f, x)).ToArray();
+            // (Label) Let each segment take maximum 42 units width.
+            var maxSegments = (int)canvas.ActualWidth / 42;
+            // (Label) Number of elements to skip in between to fit the data in the graph
+            var step = segments >= maxSegments ? (int)Math.Ceiling((double)segments / maxSegments) : 1;
 
             using var cpb = new CanvasPathBuilder(args.DrawingSession);
             cpb.BeginFigure(new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))));
@@ -214,7 +181,7 @@ namespace Drizzle.UI.UWP.UserControls
 
             int previousRangeLeft = 0;
             int previousRangeRight = 0;
-            var distanceMultiplier = canvas.ActualWidth / segments;
+            var distanceMultiplier = (canvas.ActualWidth) / segments;
 
             for (int i = 1; i < Value.Count(); i++)
             {
@@ -237,12 +204,12 @@ namespace Drizzle.UI.UWP.UserControls
 
                 var pos = new Vector2((float)(i * distanceMultiplier), (float)(canvas.ActualHeight * (1 - total / (range * 2 + 1))));
                 // Label alternatingly
-                if (i % Step == 0)
+                if (i % step == 0)
                 {
-                    DrawText(GetElapsedTimeString(StartTime, Interval * i), args, new Vector2(pos.X + 5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
+                    DrawText(GetElapsedTimeString(StartTime, Interval * i), args, new Vector2(pos.X, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
                     //DrawText($"{Value[i]:00.0}{Unit}", args, pos + new Vector2(0f, -25f), Colors.White); // Y-axis
                     DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(0f, -25f), textColor); // Y-axis
-                    pts.Add(new Vector2(pos.X + 5f, (float)canvas.ActualHeight - 63f));
+                    pts.Add(new Vector2(pos.X, (float)canvas.ActualHeight - 63f));
                 }
                 cpb.AddLine(pos);
             }
@@ -260,13 +227,7 @@ namespace Drizzle.UI.UWP.UserControls
                 new Vector2((float)canvas.ActualWidth, (float)canvas.ActualHeight - 30f),
                 lineColor);
 
-            for (int i = 0; i < Conditions?.Length; i++)
-            {
-                var pt = pts[i];
-                var item = Conditions[i];
-                item.Left = pt.X;
-                item.Top = pt.Y;
-            }
+            DrawWeatherCodes(pts, step);
 
             //args.DrawingSession.DrawLine(
             //    new Vector2(0, (float)canvas.ActualHeight - 50),
@@ -276,6 +237,21 @@ namespace Drizzle.UI.UWP.UserControls
             //    new CanvasStrokeStyle() { DashStyle = CanvasDashStyle.Dot });
 
             //canvas.Invalidate();
+        }
+
+        private void DrawWeatherCodes(List<Vector2> pts, int step)
+        {
+            if (!WeatherCodes.Any())
+                return;
+
+            Conditions = new HourlyConditions[pts.Count];
+            for (int i = 0; i < pts.Count; i++)
+            {
+                var pt = pts[i];
+                var weatherIndex = i * step;
+                var hour = StartTime.AddHours(weatherIndex * Interval).Hour;
+                Conditions[i] = new HourlyConditions(WeatherCodes[weatherIndex], hour >= 6 && hour < 18, pt.X, pt.Y);
+            }
         }
 
         private void Canvas_PointerMoved(object sender, PointerRoutedEventArgs e)
