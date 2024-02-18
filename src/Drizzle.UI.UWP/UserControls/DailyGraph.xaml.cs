@@ -208,7 +208,7 @@ namespace Drizzle.UI.UWP.UserControls
                 {
                     DrawText(GetElapsedTimeString(StartTime, Interval * i), args, new Vector2(pos.X, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
                     //DrawText($"{Value[i]:00.0}{Unit}", args, pos + new Vector2(0f, -25f), Colors.White); // Y-axis
-                    DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(0f, -25f), textColor); // Y-axis
+                    DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(5f, -25f), textColor); // Y-axis
                     pts.Add(new Vector2(pos.X, (float)canvas.ActualHeight - 63f));
                 }
                 cpb.AddLine(pos);
@@ -249,6 +249,9 @@ namespace Drizzle.UI.UWP.UserControls
             {
                 var pt = pts[i];
                 var weatherIndex = i * step;
+                if (weatherIndex >= WeatherCodes.Length)
+                    break;
+
                 var hour = StartTime.AddHours(weatherIndex * Interval).Hour;
                 Conditions[i] = new HourlyConditions(WeatherCodes[weatherIndex], hour >= 6 && hour < 18, pt.X, pt.Y);
             }
