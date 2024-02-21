@@ -75,7 +75,10 @@ namespace Drizzle.Models
         private float? dewPoint;
 
         [ObservableProperty]
-        private DateTime date;
+        private DateTime forecastStartTime;
+
+        [ObservableProperty]
+        private DateTime forecastAQStartTime;
 
         [ObservableProperty]
         private DateTime? sunrise;

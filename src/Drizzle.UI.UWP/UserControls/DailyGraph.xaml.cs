@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Drizzle.Models.UserControls;
+﻿using Drizzle.Models.UserControls;
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
@@ -151,8 +150,7 @@ namespace Drizzle.UI.UWP.UserControls
             if (Value is null || !Value.Any())
                 return;
 
-            // Keeping track for icons
-            var pts = new List<Vector2>();
+            var iconPts = WeatherCodes.Any() ? new List<Vector2>() : null;
 
             using var brush = new CanvasLinearGradientBrush(canvas, [
                 new CanvasGradientStop { Position = 0.0f, Color = Gradient1 },
@@ -172,20 +170,29 @@ namespace Drizzle.UI.UWP.UserControls
             // (Label) Number of elements to skip in between to fit the data in the graph
             var step = segments >= maxSegments ? (int)Math.Ceiling((double)segments / maxSegments) : 1;
 
-            using var cpb = new CanvasPathBuilder(args.DrawingSession);
-            cpb.BeginFigure(new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0]))));
-            DrawText(GetElapsedTimeString(StartTime, 0), args, new Vector2(5f, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
-            DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, new Vector2(5f, (float)(canvas.ActualHeight * (1 - normalizedData[0]))) + new Vector2(5f, -25f), textColor); // Y-axis
-            double total = normalizedData[0];
-            pts.Add(new Vector2(5f, (float)canvas.ActualHeight - 63f));
+            var graphMargin = new Vector2(5f, 0f);
+            var xLabelOffset = new Vector2(0f, (float)canvas.ActualHeight - 25f);
+            var yLabelOffset = new Vector2(8f, -25f); // Time string takes ~16 units width, so half to center.
+            var iconOffset = new Vector2(0f, (float)canvas.ActualHeight - 63f);
+            var graphStartPos = new Vector2(0, (float)(canvas.ActualHeight * (1 - normalizedData[0])));
 
             int previousRangeLeft = 0;
             int previousRangeRight = 0;
-            var distanceMultiplier = (canvas.ActualWidth) / segments;
+            // Prevent last pt on the edge of canvas
+            var distanceRightMargin = segments % 2 != 0 && segments > 14 ? -15 : 0;
+            var distanceMultiplier = (canvas.ActualWidth + distanceRightMargin) / segments;
 
-            for (int i = 1; i < Value.Count(); i++)
+            // Starting pt
+            using var cpb = new CanvasPathBuilder(args.DrawingSession);
+            cpb.BeginFigure(graphStartPos);
+            DrawText(GetElapsedTimeString(StartTime, 0), args, xLabelOffset + graphMargin, labelColor); // X-axis
+            DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, graphStartPos + yLabelOffset + graphMargin, textColor); // Y-axis
+            double total = normalizedData[0];
+            iconPts?.Add(iconOffset + graphMargin);
+
+            for (int i = 1; i < segments; i++)
             {
-                var range = Math.Max(0, Math.Min(movingAverageRange / 2, Math.Min(i, Value.Count() - 1 - i)));
+                var range = Math.Max(0, Math.Min(movingAverageRange / 2, Math.Min(i, segments - 1 - i)));
                 int rangeLeft = i - range;
                 int rangeRight = i + range;
 
@@ -193,7 +200,7 @@ namespace Drizzle.UI.UWP.UserControls
                 {
                     total -= normalizedData[j];
                 }
-
+                
                 for (int j = previousRangeRight + 1; j <= rangeRight; j++)
                 {
                     total += normalizedData[j];
@@ -202,46 +209,42 @@ namespace Drizzle.UI.UWP.UserControls
                 previousRangeLeft = rangeLeft;
                 previousRangeRight = rangeRight;
 
-                var pos = new Vector2((float)(i * distanceMultiplier), (float)(canvas.ActualHeight * (1 - total / (range * 2 + 1))));
-                // Label alternatingly
+                var pos = new Vector2((float)(i * distanceMultiplier), (float)(canvas.ActualHeight * (1 - total / (range * 2 + 1)))) + graphMargin;
                 if (i % step == 0)
                 {
-                    DrawText(GetElapsedTimeString(StartTime, Interval * i), args, new Vector2(pos.X, (float)canvas.ActualHeight - 25f), labelColor); // X-axis
-                    //DrawText($"{Value[i]:00.0}{Unit}", args, pos + new Vector2(0f, -25f), Colors.White); // Y-axis
-                    DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]), args, pos + new Vector2(5f, -25f), textColor); // Y-axis
-                    pts.Add(new Vector2(pos.X, (float)canvas.ActualHeight - 63f));
+                    // All the pts are used for graph but label is skipped in between if not enough space.
+                    var timeString = GetElapsedTimeString(StartTime, Interval * i);
+                    var formattedValue = string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]);
+                    DrawText(timeString, args, new Vector2(pos.X, 0) + xLabelOffset, labelColor); // X-axis
+                    DrawText(formattedValue, args, pos + yLabelOffset, textColor); // Y-axis
+                    iconPts?.Add(new Vector2(pos.X, 0) + iconOffset);
                 }
-                cpb.AddLine(pos);
+                cpb.AddLine(pos + new Vector2(13,0));
             }
 
-            var lastRange = Math.Max(0, Math.Min(movingAverageRange / 2, Math.Min(Value.Count(), Value.Count() - 1 - Value.Count())));
-            var lastPos = new Vector2((float)(Value.Count() * distanceMultiplier), (float)(canvas.ActualHeight * (1 - total / (lastRange * 2 + 1))));
-            cpb.AddLine(lastPos);
-            cpb.AddLine(new Vector2((float)(Value.Count() * distanceMultiplier), (float)canvas.ActualHeight));
-            cpb.AddLine(new Vector2(0, (float)canvas.ActualHeight));
+            // Make the graph reach end of canvas.
+            var graphLastRange = Math.Max(0, Math.Min(movingAverageRange / 2, Math.Min(segments, segments - 1 - segments)));
+            var graphLastPos = new Vector2((float)(segments * distanceMultiplier * 1.2f), (float)(canvas.ActualHeight * (1 - total / (graphLastRange * 2 + 1)))) + graphMargin;
+            var graphLastPosBottom = new Vector2((float)(segments * distanceMultiplier * 1.2f), (float)canvas.ActualHeight) + graphMargin;
+            var graphLastPosLoopClose = new Vector2(0, (float)canvas.ActualHeight);
+            cpb.AddLine(graphLastPos);
+            cpb.AddLine(graphLastPosBottom);
+            cpb.AddLine(graphLastPosLoopClose);
             cpb.EndFigure(CanvasFigureLoop.Open);
 
             args.DrawingSession.FillGeometry(CanvasGeometry.CreatePath(cpb), brush);
 
+            // Horizontal line
             args.DrawingSession.DrawLine(new Vector2(0, (float)canvas.ActualHeight - 30f),
                 new Vector2((float)canvas.ActualWidth, (float)canvas.ActualHeight - 30f),
                 lineColor);
 
-            DrawWeatherCodes(pts, step);
-
-            //args.DrawingSession.DrawLine(
-            //    new Vector2(0, (float)canvas.ActualHeight - 50),
-            //    new Vector2((float)canvas.ActualWidth, (float)canvas.ActualHeight - 50),
-            //    Color.FromArgb(5, 255, 255, 255),
-            //    2.5f,
-            //    new CanvasStrokeStyle() { DashStyle = CanvasDashStyle.Dot });
-
-            //canvas.Invalidate();
+            DrawWeatherCodes(iconPts, step);
         }
 
         private void DrawWeatherCodes(List<Vector2> pts, int step)
         {
-            if (!WeatherCodes.Any())
+            if (!WeatherCodes.Any()|| pts is null)
                 return;
 
             Conditions = new HourlyConditions[pts.Count];

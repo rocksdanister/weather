@@ -67,7 +67,7 @@ namespace Drizzle.UI.UWP.Factories
                     HourlyHumidity = weatherForecast.Daily[i].HourlyHumidity,
                     HourlyPressure = weatherForecast.Daily[i].HourlyPressure,
                     HourlyWindSpeed = weatherForecast.Daily[i].HourlyWindSpeed,
-                    Date = weatherForecast.Daily[i].StartTime,
+                    ForecastStartTime = weatherForecast.Daily[i].StartTime,
                     Sunrise = weatherForecast.Daily[i].Sunrise,
                     Sunset = weatherForecast.Daily[i].Sunset,
                     IsDaytime = isDayTime,
@@ -82,6 +82,7 @@ namespace Drizzle.UI.UWP.Factories
                 weatherVm.Daily[i].UltravioletIndex = (int?)airQualityForecast.Daily[i].UV ?? null;
                 weatherVm.Daily[i].HourlyAirQualityIndex = airQualityForecast.Daily[i].HourlyAQI;
                 weatherVm.Daily[i].HourlyUltravioletIndex = airQualityForecast.Daily[i].HourlyUV;
+                weatherVm.Daily[i].ForecastAQStartTime = airQualityForecast.Daily[i].StartTime;
             }
             weatherVm.Today = weatherVm.Daily[0];
             

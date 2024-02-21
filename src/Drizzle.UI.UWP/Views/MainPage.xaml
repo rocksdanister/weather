@@ -210,11 +210,11 @@
                                     <TextBlock
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
-                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
+                                        Text="{Binding ForecastStartTime, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
-                                        Text="{Binding Date, Mode=OneWay, Converter={StaticResource DateTimeToDayNameConverter}, ConverterParameter=Short}" />
+                                        Text="{Binding ForecastStartTime, Mode=OneWay, Converter={StaticResource DateTimeToDayNameConverter}, ConverterParameter=Short}" />
                                     <muxc:AnimatedVisualPlayer
                                         Grid.Column="2"
                                         Width="35"
@@ -272,7 +272,7 @@
                             Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
                             MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
                             MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
-                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                            StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
                             ValueFormat="{}{0:F0}°"
                             WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}"
                             Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
@@ -314,7 +314,7 @@
                                             Width="400"
                                             Height="300"
                                             Gradient1="LightYellow"
-                                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                            StartTime="{x:Bind shellVm.SelectedWeather.ForecastAQStartTime, Mode=OneWay}"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" />
                                         <TextBlock
                                             FontSize="13"
@@ -393,7 +393,7 @@
                                             Width="400"
                                             Height="300"
                                             Gradient1="LightBlue"
-                                            StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                            StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
                                             ValueFormat="{}{0}%"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyHumidity, Mode=OneWay}" />
                                         <TextBlock
@@ -449,7 +449,7 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="LightGray"
-                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
                                         ValueFormat="{}{0:F0}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyWindSpeed, Mode=OneWay}" />
                                     <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
@@ -493,7 +493,7 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="Gray"
-                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastAQStartTime, Mode=OneWay}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" />
                                     <!--<TextBlock
                                         FontSize="13"
@@ -534,7 +534,7 @@
                                         Width="400"
                                         Height="300"
                                         Gradient1="LightYellow"
-                                        StartTime="{x:Bind shellVm.SelectedWeather.Date, Mode=OneWay}"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
                                         ValueFormat="{}{0:F0}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyPressure, Mode=OneWay}" />
                                     <Line Stroke="#50ffffff" X2="400" />
