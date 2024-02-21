@@ -208,7 +208,7 @@
     <value>Relative humidity is a measure of the amount of water vapor present in the air compared to the maximum amount the air could hold at that temperature. It is expressed as a percentage and provides information about how close the air is to saturation.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Barometric pressure, also known as atmospheric pressure, is the measure of air pressure in a given area.</value>
+    <value>Tekanan Barometrik, juga dikenal sebagai tekanan atmosfer, adalah ukuran tekanan air di area tertentu.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>The World Health Organization's UV index (UVI) measures the strength of sunburn-producing ultraviolet radiation. It is a linear scale that ranges from 0 to 11+, with higher values indicating greater risk of exposure to UV rays and increased chances of sunburn and skin damage that could ultimately lead to skin cancer.</value>
@@ -220,10 +220,10 @@
     <value>Memperkirakan tingkat kedalaman..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>The system graphics processor (GPU) does not support the required DX12 features, so some functionality is disabled.</value>
+    <value>Sistem grafis (GPU) tidak mendukung fitur DX12 yang diperlukan, jadi beberapa funsionalitas akan dimatikan.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>Additional files need to be downloaded for this feature</value>
+    <value>File tambahan perlu diunduh untuk fitur ini</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
     <value>Lihat apa yang baru</value>
@@ -247,7 +247,7 @@
     <value>Kesalahan</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribute to this program by translating it into other languages.</value>
+    <value>Kontribusi ke aplikasi ini dengan menerjemahkan ke bahasa lain.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
     <value>Bantu Terjemahkan</value>
@@ -274,13 +274,13 @@
     <value>Buka log</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Waktu jeda suara jika aplikasi tidak dilatar depan</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>Waktu jeda visual jika aplikasi tidak dilatar depan</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Data collection policy</value>
+    <value>Kebijakan Pengumpulan Data</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
     <value>Dinamis</value>
@@ -340,7 +340,7 @@
     <value>Dingin</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Post Processing</value>
+    <value>Pasca Pemrosesan</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Kecepatan</value>
@@ -376,13 +376,13 @@
     <value>Lanjutkan</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI Depth Approximation</value>
+    <value>Aproksimasi Kedalaman AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Akses ke lokasi telah dimatikan, cek pengaturan Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Akses ke lokasi tidak dispesifikasi, cek pengaturan Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Bantuan</value>
@@ -394,7 +394,7 @@
     <value>Pengaturan</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Kunci API yang diperlukan hilang untuk layanan cuaca yang dipilih, pengaturan dikembalikan.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Auto</value>
@@ -499,10 +499,10 @@
     <value>Sangat Tinggi</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>Kunci API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Masukan Kunci API yang diperlukan</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Sumber data cuaca</value>
@@ -541,7 +541,7 @@
     <value>Sebagian Besar Cerah</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Kabut</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Sebagian Berawan</value>
@@ -574,7 +574,7 @@
     <value>Dense Freezing Drizzle</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Debu</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Sedikit Hujan</value>
