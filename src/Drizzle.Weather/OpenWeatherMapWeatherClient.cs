@@ -5,6 +5,7 @@ using Drizzle.Models.Weather.OpenWeatherMap;
 using Drizzle.Weather.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -100,10 +101,10 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 WindDirection = currentResponse.Wind.Deg,
                 HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
                 HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
-                HourlyVisibility = day.Select(x => x.Visibility).ToArray(),
+                HourlyVisibility = day.Select(x => x.Visibility / 1000f).ToArray(),
                 HourlyHumidity = day.Select(x => x.Main.Humidity).ToArray(),
                 HourlyPressure = day.Select(x => x.Main.Pressure).ToArray(),
-                HourlyWindSpeed = day.Select(x => x.Wind.Speed).ToArray(),
+                HourlyWindSpeed = day.Select(x => x.Wind.Speed * 3.6f).ToArray(),
             } : 
             new DailyWeather()
             {
@@ -129,10 +130,10 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 WindDirection = currentValue.Wind.Deg,
                 HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
                 HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
-                HourlyVisibility = day.Select(x => x.Visibility).ToArray(),
+                HourlyVisibility = day.Select(x => x.Visibility / 1000f).ToArray(),
                 HourlyHumidity = day.Select(x => x.Main.Humidity).ToArray(),
                 HourlyPressure = day.Select(x => x.Main.Pressure).ToArray(),
-                HourlyWindSpeed = day.Select(x => x.Wind.Speed).ToArray(),
+                HourlyWindSpeed = day.Select(x => x.Wind.Speed * 3.6f).ToArray(),
             };
             dailyWeather.Add(weather);
             index++;
