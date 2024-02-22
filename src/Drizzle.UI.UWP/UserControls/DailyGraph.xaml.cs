@@ -210,7 +210,7 @@ namespace Drizzle.UI.UWP.UserControls
                 previousRangeRight = rangeRight;
 
                 var pos = new Vector2((float)(i * distanceMultiplier), (float)(canvas.ActualHeight * (1 - total / (range * 2 + 1)))) + graphMargin;
-                if (i % step == 0)
+                if (i % step == 0 && Math.Abs(pos.X - canvas.ActualWidth) > 30)
                 {
                     // All the pts are used for graph but label is skipped in between if not enough space.
                     var timeString = GetElapsedTimeString(StartTime, Interval * i);
