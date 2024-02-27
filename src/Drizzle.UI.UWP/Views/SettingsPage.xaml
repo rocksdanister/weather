@@ -65,43 +65,90 @@
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
 
-                <labs:SettingsCard x:Uid="WeatherProviderSettings">
-                    <labs:SettingsCard.HeaderIcon>
+                <labs:SettingsExpander x:Uid="WeatherProviderSettings" IsExpanded="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                    <labs:SettingsExpander.HeaderIcon>
                         <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </labs:SettingsExpander.HeaderIcon>
                     <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherProviderIndex, Mode=TwoWay}">
                         <ComboBoxItem>Open-Meteo</ComboBoxItem>
                         <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
                     </ComboBox>
-                </labs:SettingsCard>
-                <labs:SettingsCard x:Uid="WeatherProviderKeySettings" Visibility="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
-                    <labs:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xE785;" />
-                    </labs:SettingsCard.HeaderIcon>
-                    <StackPanel Orientation="Horizontal" Spacing="5">
-                        <HyperlinkButton
-                            x:Uid="LearnMore"
-                            Grid.Column="1"
-                            NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources" />
-                        <TextBox
-                            x:Uid="WeatherProviderKeySettingsTextbox"
-                            Grid.Column="0"
-                            MinWidth="275"
-                            MaxWidth="275"
-                            Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </labs:SettingsCard>
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard x:Uid="WeatherProviderKeySettings" IsEnabled="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xE785;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <HyperlinkButton
+                                    x:Uid="LearnMore"
+                                    Grid.Column="1"
+                                    NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources" />
+                                <TextBox
+                                    x:Uid="WeatherProviderKeySettingsTextbox"
+                                    Grid.Column="0"
+                                    MinWidth="225"
+                                    MaxWidth="225"
+                                    Text="{x:Bind viewModel.SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </labs:SettingsCard>
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
 
-                <labs:SettingsCard x:Uid="WeatherUnitSettings">
-                    <labs:SettingsCard.HeaderIcon>
+                <labs:SettingsExpander x:Uid="WeatherUnitSettings" IsExpanded="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xECC6;" />
-                    </labs:SettingsCard.HeaderIcon>
+                    </labs:SettingsExpander.HeaderIcon>
                     <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherUnitIndex, Mode=TwoWay}">
                         <ComboBoxItem x:Uid="WeatherUnitMetric" />
                         <ComboBoxItem x:Uid="WeatherUnitImperial" />
                         <ComboBoxItem x:Uid="WeatherUnitHybrid" />
+                        <ComboBoxItem x:Uid="WeatherUnitCustom" />
                     </ComboBox>
-                </labs:SettingsCard>
+                    <labs:SettingsExpander.Items>
+                        <labs:SettingsCard>
+                            <labs:SettingsCard.Header>
+                                <TextBlock x:Uid="TitleTemperature" />
+                            </labs:SettingsCard.Header>
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE912;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <Grid CornerRadius="5">
+                                <ListBox SelectedIndex="{x:Bind viewModel.SelectedTemperatureUnitIndex, Mode=TwoWay}">
+                                    <TextBlock>°C</TextBlock>
+                                    <TextBlock>°F</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                                <Rectangle Fill="{ThemeResource SystemAltMediumLowColor}" Visibility="{x:Bind viewModel.IsPresetUnit, Mode=OneWay}" />
+                            </Grid>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard>
+                            <labs:SettingsCard.Header>
+                                <TextBlock x:Uid="TitleWind" />
+                            </labs:SettingsCard.Header>
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE902;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <Grid CornerRadius="5">
+                                <ListBox SelectedIndex="{x:Bind viewModel.SelectedWindSpeedUnitIndex, Mode=TwoWay}">
+                                    <TextBlock>kmh</TextBlock>
+                                    <TextBlock>mph</TextBlock>
+                                    <TextBlock>ms</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                                <Rectangle Fill="{ThemeResource SystemAltMediumLowColor}" Visibility="{x:Bind viewModel.IsPresetUnit, Mode=OneWay}" />
+                            </Grid>
+                        </labs:SettingsCard>
+                    </labs:SettingsExpander.Items>
+                </labs:SettingsExpander>
 
                 <labs:SettingsCard
                     x:Uid="CustomBackgroundSettings"

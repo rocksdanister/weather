@@ -12,26 +12,26 @@ namespace Drizzle.Models.Weather
             {
                 case WeatherUnits.metric:
                     {
-                        TemperatureUnit = "°C";
-                        WindSpeedUnit = "kmh";
-                        VisibilityUnit = "km";
-                        PressureUnit = "hPa/mb";
+                        TemperatureUnitString = "°C";
+                        WindSpeedUnitString = "kmh";
+                        VisibilityUnitString = "km";
+                        PressureUnitString = "hPa/mb";
                     }
                     break;
                 case WeatherUnits.imperial:
                     {
-                        TemperatureUnit = "°F";
-                        WindSpeedUnit = "mph";
-                        VisibilityUnit = "mi";
-                        PressureUnit = "hPa/mb";
+                        TemperatureUnitString = "°F";
+                        WindSpeedUnitString = "mph";
+                        VisibilityUnitString = "mi";
+                        PressureUnitString = "hPa/mb";
                     }
                     break;
                 case WeatherUnits.hybrid:
                     {
-                        TemperatureUnit = "°C";
-                        WindSpeedUnit = "mph";
-                        VisibilityUnit = "mi";
-                        PressureUnit = "hPa/mb";
+                        TemperatureUnitString = "°C";
+                        WindSpeedUnitString = "mph";
+                        VisibilityUnitString = "mi";
+                        PressureUnitString = "hPa/mb";
                     }
                     break;
             }
@@ -40,12 +40,12 @@ namespace Drizzle.Models.Weather
 
         public WeatherUnits Unit { get; private set; }
 
-        public string TemperatureUnit { get; private set; }
+        public string TemperatureUnitString { get; private set; }
 
-        public string WindSpeedUnit { get; private set; }
+        public string WindSpeedUnitString { get; private set; }
 
-        public string VisibilityUnit { get; private set; }
+        public string VisibilityUnitString { get; private set; }
 
-        public string PressureUnit { get; private set; }
+        public string PressureUnitString { get; private set; }
     }
 }

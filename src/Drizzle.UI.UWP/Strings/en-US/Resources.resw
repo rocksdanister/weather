@@ -474,6 +474,9 @@
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Sunset</value>
   </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Update Completed</value>
   </data>
@@ -509,6 +512,9 @@
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
     <value>Provider</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybrid</value>

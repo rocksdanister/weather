@@ -39,6 +39,14 @@ public static class UserSettingsConstants
 
     public const string SelectedWeatherProvider = "SelectedWeatherProvider";
 
+    // Custom user selected units.
+
+    public const string SelectedTemperatureUnit = "SelectedTemperatureUnit";
+
+    public const string SelectedWindSpeedUnit = "SelectedWindSpeedUnit";
+
+    public const string SelectedVisibilityUnit = "SelectedVisibilityUnit";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -57,5 +65,8 @@ public static class UserSettingsConstants
         { BackgroundPauseAudio, true },
         { SoundVolume, 0 },
         { SelectedWeatherProvider, WeatherProviders.OpenMeteo },
+        { SelectedTemperatureUnit, TemperatureUnits.degree },
+        { SelectedWindSpeedUnit, WindSpeedUnits.kmh },
+        { SelectedVisibilityUnit, VisibilityUnits.km }
     };
 }

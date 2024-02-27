@@ -17,7 +17,32 @@ namespace Drizzle.Common
     {
         metric,
         imperial,
-        hybrid
+        hybrid,
+        custom
+    }
+
+    public enum TemperatureUnits
+    {
+        degree,
+        fahrenheit
+    }
+
+    public enum WindSpeedUnits
+    {
+        kmh,
+        mph,
+        ms
+    }
+
+    public enum VisibilityUnits
+    {
+        km,
+        mi,
+    }
+
+    public enum PressureUnits
+    {
+        hPa_mb
     }
 
     public enum AppPerformance

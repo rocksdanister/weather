@@ -117,7 +117,57 @@ namespace Drizzle.UI.UWP.ViewModels
                 if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) != (UserWeatherUnits)value)
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, value);
 
+                switch (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit))
+                {
+                    case UserWeatherUnits.metric:
+                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
+                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.kmh;
+                        break;
+                    case UserWeatherUnits.imperial:
+                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.fahrenheit;
+                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
+                        break;
+                    case UserWeatherUnits.hybrid:
+                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
+                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
+                        break;
+                    case UserWeatherUnits.custom:
+                        SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
+                        SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
+                        break;
+                }
                 SetProperty(ref _selectedWeatherUnitIndex, value);
+                IsPresetUnit = (UserWeatherUnits)value != UserWeatherUnits.custom;
+            }
+        }
+
+        private int _selectedTemperatureUnitIndex;
+        public int SelectedTemperatureUnitIndex
+        {
+            get => _selectedTemperatureUnitIndex;
+            set
+            {
+                if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) == UserWeatherUnits.custom)
+                {
+                    if (userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit) != (TemperatureUnits)value)
+                        userSettings.SetAndSerialize(UserSettingsConstants.SelectedTemperatureUnit, value);
+                }
+                SetProperty(ref _selectedTemperatureUnitIndex, value);
+            }
+        }
+
+        private int _selectedWindSpeedUnitIndex;
+        public int SelectedWindSpeedUnitIndex
+        {
+            get => _selectedWindSpeedUnitIndex;
+            set
+            {
+                if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) == UserWeatherUnits.custom)
+                {
+                    if (userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit) != (WindSpeedUnits)value)
+                        userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);
+                }
+                SetProperty(ref _selectedWindSpeedUnitIndex, value);
             }
         }
 
@@ -130,9 +180,13 @@ namespace Drizzle.UI.UWP.ViewModels
                 SetProperty(ref _selectedWeatherProviderIndex, value);
                 var settingsKey = GetWeatherProviderApiSettingsKey((WeatherProviders)value);
                 IsApiKeyRequired = settingsKey != null;
-                SelectedApiKey = settingsKey != null ? userSettings.Get<string>(settingsKey) : string.Empty;
+                SelectedApiKey = settingsKey != null ? userSettings.Get<string>(settingsKey) : "...";
             }
         }
+
+
+        [ObservableProperty]
+        private bool isPresetUnit;
 
         [ObservableProperty]
         private bool isApiKeyRequired;
