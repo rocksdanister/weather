@@ -164,6 +164,8 @@ namespace Drizzle.UI.UWP.UserControls
             int segments = Value.Count();
             var min = MinValue != null ? MinValue : Value.Min();
             var max = MaxValue != null ? MaxValue : Value.Max();
+            // Fix graph not showing if all values equal
+            max = max == min ? max + 0.1f : max;
             var normalizedData = Value.Select(x => ConvertToRange((float)min, (float)max, 0.25f, 0.55f, x)).ToArray();
             // (Label) Let each segment take maximum 42 units width.
             var maxSegments = (int)canvas.ActualWidth / 42;

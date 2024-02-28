@@ -344,7 +344,7 @@ namespace Drizzle.UI.UWP.Views
                 // Change focus from suggestbox
                 mainPage.Focus(FocusState.Programmatic);
                 // Visual indication of selected location
-                sender.Text = selection.DisplayName;
+                sender.Text = selection.DisplayName ?? string.Empty;
 
                 // Update weather selection
                 await shellVm.SetWeather(selection.DisplayName, selection.Latitude, selection.Longitude);
@@ -359,7 +359,7 @@ namespace Drizzle.UI.UWP.Views
                 // Change focus from suggestbox
                 mainPage.Focus(FocusState.Programmatic);
                 // Visual indication of selected location
-                sender.Text = firstSelection.DisplayName;
+                sender.Text = firstSelection.DisplayName ?? string.Empty;
 
                 // Update weather selection
                 await shellVm.SetWeather(firstSelection.DisplayName, firstSelection.Latitude, firstSelection.Longitude);
