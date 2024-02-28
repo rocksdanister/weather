@@ -118,7 +118,7 @@ namespace Drizzle.UI.UWP.ViewModels
             {
                 SetProperty(ref _selectedWeatherUnitIndex, value);
                 IsPresetUnit = (WeatherUnits)value != WeatherUnits.custom;
-                switch (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit))
+                switch ((WeatherUnits)value)
                 {
                     case WeatherUnits.metric:
                         SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
