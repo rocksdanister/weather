@@ -306,10 +306,7 @@ namespace Drizzle.UI.UWP.Views
 
         private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            if (sender.IsVisible)
-                AppTitleBar.Visibility = Visibility.Visible;
-            else
-                AppTitleBar.Visibility = Visibility.Collapsed;
+            AppTitleBar.Visibility = sender.IsVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void TitleSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
@@ -337,37 +334,38 @@ namespace Drizzle.UI.UWP.Views
 
         private async void TitleSearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            // Change focus from suggestbox
-            mainPage.Focus(FocusState.Programmatic);
-
             if (args.ChosenSuggestion is not null)
             {
                 // User selected an item from the suggestion list, take an action on it here.
                 var selection = args.ChosenSuggestion as Location;
+                if (selection is null)
+                    return;
 
+                // Change focus from suggestbox
+                mainPage.Focus(FocusState.Programmatic);
                 // Visual indication of selected location
-                sender.Text = selection?.DisplayName ?? string.Empty;
+                sender.Text = selection.DisplayName;
 
                 // Update weather selection
-                if (selection is not null)
-                    await shellVm.SetWeather(selection.DisplayName, selection.Latitude, selection.Longitude);
+                await shellVm.SetWeather(selection.DisplayName, selection.Latitude, selection.Longitude);
             }
             else
             {
                 // Pick first if any
                 var firstSelection = shellVm.SearchSuggestions?.FirstOrDefault();
+                if (firstSelection is null)
+                    return;
 
+                // Change focus from suggestbox
+                mainPage.Focus(FocusState.Programmatic);
                 // Visual indication of selected location
-                sender.Text = firstSelection?.DisplayName ?? string.Empty;
+                sender.Text = firstSelection.DisplayName;
 
                 // Update weather selection
-                if (firstSelection is not null)
-                    await shellVm.SetWeather(firstSelection.DisplayName, firstSelection.Latitude, firstSelection.Longitude);
+                await shellVm.SetWeather(firstSelection.DisplayName, firstSelection.Latitude, firstSelection.Longitude);
             }
-
             // Remove suggestbox input (TextChanged event is not UserInput)
             sender.Text = string.Empty;
-
             // Clear suggestions after selection
             shellVm.SearchSuggestions.Clear();
         }
