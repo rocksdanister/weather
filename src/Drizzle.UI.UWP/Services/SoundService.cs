@@ -1,5 +1,6 @@
 ﻿using Drizzle.Common;
 using Drizzle.Common.Services;
+using Drizzle.Models.Weather;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

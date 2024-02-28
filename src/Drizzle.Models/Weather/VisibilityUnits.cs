@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Drizzle.Models.Weather
 {
-    public enum WeatherUnits
+    public enum VisibilityUnits
     {
-        metric,
-        imperial,
-        hybrid,
-        custom
+        km,
+        mi,
     }
 }

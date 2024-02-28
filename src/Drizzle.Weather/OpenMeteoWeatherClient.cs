@@ -89,7 +89,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = response.Timezone,
-            Units = new ForecastWeatherUnits(WeatherUnits.metric),
+            Units = new WeatherUnitSettings(WeatherUnits.metric),
             ForecastInterval = 1,
         };
 
@@ -174,7 +174,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = response.Timezone,
-            Units = new ForecastAirQualityUnits(WeatherUnits.metric),
+            //Units = new WeatherUnitSettings(WeatherUnits.metric),
             ForecastInterval = 1,
         };
 

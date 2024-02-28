@@ -1,4 +1,5 @@
 ﻿using Drizzle.Models;
+using Drizzle.Models.Weather;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -39,10 +40,20 @@ public static class UserSettingsConstants
 
     public const string SelectedWeatherProvider = "SelectedWeatherProvider";
 
+    // Custom user selected units.
+
+    public const string SelectedTemperatureUnit = "SelectedTemperatureUnit";
+
+    public const string SelectedWindSpeedUnit = "SelectedWindSpeedUnit";
+
+    public const string SelectedVisibilityUnit = "SelectedVisibilityUnit";
+
+    public const string SelectedPressureUnit = "SelectedPressureUnit";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
-        { WeatherUnit, UserWeatherUnits.metric },
+        { WeatherUnit, WeatherUnits.metric },
         { Theme, AppTheme.dark },
         { AutoHideScreensaverMenu, false },
         { IncludeUserImagesInShuffle, false },
@@ -57,5 +68,9 @@ public static class UserSettingsConstants
         { BackgroundPauseAudio, true },
         { SoundVolume, 0 },
         { SelectedWeatherProvider, WeatherProviders.OpenMeteo },
+        { SelectedTemperatureUnit, TemperatureUnits.degree },
+        { SelectedWindSpeedUnit, WindSpeedUnits.kmh },
+        { SelectedVisibilityUnit, VisibilityUnits.km },
+        { SelectedPressureUnit, PressureUnits.hPa_mb },
     };
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Drizzle.UI.Shared.Shaders.Helpers;
+using Drizzle.Models.Weather;
 
 namespace Drizzle.UI.UWP.Services
 {

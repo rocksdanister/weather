@@ -11,7 +11,7 @@ public class ForecastAirQuality
     public string Name { get; set; }
     public string TimeZone { get; set; }
     public DateTime FetchTime { get; set; }
-    public ForecastAirQualityUnits Units { get; set; }
+    //public WeatherUnitSettings Units { get; set; }
     public IReadOnlyList<DailyAirQuality> Daily { get; set; }
     /// <summary>
     /// Hour between forecast data
