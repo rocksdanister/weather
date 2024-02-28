@@ -11,7 +11,7 @@ public class ForecastWeather
     public string Name { get; set; }
     public string TimeZone { get; set; }
     public DateTime FetchTime { get; set; }
-    public ForecastWeatherUnits Units { get; set; }
+    public WeatherUnitSettings Units { get; set; }
     public IReadOnlyList<DailyWeather> Daily { get; set; }
     /// <summary>
     /// Hour between forecast data

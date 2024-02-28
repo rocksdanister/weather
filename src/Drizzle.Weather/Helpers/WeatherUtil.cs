@@ -13,101 +13,63 @@ namespace Drizzle.Weather.Helpers;
 
 public static class WeatherUtil
 {
-    public static ForecastWeather ToImperial(this ForecastWeather forecast)
-    {
-        if (forecast.Units.Unit != WeatherUnits.imperial)
-        {
-            var isMiles = forecast.Units.Unit == WeatherUnits.hybrid;
-            for (int i = 0; i < forecast.Daily.Count; i++)
-            {
-                var weather = forecast.Daily[i];
-                weather.TemperatureMin =  CelsiusToFahrenheit(weather.TemperatureMin);
-                weather.TemperatureMax = CelsiusToFahrenheit(weather.TemperatureMax);
-                weather.ApparentTemperatureMin = CelsiusToFahrenheit(weather.ApparentTemperatureMin);
-                weather.ApparentTemperatureMax = CelsiusToFahrenheit(weather.ApparentTemperatureMax);
-                weather.Temperature = CelsiusToFahrenheit(weather.Temperature);
-                weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
-                weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
-                weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)CelsiusToFahrenheit(x)).ToArray();
+    public static ForecastWeather ToImperialUnit(this ForecastWeather forecast) =>
+        ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.imperial));
 
-                if (!isMiles)
-                {
-                    weather.WindSpeed = KmToMi(weather.WindSpeed);
-                    weather.GustSpeed = KmToMi(weather.GustSpeed);
-                    weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmToMi(x)).ToArray();
-                }
-            }
-            forecast.Units = new ForecastWeatherUnits(WeatherUnits.imperial);
-        }
-        return forecast;
+    public static ForecastWeather ToMetricUnit(this ForecastWeather forecast) =>
+        ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.metric));
+
+    public static ForecastWeather ToHybridUnit(this ForecastWeather forecast) =>
+        ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.hybrid));
+
+    public static ForecastWeather ToCustomUnit(this ForecastWeather forecast, WeatherUnitSettings toUnit) =>
+        ConvertUnit(forecast, toUnit);
+
+    public static ForecastWeather ToCustomUnit(this ForecastWeather forecast,
+                                               TemperatureUnits temperatureUnit,
+                                               WindSpeedUnits windSpeedUnit,
+                                               VisibilityUnits visibilityUnit,
+                                               PressureUnits pressureUnit) =>
+        ConvertUnit(forecast, new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit));
+
+    public static string GetUnitString(this WindSpeedUnits unit)
+    {
+        return unit switch
+        {
+            WindSpeedUnits.kmh => "kmh",
+            WindSpeedUnits.mph => "mph",
+            WindSpeedUnits.ms => "ms",
+            _ => throw new NotImplementedException(),
+        };
     }
 
-    public static ForecastWeather ToMetric(this ForecastWeather forecast)
+    public static string GetUnitString(this TemperatureUnits unit)
     {
-        if (forecast.Units.Unit != WeatherUnits.metric)
+        return unit switch
         {
-            var isCelsius = forecast.Units.Unit == WeatherUnits.hybrid;
-            for (int i = 0; i < forecast.Daily.Count; i++)
-            {
-                var weather = forecast.Daily[i];
-                weather.WindSpeed = MiToKm(weather.WindSpeed);
-                weather.GustSpeed = MiToKm(weather.GustSpeed);
-                weather.Visibility = MiToKm(weather.Visibility);
-                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)MiToKm(x)).ToArray();
-                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MiToKm(x)).ToArray();
-
-                if (!isCelsius)
-                {
-                    weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
-                    weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
-                    weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
-                    weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
-                    weather.Temperature = FahrenheitToCelsius(weather.Temperature);
-                    weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
-                    weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
-                }
-            }
-            forecast.Units = new ForecastWeatherUnits(WeatherUnits.metric);
-        }
-        return forecast;
+            TemperatureUnits.fahrenheit => "°F",
+            TemperatureUnits.degree => "°C",
+            _ => throw new NotImplementedException(),
+        };
     }
 
-    public static ForecastWeather ToHybrid(this ForecastWeather forecast)
+    public static string GetUnitString(this VisibilityUnits unit)
     {
-        if (forecast.Units.Unit != WeatherUnits.hybrid)
+        return unit switch
         {
-            var isMiles = forecast.Units.Unit == WeatherUnits.imperial;
-            var isCelsius = forecast.Units.Unit == WeatherUnits.metric;
-            for (int i = 0; i < forecast.Daily.Count; i++)
-            {
-                var weather = forecast.Daily[i];
-                if (!isCelsius)
-                {
-                    weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
-                    weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
-                    weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
-                    weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
-                    weather.Temperature = FahrenheitToCelsius(weather.Temperature);
-                    weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
-                    weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
-                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
-                }
+            VisibilityUnits.km => "km",
+            VisibilityUnits.mi => "mi",
+            _ => throw new NotImplementedException(),
+        };
+    }
 
-                if (!isMiles)
-                {
-                    weather.WindSpeed = KmToMi(weather.WindSpeed);
-                    weather.GustSpeed = KmToMi(weather.GustSpeed);
-                    weather.Visibility = KmToMi(weather.Visibility);
-                    weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)KmToMi(x)).ToArray();
-                    weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmToMi(x)).ToArray();
-                }
-            }
-            forecast.Units = new ForecastWeatherUnits(WeatherUnits.hybrid);
-        }
-        return forecast;
+    public static string GetUnitString(this PressureUnits unit)
+    {
+        return unit switch
+        {
+            PressureUnits.hPa_mb => "hPa/mb",
+            _ => throw new NotImplementedException(),
+        };
     }
 
     public static WeatherSeverityLevel GetSeverity(WmoWeatherCode weatherCode)
@@ -154,6 +116,166 @@ public static class WeatherUtil
         }
     }
 
+    private static ForecastWeather ConvertUnit(ForecastWeather forecast, WeatherUnitSettings toUnit)
+    {
+        if (forecast.Units.Unit != WeatherUnits.custom && forecast.Units.Unit == toUnit.Unit)
+            return forecast;
+
+        for (int i = 0; i < forecast.Daily.Count; i++)
+        {
+            var weather = forecast.Daily[i];
+            switch (forecast.Units.TemperatureUnit)
+            {
+                case TemperatureUnits.degree:
+                    {
+                        switch (toUnit.TemperatureUnit)
+                        {
+                            case TemperatureUnits.degree:
+                                // Requested unit same as current.
+                                break;
+                            case TemperatureUnits.fahrenheit:
+                                {
+                                    weather.TemperatureMin = CelsiusToFahrenheit(weather.TemperatureMin);
+                                    weather.TemperatureMax = CelsiusToFahrenheit(weather.TemperatureMax);
+                                    weather.ApparentTemperatureMin = CelsiusToFahrenheit(weather.ApparentTemperatureMin);
+                                    weather.ApparentTemperatureMax = CelsiusToFahrenheit(weather.ApparentTemperatureMax);
+                                    weather.Temperature = CelsiusToFahrenheit(weather.Temperature);
+                                    weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
+                                    weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
+                                    weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)CelsiusToFahrenheit(x)).ToArray();
+                                }
+                                break;
+                        }
+                    }
+                    break;
+                case TemperatureUnits.fahrenheit:
+                    switch (toUnit.TemperatureUnit)
+                    {
+                        case TemperatureUnits.degree:
+                            {
+                                weather.TemperatureMin = FahrenheitToCelsius(weather.TemperatureMin);
+                                weather.TemperatureMax = FahrenheitToCelsius(weather.TemperatureMax);
+                                weather.ApparentTemperatureMin = FahrenheitToCelsius(weather.ApparentTemperatureMin);
+                                weather.ApparentTemperatureMax = FahrenheitToCelsius(weather.ApparentTemperatureMax);
+                                weather.Temperature = FahrenheitToCelsius(weather.Temperature);
+                                weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
+                                weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
+                                weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
+                            }
+                            break;
+                        case TemperatureUnits.fahrenheit:
+                            break;
+                    }
+                    break;
+            }
+
+            switch (forecast.Units.VisibilityUnit)
+            {
+                case VisibilityUnits.km:
+                    switch (toUnit.VisibilityUnit)
+                    {
+                        case VisibilityUnits.km:
+                            break;
+                        case VisibilityUnits.mi:
+                            {
+                                weather.Visibility = KmToMi(weather.Visibility);
+                                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)KmToMi(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case VisibilityUnits.mi:
+                    switch (toUnit.VisibilityUnit)
+                    {
+                        case VisibilityUnits.km:
+                            {
+                                weather.Visibility = MiToKm(weather.Visibility);
+                                weather.HourlyVisibility = weather.HourlyVisibility?.Select(x => (float)MiToKm(x)).ToArray();
+                            }
+                            break;
+                        case VisibilityUnits.mi:
+                            break;
+                    }
+                    break;
+            }
+
+            switch (forecast.Units.WindSpeedUnit)
+            {
+                case WindSpeedUnits.kmh:
+                    switch (toUnit.WindSpeedUnit)
+                    {
+                        case WindSpeedUnits.kmh:
+                            break;
+                        case WindSpeedUnits.mph:
+                            {
+                                weather.WindSpeed = KmToMi(weather.WindSpeed);
+                                weather.GustSpeed = KmToMi(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmToMi(x)).ToArray();
+                            }
+                            break;
+                        case WindSpeedUnits.ms:
+                            {
+                                weather.WindSpeed = KmhToMs(weather.WindSpeed);
+                                weather.GustSpeed = KmhToMs(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)KmhToMs(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case WindSpeedUnits.mph:
+                    switch (toUnit.WindSpeedUnit)
+                    {
+                        case WindSpeedUnits.kmh:
+                            {
+                                weather.WindSpeed = MiToKm(weather.WindSpeed);
+                                weather.GustSpeed = MiToKm(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MiToKm(x)).ToArray();
+                            }
+                            break;
+                        case WindSpeedUnits.mph:
+                            break;
+                        case WindSpeedUnits.ms:
+                            {
+                                weather.WindSpeed = MphToMs(weather.WindSpeed);
+                                weather.GustSpeed = MphToMs(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MphToMs(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case WindSpeedUnits.ms:
+                    switch (toUnit.WindSpeedUnit)
+                    {
+                        case WindSpeedUnits.kmh:
+                            {
+                                weather.WindSpeed = MsToKmh(weather.WindSpeed);
+                                weather.GustSpeed = MsToKmh(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MsToKmh(x)).ToArray();
+                            }
+                            break;
+                        case WindSpeedUnits.mph:
+                            {
+                                weather.WindSpeed = MsToMph(weather.WindSpeed);
+                                weather.GustSpeed = MsToMph(weather.GustSpeed);
+                                weather.HourlyWindSpeed = weather.HourlyWindSpeed?.Select(x => (float)MsToMph(x)).ToArray();
+                            }
+                            break;
+                        case WindSpeedUnits.ms:
+                            break;
+                    }
+                    break;
+            }
+
+            //switch (forecast.Units.PressureUnit)
+            //{
+            //    case PressureUnits.hPa_mb:
+            //        break;
+            //}
+        }
+        forecast.Units = toUnit;
+        return forecast;
+    }
+
     // Lifted operators
     // Ref: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 
@@ -168,6 +290,14 @@ public static class WeatherUtil
     public static float? KmToFt(float? distace) => distace * 3280.839895f;
 
     public static float? FtToKm(float? feet) => feet / 3280.839895f;
+
+    public static float? KmhToMs(float? speed) => speed / 3.6f;
+
+    public static float? MsToKmh(float? speed) => speed * 3.6f;
+
+    public static float? MphToMs(float? speed) => speed / 2.237f;
+
+    public static float? MsToMph(float? speed) => speed * 2.237f;
 
     public enum WeatherSeverityLevel
     {

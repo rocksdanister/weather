@@ -5,6 +5,7 @@ using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
 using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.Factories;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,9 +116,8 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWeatherUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) != (WeatherUnits)value)
-                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, value);
-
+                SetProperty(ref _selectedWeatherUnitIndex, value);
+                IsPresetUnit = (WeatherUnits)value != WeatherUnits.custom;
                 switch (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit))
                 {
                     case WeatherUnits.metric:
@@ -137,8 +137,6 @@ namespace Drizzle.UI.UWP.ViewModels
                         SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
                         break;
                 }
-                SetProperty(ref _selectedWeatherUnitIndex, value);
-                IsPresetUnit = (WeatherUnits)value != WeatherUnits.custom;
             }
         }
 
@@ -148,11 +146,8 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedTemperatureUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) == WeatherUnits.custom)
-                {
-                    if (userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit) != (TemperatureUnits)value)
-                        userSettings.SetAndSerialize(UserSettingsConstants.SelectedTemperatureUnit, value);
-                }
+                if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit) != (TemperatureUnits)value)
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedTemperatureUnit, value);
                 SetProperty(ref _selectedTemperatureUnitIndex, value);
             }
         }
@@ -163,11 +158,8 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWindSpeedUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) == WeatherUnits.custom)
-                {
-                    if (userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit) != (WindSpeedUnits)value)
-                        userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);
-                }
+                if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit) != (WindSpeedUnits)value)
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);
                 SetProperty(ref _selectedWindSpeedUnitIndex, value);
             }
         }
@@ -250,6 +242,14 @@ namespace Drizzle.UI.UWP.ViewModels
         // Save settings that require confirmation here
         public void OnClose()
         {
+            // Update Weather units
+            var newWeatherUnit = (WeatherUnits)SelectedWeatherUnitIndex;
+            var currentWeatherUnit = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+            // If custom always refresh (lazy way of force updating regardless if any of the individual unit changed.)
+            if (newWeatherUnit != currentWeatherUnit || newWeatherUnit == WeatherUnits.custom)
+                userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, newWeatherUnit);
+
+            // Update Weather provider
             var newWeatherProvider = (WeatherProviders)SelectedWeatherProviderIndex;
             var currentWeatherProvider = userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
             var newWeatherProvidersettingsKey = GetWeatherProviderApiSettingsKey(newWeatherProvider);

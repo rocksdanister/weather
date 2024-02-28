@@ -396,7 +396,7 @@ namespace Drizzle.UI.UWP.ViewModels
                     Weathers.RemoveAt(0);
 
                 // Update view
-                var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+                var units = GetWeatherUnits();
                 var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, Weathers.Count, units);
                 Weathers.Add(weatherVm);
 
@@ -426,7 +426,7 @@ namespace Drizzle.UI.UWP.ViewModels
                 IsUpdatingWeather = true;
                 var locations = userSettings.GetAndDeserialize<LocationModel[]>(UserSettingsConstants.PinnedLocations).Take(maxPinnedLocations).ToList();
                 var selection = userSettings.GetAndDeserialize<LocationModel>(UserSettingsConstants.SelectedLocation);
-                var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+                var units = GetWeatherUnits();
 
                 // Set default animation, setting it here instead of constructor to avoid ComputeSharp/UWP Windowsize issue.
                 SetWeatherAnimation(defaultAnimation);
@@ -487,7 +487,7 @@ namespace Drizzle.UI.UWP.ViewModels
                     return;
 
                 IsUpdatingWeather = true;
-                var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+                var units = GetWeatherUnits();
                 var weatherCopy = Weathers.OrderBy(x => x.SortOrder).ToList();
                 var selectionCopy = SelectedLocation;
                 Weathers.Clear();
@@ -836,6 +836,28 @@ namespace Drizzle.UI.UWP.ViewModels
         {
             var sortedLocations = Weathers.OrderBy(x => x.SortOrder).Select(x => x.Location).ToArray();
             userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, sortedLocations);
+        }
+
+        private WeatherUnitSettings GetWeatherUnits()
+        {
+            var units = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+            switch (units)
+            {
+                case WeatherUnits.metric:
+                case WeatherUnits.imperial:
+                case WeatherUnits.hybrid:
+                    return new WeatherUnitSettings(units);
+                case WeatherUnits.custom:
+                    {
+                        var temperatureUnit = userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
+                        var windSpeedUnit = userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
+                        var visibilityUnit = userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit);
+                        var pressureUnit = userSettings.GetAndDeserialize<PressureUnits>(UserSettingsConstants.SelectedPressureUnit);
+                        return new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit);
+                    }
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 }

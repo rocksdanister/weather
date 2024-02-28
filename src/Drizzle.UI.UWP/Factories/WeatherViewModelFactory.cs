@@ -13,24 +13,11 @@ namespace Drizzle.UI.UWP.Factories
             ForecastWeather weatherForecast,
             ForecastAirQuality airQualityForecast,
             int sortOrder,
-            WeatherUnits units = WeatherUnits.metric)
+            WeatherUnitSettings units)
         {
             var weatherVm = new WeatherViewModel();
             weatherVm.SortOrder = sortOrder;
-            switch (units)
-            {
-                case WeatherUnits.metric:
-                    weatherForecast.ToMetric();
-                    break;
-                case WeatherUnits.imperial:
-                    weatherForecast.ToImperial();
-                    break;
-                case WeatherUnits.hybrid: 
-                    weatherForecast.ToHybrid();
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
+            weatherForecast.ToCustomUnit(units);
 
             weatherVm.TimeZone = weatherForecast.TimeZone;
             weatherVm.FetchTime = weatherForecast.FetchTime;
@@ -49,17 +36,17 @@ namespace Drizzle.UI.UWP.Factories
                     Temperature = weatherForecast.Daily[i].Temperature,
                     TemperatureMin = weatherForecast.Daily[i].TemperatureMin,
                     TemperatureMax = weatherForecast.Daily[i].TemperatureMax,
-                    TemperatureUnit = weatherForecast.Units.TemperatureUnitString,
+                    TemperatureUnit = weatherForecast.Units.TemperatureUnit.GetUnitString(),
                     FeelsLike = weatherForecast.Daily[i].ApparentTemperature,
                     WindSpeed = weatherForecast.Daily[i].WindSpeed,
                     GustSpeed = weatherForecast.Daily[i].GustSpeed,
-                    WindSpeedUnit = weatherForecast.Units.WindSpeedUnitString,
+                    WindSpeedUnit = weatherForecast.Units.WindSpeedUnit.GetUnitString(),
                     WindDirection = weatherForecast.Daily[i].WindDirection,
                     Humidity = weatherForecast.Daily[i].Humidity,
                     Visibility = weatherForecast.Daily[i].Visibility,
-                    VisibilityUnit = weatherForecast.Units.VisibilityUnitString,
+                    VisibilityUnit = weatherForecast.Units.VisibilityUnit.GetUnitString(),
                     Pressure = weatherForecast.Daily[i].Pressure,
-                    PressureUnit = weatherForecast.Units.PressureUnitString,
+                    PressureUnit = weatherForecast.Units.PressureUnit.GetUnitString(),
                     DewPoint = weatherForecast.Daily[i].DewPoint,
                     HourlyWeatherCode = weatherForecast.Daily[i].HourlyWeatherCode,
                     HourlyTemp = weatherForecast.Daily[i].HourlyTemperature,

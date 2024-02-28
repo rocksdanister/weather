@@ -5,6 +5,6 @@ namespace Drizzle.UI.UWP.Factories
 {
     public interface IWeatherViewModelFactory
     {
-        WeatherViewModel CreateWeatherViewModel(ForecastWeather weatherForecast, ForecastAirQuality airQualityForecast, int sortOrder, WeatherUnits units = WeatherUnits.metric);
+        WeatherViewModel CreateWeatherViewModel(ForecastWeather weatherForecast, ForecastAirQuality airQualityForecast, int sortOrder, WeatherUnitSettings units);
     }
 }

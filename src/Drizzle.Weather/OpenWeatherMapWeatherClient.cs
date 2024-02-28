@@ -54,7 +54,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
-            Units = new ForecastWeatherUnits(WeatherUnits.metric),
+            Units = new WeatherUnitSettings(WeatherUnits.metric),
             ForecastInterval = 3,
         };
 
@@ -153,7 +153,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
-            Units = new ForecastAirQualityUnits(WeatherUnits.metric),
+            //Units = new WeatherUnitSettings(WeatherUnits.metric),
             ForecastInterval = 1,
         };
 

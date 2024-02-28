@@ -48,6 +48,8 @@ public static class UserSettingsConstants
 
     public const string SelectedVisibilityUnit = "SelectedVisibilityUnit";
 
+    public const string SelectedPressureUnit = "SelectedPressureUnit";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -68,6 +70,7 @@ public static class UserSettingsConstants
         { SelectedWeatherProvider, WeatherProviders.OpenMeteo },
         { SelectedTemperatureUnit, TemperatureUnits.degree },
         { SelectedWindSpeedUnit, WindSpeedUnits.kmh },
-        { SelectedVisibilityUnit, VisibilityUnits.km }
+        { SelectedVisibilityUnit, VisibilityUnits.km },
+        { SelectedPressureUnit, PressureUnits.hPa_mb },
     };
 }
