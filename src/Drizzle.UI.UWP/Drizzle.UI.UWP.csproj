@@ -447,6 +447,7 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <PRIResource Include="Strings\ko-KR\Resources.resw" />
     <PRIResource Include="Strings\hu-HU\Resources.resw" />
     <PRIResource Include="Strings\id-ID\Resources.resw" />
     <PRIResource Include="Strings\zh-Hant\Resources.resw" />

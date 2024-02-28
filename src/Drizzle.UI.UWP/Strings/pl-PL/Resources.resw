@@ -274,7 +274,7 @@
     <value>Otwórz dziennik zdarzeń</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Wstrzymaj dźwięk, gdy aplikacja nie jest na pierwszym planie</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Wstrzymaj animacje, kiedy aplikacja działa na pierwszym planie.</value>
@@ -379,10 +379,10 @@
     <value>Kalkulacje AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Brak dostępu do lokalizacji, sprawdź ustawienia Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Dostęp do lokalizacji nie jest określony, sprawdź ustawienia Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Pomoc</value>
@@ -394,7 +394,7 @@
     <value>Ustawienia</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Brakuje wymaganego klucza API dla wybranego dostawcy pogody, ustawienia zostały przywrócone.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Automatyczny</value>
@@ -465,6 +465,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Ciśnienie</value>
   </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Słońce</value>
   </data>
@@ -473,6 +476,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Zachód słońca</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aktualizacja zakończona</value>
@@ -499,16 +505,19 @@
     <value>Bardzo wysoki</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>Klucz API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Wprowadź wymagany klucz API</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Źródła danych pogodowych</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
     <value>Dostawca</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybrydowa</value>
@@ -541,7 +550,7 @@
     <value>Częściowe zachmurzenie</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Mgła</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Częściowe zachmurzenie</value>
@@ -556,7 +565,7 @@
     <value>Szadź</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Zamglenie</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Lekka mżawka</value>
@@ -574,7 +583,7 @@
     <value>Gęsta marznąca mżawka</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Kurz</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Lekki deszcz</value>

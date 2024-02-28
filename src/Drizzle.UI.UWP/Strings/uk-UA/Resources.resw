@@ -465,6 +465,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Атмосферний тиск</value>
   </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Схід і захід сонця</value>
   </data>
@@ -473,6 +476,9 @@
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
     <value>Захід сонця</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Оновлено</value>
@@ -509,6 +515,9 @@
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
     <value>Постачальник</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Змішані</value>
