@@ -128,16 +128,16 @@
 
                         <labs:SettingsCard>
                             <labs:SettingsCard.Header>
-                                <TextBlock x:Uid="TitleWind" />
+                                <TextBlock x:Uid="TitleSpeed" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>
-                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE902;" />
+                                <FontIcon Glyph="&#xEC4A;" />
                             </labs:SettingsCard.HeaderIcon>
                             <Grid CornerRadius="5">
                                 <ListBox SelectedIndex="{x:Bind viewModel.SelectedWindSpeedUnitIndex, Mode=TwoWay}">
-                                    <TextBlock>kmh</TextBlock>
-                                    <TextBlock>mph</TextBlock>
-                                    <TextBlock>ms</TextBlock>
+                                    <TextBlock>km/h</TextBlock>
+                                    <TextBlock>mp/h</TextBlock>
+                                    <TextBlock>m/s</TextBlock>
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <VirtualizingStackPanel Orientation="Horizontal" />

@@ -465,6 +465,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressure</value>
   </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sun</value>
   </data>
