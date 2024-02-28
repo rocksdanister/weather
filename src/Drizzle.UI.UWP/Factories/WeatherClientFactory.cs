@@ -1,4 +1,5 @@
 ﻿using Drizzle.Common;
+using Drizzle.Models.Weather;
 using Drizzle.Weather;
 using System;
 using System.Collections.Generic;

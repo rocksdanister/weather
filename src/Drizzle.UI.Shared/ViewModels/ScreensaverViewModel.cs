@@ -22,6 +22,8 @@ using Newtonsoft.Json.Linq;
 using Drizzle.Common.Extensions;
 using Microsoft.Extensions.Logging;
 using Drizzle.Weather.Helpers;
+using Drizzle.Models.Weather;
+
 
 
 #if WINDOWS_UWP

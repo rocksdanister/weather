@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Drizzle.Common;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
+using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.Factories;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace Drizzle.UI.UWP.ViewModels
             BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
             Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
             SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
-            SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit);
+            SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
             SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
             SelectedWeatherProviderIndex = (int)userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
         }
@@ -114,30 +115,30 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWeatherUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) != (UserWeatherUnits)value)
+                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) != (WeatherUnits)value)
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, value);
 
-                switch (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit))
+                switch (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit))
                 {
-                    case UserWeatherUnits.metric:
+                    case WeatherUnits.metric:
                         SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
                         SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.kmh;
                         break;
-                    case UserWeatherUnits.imperial:
+                    case WeatherUnits.imperial:
                         SelectedTemperatureUnitIndex = (int)TemperatureUnits.fahrenheit;
                         SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
                         break;
-                    case UserWeatherUnits.hybrid:
+                    case WeatherUnits.hybrid:
                         SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
                         SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
                         break;
-                    case UserWeatherUnits.custom:
+                    case WeatherUnits.custom:
                         SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
                         SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
                         break;
                 }
                 SetProperty(ref _selectedWeatherUnitIndex, value);
-                IsPresetUnit = (UserWeatherUnits)value != UserWeatherUnits.custom;
+                IsPresetUnit = (WeatherUnits)value != WeatherUnits.custom;
             }
         }
 
@@ -147,7 +148,7 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedTemperatureUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) == UserWeatherUnits.custom)
+                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) == WeatherUnits.custom)
                 {
                     if (userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit) != (TemperatureUnits)value)
                         userSettings.SetAndSerialize(UserSettingsConstants.SelectedTemperatureUnit, value);
@@ -162,7 +163,7 @@ namespace Drizzle.UI.UWP.ViewModels
             get => _selectedWindSpeedUnitIndex;
             set
             {
-                if (userSettings.GetAndDeserialize<UserWeatherUnits>(UserSettingsConstants.WeatherUnit) == UserWeatherUnits.custom)
+                if (userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit) == WeatherUnits.custom)
                 {
                     if (userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit) != (WindSpeedUnits)value)
                         userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);

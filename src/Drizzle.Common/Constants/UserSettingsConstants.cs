@@ -1,4 +1,5 @@
 ﻿using Drizzle.Models;
+using Drizzle.Models.Weather;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -50,7 +51,7 @@ public static class UserSettingsConstants
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
-        { WeatherUnit, UserWeatherUnits.metric },
+        { WeatherUnit, WeatherUnits.metric },
         { Theme, AppTheme.dark },
         { AutoHideScreensaverMenu, false },
         { IncludeUserImagesInShuffle, false },

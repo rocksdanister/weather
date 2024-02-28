@@ -1,4 +1,5 @@
 ﻿using Drizzle.Common;
+using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.AnimatedVisuals;
 using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json.Linq;

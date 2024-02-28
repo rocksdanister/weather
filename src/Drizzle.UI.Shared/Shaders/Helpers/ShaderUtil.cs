@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ComputeSharp;
+using Drizzle.Models.Weather;
 
 namespace Drizzle.UI.Shared.Shaders.Helpers;
 

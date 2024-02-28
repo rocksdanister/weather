@@ -4,6 +4,7 @@ using Drizzle.Common.Constants;
 using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
+using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.Extensions;
 using Drizzle.UI.UWP.Factories;
 using Drizzle.UI.UWP.Services;
@@ -96,10 +97,10 @@ namespace Drizzle.UI.UWP
                 switch (region.CodeTwoLetter)
                 {
                     case "US":
-                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.imperial);
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
                         break;
                     case "GB":
-                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, UserWeatherUnits.hybrid);
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
                         break;
                 }
             }
