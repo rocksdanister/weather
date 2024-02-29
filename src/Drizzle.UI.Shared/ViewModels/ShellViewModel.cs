@@ -538,14 +538,14 @@ namespace Drizzle.UI.UWP.ViewModels
 
         public async Task FetchLocations(string search)
         {
-            if (string.IsNullOrEmpty(search) || search.Length < 2)
+            if (string.IsNullOrWhiteSpace(search) || search.Length < 2)
                 return;
 
             try
             {
                 IsWorking = true;
                 IsFetchingLocation = true;
-                var locations = await weatherClient.GetLocationDataAsync(search);
+                var locations = await weatherClient.GetLocationDataAsync(search.TrimStart());
                 SearchSuggestions.Clear();
                 foreach (var item in locations)
                 {

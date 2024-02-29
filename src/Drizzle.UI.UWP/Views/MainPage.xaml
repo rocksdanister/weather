@@ -450,7 +450,7 @@
                                         Height="300"
                                         Gradient1="LightGray"
                                         StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
-                                        ValueFormat="{}{0:F0}"
+                                        ValueFormat="{}{0:F1}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyWindSpeed, Mode=OneWay}" />
                                     <TextBlock Opacity="0.4" TextWrapping="WrapWholeWords">
                                         <Run>The gust speed is</Run>
