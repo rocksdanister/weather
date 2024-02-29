@@ -121,16 +121,11 @@ namespace Drizzle.UI.UWP.ViewModels
                 switch ((WeatherUnits)value)
                 {
                     case WeatherUnits.metric:
-                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
-                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.kmh;
-                        break;
                     case WeatherUnits.imperial:
-                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.fahrenheit;
-                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
-                        break;
                     case WeatherUnits.hybrid:
-                        SelectedTemperatureUnitIndex = (int)TemperatureUnits.degree;
-                        SelectedWindSpeedUnitIndex = (int)WindSpeedUnits.mph;
+                        var units = new WeatherUnitSettings((WeatherUnits)value);
+                        SelectedTemperatureUnitIndex = (int)units.TemperatureUnit;
+                        SelectedWindSpeedUnitIndex = (int)units.WindSpeedUnit;
                         break;
                     case WeatherUnits.custom:
                         SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
@@ -140,6 +135,8 @@ namespace Drizzle.UI.UWP.ViewModels
             }
         }
 
+        private bool customWeatherUnitValueChanged;
+
         private int _selectedTemperatureUnitIndex;
         public int SelectedTemperatureUnitIndex
         {
@@ -147,7 +144,10 @@ namespace Drizzle.UI.UWP.ViewModels
             set
             {
                 if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit) != (TemperatureUnits)value)
+                {
+                    customWeatherUnitValueChanged = true;
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedTemperatureUnit, value);
+                }
                 SetProperty(ref _selectedTemperatureUnitIndex, value);
             }
         }
@@ -159,7 +159,10 @@ namespace Drizzle.UI.UWP.ViewModels
             set
             {
                 if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit) != (WindSpeedUnits)value)
+                {
+                    customWeatherUnitValueChanged = true;
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);
+                }
                 SetProperty(ref _selectedWindSpeedUnitIndex, value);
             }
         }
@@ -245,8 +248,7 @@ namespace Drizzle.UI.UWP.ViewModels
             // Update Weather units
             var newWeatherUnit = (WeatherUnits)SelectedWeatherUnitIndex;
             var currentWeatherUnit = userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
-            // If custom always refresh (lazy way of force updating regardless if any of the individual unit changed.)
-            if (newWeatherUnit != currentWeatherUnit || newWeatherUnit == WeatherUnits.custom)
+            if (newWeatherUnit != currentWeatherUnit || (newWeatherUnit == WeatherUnits.custom && customWeatherUnitValueChanged))
                 userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, newWeatherUnit);
 
             // Update Weather provider

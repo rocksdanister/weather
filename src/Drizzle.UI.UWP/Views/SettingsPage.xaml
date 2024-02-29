@@ -136,7 +136,7 @@
                             <Grid CornerRadius="5">
                                 <ListBox SelectedIndex="{x:Bind viewModel.SelectedWindSpeedUnitIndex, Mode=TwoWay}">
                                     <TextBlock>km/h</TextBlock>
-                                    <TextBlock>mp/h</TextBlock>
+                                    <TextBlock>mph</TextBlock>
                                     <TextBlock>m/s</TextBlock>
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>

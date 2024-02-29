@@ -37,7 +37,7 @@ public static class WeatherUtil
         return unit switch
         {
             WindSpeedUnits.kmh => "km/h",
-            WindSpeedUnits.mph => "mi/h",
+            WindSpeedUnits.mph => "mph",
             WindSpeedUnits.ms => "m/s",
             _ => throw new NotImplementedException(),
         };
