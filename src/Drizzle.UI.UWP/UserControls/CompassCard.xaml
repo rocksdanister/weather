@@ -99,7 +99,7 @@
             FontSize="19"
             FontWeight="SemiBold"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-            <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+            <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F1}'}" />
             <Run Text="{x:Bind Unit, Mode=OneWay}" />
         </TextBlock>
 
