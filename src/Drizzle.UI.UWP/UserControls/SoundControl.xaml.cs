@@ -56,5 +56,10 @@ namespace Drizzle.UI.UWP.UserControls
                 wave.Stop();
             }
         }
+
+        private void Wave_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Volume = 0;
+        }
     }
 }

@@ -20,7 +20,8 @@
                 Width="25"
                 AutoPlay="False"
                 Opacity="0.65"
-                PlaybackRate="0.75">
+                PlaybackRate="0.75"
+                PointerPressed="Wave_PointerPressed">
                 <visuals:Waves />
             </muxc:AnimatedVisualPlayer>
             <Slider

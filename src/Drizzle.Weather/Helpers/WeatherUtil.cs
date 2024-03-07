@@ -13,19 +13,19 @@ namespace Drizzle.Weather.Helpers;
 
 public static class WeatherUtil
 {
-    public static ForecastWeather ToImperialUnit(this ForecastWeather forecast) =>
+    public static void ToImperialUnit(this ForecastWeather forecast) =>
         ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.imperial));
 
-    public static ForecastWeather ToMetricUnit(this ForecastWeather forecast) =>
+    public static void ToMetricUnit(this ForecastWeather forecast) =>
         ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.metric));
 
-    public static ForecastWeather ToHybridUnit(this ForecastWeather forecast) =>
+    public static void ToHybridUnit(this ForecastWeather forecast) =>
         ConvertUnit(forecast, new WeatherUnitSettings(WeatherUnits.hybrid));
 
-    public static ForecastWeather ToCustomUnit(this ForecastWeather forecast, WeatherUnitSettings toUnit) =>
+    public static void ToCustomUnit(this ForecastWeather forecast, WeatherUnitSettings toUnit) =>
         ConvertUnit(forecast, toUnit);
 
-    public static ForecastWeather ToCustomUnit(this ForecastWeather forecast,
+    public static void ToCustomUnit(this ForecastWeather forecast,
                                                TemperatureUnits temperatureUnit,
                                                WindSpeedUnits windSpeedUnit,
                                                VisibilityUnits visibilityUnit,
@@ -116,10 +116,10 @@ public static class WeatherUtil
         }
     }
 
-    private static ForecastWeather ConvertUnit(ForecastWeather forecast, WeatherUnitSettings toUnit)
+    private static void ConvertUnit(ForecastWeather forecast, WeatherUnitSettings toUnit)
     {
         if (forecast.Units.Unit != WeatherUnits.custom && forecast.Units.Unit == toUnit.Unit)
-            return forecast;
+            return;
 
         for (int i = 0; i < forecast.Daily.Count; i++)
         {
@@ -273,7 +273,6 @@ public static class WeatherUtil
             //}
         }
         forecast.Units = toUnit;
-        return forecast;
     }
 
     // Lifted operators

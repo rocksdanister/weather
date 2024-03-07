@@ -94,6 +94,7 @@
             VerticalAlignment="Bottom"
             Opacity="0.5"
             TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
+            ToolTipService.ToolTip="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
             Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
 
         <!--  Main Content  -->
