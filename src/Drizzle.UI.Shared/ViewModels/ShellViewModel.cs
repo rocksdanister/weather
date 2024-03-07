@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.WinUI.Collections;
 using ComputeSharp;
 using Drizzle.Common;
 using Drizzle.Common.Constants;
@@ -13,8 +14,6 @@ using Drizzle.UI.UWP.Factories;
 using Drizzle.Weather;
 using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Microsoft.Toolkit.Uwp.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -108,8 +107,8 @@ namespace Drizzle.UI.UWP.ViewModels
                 IsShowAddLocation = IsMainPage && SelectedLocation is null;
             };
 
-            IsFirstRun = SystemInformation.Instance.IsFirstRun;
-            IsAppUpdated = SystemInformation.Instance.IsAppUpdated;
+            //IsFirstRun = SystemInformation.Instance.IsFirstRun;
+            //IsAppUpdated = SystemInformation.Instance.IsAppUpdated;
             // For best user experience when volume is 0, pause audio.
             soundService.AutoPause = true;
             // Cache the weather data to reduce API calls when app is re-opened.

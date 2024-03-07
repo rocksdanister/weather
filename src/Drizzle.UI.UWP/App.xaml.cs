@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Toolkit.Uwp.Helpers;
+using CommunityToolkit.WinUI.Helpers;
 using NLog.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -90,26 +90,26 @@ namespace Drizzle.UI.UWP
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
-            if (SystemInformation.Instance.IsFirstRun)
-            {
-                // Update before viewModel initialization
-                var region = new GeographicRegion();
-                switch (region.CodeTwoLetter)
-                {
-                    case "US":
-                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
-                        break;
-                    case "GB":
-                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
-                        break;
-                }
-            }
-            else if (SystemInformation.Instance.IsAppUpdated)
-            {
-                logger.LogInformation("App updated, performing maintenance..");
-                // Clear cache incase any changes made to the impl
-                Services.GetRequiredService<ICacheService>().Clear();
-            }
+            //if (SystemInformation.Instance.IsFirstRun)
+            //{
+            //    // Update before viewModel initialization
+            //    var region = new GeographicRegion();
+            //    switch (region.CodeTwoLetter)
+            //    {
+            //        case "US":
+            //            userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
+            //            break;
+            //        case "GB":
+            //            userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
+            //            break;
+            //    }
+            //}
+            //else if (SystemInformation.Instance.IsAppUpdated)
+            //{
+            //    logger.LogInformation("App updated, performing maintenance..");
+            //    // Clear cache incase any changes made to the impl
+            //    Services.GetRequiredService<ICacheService>().Clear();
+            //}
 
             // For this application dark/light theme does not make sense
             // Interface design will be done assuming current theme is dark
@@ -269,11 +269,11 @@ namespace Drizzle.UI.UWP
 
         private void LogHardwareInformation()
         {
-            logger.LogInformation($"{SystemInformation.Instance.ApplicationName} " +
-                $"v{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}" +
-                $".{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}");
-            logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
-                $"{SystemInformation.Instance.Culture}");
+            //logger.LogInformation($"{SystemInformation.Instance.ApplicationName} " +
+            //    $"v{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}" +
+            //    $".{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}");
+            //logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
+            //    $"{SystemInformation.Instance.Culture}");
         }
 
         private void LogUnhandledException<T>(T exception) => logger.LogError(exception?.ToString());
