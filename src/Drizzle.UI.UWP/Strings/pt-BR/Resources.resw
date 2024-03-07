@@ -466,7 +466,7 @@
     <value>Pressão</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Velocidade</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sol</value>
@@ -478,7 +478,7 @@
     <value>Pôr do Sol</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Temperatura</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Atualização concluída</value>
@@ -517,7 +517,7 @@
     <value>Provedor</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Personalizado</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Híbrido</value>

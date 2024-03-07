@@ -466,7 +466,7 @@
     <value>Πίεση</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Ταχύτητα</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Ήλιος</value>
@@ -478,7 +478,7 @@
     <value>Δύση</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Θερμοκρασία</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Η ενημέρωση ολοκληρώθηκε</value>
@@ -517,7 +517,7 @@
     <value>Πάροχος</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Προσαρμοσμένη</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Υβριδικό</value>
