@@ -350,6 +350,9 @@
                                         <!--  Fog  -->
                                         <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsFogPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <TextBlock x:Uid="FogColorGradient" />
+                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
+                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
+                                            <!--  Change to CommunityToolkit control after 8.1 release.  -->
                                             <!--<controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}">
                                                 <controls:ColorPickerButton.ColorPickerStyle>
                                                     <Style TargetType="controls:ColorPicker">
