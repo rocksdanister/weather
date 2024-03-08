@@ -11,6 +11,7 @@ using Drizzle.UI.Shared.Shaders.Helpers;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Runners;
 using Drizzle.UI.UWP.Factories;
+using Drizzle.UI.UWP.Helpers;
 using Drizzle.Weather;
 using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
@@ -107,8 +108,8 @@ namespace Drizzle.UI.UWP.ViewModels
                 IsShowAddLocation = IsMainPage && SelectedLocation is null;
             };
 
-            //IsFirstRun = SystemInformation.Instance.IsFirstRun;
-            //IsAppUpdated = SystemInformation.Instance.IsAppUpdated;
+            IsFirstRun = SystemInfoUtil.Instance.IsFirstRun;
+            IsAppUpdated = SystemInfoUtil.Instance.IsAppUpdated;
             // For best user experience when volume is 0, pause audio.
             soundService.AutoPause = true;
             // Cache the weather data to reduce API calls when app is re-opened.

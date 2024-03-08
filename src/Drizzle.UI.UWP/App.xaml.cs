@@ -41,6 +41,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
+using Drizzle.UI.UWP.Helpers;
 
 namespace Drizzle.UI.UWP
 {
@@ -90,26 +91,26 @@ namespace Drizzle.UI.UWP
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
-            //if (SystemInformation.Instance.IsFirstRun)
-            //{
-            //    // Update before viewModel initialization
-            //    var region = new GeographicRegion();
-            //    switch (region.CodeTwoLetter)
-            //    {
-            //        case "US":
-            //            userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
-            //            break;
-            //        case "GB":
-            //            userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
-            //            break;
-            //    }
-            //}
-            //else if (SystemInformation.Instance.IsAppUpdated)
-            //{
-            //    logger.LogInformation("App updated, performing maintenance..");
-            //    // Clear cache incase any changes made to the impl
-            //    Services.GetRequiredService<ICacheService>().Clear();
-            //}
+            if (SystemInfoUtil.Instance.IsFirstRun)
+            {
+                // Update before viewModel initialization
+                var region = new GeographicRegion();
+                switch (region.CodeTwoLetter)
+                {
+                    case "US":
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
+                        break;
+                    case "GB":
+                        userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
+                        break;
+                }
+            }
+            else if (SystemInfoUtil.Instance.IsAppUpdated)
+            {
+                logger.LogInformation("App updated, performing maintenance..");
+                // Clear cache incase any changes made to the impl
+                Services.GetRequiredService<ICacheService>().Clear();
+            }
 
             // For this application dark/light theme does not make sense
             // Interface design will be done assuming current theme is dark
@@ -269,9 +270,9 @@ namespace Drizzle.UI.UWP
 
         private void LogHardwareInformation()
         {
-            //logger.LogInformation($"{SystemInformation.Instance.ApplicationName} " +
-            //    $"v{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}" +
-            //    $".{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}");
+            logger.LogInformation($"{SystemInfoUtil.Instance.ApplicationName} " +
+                $"v{SystemInfoUtil.Instance.ApplicationVersion.Major}.{SystemInfoUtil.Instance.ApplicationVersion.Minor}" +
+                $".{SystemInfoUtil.Instance.ApplicationVersion.Build}.{SystemInfoUtil.Instance.ApplicationVersion.Revision}");
             //logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
             //    $"{SystemInformation.Instance.Culture}");
         }

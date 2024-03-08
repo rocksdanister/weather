@@ -12,7 +12,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="rootPage"
     Background="Transparent"
