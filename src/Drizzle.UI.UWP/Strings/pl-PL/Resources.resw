@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Cześć, jestem Dani John znany również jako rocksdanister. Tworzę różne zabawne programy. Dziękuję za poświęcenie czasu mojej pracy.</value>
+    <value>Cześć, jestem Dani John, znany również jako rocksdanister. Tworzę ciekawe oprogramowanie, takie jak to. Dziękuję za poświęcenie czasu mojej pracy.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Dobrze</value>
@@ -142,7 +142,7 @@
     <value>Zawsze ukryj menu podczas bezczynności</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>O</value>
+    <value>Informacje</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
     <value>Pomoc</value>
@@ -151,10 +151,10 @@
     <value>Ustawienia</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Wyszukaj miasto</value>
+    <value>Wyszukaj miejscowość</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Powiadomienie o programie zewnętrznym</value>
+    <value>Informacja o oprogramowaniu zewnętrznym</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>Dostosuj jasność tła</value>
@@ -172,7 +172,7 @@
     <value>Sprawdź aktualizacje</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Dzień/Noc</value>
+    <value>Dzień/noc</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
     <value>Powtórzenia</value>
@@ -190,13 +190,13 @@
     <value>Uwzględnij wybrane przez użytkownika obrazy w efektach pogodowych</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Niestandardowe Tło</value>
+    <value>Niestandardowe tło</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Horyzontalny</value>
+    <value>Poziomo</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Pionowy</value>
+    <value>Pionowo</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Celem AQI jest dostarczanie informacji na temat skutków zdrowotnych pięciu najpowszechniejszych zanieczyszczeń powietrza. Jest to skala mieszcząca się w zakresie od 0 do 500, przy czym wyższe wartości wskazują na poważniejsze zanieczyszczenie powietrza i większe zagrożenia dla zdrowia.</value>
@@ -217,10 +217,10 @@
     <value>Prędkość wiatru jest szybkością, z jaką powietrze porusza się poziomo po danym punkcie. Jest to podstawowa ilość atmosferyczna spowodowana przechodzeniem powietrza z wysokiego do niskiego ciśnienia, zazwyczaj z powodu zmian temperatury. Gusty to nagły wzrost prędkości wiatru powyżej średniej prędkości wiatru. Zwykle trwa mniej niż 20 sekund.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Przybliżona głębokość..</value>
+    <value>Trwa przybliżanie głębokości…</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Systemowy procesor grafiki (GPU) nie obsługuje wymaganych funkcji DX12, więc niektóre funkcje są wyłączone.</value>
+    <value>Systemowy procesor grafiki (GPU) nie obsługuje wymaganych funkcji DX12, więc niektóre funkcje zostały wyłączone.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Dodatkowe pliki muszą być pobrane dla tej funkcji</value>
@@ -235,10 +235,10 @@
     <value>Amplituda</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Kolor gradientu</value>
+    <value>Gradient kolorów</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Ilość klatek animacji</value>
+    <value>Liczba klatek animacji</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS (kl./s)</value>
@@ -466,7 +466,7 @@
     <value>Ciśnienie</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Prędkość</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Słońce</value>
@@ -478,7 +478,7 @@
     <value>Zachód słońca</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Temperatura</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aktualizacja zakończona</value>
@@ -517,7 +517,7 @@
     <value>Dostawca</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Niestandardowe</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybrydowa</value>
