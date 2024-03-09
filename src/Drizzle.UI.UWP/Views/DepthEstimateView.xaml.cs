@@ -1,9 +1,13 @@
-﻿using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.Common.Helpers;
+using Drizzle.ImageProcessing;
+using Drizzle.UI.UWP.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -23,15 +27,42 @@ namespace Drizzle.UI.UWP.Views
     /// </summary>
     public sealed partial class DepthEstimateView : Page
     {
-        public DepthEstimateView(DepthEstimateViewModel vm)
+        private readonly DepthEstimateViewModel viewModel;
+
+        public DepthEstimateView(DepthEstimateViewModel viewModel)
         {
             this.InitializeComponent();
-            this.DataContext = vm;
+            this.viewModel = viewModel;
+            this.viewModel.PropertyChanged += Vm_PropertyChanged; 
+        }
 
-            this.Loaded += (_, _) =>
+        private async void Vm_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(DepthEstimateViewModel.SelectedImage) && viewModel.SelectedImage is not null)
             {
-                BackgroundGridShadow.Receivers.Add(BackgroundGrid);
-            };
+                var mipmapFileName = FileUtil.NextAvailableFilename(viewModel.SelectedImage);
+                // Resizing with blur to avoid aliasing on images with details.
+                await Task.Run(() => ImageUtil.GaussianBlur(viewModel.SelectedImage, mipmapFileName, 1, 500));
+                viewModel.SelectedShaderProperties.ImagePath = mipmapFileName;
+
+                // Workaround: ShaderPanel not running otherwise.
+                shaderPanel.IsPaused = true;
+                await Task.Delay(100);
+                shaderPanel.IsPaused = false;
+
+                // Trigger fade in animation.
+                shaderPanel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            BackgroundGridShadow.Receivers.Add(BackgroundGrid);
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            // Unreliable, firing on startup.
         }
     }
 }

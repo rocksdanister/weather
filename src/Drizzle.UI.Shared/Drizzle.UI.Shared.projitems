@@ -17,14 +17,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\DepthModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\RainModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\SnowModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\TunnelModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\WindModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Rain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\CloudsRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\DepthRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\RainRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\SnowRunner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\TunnelRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\WindRunner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Snow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Tunnel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shaders\Wind.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DepthEstimateViewModel.cs" />

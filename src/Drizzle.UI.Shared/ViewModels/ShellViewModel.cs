@@ -595,7 +595,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         RainProperty.Normal = property.Normal;
                         RainProperty.Speed = property.Speed * speedFactor;
                         RainProperty.Intensity = property.Intensity;
-                        RainProperty.PostProcessing =property.PostProcessing;
+                        RainProperty.PostProcessing = property.PostProcessing;
                         RainProperty.IsLightning = property.IsLightning;
                         RainProperty.IsPanning = property.IsPanning;
                         RainProperty.IsFreezing = property.IsFreezing;

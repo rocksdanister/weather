@@ -11,6 +11,7 @@ namespace Drizzle.Common
         snow,
         depth,
         fog,
+        tunnel = 100,
     }
 
     public enum AppPerformance

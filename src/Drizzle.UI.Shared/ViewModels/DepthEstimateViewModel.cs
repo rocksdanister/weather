@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Drizzle.Common;
 using Drizzle.Common.Helpers;
 using Drizzle.ImageProcessing;
 using Drizzle.ML.DepthEstimate;
+using Drizzle.UI.Shared.Shaders.Models;
+using Drizzle.UI.Shared.Shaders.Runners;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
@@ -38,7 +41,15 @@ namespace Drizzle.UI.UWP.ViewModels
             IsModelExists = CheckModel();
             CanRunCommand = IsModelExists && SelectedImage is not null;
             RunCommand.NotifyCanExecuteChanged();
+            SelectedShaderProperties = new() { IsSquare = true, Speed = 0.1f};
+            SelectedShader = new ShaderRunnerViewModel(new TunnelRunner(() => SelectedShaderProperties), ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f);
         }
+
+        [ObservableProperty]
+        private ShaderRunnerViewModel selectedShader;
+
+        [ObservableProperty]
+        private TunnelModel selectedShaderProperties;
 
         [ObservableProperty]
         private bool isModelExists;
@@ -212,6 +223,20 @@ namespace Drizzle.UI.UWP.ViewModels
             //    _canDownloadModelCommand = true;
             //    DownloadModelCommand.NotifyCanExecuteChanged();
             //}
+        }
+
+        public async Task OnClose()
+        {
+            SelectedShader = null;
+            try
+            {
+                if (SelectedImage is not null)
+                    await (await StorageFile.GetFileFromPathAsync(SelectedImage)).DeleteAsync();
+
+                if (SelectedShaderProperties?.ImagePath is not null)
+                    await (await StorageFile.GetFileFromPathAsync(SelectedShaderProperties.ImagePath)).DeleteAsync();
+            }
+            catch { /* Tempfolder, ignore. */ }
         }
 
         private bool CheckModel() => File.Exists(modelPath);
