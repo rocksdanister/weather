@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Toolkit.Uwp.Helpers;
+using CommunityToolkit.WinUI.Helpers;
 using NLog.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -41,6 +41,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
+using Drizzle.UI.UWP.Helpers;
 
 namespace Drizzle.UI.UWP
 {
@@ -90,7 +91,7 @@ namespace Drizzle.UI.UWP
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
-            if (SystemInformation.Instance.IsFirstRun)
+            if (SystemInfoUtil.Instance.IsFirstRun)
             {
                 // Update before viewModel initialization
                 var region = new GeographicRegion();
@@ -104,7 +105,7 @@ namespace Drizzle.UI.UWP
                         break;
                 }
             }
-            else if (SystemInformation.Instance.IsAppUpdated)
+            else if (SystemInfoUtil.Instance.IsAppUpdated)
             {
                 logger.LogInformation("App updated, performing maintenance..");
                 // Clear cache incase any changes made to the impl
@@ -269,11 +270,11 @@ namespace Drizzle.UI.UWP
 
         private void LogHardwareInformation()
         {
-            logger.LogInformation($"{SystemInformation.Instance.ApplicationName} " +
-                $"v{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}" +
-                $".{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}");
-            logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
-                $"{SystemInformation.Instance.Culture}");
+            logger.LogInformation($"{SystemInfoUtil.Instance.ApplicationName} " +
+                $"v{SystemInfoUtil.Instance.ApplicationVersion.Major}.{SystemInfoUtil.Instance.ApplicationVersion.Minor}" +
+                $".{SystemInfoUtil.Instance.ApplicationVersion.Build}.{SystemInfoUtil.Instance.ApplicationVersion.Revision}");
+            //logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
+            //    $"{SystemInformation.Instance.Culture}");
         }
 
         private void LogUnhandledException<T>(T exception) => logger.LogError(exception?.ToString());

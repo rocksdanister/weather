@@ -22,17 +22,7 @@ public static class ImageUtil
     {
         using var image = Image.Load(src);
         //Resize input for performance and memory
-        if (image.Width > maxDimension || image.Height > maxDimension)
-        {
-            image.Mutate(x =>
-            {
-                x.Resize(new ResizeOptions()
-                {
-                    Size = new Size(maxDimension, maxDimension),
-                    Mode = ResizeMode.Max
-                });
-            });
-        }
+        image.ResizeMax(maxDimension);
         image.Mutate(x => x.GaussianBlur(sigma));
         image.Save(dest);
     }
@@ -41,17 +31,7 @@ public static class ImageUtil
     {
         using var image = Image.Load(src);
         //Resize input for performance and memory
-        if (image.Width > maxDimension || image.Height > maxDimension)
-        {
-            image.Mutate(x =>
-            {
-                x.Resize(new ResizeOptions()
-                {
-                    Size = new Size(maxDimension, maxDimension),
-                    Mode = ResizeMode.Max
-                });
-            });
-        }
+        image.ResizeMax(maxDimension);
         image.Mutate(x => x.GaussianBlur(sigma));
         image.Save(dest);
     }
@@ -68,5 +48,24 @@ public static class ImageUtil
             }
         }
         return image;
+    }
+
+    /// <summary>
+    /// Fit the image within aspect ratio, 
+    /// if width > height = (<paramref name="maxDimension"/>, newHeight) else (newWidth, <paramref name="maxDimension"/>)
+    /// </summary>
+    private static void ResizeMax(this Image image, int maxDimension)
+    {
+        if (image.Width > maxDimension || image.Height > maxDimension)
+        {
+            image.Mutate(x =>
+            {
+                x.Resize(new ResizeOptions()
+                {
+                    Size = new Size(maxDimension, maxDimension),
+                    Mode = ResizeMode.Max
+                });
+            });
+        }
     }
 }

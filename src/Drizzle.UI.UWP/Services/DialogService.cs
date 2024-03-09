@@ -109,15 +109,12 @@ public class DialogService : IDialogService
         {
             // File access permission for onnx library
             // TODO: Rewrite to stream
-            var copy = await file.CopyAsync(ApplicationData.Current.TemporaryFolder, file.Name, NameCollisionOption.GenerateUniqueName);
-            vm.SelectedImage = copy.Path;
+            var copyFile = await file.CopyAsync(ApplicationData.Current.TemporaryFolder, file.Name, NameCollisionOption.GenerateUniqueName);
+            vm.SelectedImage = copyFile.Path;
 
             await depthDialog.ShowAsync();
-            try
-            {
-                await copy.DeleteAsync();
-            }
-            catch { /* Tempfolder, ignore. */ }
+            // Dispose resources
+            await vm.OnClose();
         }
         return vm.DepthAssetDir;
     }

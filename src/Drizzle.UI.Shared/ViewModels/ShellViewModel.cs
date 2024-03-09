@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.WinUI.Collections;
 using ComputeSharp;
 using Drizzle.Common;
 using Drizzle.Common.Constants;
@@ -10,11 +11,10 @@ using Drizzle.UI.Shared.Shaders.Helpers;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Runners;
 using Drizzle.UI.UWP.Factories;
+using Drizzle.UI.UWP.Helpers;
 using Drizzle.Weather;
 using Drizzle.Weather.Helpers;
 using Microsoft.Extensions.Logging;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Microsoft.Toolkit.Uwp.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -108,8 +108,8 @@ namespace Drizzle.UI.UWP.ViewModels
                 IsShowAddLocation = IsMainPage && SelectedLocation is null;
             };
 
-            IsFirstRun = SystemInformation.Instance.IsFirstRun;
-            IsAppUpdated = SystemInformation.Instance.IsAppUpdated;
+            IsFirstRun = SystemInfoUtil.Instance.IsFirstRun;
+            IsAppUpdated = SystemInfoUtil.Instance.IsAppUpdated;
             // For best user experience when volume is 0, pause audio.
             soundService.AutoPause = true;
             // Cache the weather data to reduce API calls when app is re-opened.
@@ -595,7 +595,7 @@ namespace Drizzle.UI.UWP.ViewModels
                         RainProperty.Normal = property.Normal;
                         RainProperty.Speed = property.Speed * speedFactor;
                         RainProperty.Intensity = property.Intensity;
-                        RainProperty.PostProcessing =property.PostProcessing;
+                        RainProperty.PostProcessing = property.PostProcessing;
                         RainProperty.IsLightning = property.IsLightning;
                         RainProperty.IsPanning = property.IsPanning;
                         RainProperty.IsFreezing = property.IsFreezing;

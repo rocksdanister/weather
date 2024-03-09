@@ -2,9 +2,9 @@
     x:Class="Drizzle.UI.UWP.Views.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:labs="using:CommunityToolkit.WinUI.Controls"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
@@ -112,18 +112,10 @@
                             <labs:SettingsCard.HeaderIcon>
                                 <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE912;" />
                             </labs:SettingsCard.HeaderIcon>
-                            <Grid CornerRadius="5">
-                                <ListBox SelectedIndex="{x:Bind viewModel.SelectedTemperatureUnitIndex, Mode=TwoWay}">
-                                    <TextBlock>°C</TextBlock>
-                                    <TextBlock>°F</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                </ListBox>
-                                <Rectangle Fill="{ThemeResource SystemAltMediumLowColor}" Visibility="{x:Bind viewModel.IsPresetUnit, Mode=OneWay}" />
-                            </Grid>
+                            <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedTemperatureUnitIndex, Mode=TwoWay}">
+                                <labs:SegmentedItem>°C</labs:SegmentedItem>
+                                <labs:SegmentedItem>°F</labs:SegmentedItem>
+                            </labs:Segmented>
                         </labs:SettingsCard>
 
                         <labs:SettingsCard>
@@ -133,19 +125,11 @@
                             <labs:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xEC4A;" />
                             </labs:SettingsCard.HeaderIcon>
-                            <Grid CornerRadius="5">
-                                <ListBox SelectedIndex="{x:Bind viewModel.SelectedWindSpeedUnitIndex, Mode=TwoWay}">
-                                    <TextBlock>km/h</TextBlock>
-                                    <TextBlock>mph</TextBlock>
-                                    <TextBlock>m/s</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                </ListBox>
-                                <Rectangle Fill="{ThemeResource SystemAltMediumLowColor}" Visibility="{x:Bind viewModel.IsPresetUnit, Mode=OneWay}" />
-                            </Grid>
+                            <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedWindSpeedUnitIndex, Mode=TwoWay}">
+                                <labs:SegmentedItem>km/h</labs:SegmentedItem>
+                                <labs:SegmentedItem>mph</labs:SegmentedItem>
+                                <labs:SegmentedItem>m/s</labs:SegmentedItem>
+                            </labs:Segmented>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
