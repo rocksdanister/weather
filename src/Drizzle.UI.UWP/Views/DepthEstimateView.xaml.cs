@@ -40,10 +40,10 @@ namespace Drizzle.UI.UWP.Views
         {
             if (e.PropertyName == nameof(DepthEstimateViewModel.SelectedImage) && viewModel.SelectedImage is not null)
             {
-                var mipmapFileName = FileUtil.NextAvailableFilename(viewModel.SelectedImage);
                 // Resizing with blur to avoid aliasing on images with details.
-                await Task.Run(() => ImageUtil.GaussianBlur(viewModel.SelectedImage, mipmapFileName, 1, 500));
-                viewModel.SelectedShaderProperties.ImagePath = mipmapFileName;
+                var shaderTexturePath = FileUtil.NextAvailableFilename(viewModel.SelectedImage);
+                await Task.Run(() => ImageUtil.GaussianBlur(viewModel.SelectedImage, shaderTexturePath, 1, 500));
+                viewModel.SelectedShaderProperties.ImagePath = shaderTexturePath;
 
                 // Workaround: ShaderPanel not running otherwise.
                 shaderPanel.IsPaused = true;
