@@ -42,7 +42,7 @@ namespace Drizzle.UI.UWP.Views
             {
                 // Resizing with blur to avoid aliasing on images with details.
                 var shaderTexturePath = FileUtil.NextAvailableFilename(viewModel.SelectedImage);
-                await Task.Run(() => ImageUtil.GaussianBlur(viewModel.SelectedImage, shaderTexturePath, 1, 500));
+                await Task.Run(() => ImageUtil.GaussianBlur(viewModel.SelectedImage, shaderTexturePath, 1, 800));
                 viewModel.SelectedShaderProperties.ImagePath = shaderTexturePath;
 
                 // Workaround: ShaderPanel not running otherwise.

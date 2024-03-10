@@ -49,11 +49,11 @@
                 </animations:Implicit.ShowAnimations>
             </computesharp:AnimatedComputeShaderPanel>
         </Border>
-        <Border CornerRadius="5">
+        <!--<Border CornerRadius="5">
             <Border.Background>
                 <media:BackdropBlurBrush Amount="2" />
             </Border.Background>
-        </Border>
+        </Border>-->
         <!--  Shadow background  -->
         <Grid x:Name="BackgroundGrid" />
         <Grid Visibility="{x:Bind viewModel.IsModelExists, Converter={StaticResource VisibilityConverter}, Mode=OneWay}">
@@ -65,10 +65,10 @@
             <!--  Center UniformToFill  -->
             <Viewbox
                 Grid.Row="0"
-                Width="288"
-                Height="162"
+                Width="320"
+                Height="180"
                 Shadow="{StaticResource BackgroundGridShadow}"
-                Translation="0,0,32">
+                Translation="0,0,64">
                 <!--  Sometimes do not work  -->
                 <!--<ui:Effects.Shadow>
                     <media:AttachedCardShadow Offset="4" Color="{ThemeResource SystemAltMediumColor}" />

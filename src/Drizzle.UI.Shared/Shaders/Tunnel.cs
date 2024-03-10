@@ -21,6 +21,8 @@ public readonly partial struct Tunnel : IPixelShader<float4>
 
     private readonly IReadOnlyNormalizedTexture2D<float4> texture;
 
+    private readonly float brightness;
+
     private readonly float speed;
 
     private readonly bool isSquare;
@@ -51,6 +53,6 @@ public readonly partial struct Tunnel : IPixelShader<float4>
         float3 col = texture.Sample(uv).XYZ;
         col = col * r;
 
-        return new float4(col, 1f);
+        return new float4(col * brightness, 1f);
     }
 }

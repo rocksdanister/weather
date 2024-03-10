@@ -41,7 +41,7 @@ namespace Drizzle.UI.UWP.ViewModels
             IsModelExists = CheckModel();
             CanRunCommand = IsModelExists && SelectedImage is not null;
             RunCommand.NotifyCanExecuteChanged();
-            SelectedShaderProperties = new() { IsSquare = true, Speed = 0.1f};
+            SelectedShaderProperties = new() { IsSquare = true, Speed = 0.1f, Brightness = 0.95f };
             SelectedShader = new ShaderRunnerViewModel(new TunnelRunner(() => SelectedShaderProperties), ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f);
         }
 

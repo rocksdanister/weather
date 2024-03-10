@@ -47,7 +47,7 @@ public sealed class TunnelRunner : IShaderRunner
         simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
         previousTime = timespan.TotalSeconds;
 
-        texture.GraphicsDevice.ForEach(texture, new Tunnel((float)simulatedTime, image, currentProperties.Speed, currentProperties.IsSquare));
+        texture.GraphicsDevice.ForEach(texture, new Tunnel((float)simulatedTime, image, currentProperties.Brightness, currentProperties.Speed, currentProperties.IsSquare));
 
         return true;
 
@@ -57,6 +57,7 @@ public sealed class TunnelRunner : IShaderRunner
     {
         // Smoothing, value is increased by small step % every frame
         currentProperties.TimeMultiplier = ShaderUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+        currentProperties.Brightness = ShaderUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
         // Other
         currentProperties.IsSquare = properties().IsSquare;
         currentProperties.Speed = properties().Speed;
