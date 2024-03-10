@@ -187,7 +187,7 @@
     <value>문의하기</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Include user selected images in weather effects</value>
+    <value>날씨 효과에 사용자가 선택한 이미지 포함</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
     <value>맞춤 배경</value>
@@ -199,28 +199,28 @@
     <value>수직</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>The AQI is designed to provide information about the health effects of the five most common air pollutants. It is a scale that ranges from 0 to 500, with higher values indicating more severe air pollution and greater health risks.</value>
+    <value>AQI는 가장 흔한 5가지 대기 오염물질이 건강에 미치는 영향에 대한 정보를 제공하도록 설계되었습니다. 0에서 500까지의 척도이며, 값이 높을수록 대기 오염이 심하고 건강 위험이 더 크다는 것을 나타냅니다.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>Dew point temperature is an absolute measure of the amount of water vapor in the air. When the dew point temperature and air temperature are equal, the relative humidity is 100%. At this point, the air is completely saturated with water vapor, leading to condensation in the form of dew, fog, or clouds.</value>
+    <value>이슬점 온도는 공기 중의 수증기 양을 절대적으로 측정한 것입니다. 이슬점 온도와 기온이 같을 때 상대습도는 100%입니다. 이 시점에서 공기는 수증기로 완전히 포화되어 이슬, 안개 또는 구름 형태의 응결이 발생합니다.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>Relative humidity is a measure of the amount of water vapor present in the air compared to the maximum amount the air could hold at that temperature. It is expressed as a percentage and provides information about how close the air is to saturation.</value>
+    <value>상대습도는 해당 온도에서 공기가 보유할 수 있는 최대 수증기량과 비교하여 공기 중에 존재하는 수증기량을 측정한 것입니다. 이는 백분율로 표시되며 공기가 포화 상태에 얼마나 가까운지에 대한 정보를 제공합니다.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Barometric pressure, also known as atmospheric pressure, is the measure of air pressure in a given area.</value>
+    <value>대기압이라고도 알려진 기압은 특정 지역의 기압을 측정한 것입니다.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>The World Health Organization's UV index (UVI) measures the strength of sunburn-producing ultraviolet radiation. It is a linear scale that ranges from 0 to 11+, with higher values indicating greater risk of exposure to UV rays and increased chances of sunburn and skin damage that could ultimately lead to skin cancer.</value>
+    <value>세계보건기구의 UVI (자외선 지수) 는 일광화상을 유발하는 자외선의 강도를 측정합니다. 이는 0에서 11+ 범위의 선형 척도로, 값이 높을수록 자외선에 노출될 위험이 더 높고 일광화상 및 궁극적으로 피부암으로 이어질 수 있는 피부 손상 가능성이 높다는 것을 나타냅니다.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Wind speed is the rate at which air moves horizontally past a given point. It is a fundamental atmospheric quantity caused by air moving from high to low pressure, usually due to changes in temperature. Gusts are a sudden increase in wind speed above the average wind speed. It usually lasts less than 20 seconds.</value>
+    <value>풍속은 공기가 특정 지점을 지나 수평으로 이동하는 속도입니다. 일반적으로 온도 변화로 인해 공기가 고압에서 저압으로 이동하면서 발생하는 기본 대기량입니다. 돌풍은 평균 풍속보다 풍속이 갑자기 증가하는 현상입니다. 일반적으로 지속 시간은 20초 미만입니다.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>대략적인 깊이</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>귀하의 그래픽카드(GPU) 가 요구되는 DX12 기능을 지원하지 못하는 것같습니다. 일부 기능이 비활설화되었습니다.</value>
+    <value>귀하의 그래픽 프로세서(GPU) 가 요구되는 DX12 기능을 지원하지 못합니다. 일부 기능이 활성화되지 않았습니다</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>이 기능을 사용하려면 추가 파일을 다운로드해야 합니다</value>
@@ -247,7 +247,7 @@
     <value>오류</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Contribute to this program by translating it into other languages.</value>
+    <value>이 프로그램을 다른 언어로 번역하여 기여해 주세요.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
     <value>번역 참여하기</value>
@@ -352,7 +352,7 @@
     <value>레이저 중첩 정도</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Width</value>
+    <value>폭</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
     <value>소프트웨어 라이센스</value>
@@ -361,7 +361,7 @@
     <value>소리</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Show some love by dropping a star</value>
+    <value>별을 눌러 사랑을 보여주세요</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
     <value>소스 코드</value>
@@ -529,7 +529,7 @@
     <value>미터법</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Show measurements in</value>
+    <value>측량 공유</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
     <value>단위</value>
@@ -541,7 +541,7 @@
     <value>웹사이트</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Welcome to my weather app! Please note that this app is still in beta and some features may not work as expected. I am working hard to improve the app and make it better. Thank you for your understanding and patience.</value>
+    <value>내 날씨 앱에 오신 것을 환영합니다! 이 앱은 아직 베타 버전이므로 일부 기능이 예상대로 작동하지 않을 수 있습니다. 앱을 개선하고 더 좋게 만들기 위해 열심히 노력하고 있습니다. 이해와 인내심에 감사드립니다.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
     <value>맑음</value>
@@ -556,25 +556,25 @@
     <value>약간 흐림</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Overcast</value>
+    <value>흐림</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
     <value>안개</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Depositing Rime Fog</value>
+    <value>서리 안개</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>안개</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Light Drizzle</value>
+    <value>가벼운 이슬</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Moderate Drizzle</value>
+    <value>적당한 이슬비</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Dense Drizzle</value>
+    <value>짙은 이슬비</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
     <value>약한 우빙</value>
