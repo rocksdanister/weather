@@ -11,7 +11,7 @@ namespace Drizzle.Models.Weather.Qweather;
 public class Daily
 {
     [JsonPropertyName("fxDate")]
-    public DateTimeOffset FxDate { get; set; }
+    public string FxDate { get; set; }
 
     [JsonPropertyName("sunrise")]
     public string Sunrise { get; set; }

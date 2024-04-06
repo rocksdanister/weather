@@ -51,7 +51,7 @@ public class QweatherWeatherClient : IWeatherClient
 
         var result = new ForecastWeather()
         {
-            Name = !string.IsNullOrEmpty(forecastResponse.City.Name) ? $"{forecastResponse.City.Name}, {forecastResponse.City.Country}" : null,
+            // Name = !string.IsNullOrEmpty(forecastResponse.City.Name) ? $"{forecastResponse.City.Name}, {forecastResponse.City.Country}" : null,
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
@@ -60,7 +60,8 @@ public class QweatherWeatherClient : IWeatherClient
         };
 
         // Group the data based on date as key
-        var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        // var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        var dailyGroup = forecastResponse.Daily.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
         var dailyWeather = new List<DailyWeather>();
         var currentTime = TimeUtil.GetLocalTime(result.TimeZone) ?? DateTime.Now;
         var index = 0;
@@ -154,27 +155,26 @@ public class QweatherWeatherClient : IWeatherClient
             Latitude = latitude,
             Longitude = longitude,
             TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
-            //Units = new WeatherUnitSettings(WeatherUnits.metric),
             ForecastInterval = 1,
         };
 
         // Group the data based on date
-        var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
+        // TimeUtil.ISO8601ToDateTime(x.FxDate).Date
+        var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
         var dailyAirQuality = new List<DailyAirQuality>();
         var currentTime = TimeUtil.GetLocalTime(result.TimeZone) ?? DateTime.Now;
         var index = 0;
+
         foreach (var day in dailyGroup)
         {
-            // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && day.Key.Date != currentTime.Date)
                 continue;
 
-            var hourlyAqi = day.Select(x => CalculateAqi(x.Components) ?? 0f);
+            // var hourlyAqi = day.Select(x => CalculateAqi(x.Components) ?? 0f);
             var airQuality = new DailyAirQuality
             {
-                StartTime = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
-                AQI = index == 0 ? CalculateAqi(currentResponse.List[0].Components) : (int)hourlyAqi.Max(),
-                HourlyAQI = hourlyAqi.ToArray(),
+                StartTime = TimeUtil.ISO8601ToDateTime(day.First().FxDate),
+                AQI = int.Parse(day.First().Aqi),
                 // Not available
                 //HourlyUV = null,
                 //UV = null,
@@ -218,7 +218,7 @@ public class QweatherWeatherClient : IWeatherClient
     }
 
     public async Task<IReadOnlyList<Location>> GetLocationDataAsync(float latitude, float longitude) =>
-        await GetLocationDataAsync($"{latitude}, {longitude}");
+        await GetLocationDataAsync($"{latitude},{longitude}");
 
     private async Task<AirQualityForecast> GetAirQualityForecastDataAsync(float latitude, float longitude)
     {
@@ -292,6 +292,7 @@ public class QweatherWeatherClient : IWeatherClient
             .Where(g => WeatherUtil.GetSeverity(g.WeatherCode) == maxSeverity)
             .OrderByDescending(g => g.Count)
             .First();
+
 
         return mostSevereWeather.WeatherCode;
     }
