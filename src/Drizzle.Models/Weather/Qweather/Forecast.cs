@@ -14,7 +14,7 @@ public class Forecast
     public string Code { get; set; }
 
     [JsonPropertyName("updateTime")]
-    public int UpdateTime { get; set; }
+    public string UpdateTime { get; set; }
 
 
 

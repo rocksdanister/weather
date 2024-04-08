@@ -16,10 +16,10 @@ public class LocationData
     public string Id { get; set; }
 
     [JsonPropertyName("lat")]
-    public float Lat { get; set; }
+    public string Lat { get; set; }
 
     [JsonPropertyName("lon")]
-    public float Lon { get; set; }
+    public string Lon { get; set; }
 
     [JsonPropertyName("country")]
     public string Country { get; set; }

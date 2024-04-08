@@ -13,6 +13,7 @@ using System.IO;
 using Microsoft.Extensions.Logging;
 using Drizzle.Models.Weather.OpenMeteo;
 using Drizzle.Weather.Helpers;
+using System.IO.Compression;
 
 namespace Drizzle.Weather;
 

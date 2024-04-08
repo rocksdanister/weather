@@ -20,6 +20,8 @@ public static class UserSettingsConstants
 
     public const string OpenWeatherMapKey = "OpenWeatherMapKey";
 
+    public const string QweatherApiKey = "QweatherApiKey";
+
     public const string PinnedLocations = "PinnedLocations";
 
     public const string SelectedLocation = "SelectedLocation";
@@ -58,6 +60,7 @@ public static class UserSettingsConstants
         { AutoHideScreensaverMenu, false },
         { IncludeUserImagesInShuffle, false },
         { OpenWeatherMapKey, string.Empty },
+        { QweatherApiKey, string.Empty },
         { PinnedLocations, Array.Empty<LocationModel>() },
         { SelectedLocation, null },
         { MaxPinnedLocations, 5 },

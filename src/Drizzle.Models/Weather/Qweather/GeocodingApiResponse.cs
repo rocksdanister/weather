@@ -14,11 +14,11 @@ public class GeocodingApiResponse
     /// Array of found locations
     /// </summary>
     [JsonPropertyName("location")]
-    public LocationData[] Locations { get; set; }
+    public LocationData[] location { get; set; }
 
     /// <summary>
     /// Status Code
     /// </summary>
     [JsonPropertyName("code")]
-    public int code { get; set; }
+    public string code { get; set; }
 }

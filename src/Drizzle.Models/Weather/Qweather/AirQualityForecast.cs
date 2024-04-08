@@ -14,7 +14,7 @@ public class AirQualityForecast
 
 
     [JsonPropertyName("updateTime")]
-    public int UpdateTime { get; set; }
+    public string UpdateTime { get; set; }
 
     [JsonPropertyName("daily")]
     public List<AirQualityDaily> List { get; set; }
