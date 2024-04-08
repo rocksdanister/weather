@@ -65,24 +65,17 @@ public class QweatherWeatherClient : IWeatherClient
         };
 
         // Group the data based on date as key
-        // var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.UnixToLocalDateTime(x.Dt, result.TimeZone).Date);
         var dailyGroup = forecastResponse.Daily.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
         var dailyWeather = new List<DailyWeather>();
         var currentTime = TimeUtil.GetLocalTime(result.TimeZone) ?? DateTime.Now;
         var index = 0;
-        // Unit ref: https://openweathermap.org/weather-data
         foreach (var day in dailyGroup)
         {
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && day.Key.Date != currentTime.Date)
                 continue;
 
-            // var severeDayWeather = GetMostSevereWeather(day.Select(x => OpenWeatherMapCodeToWmo(x.Weather[0].Id)));
-            //var currentValue = index == 0 ?
-            //    // Select the weather closest to current time.
-            //    day.OrderBy(t => Math.Abs((TimeUtil.UnixToLocalDateTime(t.Dt, result.TimeZone).TimeOfDay - currentTime.TimeOfDay).Ticks)).First() :
-            //    // Pick a point in time with severe weather.
-            //    day.First(x => OpenWeatherMapCodeToWmo(x.Weather[0].Id) == severeDayWeather);
+
 
             var sunriseIso8601Time = string.Format("{0}T{1}+08:00", day.First().FxDate, day.First().Sunrise);
             var sunsetIso8601Time = string.Format("{0}T{1}+08:00", day.First().FxDate, day.First().Sunset);
@@ -92,13 +85,8 @@ public class QweatherWeatherClient : IWeatherClient
                 StartTime = TimeUtil.ISO8601ToDateTime(day.First().FxDate),
                 Sunrise =  TimeUtil.ISO8601ToDateTime(sunriseIso8601Time),
                 Sunset = TimeUtil.ISO8601ToDateTime(sunsetIso8601Time),
-                //StartTime = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
 
-                // Only current day
-                // Sunrise = TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunrise, result.TimeZone),
-                // Sunset = TimeUtil.UnixToLocalDateTime(currentResponse.Sys.Sunset, result.TimeZone),
                 TemperatureMin = float.Parse(day.OrderBy(x => float.Parse(x.TempMin)).First().TempMin),
-                
                 TemperatureMax = float.Parse(day.OrderByDescending(x => float.Parse(x.TempMax)).First().TempMax),
                 // Not available
                 //ApparentTemperatureMin =
