@@ -7,7 +7,8 @@ using System.Text.Json.Serialization;
 using System.Globalization;
 
 namespace Drizzle.Models.Weather.Qweather;
-
+// Generated from json data
+// Ref: https://dev.qweather.com/docs/api/weather/weather-daily-forecast/
 public class Daily
 {
     [JsonPropertyName("fxDate")]

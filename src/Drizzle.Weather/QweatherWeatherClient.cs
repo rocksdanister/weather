@@ -24,6 +24,7 @@ public class QweatherWeatherClient : IWeatherClient
     private readonly HttpClient httpClient;
 
     // API
+    // https://dev.qweather.com/docs/api/weather/weather-hourly-forecast/
     private readonly string forecastApiUrl = "https://devapi.qweather.com/v7/weather/7d?";
     private readonly string currentApiUrl = "https://devapi.qweather.com/v7/weather/now?";
     private readonly string geocodeApiUrl = "https://geoapi.qweather.com/v2/city/lookup?";

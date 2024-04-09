@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace Drizzle.Models.Weather.Qweather;
 
+// Generated from json data
+// Ref: https://dev.qweather.com/docs/api/weather/weather-now/
 public class Now
 {
     [JsonPropertyName("obsTime")]
