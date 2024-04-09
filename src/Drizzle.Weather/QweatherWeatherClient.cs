@@ -1,24 +1,14 @@
 ﻿using Drizzle.Common;
 using Drizzle.Common.Services;
 using Drizzle.Models.Weather;
-//using Drizzle.Models.Weather.OpenWeatherMap;
 using Drizzle.Models.Weather.Qweather;
 using Drizzle.Weather.Helpers;
-using Microsoft.Extensions.Options;
-
-
-// using Newtonsoft.Json;
-// using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -33,7 +23,7 @@ public class QweatherWeatherClient : IWeatherClient
     private readonly ICacheService cacheService;
     private readonly HttpClient httpClient;
 
-    // API Ref:
+    // API
     private readonly string forecastApiUrl = "https://devapi.qweather.com/v7/weather/7d?";
     private readonly string currentApiUrl = "https://devapi.qweather.com/v7/weather/now?";
     private readonly string geocodeApiUrl = "https://geoapi.qweather.com/v2/city/lookup?";
@@ -61,13 +51,15 @@ public class QweatherWeatherClient : IWeatherClient
             Longitude = longitude,
             TimeZone = TimeUtil.GetTimeZone(latitude, longitude),
             Units = new WeatherUnitSettings(WeatherUnits.metric),
-            ForecastInterval = 3,
+            ForecastInterval = 1,
         };
 
         // Group the data based on date as key
         var dailyGroup = forecastResponse.Daily.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
         var dailyWeather = new List<DailyWeather>();
         var currentTime = TimeUtil.GetLocalTime(result.TimeZone) ?? DateTime.Now;
+        var currentHourly = hourlyForecastResponse.Hourly.Where(x => TimeUtil.ISO8601ToDateTime(x.FxTime).Date == DateTime.Today.Date);
+
         var index = 0;
         foreach (var day in dailyGroup)
         {
@@ -76,13 +68,13 @@ public class QweatherWeatherClient : IWeatherClient
                 continue;
 
 
-
             var sunriseIso8601Time = string.Format("{0}T{1}+08:00", day.First().FxDate, day.First().Sunrise);
             var sunsetIso8601Time = string.Format("{0}T{1}+08:00", day.First().FxDate, day.First().Sunset);
             var weather = index == 0 ? new DailyWeather()
             {
                 WeatherCode = (int)OpenWeatherMapCodeToWmo(int.Parse(currentResponse.Now.Icon)),
-                StartTime = TimeUtil.ISO8601ToDateTime(day.First().FxDate),
+                StartTime = TimeUtil.ISO8601ToDateTime(currentHourly.First().FxTime).ToLocalTime(),
+               
                 Sunrise =  TimeUtil.ISO8601ToDateTime(sunriseIso8601Time),
                 Sunset = TimeUtil.ISO8601ToDateTime(sunsetIso8601Time),
 
@@ -102,21 +94,20 @@ public class QweatherWeatherClient : IWeatherClient
                 Pressure = float.Parse(currentResponse.Now.Pressure),
                 WindDirection = float.Parse(currentResponse.Now.Wind360),
                 // HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
-                HourlyWeatherCode = hourlyForecastResponse.Hourly.Select(x => (int)OpenWeatherMapCodeToWmo(int.Parse(x.Icon))).ToArray(),
-                HourlyTemperature = hourlyForecastResponse.Hourly.Select(x => float.Parse(x.Temp)).ToArray(),
+                HourlyWeatherCode = currentHourly.Select(x => (int)OpenWeatherMapCodeToWmo(int.Parse(x.Icon))).ToArray(),
+                HourlyTemperature = currentHourly.Select(x => float.Parse(x.Temp)).ToArray(),
                 // HourlyVisibility = hourlyForecastResponse.Hourly.Select(x => float.Parse(x.Vis)).ToArray(),
-                HourlyHumidity = hourlyForecastResponse.Hourly.Select(x => float.Parse(x.Humidity)).ToArray(),
-                HourlyPressure = hourlyForecastResponse.Hourly.Select(x => float.Parse(x.Pressure)).ToArray(),
-                HourlyWindSpeed = hourlyForecastResponse.Hourly.Select(x => float.Parse(x.WindSpeed)).ToArray(),
+                HourlyHumidity = currentHourly.Select(x => float.Parse(x.Humidity)).ToArray(),
+                HourlyPressure = currentHourly.Select(x => float.Parse(x.Pressure)).ToArray(),
+                HourlyWindSpeed = currentHourly.Select(x => float.Parse(x.WindSpeed)).ToArray(),
             } : 
             new DailyWeather()
             {
                 WeatherCode = (int)OpenWeatherMapCodeToWmo(int.Parse(day.First().IconDay)),
                 // StartTime = TimeUtil.UnixToLocalDateTime(day.First().Dt, result.TimeZone),
                 StartTime = TimeUtil.ISO8601ToDateTime(day.First().FxDate),
-                // Only current day
-                Sunrise = null,
-                Sunset = null,
+                Sunrise = TimeUtil.ISO8601ToDateTime(sunriseIso8601Time),
+                Sunset = TimeUtil.ISO8601ToDateTime(sunsetIso8601Time),
                 TemperatureMin = float.Parse(day.OrderBy(x => float.Parse(x.TempMin)).First().TempMin),
                 TemperatureMax = float.Parse(day.OrderByDescending(x => float.Parse(x.TempMax)).First().TempMax),
                 // Not available
@@ -125,8 +116,8 @@ public class QweatherWeatherClient : IWeatherClient
                 WindSpeed = float.Parse(day.First().WindSpeedDay), // meter/s -> km/h
                 // GustSpeed = currentValue.Wind.Gust * 3.6f,
 
-                // Temperature = float.Parse(day.First().te),
-                // ApparentTemperature = float.Parse(currentResponse.Now.FeelsLike),
+                Temperature = float.Parse(day.First().TempMax),
+                ApparentTemperature = float.Parse(day.First().TempMax),
                 Visibility = float.Parse(day.First().Vis), //km
                 Humidity = int.Parse(day.First().Humidity),
                 // Not available
@@ -134,6 +125,7 @@ public class QweatherWeatherClient : IWeatherClient
 
                 Pressure = float.Parse(day.First().Pressure),
                 WindDirection = float.Parse(day.First().Wind360Day),
+                // Not available
                 // HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
                 // HourlyWeatherCode = hourlyForecastResponse.Hourly.Select(x => (int)OpenWeatherMapCodeToWmo(int.Parse(x.Icon))).ToArray(),
                 // HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
@@ -155,6 +147,7 @@ public class QweatherWeatherClient : IWeatherClient
     {
         var currentResponse = await GetAirQualityCurrentDataAsync(latitude, longitude);
         var forecastResponse = await GetAirQualityForecastDataAsync(latitude, longitude);
+        var uvResponse = await GetForecastDataAsync(latitude, longitude);
 
         var result = new ForecastAirQuality()
         {
@@ -165,8 +158,8 @@ public class QweatherWeatherClient : IWeatherClient
         };
 
         // Group the data based on date
-        // TimeUtil.ISO8601ToDateTime(x.FxDate).Date
         var dailyGroup = forecastResponse.List.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
+        // var uvGroup = uvResponse.Daily.GroupBy(x => TimeUtil.ISO8601ToDateTime(x.FxDate).Date);
         var dailyAirQuality = new List<DailyAirQuality>();
         var currentTime = TimeUtil.GetLocalTime(result.TimeZone) ?? DateTime.Now;
         var index = 0;
@@ -183,7 +176,9 @@ public class QweatherWeatherClient : IWeatherClient
                 AQI = int.Parse(day.First().Aqi),
                 // Not available
                 //HourlyUV = null,
-                //UV = null,
+                //UV = float.Parse(uvGroup.Where(x => x.First().FxDate ==  ).First()),
+                UV = float.Parse(uvResponse.Daily.Where(x=> x.FxDate == day.First().FxDate).First().UvIndex)
+              
             };
             dailyAirQuality.Add(airQuality);
             index++;
@@ -270,64 +265,18 @@ public class QweatherWeatherClient : IWeatherClient
         var stream = await response.Content.ReadAsStreamAsync();
         return await DeserializeCompressed<GeocodingApiResponse>(stream);
 
-        //return await JsonSerializer.DeserializeAsync<GeocodingApiResponse>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
     public async Task<T> DeserializeCompressed<T>(Stream stream, Newtonsoft.Json.JsonSerializerSettings settings = null)
     {
         using (var compressor = new GZipStream(stream, CompressionMode.Decompress))
         using (var reader = new StreamReader(compressor))
         {
-            //string jsonData = await reader.ReadToEndAsync();
-            
-            // var serializer = Newtonsoft.Json.JsonSerializer.CreateDefault(settings);
             return await JsonSerializer.DeserializeAsync<T>(reader.BaseStream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }); ;
         }
     }
 
-    //private async Task<LocationData[]> GetReverseGeocodingDataAsync(float latitude, float longitude, int limit)
-    //{
-    //    using HttpResponseMessage response = await httpClient.GetAsync($"{reverseGeocodeApiUrl}lat={latitude}&lon={longitude}&limit={limit}&appid={ApiKey}");
-    //    response.EnsureSuccessStatusCode();
-
-    //    return await JsonSerializer.DeserializeAsync<LocationData[]>(await response.Content.ReadAsStreamAsync(), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-    //}
-
-    //private static int? CalculateAqi(AQComponents components)
-    //{
-    //    var aqiPM2_5 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.PM2_5, components.Pm25);
-    //    var aqiPM10 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.PM10, components.Pm10);
-    //    var aqiNO2 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.NO2, components.No2);
-    //    var aqiSO2 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.SO2, components.So2);
-    //    var aqiCO = AirQualityUtil.GetAirQuality(Models.AQI.Particle.CO, components.Co);
-    //    var aqiO3 = AirQualityUtil.GetAirQuality(Models.AQI.Particle.O3_8h, components.O3);
-
-    //    var aqiValues = new int?[] { aqiPM2_5, aqiPM10, aqiNO2, aqiSO2, aqiCO, aqiO3 };
-    //    return aqiValues.Max();
-    //}
-
-    /// <summary>
-    /// Find the most severe weather, otherwise return the most frequent one.
-    /// </summary>
-    private static WmoWeatherCode GetMostSevereWeather(IEnumerable<WmoWeatherCode> hourlyWeatherCodes)
-    {
-        var groupedWeather = hourlyWeatherCodes
-            .GroupBy(code => code)
-            .Select(group => new { WeatherCode = group.Key, Count = group.Count() });
-
-        var maxSeverity = groupedWeather.Max(g => WeatherUtil.GetSeverity(g.WeatherCode));
-
-        var mostSevereWeather = groupedWeather
-            .Where(g => WeatherUtil.GetSeverity(g.WeatherCode) == maxSeverity)
-            .OrderByDescending(g => g.Count)
-            .First();
-
-
-        return mostSevereWeather.WeatherCode;
-    }
-
     // Ref:
-    // https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
-    // https://gist.github.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c
+    // https://dev.qweather.com/docs/resource/icons/
     private static WmoWeatherCode OpenWeatherMapCodeToWmo(int code)
     {
         return code switch
@@ -343,16 +292,7 @@ public class QweatherWeatherClient : IWeatherClient
             230 => WmoWeatherCode.Thunderstorm,
             231 => WmoWeatherCode.Thunderstorm,
             232 => WmoWeatherCode.Thunderstorm,
-            // Group 3xx: Drizzle
-            //300 => WmoWeatherCode.LightDrizzle,
-            //301 => WmoWeatherCode.ModerateDrizzle,
-            //302 => WmoWeatherCode.DenseDrizzle,
-            //310 => WmoWeatherCode.LightDrizzle,
-            //311 => WmoWeatherCode.ModerateDrizzle,
-            //312 => WmoWeatherCode.DenseDrizzle,
-            //313 => WmoWeatherCode.ModerateDrizzle,
-            //314 => WmoWeatherCode.ModerateDrizzle,
-            //321 => WmoWeatherCode.ModerateDrizzle,
+
             // Group 3xx: Rain
             300 => WmoWeatherCode.SlightRainShowers,
             301 => WmoWeatherCode.ModerateRainShowers,
