@@ -127,9 +127,9 @@ public class QweatherWeatherClient : IWeatherClient
                 Pressure = float.Parse(day.First().Pressure),
                 WindDirection = float.Parse(day.First().Wind360Day),
                 // Not available
-                // HourlyWeatherCode = day.Select(x => (int)OpenWeatherMapCodeToWmo(x.Weather[0].Id)).ToArray(),
+                HourlyWeatherCode = Array.Empty<int>(),
                 // HourlyWeatherCode = hourlyForecastResponse.Hourly.Select(x => (int)OpenWeatherMapCodeToWmo(int.Parse(x.Icon))).ToArray(),
-                // HourlyTemperature = day.Select(x => x.Main.Temp).ToArray(),
+                HourlyTemperature = Array.Empty<float>(),
                 // HourlyVisibility = day.Select(x => x.Visibility / 1000f).ToArray(),
                 // HourlyHumidity = day.Select(x => x.Main.Humidity).ToArray(),
                 // HourlyPressure = day.Select(x => x.Main.Pressure).ToArray(),
@@ -282,46 +282,38 @@ public class QweatherWeatherClient : IWeatherClient
     {
         return code switch
         {
-            // Group 2xx: Thunderstorm
-            200 => WmoWeatherCode.Thunderstorm,
-            201 => WmoWeatherCode.Thunderstorm,
-            202 => WmoWeatherCode.Thunderstorm,
-            210 => WmoWeatherCode.Thunderstorm,
-            211 => WmoWeatherCode.Thunderstorm,
-            212 => WmoWeatherCode.Thunderstorm,
-            221 => WmoWeatherCode.Thunderstorm,
-            230 => WmoWeatherCode.Thunderstorm,
-            231 => WmoWeatherCode.Thunderstorm,
-            232 => WmoWeatherCode.Thunderstorm,
-
-            // Group 3xx: Rain
+            // Rain
             300 => WmoWeatherCode.SlightRainShowers,
             301 => WmoWeatherCode.ModerateRainShowers,
+            //  302-304 thunder shower
             302 => WmoWeatherCode.Thunderstorm,
             303 => WmoWeatherCode.Thunderstorm,
             304 => WmoWeatherCode.Thunderstorm,
-            305 => WmoWeatherCode.LightDrizzle,
-            306 => WmoWeatherCode.ModerateDrizzle,
-            307 => WmoWeatherCode.DenseDrizzle,
+
+            305 => WmoWeatherCode.SlightRain,
+            306 => WmoWeatherCode.ModerateRain,
+            307 => WmoWeatherCode.HeavyRain,
+
             308 => WmoWeatherCode.ViolentRainShowers,
             309 => WmoWeatherCode.LightDrizzle,
-
+            // 310-312  rain storm 
             310 => WmoWeatherCode.ModerateRain,
             311 => WmoWeatherCode.HeavyRain,
             312 => WmoWeatherCode.HeavyRain,
-            313 => WmoWeatherCode.HeavyFreezingRain,
 
+            313 => WmoWeatherCode.HeavyFreezingRain,
+            // 314-318  rain storm
             314 => WmoWeatherCode.SlightRain,
             315 => WmoWeatherCode.ModerateRain,
             316 => WmoWeatherCode.HeavyRain,
             317 => WmoWeatherCode.HeavyRain,
             318 => WmoWeatherCode.HeavyRain,
 
-            350 => WmoWeatherCode.Thunderstorm,
-            351 => WmoWeatherCode.Thunderstorm,
+            350 => WmoWeatherCode.SlightRainShowers,
+            351 => WmoWeatherCode.ModerateRainShowers,
             399 => WmoWeatherCode.ModerateRain,
 
-            // Group 4xx: Snow
+
             400 => WmoWeatherCode.SlightSnowFall,
             401 => WmoWeatherCode.ModerateSnowFall,
             402 => WmoWeatherCode.HeavySnowFall,
@@ -338,14 +330,13 @@ public class QweatherWeatherClient : IWeatherClient
             457 => WmoWeatherCode.SlightSnowShowers,
             499 => WmoWeatherCode.SlightSnowFall,
 
-            // Group 5xx: Atmosphere
+
             500 => WmoWeatherCode.Mist,
             501 => WmoWeatherCode.Fog,
             502 => WmoWeatherCode.Haze,
             503 => WmoWeatherCode.Dust,
             504 => WmoWeatherCode.Dust,
-            505 => WmoWeatherCode.Fog,
-            506 => WmoWeatherCode.Dust,
+
             507 => WmoWeatherCode.Dust,
             508 => WmoWeatherCode.Dust,
             509 => WmoWeatherCode.Fog,
@@ -357,18 +348,18 @@ public class QweatherWeatherClient : IWeatherClient
             514 => WmoWeatherCode.Haze,
             515 => WmoWeatherCode.Haze,
 
+            // Cloud
             100 => WmoWeatherCode.ClearSky,
-            150 => WmoWeatherCode.ClearSky,
-
             101 => WmoWeatherCode.PartlyCloudy,
-            102 => WmoWeatherCode.PartlyCloudy,
+            102 => WmoWeatherCode.MainlyClear,
             103 => WmoWeatherCode.PartlyCloudy,
-
+            104 => WmoWeatherCode.Overcast,
+            150 => WmoWeatherCode.ClearSky,
             151 => WmoWeatherCode.PartlyCloudy,
-            152 => WmoWeatherCode.PartlyCloudy,
+            152 => WmoWeatherCode.MainlyClear,
             153 => WmoWeatherCode.PartlyCloudy,
 
-            104 => WmoWeatherCode.Overcast,
+         
 
             900 => WmoWeatherCode.ClearSky,
             901 => WmoWeatherCode.Overcast,

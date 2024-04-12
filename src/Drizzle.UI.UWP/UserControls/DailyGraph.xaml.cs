@@ -3,6 +3,7 @@ using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
+using NLog.Targets;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,6 +34,7 @@ namespace Drizzle.UI.UWP.UserControls
             {
                 SetValue(ValueProperty, value);
                 canvas?.Invalidate();
+                Conditions = null;
             }
         }
 
@@ -242,12 +244,17 @@ namespace Drizzle.UI.UWP.UserControls
                 lineColor);
 
             DrawWeatherCodes(iconPts, step);
+
+            
         }
 
         private void DrawWeatherCodes(List<Vector2> pts, int step)
         {
-            if (!WeatherCodes.Any()|| pts is null)
+            
+            if (!WeatherCodes.Any() || pts is null)
+            {
                 return;
+            }
 
             Conditions = new HourlyConditions[pts.Count];
             for (int i = 0; i < pts.Count; i++)
