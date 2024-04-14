@@ -26,17 +26,13 @@ namespace Drizzle.UI.UWP.UserControls
     {
         public float[] Value
         {
-            get
-            {
+            get {
                 return (float[])GetValue(ValueProperty);
             }
             set
             {
                 SetValue(ValueProperty, value);
                 canvas?.Invalidate();
-                // if there is no hourly data, the DailyGraph will keep showing the icons of first day that have hourly data.
-                // clear Conditions when change daily Data can avoid this issue.
-                Conditions = null;
             }
         }
 
@@ -99,8 +95,8 @@ namespace Drizzle.UI.UWP.UserControls
         public Color Gradient1
         {
             get { return (Color)GetValue(Gradient1Property); }
-            set
-            {
+            set 
+            { 
                 if (value != Gradient1)
                 {
                     SetValue(Gradient1Property, value);
@@ -206,7 +202,7 @@ namespace Drizzle.UI.UWP.UserControls
                 {
                     total -= normalizedData[j];
                 }
-
+                
                 for (int j = previousRangeRight + 1; j <= rangeRight; j++)
                 {
                     total += normalizedData[j];
@@ -225,7 +221,7 @@ namespace Drizzle.UI.UWP.UserControls
                     DrawText(formattedValue, args, pos + yLabelOffset, textColor); // Y-axis
                     iconPts?.Add(new Vector2(pos.X, 0) + iconOffset);
                 }
-                cpb.AddLine(pos + new Vector2(13, 0));
+                cpb.AddLine(pos + new Vector2(13,0));
             }
 
             // Make the graph reach end of canvas.
@@ -250,8 +246,7 @@ namespace Drizzle.UI.UWP.UserControls
 
         private void DrawWeatherCodes(List<Vector2> pts, int step)
         {
-
-            if (!WeatherCodes.Any() || pts is null)
+            if (!WeatherCodes.Any()|| pts is null)
                 return;
 
             Conditions = new HourlyConditions[pts.Count];
