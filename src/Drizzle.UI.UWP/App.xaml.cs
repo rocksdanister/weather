@@ -77,6 +77,7 @@ namespace Drizzle.UI.UWP
             this.InitializeComponent();
             _serviceProvider = ConfigureServices();
 
+            
             logger = Services.GetRequiredService<ILogger<App>>();
             var userSettings = Services.GetRequiredService<IUserSettings>();
             SetupUnhandledExceptionLogging();
@@ -147,6 +148,11 @@ namespace Drizzle.UI.UWP
                     e.GetRequiredService<IHttpClientFactory>(),
                     e.GetRequiredService<ICacheService>(),
                     e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.OpenWeatherMapKey)))
+                .AddSingleton<IWeatherClient>((e) => new QweatherWeatherClient(
+                    e.GetRequiredService<IHttpClientFactory>(),
+                    e.GetRequiredService<ICacheService>(),
+                    e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.QweatherApiKey)
+                    ))
                 // Transient
                 .AddTransient<AboutViewModel>()
                 .AddTransient<SettingsViewModel>()

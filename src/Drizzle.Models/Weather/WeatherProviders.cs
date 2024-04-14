@@ -7,6 +7,8 @@ namespace Drizzle.Models.Weather
     public enum WeatherProviders
     {
         OpenMeteo,
-        OpenWeatherMap
+        OpenWeatherMap,
+        Qweather
+         
     }
 }

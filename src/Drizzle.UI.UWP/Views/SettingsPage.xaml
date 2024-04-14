@@ -72,6 +72,7 @@
                     <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedWeatherProviderIndex, Mode=TwoWay}">
                         <ComboBoxItem>Open-Meteo</ComboBoxItem>
                         <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
+                        <ComboBoxItem>Qweather(CN)</ComboBoxItem>
                     </ComboBox>
                     <labs:SettingsExpander.Items>
                         <labs:SettingsCard x:Uid="WeatherProviderKeySettings" IsEnabled="{x:Bind viewModel.IsApiKeyRequired, Mode=OneWay}">

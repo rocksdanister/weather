@@ -278,6 +278,7 @@ namespace Drizzle.UI.UWP.ViewModels
             {
                 WeatherProviders.OpenMeteo => null,
                 WeatherProviders.OpenWeatherMap => UserSettingsConstants.OpenWeatherMapKey,
+                WeatherProviders.Qweather => UserSettingsConstants.QweatherApiKey,
                 _ => null,
             };
         }
