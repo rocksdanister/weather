@@ -466,7 +466,7 @@
     <value>Presión</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Km/h</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sol</value>
@@ -478,7 +478,7 @@
     <value>Anochecer</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Barcelona</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Actualización completada</value>

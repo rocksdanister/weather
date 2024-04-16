@@ -274,7 +274,7 @@
     <value>Logboeken openen</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Audio pauzeren wanneer toepassing niet op voorgrond is</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Visuele effecten pauzeren wanneer applicatie niet de voorgrond is</value>
@@ -379,10 +379,10 @@
     <value>AI-diepteinschatting</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Toegang tot locatie is geweigerd, controleer Windows-instellingen.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Toegang tot locatie niet gespecificeerd, controleer Windows-instellingen.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Help</value>
@@ -394,7 +394,7 @@
     <value>Instellingen</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Vereiste API-sleutel ontbreekt voor de geselecteerde weer aanbieder, instellingen hersteld.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Auto</value>
@@ -466,7 +466,7 @@
     <value>Luchtdruk</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Snelheid</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Zon</value>
@@ -478,7 +478,7 @@
     <value>Zonsondergang</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Temperatuur</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Bijwerking voltooid</value>
@@ -505,10 +505,10 @@
     <value>Zeer Hoog</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>API-sleutel</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Voer de vereiste API-sleutel in</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Bron van weergegevens</value>
@@ -517,7 +517,7 @@
     <value>Provider</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Aangepast</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hybride</value>
@@ -550,7 +550,7 @@
     <value>Overwegend Helder</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Mistig</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Licht bewolkt</value>
@@ -565,7 +565,7 @@
     <value>Rijpende mist</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Nevel</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Lichte motregen</value>
@@ -583,7 +583,7 @@
     <value>Zwaar vriezende regen</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>Smog</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>Lichte Regenval</value>

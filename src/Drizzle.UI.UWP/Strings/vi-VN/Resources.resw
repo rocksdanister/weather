@@ -274,7 +274,7 @@
     <value>Mở nhật ký</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>Tạm ngừng âm thanh khi ứng dụng chạy nền</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
     <value>Tạm ngừng hoạt ảnh khi ứng dụng chạy nền</value>
@@ -379,10 +379,10 @@
     <value>Ước lượng độ sâu AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>Quyền truy cập địa chỉ bị từ chối, kiểm tra cài đặt Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>Quyền truy cập địa chỉ không xác định, kiểm tra cài đặt Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Trợ giúp</value>
@@ -394,7 +394,8 @@
     <value>Cài đặt</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>Thiếu khóa API bắt buộc đối với nhà cung cấp thời tiết đã chọn, cài đặt đã được đặt lại.
+</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>Hệ thống</value>
@@ -466,7 +467,7 @@
     <value>Áp suất</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Đơn vị đo tốc độ</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Mặt trời</value>
@@ -478,7 +479,7 @@
     <value>Lặn</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Nhiệt độ</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Cập nhật hoàn tất</value>
@@ -505,10 +506,10 @@
     <value>Rất cao</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>Khóa API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>Vui lòng nhập khóa API bắt buộc</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>Nguồn dữ liệu thời tiết</value>
@@ -517,7 +518,7 @@
     <value>Bên cung cấp</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Tuỳ chỉnh</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Cả hai</value>
@@ -550,7 +551,7 @@
     <value>Nắng nhẹ</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>Sương</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>Mây rải rác</value>
@@ -565,7 +566,7 @@
     <value>Có sương muối</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Mây mù</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Mưa phùn thưa thớt</value>

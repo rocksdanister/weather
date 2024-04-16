@@ -466,7 +466,7 @@
     <value>Давление</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Скорость</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Солнце</value>
@@ -478,7 +478,7 @@
     <value>Закат</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Температура</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Обновление завершено</value>
@@ -517,7 +517,7 @@
     <value>Провайдер</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Пользовательское</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Гибрид</value>

@@ -277,7 +277,7 @@
     <value>Uygulama ön planda değilken sesi duraklat</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Uygulama ön planda olmadığında görsel duraklat</value>
+    <value>Uygulama ön planda olmadığında görseli duraklat</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Veri toplama politikası</value>
@@ -466,7 +466,7 @@
     <value>Basınç</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Hız</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Güneş</value>
@@ -478,7 +478,7 @@
     <value>Gün Batımı</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Derece</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Güncelleme tamamlandı</value>
@@ -517,7 +517,7 @@
     <value>Sağlayıcı</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Özel</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Hibrit</value>
