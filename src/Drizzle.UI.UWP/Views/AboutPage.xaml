@@ -82,7 +82,7 @@
                         <PersonPicture Width="35" ProfilePicture="https://avatars.githubusercontent.com/GireeshChandran" />
                     </HyperlinkButton>
                     <HyperlinkButton NavigateUri="https://github.com/Livins1" ToolTipService.ToolTip="Livins1">
-                        <PersonPicture Width="35" ProfilePicture="https://avatars.githubusercontent.com/u/91591934" />
+                        <PersonPicture Width="35" ProfilePicture="https://avatars.githubusercontent.com/Livins1" />
                     </HyperlinkButton>
                 </StackPanel>
             </StackPanel>
