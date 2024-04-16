@@ -22,6 +22,7 @@
     <Grid CornerRadius="5">
         <!--  No data  -->
         <Image
+            Height="125"
             Margin="25"
             Source="ms-appx:///Assets/Icons/chart_increasing_3d.png"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToVisibilityConverter}, ConverterParameter=Reverse}" />
@@ -32,7 +33,7 @@
             Draw="Canvas_OnDraw"
             PointerMoved="Canvas_PointerMoved" />
         <!--  Hourly weather condition  -->
-        <ItemsControl ItemsSource="{x:Bind Conditions, Mode=OneWay}">
+        <ItemsControl ItemsSource="{x:Bind Conditions, Mode=OneWay}" Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToVisibilityConverter}}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas />

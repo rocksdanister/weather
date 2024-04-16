@@ -148,10 +148,15 @@ namespace Drizzle.UI.UWP.UserControls
             args.DrawingSession.Clear(Colors.Transparent);
 
             if (Value is null || !Value.Any())
+            {
+                // Clear conditions if graph is empty.
+                DrawWeatherCodes(null, 1);
                 return;
+            }
 
+            // Avoid allocation if condition is empty.
             var iconPts = WeatherCodes.Any() ? new List<Vector2>() : null;
-
+            // Top - bottom gradient.
             using var brush = new CanvasLinearGradientBrush(canvas, [
                 new CanvasGradientStop { Position = 0.0f, Color = Gradient1 },
                 new CanvasGradientStop { Position = 1.0f, Color = Colors.Transparent }
@@ -247,7 +252,10 @@ namespace Drizzle.UI.UWP.UserControls
         private void DrawWeatherCodes(List<Vector2> pts, int step)
         {
             if (!WeatherCodes.Any()|| pts is null)
+            {
+                Conditions = [];
                 return;
+            }
 
             Conditions = new HourlyConditions[pts.Count];
             for (int i = 0; i < pts.Count; i++)
