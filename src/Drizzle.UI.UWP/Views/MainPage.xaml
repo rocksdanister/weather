@@ -193,6 +193,7 @@
                     </Border.Background>
                     <!--  x:Bind have bug here, ref:  -->
                     <ListView
+                        ItemContainerStyle="{ThemeResource ListViewItemStyle}"
                         Padding="0,2,0,2"
                         Background="{ThemeResource CardBackgroundBrush}"
                         ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
