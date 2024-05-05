@@ -163,10 +163,11 @@
     <value>בהירות</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>דפדף</value>
+    <value>חפש
+</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>רקע כללי</value>
+    <value>רקע</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
     <value>בדוק עדכונים</value>
@@ -379,10 +380,10 @@
     <value>AI הערכת עומק</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>הגישה למקום נחסמה, תבדוק בהגדרות ווינדוס.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>הגישה למיקום אינה מוגדרת, בדוק את הגדרות ווינדוס.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>עזרה</value>
@@ -466,7 +467,7 @@
     <value>לחץ</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>מהירות</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>שמש</value>
@@ -478,7 +479,7 @@
     <value>שקיעה</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>טמפרטורה</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>העדכון הושלם</value>
@@ -505,10 +506,10 @@
     <value>גבוה מאוד</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>מפתח API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>תשים את מפתח הAPI הנדרש</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>מקור נתוני מזג אוויר</value>
@@ -517,7 +518,7 @@
     <value>שירות</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>מותאם אישית</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>היברידי</value>
@@ -550,7 +551,7 @@
     <value>בהיר בעיקר</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>ערפל</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>מעונן חלקית</value>
@@ -583,7 +584,7 @@
     <value>טפטוף קפוא צפוף</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>מלוכלך</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>גשם קל</value>

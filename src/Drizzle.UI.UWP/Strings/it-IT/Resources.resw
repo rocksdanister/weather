@@ -478,7 +478,7 @@
     <value>Tramonto</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Temperatura</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aggiornamento completato</value>
@@ -517,7 +517,7 @@
     <value>Fornitore</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Personalizzato</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Combinato</value>

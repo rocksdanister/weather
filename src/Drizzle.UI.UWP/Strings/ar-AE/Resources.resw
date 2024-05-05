@@ -118,522 +118,522 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>我是Dani John，也叫 rocksdanister 。我喜欢开发有趣的产品，感谢使用我的产品。</value>
+    <value>مرحباً, أنا داني جون المعروف أيضاً باسم روكسدانستر. أصنع برمجيات ممتعه كهذه. شكرا لإستغراقك الوقت في النظر إلى عملي.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>优良</value>
+    <value>جيد</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>适中</value>
+    <value>متوسط</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>对敏感人群有害</value>
+    <value>غير صحي لذوي الحساسية</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>有害</value>
+    <value>غير صحي</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>非常有害</value>
+    <value>غير صحي على الإطلاق</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>危险</value>
+    <value>خطير</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>空闲状态下隐藏菜单</value>
+    <value>دائما القائمة تختفي في وضع السكون</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>关于</value>
+    <value>حول</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>帮助</value>
+    <value>المساعدة</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>设置</value>
+    <value>الإعدادات</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>搜索地点</value>
+    <value>إبحث عن مكان</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>第三方软件声明</value>
+    <value>بيان برنامَج الطرف الثالث</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>调节背景亮度</value>
+    <value>تعديل سطوع الخلفية</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>السطوع</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>浏览</value>
+    <value>تصفح</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>背景</value>
+    <value>الخلفية</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>检查更新</value>
+    <value>البحث عن تحديثات</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>日间/夜间</value>
+    <value>اليوم/الليلة</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>迭代次数</value>
+    <value>التكرارات</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>刻度</value>
+    <value>مقياس</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>建议一个功能或报告一个错误</value>
+    <value>اقترح مِيزة أو أبلغ عن خطأ</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>联系我们</value>
+    <value>جهة الاتصال</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>在天气效果中包含用户选中的图像</value>
+    <value>تضمين الصور المختارة من المستخدم في تأثيرات الطقس</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>自定义背景</value>
+    <value>خلفية مخصصة</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>水平</value>
+    <value>افقي</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>垂直</value>
+    <value>عمودي</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI 旨在提供有关五种最常见空气污染物对健康影响的信息。 该数值范围为 0 到 500，数值越高表示空气污染越严重，健康风险也越大。</value>
+    <value>صممت مبادرة نوعية الهواء لتوفير معلومات عن الآثار الصحية الناجمة عن الملوثات الخمسة أكثر حدوثًا. وهو مقياس يتراوح بين صفر و500 مقياس، وتشير القيم الأعلى إلى حدوث تلوث أكثر حدة للهواء وإلى مخاطر صحية أكبر.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。</value>
+    <value>درجة حرارة داو هي قياس مطلق لكمية بخار المياه في الهواء. وعندما تتساوى درجة حرارة نقطة القطع ودرجة حرارة الهواء تكون الرطوبة النسبية 100 في المئة. وعند هذه النقطة، يكون الهواء مشبعا تماما ببخار الماء، مما يؤدي إلى تكثيف في شكل غطاء أو ضباب أو سحاب.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>相对湿度是空气中存在的水蒸气量与该温度下空气所能容纳的最大水蒸气量相比的量度。 它以百分比表示，提供有关空气接近饱和程度的信息。</value>
+    <value>الرطوبة النسبية هي مقياس لكمية بخار الماء الموجود في الهواء بالمقارنة مع الحد الأقصى للكمية التي يمكن أن يحملها الهواء عند تلك الحرارة. وهو يعبر عنه كنسبة مئوية ويوفر معلومات عن مدى قرب الهواء من التشبع.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>气压，也称为大气压力，是给定区域内气压的测量值。</value>
+    <value>الضغط البارومتري، المعروف أيضا بالضغط الجوي، هو مقياس ضغط الهواء في منطقة معينة.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>世界卫生组织的紫外线指数 (UVI) 衡量的是导致晒伤的紫外线辐射的强度。 它是一个范围从 0 到 11+ 的线性标度，值越高表示暴露于紫外线的风险越大，晒伤和皮肤损伤的机会也越大，最终可能导致皮肤癌。</value>
+    <value>يقيس مؤشر الأشعة فوق البنفسجية لمنظمة الصحة العالمية قوة الأشعة فوق البنفسجية المنتجة من الشمس. وهو مقياس خطي يتراوح بين صفر و 11 +، مع قيم أعلى تشير إلى وجود خطر أكبر للتعرض للأشعة فوق البنفسجية وزيادة فرص حدوث حروق وتلف الجلد الذي يمكن أن يؤدي في نهاية المطاف إلى سرطان الجلد.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>风速是空气水平移动经过给定点的速率。 它是由空气从高压移动到低压而引起的基本大气量，通常是由于温度的变化。 阵风是指风速突然增加到高于平均风速。 它通常持续不到 20 秒。</value>
+    <value/>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>近似景深</value>
+    <value>جارٍ تقريب العمق..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>系统图形处理器 (GPU) 不支持所需的 DX12 功能，因此某些功能被禁用。</value>
+    <value>معالج رسوم النظام (GPU) لا يدعم ميزات DX12 المطلوبة، لذلك تم تعطيل بعض الوظائف.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>需要为此功能下载附加文件</value>
+    <value>يجب تحميل ملفات أضافية لهذه المِيزة</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>查看新变化</value>
+    <value>انظر إلى الجديد</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>体感温度</value>
+    <value>الملموسة</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>幅度</value>
+    <value>سَعَة الاهتزاز</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>色彩渐变</value>
+    <value>تدرج اللون</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>动画帧率</value>
+    <value>إطارات الحركة</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
-    <value>帧率</value>
+    <value>الإطارات في الثانية</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>错误</value>
+    <value>خطأ</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>将其翻译成其他语言，对本应用作出贡献。</value>
+    <value>ساهم في هذا البرنامج من خلال الترجمة.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>ساعد بالترجمة</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>选择另一种语言时需要重启应用程序</value>
+    <value>يحتاج التطبيق إلى إعادة تشغيل عند تحديد لغة أخرى</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>语言</value>
+    <value>اللغة</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>ساعدنا في الترجمة!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>系统语言</value>
+    <value>نفس Windows</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>了解更多</value>
+    <value>معرفة المزيد</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>已保存位置</value>
+    <value>المواقع المثبتة</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>打开日志</value>
+    <value>فتح السجلات</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>当程序不在前台时关闭音频</value>
+    <value>إيقاف الصوت مؤقتًا عندما يكون التطبيق مصغرًا</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>当程序不在前台时暂停视觉效果</value>
+    <value>إيقاف الصورة الديناميكية عندما يكون التطبيق مصغرًا</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>数据收集政策</value>
+    <value>سياسة جمع البيانات</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>动态</value>
+    <value>ديناميكي</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>性能</value>
+    <value>الأداء</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>土豆</value>
+    <value>أبو كلب</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>质量</value>
+    <value>الجودة</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>视觉渲染质量预设</value>
+    <value>يعرض جودة الإعداد المسبق</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>质量</value>
+    <value>الجودة</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>亮度</value>
+    <value>الكثافة</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>闪电</value>
+    <value>البرق</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>法线</value>
+    <value>عادي</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>平移</value>
+    <value>تركيز</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>缩放</value>
+    <value>التكبير/التصغير</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>减少界面动画效果</value>
+    <value>تقليل الحركة</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>最后更新于</value>
+    <value>آخر تحديث</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>刷新</value>
+    <value>تحديث</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>预设</value>
+    <value>إعادة ضبط الإعدادات</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>屏保</value>
+    <value>شاشة التوقف</value>
   </data>
   <data name="SettingsTooltip.Text" xml:space="preserve">
-    <value>设置</value>
+    <value>الإعدادات</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>模糊</value>
+    <value>الضبابية</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>霜冻</value>
+    <value>ثلجي</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>后处理特效</value>
+    <value>المعالجة</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>速度</value>
+    <value>السرعة</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>深度</value>
+    <value>العمق</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>层数</value>
+    <value>الطبقات</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>宽度</value>
+    <value>العرض</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>软件许可</value>
+    <value>ترخيص البرنامج</value>
   </data>
   <data name="SoundControlTooltip.Text" xml:space="preserve">
-    <value>声音</value>
+    <value>الصوت</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>请星标该项目以表喜爱</value>
+    <value>أظهر لنا الدعم بإعطائنا نجمة</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>源码</value>
+    <value>صفحتنا في جيت هب</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>关于</value>
+    <value>حول</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>取消</value>
+    <value>إلغاء</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>继续</value>
+    <value>التالي</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI 景深近似</value>
+    <value>العمق التقريبي باستخدام الذكاء الاصطناعي</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>无法获取位置信息，请检查Windows设置</value>
+    <value>تم رفض الوصول إلى الموقع، تحقق من إعدادات Windows.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>未指定访问位置的权限，请指定Windows设置</value>
+    <value>الوصول إلى الموقع غير محدد، تحقق من إعدادات Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>帮助</value>
+    <value>المساعدة</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>确定</value>
+    <value>موافق</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>设置</value>
+    <value>الإعدادات</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>所选天气服务提供商缺少API密钥，设置已还原</value>
+    <value>مفتاح API المطلوب مفقود لموفر الطقس المحدد، تم إرجاع الإعدادات.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>自动</value>
+    <value>تلقائي</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>深色</value>
+    <value>داكن</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>浅色</value>
+    <value>فاتح</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>更改程序外观颜色</value>
+    <value>تغيير لون التطبيق</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>主题</value>
+    <value>السمة</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>关于空气质量指数 (AQI)</value>
+    <value>حول مؤشر جودة الهواء (AQI)</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>关于露点</value>
+    <value>حول نقطة ديو</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>关于相对湿度</value>
+    <value>حول الرطوبة النسبية</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>关于气压</value>
+    <value>حول الضغط</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>关于紫外线指数</value>
+    <value>حول فهرس الأشعة فوق البنفسجية</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>关于风速和阵风</value>
+    <value>حول سرعة الرياح و الغازات</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>无障碍功能</value>
+    <value>إمكانية الوصول</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>添加一个位置以开始。</value>
+    <value>أضف موقعاً للبدء.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>空气质量</value>
+    <value>جودة الهواء</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>贡献者</value>
+    <value>المساهمون</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>下载</value>
+    <value>تنزيل</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>需要下载</value>
+    <value>التنزيل مطلوب</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>正在获取数据，请稍候。</value>
+    <value>جارِ جلب البيانات، يرجى الانتظار.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>常规设置</value>
+    <value>عام</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>您好</value>
+    <value>السلام عليكم</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>空气湿度</value>
+    <value>الرطوبة</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>性能</value>
+    <value>الأداء</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>气压</value>
+    <value>الضغط</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>速度</value>
+    <value>السرعة</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>日出和日落时间</value>
+    <value>الشمس</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>日出</value>
+    <value>الشروق</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>日落</value>
+    <value>غروب الشمس</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>温度</value>
+    <value>درجة الحرارة</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
-    <value>更新完成</value>
+    <value>اكتمل التحديث</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>紫外线指数</value>
+    <value>مؤشر الأشعة فوق البنفسجية</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>警告</value>
+    <value>تحذير</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>天气</value>
+    <value>الطقس</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>风速</value>
+    <value>الرياح</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>良好</value>
+    <value>جيد</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>高</value>
+    <value>عالية</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>非常高</value>
+    <value>عالي جداً</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API密钥</value>
+    <value>مفتاح API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>输入所需的API密钥</value>
+    <value>أدخل مفتاح API المطلوب</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>天气数据源</value>
+    <value>مصدر بيانات الطقس</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>提供者</value>
+    <value>المورد</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>自定义</value>
+    <value>مخصص</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>混合</value>
+    <value>هجين</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>英制</value>
+    <value>إمبراطوري</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>公制</value>
+    <value>متري</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>显示测量单位</value>
+    <value>إظهار القياسات في</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>单位</value>
+    <value>الوحدة</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>官方网站</value>
+    <value>الموقع الرسمي</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>网站</value>
+    <value>الموقع</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>欢迎使用我开发的天气应用！请注意这个应用仍然处于测试阶段，一些功能可能无法正常工作。 我正在努力改进应用，使其变得更好。感谢您的理解和耐心。</value>
+    <value>مرحبا بك في تطبيقي للطقس! يرجى الملاحظة أن هذا التطبيق لا يزال في بيتا وقد لا تعمل بعض الميزات كما هو متوقع. أنا أعمل بجد لتحسين التطبيق وجعله أفضل. شكراً لك على تفهمكم وصبرك.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>晴天</value>
+    <value>صافٍ</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>大部晴朗</value>
+    <value>صافٍ غالباً</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>薄雾</value>
+    <value>رذاذ</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>晴间多云</value>
+    <value>غائم جزئياً</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>阴天</value>
+    <value>ملبد بالغيوم</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>雾</value>
+    <value>ضباب</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>沉积雾凇</value>
+    <value>ضباب ثاني</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>霾</value>
+    <value>ضباب ثالث</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>毛毛细雨</value>
+    <value>رذاذ خفيف</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>中度细雨</value>
+    <value>رذاذ معتدل</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>浓密细雨</value>
+    <value>رذاذ كثيف</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>微冻细雨</value>
+    <value>رذاذ بارد خفيف</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>密冻细雨</value>
+    <value>رذاذ بارد كثيف</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>沙尘</value>
+    <value>غبار</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>微微小雨</value>
+    <value>أمطار خفيفة</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>中度降雨</value>
+    <value>أمطار معتدلة</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>倾盆大雨</value>
+    <value>أمطار غزيرة</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>轻微冻雨</value>
+    <value>أمطار باردة خفيفة</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>重度冻雨</value>
+    <value>أمطار باردة غزيرة</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>轻微降雪</value>
+    <value>ثلج خفيف</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>中度降雪</value>
+    <value>ثلج معتدل</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>重度降雪</value>
+    <value>ثلج كثيف</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>雪花飘落</value>
+    <value>حبيبات الثلج</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>微微阵雨</value>
+    <value>ممرات المطر الخفيفة</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>中度阵雨</value>
+    <value>ممرات المطر المعتدلة</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>强烈阵雨</value>
+    <value>ممرات المطر العنيفة</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>小阵雪</value>
+    <value>ممرات الثلج الخفيفة</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>强阵雪</value>
+    <value>ممرات الثلج الكثيفة</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>雷暴</value>
+    <value>عاصفة رعدية</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>雷暴 伴有小冰雹</value>
+    <value>عاصفة مع حبات ثلج خفيفة</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>雷暴 伴有大冰雹</value>
+    <value>عاصفة مع حبات ثلج كثيفة</value>
   </data>
 </root>
