@@ -610,10 +610,10 @@
       <Version>2.8.6</Version>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>5.2.8</Version>
+      <Version>5.3.2</Version>
     </PackageReference>
     <PackageReference Include="NLog.Extensions.Logging">
-      <Version>5.3.8</Version>
+      <Version>5.3.10</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

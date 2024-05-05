@@ -58,7 +58,7 @@
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE117;" />
                 </labs:SettingsCard.HeaderIcon>
-                <Button x:Uid="CheckUpdate" IsEnabled="False">Check for update</Button>
+                <Button x:Uid="CheckUpdate" Visibility="Collapsed">Check for update</Button>
             </labs:SettingsCard>
 
             <StackPanel
