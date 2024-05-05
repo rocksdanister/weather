@@ -25,23 +25,12 @@ namespace Drizzle.UI.UWP.Views
     /// </summary>
     public sealed partial class AboutPage : Page
     {
-        private readonly AboutViewModel aboutVm;
+        private readonly AboutViewModel viewModel;
 
         public AboutPage()
         {
             this.InitializeComponent();
-            this.aboutVm = App.Services.GetRequiredService<AboutViewModel>();
+            this.viewModel = App.Services.GetRequiredService<AboutViewModel>();
         }
-
-        private void GithubButton_Click(object sender, RoutedEventArgs e) => _ = LinkUtil.OpenBrowser("https://github.com/rocksdanister");
-
-        private void TwitterButton_Click(object sender, RoutedEventArgs e) => _ = LinkUtil.OpenBrowser("https://twitter.com/rocksdanister");
-
-        private void RedditButton_Click(object sender, RoutedEventArgs e) => _ = LinkUtil.OpenBrowser("https://reddit.com/u/rocksdanister");
-
-        private void YoutubeButton_Click(object sender, RoutedEventArgs e) => _ = LinkUtil.OpenBrowser("https://youtube.com/@rocksdanister");
-
-        private void EmailButton_Click(object sender, RoutedEventArgs e) => _ = LinkUtil.OpenBrowser("mailto:awoo.git@gmail.com");
-
     }
 }
