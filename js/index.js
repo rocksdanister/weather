@@ -88,7 +88,7 @@ function scrollToElement(id) {
 //override badge size
 window.onload = (e) => {
   const styleOverride = document.createElement("style");
-  styleOverride.innerHTML = "div > img.large { width:220px; height:auto }";
+  styleOverride.innerHTML = "div > img.large { width:260px; height:auto }";
   document
     .querySelector("ms-store-badge")
     .shadowRoot.appendChild(styleOverride);
