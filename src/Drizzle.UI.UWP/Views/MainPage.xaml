@@ -193,9 +193,9 @@
                     </Border.Background>
                     <!--  x:Bind have bug here, ref:  -->
                     <ListView
-                        ItemContainerStyle="{ThemeResource ListViewItemStyle}"
                         Padding="0,2,0,2"
                         Background="{ThemeResource CardBackgroundBrush}"
+                        ItemContainerStyle="{ThemeResource ListViewItemStyle}"
                         ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
                         SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
                         <ListView.ItemTemplate>
@@ -316,6 +316,7 @@
                                             Height="300"
                                             Gradient1="LightYellow"
                                             StartTime="{x:Bind shellVm.SelectedWeather.ForecastAQStartTime, Mode=OneWay}"
+                                            ValueFormat="{}{0:F0}"
                                             Value="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" />
                                         <TextBlock
                                             FontSize="13"
