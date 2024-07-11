@@ -1,9 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Drizzle.Common;
-using Drizzle.UI.Shared.Shaders.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Drizzle.Models.Enums;
 
 namespace Drizzle.UI.Shared.Shaders.Models;
 

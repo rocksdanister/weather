@@ -1,18 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Drizzle.Common;
 using Drizzle.Common.Helpers;
 using Drizzle.ImageProcessing;
 using Drizzle.ML.DepthEstimate;
+using Drizzle.Models.Enums;
 using Drizzle.UI.Shared.Shaders.Models;
 using Drizzle.UI.Shared.Shaders.Runners;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 #if WINDOWS_UWP

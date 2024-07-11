@@ -1,15 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Drizzle.Common;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
+using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.Factories;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage;

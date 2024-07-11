@@ -23,6 +23,8 @@ using Drizzle.Common.Extensions;
 using Microsoft.Extensions.Logging;
 using Drizzle.Weather.Helpers;
 using Drizzle.Models.Weather;
+using Drizzle.Models.Enums;
+
 
 
 

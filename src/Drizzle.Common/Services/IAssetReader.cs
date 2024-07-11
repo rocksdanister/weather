@@ -1,7 +1,6 @@
 ﻿using Drizzle.Models;
-using System;
+using Drizzle.Models.Enums;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Drizzle.Common.Services
 {

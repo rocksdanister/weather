@@ -1,10 +1,8 @@
-﻿using Drizzle.Common;
+﻿using ComputeSharp;
+using Drizzle.Models.Enums;
+using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Shaders.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using ComputeSharp;
-using Drizzle.Models.Weather;
 
 namespace Drizzle.UI.Shared.Shaders.Helpers;
 

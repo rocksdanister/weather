@@ -1,8 +1,8 @@
 ﻿using Drizzle.Models;
+using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Drizzle.Common.Constants;
 

@@ -1,16 +1,13 @@
-﻿using Drizzle.Common;
-using Drizzle.Common.Helpers;
+﻿using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.Models;
-using Microsoft.Extensions.Logging;
+using Drizzle.Models.Enums;
+using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.Shaders.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Drizzle.UI.Shared.Shaders.Helpers;
-using Drizzle.Models.Weather;
 
 namespace Drizzle.UI.UWP.Services
 {
