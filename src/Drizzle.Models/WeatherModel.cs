@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Drizzle.Models.UserControls;
 using Drizzle.Models.Weather;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,9 @@ namespace Drizzle.Models
         private float[] hourlyWindSpeed;
 
         [ObservableProperty]
+        private float[] hourlyApparentTemperature;
+
+        [ObservableProperty]
         private float? windSpeed;
 
         [ObservableProperty]
@@ -107,5 +111,8 @@ namespace Drizzle.Models
 
         [ObservableProperty]
         private bool isDaytime;
+
+        [ObservableProperty]
+        private GraphModel dayGraph;
     }
 }

@@ -50,5 +50,7 @@ public class DailyWeather
 
     public float[] HourlyWindSpeed { get; set; }
 
+    public float[] HourlyApparentTemperature { get; set; }
+
     public DateTime StartTime { get; set; }
 }

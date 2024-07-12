@@ -208,6 +208,11 @@
                                         <ColumnDefinition Width="35" />
                                         <ColumnDefinition Width="25" />
                                     </Grid.ColumnDefinitions>
+
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(WeatherCode), Mode=OneWay}" />
+                                    </ToolTipService.ToolTip>
+
                                     <TextBlock
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
@@ -269,14 +274,37 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:DailyGraph
-                            Interval="{x:Bind shellVm.SelectedLocation.ForecastInterval, Mode=OneWay}"
-                            MaxValue="{x:Bind shellVm.SelectedLocation.MaxTemp, Mode=OneWay}"
-                            MinValue="{x:Bind shellVm.SelectedLocation.MinTemp, Mode=OneWay}"
-                            StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
-                            ValueFormat="{}{0:F0}°"
-                            WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}"
-                            Value="{x:Bind shellVm.SelectedWeather.HourlyTemp, Mode=OneWay}" />
+                        <Grid>
+                            <customControls:DailyGraph
+                                Interval="{x:Bind shellVm.SelectedWeather.DayGraph.Interval, Mode=OneWay}"
+                                MaxValue="{x:Bind shellVm.SelectedWeather.DayGraph.MaxValue, Mode=OneWay}"
+                                MinValue="{x:Bind shellVm.SelectedWeather.DayGraph.MinValue, Mode=OneWay}"
+                                StartTime="{x:Bind shellVm.SelectedWeather.DayGraph.StartTime, Mode=OneWay}"
+                                ValueFormat="{x:Bind shellVm.SelectedWeather.DayGraph.ValueFormat, Mode=OneWay}"
+                                WeatherCodes="{x:Bind shellVm.SelectedWeather.HourlyWeatherCode, Mode=OneWay}"
+                                Value="{x:Bind shellVm.SelectedWeather.DayGraph.Value, Mode=OneWay}" />
+                            <ComboBox
+                                Margin="5"
+                                HorizontalAlignment="Left"
+                                HorizontalContentAlignment="Right"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Opacity="0.75"
+                                SelectedIndex="{x:Bind shellVm.SelectedMainGraphTypeIndex, Mode=TwoWay}">
+                                <TextBlock>
+                                    <Run x:Uid="TitleTemperature" />
+                                    <Run Text="(" />
+                                    <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run x:Uid="FeelsLikeTemperature" />
+                                    <Run Text="(" />
+                                    <Run Text="{x:Bind shellVm.SelectedWeather.TemperatureUnit, Mode=OneWay}" />
+                                    <Run Text=")" />
+                                </TextBlock>
+                            </ComboBox>
+                        </Grid>
                     </Button>
                 </Border>
             </StackPanel>

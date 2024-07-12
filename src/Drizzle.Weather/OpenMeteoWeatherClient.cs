@@ -137,6 +137,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 WindDirection = value.Daily?.WindDirection,
                 HourlyWeatherCode = hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
                 HourlyTemperature = hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
+                HourlyApparentTemperature = hourly.Select(x => x.ApparentTemperature is null ? 0 : (float)x.ApparentTemperature).ToArray(),
                 HourlyVisibility = hourly.Select(x => x.Visibility is null ? 0 : (float)x.Visibility).ToArray(),
                 HourlyHumidity = hourly.Select(x => x.Humidity is null ? 0 : (float)x.Humidity).ToArray(),
                 HourlyPressure = hourly.Select(x => x.Pressure is null ? 0 : (float)x.Pressure).ToArray(),

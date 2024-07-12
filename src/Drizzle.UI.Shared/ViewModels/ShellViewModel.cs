@@ -115,6 +115,7 @@ namespace Drizzle.UI.UWP.ViewModels
             maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
             IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
             SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);
+            SelectedMainGraphTypeIndex = (int)userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
 
             var gpu = GraphicsDevice.GetDefault();
             IsHardwareAccelerated = gpu.IsHardwareAccelerated;
@@ -183,6 +184,21 @@ namespace Drizzle.UI.UWP.ViewModels
                 {
                     SetWeatherAnimation((WmoWeatherCode)value.WeatherCode);
                 }
+            }
+        }
+
+        private int _selectedMainGraphTypeIndex;
+        public int SelectedMainGraphTypeIndex
+        {
+            get => _selectedMainGraphTypeIndex;
+            set
+            {
+                if (value != -1 && userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType) != (GraphType)value)
+                {
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedMainGraphType, value);
+                    UpdateGraphs();
+                }
+                SetProperty(ref _selectedMainGraphTypeIndex, value);
             }
         }
 
@@ -395,7 +411,11 @@ namespace Drizzle.UI.UWP.ViewModels
 
                 // Update view
                 var units = GetWeatherUnits();
-                var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, Weathers.Count, units);
+                var weatherVm = weatherViewModelFactory.CreateWeatherViewModel(weather,
+                    airQuality,
+                    Weathers.Count,
+                    units,
+                    userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType));
                 Weathers.Add(weatherVm);
 
                 // Selects location and weather animation
@@ -443,7 +463,12 @@ namespace Drizzle.UI.UWP.ViewModels
                 foreach (var location in remainingLocations)
                 {
                     (var weather, var airQuality) = await FetchWeather(location.Name, location.Latitude, location.Longitude);
-                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, 0, units));
+                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(
+                        weather,
+                        airQuality,
+                        0,
+                        units,
+                        userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType)));
                 }
 
                 var index = locations.FindIndex(x => x.Latitude == selection.Latitude && x.Longitude == selection.Longitude);
@@ -494,7 +519,11 @@ namespace Drizzle.UI.UWP.ViewModels
                 {
                     // Uses cache if configured and unit convertion takes place in the viewmodel
                     (var weather, var airQuality) = await FetchWeather(weatherCopy[i].Location.Name, weatherCopy[i].Location.Latitude, weatherCopy[i].Location.Longitude);
-                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather, airQuality, i, units));
+                    Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather,
+                                                                                airQuality,
+                                                                                i,
+                                                                                units,
+                                                                                userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType)));
                 }
                 SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == selectionCopy.Location.Latitude && x.Location.Longitude == selectionCopy.Location.Longitude);
             }
@@ -750,6 +779,15 @@ namespace Drizzle.UI.UWP.ViewModels
                 SnowProperty.Mouse =
                 FogProperty.Mouse =
                 DepthProperty.Mouse = Float4.Zero;
+        }
+
+        private void UpdateGraphs()
+        {
+            if (Weathers is null || !Weathers.Any())
+                return;
+
+            foreach (var weatherVm in Weathers)
+                weatherViewModelFactory.UpdateGraphModels(weatherVm, userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType));
         }
 
         private void UpdateQualitySettings()

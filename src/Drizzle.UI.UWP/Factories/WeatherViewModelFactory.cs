@@ -1,9 +1,12 @@
-﻿using Drizzle.Models.Weather;
+﻿using Drizzle.Models;
+using Drizzle.Models.Enums;
+using Drizzle.Models.UserControls;
+using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.ViewModels;
-using System.Linq;
 using Drizzle.Weather.Helpers;
-using Drizzle.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Drizzle.UI.UWP.Factories
 {
@@ -13,7 +16,8 @@ namespace Drizzle.UI.UWP.Factories
             ForecastWeather weatherForecast,
             ForecastAirQuality airQualityForecast,
             int sortOrder,
-            WeatherUnitSettings units)
+            WeatherUnitSettings units,
+            GraphType graphType)
         {
             var weatherVm = new WeatherViewModel();
             weatherVm.SortOrder = sortOrder;
@@ -22,8 +26,6 @@ namespace Drizzle.UI.UWP.Factories
             weatherVm.TimeZone = weatherForecast.TimeZone;
             weatherVm.FetchTime = weatherForecast.FetchTime;
             weatherVm.Location = new LocationModel(weatherForecast.Name, weatherForecast.Latitude, weatherForecast.Longitude);
-            weatherVm.MaxTemp = weatherForecast.Daily[0].TemperatureMax;
-            weatherVm.MinTemp = weatherForecast.Daily[0].TemperatureMin;
             weatherVm.ForecastInterval = weatherForecast.ForecastInterval;
             weatherVm.ForecastAQInterval = airQualityForecast.ForecastInterval;
             var isDayTime = TimeUtil.IsDaytime(weatherForecast.TimeZone);
@@ -50,6 +52,7 @@ namespace Drizzle.UI.UWP.Factories
                     DewPoint = weatherForecast.Daily[i].DewPoint,
                     HourlyWeatherCode = weatherForecast.Daily[i].HourlyWeatherCode,
                     HourlyTemp = weatherForecast.Daily[i].HourlyTemperature,
+                    HourlyApparentTemperature = weatherForecast.Daily[i].HourlyApparentTemperature,
                     HourlyVisibility = weatherForecast.Daily[i].HourlyVisibility,
                     HourlyHumidity = weatherForecast.Daily[i].HourlyHumidity,
                     HourlyPressure = weatherForecast.Daily[i].HourlyPressure,
@@ -59,8 +62,6 @@ namespace Drizzle.UI.UWP.Factories
                     Sunset = weatherForecast.Daily[i].Sunset,
                     IsDaytime = isDayTime,
                 };
-                weatherVm.MaxTemp = tmp.TemperatureMax > weatherVm.MaxTemp ? tmp.TemperatureMax : weatherVm.MaxTemp;
-                weatherVm.MinTemp = tmp.TemperatureMin < weatherVm.MinTemp ? tmp.TemperatureMin : weatherVm.MinTemp;
                 weatherVm.Daily.Add(tmp);
             }
             for (int i = 0; i < airQualityForecast.Daily.Count(); i++)
@@ -72,8 +73,71 @@ namespace Drizzle.UI.UWP.Factories
                 weatherVm.Daily[i].ForecastAQStartTime = airQualityForecast.Daily[i].StartTime;
             }
             weatherVm.Today = weatherVm.Daily[0];
-            
+            UpdateGraphModels(weatherVm, graphType);
+
             return weatherVm;
+        }
+
+        public void UpdateGraphModels(WeatherViewModel model, GraphType graphType)
+        {
+            var graph = CreateGraphModels(model, graphType);
+            for (int i = 0; i < model.Daily.Count; i++)
+                model.Daily[i].DayGraph = graph[i];
+        }
+
+        private static List<GraphModel> CreateGraphModels(WeatherViewModel weather, GraphType graphType)
+        {
+            switch (graphType)
+            {
+                case GraphType.temperature:
+                    {
+                        var result = new List<GraphModel>();
+                        var allTemps = weather.Daily
+                            .Where(x => x.HourlyTemp != null && x.HourlyTemp.Any())
+                            .SelectMany(x => x.HourlyTemp);
+                        float? maxTemp = allTemps.Any() ? allTemps.Max() : null;
+                        float? minTemp = allTemps.Any() ? allTemps.Min() : null;
+                        foreach (var item in weather.Daily)
+                        {
+                            var model = new GraphModel()
+                            {
+                                MaxValue = maxTemp,
+                                MinValue = minTemp,
+                                Interval = weather.ForecastInterval,
+                                StartTime = item.ForecastStartTime,
+                                ValueFormat = "{0:F0}°",
+                                Value = item.HourlyTemp
+                            };
+                            result.Add(model);
+                        }
+                        return result;
+                    }
+                case GraphType.apparentTemperature:
+                    {
+                        var result = new List<GraphModel>();
+                        var allTemps = weather.Daily
+                            .Where(x => x.HourlyApparentTemperature != null && x.HourlyApparentTemperature.Any())
+                            .SelectMany(x => x.HourlyApparentTemperature);
+                        float? maxTemp = allTemps.Any() ? allTemps.Max() : null;
+                        float? minTemp = allTemps.Any() ? allTemps.Min() : null;
+                        foreach (var item in weather.Daily)
+                        {
+                            var model = new GraphModel()
+                            {
+                                MaxValue = maxTemp,
+                                MinValue = minTemp,
+                                Interval = weather.ForecastInterval,
+                                StartTime = item.ForecastStartTime,
+                                ValueFormat = "{0:F0}°",
+                                Value = item.HourlyApparentTemperature
+                            };
+                            result.Add(model);
+                        }
+                        return result;
+                    }
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 }

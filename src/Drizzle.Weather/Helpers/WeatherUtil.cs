@@ -143,6 +143,7 @@ public static class WeatherUtil
                                     weather.ApparentTemperature = CelsiusToFahrenheit(weather.ApparentTemperature);
                                     weather.DewPoint = CelsiusToFahrenheit(weather.DewPoint);
                                     weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)CelsiusToFahrenheit(x)).ToArray();
+                                    weather.HourlyApparentTemperature = weather.HourlyApparentTemperature?.Select(x => (float)CelsiusToFahrenheit(x)).ToArray();
                                 }
                                 break;
                         }
@@ -161,6 +162,7 @@ public static class WeatherUtil
                                 weather.ApparentTemperature = FahrenheitToCelsius(weather.ApparentTemperature);
                                 weather.DewPoint = FahrenheitToCelsius(weather.DewPoint);
                                 weather.HourlyTemperature = weather.HourlyTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
+                                weather.HourlyApparentTemperature = weather.HourlyApparentTemperature?.Select(x => (float)FahrenheitToCelsius(x)).ToArray();
                             }
                             break;
                         case TemperatureUnits.fahrenheit:
