@@ -46,6 +46,9 @@
                         Width="30"
                         Height="30"
                         Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(WeatherCode), Mode=OneWay}" />
+                        </ToolTipService.ToolTip>
                         <muxc:AnimatedVisualPlayer.RenderTransform>
                             <TranslateTransform X="{x:Bind Left, Mode=OneWay}" Y="{x:Bind Top, Mode=OneWay}" />
                         </muxc:AnimatedVisualPlayer.RenderTransform>
