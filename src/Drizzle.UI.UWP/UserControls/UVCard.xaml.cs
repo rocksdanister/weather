@@ -42,6 +42,19 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(int?), typeof(UVCard), new PropertyMetadata(null));
 
+        public float[] HourlyValue
+        {
+            get { return (float[])GetValue(HourlyValueProperty); }
+            set
+            {
+                SetValue(HourlyValueProperty, value);
+                DailyMessage = value is not null && value.Any() ? $"[{value.Min():F0}, {value.Max():F0}]" : string.Empty;
+            }
+        }
+
+        public static readonly DependencyProperty HourlyValueProperty =
+            DependencyProperty.Register("HourlyValue", typeof(float[]), typeof(UVCard), new PropertyMetadata(Array.Empty<float>()));
+
         public string Message
         {
             get { return (string)GetValue(MessageProperty); }
@@ -50,6 +63,15 @@ namespace Drizzle.UI.UWP.UserControls
 
         public static readonly DependencyProperty MessageProperty =
             DependencyProperty.Register("Message", typeof(string), typeof(UVCard), new PropertyMetadata(string.Empty));
+
+        public string DailyMessage
+        {
+            get { return (string)GetValue(DailyMessageProperty); }
+            private set { SetValue(DailyMessageProperty, value); }
+        }
+
+        public static readonly DependencyProperty DailyMessageProperty =
+            DependencyProperty.Register("DailyMessage", typeof(string), typeof(UVCard), new PropertyMetadata(string.Empty));
 
         private readonly ResourceLoader resourceLoader;
         private readonly int margin = 10;

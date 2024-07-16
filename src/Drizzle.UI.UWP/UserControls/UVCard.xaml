@@ -50,10 +50,16 @@
                     FontSize="40"
                     FontWeight="SemiBold"
                     Text="{x:Bind Value, Mode=OneWay}" />
+                <TextBlock
+                    Margin="5,10,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Opacity="0.45"
+                    Text="{x:Bind DailyMessage, Mode=OneWay}" />
             </StackPanel>
             <TextBlock
-                FontSize="14"
-                Opacity="0.4"
+                FontSize="16"
+                Opacity="0.6"
                 Text="{x:Bind Message, Mode=OneWay}" />
         </StackPanel>
 

@@ -358,7 +358,7 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:UVCard Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
+                            <customControls:UVCard HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
                         </Button>
                     </Border>
                     <!--  Sunrise-Sunset  -->
