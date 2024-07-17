@@ -41,6 +41,11 @@ namespace Drizzle.UI.UWP.UserControls
                 {
                     MinValue = (int)Math.Round(value.Min());
                     MaxValue = (int)Math.Round(value.Max());
+                    if (MinValue == MaxValue)
+                    {
+                        MinValue = null;
+                        MaxValue = null;
+                    }
                 }
                 else
                 {
