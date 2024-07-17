@@ -39,6 +39,46 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(int?), typeof(AirQualityCard), new PropertyMetadata(null));
 
+        public float[] HourlyValue
+        {
+            get { return (float[])GetValue(HourlyValueProperty); }
+            set
+            {
+                SetValue(HourlyValueProperty, value);
+                if (value is not null && value.Count() > 1)
+                {
+                    MinValue = (int)Math.Round(value.Min());
+                    MaxValue = (int)Math.Round(value.Max());
+                }
+                else
+                {
+                    MinValue = null;
+                    MaxValue = null;
+                }
+            }
+        }
+
+        public static readonly DependencyProperty HourlyValueProperty =
+            DependencyProperty.Register("HourlyValue", typeof(float[]), typeof(AirQualityCard), new PropertyMetadata(Array.Empty<float>()));
+
+        public int? MinValue
+        {
+            get { return (int?)GetValue(MinValueProperty); }
+            private set { SetValue(MinValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MinValueProperty =
+            DependencyProperty.Register("MinValue", typeof(int?), typeof(AirQualityCard), new PropertyMetadata(null));
+
+        public int? MaxValue
+        {
+            get { return (int?)GetValue(MaxValueProperty); }
+            private set { SetValue(MaxValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MaxValueProperty =
+            DependencyProperty.Register("MaxValue", typeof(int?), typeof(AirQualityCard), new PropertyMetadata(null));
+
         public string Message
         {
             get { return (string)GetValue(MessageProperty); }

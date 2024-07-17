@@ -537,7 +537,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:AirQualityCard Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
+                        <customControls:AirQualityCard HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Pressure  -->

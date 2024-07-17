@@ -37,7 +37,7 @@ namespace Drizzle.UI.UWP.UserControls
             set
             {
                 SetValue(HourlyValueProperty, value);
-                if (value is not null && value.Any())
+                if (value is not null && value.Count() > 1)
                 {
                     MinValue = (int)Math.Round(value.Min());
                     MaxValue = (int)Math.Round(value.Max());
