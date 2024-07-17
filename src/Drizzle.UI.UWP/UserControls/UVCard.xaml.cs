@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Resources;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -48,12 +37,39 @@ namespace Drizzle.UI.UWP.UserControls
             set
             {
                 SetValue(HourlyValueProperty, value);
-                DailyMessage = value is not null && value.Any() ? $"[{value.Min():F0}, {value.Max():F0}]" : string.Empty;
+                if (value is not null && value.Any())
+                {
+                    MinValue = (int)Math.Round(value.Min());
+                    MaxValue = (int)Math.Round(value.Max());
+                }
+                else
+                {
+                    MinValue = null;
+                    MaxValue = null;
+                }
             }
         }
 
         public static readonly DependencyProperty HourlyValueProperty =
             DependencyProperty.Register("HourlyValue", typeof(float[]), typeof(UVCard), new PropertyMetadata(Array.Empty<float>()));
+
+        public int? MinValue
+        {
+            get { return (int?)GetValue(MinValueProperty); }
+            private set { SetValue(MinValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MinValueProperty =
+            DependencyProperty.Register("MinValue", typeof(int?), typeof(UVCard), new PropertyMetadata(null));
+
+        public int? MaxValue
+        {
+            get { return (int?)GetValue(MaxValueProperty); }
+            private set { SetValue(MaxValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty MaxValueProperty =
+            DependencyProperty.Register("MaxValue", typeof(int?), typeof(UVCard), new PropertyMetadata(null));
 
         public string Message
         {
@@ -63,15 +79,6 @@ namespace Drizzle.UI.UWP.UserControls
 
         public static readonly DependencyProperty MessageProperty =
             DependencyProperty.Register("Message", typeof(string), typeof(UVCard), new PropertyMetadata(string.Empty));
-
-        public string DailyMessage
-        {
-            get { return (string)GetValue(DailyMessageProperty); }
-            private set { SetValue(DailyMessageProperty, value); }
-        }
-
-        public static readonly DependencyProperty DailyMessageProperty =
-            DependencyProperty.Register("DailyMessage", typeof(string), typeof(UVCard), new PropertyMetadata(string.Empty));
 
         private readonly ResourceLoader resourceLoader;
         private readonly int margin = 10;

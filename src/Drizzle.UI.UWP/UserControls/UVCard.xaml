@@ -50,12 +50,24 @@
                     FontSize="40"
                     FontWeight="SemiBold"
                     Text="{x:Bind Value, Mode=OneWay}" />
-                <TextBlock
-                    Margin="5,10,0,0"
-                    VerticalAlignment="Center"
-                    FontSize="14"
+                <StackPanel
+                    Margin="5,0,0,7.5"
+                    VerticalAlignment="Bottom"
                     Opacity="0.45"
-                    Text="{x:Bind DailyMessage, Mode=OneWay}" />
+                    Orientation="Horizontal"
+                    Spacing="2.5">
+                    <TextBlock FontSize="14" Text="{x:Bind MinValue, Mode=OneWay}" />
+                    <FontIcon FontSize="10" Glyph="&#xE74B;" />
+                </StackPanel>
+                <StackPanel
+                    Margin="5,0,0,7.5"
+                    VerticalAlignment="Bottom"
+                    Opacity="0.45"
+                    Orientation="Horizontal"
+                    Spacing="2.5">
+                    <TextBlock FontSize="14" Text="{x:Bind MaxValue, Mode=OneWay}" />
+                    <FontIcon FontSize="10" Glyph="&#xE74A;" />
+                </StackPanel>
             </StackPanel>
             <TextBlock
                 FontSize="16"
