@@ -385,10 +385,17 @@
                                         VerticalAlignment="Center"
                                         FontWeight="SemiBold"
                                         Text="{x:Bind Location.Name, Mode=OneWay}" />
-                                    <TextBlock
-                                        Opacity="0.4"
-                                        Style="{StaticResource BodyTextBlockStyle}"
-                                        Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(Today.WeatherCode), Mode=OneWay}" />
+                                    <StackPanel Orientation="Horizontal" Spacing="2.5">
+                                        <muxc:AnimatedVisualPlayer
+                                            Width="30"
+                                            Height="30"
+                                            Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(Today.WeatherCode, Today.IsDaytime), Mode=OneWay}" />
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            Opacity="0.4"
+                                            Style="{StaticResource BodyTextBlockStyle}"
+                                            Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(Today.WeatherCode), Mode=OneWay}" />
+                                    </StackPanel>
                                 </StackPanel>
                                 <TextBlock
                                     Grid.Column="1"
@@ -405,7 +412,7 @@
                                 -->
                                 <Button
                                     Grid.Column="2"
-                                    Height="58"
+                                    Height="68"
                                     Margin="10,0,-10,0"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Stretch"
@@ -435,7 +442,7 @@
                 </ListView>
             </muxc:NavigationView.PaneCustomContent>
             <!--  Main Content  -->
-            <ScrollViewer Margin="0,25,0,0">
+            <ScrollViewer Margin="0,25,0,60">
                 <Frame x:Name="MainFrame" />
             </ScrollViewer>
         </muxc:NavigationView>
@@ -458,6 +465,17 @@
                     Duration="0:0:3" />
             </animation:Implicit.ShowAnimations>
         </Rectangle>
+
+        <!--  Local time clock  -->
+        <customControls:Clock
+            Grid.Row="1"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Opacity="0.6"
+            TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
+            ToolTipService.ToolTip="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
+            Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
 
         <!--  Welcome message  -->
         <muxc:TeachingTip

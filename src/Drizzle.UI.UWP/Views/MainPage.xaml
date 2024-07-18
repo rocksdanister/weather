@@ -86,16 +86,6 @@
         <!--  Shadow background  -->
         <Grid x:Name="BackgroundGrid" />
 
-        <!--  Local time clock  -->
-        <customControls:Clock
-            Margin="10"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Opacity="0.5"
-            TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
-            ToolTipService.ToolTip="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
-            Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
-
         <!--  Main Content  -->
         <Grid
             HorizontalAlignment="Center"
@@ -110,9 +100,15 @@
                     Duration="0:0:1" />
             </animations:Implicit.ShowAnimations>
             <Grid.RowDefinitions>
+                <!--  Header  -->
                 <RowDefinition Height="150" />
+                <!--  Stack 1 (Main)  -->
                 <RowDefinition Height="Auto" />
+                <!--  Stack 2  -->
                 <RowDefinition Height="Auto" />
+                <!--  Stack 3  -->
+                <RowDefinition Height="Auto" />
+                <!--  Stack 4  -->
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
@@ -576,134 +572,51 @@
                         <customControls:PressureCard Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
                     </Button>
                 </Border>
+            </StackPanel>
+
+            <!--  Stack 4  -->
+            <StackPanel
+                Grid.Row="4"
+                Margin="0,10,0,0"
+                Orientation="Horizontal"
+                Spacing="10">
                 <!--  Visibility  -->
-                <!--  Issue: https://github.com/rocksdanister/weather/issues/37  -->
-                <!--<Border
+                <Border
+                    Width="240"
+                    Height="175"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
-                    Translation="0,0,16"
-                    Visibility="Collapsed">
+                    Translation="0,0,16">
                     <Border.Background>
                         <media:BackdropBlurBrush Amount="12" />
                     </Border.Background>
-                    <Button Padding="0" Background="{ThemeResource CardBackgroundBrush}">
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
                         <Button.Flyout>
                             <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}">
-                                <StackPanel Width="400" Spacing="5">
-                                    <TextBlock TextWrapping="WrapWholeWords">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </TextBlock>
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="LightYellow"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
+                                        ValueFormat="{}{0:F1}"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyVisibility, Mode=OneWay}" />
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock FontWeight="SemiBold" Text="About Visibility" />
+                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:VisibilityCard
-                            Width="150"
-                            Height="175"
-                            Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}"
-                            Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                        <customControls:VisibilityCard Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
                     </Button>
-                </Border>-->
+                </Border>
             </StackPanel>
-
-            <!--  Suggestions  -->
-            <!--<StackPanel
-                    Grid.Row="3"
-                    Padding="0,10,0,10"
-                    Orientation="Vertical"
-                    Visibility="Collapsed">
-                    <TextBlock FontWeight="SemiBold">SUGGESTIONS FOR YOUR DAY</TextBlock>
-                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                        <Border
-                            BorderBrush="#3FFFFFFF"
-                            BorderThickness="0,1,0,0"
-                            CornerRadius="5"
-                            Shadow="{StaticResource BackgroundGridShadow}"
-                            Translation="0,0,16">
-                            <Border.Background>
-                                <media:BackdropBlurBrush Amount="12" />
-                            </Border.Background>
-                            <StackPanel
-                                Width="150"
-                                Height="80"
-                                Padding="10,5,0,0"
-                                Background="{ThemeResource CardBackgroundBrush}"
-                                BorderBrush="Green"
-                                BorderThickness="2.5,0,0,0">
-                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
-                                <TextBlock Opacity="0.4">Umbrella</TextBlock>
-                                <TextBlock FontWeight="SemiBold">Needed</TextBlock>
-                            </StackPanel>
-                        </Border>
-                        <Border
-                            Margin="8,0,0,0"
-                            BorderBrush="#3FFFFFFF"
-                            BorderThickness="0,1,0,0"
-                            CornerRadius="5"
-                            Shadow="{StaticResource BackgroundGridShadow}"
-                            Translation="0,0,16">
-                            <Border.Background>
-                                <media:BackdropBlurBrush Amount="12" />
-                            </Border.Background>
-                            <StackPanel
-                                Width="150"
-                                Height="80"
-                                Padding="10,5,0,0"
-                                Background="{ThemeResource CardBackgroundBrush}"
-                                BorderBrush="Yellow"
-                                BorderThickness="2.5,0,0,0">
-                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
-                                <TextBlock Opacity="0.4">Outdoors</TextBlock>
-                                <TextBlock FontWeight="SemiBold">Poor</TextBlock>
-                            </StackPanel>
-                        </Border>
-                        <Border
-                            Margin="8,0,0,0"
-                            BorderBrush="#3FFFFFFF"
-                            BorderThickness="0,1,0,0"
-                            CornerRadius="5"
-                            Shadow="{StaticResource BackgroundGridShadow}"
-                            Translation="0,0,16">
-                            <Border.Background>
-                                <media:BackdropBlurBrush Amount="12" />
-                            </Border.Background>
-                            <StackPanel
-                                Width="150"
-                                Height="80"
-                                Padding="10,5,0,0"
-                                Background="{ThemeResource CardBackgroundBrush}"
-                                BorderBrush="Yellow"
-                                BorderThickness="2.5,0,0,0">
-                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
-                                <TextBlock Opacity="0.4">Clothing</TextBlock>
-                                <TextBlock FontWeight="SemiBold">Breathabke</TextBlock>
-                            </StackPanel>
-                        </Border>
-                        <Border
-                            Margin="8,0,0,0"
-                            BorderBrush="#3FFFFFFF"
-                            BorderThickness="0,1,0,0"
-                            CornerRadius="5"
-                            Shadow="{StaticResource BackgroundGridShadow}"
-                            Translation="0,0,16">
-                            <Border.Background>
-                                <media:BackdropBlurBrush Amount="12" />
-                            </Border.Background>
-                            <StackPanel
-                                Width="150"
-                                Height="80"
-                                Padding="10,5,0,0"
-                                Background="{ThemeResource CardBackgroundBrush}"
-                                BorderBrush="Green"
-                                BorderThickness="2.5,0,0,0">
-                                <FontIcon HorizontalAlignment="Left" Glyph="&#xE726;" />
-                                <TextBlock Opacity="0.4">Heat stroke</TextBlock>
-                                <TextBlock FontWeight="SemiBold">Safe</TextBlock>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>-->
         </Grid>
     </Grid>
 </Page>

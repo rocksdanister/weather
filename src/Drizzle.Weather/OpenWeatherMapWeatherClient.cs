@@ -93,7 +93,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 GustSpeed = currentResponse.Wind.Gust * 3.6f,
                 Temperature = currentResponse.Main.Temp,
                 ApparentTemperature = currentResponse.Main.FeelsLike,
-                Visibility = currentResponse.Main.FeelsLike / 1000f, //meter -> km
+                Visibility = currentValue.Visibility / 1000f, //meter -> km
                 Humidity = (int)currentResponse.Main.Humidity,
                 // Not available
                 //DewPoint = 

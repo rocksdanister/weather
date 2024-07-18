@@ -17,11 +17,11 @@ namespace Drizzle.UI.UWP.UserControls
 {
     public sealed partial class VisibilityCard : UserControl
     {
-        public float Value
+        public float? Value
         {
             get
             {
-                return (float)GetValue(ValueProperty);
+                return (float?)GetValue(ValueProperty);
             }
             set
             {
@@ -30,7 +30,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(string), typeof(CompassCard), new PropertyMetadata(0f));
+            DependencyProperty.Register("Value", typeof(float?), typeof(CompassCard), new PropertyMetadata(null));
 
         public string Unit
         {
