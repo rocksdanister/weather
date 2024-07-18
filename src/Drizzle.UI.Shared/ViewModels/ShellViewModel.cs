@@ -786,8 +786,13 @@ namespace Drizzle.UI.UWP.ViewModels
             if (Weathers is null || !Weathers.Any())
                 return;
 
+            var graphType = userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
             foreach (var weatherVm in Weathers)
-                weatherViewModelFactory.UpdateGraphModels(weatherVm, userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType));
+            {
+                var graphs = weatherViewModelFactory.CreateGraphModels(weatherVm, graphType);
+                for (int i = 0; i < weatherVm.Daily.Count; i++)
+                    weatherVm.Daily[i].DayGraph = graphs[i];
+            }
         }
 
         private void UpdateQualitySettings()

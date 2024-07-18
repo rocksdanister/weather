@@ -73,19 +73,16 @@ namespace Drizzle.UI.UWP.Factories
                 weatherVm.Daily[i].ForecastAQStartTime = airQualityForecast.Daily[i].StartTime;
             }
             weatherVm.Today = weatherVm.Daily[0];
-            UpdateGraphModels(weatherVm, graphType);
+
+            // Update main graph
+            var graphs = CreateGraphModels(weatherVm, graphType);
+            for (int i = 0; i < weatherVm.Daily.Count; i++)
+                weatherVm.Daily[i].DayGraph = graphs[i];
 
             return weatherVm;
         }
 
-        public void UpdateGraphModels(WeatherViewModel model, GraphType graphType)
-        {
-            var graph = CreateGraphModels(model, graphType);
-            for (int i = 0; i < model.Daily.Count; i++)
-                model.Daily[i].DayGraph = graph[i];
-        }
-
-        private static List<GraphModel> CreateGraphModels(WeatherViewModel weather, GraphType graphType)
+        public List<GraphModel> CreateGraphModels(WeatherViewModel weather, GraphType graphType)
         {
             switch (graphType)
             {
