@@ -58,25 +58,23 @@
                     FontSize="40"
                     FontWeight="SemiBold"
                     Text="{x:Bind Value, Mode=OneWay}" />
-                <StackPanel
-                    Margin="5,0,0,7.5"
-                    VerticalAlignment="Bottom"
-                    Opacity="0.45"
-                    Orientation="Horizontal"
-                    Spacing="2.5"
-                    Visibility="{x:Bind MinValue, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                    <TextBlock FontSize="14" Text="{x:Bind MinValue, Mode=OneWay}" />
-                    <FontIcon FontSize="10" Glyph="&#xE74B;" />
-                </StackPanel>
-                <StackPanel
-                    Margin="5,0,0,7.5"
-                    VerticalAlignment="Bottom"
-                    Opacity="0.45"
-                    Orientation="Horizontal"
-                    Spacing="2.5"
-                    Visibility="{x:Bind MaxValue, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                    <TextBlock FontSize="14" Text="{x:Bind MaxValue, Mode=OneWay}" />
-                    <FontIcon FontSize="10" Glyph="&#xE74A;" />
+                <StackPanel Margin="5,0,0,7.5" VerticalAlignment="Bottom">
+                    <StackPanel
+                        Opacity="0.45"
+                        Orientation="Horizontal"
+                        Spacing="2.5"
+                        Visibility="{x:Bind MaxValue, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                        <TextBlock FontSize="14" Text="{x:Bind MaxValue, Mode=OneWay}" />
+                        <FontIcon FontSize="10" Glyph="&#xE74A;" />
+                    </StackPanel>
+                    <StackPanel
+                        Opacity="0.45"
+                        Orientation="Horizontal"
+                        Spacing="2.5"
+                        Visibility="{x:Bind MinValue, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                        <TextBlock FontSize="14" Text="{x:Bind MinValue, Mode=OneWay}" />
+                        <FontIcon FontSize="10" Glyph="&#xE74B;" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
             <TextBlock
