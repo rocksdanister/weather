@@ -95,7 +95,10 @@
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
 
-                <labs:SettingsExpander x:Uid="WeatherUnitSettings" IsExpanded="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                <labs:SettingsExpander
+                    x:Name="WeatherUnitControl"
+                    x:Uid="WeatherUnitSettings"
+                    IsExpanded="False">
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xECC6;" />
                     </labs:SettingsExpander.HeaderIcon>

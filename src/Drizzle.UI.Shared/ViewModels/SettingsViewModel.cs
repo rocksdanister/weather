@@ -175,9 +175,9 @@ namespace Drizzle.UI.UWP.ViewModels
                 if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit) != (VisibilityUnits)value)
                 {
                     customWeatherUnitValueChanged = true;
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedVisibilityUnit, value);
                 }
                 SetProperty (ref _selectedVisibilityUnitIndex, value);
-                userSettings.SetAndSerialize(UserSettingsConstants.SelectedVisibilityUnit, value);
             }
         }
 
