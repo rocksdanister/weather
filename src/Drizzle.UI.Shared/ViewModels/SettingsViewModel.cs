@@ -123,10 +123,12 @@ namespace Drizzle.UI.UWP.ViewModels
                         var units = new WeatherUnitSettings((WeatherUnits)value);
                         SelectedTemperatureUnitIndex = (int)units.TemperatureUnit;
                         SelectedWindSpeedUnitIndex = (int)units.WindSpeedUnit;
+                        SelectedVisibilityUnitIndex = (int)units.VisibilityUnit;
                         break;
                     case WeatherUnits.custom:
                         SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
                         SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
+                        SelectedVisibilityUnitIndex = (int)userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit);
                         break;
                 }
             }
@@ -161,6 +163,21 @@ namespace Drizzle.UI.UWP.ViewModels
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedWindSpeedUnit, value);
                 }
                 SetProperty(ref _selectedWindSpeedUnitIndex, value);
+            }
+        }
+
+        private int _selectedVisibilityUnitIndex;
+        public int SelectedVisibilityUnitIndex
+        {
+            get => _selectedVisibilityUnitIndex;
+            set
+            {
+                if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit) != (VisibilityUnits)value)
+                {
+                    customWeatherUnitValueChanged = true;
+                }
+                SetProperty (ref _selectedVisibilityUnitIndex, value);
+                userSettings.SetAndSerialize(UserSettingsConstants.SelectedVisibilityUnit, value);
             }
         }
 

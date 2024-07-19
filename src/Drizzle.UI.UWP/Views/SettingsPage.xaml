@@ -132,6 +132,19 @@
                                 <labs:SegmentedItem>m/s</labs:SegmentedItem>
                             </labs:Segmented>
                         </labs:SettingsCard>
+
+                        <labs:SettingsCard>
+                            <labs:SettingsCard.Header>
+                                <TextBlock Text="Distance" />
+                            </labs:SettingsCard.Header>
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xED5E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedVisibilityUnitIndex, Mode=TwoWay}">
+                                <labs:SegmentedItem>km</labs:SegmentedItem>
+                                <labs:SegmentedItem>mi</labs:SegmentedItem>
+                            </labs:Segmented>
+                        </labs:SettingsCard>
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
 
