@@ -58,6 +58,9 @@ namespace Drizzle.Models
         private float[] hourlyApparentTemperature;
 
         [ObservableProperty]
+        private float[] hourlyCloudCover;
+
+        [ObservableProperty]
         private float? windSpeed;
 
         [ObservableProperty]
@@ -67,7 +70,10 @@ namespace Drizzle.Models
         private float? windDirection;
 
         [ObservableProperty]
-        private int? humidity;
+        private float? humidity;
+
+        [ObservableProperty]
+        private float? cloudCover;
 
         [ObservableProperty]
         private float? visibility;

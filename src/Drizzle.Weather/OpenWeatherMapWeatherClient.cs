@@ -94,7 +94,8 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 Temperature = currentResponse.Main.Temp,
                 ApparentTemperature = currentResponse.Main.FeelsLike,
                 Visibility = currentValue.Visibility / 1000f, //meter -> km
-                Humidity = (int)currentResponse.Main.Humidity,
+                Humidity = currentResponse.Main.Humidity,
+                CloudCover = currentResponse.Clouds.All,
                 // Not available
                 //DewPoint = 
                 Pressure = currentResponse.Main.Pressure,
@@ -106,6 +107,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 HourlyHumidity = day.Select(x => x.Main.Humidity).ToArray(),
                 HourlyPressure = day.Select(x => x.Main.Pressure).ToArray(),
                 HourlyWindSpeed = day.Select(x => x.Wind.Speed * 3.6f).ToArray(),
+                HourlyCloudCover = day.Select(x => x.Clouds.All).ToArray(),
             } : 
             new DailyWeather()
             {
@@ -125,6 +127,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 ApparentTemperature = currentValue.Main.FeelsLike,
                 Visibility = currentValue.Visibility / 1000f, //meter -> km
                 Humidity = (int)currentValue.Main.Humidity,
+                CloudCover = currentValue.Clouds.All,
                 // Not available
                 //DewPoint = 
                 Pressure = currentValue.Main.Pressure,
@@ -136,6 +139,7 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
                 HourlyHumidity = day.Select(x => x.Main.Humidity).ToArray(),
                 HourlyPressure = day.Select(x => x.Main.Pressure).ToArray(),
                 HourlyWindSpeed = day.Select(x => x.Wind.Speed * 3.6f).ToArray(),
+                HourlyCloudCover = day.Select(x => x.Clouds.All).ToArray(),
             };
             dailyWeather.Add(weather);
             index++;

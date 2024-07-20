@@ -20,7 +20,7 @@ public class DailyWeather
 
     public float? ApparentTemperature { get; set; }
 
-    public int? Humidity { get; set; }
+    public float? Humidity { get; set; }
 
     public float? Visibility { get; set; }
 
@@ -33,6 +33,8 @@ public class DailyWeather
     public float? GustSpeed { get; set; }
 
     public float? WindDirection { get; set; }
+
+    public float? CloudCover { get; set; }
 
     public DateTime? Sunrise { get; set; }
 
@@ -51,6 +53,8 @@ public class DailyWeather
     public float[] HourlyWindSpeed { get; set; }
 
     public float[] HourlyApparentTemperature { get; set; }
+
+    public float[] HourlyCloudCover { get; set; }
 
     public DateTime StartTime { get; set; }
 }

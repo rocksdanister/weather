@@ -580,7 +580,7 @@
                 Margin="0,10,0,0"
                 Orientation="Horizontal"
                 Spacing="10">
-                <!--  Visibility  -->
+                <!--  Visibility Card  -->
                 <Border
                     Width="240"
                     Height="175"
@@ -614,6 +614,41 @@
                             </Flyout>
                         </Button.Flyout>
                         <customControls:VisibilityCard Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                    </Button>
+                </Border>
+                <!--  Cloud Cover  -->
+                <Border
+                    Width="290"
+                    Height="175"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}" ShouldConstrainToRootBounds="False">
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="Gray"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastAQStartTime, Mode=OneWay}"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyCloudCover, Mode=OneWay}" />
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock FontWeight="SemiBold" Text="About Cloud Cover" />
+                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:CloudCoverCard Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
                     </Button>
                 </Border>
             </StackPanel>

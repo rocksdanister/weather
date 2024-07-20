@@ -67,7 +67,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 DailyOptionsParameter.apparent_temperature_min,
                 DailyOptionsParameter.windspeed_10m_max,
                 DailyOptionsParameter.winddirection_10m_dominant,
-                DailyOptionsParameter.windgusts_10m_max
+                DailyOptionsParameter.windgusts_10m_max,
             },
             Hourly = new HourlyOptions()
             {
@@ -80,6 +80,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 HourlyOptionsParameter.winddirection_10m,
                 HourlyOptionsParameter.apparent_temperature,
                 HourlyOptionsParameter.weathercode,
+                HourlyOptionsParameter.cloudcover
             },
         };
         var response = await GetWeatherForecastAsync(options);
@@ -135,6 +136,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 DewPoint = currentValue.DewPoint,
                 Pressure = currentValue.Pressure,
                 WindDirection = value.Daily?.WindDirection,
+                CloudCover = currentValue.CloudCover,
                 HourlyWeatherCode = hourly.Select(x => x.WeatherCode is null ? 0 : (int)x.WeatherCode).ToArray(),
                 HourlyTemperature = hourly.Select(x => x.Temperature is null ? 0 : (float)x.Temperature).ToArray(),
                 HourlyApparentTemperature = hourly.Select(x => x.ApparentTemperature is null ? 0 : (float)x.ApparentTemperature).ToArray(),
@@ -142,6 +144,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 HourlyHumidity = hourly.Select(x => x.Humidity is null ? 0 : (float)x.Humidity).ToArray(),
                 HourlyPressure = hourly.Select(x => x.Pressure is null ? 0 : (float)x.Pressure).ToArray(),
                 HourlyWindSpeed = hourly.Select(x => x.WindSpeed is null ? 0 : (float)x.WindSpeed).ToArray(),
+                HourlyCloudCover = hourly.Select(x => x.CloudCover is null ? 0 : (float)x.CloudCover).ToArray()
             };
             dailyWeather.Add(weather);
             index++;
@@ -544,6 +547,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
                 DewPoint = forecast.Hourly.Dewpoint_2m[i],
                 Pressure = forecast.Hourly.Pressure_msl[i],
                 WindSpeed = forecast.Hourly.Windspeed_10m[i],
+                CloudCover = forecast.Hourly.Cloudcover[i],
             });
         }
 
@@ -600,6 +604,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
         public float? DewPoint { get; set; }
         public float? Pressure { get; set; }
         public float? WindSpeed { get; set; }
+        public float? CloudCover { get; set; }
     }
 
     private sealed class DailyWeatherParser

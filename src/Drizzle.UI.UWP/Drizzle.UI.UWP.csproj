@@ -210,6 +210,9 @@
     <Compile Include="UserControls\Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CloudCoverCard.xaml.cs">
+      <DependentUpon>CloudCoverCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ColorPickerButton.xaml.cs">
       <DependentUpon>ColorPickerButton.xaml</DependentUpon>
     </Compile>
@@ -491,6 +494,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CloudCoverCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
