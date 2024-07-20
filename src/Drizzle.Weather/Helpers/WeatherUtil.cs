@@ -29,8 +29,9 @@ public static class WeatherUtil
                                                TemperatureUnits temperatureUnit,
                                                WindSpeedUnits windSpeedUnit,
                                                VisibilityUnits visibilityUnit,
-                                               PressureUnits pressureUnit) =>
-        ConvertUnit(forecast, new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit));
+                                               PressureUnits pressureUnit,
+                                               PrecipitationUnits precipitationUnit) =>
+        ConvertUnit(forecast, new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit, precipitationUnit));
 
     public static string GetUnitString(this WindSpeedUnits unit)
     {
@@ -68,6 +69,16 @@ public static class WeatherUtil
         return unit switch
         {
             PressureUnits.hPa_mb => "hPa/mb",
+            _ => throw new NotImplementedException(),
+        };
+    }
+
+    public static string GetUnitString(this PrecipitationUnits unit)
+    {
+        return unit switch
+        {
+            PrecipitationUnits.mm => "mm",
+            PrecipitationUnits.inch => "inch",
             _ => throw new NotImplementedException(),
         };
     }
@@ -268,6 +279,36 @@ public static class WeatherUtil
                     break;
             }
 
+            switch (forecast.Units.PrecipitationUnit)
+            {
+                case PrecipitationUnits.mm:
+                    switch (toUnit.PrecipitationUnit)
+                    {
+                        case PrecipitationUnits.mm:
+                            break;
+                        case PrecipitationUnits.inch:
+                            {
+                                weather.Precipitation = MmtoInch(weather.Precipitation);
+                                weather.HourlyPrecipitation = weather.HourlyPrecipitation?.Select(x => (float)MmtoInch(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case PrecipitationUnits.inch:
+                    switch (toUnit.PrecipitationUnit)
+                    {
+                        case PrecipitationUnits.mm:
+                            {
+                                weather.Precipitation = InchToMm(weather.Precipitation);
+                                weather.HourlyPrecipitation = weather.HourlyPrecipitation?.Select(x => (float)InchToMm(x)).ToArray();
+                            }
+                            break;
+                        case PrecipitationUnits.inch:
+                            break;
+                    }
+                    break;
+            }
+
             //switch (forecast.Units.PressureUnit)
             //{
             //    case PressureUnits.hPa_mb:
@@ -299,6 +340,10 @@ public static class WeatherUtil
     public static float? MphToMs(float? speed) => speed / 2.237f;
 
     public static float? MsToMph(float? speed) => speed * 2.237f;
+
+    public static float? MmtoInch(float? lenght) => lenght / 25.4f;
+
+    public static float? InchToMm(float? lenght) => lenght * 25.4f;
 
     public enum WeatherSeverityLevel
     {

@@ -16,6 +16,7 @@ namespace Drizzle.Models.Weather
                         WindSpeedUnit =  WindSpeedUnits.kmh;
                         VisibilityUnit = VisibilityUnits.km;
                         PressureUnit = PressureUnits.hPa_mb;
+                        PrecipitationUnit = PrecipitationUnits.mm;
                     }
                     break;
                 case WeatherUnits.imperial:
@@ -24,6 +25,7 @@ namespace Drizzle.Models.Weather
                         WindSpeedUnit = WindSpeedUnits.mph;
                         VisibilityUnit = VisibilityUnits.mi;
                         PressureUnit = PressureUnits.hPa_mb;
+                        PrecipitationUnit = PrecipitationUnits.inch;
                     }
                     break;
                 case WeatherUnits.hybrid:
@@ -32,6 +34,7 @@ namespace Drizzle.Models.Weather
                         WindSpeedUnit = WindSpeedUnits.mph;
                         VisibilityUnit = VisibilityUnits.mi;
                         PressureUnit = PressureUnits.hPa_mb;
+                        PrecipitationUnit = PrecipitationUnits.mm;
                     }
                     break;
                 case WeatherUnits.custom:
@@ -42,13 +45,18 @@ namespace Drizzle.Models.Weather
             this.Unit = unit;
         }
 
-        public WeatherUnitSettings(TemperatureUnits temperatureUnit, WindSpeedUnits windSpeedUnit, VisibilityUnits visibilityUnit, PressureUnits pressureUnit)
+        public WeatherUnitSettings(TemperatureUnits temperatureUnit,
+            WindSpeedUnits windSpeedUnit,
+            VisibilityUnits visibilityUnit,
+            PressureUnits pressureUnit,
+            PrecipitationUnits precipitationUnit)
         {
             this.Unit = WeatherUnits.custom;
             this.TemperatureUnit = temperatureUnit;
             this.WindSpeedUnit = windSpeedUnit;
             this.VisibilityUnit = visibilityUnit;
             this.PressureUnit = pressureUnit;
+            this.PrecipitationUnit = precipitationUnit;
         }
 
         public WeatherUnits Unit { get; private set; }
@@ -60,5 +68,7 @@ namespace Drizzle.Models.Weather
         public VisibilityUnits VisibilityUnit { get; private set; }
 
         public PressureUnits PressureUnit { get; private set; }
+
+        public PrecipitationUnits PrecipitationUnit { get; set; }
     }
 }

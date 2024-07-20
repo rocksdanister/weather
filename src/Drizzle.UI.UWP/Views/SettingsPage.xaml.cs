@@ -1,4 +1,5 @@
-﻿using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.UI.UWP.Extensions;
+using Drizzle.UI.UWP.ViewModels;
 using Windows.UI.Xaml.Controls;
 
 namespace Drizzle.UI.UWP.Views
@@ -14,11 +15,13 @@ namespace Drizzle.UI.UWP.Views
             this.DataContext = vm;
 
             // Only open when custom unit selected, do nothing for preset units.
-            WeatherUnitControl.IsExpanded = !vm.IsPresetUnit;
             vm.PropertyChanged += (s, e) =>
             {
-                if (e.PropertyName == nameof(vm.IsPresetUnit) && !vm.IsPresetUnit)
+                if (e.PropertyName == nameof(vm.IsPresetUnit) && !vm.IsPresetUnit && !WeatherUnitControl.IsExpanded)
+                {
                     WeatherUnitControl.IsExpanded = true;
+                    SettingsScrollViewer.ScrollToElement(WeatherUnitControl);
+                }
             };
         }
     }

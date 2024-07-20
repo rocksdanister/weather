@@ -15,7 +15,7 @@
     </Page.Resources>
 
     <Grid>
-        <ScrollViewer>
+        <ScrollViewer x:Name="SettingsScrollViewer">
             <StackPanel Padding="0,0,10,0" Spacing="3">
                 <TextBlock
                     x:Uid="TitleGeneral"
@@ -146,6 +146,19 @@
                             <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedVisibilityUnitIndex, Mode=TwoWay}">
                                 <labs:SegmentedItem>km</labs:SegmentedItem>
                                 <labs:SegmentedItem>mi</labs:SegmentedItem>
+                            </labs:Segmented>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard>
+                            <labs:SettingsCard.Header>
+                                <TextBlock Text="Precipitation" />
+                            </labs:SettingsCard.Header>
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xED5E;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedPrecipitationUnitIndex, Mode=TwoWay}">
+                                <labs:SegmentedItem>mm</labs:SegmentedItem>
+                                <labs:SegmentedItem>inch</labs:SegmentedItem>
                             </labs:Segmented>
                         </labs:SettingsCard>
                     </labs:SettingsExpander.Items>

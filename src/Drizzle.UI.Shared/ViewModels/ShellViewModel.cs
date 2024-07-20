@@ -894,7 +894,8 @@ namespace Drizzle.UI.UWP.ViewModels
                         var windSpeedUnit = userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
                         var visibilityUnit = userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit);
                         var pressureUnit = userSettings.GetAndDeserialize<PressureUnits>(UserSettingsConstants.SelectedPressureUnit);
-                        return new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit);
+                        var precipitationUnit = userSettings.GetAndDeserialize<PrecipitationUnits>(UserSettingsConstants.SelectedPrecipitationUnit);
+                        return new WeatherUnitSettings(temperatureUnit, windSpeedUnit, visibilityUnit, pressureUnit, precipitationUnit);
                     }
                 default:
                     throw new NotImplementedException();

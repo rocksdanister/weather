@@ -124,11 +124,13 @@ namespace Drizzle.UI.UWP.ViewModels
                         SelectedTemperatureUnitIndex = (int)units.TemperatureUnit;
                         SelectedWindSpeedUnitIndex = (int)units.WindSpeedUnit;
                         SelectedVisibilityUnitIndex = (int)units.VisibilityUnit;
+                        SelectedPrecipitationUnitIndex = (int)units.PrecipitationUnit;
                         break;
                     case WeatherUnits.custom:
                         SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
                         SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
                         SelectedVisibilityUnitIndex = (int)userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit);
+                        SelectedPrecipitationUnitIndex = (int)userSettings.GetAndDeserialize<PrecipitationUnits>(UserSettingsConstants.SelectedPrecipitationUnit);
                         break;
                 }
             }
@@ -178,6 +180,21 @@ namespace Drizzle.UI.UWP.ViewModels
                     userSettings.SetAndSerialize(UserSettingsConstants.SelectedVisibilityUnit, value);
                 }
                 SetProperty (ref _selectedVisibilityUnitIndex, value);
+            }
+        }
+
+        private int _selectedPrecipitationUnitIndex;
+        public int SelectedPrecipitationUnitIndex
+        {
+            get => _selectedPrecipitationUnitIndex;
+            set
+            {
+                if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<PrecipitationUnits>(UserSettingsConstants.SelectedPrecipitationUnit) != (PrecipitationUnits)value)
+                {
+                    customWeatherUnitValueChanged = true;
+                    userSettings.SetAndSerialize(UserSettingsConstants.SelectedPrecipitationUnit, value);
+                }
+                SetProperty(ref _selectedPrecipitationUnitIndex, value);
             }
         }
 

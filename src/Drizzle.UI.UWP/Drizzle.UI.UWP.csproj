@@ -187,6 +187,7 @@
     <Compile Include="Converters\NullVisibilityConverter.cs" />
     <Compile Include="Converters\TimeToIsDaytimeVisibilityConverter.cs" />
     <Compile Include="Converters\WmoWeatherConverter.cs" />
+    <Compile Include="Extensions\ScrollViewerExtensions.cs" />
     <Compile Include="Extensions\ThemeExtensions.cs" />
     <Compile Include="Factories\IWeatherClientFactory.cs" />
     <Compile Include="Factories\IWeatherViewModelFactory.cs" />
@@ -227,6 +228,9 @@
     </Compile>
     <Compile Include="UserControls\ImageEx.xaml.cs">
       <DependentUpon>ImageEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrecipitationCard.xaml.cs">
+      <DependentUpon>PrecipitationCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PressureCard.xaml.cs">
       <DependentUpon>PressureCard.xaml</DependentUpon>
@@ -518,6 +522,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ImageEx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PrecipitationCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

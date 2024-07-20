@@ -52,6 +52,8 @@ public static class UserSettingsConstants
 
     public const string SelectedPressureUnit = "SelectedPressureUnit";
 
+    public const string SelectedPrecipitationUnit = "SelectedPrecipitationUnit";
+
     public const string SelectedMainGraphType = "SelectedMainGraphType";
 
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -78,5 +80,6 @@ public static class UserSettingsConstants
         { SelectedVisibilityUnit, VisibilityUnits.km },
         { SelectedPressureUnit, PressureUnits.hPa_mb },
         { SelectedMainGraphType, GraphType.temperature },
+        { SelectedPrecipitationUnit, PrecipitationUnits.mm }
     };
 }

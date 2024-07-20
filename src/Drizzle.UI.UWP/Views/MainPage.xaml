@@ -641,6 +641,7 @@
                                         Height="300"
                                         Gradient1="Gray"
                                         StartTime="{x:Bind shellVm.SelectedWeather.ForecastAQStartTime, Mode=OneWay}"
+                                        ValueFormat="{}{0}%"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyCloudCover, Mode=OneWay}" />
                                     <Line Stroke="#50ffffff" X2="400" />
                                     <TextBlock FontWeight="SemiBold" Text="About Cloud Cover" />
@@ -649,6 +650,42 @@
                             </Flyout>
                         </Button.Flyout>
                         <customControls:CloudCoverCard Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
+                    </Button>
+                </Border>
+                <!--  Precipitation  -->
+                <Border
+                    Width="240"
+                    Height="175"
+                    Shadow="{StaticResource BackgroundGridShadow}"
+                    Style="{StaticResource CardBorder}"
+                    Translation="0,0,16">
+                    <Border.Background>
+                        <media:BackdropBlurBrush Amount="12" />
+                    </Border.Background>
+                    <Button
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Background="{ThemeResource CardBackgroundBrush}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{StaticResource CardFlyout}">
+                                <StackPanel Width="400" Spacing="10">
+                                    <customControls:DailyGraph
+                                        Width="400"
+                                        Height="300"
+                                        Gradient1="LightBlue"
+                                        StartTime="{x:Bind shellVm.SelectedWeather.ForecastStartTime, Mode=OneWay}"
+                                        ValueFormat="{}{0:F3}"
+                                        Value="{x:Bind shellVm.SelectedWeather.HourlyPrecipitation, Mode=OneWay}" />
+                                    <Line Stroke="#50ffffff" X2="400" />
+                                    <TextBlock FontWeight="SemiBold" Text="About Precipitation" />
+                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                        <customControls:PrecipitationCard Unit="{x:Bind shellVm.SelectedWeather.PrecipitationUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Precipitation, Mode=OneWay}" />
                     </Button>
                 </Border>
             </StackPanel>

@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Drizzle.UI.UWP.UserControls
 {
-    public sealed partial class PressureCard : UserControl
+    public sealed partial class PrecipitationCard : UserControl
     {
         public float? Value
         {
@@ -18,7 +18,7 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(float?), typeof(CompassCard), new PropertyMetadata(null));
+            DependencyProperty.Register("Value", typeof(float?), typeof(PrecipitationCard), new PropertyMetadata(null));
 
         public string Unit
         {
@@ -30,9 +30,9 @@ namespace Drizzle.UI.UWP.UserControls
         }
 
         public static readonly DependencyProperty UnitProperty =
-            DependencyProperty.Register("Unit", typeof(string), typeof(CompassCard), new PropertyMetadata(string.Empty));
+            DependencyProperty.Register("Unit", typeof(string), typeof(PrecipitationCard), new PropertyMetadata(string.Empty));
 
-        public PressureCard()
+        public PrecipitationCard()
         {
             this.InitializeComponent();
         }

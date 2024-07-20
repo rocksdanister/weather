@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Drizzle.Models.Weather;
 
@@ -36,6 +34,8 @@ public class DailyWeather
 
     public float? CloudCover { get; set; }
 
+    public float? Precipitation { get; set; }
+
     public DateTime? Sunrise { get; set; }
 
     public DateTime? Sunset { get; set; }
@@ -55,6 +55,8 @@ public class DailyWeather
     public float[] HourlyApparentTemperature { get; set; }
 
     public float[] HourlyCloudCover { get; set; }
+
+    public float[] HourlyPrecipitation { get; set; }
 
     public DateTime StartTime { get; set; }
 }
