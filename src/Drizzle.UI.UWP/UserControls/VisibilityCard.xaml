@@ -36,7 +36,7 @@
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
                 Glyph="&#xE904;" />
-            <TextBlock Text="Visibility" />
+            <TextBlock x:Uid="TitleVisibility" />
         </StackPanel>
 
         <StackPanel

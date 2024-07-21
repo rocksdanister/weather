@@ -151,7 +151,7 @@
 
                         <labs:SettingsCard>
                             <labs:SettingsCard.Header>
-                                <TextBlock Text="Precipitation" />
+                                <TextBlock x:Uid="TitlePrecipitation" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xED5E;" />

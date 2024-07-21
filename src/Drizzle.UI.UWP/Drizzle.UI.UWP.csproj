@@ -211,8 +211,8 @@
     <Compile Include="UserControls\Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CloudCoverCard.xaml.cs">
-      <DependentUpon>CloudCoverCard.xaml</DependentUpon>
+    <Compile Include="UserControls\CloudAmountCard.xaml.cs">
+      <DependentUpon>CloudAmountCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ColorPickerButton.xaml.cs">
       <DependentUpon>ColorPickerButton.xaml</DependentUpon>
@@ -501,7 +501,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CloudCoverCard.xaml">
+    <Page Include="UserControls\CloudAmountCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

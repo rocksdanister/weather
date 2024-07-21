@@ -34,7 +34,7 @@
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
                 Glyph="&#xE901;" />
-            <TextBlock Text="Precipitation" />
+            <TextBlock x:Uid="TitlePrecipitation" />
         </StackPanel>
 
         <Grid Grid.Row="1" Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">

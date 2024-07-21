@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="Drizzle.UI.UWP.UserControls.CloudCoverCard"
+    x:Class="Drizzle.UI.UWP.UserControls.CloudAmountCard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
@@ -36,7 +36,7 @@
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
                 Glyph="&#xE904;" />
-            <TextBlock Text="Cloud Cover" />
+            <TextBlock x:Uid="TitleCloudAmount" />
         </StackPanel>
 
         <Grid

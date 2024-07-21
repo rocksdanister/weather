@@ -608,8 +608,8 @@
                                         ValueFormat="{}{0:F1}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyVisibility, Mode=OneWay}" />
                                     <Line Stroke="#50ffffff" X2="400" />
-                                    <TextBlock FontWeight="SemiBold" Text="About Visibility" />
-                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
+                                    <TextBlock x:Uid="TitleAboutVisibility" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutVisibility" TextWrapping="WrapWholeWords" />
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
@@ -644,12 +644,12 @@
                                         ValueFormat="{}{0}%"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyCloudCover, Mode=OneWay}" />
                                     <Line Stroke="#50ffffff" X2="400" />
-                                    <TextBlock FontWeight="SemiBold" Text="About Cloud Cover" />
-                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
+                                    <TextBlock x:Uid="TitleAboutCloudAmount" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutCloudAmount" TextWrapping="WrapWholeWords" />
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:CloudCoverCard Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
+                        <customControls:CloudAmountCard Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Precipitation  -->
@@ -680,8 +680,8 @@
                                         ValueFormat="{}{0:F3}"
                                         Value="{x:Bind shellVm.SelectedWeather.HourlyPrecipitation, Mode=OneWay}" />
                                     <Line Stroke="#50ffffff" X2="400" />
-                                    <TextBlock FontWeight="SemiBold" Text="About Precipitation" />
-                                    <TextBlock Text="Description" TextWrapping="WrapWholeWords" />
+                                    <TextBlock x:Uid="TitleAboutPrecipitation" FontWeight="SemiBold" />
+                                    <TextBlock x:Uid="DescAboutPrecipitation" TextWrapping="WrapWholeWords" />
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
