@@ -34,7 +34,7 @@
             <FontIcon
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
-                Glyph="&#xE901;" />
+                Glyph="&#xE914;" />
             <TextBlock x:Uid="TitlePrecipitation" />
         </StackPanel>
 

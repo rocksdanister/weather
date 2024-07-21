@@ -35,7 +35,7 @@
             <FontIcon
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
-                Glyph="&#xE904;" />
+                Glyph="&#xE915;" />
             <TextBlock x:Uid="TitleCloudAmount" />
         </StackPanel>
 

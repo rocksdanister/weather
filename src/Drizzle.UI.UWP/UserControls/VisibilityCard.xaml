@@ -35,7 +35,7 @@
             <FontIcon
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
-                Glyph="&#xE904;" />
+                Glyph="&#xE913;" />
             <TextBlock x:Uid="TitleVisibility" />
         </StackPanel>
 
