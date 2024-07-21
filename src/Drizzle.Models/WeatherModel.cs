@@ -122,7 +122,7 @@ namespace Drizzle.Models
         private string pressureUnit;
 
         [ObservableProperty]
-        private string precipitationUnit;
+        private PrecipitationUnits precipitationUnit;
 
         [ObservableProperty]
         private bool isDaytime;

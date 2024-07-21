@@ -424,7 +424,7 @@
     <value>About Air Quality Index (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>About Cloud Amount</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>About Dew point</value>

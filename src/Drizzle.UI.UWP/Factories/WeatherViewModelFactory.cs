@@ -52,7 +52,7 @@ namespace Drizzle.UI.UWP.Factories
                     DewPoint = weatherForecast.Daily[i].DewPoint,
                     CloudCover = weatherForecast.Daily[i].CloudCover,
                     Precipitation = weatherForecast.Daily[i].Precipitation,
-                    PrecipitationUnit = weatherForecast.Units.PrecipitationUnit.GetUnitString(),
+                    PrecipitationUnit = weatherForecast.Units.PrecipitationUnit,
                     HourlyWeatherCode = weatherForecast.Daily[i].HourlyWeatherCode,
                     HourlyTemp = weatherForecast.Daily[i].HourlyTemperature,
                     HourlyApparentTemperature = weatherForecast.Daily[i].HourlyApparentTemperature,

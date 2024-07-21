@@ -12,6 +12,7 @@
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     d:DesignHeight="300"
     d:DesignWidth="400"
+    Loaded="UserControl_Loaded"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -44,9 +45,10 @@
                 FontWeight="SemiBold"
                 HorizontalTextAlignment="Center">
                 <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F3}'}" />
-                <Run Text="{x:Bind Unit, Mode=OneWay}" />
+                <Run Text="{x:Bind UnitString, Mode=OneWay}" />
             </TextBlock>
             <muxc:AnimatedVisualPlayer
+                x:Name="WaveAnimation"
                 Width="1000"
                 Margin="0,0,0,-50"
                 HorizontalAlignment="Center"
