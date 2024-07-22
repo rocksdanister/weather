@@ -442,7 +442,7 @@
                 </ListView>
             </muxc:NavigationView.PaneCustomContent>
             <!--  Main Content  -->
-            <ScrollViewer Margin="0,25,0,60">
+            <ScrollViewer Margin="0,25,0,25">
                 <Frame x:Name="MainFrame" />
             </ScrollViewer>
         </muxc:NavigationView>
