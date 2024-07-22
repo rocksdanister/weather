@@ -59,7 +59,7 @@ namespace Drizzle.UI.UWP.UserControls
                 return;
 
             var MinPrecipitation = 0f;
-            var MaxPrecipitation = 15f;
+            var MaxPrecipitation = 20f;
             var MinMargin = -125f;
             var MaxMargin = -25f;
 

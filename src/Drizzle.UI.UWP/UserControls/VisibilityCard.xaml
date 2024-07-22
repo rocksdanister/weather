@@ -39,26 +39,31 @@
             <TextBlock x:Uid="TitleVisibility" />
         </StackPanel>
 
-        <StackPanel
+        <Grid
             Grid.Row="1"
             HorizontalAlignment="Center"
-            Spacing="5"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
             <muxc:AnimatedVisualPlayer
-                Width="75"
-                Height="75"
+                Grid.Row="0"
+                Width="100"
+                Height="100"
                 PlaybackRate="0.6">
                 <visuals:Eyes />
             </muxc:AnimatedVisualPlayer>
             <TextBlock
-                Margin="0,-10,0,0"
+                Grid.Row="1"
                 FontSize="28"
                 FontWeight="SemiBold"
                 HorizontalTextAlignment="Center">
                 <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F1}'}" />
                 <Run Text="{x:Bind Unit, Mode=OneWay}" />
             </TextBlock>
-        </StackPanel>
+        </Grid>
 
         <Border Grid.Row="1">
             <Border.Background>
