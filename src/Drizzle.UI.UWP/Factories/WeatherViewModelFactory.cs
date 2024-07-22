@@ -46,7 +46,7 @@ namespace Drizzle.UI.UWP.Factories
                     WindDirection = weatherForecast.Daily[i].WindDirection,
                     Humidity = weatherForecast.Daily[i].Humidity,
                     Visibility = weatherForecast.Daily[i].Visibility,
-                    VisibilityUnit = weatherForecast.Units.VisibilityUnit.GetUnitString(),
+                    VisibilityUnit = weatherForecast.Units.VisibilityUnit,
                     Pressure = weatherForecast.Daily[i].Pressure,
                     PressureUnit = weatherForecast.Units.PressureUnit.GetUnitString(),
                     DewPoint = weatherForecast.Daily[i].DewPoint,

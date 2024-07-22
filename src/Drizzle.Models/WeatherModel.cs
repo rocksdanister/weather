@@ -116,7 +116,7 @@ namespace Drizzle.Models
         private string windSpeedUnit;
 
         [ObservableProperty]
-        private string visibilityUnit;
+        private VisibilityUnits visibilityUnit;
 
         [ObservableProperty]
         private string pressureUnit;

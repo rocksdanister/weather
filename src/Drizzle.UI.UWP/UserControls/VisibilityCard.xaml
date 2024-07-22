@@ -13,6 +13,7 @@
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     d:DesignHeight="300"
     d:DesignWidth="400"
+    Loaded="UserControl_Loaded"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -41,7 +42,7 @@
 
         <Grid
             Grid.Row="1"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Stretch"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -52,24 +53,28 @@
                 Grid.Row="0"
                 Width="100"
                 Height="100"
-                PlaybackRate="0.6">
+                PlaybackRate="0.45">
                 <visuals:Eyes />
             </muxc:AnimatedVisualPlayer>
+            <Border Grid.Row="0" Margin="0,5,0,5">
+                <Border.Background>
+                    <media:BackdropBlurBrush x:Name="AnimationBlur" Amount="5" />
+                </Border.Background>
+            </Border>
             <TextBlock
                 Grid.Row="1"
                 FontSize="28"
                 FontWeight="SemiBold"
                 HorizontalTextAlignment="Center">
                 <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F1}'}" />
-                <Run Text="{x:Bind Unit, Mode=OneWay}" />
+                <Run Text="{x:Bind UnitString, Mode=OneWay}" />
             </TextBlock>
+            <Border Grid.Row="1">
+                <Border.Background>
+                    <media:BackdropBlurBrush x:Name="TextBlur" Amount="1" />
+                </Border.Background>
+            </Border>
         </Grid>
-
-        <Border Grid.Row="1">
-            <Border.Background>
-                <media:BackdropBlurBrush Amount="1" />
-            </Border.Background>
-        </Border>
 
         <muxc:AnimatedVisualPlayer
             Grid.RowSpan="2"
