@@ -201,11 +201,17 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>صممت مبادرة نوعية الهواء لتوفير معلومات عن الآثار الصحية الناجمة عن الملوثات الخمسة أكثر حدوثًا. وهو مقياس يتراوح بين صفر و500 مقياس، وتشير القيم الأعلى إلى حدوث تلوث أكثر حدة للهواء وإلى مخاطر صحية أكبر.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>درجة حرارة داو هي قياس مطلق لكمية بخار المياه في الهواء. وعندما تتساوى درجة حرارة نقطة القطع ودرجة حرارة الهواء تكون الرطوبة النسبية 100 في المئة. وعند هذه النقطة، يكون الهواء مشبعا تماما ببخار الماء، مما يؤدي إلى تكثيف في شكل غطاء أو ضباب أو سحاب.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>الرطوبة النسبية هي مقياس لكمية بخار الماء الموجود في الهواء بالمقارنة مع الحد الأقصى للكمية التي يمكن أن يحملها الهواء عند تلك الحرارة. وهو يعبر عنه كنسبة مئوية ويوفر معلومات عن مدى قرب الهواء من التشبع.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>الضغط البارومتري، المعروف أيضا بالضغط الجوي، هو مقياس ضغط الهواء في منطقة معينة.</value>
@@ -213,8 +219,11 @@
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>يقيس مؤشر الأشعة فوق البنفسجية لمنظمة الصحة العالمية قوة الأشعة فوق البنفسجية المنتجة من الشمس. وهو مقياس خطي يتراوح بين صفر و 11 +، مع قيم أعلى تشير إلى وجود خطر أكبر للتعرض للأشعة فوق البنفسجية وزيادة فرص حدوث حروق وتلف الجلد الذي يمكن أن يؤدي في نهاية المطاف إلى سرطان الجلد.</value>
   </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value/>
+    <value>سرعة الرياح هي المعدل الذي يتحرك فيه الهواء أفقيًا فوق نقطة معينة. وهي كمية أساسية في الغلاف الجوي ناجمة عن الانتقال من الضغط المرتفع إلى الضغط المنخفض، عادة ما يكون بسبب التغيرات في درجة الحرارة. الهبوب هي زيادة مفاجئة في سرعة الرياح فوق متوسط سرعة الرياح. عادةً ما يستمر أقل من 20 ثانية.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>جارٍ تقريب العمق..</value>
@@ -414,11 +423,17 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>حول مؤشر جودة الهواء (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>حول نقطة ديو</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>حول الرطوبة النسبية</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>حول الضغط</value>
@@ -426,8 +441,11 @@
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>حول فهرس الأشعة فوق البنفسجية</value>
   </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>حول سرعة الرياح و الغازات</value>
+    <value>حول سرعة الرياح و الهبوب</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
     <value>إمكانية الوصول</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>جودة الهواء</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>المساهمون</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>الأداء</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>الضغط</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>مؤشر الأشعة فوق البنفسجية</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>تحذير</value>

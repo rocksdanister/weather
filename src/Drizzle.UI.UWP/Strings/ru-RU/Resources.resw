@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Индекс AQI предназначен для получения информации о влиянии на здоровье пяти наиболее распространенных загрязнителей воздуха. Это шкала от 0 до 500, причем более высокие значения свидетельствуют о более сильном загрязнении воздуха и большем риске для здоровья.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Температура точки росы - это абсолютная мера количества водяного пара в воздухе. Когда температура точки росы и температура воздуха равны, относительная влажность составляет 100%. В этот момент воздух полностью насыщен водяным паром, что приводит к конденсации влаги в виде росы, тумана или облаков.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Относительная влажность - это показатель количества водяного пара, присутствующего в воздухе, по сравнению с максимальным количеством, которое может содержаться в воздухе при данной температуре. Она выражается в процентах и дает информацию о том, насколько воздух близок к насыщению.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Барометрическое давление, также известное как атмосферное давление, является мерой давления воздуха в данной местности.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Ультрафиолетовый индекс (UVI), разработанный Всемирной организацией здравоохранения, измеряет силу ультрафиолетового излучения, вызывающего солнечные ожоги. Он представляет собой линейную шкалу от 0 до 11+, причем более высокие значения указывают на больший риск воздействия ультрафиолетовых лучей и увеличивают вероятность получения солнечных ожогов и повреждения кожи, что в конечном итоге может привести к раку кожи.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Скорость ветра - это скорость горизонтального перемещения воздуха мимо заданной точки. Это фундаментальная атмосферная величина, обусловленная перемещением воздуха от высокого к низкому давлению, обычно в результате изменения температуры. Порывы - это внезапное увеличение скорости ветра выше средней. Обычно он длится менее 20 секунд.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Об индексе качества воздуха (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>О точке росы</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Об относительной влажности</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>О давлении</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Об UV-индексе</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>О скорости и порывах ветра</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Качество воздуха</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Вкладчики</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Производительность</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Давление</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV Индекс</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Внимание</value>

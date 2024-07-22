@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Indeks Kualitas Udara didesain untuk menyediakan tentang dampak kesehatan bagi lima pencemaran udara yang paling umum. Pada skala 0 hingga 500, dengan nilai yang lebih tinggi menandakan tahap pencemaran udara yang lebih serius.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Suhu titik embun merupakan ukuran absolut jumlah uap air di udara. Jika suhu titik embun dan suhu udara sama, maka kelembaban relatifnya adalah 100%. Pada titik ini, udara sudah jenuh sempurna dengan uap air sehingga menyebabkan kondensasi dalam bentuk embun, kabut, atau awan.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Relative humidity is a measure of the amount of water vapor present in the air compared to the maximum amount the air could hold at that temperature. It is expressed as a percentage and provides information about how close the air is to saturation.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Tekanan Barometrik, juga dikenal sebagai tekanan atmosfer, adalah ukuran tekanan air di area tertentu.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>The World Health Organization's UV index (UVI) measures the strength of sunburn-producing ultraviolet radiation. It is a linear scale that ranges from 0 to 11+, with higher values indicating greater risk of exposure to UV rays and increased chances of sunburn and skin damage that could ultimately lead to skin cancer.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Wind speed is the rate at which air moves horizontally past a given point. It is a fundamental atmospheric quantity caused by air moving from high to low pressure, usually due to changes in temperature. Gusts are a sudden increase in wind speed above the average wind speed. It usually lasts less than 20 seconds.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Tentang Indeks Kualitas Udara</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Tentang Titik Embun</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Tentang Kelembaban Relatif</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Tentang Tekanan</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Tentang Indeks UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Tentang kecepatan udara dan hembusan angin</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Kualitas Udara</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Kontributor</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Performa</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Tekanan</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indeks UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Peringatan</value>

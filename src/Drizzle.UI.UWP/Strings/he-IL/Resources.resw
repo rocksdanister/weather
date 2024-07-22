@@ -202,17 +202,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>ה- AQI עוצב במטרה לספק מידע על ההשפעות הבריאותיות הנגרם על ידי חמשת מזהמי האוורי העיקריים. יש טווח בסולם מ- 0 עד 500, ערכים גבוהים בסולם מעידים על זיהום אוויר חמור יותר וכן על יותר סיכונים בריאותיים.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>טרמפטורת נקודת טל היא מדד על כמות אדי המים באוויר. כשנקודת הטל וטרמפטורת אוויר שווים, לחות היחסית הינה 100%. בנקודה זו, האוויר רווי באדי מים. מה שמוביל להתעבות בצורת טל, ערפל או עננים.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>לחות יחסית הינה מדד לכמות אדי המים ביחס לאוויר בהשוואה למקסימום כמות שהאוויר יכול להחזיק בכזאת טרמפטורה. זה מבוטה באחוזים ומספק מידע אודות כמה קרוב האוויר למצב רווי.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>לחץ ברומטרי, הידוע גם בשם לחץ אטמוספרי, הוא מדד לחץ האוויר באזור נתון.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>הארגון בריאות הלאומי (UVI) מדד את עוצמת הקרינה האולטרה סגולה המייצרת כווית שמש. זה סולם לינארי על טווח 0 עד 11+, ערכים גבוהים מעידים על סיכונים גבוהים יותר לחשיפה לקרינה UV והגדלת הסיכויים לכווית שמש ונזק לעור היכול לגרום בסופו של דבר להוביל לסרטן העור.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>מהירות הרוח היא קצב שבו הרוח נע בצורה אופקית מעבר לנקודה. זאת כמות אטמוספורית בסיסית הנגרם על ידי משב אוויר מלחץ גבוה לנמוך, בדרך כלל עקב שינויים בטרמפטורה. משבים הם עלייה פתאומית במהירות הרוח מעל משב הרוח הממוצעת, זה בדרך כלל נמשך פחות מ- 20 שניות.</value>
@@ -415,17 +424,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>מידע על מדד איכות האוויר (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>מידע על נקודת הטל</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>מידע על לחות יחסית</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>מידע על לחץ</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>מידע על מדד UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>מידע על מהירות הרוח והמשבים</value>
@@ -438,6 +456,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>איכות אוויר</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>תורמים</value>
@@ -463,6 +484,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>ביצועים</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>לחץ</value>
   </data>
@@ -486,6 +510,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>מדד UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>אזהרה</value>

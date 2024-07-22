@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Индексът AQI е предназначен да предоставя информация за въздействието върху здравето на петте най-често срещани замърсители на въздуха. Това е скала, която варира от 0 до 500, като по-високите стойности означават по-силно замърсяване на въздуха и по-големи рискове за здравето.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Температурата на точката на оросяване е абсолютна мярка за количеството водни пари във въздуха. Когато температурата на точката на оросяване и температурата на въздуха са равни, относителната влажност е 100%. В този момент въздухът е напълно наситен с водни пари, което води до кондензация под формата на роса, мъгла или облаци.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Относителната влажност е мярка за количеството водни пари във въздуха в сравнение с максималното количество, което въздухът може да побере при тази температура. Тя се изразява в проценти и дава информация за това колко близо е въздухът до насищане.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Барометричното налягане, известно също като атмосферно налягане, е мярка за налягането на въздуха в дадена област.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Ултравиолетовият индекс (UVI) на Световната здравна организация измерва силата на ултравиолетовата радиация, която предизвиква слънчево изгаряне. Той представлява линейна скала, която варира от 0 до 11+, като по-високите стойности показват по-голям риск от излагане на ултравиолетови лъчи и повишена вероятност от слънчево изгаряне и увреждане на кожата, което в крайна сметка може да доведе до рак на кожата.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Скоростта на вятъра е скоростта, с която въздухът се движи хоризонтално покрай дадена точка. Това е основна атмосферна величина, която се дължи на движението на въздуха от високо към ниско налягане, обикновено поради промени в температурата. Поривите на вятъра са внезапно увеличение на скоростта на вятъра над средната скорост на вятъра. Обикновено трае по-малко от 20 секунди.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Относно индекса за качество на въздуха (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>За точката на оросяване</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>За относителната влажност</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>За налягането</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>За UV индекса</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>За скоростта и поривите на вятъра</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Качество на въздуха</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Приносители</value>
@@ -462,11 +483,14 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Производителност</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Налягане</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Бързина</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Слънце</value>
@@ -478,13 +502,16 @@
     <value>Залез</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Температура</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Обновяване завършено</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV индекс</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Внимание</value>
@@ -517,7 +544,7 @@
     <value>Доставчик</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Персонализирано</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Хибрид</value>
@@ -565,7 +592,7 @@
     <value>Започващ скреж</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Мараня</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Лека мъгла</value>

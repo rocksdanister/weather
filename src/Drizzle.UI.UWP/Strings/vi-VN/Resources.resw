@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Chỉ số chất lượng không khí được thiết kế để cung cấp thông tin về ảnh hưởng đến sức khỏe của 5 chất gây ô nhiễm không khí phổ biến nhất. Đây là thang đo có phạm vi từ 0 đến 500, với số càng lớn ám chỉ ô nhiễm không khí càng nặng và càng ảnh hưởng đến sức khỏe hơn.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Nhiệt độ điểm sương là thước đo tuyệt đối về lượng hơi nước trong không khí. Khi nhiệt độ điểm sương bằng với nhiệt độ không khí, độ ẩm tương đối là 100%. Tại điểm này, không khí đã bão hòa hoàn toàn với hơi nước, dẫn đến sự ngưng tụ hình thành giọt sương, sương mù, hoặc mây.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Độ ẩm tương đối là thước đo lượng hơi nước hiện tại có trong không khí so với lượng hơi nước tối đa mà không khí có thể giữ ở trong nhiệt độ đó. Nó được biểu thị bằng số phần trăm và cung cấp thông tin về mức độ độ bão hòa của không khí.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Khí áp kế, hay còn gọi là áp suất khí quyển, là thước đo áp suất không khí trong một khu vực nhất định.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Chỉ số UV (UVI) của Tổ chức Y tế Thế giới đo cường độ bức xạ cực tím gây cháy nắng. Nó là một thang đó tuyến tính có phạm vi từ 0 đến 11+, với số càng lớn ám chỉ nguy cơ tiếp xúc với tia UV cao hơn và tăng khả năng cháy nắng và hư da mà cuối cùng có thể dẫn đến ung thư da.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Tốc độ gió là vận tốc gió di chuyển theo chiều ngang qua một điểm nhất định. Nó là một lượng khí quyển cốt lõi do không khí chuyển động từ nơi có áp suất cao đến nơi có áp suất thấp, thường là do sự thay đổi nhiệt độ. Gió giật là do tốc độ gió tăng đột ngột vượt mức tốc độ trung bình. Thường nó chỉ kéo dài ít hơn 20 giây.</value>
@@ -415,17 +424,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Về Chỉ Số Chất Lượng Không Khí (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Về Điểm Sương</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Về Độ Ẩm Tương Đối</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Về Áp Suất</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Về Chỉ Số UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Về Tốc Độ Gió và Gió Giật</value>
@@ -438,6 +456,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Chất lượng không khí</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Người đóng góp</value>
@@ -463,6 +484,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Hiệu suất</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Áp suất</value>
   </data>
@@ -486,6 +510,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Chỉ số UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Cảnh báo</value>

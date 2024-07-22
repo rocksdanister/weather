@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>De AQI is ontworpen om informatie te verstrekken over de gezondheidseffecten van de vijf meest voorkomende luchtverontreinigende stoffen. Het is een schaal die varieert van 0 tot 500, met hogere waarden die wijzen op ernstiger luchtverontreiniging en grotere gezondheidsrisico's.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>De temperatuur van het dauwpunt is een absolute maat van de waterdamp in de lucht. Wanneer de dauwtemperatuur en luchttemperatuur gelijk zijn, is de relatieve vochtigheid 100%. Op dit moment is de lucht volledig verzadigd met waterdamp, wat leidt tot condensatie in de vorm van dauw, mist of wolken.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Relatieve vochtigheid is een maatstaf voor de hoeveelheid waterdamp in de lucht in vergelijking met de maximale hoeveelheid die de lucht op die temperatuur kan houden. Het wordt uitgedrukt als percentage en geeft informatie over hoe dicht de lucht bij verzadiging is.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Barometrische druk, ook wel bekend als atmosferische druk, is de maatstaf van de luchtdruk in een bepaald gebied.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>De UV-index van de Wereldgezondheidsorganisatie (UVI) meet de sterkte van zonnecrancofoniserende ultravioletstraling. Het is een lineaire schaal van 0 tot 11+, met hogere waarden die een groter risico op blootstelling aan UV-straling aangeven en grotere kansen op zonnecellen en huidschade die uiteindelijk tot huidkanker kunnen leiden.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>De windsnelheid is de snelheid waarmee de lucht horizontaal voorbij een bepaald punt beweegt. Het is een fundamentele atmosferische hoeveelheid die wordt veroorzaakt door het verplaatsen van de lucht van hoge naar lage druk, meestal als gevolg van temperatuurveranderingen. Windstoten hebben een plotselinge stijging van de windsnelheid boven de gemiddelde windsnelheid die meestal minder dan 20 seconden duurt.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Over de luchtkwaliteit index (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Over het Dauwpunt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Over relatieve luchtvochtigheid</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Over luchtdruk</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Over de UV-index</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Over windsnelheid en windstoten</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Luchtkwaliteit</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Bijdragers</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Prestaties</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Luchtdruk</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-index</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Waarschuwing</value>

@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI は、最も一般的な 5 つの大気汚染物質の健康への影響に関する情報を提供します。0 ～ 500 の範囲で表され、値が高いほど大気汚染が深刻で、健康へのリスクが高くなります。</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>露点温度は、空気中に含まれる水蒸気の量を測定します。露点温度と気温が等しいと、相対湿度は 100% になります。このときに、空気は水蒸気で完全に飽和し、露、霧、または雲の形で結露が発生します。</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>相対湿度は、空気中に含まれる水蒸気の量を、その温度で空気が保持できる最大の水蒸気量と比較して測定します。パーセント単位で表され、空気の飽和度に関する情報を提供します。</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>気圧は、特定の領域内の大気圧を測定します。</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>世界保健機関の UV インデックス (UVI) は、日焼けを引き起こす紫外線の強さを測定します。0 ～ 11+ の範囲の線形スケールで表され、値が高いほど紫外線にさらされるリスクや、皮膚がんにつながる恐れのある皮膚の損傷を引き起こす危険性が高くなります。</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>風速は、空気が特定の地点を水平方向に移動する速度を測定します。通常は温度の変化により、空気が高気圧から低気圧に移動することによって引き起こされる基本的な大気量です。突風とは、平均を超える急な風速の上昇のことで、通常 20 秒未満持続されます。</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>空気質指数 (AQI) について</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>露点温度について</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>相対湿度について</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>気圧について</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>UV インデックスについて</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>風速と突風について</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>空気質指数</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>貢献者</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>パフォーマンス</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>気圧</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV インデックス</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>警告</value>

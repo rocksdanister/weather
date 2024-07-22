@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>El índice de calidad del aire (ICA) está diseñado para proporcionar información sobre los efectos para la salud de los cinco contaminantes del aire más comunes. Se trata de una escala que va de 0 a 500, en la que los valores más altos indican una contaminación del aire más grave y mayores riesgos para la salud.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100 %. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>La humedad relativa es una medición de la cantidad de vapor de agua presente en el aire comparada a la máxima cantidad que el aire puede contener a esa temperatura. Se expresa como un porcentaje y muestra información sobre la cercanía del aire a la saturación.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>La presión barométrica, también conocida como presión atmosférica, es la medición de la presión del aire en un área.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>El Índice UV de la Organización Mundial de la Salud (UVI) mide la fuerza de radiación ultravioleta que quema la piel. Es una escala lineal que va de 0 a 11+, con valores más altos indicando un mayor riesgo de exposición a rayos UV y mayores posibilidades de quemaduras en la piel que podrían producir cancer de piel.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media y duran menos de 20 segundos.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Acerca del Índice de Calidad del Aire (ICA)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Acerca de la Temperatura de Rocío</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Acerca de la Humedad Relativa</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Acerca de la Presión</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Acerca del Índice UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Acerca de la Velocidad del Viento</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Calidad del Aire</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contribuyentes</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Rendimiento</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Presión</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Índice UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Advertencia</value>
@@ -517,7 +544,7 @@
     <value>Proveedor</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Personalizado</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>Híbrido</value>

@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI به منظور ارائه اطلاعات در مورد اثرات سلامتی پنج آلاینده رایج هوا طراحی شده است. این معیار از 0 تا 500 متغیر است، مقادیر بالاتر نشان دهنده آلودگی شدید هوا و خطرات سلامتی بیشتر است.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>دمای نقطه شبنم یک معیار اندازه گیری مطلق مقدار بخار آب موجود در هوا است. هنگامی که دمای نقطه شبنم و دمای هوا برابر باشد، رطوبت نسبی 100٪ است. در این نقطه، هوا کاملاً با بخار آب اشباع می شود و منجر به تراکم به شکل شبنم، مه یا ابر می شود.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>رطوبت نسبی معیار اندازه گیری مقدار بخار آب موجود در هوا در مقایسه با حداکثر مقداری است که هوا می تواند در آن دما نگه دارد. این معیار به صورت درصد بیان می شود و اطلاعاتی در مورد رسیدن هوا به درجه اشباع ارائه می دهد.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>فشار هوا که به عنوان فشار اتمسفر نیز شناخته می شود، معیار اندازه گیری فشار هوا در یک منطقه معین است.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>شاخص UV سازمان جهانی بهداشت (UVI) قدرت پرتوهای فرابنفش تولید کننده آفتاب سوختگی را اندازه گیری می کند. این یک مقیاس خطی است که از 0 تا 11+ متغیر است، مقادیر بالاتر نشان دهنده افزایش خطر قرار گرفتن در معرض اشعه ماوراء بنفش و افزایش احتمال آفتاب سوختگی و آسیب دیدن پوست است که در نهایت می تواند منجر به سرطان پوست شود.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>سرعت باد کمیتی است که در آن هوا به صورت افقی از نقطه ای معین عبور می کند. این یک کمیت جوی بنیادی است که در اثر حرکت هوا از فشار بالا به پایین، معمولاً به دلیل تغییرات دما ایجاد می شود. وزش باد افزایش ناگهانی سرعت باد بیش از سرعت متوسط باد است. معمولا کمتر از 20 ثانیه طول می کشد.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>About Air Quality Index (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>About Dew point</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>About Relative Humidity</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>About Pressure</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>About the UV Index</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>About Wind Speed and Gusts</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Air Quality</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contributors</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>کارایی</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>فشار</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>شاخص پرتو فرا بنفش</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>هشدار</value>

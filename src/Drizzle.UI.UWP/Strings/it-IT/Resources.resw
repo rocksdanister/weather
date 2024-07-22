@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>L'Indice di Qualità dell'Aria è progettato per fornire informazioni sugli effetti sulla salute dei cinque inquinanti atmosferici più comuni. Si tratta di una scala che va da 0 a 500, con valori più elevati che indicano un inquinamento atmosferico più grave e maggiori rischi per la salute.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La temperatura del punto di rugiada è una misura assoluta della quantità di vapore acqueo nell'aria. Quando la temperatura del punto di rugiada e la temperatura dell'aria sono uguali, l'umidità relativa è 100%. A questo punto, l'aria è completamente satura di vapore acqueo, portando a condensazione sotto forma di rugiada, nebbia, o nuvole.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>L'umidità relativa è una misura della quantità di vapore acqueo presente nell'aria rispetto alla quantità massima che l'aria potrebbe mantenere a tale temperatura. È espresso in percentuale e fornisce informazioni sulla vicinanza dell'aria alla saturazione.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>La pressione barometrica, nota anche come pressione atmosferica, è la misura della pressione dell'aria in una data zona.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>L'indice UV (UVI) dell'Organizzazione Mondiale della Sanità misura la forza della radiazione ultravioletta che provoca scottature. È una scala lineare che va da 0 a 11+, con valori più elevati che indicano un maggiore rischio di esposizione ai raggi UV e un aumento delle probabilità di scottature e danni cutanei che potrebbero in ultima analisi portare al cancro della pelle.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>La velocità del vento è la velocità con cui l'aria si muove orizzontalmente oltre un dato punto. Si tratta di una quantità atmosferica fondamentale causata dal passaggio di aria da alta a bassa pressione, di solito a causa di cambiamenti di temperatura. Le raffiche sono un improvviso aumento della velocità del vento sopra la sua velocità media. Di solito dura meno di 20 secondi.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Informazioni sull'Indice di Qualità dell'Aria (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Informazioni sul punto di rugiada</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Informazioni sull'umidità relativa</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Informazioni sulla pressione</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Informazioni sull'indice UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Informazioni sulla velocità del vento e raffiche</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Qualità dell'aria</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Collaboratori</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Prestazioni</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressione</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indice UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Attenzione</value>

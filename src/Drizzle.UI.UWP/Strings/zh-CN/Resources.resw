@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI 旨在提供有关五种最常见空气污染物对健康影响的信息。 该数值范围为 0 到 500，数值越高表示空气污染越严重，健康风险也越大。</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>相对湿度是空气中存在的水蒸气量与该温度下空气所能容纳的最大水蒸气量相比的量度。 它以百分比表示，提供有关空气接近饱和程度的信息。</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>气压，也称为大气压力，是给定区域内气压的测量值。</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>世界卫生组织的紫外线指数 (UVI) 衡量的是导致晒伤的紫外线辐射的强度。 它是一个范围从 0 到 11+ 的线性标度，值越高表示暴露于紫外线的风险越大，晒伤和皮肤损伤的机会也越大，最终可能导致皮肤癌。</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>风速是空气水平移动经过给定点的速率。 它是由空气从高压移动到低压而引起的基本大气量，通常是由于温度的变化。 阵风是指风速突然增加到高于平均风速。 它通常持续不到 20 秒。</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>关于空气质量指数 (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>关于露点</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>关于相对湿度</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>关于气压</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>关于紫外线指数</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>关于风速和阵风</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>空气质量</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>贡献者</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>性能</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>气压</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>紫外线指数</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>警告</value>

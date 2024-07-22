@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Hava Kalitesi İndeksi(AQI), en yaygın beş hava kirleticisinin sağlığa etkileri hakkında bilgi sağlamak üzere tasarlanmıştır. Daha yüksek değerlerin daha şiddetli hava kirliliği ve daha büyük sağlık tehlikelerine işaret ettiği, 0 ile 500 arasında değişen bir ölçektir.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Çiğlenme noktası sıcaklığı, havadaki su buharı miktarının mutlak bir ölçüsüdür. Çiğlenme noktası sıcaklığı ve hava sıcaklığı eşit olduğunda bağıl nem% 100'dür. Bu noktada, hava tamamen su buharı ile doyurulur ve çiğ, sis veya bulutlar şeklinde yoğunlaşmaya neden olur.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Bağıl nem, havanın o sıcaklıkta tutabileceği maksimum miktara kıyasla havada bulunan su buharı miktarının bir ölçüsüdür. Yüzde olarak ifade edilir ve havanın doygunluğa ne kadar yakın olduğu hakkında bilgi sağlar.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Atmosferik basınç olarak da bilinen barometrik basınç, belirli bir alandaki hava basıncının ölçüsüdür.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Dünya Sağlık Örgütü'nün UV indeksi (UVI), güneş yanığı üreten ultraviyole radyasyonun gücünü ölçer. UV ışınlarına maruz kalma riskinin arttığını ve sonuçta cilt kanserine yol açabilecek güneş yanığı ve cilt hasarı olasılığının arttığını gösteren daha yüksek değerlere sahip, 0 ile 11+ arasında değişen doğrusal bir ölçektir.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Rüzgar hızı, havanın belirli bir noktayı yatay olarak geçme hızıdır. Genellikle sıcaklıktaki değişikliklerden dolayı yüksekten alçak basınca hareket eden havanın neden olduğu temel bir atmosferik miktardır. Konuklar rüzgar hızında ortalama rüzgar hızının üzerinde ani bir artış olur. Genellikle 20 saniyeden az sürer.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Hava Kalitesi Endeksi (AQI) Hakkında</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Çiğlenme noktası hakkında</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Bağıl Nem Hakkında</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Basınç Hakkında</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>UV İndeksi Hakkında</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Rüzgar Hızı ve Rüzgarlar Hakkında</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Hava Kalitesi</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Katkıda Bulunanlar</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Performans</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Basınç</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV İndeksi</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Uyarı</value>

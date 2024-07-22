@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI는 가장 흔한 5가지 대기 오염물질이 건강에 미치는 영향에 대한 정보를 제공하도록 설계되었습니다. 0에서 500까지의 척도이며, 값이 높을수록 대기 오염이 심하고 건강 위험이 더 크다는 것을 나타냅니다.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>이슬점 온도는 공기 중의 수증기 양을 절대적으로 측정한 것입니다. 이슬점 온도와 기온이 같을 때 상대습도는 100%입니다. 이 시점에서 공기는 수증기로 완전히 포화되어 이슬, 안개 또는 구름 형태의 응결이 발생합니다.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>상대습도는 해당 온도에서 공기가 보유할 수 있는 최대 수증기량과 비교하여 공기 중에 존재하는 수증기량을 측정한 것입니다. 이는 백분율로 표시되며 공기가 포화 상태에 얼마나 가까운지에 대한 정보를 제공합니다.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>대기압이라고도 알려진 기압은 특정 지역의 기압을 측정한 것입니다.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>세계보건기구의 UVI (자외선 지수) 는 일광화상을 유발하는 자외선의 강도를 측정합니다. 이는 0에서 11+ 범위의 선형 척도로, 값이 높을수록 자외선에 노출될 위험이 더 높고 일광화상 및 궁극적으로 피부암으로 이어질 수 있는 피부 손상 가능성이 높다는 것을 나타냅니다.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>풍속은 공기가 특정 지점을 지나 수평으로 이동하는 속도입니다. 일반적으로 온도 변화로 인해 공기가 고압에서 저압으로 이동하면서 발생하는 기본 대기량입니다. 돌풍은 평균 풍속보다 풍속이 갑자기 증가하는 현상입니다. 일반적으로 지속 시간은 20초 미만입니다.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>대기환경지수 (AQI) 란?</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>이슬점이란?</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>상대 습도란?</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>기압이란?</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>자외선 지수에 대해</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>풍속과 돌풍에 대하여</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>대기질</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>후원자</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>성능</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>기압</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>자외선 지수</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>주의</value>

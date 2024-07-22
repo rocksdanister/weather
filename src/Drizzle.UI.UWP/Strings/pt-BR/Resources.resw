@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>O AQI foi concebido para fornecer informações sobre os efeitos na saúde dos cinco poluentes atmosféricos mais comuns. Trata-se de uma escala que varia entre 0 e 500, sendo que os valores mais elevados indicam uma poluição atmosférica mais grave e maiores riscos para a saúde.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>A temperatura do ponto de orvalho é uma medida absoluta da quantidade de vapor de água no ar. Quando a temperatura do ponto de orvalho e a temperatura do ar são iguais, a humidade relativa é de 100%. Neste ponto, o ar está completamente saturado com vapor de água, levando à condensação sob a forma de orvalho, nevoeiro ou nuvens.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>A umidade relativa é uma medida da quantidade de vapor de água presente no ar em comparação com a quantidade máxima que o ar poderia conter a essa temperatura. É expressa em porcentagem e fornece informações sobre a proximidade da saturação do ar.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>A pressão barométrica, também conhecida como pressão atmosférica, é a medida da pressão do ar em uma determinada área.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>O índice UV (UVI) da Organização Mundial de Saúde mede a intensidade da radiação ultravioleta que produz queimaduras solares. Trata-se de uma escala linear que varia entre 0 e 11+, sendo que os valores mais elevados indicam um maior risco de exposição aos raios UV e maiores probabilidades de queimaduras solares e danos na pele que podem, em última análise, conduzir ao câncer de pele.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>A velocidade do vento é a taxa a que o ar se desloca horizontalmente para além de um determinado ponto. É uma grandeza atmosférica fundamental causada pelo movimento do ar de alta para baixa pressão, geralmente devido a mudanças de temperatura. As rajadas são um aumento súbito da velocidade do vento acima da velocidade média do vento. Geralmente dura menos de 20 segundos.</value>
@@ -253,7 +262,7 @@
     <value>Ajude a Traduzir</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>O aplicativo precisa ser reiniciado quando outro idioma for selecionado</value>
+    <value>O aplicativo precisa ser reiniciado ao selecionar outro idioma</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
     <value>Idioma</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Sobre o Índice de Qualidade do Ar (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Sobre o Ponto de Orvalho</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Sobre a umidade relativa</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Sobre a pressão</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Sobre o índice UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Sobre a velocidade do vento e rajadas</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Qualidade do Ar</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Colaboradores</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Desempenho</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressão</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Índice UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Aviso</value>

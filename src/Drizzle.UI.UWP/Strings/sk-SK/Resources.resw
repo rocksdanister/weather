@@ -118,549 +118,549 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Γεια σου, είμαι ο Dani John επίσης γνωστός ως rocksdanister. Κάνω διασκεδαστικό λογισμικό σαν αυτό. Σε ευχαριστώ που αφιερώνεις χρόνο για να δεις τη δουλειά μου.</value>
+    <value>Zdravím, som Dani John, tiež známy ako rocksdanister. Rád vytváram takéto zábavné aplikácie. Ďakujem, že ste si našli čas obzrieť si moju prácu.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>Καλός</value>
+    <value>Dobrý</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Μέτριος</value>
+    <value>Stredný</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Ανθυγιεινός για ευπαθείς ομάδες</value>
+    <value>Nezdravý pre citlivé skupiny</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Ανθυγιεινός</value>
+    <value>Nezdravý</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Πολύ ανθυγιεινός</value>
+    <value>Veľmi nezdravý</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
-    <value>Επικίνδυνος</value>
+    <value>Nebezpečný</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>Πάντα απόκρυψη μενού κατά την αδράνεια</value>
+    <value>Vždy skrývať menu počas nečinnosti</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
-    <value>Σχετικά</value>
+    <value>O aplikácii</value>
   </data>
   <data name="AppBarHelp.Label" xml:space="preserve">
-    <value>Βοήθεια</value>
+    <value>Pomoc</value>
   </data>
   <data name="AppBarSettings.Label" xml:space="preserve">
-    <value>Ρυθμίσεις</value>
+    <value>Nastavenia</value>
   </data>
   <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
-    <value>Αναζήτηση ενός μέρους</value>
+    <value>Vyhľadať miesto</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Γνωστοποίηση λογισμικού τρίτων</value>
+    <value>Oznámenie o softvére tretích strán</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
-    <value>Ρύθμιση φωτεινότητας φόντου</value>
+    <value>Nastavenie jasu pozadia</value>
   </data>
   <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
-    <value>Φωτεινότητα</value>
+    <value>Jas</value>
   </data>
   <data name="BrowseFile.Content" xml:space="preserve">
-    <value>Περιήγηση</value>
+    <value>Prehľadávať</value>
   </data>
   <data name="ChangeBackground.Content" xml:space="preserve">
-    <value>Παρασκήνιο</value>
+    <value>Pozadie</value>
   </data>
   <data name="CheckUpdate.Content" xml:space="preserve">
-    <value>Έλεγχος για ενημερώσεις</value>
+    <value>Skontrolovať aktualizácie</value>
   </data>
   <data name="CloudDayNightShift.Content" xml:space="preserve">
-    <value>Μέρα/Νύχτα</value>
+    <value>Deň/Noc</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>Επαναλήψεις</value>
+    <value>Opakovania</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
-    <value>Κλίμακα</value>
+    <value>Veľkosť</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>Προτείνετε ένα χαρακτηριστικό ή αναφέρετε ένα σφάλμα</value>
+    <value>Navrhnúť funkciu alebo nahlásiť chybu</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Επικοινωνία</value>
+    <value>Kontakt</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
-    <value>Συμπερίληψη επιλεγμένων εικόνων χρήστη στα εφέ καιρού</value>
+    <value>Zahrnúť používateľom vybraté obrázky medzi efekty počasia</value>
   </data>
   <data name="CustomBackgroundSettings.Header" xml:space="preserve">
-    <value>Προσαρμοσμένο φόντο</value>
+    <value>Vlastné pozadie</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>Οριζόντιο</value>
+    <value>Horizontálne</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
-    <value>Κάθετο</value>
+    <value>Vertikálne</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>Ο ΔΠΑ έχει σχεδιαστεί για να παρέχει πληροφορίες σχετικά με τις επιπτώσεις στην υγεία των πέντε πιο κοινών ατμοσφαιρικών ρύπων. Πρόκειται για μια κλίμακα που κυμαίνεται από το 0 έως 500, με υψηλότερες τιμές να υποδεικνύουν σοβαρότερη ατμοσφαιρική ρύπανση και μεγαλύτερους κινδύνους για την υγεία.</value>
+    <value>AQI je navrhnuté tak, aby poskytovalo informáciu o účinkoch piatich najčastejších znečisťovateľov vzduchu na zdravie. Je to škála od 0 do 500, pričom čím je číslo vyššie, tým je vzduch viacej znečistený, čo predstavuje väčšie zdravotné riziko.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
     <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>Η θερμοκρασία σημείου δρόσου είναι μια απόλυτη μέτρηση της ποσότητας υδρατμών στον αέρα. Όταν η θερμοκρασία του σημείου δρόσου και η θερμοκρασία του αέρα είναι ίσες, η σχετική υγρασία είναι 100%. Σε αυτό το σημείο, ο αέρας είναι εντελώς κορεσμένος με υδρατμούς, που οδηγεί σε συμπύκνωση με τη μορφή δρόσου, ομίχλης ή συννέφων.</value>
+    <value>Teplota rosného bodu je absolútna miera vodnej pary vo vzduchu. Keď je teplota rosného bodu a teplota vzduchu rovnaká, relatívna vlhkosť sa rovná 100%. V tomto bode je vzduch plne nasýtený vodnou parou, čo vedie ku kondenzácii vo forme rosy, hmly alebo oblakov.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>Η σχετική υγρασία είναι ένα μέτρο της ποσότητας υδρατμών που υπάρχει στον αέρα σε σύγκριση με τη μέγιστη ποσότητα που θα μπορούσε να κρατήσει ο αέρας σε αυτή τη θερμοκρασία. Εκφράζεται ως ποσοστό και παρέχει πληροφορίες σχετικά με το πόσο κοντά είναι ο αέρας στον κορεσμό.</value>
+    <value>Relatívna vlhkosť je miera množstva vodnej pary vo vzduchu v porovnaní s maximálnym množstvom, ktorým sa dokáže vzduch pri danej teplote nasýtiť. Je vyjadrená percentuálne a poskytuje informáciu o tom, ako je vzduch ďaleko od saturácie.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
     <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>Η βαρομετρική πίεση, γνωστή και ως ατμοσφαιρική πίεση, είναι η μέτρηση της πίεσης του αέρα σε μια δεδομένη περιοχή.</value>
+    <value>Barometrický tlak, tiež známy ako atmosferický tlak, je miera tlaku vzduchu v danej oblasti.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>Ο δείκτης UV (UVI) του Παγκόσμιου Οργανισμού Υγείας μετρά τη δύναμη υπεριώδους ακτινοβολίας που προκαλεί εγκαύματα. Είναι μια γραμμική κλίμακα που κυμαίνεται από 0 έως 11+, με υψηλότερες τιμές που υποδεικνύουν μεγαλύτερο κίνδυνο έκθεσης σε υπεριώδεις ακτίνες και αυξημένες πιθανότητες εγκαυμάτων και δερματικών βλαβών που θα μπορούσαν τελικά να οδηγήσουν σε καρκίνο του δέρματος.</value>
+    <value>UV index stanovený organizáciou The World Health Organization (UVI) merá silu ultrafialového žiarenia. Je to lineárna škála od 0 do 11+, pričom čím je číslo vyššie, tým väčšie je riziko vystavenia UV žiareniu, čo spôsobuje opálenie a poškodenie kože, čo v konečnom prípade môže viesť ku rakovine kože.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
     <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>Ταχύτητα ανέμου είναι ο ρυθμός με τον οποίο ο αέρας κινείται οριζόντια πέρα από ένα δεδομένο σημείο. Είναι μια θεμελιώδης ατμοσφαιρική ποσότητα που προκαλείται από τη μετακίνηση του αέρα από υψηλή σε χαμηλή πίεση, συνήθως λόγω αλλαγών στη θερμοκρασία. Οι ριπές είναι μια ξαφνική αύξηση της ταχύτητας του ανέμου πάνω από τη μέση ταχύτητα του ανέμου. Συνήθως διαρκεί λιγότερο από 20 δευτερόλεπτα.</value>
+    <value>Sila vetra je rýchlosť, ktorou sa vietor hýbe horizontálne nad stanovený bod. Je to základná atmosferická kvantita, spôsobená pohybom vetra z vyššieho do nižšieho tlaku dôsledkom zmien v teplote. Nárazové vetry su náhle zmeny v rýchlosti vetra nad priemernú rýchlosť vetra. Obvykle trvajú menej ako 20 sekúnd.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>Προσέγγιση βάθους..</value>
+    <value>Odhadovanie hĺbky...</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Ο επεξεργαστής γραφικών συστήματος (GPU) δεν υποστηρίζει τα απαιτούμενα χαρακτηριστικά DX12, οπότε μερική λειτουργικότητα είναι απενεργοποιημένη.</value>
+    <value>Systémový grafický procesor (GPU) nepodporuje potrebné funkcie DX12, niektoré funkcie aplikácie sú nedostupné.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>Πρέπει να κατέβουν επιπλέον αρχεία για αυτή τη δυνατότητα</value>
+    <value>Pre túto funkciu je potrebné stiahnuť doplnkové súbory</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>Δείτε τι νέο υπάρχει</value>
+    <value>Čo je nové</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>Αίσθηση</value>
+    <value>Pocitová teplota</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>Πλάτος</value>
+    <value>Amplitúda</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Χρωματική διαβάθμιση</value>
+    <value>Farebný prechod</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>Ρυθμός ανανέωσης εφέ</value>
+    <value>Počet snímok animácií</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>FPS</value>
   </data>
   <data name="InfoError.Title" xml:space="preserve">
-    <value>Σφάλμα</value>
+    <value>Chyba</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
-    <value>Συνεισφέρετε σε αυτό το πρόγραμμα μεταφράζοντάς το σε άλλες γλώσσες.</value>
+    <value>Prispejte k tejto aplikácii jej prekladom do iných jazykov.</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>Βοηθήστε στη Μετάφραση</value>
+    <value>Pomôžte s prekladom</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>Η εφαρμογή πρέπει να επανεκκινηθεί κατά την επιλογή μιας άλλης γλώσσας</value>
+    <value>Aplikáciu je po výbere jazyka potrebné reštartovať</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
-    <value>Γλώσσα</value>
+    <value>Jazyk</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Βοηθήστε στη Μετάφραση!</value>
+    <value>Pomôžte s prekladmi!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Ίδια με των Windows</value>
+    <value>Rovnaký ako vo Windowse</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>Μάθετε Περισσότερα</value>
+    <value>Ďalšie informácie</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
-    <value>Καρφιτσωμένες Τοποθεσίες</value>
+    <value>Pripnuté miesta</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Άνοιγμα αρχείων καταγραφής</value>
+    <value>Otvoriť záznamové logy</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Παύση ήχου όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
+    <value>Pozastaviť zvuky, keď nie je aplikácia v popredí</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Παύση οπτικών όταν η εφαρμογή δεν είναι στο προσκήνιο</value>
+    <value>Pozastaviť zobrazenie, keď nie je aplikácia v popredí</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Πολιτική συλλογής δεδομένων</value>
+    <value>Zásady zhromažďovania údajov</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Δυναμική</value>
+    <value>Dynamická</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Απόδοση</value>
+    <value>Stredná</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>Πατάτα</value>
+    <value>Nízka</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Ποιότητα</value>
+    <value>Vysoká</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Προεπιλογή ποιότητας οπτικής απόδοσης</value>
+    <value>Predvoľba kvality vizuálneho rendrovania</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
-    <value>Ποιότητα</value>
+    <value>Kvalita</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Ένταση</value>
+    <value>Intenzita</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Αστραπή</value>
+    <value>Blesky</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>Κανονικό</value>
+    <value>Normál</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Πανοραμικό</value>
+    <value>Posúvanie</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Μεγέθυνση</value>
+    <value>Priblíženie</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Μειωμένη κίνηση</value>
+    <value>Znížená pohyblivosť</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Τελευταία ενημέρωση</value>
+    <value>Posledná aktualizácia</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Ανανέωση</value>
+    <value>Obnoviť</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Επαναφορά Προεπιλογών</value>
+    <value>Obnoviť pôvodné</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
-    <value>Προφύλαξη Οθόνης</value>
+    <value>Šetrič obrazovky</value>
   </data>
   <data name="SettingsTooltip.Text" xml:space="preserve">
-    <value>Ρυθμίσεις</value>
+    <value>Nastavenia</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Θόλωμα</value>
+    <value>Rozmazanie</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Πάγωμα</value>
+    <value>Mrznutie</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Μετα-επεξεργασία</value>
+    <value>Postprocesing</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Ταχύτητα</value>
+    <value>Rýchlosť</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Βάθος</value>
+    <value>Hĺbka</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Επίπεδα</value>
+    <value>Vrstvy</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Πλάτος</value>
+    <value>Šírka</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Άδεια χρήσης λογισμικού</value>
+    <value>Licencia</value>
   </data>
   <data name="SoundControlTooltip.Text" xml:space="preserve">
-    <value>Ήχος</value>
+    <value>Zvuk</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Δείξτε λίγη αγάπη βάζοντας αστέρι</value>
+    <value>Preukážte trochu vďaky tým, že dáte hviezdičku</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Πηγαίος Κώδικας</value>
+    <value>Zdrojový kód</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Σχετικά</value>
+    <value>Informácie</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Ακύρωση</value>
+    <value>Zrušiť</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Συνέχεια</value>
+    <value>Pokračovať</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>ΤΝ Προσέγγιση Βάθους</value>
+    <value>Odhadovanie hĺbky pomocou AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Δεν επιτρέπεται η πρόσβαση στην τοποθεσία, έλεγξε τις ρυθμίσεις των Windows.</value>
+    <value>Nie je povolený prístup k lokalizácii, skontrolujte nastavenia Windowsu.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Η πρόσβαση στην τοποθεσία δεν έχει καθοριστεί, έλεγξε τις ρυθμίσεις των Windows.</value>
+    <value>Prístup k lokalizácii je nešpecifikovaný, skontrolujte nastavenia Windowsu.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Βοήθεια</value>
+    <value>Pomoc</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>Οκ</value>
+    <value>Ok</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Ρυθμίσεις</value>
+    <value>Nastavenia</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Λείπει το απαιτούμενο κλειδί API για τον επιλεγμένο πάροχο καιρού, οι ρυθμίσεις αναιρέθηκαν.</value>
+    <value>Chýba potrebný API kľúč vybraného poskytovateľa počasia, nastavenie bolo vrátené na pôvodnú hodnotu.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Αυτόματο</value>
+    <value>Automaticky</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Σκοτεινό</value>
+    <value>Tmavá</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Φωτεινό</value>
+    <value>Svetlá</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Αλλαγή του χρώματος της εφαρμογής</value>
+    <value>Zmeniť farbu aplikácie</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Θέμα</value>
+    <value>Téma</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>Σχετικά με τον Δείκτη Ποιότητας Αέρα (ΔΠΑ)</value>
+    <value>O indexe kvality ovzdušia (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
     <value>About Cloud Amount</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>Σχετικά με το σημείο Δρόσου</value>
+    <value>O rosnom bode</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>Σχετικά με τη Σχετική Υγρασία</value>
+    <value>O relatívnej vlhkosti</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
     <value>About Precipitation</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>Σχετικά με την Πίεση</value>
+    <value>O tlaku</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>Σχετικά με το δείκτη UV</value>
+    <value>O UV indexe</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
     <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>Σχετικά με Ταχύτητα και Ριπές Ανέμου</value>
+    <value>O rýchlosti vetra a nárazových vetroch</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Προσβασιμότητα</value>
+    <value>Prístupnosť</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Προσθέστε μια τοποθεσία για να ξεκινήσετε.</value>
+    <value>Začnite pridaním miesta.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Ποιότητα Αέρα</value>
+    <value>Kvalita ovzdušia</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
     <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Συνεισφέροντες</value>
+    <value>Prispievatelia</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Λήψη</value>
+    <value>Stiahnuť</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Απαιτείται Λήψη</value>
+    <value>Vyžaduje sa stiahnutie</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
-    <value>Ανάκτηση δεδομένων, παρακαλώ περιμένετε.</value>
+    <value>Získavanie dát, prosím počkajte.</value>
   </data>
   <data name="TitleGeneral.Text" xml:space="preserve">
-    <value>Γενικά</value>
+    <value>Hlavné</value>
   </data>
   <data name="TitleHello.Text" xml:space="preserve">
-    <value>Χαίρετε</value>
+    <value>Dobrý deň</value>
   </data>
   <data name="TitleHumidity.Text" xml:space="preserve">
-    <value>Υγρασία</value>
+    <value>Vlhkosť</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Επίδοση</value>
+    <value>Výkon</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
     <value>Precipitation</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
-    <value>Πίεση</value>
+    <value>Tlak</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Ταχύτητα</value>
+    <value>Rýchlosť</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
-    <value>Ήλιος</value>
+    <value>Poloha slnka</value>
   </data>
   <data name="TitleSunrise.Text" xml:space="preserve">
-    <value>Ανατολή</value>
+    <value>Východ</value>
   </data>
   <data name="TitleSunset.Text" xml:space="preserve">
-    <value>Δύση</value>
+    <value>Západ</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Θερμοκρασία</value>
+    <value>Teplota</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
-    <value>Η ενημέρωση ολοκληρώθηκε</value>
+    <value>Aktualizácia dokončená</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>Δείκτης UV</value>
+    <value>UV index</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
     <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
-    <value>Προειδοποίηση</value>
+    <value>Upozornenie</value>
   </data>
   <data name="TitleWeather.Text" xml:space="preserve">
-    <value>Καιρός</value>
+    <value>Počasie</value>
   </data>
   <data name="TitleWind.Text" xml:space="preserve">
-    <value>Άνεμος</value>
+    <value>Vietor</value>
   </data>
   <data name="UVIndex0" xml:space="preserve">
-    <value>Καλός</value>
+    <value>Dobrý</value>
   </data>
   <data name="UVIndex1" xml:space="preserve">
-    <value>Υψηλός</value>
+    <value>Vysoký</value>
   </data>
   <data name="UVIndex2" xml:space="preserve">
-    <value>Πολύ Υψηλός</value>
+    <value>Veľmi vysoký</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>Κλειδί API</value>
+    <value>API kľúč</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Εισήγαγε το απαιτούμενο κλειδί API</value>
+    <value>Zadajte API kľúč</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
-    <value>Πηγή δεδομένων καιρού</value>
+    <value>Zdroj informácií o počasí</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>Πάροχος</value>
+    <value>Poskytovateľ</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Προσαρμοσμένη</value>
+    <value>Vlastné</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Υβριδικό</value>
+    <value>Hybridné</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>Αγγλοσαξωνικό</value>
+    <value>Imperiálne</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
-    <value>Μετρικό</value>
+    <value>Metrické</value>
   </data>
   <data name="WeatherUnitSettings.Description" xml:space="preserve">
-    <value>Εμφάνιση μετρήσεων σε</value>
+    <value>Jednotky, v ktorých budú zobrazované merania</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Μονάδα</value>
+    <value>Jednotky</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Επίσημη ιστοσελίδα</value>
+    <value>Oficiálna webstránka</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
-    <value>Ιστοσελίδα</value>
+    <value>Stránka</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>Καλώς ήρθατε στην εφαρμογή καιρού μου! Παρακαλώ σημειώστε ότι αυτή η εφαρμογή είναι ακόμα σε beta και ορισμένες δυνατότητες μπορεί να μην λειτουργούν όπως αναμένεται. Εργάζομαι σκληρά για να βελτιώσω την εφαρμογή. Σας ευχαριστώ για την κατανόηση και υπομονή σας.</value>
+    <value>Vitajte v mojej aplikácii o počasí! Prosím berte na vedomie, že je stále v beta verzii a niektoré funkcie nemusia fungovať podľa očakávaní. Stále tvrdo pracujem na jej vylepšovaní. Ďakujem za pochopenie a trpezlivosť.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
-    <value>Καθαρός Ουρανός</value>
+    <value>Jasno</value>
   </data>
   <data name="WmoWeatherString1" xml:space="preserve">
-    <value>Κυρίως καθαρός</value>
+    <value>Prevažne jasno</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Ομίχλη</value>
+    <value>Opar</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
-    <value>Αραιές Νεφώσεις</value>
+    <value>Čiastočne zamračené</value>
   </data>
   <data name="WmoWeatherString3" xml:space="preserve">
-    <value>Νεφελώδης</value>
+    <value>Zamračené</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>Ομίχλη</value>
+    <value>Hmla</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
-    <value>Πάχνη Ομίχλης</value>
+    <value>Usadzujúca riedka hmla</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Καταχνιά</value>
+    <value>Haze</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>Ψιλόβροχο</value>
+    <value>Slabé mrholenie</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>Μέτριο Ψιλόβροχο</value>
+    <value>Stredné mrholenie</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>Έντονο ψιλόβροχο</value>
+    <value>Silné mrholenie</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Ελαφρύ Παγωμένο Ψιλόβροχο</value>
+    <value>Mierne mrazivé mrholenie</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Έντονο Παγωμένο Ψιλόβροχο</value>
+    <value>Husté mrazivé mrholenie</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Σκόνη</value>
+    <value>Prašno</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
-    <value>Ελαφριά Βροχή</value>
+    <value>Slabý dážď</value>
   </data>
   <data name="WmoWeatherString63" xml:space="preserve">
-    <value>Μέτρια Βροχή</value>
+    <value>Stredný dážď</value>
   </data>
   <data name="WmoWeatherString65" xml:space="preserve">
-    <value>Δυνατή Βροχή</value>
+    <value>Silný dážď</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Ελαφριά Παγωμένη Βροχή</value>
+    <value>Mierny mrazivý dážď</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Δυνατή Παγωμένη Βροχή</value>
+    <value>Silný mrazivý dážď</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
-    <value>Ελαφριά Χιονόπτωση</value>
+    <value>Mierne sneženie</value>
   </data>
   <data name="WmoWeatherString73" xml:space="preserve">
-    <value>Μέτρια Χιονόπτωση</value>
+    <value>Stredné sneženie</value>
   </data>
   <data name="WmoWeatherString75" xml:space="preserve">
-    <value>Εντολή Χιονόπτωση</value>
+    <value>Silné sneženie</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Κόκκοι Χιονιού</value>
+    <value>Snow Grains</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>Ελαφριά Μπόρα</value>
+    <value>Mierne dažďové prehánky</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
-    <value>Μέτρια Μπόρα</value>
+    <value>Stredné dažďové prehánky</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>Βίαιη Μπόρα</value>
+    <value>Silné dažďové prehánky</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>Ελαφριά Μπόρα Χιονιού</value>
+    <value>Mierne snehové prehánky</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
-    <value>Ισχυρή Μπόρα Χιονιού</value>
+    <value>Silné snehové prehánky</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Καταιγίδα</value>
+    <value>Búrka</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Καταιγίδα με Ελαφρύ Χαλάζι</value>
+    <value>Búrka so slabým krupobitím</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Καταιγίδα με Βαρύ Χαλάζι</value>
+    <value>Búrka so silným krupobitím</value>
   </data>
 </root>

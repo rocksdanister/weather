@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Celem AQI jest dostarczanie informacji na temat skutków zdrowotnych pięciu najpowszechniejszych zanieczyszczeń powietrza. Jest to skala mieszcząca się w zakresie od 0 do 500, przy czym wyższe wartości wskazują na poważniejsze zanieczyszczenie powietrza i większe zagrożenia dla zdrowia.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Temperatura punktu rosy jest bezwzględną miarą ilości pary wodnej w powietrzu. Jeżeli temperatura punktu rosy i temperatura powietrza są równe, wilgotność względna wynosi 100 %. W tym momencie powietrze jest całkowicie nasycone odparowaniem wody, co prowadzi do kondensacji w postaci dech, mgły lub chmur.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Wilgotność względna jest miarą ilości pary wodnej znajdującej się w powietrzu w porównaniu do maksymalnej ilości, jaką powietrze może utrzymać w tej temperaturze. Jest wyrażony jako procent i dostarcza informacji na temat tego, jak blisko powietrza jest nasycone.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Ciśnienie barometryczne, znane również jako ciśnienie atmosferyczne, jest miarą ciśnienia powietrza na danym obszarze.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Wskaźnik UV Światowej Organizacji Zdrowia (UVI) mierzy wytrzymałość promieniowania ultrafioletowego wytwarzającego oparzenie słoneczne. Jest to skala liniowa wahająca się od 0 do 11+, z wyższymi wartościami wskazującymi na większe ryzyko narażenia na promieniowanie UV i zwiększone ryzyko oparzeń słonecznych i uszkodzeń skóry, które mogą ostatecznie prowadzić do raka skóry.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Prędkość wiatru jest szybkością, z jaką powietrze porusza się poziomo po danym punkcie. Jest to podstawowa ilość atmosferyczna spowodowana przechodzeniem powietrza z wysokiego do niskiego ciśnienia, zazwyczaj z powodu zmian temperatury. Gusty to nagły wzrost prędkości wiatru powyżej średniej prędkości wiatru. Zwykle trwa mniej niż 20 sekund.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>O indeksie jakości powietrza (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>O punkcie rosy</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>O wilgotności względnej</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>O ciśnieniu</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>O indeksie UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>O prędkości i podmuchach wiatru</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Jakość powietrza</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Współtwórcy</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Wydajność</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Ciśnienie</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indeks UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Ostrzeżenie</value>

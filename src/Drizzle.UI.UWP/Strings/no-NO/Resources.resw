@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI er utformet for å gi informasjon om helsevirkningene av de fem vanligste luftforurensningene. Det er et omfang som varierer fra 0 til 500, med høyere verdier som indikerer mer alvorlig luftforurensning og større helsefare.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Duggpunktstemperatur er et absolutt mål for mengden vanndamp i luften. Når duggpunkttemperaturen og lufttemperaturen er lik, er den relative fuktigheten 100 %. På dette tidspunktet er luften fullstendig mettet med vanndamp, som fører til kondensering i form av dugg, tåke eller skyer.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Relativ fuktighet er et mål på mengden vanndamp som finnes i luften sammenlignet med største mengden luften kan holde ved den temperaturen. Den uttrykkes i prosent og gir informasjon om hvor nær luften er metning.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Barometrisk trykk, også kjent som atmosfærisk trykk, er måling av lufttrykk i et gitt område.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Verdens helseorganisasjons UV-indeks (UVI) måler styrken av solbrenthetsproduserende ultrafiolett stråling. Det er en lineær skala som varierer fra 0 til 11+, høyere verdier som indikerer større risiko for eksponering for UV-stråler og økt mulighet for solbrenthet og hudskader som til slutt kan føre til hudkreft.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Vindhastighet er den hastigheten luften beveger seg med horisontalt forbi et gitt punkt. Den er en grunnleggende atmosfærisk mengde som forårsakes av at luft beveger seg fra høyt til lavt trykk, vanligvis på grunn av temperaturendringer. Vindkaster en plutselig økning i vindhastighet over gjennomsnittshastigheten for vind. Den varer vanligvis i mindre enn 20 sekunder.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Om luftkvalitetsindeks (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Om Duggpunkt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Om relativ fuktighet</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Om Trykk</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Om UV-indeksen</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Om vindhastighet og -endringer</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Luftkvalitet</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Bidragsytere</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Ytelse</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Trykk</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-indeks</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Advarsel</value>

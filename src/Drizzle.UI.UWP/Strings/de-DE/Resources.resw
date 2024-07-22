@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>Der AQI soll Informationen über die gesundheitlichen Auswirkungen der fünf häufigsten Luftschadstoffe liefern. Es handelt sich um eine Skala von 0 bis 500, wobei höhere Werte auf eine stärkere Luftverschmutzung und größere Gesundheitsrisiken hindeuten.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Die Taupunkttemperatur ist ein absolutes Maß für die Menge an Wasserdampf in der Luft. Wenn die Taupunkttemperatur und die Lufttemperatur gleich sind, beträgt die relative Luftfeuchtigkeit 100%. An diesem Punkt ist die Luft vollständig mit Wasserdampf gesättigt, was zu Kondensation in Form von Tau, Nebel oder Wolken führt.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Die relative Luftfeuchtigkeit ist ein Maß für die Menge an Wasserdampf in der Luft, verglichen mit der maximalen Menge, die die Luft bei dieser Temperatur aufnehmen kann. Sie wird als Prozentsatz ausgedrückt und gibt Auskunft darüber, wie nahe die Luft der Sättigung ist.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Barometrischer Druck, auch bekannt als atmosphärischer Druck, ist das Maß des Luftdrucks in einem bestimmten Bereich.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Der UV-Index der Weltgesundheitsorganisation (UVI) misst die Stärke der Sonnenbrand erzeugenden UV-Strahlung. Es ist eine lineare Skala zwischen 0 und 11+, wobei höhere Werte für ein höheres Risiko beim Aussetzen von UV-Strahlen und eine erhöhte Wahrscheinlichkeit von Sonnenbränden und Hautschäden stehen, was letztendlich zu Hautkrebs führen kann.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Die Windgeschwindigkeit ist die Geschwindigkeit, mit der sich die Luft horizontal an einem bestimmten Punkt vorbeibewegt. Sie ist eine grundlegende atmosphärische Größe, die durch Luftbewegungen von hohem zu niedrigem Druck verursacht wird, in der Regel durch Temperaturschwankungen. Windböen sind plötzliche Anstiege der Windgeschwindigkeit über die durchschnittliche Windgeschwindigkeit. Sie dauern in der Regel weniger als 20 Sekunden.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Über den Luftqualitätsindex (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Über den Taupunkt</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Über die relative Luftfeuchtigkeit</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Über den Luftdruck</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Über den UV-Index</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Über die Windgeschwindigkeit und Windböen</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Luftqualität</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Mitwirkende</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Leistung</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Luftdruck</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-Index</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Warnung</value>

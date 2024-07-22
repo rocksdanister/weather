@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI este conceput pentru a oferi informații cu privire la efectele celor mai frecvenți cinci poluanți atmosferici asupra sănătății. Este o scară cuprinsă între 0 și 500, unde valorile mai ridicate indică o poluare atmosferică mai gravă și riscuri mai mari pentru sănătate.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Temperatura punctului de rouă este o măsură absolută a cantităţii de vapori de apă din aer. Atunci când temperatura în punctul de rouă şi temperatura aerului sunt egale, umiditatea relativă este de 100%. În acest moment, aerul este complet saturat cu vapori de apă, conducând la condensare sub formă de rouă, ceaţă sau nori.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Umiditatea relativă este o măsură a cantităţii de vapori de apă prezenţi în aer, în comparaţie cu cantitatea maximă pe care aerul o poate menţine la această temperatură. Acesta este exprimat ca procent şi oferă informaţii despre cât de aproape este aerul de saturaţie.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Presiunea barometrică, cunoscută și ca presiunea atmosferică, este măsura presiunii aerului într-o anumită zonă.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Indicele UV (UVI) al Organizației Mondiale a Sănătății măsoară rezistența radiațiilor ultraviolete care produc arsuri solare. Este o scară lineară care variază de la 0 la 11+, unde valorile mai ridicate indică un risc mai mare de expunere la razele UV şi şanse mai mari de arsuri solare şi leziuni ale pielii care ar putea duce în cele din urmă la cancer de piele.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Viteza vântului este viteza cu care aerul se deplasează orizontal peste un anumit punct. Este o cantitate atmosferică fundamentală, cauzată de trecerea aerului de la presiune ridicată la cea scăzută, de obicei din cauza schimbărilor de temperatură. Rafalele sunt o creștere bruscă a vitezei vântului peste viteza medie a vântului. De obicei durează mai puțin de 20 de secunde.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Despre Indicele de calitate a aerului (ICA)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Despre Punctul de Rouă</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Despre Umiditate Relativă</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Despre Presiune</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Despre Indicele UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Despre Viteza Vântului și Rafale</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Calitatea Aerului</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contribuitori</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Performanță</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Presiune</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>Indice UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Atenție</value>

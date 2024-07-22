@@ -201,17 +201,26 @@
   <data name="DescAboutAQI.Text" xml:space="preserve">
     <value>AQI on suunniteltu antamaan tietoa viiden yleisimmän ilman epäpuhtauden terveysvaikutuksista. Se on vaihtelee nollan ja 500 välillä, ja korkeammat arvot osoittavat vakavampia ilmansaasteita ja suurempia terveysriskejä.</value>
   </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Kastepiste (kastepistelämpötila) on se lämpötila, jossa ilmassa sillä hetkellä oleva vesihöyry riittää tekemään ilman täysin kylläiseksi, eli kaasun suhteellinen kosteus nousee 100 %:iin. Tässä vaiheessa ilma on täysin kyllästetty vesihöyryllä, mikä johtaa tiivistymiseen kasteen, sumun, tai pilvien muodossa.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>Suhteellinen kosteus on mittaus ilmassa olevasta vesihöyryn määrästä verrattuna siihen enimmäismäärään, jonka ilma voi kyseisessä lämpötilassa pitää. Se ilmaistaan prosentteina ja se antaa tietoa siitä, miten lähellä ilma on kyllästymistä.</value>
   </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Barometrinen paine, joka tunnetaan myös nimellä ilmakehän paine, on mittauskohdan yläpuolella olevan ilman paino.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
     <value>Maailman terveysjärjestön UV-indeksi (UVI) mittaa auringonpaloa tuottavan ultraviolettisäteilyn voimakkuutta. Se on lineaarinen asteikko, joka vaihtelee välillä 0 - 11+, missä korkeammat arvot viittaavat suurempaan UV-säteilyaltistuksen riskiin ja lisääntyneeseen auringonpolttamisen ja ihovaurioiden mahdollisuuteen, ja mikä voi lopulta johtaa ihosyöpään.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Tuuli on ilmakehässä liikkuva maanpinnan suuntainen ilmavirtaus. Se on perustavanlaatuinen ilmakehän ominaisuus mikä johtuu ilman virtauksesta korkeasta matalaan paineeseen, johtuen muutoksista lämpötilassa. Puuskat ovat äkillisiä nousuja tuulen nopeudessa jotka ylittävät keskimääräisen tuulen nopeuden. Puuskat kestävät yleensä alle 20 sekuntia.</value>
@@ -414,17 +423,26 @@
   <data name="TitleAboutAQI.Text" xml:space="preserve">
     <value>Ilmanlaatuindeksi (AQI)</value>
   </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Tietoa kastepisteestä</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
     <value>Tietoa suhteellisesta kosteudesta</value>
   </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Tietoa ilmanpaineesta</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>Tietoa UV-indeksistä</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Tietoa tuulen nopeudesta ja puuskoista</value>
@@ -437,6 +455,9 @@
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>Ilmanlaatu</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Tekijät</value>
@@ -462,6 +483,9 @@
   <data name="TitlePerformance.Text" xml:space="preserve">
     <value>Suorituskyky</value>
   </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Ilmanpaine</value>
   </data>
@@ -485,6 +509,9 @@
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
     <value>UV-indeksi</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Varoitus</value>
