@@ -632,7 +632,7 @@
       <Version>5.3.2</Version>
     </PackageReference>
     <PackageReference Include="NLog.Extensions.Logging">
-      <Version>5.3.10</Version>
+      <Version>5.3.11</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
