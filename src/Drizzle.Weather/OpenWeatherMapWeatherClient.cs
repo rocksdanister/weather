@@ -68,7 +68,10 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         {
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && day.Key.Date != currentTime.Date)
+            {
+                index++;
                 continue;
+            }
 
             var severeDayWeather = GetMostSevereWeather(day.Select(x => OpenWeatherMapCodeToWmo(x.Weather[0].Id)));
             var currentValue = index == 0 ?
@@ -172,7 +175,10 @@ public class OpenWeatherMapWeatherClient : IWeatherClient
         {
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && day.Key.Date != currentTime.Date)
+            {
+                index++;
                 continue;
+            }
 
             var hourlyAqi = day.Select(x => CalculateAqi(x.Components) ?? 0f);
             var airQuality = new DailyAirQuality

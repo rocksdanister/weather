@@ -71,6 +71,10 @@ namespace Drizzle.UI.UWP.Factories
             }
             for (int i = 0; i < airQualityForecast.Daily.Count(); i++)
             {
+                // If the weather data is less than the air quality.
+                if (weatherVm.Daily.Count < i + 1)
+                    break;
+
                 weatherVm.Daily[i].AirQualityIndex = airQualityForecast.Daily[i].AQI ?? null;
                 weatherVm.Daily[i].UltravioletIndex = (int?)airQualityForecast.Daily[i].UV ?? null;
                 weatherVm.Daily[i].HourlyAirQualityIndex = airQualityForecast.Daily[i].HourlyAQI;

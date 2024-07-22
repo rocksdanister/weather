@@ -106,7 +106,10 @@ public class OpenMeteoWeatherClient : IWeatherClient
             var value = item.Value;
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && date.Date != currentTime.Date)
+            {
+                index++;
                 continue;
+            }
 
             var currentValue = index == 0 ?
                 // Select the weather closest to current time.
@@ -197,7 +200,10 @@ public class OpenMeteoWeatherClient : IWeatherClient
 
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && date.Date != currentTime.Date)
+            {
+                index++;
                 continue;
+            }
 
             var currentValue = index == 0 ?
                 // Select the pollution closest to current time.

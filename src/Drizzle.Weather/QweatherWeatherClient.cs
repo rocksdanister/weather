@@ -66,7 +66,10 @@ public class QweatherWeatherClient : IWeatherClient
         {
             // If data is starting from previous day then discard, can happen(?) if close to midnight.
             if (index == 0 && day.Key.Date != currentTime.Date)
+            {
+                index++;
                 continue;
+            }
 
 
             var sunriseIso8601Time = string.Format("{0}T{1}+08:00", day.First().FxDate, day.First().Sunrise);
