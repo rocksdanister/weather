@@ -39,8 +39,8 @@
                 Height="350"
                 IsDynamicResolutionEnabled="False"
                 IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind viewModel.SelectedShader.ScaleFactor, Mode=OneWay}"
-                ShaderRunner="{x:Bind viewModel.SelectedShader.ShaderRunner, Mode=OneWay}">
+                ResolutionScale="{x:Bind viewModel.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
+                ShaderRunner="{x:Bind viewModel.SelectedShader.Runner, Mode=OneWay}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         From="0"

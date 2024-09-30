@@ -39,7 +39,7 @@
             TrueValue="1.0" />
         <customConverters:TimeToIsDaytimeVisibilityConverter x:Key="TimeToIsDaytimeVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <customConverters:ComputeSharpFloat3ToColorConverter x:Key="ComputeSharpFloat3ToColorConverter" />
+        <customConverters:Vector3ToColorConverter x:Key="Vector3ToColorConverter" />
         <Style x:Name="BackgroundFlyoutPresenter" TargetType="FlyoutPresenter">
             <Setter Property="MinWidth" Value="470" />
             <Setter Property="CornerRadius" Value="5" />
@@ -103,7 +103,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Background="Red"
-                    Command="{Binding DataContext.SnowBackgroundDeleteCommand, ElementName=rootPage}"
+                    Command="{Binding DataContext.DeleteBackgroundCommand, ElementName=rootPage}"
                     CommandParameter="{Binding}"
                     CornerRadius="0">
                     <FontIcon FontSize="6" Glyph="&#xE8BB;" />
@@ -249,7 +249,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.SnowBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedSnowBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.SnowBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                             <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                                                         </StackPanel>
                                                     </Flyout>
@@ -302,7 +302,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.RainBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedRainBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.RainBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                             <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                                                         </StackPanel>
                                                     </Flyout>
@@ -340,7 +340,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedDepthBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.DepthBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                         </StackPanel>
                                                     </Flyout>
                                                 </Button.Flyout>
@@ -350,10 +350,9 @@
                                         <!--  Fog  -->
                                         <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsFogPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <TextBlock x:Uid="FogColorGradient" />
-                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
-                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
-                                            <!--  Change to CommunityToolkit control after 8.1 release.  -->
-                                            <!--<controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}">
+                                            <!--<customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
+                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />-->
+                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
                                                 <controls:ColorPickerButton.ColorPickerStyle>
                                                     <Style TargetType="controls:ColorPicker">
                                                         <Setter Property="ColorSpectrumShape" Value="Box" />
@@ -361,14 +360,14 @@
                                                     </Style>
                                                 </controls:ColorPickerButton.ColorPickerStyle>
                                             </controls:ColorPickerButton>
-                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}">
+                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
                                                 <controls:ColorPickerButton.ColorPickerStyle>
                                                     <Style TargetType="controls:ColorPicker">
                                                         <Setter Property="ColorSpectrumShape" Value="Box" />
                                                         <Setter Property="IsAlphaEnabled" Value="False" />
                                                     </Style>
                                                 </controls:ColorPickerButton.ColorPickerStyle>
-                                            </controls:ColorPickerButton>-->
+                                            </controls:ColorPickerButton>
                                             <Slider
                                                 x:Uid="FogAmplitude"
                                                 Maximum="2"
@@ -405,7 +404,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedFogBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.FogBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                         </StackPanel>
                                                     </Flyout>
                                                 </Button.Flyout>

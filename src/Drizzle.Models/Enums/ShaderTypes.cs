@@ -1,12 +1,11 @@
-﻿namespace Drizzle.Models.Enums
+﻿namespace Drizzle.Models.Enums;
+
+public enum ShaderTypes
 {
-    public enum ShaderTypes
-    {
-        clouds,
-        rain,
-        snow,
-        depth,
-        fog,
-        tunnel = 100,
-    }
+    clouds,
+    rain,
+    snow,
+    depth,
+    fog,
+    tunnel = 100,
 }

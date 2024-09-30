@@ -10,10 +10,11 @@ namespace Drizzle.Models;
 /// </summary>
 public partial class UserImageModel : ObservableObject
 {
-    public UserImageModel(string title, string image, DateTime time, bool isEditable)
+    public UserImageModel(string title, string image, string depth, DateTime time, bool isEditable)
     {
         this.Title = title;
         this.Image = image;
+        this.Depth = depth;
         this.time = time;
         this.IsEditable = isEditable;
     }
@@ -23,6 +24,9 @@ public partial class UserImageModel : ObservableObject
 
     [ObservableProperty]
     private string image;
+
+    [ObservableProperty]
+    private string depth;
 
     [ObservableProperty]
     private DateTime time;

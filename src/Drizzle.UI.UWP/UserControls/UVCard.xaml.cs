@@ -105,9 +105,6 @@ namespace Drizzle.UI.UWP.UserControls
 
             if (Value is not null)
             {
-                // Ref: https://open-meteo.com/en/docs/air-quality-api
-                // United States Air Quality Index (AQI) calculated for different particulate matter and gases individually.
-                // Ranges from 0-50 (good), 51-100 (moderate), 101-150 (unhealthy for sensitive groups), 151-200 (unhealthy), 201-300 (very unhealthy) and 301-500 (hazardous).
                 var percentage = RangePercentage((double)Value, 0, 10);
                 var knobLeft = margin - sliderKnob.ActualWidth / 2 + percentage / 100 * sliderLine.ActualWidth;
                 Canvas.SetLeft(sliderKnob, knobLeft);

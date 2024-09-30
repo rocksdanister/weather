@@ -1,13 +1,8 @@
-﻿using Drizzle.Common.Services;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.Storage;
-using Windows.System.Threading;
+using Drizzle.Common.Services;
 
 namespace Drizzle.UI.UWP.Services
 {

@@ -1,0 +1,132 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.AboutView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:labs="clr-namespace:Avalonia.Labs.Controls;assembly=Avalonia.Labs.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    d:DesignWidth="500"
+    x:DataType="vm:AboutViewModel"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Spacing="5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Width="375"
+                    Margin="5,0,5,5"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    Text="{x:Static i18n:Resources.AboutMe_Text}"
+                    TextWrapping="Wrap" />
+                <!--  Issue: https://github.com/AvaloniaUI/Avalonia.Labs/issues/32  -->
+                <!--<labs:AsyncImage
+                    Width="80"
+                    Height="80"
+                    Source="https://avatars.githubusercontent.com/rocksdanister" />-->
+                <Border
+                    Width="100"
+                    VerticalAlignment="Center"
+                    ClipToBounds="True"
+                    CornerRadius="50">
+                    <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/rocksdanister" />
+                </Border>
+            </StackPanel>
+
+            <ui:CommandBar HorizontalAlignment="Left" OverflowButtonVisibility="Collapsed">
+                <ui:CommandBar.PrimaryCommands>
+                    <ui:CommandBarButton
+                        Command="{Binding OpenPersonalWebsiteCommand}"
+                        IconSource="Contact"
+                        ToolTip.Tip="https://rocksdanister.com" />
+                    <ui:CommandBarButton Command="{Binding OpenGithubCommand}" ToolTip.Tip="https://github.com/rocksdanister">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE907;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                    <ui:CommandBarButton Command="{Binding OpenTwitterCommand}" ToolTip.Tip="https://twitter.com/rocksdanister">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE909;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                    <ui:CommandBarButton Command="{Binding OpenYoutubeCommand}" ToolTip.Tip="https://www.youtube.com/@rocksdanister">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90a;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                    <ui:CommandBarButton Command="{Binding OpenEmailCommand}" ToolTip.Tip="awoo.git@gmail.com">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE906;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                </ui:CommandBar.PrimaryCommands>
+            </ui:CommandBar>
+
+            <ui:SettingsExpander Header="{Binding AppVersion}" IconSource="Refresh">
+                <ui:SettingsExpander.Footer>
+                    <Button Content="{x:Static i18n:Resources.CheckUpdate_Content}" IsVisible="False" />
+                </ui:SettingsExpander.Footer>
+            </ui:SettingsExpander>
+
+            <Border
+                Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{DynamicResource CardStrokeColorDefault}"
+                BorderThickness="1"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        HorizontalAlignment="Center"
+                        Text="{x:Static i18n:Resources.TitleContributors_Text}" />
+                    <StackPanel
+                        Margin="5"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <HyperlinkButton NavigateUri="https://twitter.com/zeealeid" ToolTip.Tip="Zee-Al-Eid Ahmad Rana">
+                            <Border
+                                Width="35"
+                                ClipToBounds="True"
+                                CornerRadius="25">
+                                <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/zeealeid" />
+                            </Border>
+                        </HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/GireeshChandran" ToolTip.Tip="Gireesh Chandran">
+                            <Border
+                                Width="35"
+                                ClipToBounds="True"
+                                CornerRadius="25">
+                                <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/GireeshChandran" />
+                            </Border>
+                        </HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/Livins1" ToolTip.Tip="Livins1">
+                            <Border
+                                Width="35"
+                                ClipToBounds="True"
+                                CornerRadius="25">
+                                <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/Livins1" />
+                            </Border>
+                        </HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/zxbmmmmmmmmm" ToolTip.Tip="zxbmmmmmmmmm">
+                            <Border
+                                Width="35"
+                                ClipToBounds="True"
+                                CornerRadius="25">
+                                <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/zxbmmmmmmmmm" />
+                            </Border>
+                        </HyperlinkButton>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Margin="0,5,5,0">
+                <HyperlinkButton Content="{x:Static i18n:Resources.Attribution_Content}" NavigateUri="https://www.rocksdanister.com/weather/attribution" />
+                <HyperlinkButton Content="{x:Static i18n:Resources.SoftwareLicense_Content}" NavigateUri="https://github.com/rocksdanister/weather/blob/main/LICENSE" />
+                <HyperlinkButton Content="{x:Static i18n:Resources.PrivacyPolicy_Content}" NavigateUri="https://www.rocksdanister.com/weather/privacy" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

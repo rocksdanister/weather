@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Szia! Dani John vagyok rockdanister-nek is ismernek. Vicces szoftvereket csinálok, mint ez. köszönöm, hogy időt szánt munkáim megtekintésére.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Jó</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Mérsékelt</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Nem egészséges az érzékenyek számára</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Nem egészséges</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Nagyon egészségtelen</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Veszélyes</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Mindig rejtsd el a menüt amikor tétlen</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Rólam</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Súgó</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Hely keresése</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Közlés a harmadik féltől származó szoftverekről</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Háttérfényerő állítása</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Fényerő</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Böngészés</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Háttér</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Frissítések keresése</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Nappal/Éjszaka</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iterációk</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Méret</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Javasolj új funkciót, vagy jeletsd a hibát</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Kapcsolat</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>A felhasználó által kiválasztott képek hozzáadása az időjárási hatásokhoz</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Egyéni háttér</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Vízszintes</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Függőleges</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>Az AQI (Levegő Minőségi Index) célja, hogy információkat nyújtson az öt leggyakoribb légszennyező anyag egészségügyi hatásairól. Ez egy 0-tól 500-ig terjedő skála, ahol a magasabb érték súlyosabb légszennyezettséget és nagyobb egészségügyi kockázatokat jelez.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>A harmatpont az a hőmérséklet, melyre az adott légtömegnek le kell hűlnie, hogy a benne lévő vízgőz vízzé csapódjon ki. Amikor a harmatponti hőmérséklet a fagyáspont alá süllyed, ezt fagypontnak hívják, ekkor a vízgőz már nem képes többé harmatot létrehozni, helyette zúzmara vagy dér képződik.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>A relatív páratartalom a levegő egyik, főleg meteorológiai és élettani szempontból lényeges jellemzője. Megmutatja a levegő által maximálisan tartalmazható vízgőzmennyiséghez képest a pillanatnyi tartalmat.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>A légköri nyomás vagy légnyomás valamely adott helyen uralkodó nyomás, amelyet a levegő súlya okoz.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>A WHO (Egészségügyi Világszervezet) UV-indexe (UVI) a napégést okozó ultraibolya sugárzás erősségét méri. Ez egy lineáris skála, amely 0-tól 11+-ig terjed, és a magasabb értékek azt jelzik, hogy nagyobb az UV-sugárzásnak való kitettség kockázata, valamint megnő a leégés és a bőrkárosodás, amely végső soron bőrrákhoz vezethet.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>A szél sebessége az a sebesség, amellyel a levegő vízszintesen elhalad egy adott pont fölött. Ez egy alapvető atmoszférikus mennyiség, amelyet a levegő magas nyomásról alacsony nyomásra mozgása okoz, általában a hőmérséklet változása miatt. A széllökések a szél sebességének az átlagos szélsebesség feletti hirtelen növekedését jelentik. Általában kevesebb, mint 20 másodpercig tart.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Közelítés mélysége</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>A rendszer garafikus processzora (GPU) nem támogatja a szükséges DX12 funkciókat, vagy néhány funkció le van tiltva.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>További file-okat szükséges letölteni ehhez a funkcióhoz</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Nézze meg mi az újdonság</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Ennyinek érződik</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplitudó</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Színátmenet</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Animáció képkocka szám</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Járulj hozzá ehhez a programhoz úgy, hogy lefordítod más nyelvekre.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Segíts fordítani</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>A programot újra kell indítani a nyelvváltoztatáskor</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Segíts fordítani!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Ugyanaz, mint a Windows</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Több info</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Mentett helyek</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Jelentések megnyitása</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Szüneteltesd a hangot, ha az alkalmazás nincs az előtérben</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Szüneteltesd a megjlenítést, ha az alkalmazás nincs az előtérben</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Adatgyűjtési irányelvek</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dinamikus</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Teljesítmény</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Krumpli</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Minőség</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Megjelenítés renderelés előre beállított minőség</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Minőség</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intezitás</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Megvilágítás</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Normál</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Pásztázás</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Nagyítás</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Csökkentett mozgás</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Utolsó frissítés</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Alapértelmezések visszaállítása</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Képernyővédő</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Elmosás</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Befagyaszt</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Utófeldolgozás</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Sebesség</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Mélység</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Rétegek</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Szélesség</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Szoftver licenc</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Hang</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Mutasson szeretetet egy csillag ledobásával</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Forráskód</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Névjegy</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Mégsem</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Tovább</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>MI mélység közelítés</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>A helyhozzáférés le van tilva ellenőrizze a Windows beállításokat.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Helyhozzáférési adatok nem előrhetőek ellenőrizze a Windows beállításokat.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Segítség</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Rendben</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>A szükséges API-kulcs hiányzik a kiválasztott időjárás szolgáltatóhoz, a beállítás visszaállítva.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automatikus</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Sötét</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Világos</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Az aplikáció színének változtatása</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Téma</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>A Levegőminőségi Indexről (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>A harmatpontról</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>A relatív páratartalomról</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>A légnyomásról</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Az UV-indexről</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>A szélsebességről és széllökésről</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Kisegítő lehetőségek</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Adja meg a helyzetét az elinduláshoz.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Levegőminőség</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Közreműködők</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Letöltés szükséges</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Adatok töltése, kérem várjon.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Általános</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Szia</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Páratartalom</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Teljesítmény</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Légnyomás</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Nap</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Napkelte</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Napnyugta</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Frissítés kész</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>UV-index</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Figyelmeztetés</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Időjárás</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Szél</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Jó</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Magas</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Nagyon magas</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API-kulcs</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Adja meg a szükséges API-kulcsot</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Időjárás adatforrás</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Szolgáltató</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hibrid</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Angolszász</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrikus</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Mutasd a mérést</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Egység</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Hivatalos weboldal</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Weboldal</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Üdvözöllek az időjárás aplikációmban. Kérlek jegyezd meg, hogy az az alkalmazás még béta verzió és az újdonságok nem a várt módon működhetnek. Keményen dolgozok hogy fejlesszem az alkalmazást és hogy jobbá tegyem. Köszönöm a megértést és a türelmet.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Derült égbolt</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Többnyire derült</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Pára</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Részben felhős</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Borult</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Köd</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Zúzmarás</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Köd</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Enyhe szitálás</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Mérsékelt szitálás</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Erős szitálás</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Enyhe fagyott szitálás</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Sűrű fagyott szitálás</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Por</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Enyhe eső</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Mérsékelt eső</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Heves eső</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Enyhe fagyott szitálás</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Erős fagyott eső</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Egyhe hószállingózás</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Havazás</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Erős havazás</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Hódara</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Enyhe zápor</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Zápor</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Erős záporok</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Enyhe hózáporok</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Erős havazás</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Viharok</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Vihar enyhe esővel</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Vihar erős esőzéssel</value>
+  </data>
+</root>

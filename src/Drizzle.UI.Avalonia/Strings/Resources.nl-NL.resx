@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Hallo, ik ben Dani John ook gekend als rocksdanister. Ik maak leuke software zoals deze. Bedankt dat je de tijd hebt genomen om naar mijn werk te kijken.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Goed</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Matig</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Ongezond voor kwetsbare groepen</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Ongezond</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Zeer ongezond</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Gevaarlijk</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Menu altijd verbergen bij inactiviteit</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Zoek een locatie</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Kennisgeving van software van derden</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Helderheid van de achtergrond aanpassen</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Helderheid</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Ontdek</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Achtergrond</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Controleer voor updates</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Dag/Nacht</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Herhalingen</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Schaal</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Suggereer een nieuwe functie of bug</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Geselecteerde afbeeldingen van de gebruiker opnemen in weereffecten</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Aangepaste achtergrond</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Horizontaal</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Verticaal</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>De AQI is ontworpen om informatie te verstrekken over de gezondheidseffecten van de vijf meest voorkomende luchtverontreinigende stoffen. Het is een schaal die varieert van 0 tot 500, met hogere waarden die wijzen op ernstiger luchtverontreiniging en grotere gezondheidsrisico's.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>De temperatuur van het dauwpunt is een absolute maat van de waterdamp in de lucht. Wanneer de dauwtemperatuur en luchttemperatuur gelijk zijn, is de relatieve vochtigheid 100%. Op dit moment is de lucht volledig verzadigd met waterdamp, wat leidt tot condensatie in de vorm van dauw, mist of wolken.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Relatieve vochtigheid is een maatstaf voor de hoeveelheid waterdamp in de lucht in vergelijking met de maximale hoeveelheid die de lucht op die temperatuur kan houden. Het wordt uitgedrukt als percentage en geeft informatie over hoe dicht de lucht bij verzadiging is.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Barometrische druk, ook wel bekend als atmosferische druk, is de maatstaf van de luchtdruk in een bepaald gebied.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>De UV-index van de Wereldgezondheidsorganisatie (UVI) meet de sterkte van zonnecrancofoniserende ultravioletstraling. Het is een lineaire schaal van 0 tot 11+, met hogere waarden die een groter risico op blootstelling aan UV-straling aangeven en grotere kansen op zonnecellen en huidschade die uiteindelijk tot huidkanker kunnen leiden.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>De windsnelheid is de snelheid waarmee de lucht horizontaal voorbij een bepaald punt beweegt. Het is een fundamentele atmosferische hoeveelheid die wordt veroorzaakt door het verplaatsen van de lucht van hoge naar lage druk, meestal als gevolg van temperatuurveranderingen. Windstoten hebben een plotselinge stijging van de windsnelheid boven de gemiddelde windsnelheid die meestal minder dan 20 seconden duurt.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Diepte Inschatten..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>De grafische processor (GPU) van het systeem ondersteunt de vereiste DX12 functies niet, dus sommige functionaliteit is uitgeschakeld.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Voor deze functie moeten extra bestanden worden gedownload</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Bekijk wat er nieuw is</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Gevoelstemperatuur</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplitude</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Kleurverloop</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Animatie framesnelheid</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Fout</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Draag bij aan dit programma door het naar andere talen te vertalen.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Helpen met vertalen</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>De app moet opnieuw worden opgestart na het kiezen van een andere taal</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Taal</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Help vertalen!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Hetzelfde als Windows</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Lees meer</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Opgeslagen locaties</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Logboeken openen</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Audio pauzeren wanneer toepassing niet op voorgrond is</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Visuele effecten pauzeren wanneer applicatie niet de voorgrond is</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Beleid inzake gegevensverzameling</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dynamisch</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Prestatie</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Aardappel</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Kwaliteit</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Visuele kwaliteitsvoorinstelling</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Kwaliteit</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intensiteit</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Belichting</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Normaal</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Pannen</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Verminderde beweging</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Laatst gewijzigd</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Vernieuw</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Standaardinstellingen herstellen</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Schermbeveiliging</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Vervaging</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Vriezend</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Nabewerkingseffecten</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Snelheid</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Diepte</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Lagen</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Breedte</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Software licenties</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Geluid</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Toon wat liefde door een ster achter te laten</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Broncode</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Annuleer</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Verder</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>AI-diepteinschatting</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Toegang tot locatie is geweigerd, controleer Windows-instellingen.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Toegang tot locatie niet gespecificeerd, controleer Windows-instellingen.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Oke</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Vereiste API-sleutel ontbreekt voor de geselecteerde weer aanbieder, instellingen hersteld.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Donker</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Licht</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>De toepassingskleur wijzigen</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Thema</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>Over de luchtkwaliteit index (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>Over het Dauwpunt</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>Over relatieve luchtvochtigheid</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>Over luchtdruk</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Over de UV-index</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>Over windsnelheid en windstoten</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Toegankelijkheid</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Voeg een locatie toe om te beginnen.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Luchtkwaliteit</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Bijdragers</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Download vereist</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Gegevens ophalen, even geduld alstublieft.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Algemeen</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Hallo</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Luchtvochtigheid</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Prestaties</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Luchtdruk</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Snelheid</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Zon</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Zonsopgang</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Zonsondergang</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperatuur</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Bijwerking voltooid</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>UV-index</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Waarschuwing</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Weer</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Wind</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Goed</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Hoog</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Zeer Hoog</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API-sleutel</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Voer de vereiste API-sleutel in</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Bron van weergegevens</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Aangepast</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hybride</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperiaal</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrisch</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Metingen weergeven in</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Eenheid</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Officiële webpagina</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Welkom bij mijn weer-app! Houd er rekening mee dat deze app nog steeds in bèta is en dat sommige functies mogelijk niet werken zoals verwacht. Ik werk hard om de app te verbeteren en beter te maken. Dank u voor uw begrip en geduld.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Heldere lucht</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Overwegend Helder</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mistig</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Licht bewolkt</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Bewolkt</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Mist</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Rijpende mist</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Nevel</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Lichte motregen</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Matige motregen</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Hevige motregen</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Licht vriezende regen</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Zwaar vriezende regen</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Smog</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Lichte Regenval</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Matige regenval</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Zware Regenbuien</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Licht vriezende regen</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Zwaar vriezende regen</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Lichte sneeuwval</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Matige sneeuwval</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Hevige sneeuwval</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Sneeuwkorrels</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Lichte regenbuien</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Matige regenbuien</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Harde Regenbuien</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Lichte sneeuwbuien</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Zware sneeuwbuien</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Onweersbui</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Onweersbui met lichte Hagel</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Onweersbui met Zware Hagel</value>
+  </data>
+</root>

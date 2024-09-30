@@ -1,10 +1,9 @@
-﻿namespace Drizzle.Models.Enums
+﻿namespace Drizzle.Models.Enums;
+
+public enum AppPerformance
 {
-    public enum AppPerformance
-    {
-        potato,
-        performance,
-        quality,
-        dynamic
-    }
+    potato,
+    performance,
+    quality,
+    dynamic
 }

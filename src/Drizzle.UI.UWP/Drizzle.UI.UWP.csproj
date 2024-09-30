@@ -177,7 +177,7 @@
     </Compile>
     <Compile Include="Converters\AudioVolumeGlyphConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\ComputeSharpFloat3ToColorConverter.cs" />
+    <Compile Include="Converters\Vector3ToColorConverter.cs" />
     <Compile Include="Converters\DateTimeToDayConverter.cs" />
     <Compile Include="Converters\DateTimeToDayNameConverter.cs" />
     <Compile Include="Converters\DateTimeToShortTimeConverter.cs" />
@@ -189,12 +189,9 @@
     <Compile Include="Converters\WmoWeatherConverter.cs" />
     <Compile Include="Extensions\ScrollViewerExtensions.cs" />
     <Compile Include="Extensions\ThemeExtensions.cs" />
-    <Compile Include="Factories\IWeatherClientFactory.cs" />
-    <Compile Include="Factories\IWeatherViewModelFactory.cs" />
-    <Compile Include="Factories\WeatherClientFactory.cs" />
-    <Compile Include="Factories\WeatherViewModelFactory.cs" />
+    <Compile Include="Helpers\ComputeSharpUtil.cs" />
     <Compile Include="Helpers\FilePickerUtil.cs" />
-    <Compile Include="Helpers\LinkUtil.cs" />
+    <Compile Include="Helpers\BrowserUtil.cs" />
     <Compile Include="Helpers\SystemInfoUtil.cs" />
     <Compile Include="Services\AppUpdaterService.cs" />
     <Compile Include="Services\AssetReader.cs" />
@@ -205,6 +202,18 @@
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
+    <Compile Include="Shaders\Clouds.cs" />
+    <Compile Include="Shaders\Depth.cs" />
+    <Compile Include="Shaders\Rain.cs" />
+    <Compile Include="Shaders\Runners\CloudsRunner.cs" />
+    <Compile Include="Shaders\Runners\DepthRunner.cs" />
+    <Compile Include="Shaders\Runners\RainRunner.cs" />
+    <Compile Include="Shaders\Runners\SnowRunner.cs" />
+    <Compile Include="Shaders\Runners\TunnelRunner.cs" />
+    <Compile Include="Shaders\Runners\WindRunner.cs" />
+    <Compile Include="Shaders\Snow.cs" />
+    <Compile Include="Shaders\Tunnel.cs" />
+    <Compile Include="Shaders\Wind.cs" />
     <Compile Include="UserControls\AirQualityCard.xaml.cs">
       <DependentUpon>AirQualityCard.xaml</DependentUpon>
     </Compile>
@@ -448,9 +457,6 @@
     <Content Include="Assets\Backgrounds\Data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\aqi-breakpoint.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -593,25 +599,28 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Uwp.Animations">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Collections">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Uwp.Controls.ColorPicker">
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Controls.Segmented">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Controls.SettingsControls">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Converters">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Helpers">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Uwp.Media">
-      <Version>8.0.240109</Version>
+      <Version>8.1.240821</Version>
     </PackageReference>
     <PackageReference Include="ComputeSharp">
       <Version>2.1.0</Version>
@@ -629,10 +638,10 @@
       <Version>2.8.6</Version>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>5.3.2</Version>
+      <Version>5.3.4</Version>
     </PackageReference>
     <PackageReference Include="NLog.Extensions.Logging">
-      <Version>5.3.11</Version>
+      <Version>5.3.13</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

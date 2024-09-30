@@ -1,0 +1,107 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.Cards.Sun"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    SizeChanged="UserControl_SizeChanged"
+    Unloaded="UserControl_Unloaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  title  -->
+        <StackPanel
+            Grid.Row="0"
+            Margin="10,5,0,0"
+            Opacity="0.4"
+            Orientation="Horizontal"
+            Spacing="4">
+            <TextBlock
+                FontFamily="{StaticResource CustomIconFonts}"
+                FontSize="16"
+                Text="&#xE903;" />
+            <TextBlock Padding="0,-1,0,0" Text="{x:Static i18n:Resources.TitleSun_Text}" />
+        </StackPanel>
+
+        <!--  canvas  -->
+        <Canvas
+            x:Name="MainCanvas"
+            Grid.RowSpan="3"
+            Margin="0,-25,0,0"
+            IsVisible="{Binding #Root.Sunrise, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <Ellipse x:Name="SunLine">
+                <Ellipse.Stroke>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,25%">
+                        <GradientStop Offset="0.0" Color="White" />
+                        <GradientStop Offset="1.0" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,50%">
+                        <GradientStop Offset="0.0" Color="#64ffffff" />
+                        <GradientStop Offset="1.0" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <lottie:Lottie
+                x:Name="SunAnimation"
+                Width="50"
+                Height="50"
+                Margin="0,-50,0,0"
+                Path="/Assets/WeatherIcons/ClearDay.json" />
+        </Canvas>
+        <!--  labels  -->
+        <StackPanel
+            Grid.Row="2"
+            Margin="10,0,0,2.5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            IsVisible="{Binding #Root.Sunrise, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <TextBlock
+                FontSize="10"
+                Opacity="0.4"
+                Text="{x:Static i18n:Resources.TitleSunrise_Text}" />
+            <TextBlock FontSize="12" Text="{Binding #Root.Sunrise, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="2"
+            Margin="0,0,10,2.5"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            IsVisible="{Binding #Root.Sunrise, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <TextBlock
+                FontSize="10"
+                Opacity="0.4"
+                Text="{x:Static i18n:Resources.TitleSunset_Text}"
+                TextAlignment="Right" />
+            <TextBlock
+                FontSize="12"
+                Text="{Binding #Root.Sunset, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}"
+                TextAlignment="Right" />
+        </StackPanel>
+
+        <lottie:Lottie
+            Grid.RowSpan="3"
+            Width="125"
+            Height="125"
+            Margin="0,25,0,0"
+            IsVisible="{Binding #Root.Sunrise, Mode=OneWay, Converter={x:Static ObjectConverters.IsNull}}"
+            Opacity="0.35"
+            Path="/Assets/AnimatedIcons/Missing.json" />
+    </Grid>
+</UserControl>

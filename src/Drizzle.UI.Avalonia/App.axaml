@@ -1,0 +1,38 @@
+<Application
+    x:Class="Drizzle.UI.Avalonia.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:labs="using:Avalonia.Labs.Controls"
+    xmlns:sty="using:FluentAvalonia.Styling"
+    RequestedThemeVariant="Dark">
+    <Application.Styles>
+        <FluentTheme />
+        <labs:ControlThemes />
+        <sty:FluentAvaloniaTheme />
+    </Application.Styles>
+    <Application.Resources>
+        <ResourceDictionary>
+            <FontFamily x:Key="CustomIconFonts">avares://Drizzle.UI.Avalonia/Assets/FontIcons/CustomIcons.ttf#CustomIcons</FontFamily>
+            <!--  Fluent System Icons, MIT License. Ref: https://github.com/microsoft/fluentui-system-icons  -->
+            <FontFamily x:Key="FluentSystemIcons-Regular">avares://Drizzle.UI.Avalonia/Assets/FontIcons/FluentSystemIcons-Regular.ttf#FluentSystemIcons-Regular</FontFamily>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <Color x:Key="SystemAltLowColor">#33000000</Color>
+                    <Color x:Key="SystemAltMediumLowColor">#66000000</Color>
+                    <Color x:Key="CardBorderColor">#3fffffff</Color>
+                    <Color x:Key="SystemChromeMediumLowColor">#FF2B2B2B</Color>
+                    <Color x:Key="CardStrokeColorDefault">#19000000</Color>
+                    <Color x:Key="CardBackgroundFillColorDefault">#0DFFFFFF</Color>
+
+                    <SolidColorBrush x:Key="CardStrokeColorDefaultBrush" Color="{StaticResource CardStrokeColorDefault}" />
+                    <SolidColorBrush x:Key="CardBackgroundFillColorDefaultBrush" Color="{StaticResource CardBackgroundFillColorDefault}" />
+                    <SolidColorBrush x:Key="SystemChromeMediumLowColorLowBrush" Color="{StaticResource SystemChromeMediumLowColor}" />
+                    <SolidColorBrush x:Key="SystemAltLowBrush" Color="{StaticResource SystemAltLowColor}" />
+                    <SolidColorBrush x:Key="SystemAltMediumLowBrush" Color="{StaticResource SystemAltMediumLowColor}" />
+                    <SolidColorBrush x:Key="CardBorderBrush" Color="#3fffffff" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

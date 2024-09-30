@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Hei, olen Dani John, tunnetaan myös rocksdanister. Teen hauskoja ohjelmistoja kuten tämä tässä. Kiitos että olet tutustunut työhöni.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Hyvä</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Tyydyttävä</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Välttävä erityisen herkille</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Välttävä</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Huono</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Erittäin huono</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Piilota valikko aina joutilaana</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Tietoa</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Tuki</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Etsi paikka</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Kolmannen osapuolen ohjelmistoilmoitus</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Muuta taustan kirkkaustasoa</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Kirkkaus</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Selaa</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Tausta</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Tarkista päivitykset</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Päivä/Yö</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iteraatiot</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Skaala</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Ehdota ominaisuutta tai ilmoita bugi</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Ota yhteyttä</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Sisällytä käyttäjän valitsemat kuvat säätehosteisiin</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Mukautettu tausta</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Vaakasuora</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Pystysuora</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>AQI on suunniteltu antamaan tietoa viiden yleisimmän ilman epäpuhtauden terveysvaikutuksista. Se on vaihtelee nollan ja 500 välillä, ja korkeammat arvot osoittavat vakavampia ilmansaasteita ja suurempia terveysriskejä.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>Kastepiste (kastepistelämpötila) on se lämpötila, jossa ilmassa sillä hetkellä oleva vesihöyry riittää tekemään ilman täysin kylläiseksi, eli kaasun suhteellinen kosteus nousee 100 %:iin. Tässä vaiheessa ilma on täysin kyllästetty vesihöyryllä, mikä johtaa tiivistymiseen kasteen, sumun, tai pilvien muodossa.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Suhteellinen kosteus on mittaus ilmassa olevasta vesihöyryn määrästä verrattuna siihen enimmäismäärään, jonka ilma voi kyseisessä lämpötilassa pitää. Se ilmaistaan prosentteina ja se antaa tietoa siitä, miten lähellä ilma on kyllästymistä.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Barometrinen paine, joka tunnetaan myös nimellä ilmakehän paine, on mittauskohdan yläpuolella olevan ilman paino.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>Maailman terveysjärjestön UV-indeksi (UVI) mittaa auringonpaloa tuottavan ultraviolettisäteilyn voimakkuutta. Se on lineaarinen asteikko, joka vaihtelee välillä 0 - 11+, missä korkeammat arvot viittaavat suurempaan UV-säteilyaltistuksen riskiin ja lisääntyneeseen auringonpolttamisen ja ihovaurioiden mahdollisuuteen, ja mikä voi lopulta johtaa ihosyöpään.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>Tuuli on ilmakehässä liikkuva maanpinnan suuntainen ilmavirtaus. Se on perustavanlaatuinen ilmakehän ominaisuus mikä johtuu ilman virtauksesta korkeasta matalaan paineeseen, johtuen muutoksista lämpötilassa. Puuskat ovat äkillisiä nousuja tuulen nopeudessa jotka ylittävät keskimääräisen tuulen nopeuden. Puuskat kestävät yleensä alle 20 sekuntia.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Arvioidaan syvyyttä..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>Järjestelmän grafiikkaprosessori (GPU) ei tue vaadittuja DX12 ominaisuuksia, joten jotkin toiminnot on poistettu käytöstä.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Lisätiedostoja vaaditaan tätä ominaisuutta varten</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Katso, mikä on uutta</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Tuntuu kuin</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Vahvuus</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Värigradientti</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Animaation ruudunpäivitysnopeus</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Edistä tätä ohjelmaa kääntämällä se muille kielille.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Auta kääntämisessä</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>Sovellus on käynnistettävä uudelleen, kun valitaan toinen kieli</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Kieli</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Auta kääntämään!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Sama kuin Windowsin</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Lue lisää</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Kiinnitetyt Sijainnit</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Avaa lokit</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Keskeytä visuaaliset tehosteet kun sovellus on taustalla</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Tiedonkeruukäytäntö</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dynaaminen</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Suorituskyky</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Staattinen</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Laatu</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Grafiikkaprofiili</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Kuvanlaatu</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Voimakkuus</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Salamointi</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Normaali</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Panorointi</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Zoomaus</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Poista liiketehoste käytöstä</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Viimeksi päivitetty</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Päivitä</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Palauta oletukset</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Näytönsäästäjä</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Sumennus</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Jäätävää</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Jälkikäsittelytehosteet</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Nopeus</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Syvyys</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Tasot</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Leveys</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Ohjelmistolisenssit</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Ääni</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Näytä hieman rakkautta pudottamalla tähti</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Lähdekoodi</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Tietoa</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Jatka</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>Tekoäly-syvyystehoste</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Access to location is denied, check Windows settings.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Access to location is unspecified, check Windows settings.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Tuki</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Asetukset</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automaattinen</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Tumma</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Vaalea</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Teema</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Teema</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>Ilmanlaatuindeksi (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>Tietoa kastepisteestä</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>Tietoa suhteellisesta kosteudesta</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>Tietoa ilmanpaineesta</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Tietoa UV-indeksistä</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>Tietoa tuulen nopeudesta ja puuskoista</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Helppokäyttötoiminnot</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Lisää sijainti aloittaaksesi.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Ilmanlaatu</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Tekijät</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Lataa</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Lataus vaaditaan</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Haetaan tietoja, odota hetki.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Yleinen</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Hei</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Kosteus</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Suorituskyky</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Ilmanpaine</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Aurinko</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Auringonnousu</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Auringonlasku</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Päivitys valmistui</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>UV-indeksi</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Varoitus</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Sää</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Tuuli</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Hyvä</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Korkea</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Erittäin Korkea</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Enter the required API key</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Säätietojen lähde</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Palveluntarjoaja</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Yhdistetty</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperiaalinen</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrinen</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Näytä mittaukset yksiköissä</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Yksikkö</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Virallinen kotisivu</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Verkkosivusto</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Tervetuloa sääsovellukseen! Huomaa, että tämä sovellus on vielä beta-tilassa ja että jotkin ominaisuudet eivät välttämättä toimi odotetusti. Työskentelen kovasti parantaakseni sovellusta ja parantaakseni sitä. Kiitos ymmärryksestäsi ja kärsivällisyydestäsi.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Selkeää</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Melko selkeää</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Puolipilvistä</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Pilvistä</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Sumu</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Huurresumu</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Vähäistä tihkusadetta</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Kohtalaista tihkusadetta</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Runsasta tihkusadetta</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Vähäistä jäistä tihkusadetta</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Runsasta jäistä tihkusadetta</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Vähän sadetta</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Sadetta</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Runsasta sadetta</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Vähäistä jäistä sadetta</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Runsasta jäistä sadetta</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Kevyttä lumisadetta</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Lumisade</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Runsasta lumisadetta</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Lumijyväsiä</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Vähäisiä sadekuuroja</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Kohtalaisia sadekuuroja</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Runsaita sadekuuroja</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Kevyitä lumikuuroja</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Runsaita lumikuuroja</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Ukkosmyrsky</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Ukkosmyrsky ja kevyitä rakeita</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Ukkosmyrsky ja runsaita rakeita</value>
+  </data>
+</root>

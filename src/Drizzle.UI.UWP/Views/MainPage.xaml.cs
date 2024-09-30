@@ -1,12 +1,7 @@
-﻿using Drizzle.Common.Services;
-using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.UI.Shared.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
-using System;
-using Windows.UI.Xaml.Controls.Primitives;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 

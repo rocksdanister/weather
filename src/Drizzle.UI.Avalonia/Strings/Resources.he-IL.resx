@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>היי, אני דני ג'ון הידוע גם בשם rocksdanister. אני בונה תוכנות מהנות כמו זו. תודה שהקדשת מזמנך להסתכל על העבודה שלי.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>טוב</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>בינונית</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>לא בריא עבור קבוצות רגישות</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>לא בריא</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>מאוד לא בריא</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>בסיכון</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>הסתר תמיד את התפריט "מצב לא פעיל"</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>אודות</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>עזרה</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>חפש מיקום</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>הודעת תוכנה של צד שלישי</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>התאם את בהירות הרקע</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>בהירות</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>חפש
+</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>רקע</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>בדוק עדכונים</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>יום/לילה</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>איטרציות</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>קנה מידה</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>הצע תכונה או דווח על באג</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>צור קשר</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>כלול תמונות שנבחרו על ידי המשתמש בהשפעות מזג האוויר</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>רקע מותאם אישית</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>אופקי</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>אנכי</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>ה- AQI עוצב במטרה לספק מידע על ההשפעות הבריאותיות הנגרם על ידי חמשת מזהמי האוורי העיקריים. יש טווח בסולם מ- 0 עד 500, ערכים גבוהים בסולם מעידים על זיהום אוויר חמור יותר וכן על יותר סיכונים בריאותיים.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>טרמפטורת נקודת טל היא מדד על כמות אדי המים באוויר. כשנקודת הטל וטרמפטורת אוויר שווים, לחות היחסית הינה 100%. בנקודה זו, האוויר רווי באדי מים. מה שמוביל להתעבות בצורת טל, ערפל או עננים.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>לחות יחסית הינה מדד לכמות אדי המים ביחס לאוויר בהשוואה למקסימום כמות שהאוויר יכול להחזיק בכזאת טרמפטורה. זה מבוטה באחוזים ומספק מידע אודות כמה קרוב האוויר למצב רווי.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>לחץ ברומטרי, הידוע גם בשם לחץ אטמוספרי, הוא מדד לחץ האוויר באזור נתון.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>הארגון בריאות הלאומי (UVI) מדד את עוצמת הקרינה האולטרה סגולה המייצרת כווית שמש. זה סולם לינארי על טווח 0 עד 11+, ערכים גבוהים מעידים על סיכונים גבוהים יותר לחשיפה לקרינה UV והגדלת הסיכויים לכווית שמש ונזק לעור היכול לגרום בסופו של דבר להוביל לסרטן העור.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>מהירות הרוח היא קצב שבו הרוח נע בצורה אופקית מעבר לנקודה. זאת כמות אטמוספורית בסיסית הנגרם על ידי משב אוויר מלחץ גבוה לנמוך, בדרך כלל עקב שינויים בטרמפטורה. משבים הם עלייה פתאומית במהירות הרוח מעל משב הרוח הממוצעת, זה בדרך כלל נמשך פחות מ- 20 שניות.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>הערכת עומק..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>המעבד הגרפי של המערכת (GPU) אינו תומך בתכונות ה-DX12 הנדרשות, כך שחלק מהפונקציונליות מושבתת.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>נדרש להוריד קבצים נוספים עבור פעולה זו</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>בדוק מה חדש</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>מרגיש כמו</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>משרעת</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>צבע הדרגתי</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>אנימציה פריימים לשנייה</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>שגיאה</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>תרום לתוכנית זו על ידי תרגום לשפות אחרות.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>עזרה בתרגום</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>יש להפעיל מחדש את האפליקציה בעת בחירת שפה אחרת</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>עזור לתרגם!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>זהה ל-Windows</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>למד עוד</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>מיקומים מוצמדים</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>פתח יומנים</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>השהה אודיו כאשר היישום אינו המופיע הראשי</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>השהה חזותית כאשר היישום אינו בחזית</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>מדיניות איסוף נתונים</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>דינמי</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>ביצועים</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>פוטטו</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>איכות</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>מצב איכות רינדור חזותי</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>איכות</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>עוצמה</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>ברק</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>רגיל</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>תנועות</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>זום</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>תנועה מופחתת</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>עדכון אחרון</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>רענן</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>שחזר לברירת מחדל</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>שומר מסך</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>טשטוש</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>קפיאה</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>לאחר העיבוד</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>מהירות</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>עומק</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>שכבות</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>רוחב</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>רשיון תוכנה</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>צליל</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>הראה קצת אהבה על ידי הפלת כוכב</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>קוד מקור</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>אודות</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>ביטול</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>המשך</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>AI הערכת עומק</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>הגישה למקום נחסמה, תבדוק בהגדרות ווינדוס.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>הגישה למיקום אינה מוגדרת, בדוק את הגדרות ווינדוס.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>עזרה</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>אישור</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>אוטומטי</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>כהה</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>בהיר</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>שנה את צבע היישום</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>בחירת מצב</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>מידע על מדד איכות האוויר (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>מידע על נקודת הטל</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>מידע על לחות יחסית</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>מידע על לחץ</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>מידע על מדד UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>מידע על מהירות הרוח והמשבים</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>נגישות</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>הוסף מיקום להתחיל.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>איכות אוויר</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>תורמים</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>הורד</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>נדרשת הורדה</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>שואב נתונים, אנא המתן.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>כללי</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>שלום</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>לחות</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>ביצועים</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>לחץ</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>מהירות</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>שמש</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>זריחה</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>שקיעה</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>טמפרטורה</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>העדכון הושלם</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>מדד UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>אזהרה</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>מזג אוויר</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>רוח</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>טוב</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>גבוה</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>גבוה מאוד</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>מפתח API</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>תשים את מפתח הAPI הנדרש</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>מקור נתוני מזג אוויר</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>מותאם אישית</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>היברידי</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>אימפריאלי</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>מטרי</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>הצג מידות ב</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>יחידה</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>דף אינטרנט רשמי</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>אתר אינטרנט</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>ברוכים הבאים לאפליקציית מזג האוויר שלי! שים לב שהאפליקציה הזו עדיין בגרסת בטא וייתכן שחלק מהתכונות לא יפעלו כצפוי. אני עובד קשה על מנת לשפר את האפליקציה ולשפר אותה. תודה על ההבנה והסבלנות שלך.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>שמיים בהירים</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>בהיר בעיקר</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>ערפל</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>מעונן חלקית</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>קודר</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>ערפל</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>הפקדת ריים ערפל</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>טפטוף קל</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>טפטוף בינוני</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>טפטוף צפוף</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>טפטוף קפוא קל</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>טפטוף קפוא צפוף</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>מלוכלך</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>גשם קל</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>גשם בינוני</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>גשם כבד</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>גשם קפוא קל</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>גשם קפוא כבד</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>שלג קלה</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>שלג בינוני</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>שלג כבד</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>פתיתי שלג</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>ממטרי גשם קלים</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>ממטרי גשם בינוניים</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>ממטרי גשם כבדים</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>ממטרי שלג קלים</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>ממטרי שלג כבדים</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>סופת ברקים</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>סופת רעמים עם ברד קל</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>סופת רעמים עם ברד כבד</value>
+  </data>
+</root>

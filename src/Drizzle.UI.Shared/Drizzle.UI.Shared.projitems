@@ -9,31 +9,18 @@
     <Import_RootNamespace>AwesomeWeather.UI.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Clouds.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Depth.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Helpers\ShaderUtil.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\BaseModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\CloudsModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\DepthModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\RainModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\SnowModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\TunnelModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Models\WindModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Rain.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\CloudsRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\DepthRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\RainRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\SnowRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\TunnelRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Runners\WindRunner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Snow.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Tunnel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Shaders\Wind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\IShaderViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherClientFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\ShaderViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherClientFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DepthEstimateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HelpViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScreensaverViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShaderRunnerViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShaderViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShellViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\WeatherViewModel.cs" />
   </ItemGroup>

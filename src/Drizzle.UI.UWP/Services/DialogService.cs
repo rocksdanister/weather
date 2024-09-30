@@ -1,21 +1,14 @@
-﻿using Drizzle.Common.Constants;
-using Drizzle.Common;
-using Drizzle.Common.Services;
-using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.Common.Services;
+using Drizzle.UI.Shared.ViewModels;
+using Drizzle.UI.UWP.Helpers;
 using Drizzle.UI.UWP.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml;
-using System.Diagnostics;
-using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Helpers;
-using Windows.Storage;
 using Windows.ApplicationModel.Resources;
+using Windows.Storage;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Drizzle.UI.UWP.Services;

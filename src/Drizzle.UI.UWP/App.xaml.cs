@@ -4,11 +4,11 @@ using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.Factories;
+using Drizzle.UI.Shared.ViewModels;
 using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Factories;
 using Drizzle.UI.UWP.Helpers;
 using Drizzle.UI.UWP.Services;
-using Drizzle.UI.UWP.ViewModels;
 using Drizzle.UI.UWP.Views;
 using Drizzle.Weather;
 using Microsoft.Extensions.DependencyInjection;
@@ -125,8 +125,8 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(
-                    e.GetRequiredService<IHttpClientFactory>(), 
-                    Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"), 
+                    e.GetRequiredService<IHttpClientFactory>(),
+                    Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"),
                     TimeSpan.FromHours(1)))
                 .AddSingleton<IDepthEstimate, MiDaS>()
                 .AddSingleton<ISoundService, SoundService>()
@@ -142,13 +142,16 @@ namespace Drizzle.UI.UWP
                     e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.QweatherApiKey)
                     ))
                 // Transient
+                .AddTransient<HelpViewModel>()
                 .AddTransient<AboutViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<DepthEstimateViewModel>()
+                .AddTransient<IShaderViewModelFactory, ShaderViewModelFactory>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
                 .AddTransient<IDownloadUtil, HttpDownloadUtil>()
+                .AddTransient<IBrowserUtil, BrowserUtil>()
                 // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()
                 // Remove HttpClientFactory logging

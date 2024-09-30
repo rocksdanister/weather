@@ -1,0 +1,556 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cards="clr-namespace:Drizzle.UI.Avalonia.UserControls.Cards"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:labs="using:Avalonia.Labs.Controls"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:userControls="clr-namespace:Drizzle.UI.Avalonia.UserControls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:ShellViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <!--  This only sets the DataContext for the previewer in an IDE  -->
+        <!--<vm:ShellViewModel />-->
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="Border.CardBorder">
+            <Setter Property="ClipToBounds" Value="True" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+            <Setter Property="BorderThickness" Value="0,1,0,0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowDirectionEffect
+                        BlurRadius="25"
+                        Direction="45"
+                        ShadowDepth="10"
+                        Color="{DynamicResource SystemAltLowColor}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style Selector="Button.CardFlyoutButton">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+        <!--  Not working?  -->
+        <!--<Setter Property="BoxShadow" Value="2.5 2.5 25 0 #33000000" />-->
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
+        <converters:DateTimeToDayNameConverter x:Key="DateTimeToDayNameConverter" />
+        <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <!--  Main Content  -->
+        <Grid
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            IsVisible="{Binding SelectedLocation, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <Grid.RowDefinitions>
+                <!--  Header  -->
+                <RowDefinition Height="150" />
+                <!--  Stack 1 (Main)  -->
+                <RowDefinition Height="Auto" />
+                <!--  Stack 2  -->
+                <RowDefinition Height="Auto" />
+                <!--  Stack 3  -->
+                <RowDefinition Height="Auto" />
+                <!--  Stack 4  -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Weather Header  -->
+            <StackPanel
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                Spacing="2">
+                <StackPanel.Effect>
+                    <DropShadowDirectionEffect
+                        BlurRadius="4"
+                        Direction="330"
+                        ShadowDepth="4"
+                        Color="{DynamicResource SystemAltLowColor}" />
+                </StackPanel.Effect>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="{Binding SelectedLocation.Location.Name}"
+                    TextAlignment="Center" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="34"
+                    TextAlignment="Center">
+                    <Run Text="{Binding SelectedWeather.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                    <Run Text="{Binding SelectedWeather.TemperatureUnit}" />
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Center" Spacing="2">
+                    <TextBlock Text="{Binding SelectedWeather.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" TextAlignment="Center" />
+                    <TextBlock Opacity="0.7" TextAlignment="Center">
+                        <Run Text="{x:Static i18n:Resources.FeelsLikeTemperature_Text}" />
+                        <Run Text="{Binding SelectedWeather.FeelsLike, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                        <Run Text="{Binding SelectedWeather.TemperatureUnit}" />
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <!--  Stack 1  -->
+            <StackPanel
+                Grid.Row="1"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Day selector/Weekly  -->
+                <Border Classes="CardBorder">
+                    <Grid Width="240">
+                        <userControls:BackdropBlurControl />
+                        <ListBox
+                            Padding="0,2,0,2"
+                            ItemsSource="{Binding SelectedLocation.Daily, Mode=OneWay}"
+                            SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid MinHeight="42" ToolTip.Tip="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="25" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="35" />
+                                            <ColumnDefinition Width="25" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding ForecastStartTime, Mode=OneWay, Converter={StaticResource DateTimeToDayConverter}}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding ForecastStartTime, Mode=OneWay, Converter={StaticResource DateTimeToDayNameConverter}, ConverterParameter=Short}" />
+                                        <lottie:Lottie
+                                            Grid.Column="2"
+                                            Width="35"
+                                            Height="35"
+                                            Margin="0,-5,0,0">
+                                            <lottie:Lottie.Path>
+                                                <MultiBinding Converter="{StaticResource WmoWeatherToAnimatedVisualConverter}">
+                                                    <Binding Mode="OneWay" Path="WeatherCode" />
+                                                    <Binding Mode="OneWay" Path="IsDaytime" />
+                                                </MultiBinding>
+                                            </lottie:Lottie.Path>
+                                        </lottie:Lottie>
+                                        <TextBlock
+                                            Grid.Column="3"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding TemperatureMax, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}°'}"
+                                            TextAlignment="Center" />
+                                        <TextBlock
+                                            Grid.Column="4"
+                                            VerticalAlignment="Center"
+                                            Opacity="0.6"
+                                            Text="{Binding TemperatureMin, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}°'}"
+                                            TextAlignment="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Border>
+                <!--  Hourly graph  -->
+                <Border Width="540" Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Bottom">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <lottie:Lottie
+                                            Width="125"
+                                            Height="125"
+                                            Path="/Assets/AnimatedIcons/Missing.json" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <!--  HitTest is because canvas is taking focus from parent control.  -->
+                        <userControls:DailyGraph
+                            Interval="{Binding SelectedWeather.DayGraph.Interval}"
+                            IsHitTestVisible="False"
+                            MaxValue="{Binding SelectedWeather.DayGraph.MaxValue}"
+                            MinValue="{Binding SelectedWeather.DayGraph.MinValue}"
+                            StartTime="{Binding SelectedWeather.DayGraph.StartTime}"
+                            ValueFormat="{Binding SelectedWeather.DayGraph.ValueFormat}"
+                            WeatherCodes="{Binding SelectedWeather.HourlyWeatherCode}"
+                            Value="{Binding SelectedWeather.DayGraph.Value}" />
+                        <ComboBox
+                            MinWidth="150"
+                            Margin="5"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Opacity="0.75"
+                            SelectedIndex="{Binding SelectedMainGraphTypeIndex, Mode=TwoWay}">
+                            <TextBlock>
+                                <Run Text="{x:Static i18n:Resources.TitleTemperature_Text}" />
+                                <Run Text="(" />
+                                <Run Text="{Binding SelectedWeather.TemperatureUnit}" />
+                                <Run Text=")" />
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="{x:Static i18n:Resources.FeelsLikeTemperature_Text}" />
+                                <Run Text="(" />
+                                <Run Text="{Binding SelectedWeather.TemperatureUnit}" />
+                                <Run Text=")" />
+                            </TextBlock>
+                        </ComboBox>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <!--  Stack 2  -->
+            <StackPanel
+                Grid.Row="2"
+                Margin="0,10,0,0"
+                Spacing="10">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <!--  UV  -->
+                    <Border
+                        Width="240"
+                        Height="175"
+                        Classes="CardBorder">
+                        <Grid>
+                            <userControls:BackdropBlurControl />
+                            <Button Classes="CardFlyoutButton">
+                                <Button.Flyout>
+                                    <Flyout Placement="Right">
+                                        <StackPanel Width="400" Spacing="10">
+                                            <userControls:DailyGraph
+                                                Width="400"
+                                                Height="300"
+                                                Gradient1="LightYellow"
+                                                StartTime="{Binding SelectedWeather.ForecastAQStartTime}"
+                                                ValueFormat="{}{0:F0}"
+                                                Value="{Binding SelectedWeather.HourlyUltravioletIndex}" />
+                                            <TextBlock
+                                                FontSize="13"
+                                                Opacity="0.4"
+                                                TextWrapping="Wrap">
+                                                World Health Organization UVI
+                                            </TextBlock>
+                                            <Line
+                                                Stroke="#50ffffff"
+                                                StartPoint="0,0"
+                                                EndPoint="400,0" />
+                                            <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutUVIndex_Text}" />
+                                            <TextBlock Text="{x:Static i18n:Resources.DescAboutUVIndex_Text}" TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                                <cards:UVI HourlyValue="{Binding SelectedWeather.HourlyUltravioletIndex}" Value="{Binding SelectedWeather.UltravioletIndex}" />
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <!--  Sunrise-Sunset  -->
+                    <Border
+                        Width="290"
+                        Height="175"
+                        Classes="CardBorder">
+                        <Grid>
+                            <userControls:BackdropBlurControl />
+                            <Button Classes="CardFlyoutButton">
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <StackPanel Width="400" Spacing="10">
+                                            <lottie:Lottie
+                                                Width="125"
+                                                Height="125"
+                                                Path="/Assets/AnimatedIcons/Missing.json" />
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                            <!--  HitTest is because canvas is taking focus from parent control.  -->
+                            <cards:Sun
+                                IsHitTestVisible="False"
+                                Sunrise="{Binding SelectedWeather.Sunrise}"
+                                Sunset="{Binding SelectedWeather.Sunset}"
+                                TimeZone="{Binding SelectedLocation.TimeZone}" />
+                        </Grid>
+                    </Border>
+                    <!--  Humidity  -->
+                    <Border
+                        Width="240"
+                        Height="175"
+                        Classes="CardBorder">
+                        <Grid>
+                            <userControls:BackdropBlurControl />
+                            <Button Classes="CardFlyoutButton">
+                                <Button.Flyout>
+                                    <Flyout Placement="Left">
+                                        <StackPanel Width="400" Spacing="10">
+                                            <userControls:DailyGraph
+                                                Width="400"
+                                                Height="300"
+                                                Gradient1="LightBlue"
+                                                StartTime="{Binding SelectedWeather.ForecastStartTime}"
+                                                ValueFormat="{}{0}%"
+                                                Value="{Binding SelectedWeather.HourlyHumidity}" />
+                                            <TextBlock
+                                                IsVisible="{Binding SelectedWeather.DewPoint, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                Opacity="0.4"
+                                                TextWrapping="Wrap">
+                                                <Run>The dew point is</Run>
+                                                <Run Text="{Binding SelectedWeather.DewPoint, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                                <Run Text="{Binding SelectedWeather.TemperatureUnit}" />
+                                            </TextBlock>
+                                            <Line
+                                                Stroke="#50ffffff"
+                                                StartPoint="0,0"
+                                                EndPoint="400,0" />
+                                            <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutHumidity_Text}" />
+                                            <TextBlock Text="{x:Static i18n:Resources.DescAboutHumidity_Text}" TextWrapping="Wrap" />
+                                            <Line
+                                                Stroke="#50ffffff"
+                                                StartPoint="0,0"
+                                                EndPoint="400,0" />
+                                            <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutDewPoint_Text}" />
+                                            <TextBlock Text="{x:Static i18n:Resources.DescAboutDewPoint_Text}" TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                                <cards:Humidity Value="{Binding SelectedWeather.Humidity}" />
+                            </Button>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <!--  Stack 3  -->
+            <StackPanel
+                Grid.Row="3"
+                Margin="0,10,0,0"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Wind  -->
+                <Border
+                    Width="240"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Right">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightGray"
+                                            StartTime="{Binding SelectedWeather.ForecastStartTime}"
+                                            ValueFormat="{}{0:F1}"
+                                            Value="{Binding SelectedWeather.HourlyWindSpeed}" />
+                                        <TextBlock Opacity="0.4" TextWrapping="Wrap">
+                                            <Run>The gust speed is</Run>
+                                            <Run Text="{Binding SelectedWeather.GustSpeed, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                            <Run Text="{Binding SelectedWeather.WindSpeedUnit}" />
+                                        </TextBlock>
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutWindSpeed_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutWindSpeed_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <cards:Compass
+                            Direction="{Binding SelectedWeather.WindDirection}"
+                            Unit="{Binding SelectedWeather.WindSpeedUnit}"
+                            Value="{Binding SelectedWeather.WindSpeed}" />
+                    </Grid>
+                </Border>
+                <!--  AQI  -->
+                <Border
+                    Width="290"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Top">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="Gray"
+                                            StartTime="{Binding SelectedWeather.ForecastAQStartTime}"
+                                            Value="{Binding SelectedWeather.HourlyAirQualityIndex}" />
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutAQI_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutAQI_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <cards:AQI HourlyValue="{Binding SelectedWeather.HourlyAirQualityIndex}" Value="{Binding SelectedWeather.AirQualityIndex}" />
+                    </Grid>
+                </Border>
+                <!--  Pressure  -->
+                <Border
+                    Width="240"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Left">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightYellow"
+                                            StartTime="{Binding SelectedWeather.ForecastStartTime}"
+                                            ValueFormat="{}{0:F0}"
+                                            Value="{Binding SelectedWeather.HourlyPressure}" />
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutPressure_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutPressure_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <cards:Pressure Unit="{Binding SelectedWeather.PressureUnit}" Value="{Binding SelectedWeather.Pressure}" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <!--  Stack 5  -->
+            <StackPanel
+                Grid.Row="4"
+                Margin="0,10,0,0"
+                Orientation="Horizontal"
+                Spacing="10">
+                <!--  Visibility  -->
+                <Border
+                    Width="240"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Right">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightYellow"
+                                            StartTime="{Binding SelectedWeather.ForecastStartTime}"
+                                            ValueFormat="{}{0:F1}"
+                                            Value="{Binding SelectedWeather.HourlyVisibility}" />
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutVisibility_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutVisibility_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <cards:Visibility Unit="{Binding SelectedWeather.VisibilityUnit}" Value="{Binding SelectedWeather.Visibility}" />
+                        </Button>
+                    </Grid>
+                </Border>
+                <!--  Clouds  -->
+                <Border
+                    Width="290"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Top">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="Gray"
+                                            StartTime="{Binding SelectedWeather.ForecastAQStartTime}"
+                                            ValueFormat="{}{0}%"
+                                            Value="{Binding SelectedWeather.HourlyCloudCover}" />
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutCloudAmount_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutCloudAmount_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <cards:Clouds Value="{Binding SelectedWeather.CloudCover}" />
+                    </Grid>
+                </Border>
+                <!--  Precipitation  -->
+                <Border
+                    Width="240"
+                    Height="175"
+                    Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button Classes="CardFlyoutButton">
+                            <Button.Flyout>
+                                <Flyout Placement="Left">
+                                    <StackPanel Width="400" Spacing="10">
+                                        <userControls:DailyGraph
+                                            Width="400"
+                                            Height="300"
+                                            Gradient1="LightBlue"
+                                            StartTime="{Binding SelectedWeather.ForecastStartTime}"
+                                            ValueFormat="{}{0:F3}"
+                                            Value="{Binding SelectedWeather.HourlyPrecipitation}" />
+                                        <Line
+                                            Stroke="#50ffffff"
+                                            StartPoint="0,0"
+                                            EndPoint="400,0" />
+                                        <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleAboutPrecipitation_Text}" />
+                                        <TextBlock Text="{x:Static i18n:Resources.DescAboutPrecipitation_Text}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <cards:Precipitation Unit="{Binding SelectedWeather.PrecipitationUnit}" Value="{Binding SelectedWeather.Precipitation}" />
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

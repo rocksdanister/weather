@@ -15,7 +15,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:viewmodels="using:Drizzle.UI.UWP.ViewModels"
+    xmlns:viewmodels="using:Drizzle.UI.Shared.ViewModels"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="mainPage"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
@@ -55,7 +55,7 @@
                 IsPaused="{x:Bind shellVm.IsPausedShader1, Mode=OneWay}"
                 IsVerticalSyncEnabled="True"
                 ResolutionScale="{x:Bind shellVm.ResolutionScaleShader1, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader1.ShaderRunner, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader1.Runner, Mode=OneWay}"
                 Visibility="{x:Bind shellVm.SelectedShader1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
                 <animation:Implicit.ShowAnimations>
                     <animation:OpacityAnimation
@@ -79,7 +79,7 @@
                 IsPaused="{x:Bind shellVm.IsPausedShader2, Mode=OneWay}"
                 IsVerticalSyncEnabled="True"
                 ResolutionScale="{x:Bind shellVm.ResolutionScaleShader2, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader2.ShaderRunner, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader2.Runner, Mode=OneWay}"
                 Visibility="{x:Bind shellVm.SelectedShader2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
                 <animation:Implicit.ShowAnimations>
                     <animation:OpacityAnimation

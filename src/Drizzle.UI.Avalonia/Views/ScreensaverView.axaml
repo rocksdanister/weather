@@ -1,0 +1,558 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.ScreensaverView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="clr-namespace:Drizzle.Models;assembly=Drizzle.Models"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:labs="clr-namespace:Avalonia.Labs.Controls;assembly=Avalonia.Labs.Controls"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:userControls="clr-namespace:Drizzle.UI.Avalonia.UserControls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:ScreensaverViewModel"
+    mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="Border.CardBorder">
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="ClipToBounds" Value="True" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+            <Setter Property="BorderThickness" Value="0,1,0,0" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowDirectionEffect
+                        BlurRadius="4"
+                        Direction="45"
+                        ShadowDepth="4"
+                        Color="{DynamicResource SystemAltLowColor}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style Selector="ListBox.BackgroundListBox ListBoxItem">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="1 2 1 2" />
+            <Style Selector="^:selected /template/ ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+            </Style>
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <!--  Converters  -->
+        <converters:Vector3ToColorConverter x:Key="Vector3ToColorConverter" />
+        <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+        <converters:DateTimeToIsDaytimeConverter x:Key="DateTimeToIsDaytimeConverter" />
+        <!--  ListBox (Background)  -->
+        <DataTemplate x:Key="BackgroundListBoxItemTemplate" x:DataType="data:UserImageModel">
+            <Border
+                Width="80"
+                Height="80"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Border.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuItem
+                            Click="DeleteBackgroundMenuItem_Click"
+                            Header="Delete"
+                            IsEnabled="{Binding IsEditable}" />
+                    </MenuFlyout>
+                </Border.ContextFlyout>
+                <Grid>
+                    <Image asyncImageLoader:ImageLoader.Source="{Binding Image}" Stretch="UniformToFill" />
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="100%,0%" EndPoint="0%,100%">
+                                <GradientStop Offset="0" Color="{DynamicResource SystemAltMediumLowColor}" />
+                                <GradientStop Offset="0.5" Color="#33000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Grid
+                        Margin="2.5"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        IsVisible="{Binding !IsEditable}">
+                        <!--  Moon  -->
+                        <TextBlock
+                            FontFamily="{StaticResource CustomIconFonts}"
+                            FontSize="24"
+                            Foreground="LightGray"
+                            IsVisible="{Binding Time, Mode=OneWay, Converter={StaticResource DateTimeToIsDaytimeConverter}, ConverterParameter=Reverse}"
+                            Text="&#xE90E;" />
+                        <!--  Sun  -->
+                        <TextBlock
+                            FontFamily="{StaticResource CustomIconFonts}"
+                            FontSize="24"
+                            Foreground="Yellow"
+                            IsVisible="{Binding Time, Mode=OneWay, Converter={StaticResource DateTimeToIsDaytimeConverter}}"
+                            Text="&#xE904;" />
+                    </Grid>
+                    <!--  Custom  -->
+                    <TextBlock
+                        Margin="2.5"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        FontFamily="{StaticResource CustomIconFonts}"
+                        FontSize="24"
+                        Foreground="{DynamicResource AccentFillColorDefaultBrush}"
+                        IsVisible="{Binding IsEditable}"
+                        Text="&#xE90F;" />
+                    <!--  Not working ?!  -->
+                    <!--<Button
+                        Width="55"
+                        Height="25"
+                        Margin="0,0,0,-2.5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Background="Red"
+                        Command="{Binding DataContext.DeleteBackgroundCommand, ElementName=rootPage}"
+                        CommandParameter="{Binding}"
+                        CornerRadius="0">
+                        <FontIcon FontSize="6" Glyph="&#xE8BB;" />
+                    </Button>-->
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="BackgroundListBoxItemPanelTemplate">
+            <WrapPanel MaxWidth="400" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <!--  ListBox (Weather)  -->
+        <DataTemplate x:Key="WeatherListBoxItemTemplate" x:DataType="data:ScreensaverModel">
+            <Border
+                Width="100"
+                Height="100"
+                ClipToBounds="True"
+                CornerRadius="5">
+                <Grid Background="{StaticResource SystemAltLowColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <lottie:Lottie
+                        Grid.Row="0"
+                        Width="55"
+                        Height="55">
+                        <lottie:Lottie.Path>
+                            <MultiBinding Converter="{StaticResource WmoWeatherToAnimatedVisualConverter}">
+                                <Binding Mode="OneWay" Path="WeatherCode" />
+                                <Binding Mode="OneWay" Path="IsDaytime" />
+                            </MultiBinding>
+                        </lottie:Lottie.Path>
+                    </lottie:Lottie>
+                    <Border
+                        Grid.Row="1"
+                        Padding="5"
+                        Background="{StaticResource SystemAltMediumLowColor}">
+                        <TextBlock
+                            FontSize="12"
+                            Text="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}"
+                            TextWrapping="Wrap" />
+                    </Border>
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="WeatherListBoxItemPanelTemplate">
+            <WrapPanel Width="650" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="InputPanel" Margin="25,0,25,0">
+            <!--  Back  -->
+            <Border
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Classes="CardBorder">
+                <Grid>
+                    <userControls:BackdropBlurControl />
+                    <Button Command="{Binding GoBackCommand}" IsVisible="{Binding !IsFullScreen}">
+                        <ui:SymbolIcon FontSize="18" Symbol="Back" />
+                    </Button>
+                </Grid>
+            </Border>
+
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Spacing="5">
+                <!--  Fullscreen  -->
+                <Border Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Grid>
+                            <Button Command="{Binding FullScreenCommand}" IsVisible="{Binding !IsFullScreen, Mode=OneWay}">
+                                <ui:SymbolIcon FontSize="18" Symbol="FullScreen" />
+                            </Button>
+                            <Button Command="{Binding FullScreenCommand}" IsVisible="{Binding IsFullScreen, Mode=OneWay}">
+                                <ui:SymbolIcon FontSize="18" Symbol="BackToWindow" />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <!--  Customise  -->
+                <Border Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button>
+                            <Button.Flyout>
+                                <Flyout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <!--  Snow  -->
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            IsVisible="{Binding IsSnowPropertyVisible}"
+                                            Spacing="10">
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.Depth}">
+                                                <TextBlock Text="{x:Static i18n:Resources.SnowDepth_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.SnowProperty.Depth, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.Layers}">
+                                                <TextBlock Text="{x:Static i18n:Resources.SnowLayers_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    Maximum="200"
+                                                    Minimum="0"
+                                                    Value="{Binding ShellVm.SnowProperty.Layers, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.Width}">
+                                                <TextBlock Text="{x:Static i18n:Resources.SnowWidth_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.SnowProperty.Width, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.Speed}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderSpeed_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.SnowProperty.Speed, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.PostProcessing}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderPostProcessing_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.SnowProperty.PostProcessing, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <Button Content="{x:Static i18n:Resources.ChangeBackground_Content}">
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="4">
+                                                            <ListBox
+                                                                Classes="BackgroundListBox"
+                                                                ItemTemplate="{StaticResource BackgroundListBoxItemTemplate}"
+                                                                ItemsPanel="{StaticResource BackgroundListBoxItemPanelTemplate}"
+                                                                ItemsSource="{Binding SnowBackgrounds}"
+                                                                SelectedItem="{Binding SelectedSnowBackground, Mode=TwoWay}" />
+                                                            <Button Command="{Binding ChangeBackgroundCommand}" Content="{x:Static i18n:Resources.BrowseFile_Content}" />
+                                                            <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                            <CheckBox Content="{x:Static i18n:Resources.RainLightning_Content}" IsChecked="{Binding ShellVm.SnowProperty.IsLightning, Mode=TwoWay}" />
+                                            <CheckBox Content="{x:Static i18n:Resources.ShaderFreezing_Content}" IsChecked="{Binding ShellVm.SnowProperty.IsBlur, Mode=TwoWay}" />
+                                        </StackPanel>
+                                        <!--  Rain  -->
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            IsVisible="{Binding IsRainPropertyVisible}"
+                                            Spacing="10">
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.Intensity}">
+                                                <TextBlock Text="{x:Static i18n:Resources.RainIntensity_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.RainProperty.Intensity, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.Normal}">
+                                                <TextBlock Text="{x:Static i18n:Resources.RainNormal_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="3"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.RainProperty.Normal, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.Zoom}">
+                                                <TextBlock Text="{x:Static i18n:Resources.RainZoom_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="3"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.RainProperty.Zoom, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.Speed}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderSpeed_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="5"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.RainProperty.Speed, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.PostProcessing}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderPostProcessing_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.RainProperty.PostProcessing, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <Button Content="{x:Static i18n:Resources.ChangeBackground_Content}">
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="4">
+                                                            <ListBox
+                                                                Classes="BackgroundListBox"
+                                                                ItemTemplate="{StaticResource BackgroundListBoxItemTemplate}"
+                                                                ItemsPanel="{StaticResource BackgroundListBoxItemPanelTemplate}"
+                                                                ItemsSource="{Binding RainBackgrounds}"
+                                                                SelectedItem="{Binding SelectedRainBackground, Mode=TwoWay}" />
+                                                            <Button Command="{Binding ChangeBackgroundCommand}" Content="{x:Static i18n:Resources.BrowseFile_Content}" />
+                                                            <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                            <CheckBox Content="{x:Static i18n:Resources.ShaderFreezing_Content}" IsChecked="{Binding ShellVm.RainProperty.IsFreezing, Mode=TwoWay}" />
+                                            <CheckBox Content="{x:Static i18n:Resources.RainPanning_Content}" IsChecked="{Binding ShellVm.RainProperty.IsPanning, Mode=TwoWay}" />
+                                            <CheckBox Content="{x:Static i18n:Resources.RainLightning_Content}" IsChecked="{Binding ShellVm.RainProperty.IsLightning, Mode=TwoWay}" />
+                                        </StackPanel>
+                                        <!--  Depth  -->
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            IsVisible="{Binding IsDepthPropertyVisible}"
+                                            Spacing="10">
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.DepthProperty.IntensityX}">
+                                                <TextBlock Text="{x:Static i18n:Resources.DepthHorizontal_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.DepthProperty.IntensityX, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.DepthProperty.IntensityY}">
+                                                <TextBlock Text="{x:Static i18n:Resources.DepthVertical_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.DepthProperty.IntensityY, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <Button Content="{x:Static i18n:Resources.ChangeBackground_Content}">
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="4">
+                                                            <ListBox
+                                                                Classes="BackgroundListBox"
+                                                                ItemTemplate="{StaticResource BackgroundListBoxItemTemplate}"
+                                                                ItemsPanel="{StaticResource BackgroundListBoxItemPanelTemplate}"
+                                                                ItemsSource="{Binding DepthBackgrounds}"
+                                                                SelectedItem="{Binding SelectedDepthBackground, Mode=TwoWay}" />
+                                                            <Button Command="{Binding ChangeBackgroundCommand}" Content="{x:Static i18n:Resources.BrowseFile_Content}" />
+                                                            <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                            <CheckBox Content="{x:Static i18n:Resources.ShaderBlur_Content}" IsChecked="{Binding ShellVm.DepthProperty.IsBlur, Mode=TwoWay}" />
+                                        </StackPanel>
+                                        <!--  Fog  -->
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            IsVisible="{Binding IsFogPropertyVisible}"
+                                            Spacing="10">
+                                            <StackPanel Spacing="10">
+                                                <TextBlock Text="{x:Static i18n:Resources.FogColorGradient_Text}" />
+                                                <ColorPicker HorizontalAlignment="Left" Color="{Binding ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
+                                                <ColorPicker HorizontalAlignment="Left" Color="{Binding ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.FogProperty.Amplitude}">
+                                                <TextBlock Text="{x:Static i18n:Resources.FogAmplitude_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.FogProperty.Amplitude, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.FogProperty.Speed}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderSpeed_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="{Binding ShellVm.FogProperty.MaxSpeed}"
+                                                    Minimum="{Binding ShellVm.FogProperty.MinSpeed}"
+                                                    TickFrequency="0.1"
+                                                    Value="{Binding ShellVm.FogProperty.Speed, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.FogProperty.ParallaxIntensityX}">
+                                                <TextBlock Text="{x:Static i18n:Resources.DepthHorizontal_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.FogProperty.ParallaxIntensityX, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.FogProperty.ParallaxIntensityY}">
+                                                <TextBlock Text="{x:Static i18n:Resources.DepthVertical_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.FogProperty.ParallaxIntensityY, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <Button Content="{x:Static i18n:Resources.ChangeBackground_Content}">
+                                                <Button.Flyout>
+                                                    <Flyout>
+                                                        <StackPanel Spacing="4">
+                                                            <ListBox
+                                                                Classes="BackgroundListBox"
+                                                                ItemTemplate="{StaticResource BackgroundListBoxItemTemplate}"
+                                                                ItemsPanel="{StaticResource BackgroundListBoxItemPanelTemplate}"
+                                                                ItemsSource="{Binding DepthBackgrounds}"
+                                                                SelectedItem="{Binding SelectedFogBackground, Mode=TwoWay}" />
+                                                            <Button Command="{Binding ChangeBackgroundCommand}" Content="{x:Static i18n:Resources.BrowseFile_Content}" />
+                                                            <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
+                                                        </StackPanel>
+                                                    </Flyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                        </StackPanel>
+                                        <!--  Clouds  -->
+                                        <StackPanel
+                                            Grid.Row="0"
+                                            IsVisible="{Binding IsCloudsPropertyVisible}"
+                                            Spacing="10">
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.CloudsProperty.Scale}">
+                                                <TextBlock Text="{x:Static i18n:Resources.CloudScale_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="2"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.CloudsProperty.Scale, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.CloudsProperty.Iterations}">
+                                                <TextBlock Text="{x:Static i18n:Resources.CloudIterations_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    Value="{Binding ShellVm.CloudsProperty.Iterations, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <StackPanel ToolTip.Tip="{Binding ShellVm.CloudsProperty.Speed}">
+                                                <TextBlock Text="{x:Static i18n:Resources.ShaderSpeed_Header}" />
+                                                <Slider
+                                                    Width="250"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="5"
+                                                    Minimum="0"
+                                                    TickFrequency="0.01"
+                                                    Value="{Binding ShellVm.CloudsProperty.Speed, Mode=TwoWay}" />
+                                            </StackPanel>
+                                            <CheckBox Content="{x:Static i18n:Resources.CloudDayNightShift_Content}" IsChecked="{Binding ShellVm.CloudsProperty.IsDayNightShift, Mode=TwoWay}" />
+                                        </StackPanel>
+                                        <!--  Restore default  -->
+                                        <Button
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Right"
+                                            Command="{Binding RestoreCommand}">
+                                            <ui:SymbolIcon FontSize="18" Symbol="Refresh" />
+                                        </Button>
+                                    </Grid>
+                                </Flyout>
+                            </Button.Flyout>
+                            <ui:SymbolIcon FontSize="18" Symbol="ImageEdit" />
+                        </Button>
+                    </Grid>
+                </Border>
+                <!--  Settings  -->
+                <Border Classes="CardBorder">
+                    <Grid>
+                        <userControls:BackdropBlurControl />
+                        <Button>
+                            <Button.Styles>
+                                <Style Selector="FlyoutPresenter">
+                                    <Setter Property="MaxWidth" Value="675" />
+                                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+                                </Style>
+                            </Button.Styles>
+                            <Button.Flyout>
+                                <Flyout Flyout.FlyoutPresenterClasses="wider">
+                                    <StackPanel HorizontalAlignment="Center" Spacing="4">
+                                        <ListBox
+                                            Classes="BackgroundListBox"
+                                            ItemTemplate="{StaticResource WeatherListBoxItemTemplate}"
+                                            ItemsPanel="{StaticResource WeatherListBoxItemPanelTemplate}"
+                                            ItemsSource="{Binding Weathers}"
+                                            SelectedItem="{Binding SelectedWeather, Mode=TwoWay}">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Width="650" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                        </ListBox>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                            <ui:SymbolIcon FontSize="18" Symbol="Settings" />
+                        </Button>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

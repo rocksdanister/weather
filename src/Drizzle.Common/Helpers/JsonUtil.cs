@@ -21,6 +21,16 @@ namespace Drizzle.Common.Helpers
             return tmp != null ? tmp : throw new InvalidOperationException("json null/corrupt");
         }
 
+        public static T Load<T>(Stream stream)
+        {
+            using var reader = new StreamReader(stream);
+            using var jsonReader = new JsonTextReader(reader);
+            var serializer = new JsonSerializer();
+            var tmp = serializer.Deserialize<T>(jsonReader);
+
+            return tmp != null ? tmp : throw new InvalidOperationException("json null/corrupt");
+        }
+
         public static void Save<T>(string filePath, T data)
         {
             JsonSerializer serializer = new JsonSerializer

@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>안녕하세요, 저는 Rocksdanister라고 알려진 Dani John입니다. 나는 이런 재미있는 소프트웨어를 만듭니다. 시간을 내어 내 작품을 봐주셔서 감사합니다.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>좋음</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>중재</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>민감한 그룹에 좋지 않음</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>해로움</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>건강에 매우 나쁨</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>해로운</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>가만히 있을 때 자동으로 메뉴 숨기기</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>도움말</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>장소 찾기</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>타사 소프트웨어 고지</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>배경 밝기 조절</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>밝기</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>찾아보기</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>배경</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>업데이트 확인</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>낮/밤</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>상세 표현 정도</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>스케일</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>기능을 제안하거나 오류신고</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>문의하기</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>날씨 효과에 사용자가 선택한 이미지 포함</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>맞춤 배경</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>수평</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>수직</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>AQI는 가장 흔한 5가지 대기 오염물질이 건강에 미치는 영향에 대한 정보를 제공하도록 설계되었습니다. 0에서 500까지의 척도이며, 값이 높을수록 대기 오염이 심하고 건강 위험이 더 크다는 것을 나타냅니다.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>이슬점 온도는 공기 중의 수증기 양을 절대적으로 측정한 것입니다. 이슬점 온도와 기온이 같을 때 상대습도는 100%입니다. 이 시점에서 공기는 수증기로 완전히 포화되어 이슬, 안개 또는 구름 형태의 응결이 발생합니다.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>상대습도는 해당 온도에서 공기가 보유할 수 있는 최대 수증기량과 비교하여 공기 중에 존재하는 수증기량을 측정한 것입니다. 이는 백분율로 표시되며 공기가 포화 상태에 얼마나 가까운지에 대한 정보를 제공합니다.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>대기압이라고도 알려진 기압은 특정 지역의 기압을 측정한 것입니다.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>세계보건기구의 UVI (자외선 지수) 는 일광화상을 유발하는 자외선의 강도를 측정합니다. 이는 0에서 11+ 범위의 선형 척도로, 값이 높을수록 자외선에 노출될 위험이 더 높고 일광화상 및 궁극적으로 피부암으로 이어질 수 있는 피부 손상 가능성이 높다는 것을 나타냅니다.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>풍속은 공기가 특정 지점을 지나 수평으로 이동하는 속도입니다. 일반적으로 온도 변화로 인해 공기가 고압에서 저압으로 이동하면서 발생하는 기본 대기량입니다. 돌풍은 평균 풍속보다 풍속이 갑자기 증가하는 현상입니다. 일반적으로 지속 시간은 20초 미만입니다.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>대략적인 깊이</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>귀하의 그래픽 프로세서(GPU) 가 요구되는 DX12 기능을 지원하지 못합니다. 일부 기능이 활성화되지 않았습니다</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>이 기능을 사용하려면 추가 파일을 다운로드해야 합니다</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>새로운 기능을 확인해보세요</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>체감 온도</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>안개 농도</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>색 그라데이션</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>애니메이션 초당 프레임</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>프레임</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>이 프로그램을 다른 언어로 번역하여 기여해 주세요.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>번역 참여하기</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>언어를 변경하려면, 앱을 재시작해야합니다.</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>언어</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>번역을 도와주십시오!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>시스템 기본 설정과 동일</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>자세히 알아보기</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>저장된 위치</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>로그 열기</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>백그라운드로 전환 시 오디오 일시 중지</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>백그라운드로 전환 시 배경화면 일시 중지</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>데이터 수집 정책</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>동적</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>성능</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>초저사양</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>품질</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>렌더 품질 프리셋</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>품질</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>강도</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>번개</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>보통</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>확대 및 축소 효과</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>확대/축소</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>애니메이션 감소</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>최근 업데이트</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>새로고침</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>기본값 복구</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>화면 보호기</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>흐림 효과</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>동결</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>포스트 프로세싱</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>속도</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>깊이</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>레이저 중첩 정도</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>폭</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>소프트웨어 라이센스</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>소리</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>별을 눌러 사랑을 보여주세요</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>소스 코드</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>계속</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>AI 깊이 계산</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>위치 서비스 엑세스가 거부되었습니다. 시스템 설정을 확인해주세요</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>위치 서비스 엑세스가 거부되었습니다. 시스템 설정을 확인해주세요</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>도움말</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>확인</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>설정</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>선택된 날씨 제공 서비스의 API 키를 찾을 수 없습니다. 설정이 초기화되었습니다.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>자동</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>어둡게</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>밝게</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>애플리케이션 색상 변경</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>테마</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>대기환경지수 (AQI) 란?</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>이슬점이란?</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>상대 습도란?</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>기압이란?</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>자외선 지수에 대해</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>풍속과 돌풍에 대하여</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>접근성</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>시작하기 위해 위치를 추가해주세요</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>대기질</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>후원자</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>다운로드 필요</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>데이터를 가져오는 중입니다. 잠시만 기다려주세요</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>일반</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>안녕하세요</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>습도</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>성능</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>기압</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>속도</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>태양 고도</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>일출</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>일몰</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>온도</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>업데이트 완료</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>자외선 지수</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>주의</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>날씨</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>바람</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>좋음</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>높음</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>매우 높음</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API 키</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>API 키를 입력해주세요</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>날씨 데이터 소스</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>공급처</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>사용자 정의</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>혼합</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>야드/파운드법</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>미터법</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>측량 공유</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>단위</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>공식 웹페이지</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>웹사이트</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>내 날씨 앱에 오신 것을 환영합니다! 이 앱은 아직 베타 버전이므로 일부 기능이 예상대로 작동하지 않을 수 있습니다. 앱을 개선하고 더 좋게 만들기 위해 열심히 노력하고 있습니다. 이해와 인내심에 감사드립니다.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>맑음</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>대체로 맑음</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>안개</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>약간 흐림</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>흐림</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>안개</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>서리 안개</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>안개</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>가벼운 이슬</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>적당한 이슬비</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>짙은 이슬비</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>약한 우빙</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>약한 우빙</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>황사</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>약한 비</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>보통 비</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>폭우</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>약한 우빙</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>강한 우빙</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>약한 눈</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>중간 정도의 눈</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>폭설</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>싸락눈</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>약한 소낙눈</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>일반 소나기</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>격렬한 소나기</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>약한 소낙눈</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>폭설</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>폭풍우</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>뇌우와 약한 우박</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>뇌우와 강한 우박</value>
+  </data>
+</root>

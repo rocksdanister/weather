@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Hai, saya Dani John juga dikenali sebagai rocksdanister. Saya mencipta perisian yang menarik seperti ini. Terima kasih kerana mengambil masa menilai dan melihat hasil kerja saya.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Bagus</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Sederhana</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Tidak sihat bagi golongan sensitif</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Tidak sihat</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Sangat tidak sihat</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Berbahaya</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Sorokkan menu apabila tidak aktif</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Tentang Lively</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Bantuan</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Tetapan</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Cari lokasi</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Notis perisian parti ketiga</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Ubahsuai kecerahan latarbelakang</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Kecerahan</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Layari</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Latar belakang</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Semak kemaskini</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Siang/Malam</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iterasi</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Skala</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Cadangkan fitur atau laporkan masalah</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Hubungi</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Gunakan gambar pilihan pengguna pada efek cuaca</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Latar Belakang Tersuai</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Melintang</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Menegak</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>Indeks Kualiti Udara dicipta bagi memaparkan maklumat mengenai efek kesihatan bagi lima pencemaran udara yang kerap berlaku pada skala 0 hingga 500. Nilai yang lebih tinggi menandakan tahap pencemaran udara yang lebih serius.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>Titik cuaca embun ialah suatu sukatan komposisi wap air di dalam udara. Apabila titik cuaca embun dan cuaca udara adalah sama, kelembapan relatif ialah 100%. Pada tahap ini, udara mengandungi wap air sepenuhnya, menyebabkan kondensasi berlaku dalam bentuk embun, kabus atau awanan.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Kelembapan relatif ialah suatu ukuran wap air yang hadir di dalam udara berbanding kadar maksimum yang mampu disimpan pada suatu suhu. Ianya ditakrifkan sebagai suatu peratusan dan menandakan berapa hampir untuk udara disaturasikan.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Tekanan barometik, juga dikenali sebagai tekanan atmosferik, ialah suatu sukatan tekanan udara di sesuatu kawasan.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>Indeks UV oleh Organisasi Kesihatan Dunia (WHO) merupakan ukuran intensiti matahari menghasilkan sinaran ultraungu sebagai skala linear dalam lingkungan 0 hingga 11+. Ukuran lebih tinggi menandakan lebih tinggi risiko pendedahan terhadap sinaran ultraungu dan kebarangkalian kerosakan kulit yang boleh menyebabkan kanser kulit.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>Kelajuan udara ialah kadar pergerakan udara secara melintang pada suatu titik yang diberi. Merupakan asas kuantiti atmosferik yang disebabkan oleh udara bergerak dari tekanan tinggi ke rendah, biasanya disebabkan oleh perubahan cuaca.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Menilai kedalaman..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>Unit pemprosesan grafik (GPU) anda tidak menyokong fitur DX12 yang diperlukan. Fitur tertentu telah dinyahaktifkan.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Terdapat fail tambahan yang perlu dimuat turun bagi fitur ini</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Tengok ciri-ciri terbaharu</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Terasa seperti</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplitud</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Kecerunan warna</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Kadar FPS animasi</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Ralat</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Bantu terjemah aplikasi ini ke bahasa lain.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Bantu Menterjemah</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>Aplikasi perlu dilancarkan semula apabila memilih bahasa yang lain</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Bantu menterjemah!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Sama seperti Windows</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Ketahui lebih lanjut</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Lokasi dipin</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Buka log</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pause audio when application not foreground</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Jeda jika aplikasi tidak difokuskan</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Dasar Pengumpulan Data</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dinamik</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Prestasi</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Kentang</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Kualiti</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Preset render kualiti visual</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Kualiti</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intensiti</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Pengcahayaan</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Biasa</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Penataan</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Zum</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Kurang animasi</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Kemas kini terakhir</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Muat semula</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Kembalikan asal</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Screensaver</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Tetapan</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Pengaburan</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Pembekuan</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Pasca-pemprosesan</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Kelajuan</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Kedalaman</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Lapisan</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Lebar</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Lesen perisian</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Bunyi</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Letakkan bintang di Lively jika anda menyukai program ini</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Kod Sumber</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Tentang Lively</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Teruskan</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>Penganggaran Kedalaman AI</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Access to location is denied, check Windows settings.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Access to location is unspecified, check Windows settings.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Bantuan</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Tetapan</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automatik</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Gelap</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Cerah</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Tukar warna aplikasi</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>Mengenai Indeks Kualiti Udara (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>About Cloud Amount</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>Mengenai titik embun</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>Mengenai kelembapan relatif</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>About Precipitation</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>Mengenai tekanan</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Mengenai Indeks UV</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>About Visibility</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>Mengenai kelajuan angin</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Kebolehcapaian</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Tambah lokasi untuk mula.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Kualiti udara</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Cloud Amount</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Penyumbang</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Muat turun</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Muat turun diperlukan</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Memuatkan data, sila tunggu.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Helo</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Kelembapan</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Prestasi</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Tekanan</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Matahari</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Fajar</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Matahari terbenam</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Kemas kini selesai</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>Indeks UV</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Amaran</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Cuaca</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Angin</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Bagus</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Tinggi</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Sangat Tinggi</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Enter the required API key</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Sumber data cuaca</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Penyedia</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hibrid</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperial</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrik</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Tunjukkan ukuran sebagai</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Laman web rasmi</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Laman web</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Selamat datang ke app cuaca saya! Aplikasi ini masih dalam pembangunan dan mungkin tidak berfungsi seperti yang dijangkakan. Saya sedang bekerja keras untuk memperbaiki aplikasi ini. Terima kasih kerana memahami dan bersabar.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Langit cerah</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Sebahagian Besar Cerah</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Mist</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Sebahagian mendung</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Mendung</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Kabus</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Kabus depositing</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Haze</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Gerimis rendah</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Gerimis sederhana</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Gerimis lebat</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Gerimis Sejuk Ringan</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Gerimis Sejuk Lebat</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dust</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Hujan renyai</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Hujan sederhana</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Hujan lebat</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Hujan sejuk renyai</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Hujan sejuk lebat</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Salji ringan</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Salju sederhana</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Salji lebat</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Butiran Salji</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Hujan ringan</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Hujan sederhana</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Hujan sangat lebat</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Hujan salji ringan</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Hujan salji lebat</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Ribut petir</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Ribut petir dan hujan</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Ribut petir dan hujan lebat</value>
+  </data>
+</root>

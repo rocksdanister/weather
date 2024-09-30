@@ -1,0 +1,325 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:SettingsViewModel"
+    mc:Ignorable="d">
+    <Grid Margin="0,0,5,0">
+        <ScrollViewer>
+            <StackPanel Spacing="3">
+                <!--  General  -->
+                <TextBlock
+                    Margin="1,0,0,5"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitleGeneral_Text}" />
+                <ui:SettingsExpander Description="{x:Static i18n:Resources.LanguageSettings_Description}" Header="{x:Static i18n:Resources.LanguageSettings_Header}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF4F3;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <StackPanel
+                            Margin="-150,75,0,0"
+                            Orientation="Horizontal"
+                            Spacing="2.5">
+                            <HyperlinkButton Content="{x:Static i18n:Resources.LanguageSettingsHelpTranslate_Content}" NavigateUri="https://crwd.in/lively-weather" />
+                            <ComboBox
+                                MinWidth="165"
+                                IsEnabled="False"
+                                SelectedIndex="0">
+                                <ComboBoxItem Content="{x:Static i18n:Resources.LanguageSettingsItemSystemDefault_Content}" />
+                            </ComboBox>
+                        </StackPanel>
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+
+                <ui:SettingsExpander
+                    ActionIconSource="ChevronRight"
+                    Command="{Binding OpenLogsCommand}"
+                    Header="{x:Static i18n:Resources.OpenLogs_Header}"
+                    IconSource="Document"
+                    IsClickEnabled="True" />
+
+                <!--  Weather  -->
+                <TextBlock
+                    Margin="1,0,0,5"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitleWeather_Text}" />
+                <ui:SettingsExpander
+                    Description="{x:Static i18n:Resources.WeatherProviderSettings_Description}"
+                    Header="{x:Static i18n:Resources.WeatherProviderSettings_Header}"
+                    IsExpanded="{Binding IsApiKeyRequired, Mode=OneWay}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90C;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <ComboBox MinWidth="165" SelectedIndex="{Binding SelectedWeatherProviderIndex, Mode=TwoWay}">
+                            <ComboBoxItem>Open-Meteo</ComboBoxItem>
+                            <ComboBoxItem>OpenWeatherMap</ComboBoxItem>
+                            <ComboBoxItem>Qweather(CN)</ComboBoxItem>
+                        </ComboBox>
+                    </ui:SettingsExpander.Footer>
+                    <ui:SettingsExpanderItem Description="{x:Static i18n:Resources.WeatherProviderKeySettings_Header}" IsEnabled="{Binding IsApiKeyRequired, Mode=OneWay}">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xE740;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <StackPanel
+                                Background="Transparent"
+                                Orientation="Horizontal"
+                                Spacing="5">
+                                <HyperlinkButton Grid.Column="1" NavigateUri="https://github.com/rocksdanister/weather/wiki/Weather-Sources" />
+                                <TextBox
+                                    Grid.Column="0"
+                                    MinWidth="225"
+                                    MaxWidth="225"
+                                    Text="{Binding SelectedApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Watermark="{x:Static i18n:Resources.WeatherProviderKeySettingsTextbox_PlaceholderText}" />
+                            </StackPanel>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+                </ui:SettingsExpander>
+
+                <ui:SettingsExpander
+                    x:Name="WeatherUnitControl"
+                    Description="{x:Static i18n:Resources.WeatherUnitSettings_Description}"
+                    Header="{x:Static i18n:Resources.WeatherUnitSettings_Header}"
+                    IsExpanded="False">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF67C;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <ComboBox MinWidth="165" SelectedIndex="{Binding SelectedWeatherUnitIndex, Mode=TwoWay}">
+                            <ComboBoxItem Content="{x:Static i18n:Resources.WeatherUnitMetric_Content}" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.WeatherUnitImperial_Content}" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.WeatherUnitHybrid_Content}" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.WeatherUnitCustom_Content}" />
+                        </ComboBox>
+                    </ui:SettingsExpander.Footer>
+                    <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitleTemperature_Text}">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xECA1;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <Border
+                                BorderBrush="#11F2F2F2"
+                                BorderThickness="1"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                                <ListBox
+                                    Padding="-2.5"
+                                    Background="{DynamicResource SystemAltLowColor}"
+                                    IsEnabled="{Binding !IsPresetUnit}"
+                                    SelectedIndex="{Binding SelectedTemperatureUnitIndex, Mode=TwoWay}">
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Padding" Value="0" />
+                                        </Style>
+                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                    <TextBlock HorizontalAlignment="Center">°C</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">°F</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Border>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+
+                    <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitleSpeed_Text}">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF831;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <Border
+                                BorderBrush="#11F2F2F2"
+                                BorderThickness="1"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                                <ListBox
+                                    Padding="-2.5"
+                                    Background="{DynamicResource SystemAltLowColor}"
+                                    IsEnabled="{Binding !IsPresetUnit}"
+                                    SelectedIndex="{Binding SelectedWindSpeedUnitIndex, Mode=TwoWay}">
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Padding" Value="0" />
+                                        </Style>
+                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                    <TextBlock HorizontalAlignment="Center">km/h</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">mph</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">m/s</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Border>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+
+                    <ui:SettingsExpanderItem Content="Distance">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0578;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <Border
+                                BorderBrush="#11F2F2F2"
+                                BorderThickness="1"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                                <ListBox
+                                    Padding="-2.5"
+                                    Background="{DynamicResource SystemAltLowColor}"
+                                    IsEnabled="{Binding !IsPresetUnit}"
+                                    SelectedIndex="{Binding SelectedVisibilityUnitIndex, Mode=TwoWay}">
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Padding" Value="0" />
+                                        </Style>
+                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                    <TextBlock HorizontalAlignment="Center">km</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">mi</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Border>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+
+                    <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitlePrecipitation_Text}">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF062;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <Border
+                                BorderBrush="#11F2F2F2"
+                                BorderThickness="1"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                                <ListBox
+                                    Padding="-2.5"
+                                    Background="{DynamicResource SystemAltLowColor}"
+                                    IsEnabled="{Binding !IsPresetUnit}"
+                                    SelectedIndex="{Binding SelectedPrecipitationUnitIndex, Mode=TwoWay}">
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="Padding" Value="0" />
+                                        </Style>
+                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                    <TextBlock HorizontalAlignment="Center">mm</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">inch</TextBlock>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                            </Border>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+                </ui:SettingsExpander>
+
+                <!--  Performance  -->
+                <TextBlock
+                    Margin="1,0,0,5"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitlePerformance_Text}" />
+                <ui:SettingsExpander
+                    Description="{x:Static i18n:Resources.QualitySettings_Description}"
+                    Header="{x:Static i18n:Resources.QualitySettings_Header}"
+                    IsEnabled="{Binding ShellVm.IsHardwareAccelerated, Mode=OneTime}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0039;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <ComboBox MinWidth="165" SelectedIndex="2">
+                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityPotato_Content}" IsEnabled="False" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityPerformance_Content}" IsEnabled="False" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityQuality_Content}" />
+                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityDynamic_Content}" IsEnabled="False" />
+                        </ComboBox>
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+
+                <ui:SettingsExpander Header="{x:Static i18n:Resources.PauseIfBackgroundSettings_Header}" IsEnabled="{Binding !ShellVm.IsFallbackBackground}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF5A1;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <CheckBox IsChecked="{Binding BackgroundPause, Mode=TwoWay}" />
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+
+                <ui:SettingsExpander Header="{x:Static i18n:Resources.PauseIfBackgroundAudioSettings_Header}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xE854;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <CheckBox IsChecked="{Binding BackgroundPauseAudio, Mode=TwoWay}" />
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+
+                <!--  Accessibility  -->
+                <TextBlock
+                    Margin="1,0,0,5"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitleAccessibility_Text}" />
+                <ui:SettingsExpander
+                    Description="{x:Static i18n:Resources.BackgroundBrightnessSettings_Description}"
+                    Header="{x:Static i18n:Resources.BackgroundBrightnessSettings_Header}"
+                    IconSource="WeatherSunny"
+                    IsEnabled="{Binding !ShellVm.IsFallbackBackground}">
+                    <!--<ui:SettingsCard.HeaderIcon>
+                  <FontIcon Glyph="&#xE706;" />
+                </ui:SettingsCard.HeaderIcon>-->
+                    <ui:SettingsExpander.Footer>
+                        <Slider
+                            MinWidth="200"
+                            Maximum="1"
+                            Minimum="0.5"
+                            TickFrequency="0.05"
+                            Value="{Binding BackgroundBrightness, Mode=TwoWay}" />
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+
+                <ui:SettingsExpander Header="{x:Static i18n:Resources.ReduceMotionSettings_Header}" IsEnabled="{Binding !ShellVm.IsFallbackBackground}">
+                    <ui:SettingsExpander.IconSource>
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0649;" />
+                    </ui:SettingsExpander.IconSource>
+                    <ui:SettingsExpander.Footer>
+                        <CheckBox IsChecked="{Binding ReducedMotion, Mode=TwoWay}" />
+                    </ui:SettingsExpander.Footer>
+                </ui:SettingsExpander>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
