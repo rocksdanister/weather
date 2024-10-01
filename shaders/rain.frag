@@ -96,7 +96,9 @@ float StaticDrops(vec2 uv, float t) {
 
     vec2 id = floor(uv);
     uv = fract(uv) - .5;
-    vec3 n = N13(id.x * 107.45 + id.y * 3543.654);
+    //vec3 n = N13(id.x * 107.45 + id.y * 3543.654);
+    // Mac M1 blackdot fix.
+    vec3 n = N14(id.x * 10. + id.y).xyz;
     vec2 p = (n.xy - .5) * .7;
     float d = length(uv - p);
 
