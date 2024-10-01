@@ -147,7 +147,7 @@
             x:Name="SearchBoxProgress"
             Width="390"
             Margin="0,25,0,0"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             IsEnabled="True"
             IsIndeterminate="{Binding IsWorking}"
             IsVisible="{Binding IsWorking}"

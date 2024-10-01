@@ -51,10 +51,7 @@ public partial class MainWindow : Window
         navigator.NavigateTo(ContentPageType.Main);
 
         if (OperatingSystem.IsMacOS())
-        {
-            AppTitle.HorizontalAlignment = global::Avalonia.Layout.HorizontalAlignment.Center;
-            SearchBox.HorizontalAlignment = global::Avalonia.Layout.HorizontalAlignment.Right;
-        }
+            AppTitle.IsVisible = false;
 
         dispatcherTimer.Tick += DispatcherTimer_Tick;
         dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
