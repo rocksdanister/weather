@@ -112,6 +112,8 @@
 
             <!--  Improve visibility  -->
             <Rectangle Fill="{DynamicResource SystemAltLowColor}" IsHitTestVisible="False" />
+
+            <userControls:ImageEx IsVisible="{Binding IsFallbackBackground}" Source="{Binding FallbackBackground}" />
         </Grid>
 
         <!--  Titlebar  -->

@@ -1,0 +1,45 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.ImageEx"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:ObjectToOpacityConverter x:Key="ObjectToOpacityConverter" />
+        <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Image
+            asyncImageLoader:ImageLoader.Source="{Binding #Root.SourceA}"
+            Opacity="{Binding #Root.IsVisibleSourceA, Mode=OneWay, Converter={StaticResource BoolToOpacityConverter}}"
+            Stretch="UniformToFill">
+            <Image.Transitions>
+                <Transitions>
+                    <DoubleTransition
+                        Easing="SineEaseOut"
+                        Property="Opacity"
+                        Duration="0:0:0.5" />
+                </Transitions>
+            </Image.Transitions>
+        </Image>
+        <Image
+            asyncImageLoader:ImageLoader.Source="{Binding #Root.SourceB}"
+            Opacity="{Binding #Root.IsVisibleSourceB, Mode=OneWay, Converter={StaticResource BoolToOpacityConverter}}"
+            Stretch="UniformToFill">
+            <Image.Transitions>
+                <Transitions>
+                    <DoubleTransition
+                        Easing="SineEaseOut"
+                        Property="Opacity"
+                        Duration="0:0:0.5" />
+                </Transitions>
+            </Image.Transitions>
+        </Image>
+    </Grid>
+</UserControl>

@@ -261,8 +261,8 @@
                         <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0039;" />
                     </ui:SettingsExpander.IconSource>
                     <ui:SettingsExpander.Footer>
-                        <ComboBox MinWidth="165" SelectedIndex="2">
-                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityPotato_Content}" IsEnabled="False" />
+                        <ComboBox MinWidth="165" SelectedIndex="{Binding SelectedAppPerformanceIndex, Mode=TwoWay}">
+                            <ComboBoxItem Content="{x:Static i18n:Resources.QualityPotato_Content}" />
                             <ComboBoxItem Content="{x:Static i18n:Resources.QualityPerformance_Content}" IsEnabled="False" />
                             <ComboBoxItem Content="{x:Static i18n:Resources.QualityQuality_Content}" />
                             <ComboBoxItem Content="{x:Static i18n:Resources.QualityDynamic_Content}" IsEnabled="False" />
