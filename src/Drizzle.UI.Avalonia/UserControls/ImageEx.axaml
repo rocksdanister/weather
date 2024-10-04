@@ -14,7 +14,7 @@
         <converters:ObjectToOpacityConverter x:Key="ObjectToOpacityConverter" />
         <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
     </UserControl.Resources>
-    <Grid>
+    <Grid IsHitTestVisible="False">
         <Image
             asyncImageLoader:ImageLoader.Source="{Binding #Root.SourceA}"
             Opacity="{Binding #Root.IsVisibleSourceA, Mode=OneWay, Converter={StaticResource BoolToOpacityConverter}}"
