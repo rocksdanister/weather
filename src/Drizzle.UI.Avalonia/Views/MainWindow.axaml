@@ -194,7 +194,10 @@
                     IconSource="Mute"
                     IsCompact="True"
                     IsEnabled="False" />
-                <ui:CommandBarButton Command="{Binding OpenScreensaverCommand}" IsCompact="True">
+                <ui:CommandBarButton
+                    Command="{Binding OpenScreensaverCommand}"
+                    IsCompact="True"
+                    IsEnabled="{Binding !IsFallbackBackground}">
                     <ui:CommandBarButton.IconSource>
                         <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xE728;" />
                     </ui:CommandBarButton.IconSource>
