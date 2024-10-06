@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Factories\ShaderViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherClientFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HttpDownloadService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DepthEstimateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HelpViewModel.cs" />

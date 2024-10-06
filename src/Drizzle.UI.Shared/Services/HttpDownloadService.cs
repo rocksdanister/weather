@@ -1,84 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Drizzle.Common.Services;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
-using System.Text;
-using static Drizzle.Common.Helpers.IDownloadUtil;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace Drizzle.Common.Helpers;
+namespace Drizzle.UI.Shared.Services;
 
-public class HttpDownloadUtil : IDownloadUtil
+public class HttpDownloadService : IDownloadService
 {
-    public event EventHandler<bool> DownloadFileCompleted;
-    public event EventHandler<DownloadProgressEventArgs> DownloadProgressChanged;
-    public event EventHandler<DownloadEventArgs> DownloadStarted;
-
-    private double previousDownloadedSize = -1;
     private readonly IHttpClientFactory httpClientFactory;
 
-    private CancellationTokenSource cts;
-
-    public HttpDownloadUtil(IHttpClientFactory httpClientFactory)
+    public HttpDownloadService(IHttpClientFactory httpClientFactory)
     {
         this.httpClientFactory = httpClientFactory;
     }
 
-    public async Task DownloadFile(Uri url, string filePath)
+    public async Task DownloadFile(Uri url, string filePath, IProgress<(double downloaded, double total)> progress, CancellationToken cancellationToken)
     {
-        cts = new CancellationTokenSource();
-        Exception exception = null;
-
         try
         {
+            var directory = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrEmpty(directory))
+                Directory.CreateDirectory(directory);
+
             using var stream = File.Create(filePath);
-            await DownloadFileAsync(url, stream, cts.Token, (d, t) =>
+            await DownloadFileAsync(url, stream, cancellationToken, (downloadedBytes, totalBytes) =>
             {
-                var downloadedSize = Math.Truncate(ByteToMegabyte(d));
-                if (downloadedSize == previousDownloadedSize)
-                    return;
-
-                DownloadProgressEventArgs args = new DownloadProgressEventArgs()
-                {
-                    TotalSize = Math.Truncate(ByteToMegabyte(t)),
-                    DownloadedSize = Math.Truncate(ByteToMegabyte(d)),
-                    Percentage = (double)d * 100 / t
-                };
-                previousDownloadedSize = downloadedSize;
-
-                DownloadProgressChanged?.Invoke(this, args);
+                var downloadedInMB = Math.Truncate(ByteToMegabyte(downloadedBytes));
+                var totalInMB = Math.Truncate(ByteToMegabyte(totalBytes));
+                progress?.Report((downloadedInMB, totalInMB));
             });
-
-            //using FileStream fileStream = File.Create(filePath);
-            //stream.Seek(0, SeekOrigin.Begin);
-            //await stream.CopyToAsync(fileStream);
         }
-        catch (Exception ex)
+        catch (TaskCanceledException)
         {
-            exception = ex;
-        }
-        finally
-        {
-            var success = !cts.IsCancellationRequested && exception is null;
-            DownloadFileCompleted?.Invoke(this, success);
-
-            //cleanup
-            if (!success)
+            try
             {
-                try
-                {
-                    File.Delete(filePath);
-                }
-                catch { }
+                // Clean up if cancel
+                File.Delete(filePath);
             }
-            cts?.Dispose();
-            cts = null;
+            catch { /* Nothing to do */ }
+        }
+        catch (Exception)
+        {
+            try
+            {
+                // Clean up if the download failed
+                File.Delete(filePath);
+            }
+            catch { /* Nothing to do */ }
+            throw;
         }
     }
-
-    public void Cancel() => cts?.Cancel();
 
     /// <summary>
     /// Downloads a file from the specified Uri into the specified stream

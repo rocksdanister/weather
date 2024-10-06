@@ -1,12 +1,10 @@
 ﻿using Drizzle.Common.Services;
 using Drizzle.UI.Shared.ViewModels;
-using Drizzle.UI.UWP.Helpers;
 using Drizzle.UI.UWP.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -90,25 +88,17 @@ public class DialogService : IDialogService
         //binding canExecute not working
         vm.RunCommand.CanExecuteChanged += (_, _) =>
         {
-            depthDialog.IsPrimaryButtonEnabled = !vm.IsRunning;
+            depthDialog.IsPrimaryButtonEnabled = vm.RunCommand.CanExecute(null) && !vm.IsRunning;
         };
         vm.CancelCommand.CanExecuteChanged += (s, e) =>
         {
             depthDialog.IsSecondaryButtonEnabled = !vm.IsRunning;
         };
 
-        var file = await FilePickerUtil.ShowImageDialogAsync();
-        if (file is not null)
-        {
-            // File access permission for onnx library
-            // TODO: Rewrite to stream
-            var copyFile = await file.CopyAsync(ApplicationData.Current.TemporaryFolder, file.Name, NameCollisionOption.GenerateUniqueName);
-            vm.SelectedImage = copyFile.Path;
-
-            await depthDialog.ShowAsync();
-            // Dispose resources
-            await vm.OnClose();
-        }
+        await vm.AddImageCommand.ExecuteAsync(null);
+        await depthDialog.ShowAsync();
+        // Dispose resources
+        vm.OnClose();
         return vm.DepthAssetDir;
     }
 }

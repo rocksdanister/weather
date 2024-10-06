@@ -6,11 +6,11 @@ using Drizzle.Common.Constants;
 using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
-using Drizzle.UI.Avalonia.Constants;
 using Drizzle.UI.Avalonia.Helpers;
 using Drizzle.UI.Avalonia.Services;
 using Drizzle.UI.Avalonia.Views;
 using Drizzle.UI.Shared.Factories;
+using Drizzle.UI.Shared.Services;
 using Drizzle.UI.Shared.ViewModels;
 using Drizzle.Weather;
 using Microsoft.Extensions.DependencyInjection;
@@ -84,11 +84,12 @@ public partial class App : Application
             .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(
                 e.GetRequiredService<IHttpClientFactory>(),
-                PathConstants.CacheDir,
+                e.GetRequiredService<IFileService>().CachePath,
                 TimeSpan.FromHours(1)))
             .AddSingleton<IDepthEstimate, MiDaS>()
             .AddSingleton<ISoundService, SoundService>()
             .AddSingleton<IAssetReader, AssetReader>()
+            .AddSingleton<IFileService, FileService>()
             .AddSingleton<IWeatherClient, OpenMeteoWeatherClient>()
             .AddSingleton<IWeatherClient>((e) => new OpenWeatherMapWeatherClient(
                 e.GetRequiredService<IHttpClientFactory>(),
@@ -108,7 +109,7 @@ public partial class App : Application
             .AddTransient<IShaderViewModelFactory, ShaderViewModelFactory>()
             .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
             .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
-            .AddTransient<IDownloadUtil, HttpDownloadUtil>()
+            .AddTransient<IDownloadService, HttpDownloadService>()
             .AddTransient<IBrowserUtil, BrowserUtil>()
             // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
             .AddHttpClient()

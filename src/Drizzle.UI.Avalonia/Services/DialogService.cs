@@ -50,8 +50,40 @@ public class DialogService : IDialogService
         await dialog.ShowAsync();
     }
 
-    public Task<string> ShowDepthCreationDialogAsync()
+    public async Task<string> ShowDepthCreationDialogAsync()
     {
-        throw new NotImplementedException();
+        var vm = App.Services.GetRequiredService<DepthEstimateViewModel>();
+        var depthDialog = new ContentDialog
+        {
+            Title = ResourceUtil.GetString("StringDepthApprox"),
+            Content = new DepthEstimateView(vm),
+            PrimaryButtonText = ResourceUtil.GetString("StringContinue"),
+            SecondaryButtonText = ResourceUtil.GetString("StringCancel"),
+            DefaultButton = ContentDialogButton.Primary,
+            SecondaryButtonCommand = vm.CancelCommand,
+            PrimaryButtonCommand = vm.RunCommand,
+            IsPrimaryButtonEnabled = vm.IsModelExists,
+        };
+        vm.OnRequestClose += (_, _) => depthDialog.Hide();
+        depthDialog.Closing += (s, e) =>
+        {
+            if (e.Result == ContentDialogResult.Primary)
+                e.Cancel = true;
+        };
+        //binding canExecute not working
+        vm.RunCommand.CanExecuteChanged += (_, _) =>
+        {
+            depthDialog.IsPrimaryButtonEnabled = vm.RunCommand.CanExecute(null) && !vm.IsRunning;
+        };
+        vm.CancelCommand.CanExecuteChanged += (s, e) =>
+        {
+            depthDialog.IsSecondaryButtonEnabled = !vm.IsRunning;
+        };
+
+        await vm.AddImageCommand.ExecuteAsync(null);
+        await depthDialog.ShowAsync();
+        // Dispose resources
+        vm.OnClose();
+        return vm.DepthAssetDir;
     }
 }

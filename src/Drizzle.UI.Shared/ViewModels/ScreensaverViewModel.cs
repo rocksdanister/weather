@@ -1,24 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Drizzle.Common.Constants;
+using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
+using Drizzle.ImageProcessing;
 using Drizzle.Models;
+using Drizzle.Models.Enums;
+using Drizzle.Models.Weather;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
-using Drizzle.ImageProcessing;
-using Drizzle.Common.Helpers;
-using Drizzle.Common.Constants;
-using Drizzle.Common.Extensions;
-using Microsoft.Extensions.Logging;
-using Drizzle.Models.Weather;
-using Drizzle.Models.Enums;
-
-#if WINDOWS_UWP
-using Windows.Storage.Pickers;
-using Windows.Storage;
-#endif
 
 namespace Drizzle.UI.Shared.ViewModels;
 
@@ -29,23 +23,25 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     private readonly IDialogService dialogService;
     private readonly IAssetReader assetReader;
     private readonly IUserSettings userSettings;
+    private readonly IFileService fileService;
+
     private readonly WmoWeatherCode defaultWeatherAnimation;
     private readonly bool isResetBackgroundsOnExit;
-
-    private readonly string localFolderPath;
 
     public ScreensaverViewModel(ShellViewModel shellVm,
         INavigator navigator,
         ILogger<ScreensaverViewModel> logger,
         IAssetReader assetReader,
         IDialogService dialogService,
-        IUserSettings userSettings)
+        IUserSettings userSettings,
+        IFileService fileService)
     {
         this.ShellVm = shellVm;
         this.navigator = navigator;
         this.dialogService = dialogService;
         this.assetReader = assetReader;
         this.userSettings = userSettings;
+        this.fileService = fileService;
         this.logger = logger;
 
         // Useful for testing/demo, on release prevent user selection outside screensaver page.
@@ -53,10 +49,6 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         isResetBackgroundsOnExit = false;
 #else
         isResetBackgroundsOnExit = true;
-#endif
-
-#if WINDOWS_UWP
-        localFolderPath = ApplicationData.Current.LocalFolder.Path;
 #endif
 
         // Mouse drag effect only in screensaver mode
@@ -74,7 +66,9 @@ public sealed partial class ScreensaverViewModel : ObservableObject
 
         AutoHideMenu = userSettings.Get<bool>(UserSettingsConstants.AutoHideScreensaverMenu);
 
-        InitializeBackgrounds().Await(() => { }, (ex) => logger.LogError(ex.ToString()));
+        LoadDefaultBackgrounds();
+        LoadUserBackgrounds();
+        UpdateBackgroundSelection();
     }
 
     [ObservableProperty]
@@ -275,21 +269,22 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     [RelayCommand]
     private async Task ChangeBackground()
     {
-#if WINDOWS_UWP
         IsBusy = true;
         switch (((WmoWeatherCode)SelectedWeather.WeatherCode).GetShader())
         {
             case ShaderTypes.rain:
                 {
-                    var file = await ShowImageDialog();
-                    if (file is not null)
+                    var (stream, name) = await fileService.OpenImageFileAsync();
+                    if (stream is not null)
                     {
-                        var imagePath = Path.Combine(localFolderPath, "Backgrounds", "Rain", file.Name);
+                        var imagePath = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Rain", name);
                         imagePath = FileUtil.NextAvailableFilename(imagePath);
-                        using var stream = await file.OpenStreamForReadAsync();
-                        ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                        using (stream)
+                        {
+                            ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                        }
 
-                        var selection = new UserImageModel(file.DisplayName, imagePath, null, DateTime.Now, true);
+                        var selection = new UserImageModel(name, imagePath, null, DateTime.Now, true);
                         RainBackgrounds.Add(selection);
                         SelectedRainBackground = selection;
                     }
@@ -297,15 +292,17 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                 break;
             case ShaderTypes.snow:
                 {
-                    var file = await ShowImageDialog();
-                    if (file is not null)
+                    var (stream, name) = await fileService.OpenImageFileAsync();
+                    if (stream is not null)
                     {
-                        var imagePath = Path.Combine(localFolderPath, "Backgrounds", "Snow", file.Name);
+                        var imagePath = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Snow", name);
                         imagePath = FileUtil.NextAvailableFilename(imagePath);
-                        using var stream = await file.OpenStreamForReadAsync();
-                        ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                        using (stream)
+                        {
+                            ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                        }
 
-                        var selection = new UserImageModel(file.DisplayName, imagePath, null, DateTime.Now, true);
+                        var selection = new UserImageModel(name, imagePath, null, DateTime.Now, true);
                         SnowBackgrounds.Add(selection);
                         SelectedSnowBackground = selection;
                     }
@@ -340,11 +337,10 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                 break;
         }
         IsBusy = false;
-#endif
     }
 
     [RelayCommand]
-    private async Task DeleteBackground(UserImageModel obj)
+    private void DeleteBackground(UserImageModel obj)
     {
         switch (((WmoWeatherCode)SelectedWeather.WeatherCode).GetShader())
         {
@@ -353,7 +349,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                 {
                     SelectedRainBackground = SelectedRainBackground != obj ? SelectedRainBackground : RainBackgrounds[0];
                     RainBackgrounds.Remove(obj);
-                    await DeleteFile(obj.Image);
+                    File.Delete(obj.Image);
                 }
                 break;
             case ShaderTypes.snow:
@@ -361,7 +357,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                 {
                     SelectedSnowBackground = SelectedSnowBackground != obj ? SelectedSnowBackground : SnowBackgrounds[0];
                     SnowBackgrounds.Remove(obj);
-                    await DeleteFile(obj.Image);
+                    File.Delete(obj.Image);
                 }
                 break;
             case ShaderTypes.depth:
@@ -369,7 +365,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                 {
                     SelectedDepthBackground = SelectedDepthBackground != obj ? SelectedDepthBackground : DepthBackgrounds[0];
                     DepthBackgrounds.Remove(obj);
-                    await DeleteFolder(Path.GetDirectoryName(obj.Image));
+                    Directory.Delete(Path.GetDirectoryName(obj.Image), true);
                 }
                 break;
             case ShaderTypes.fog:
@@ -378,7 +374,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                     // Shared with depth backgrounds
                     SelectedFogBackground = SelectedFogBackground != obj ? SelectedFogBackground : DepthBackgrounds[0];
                     DepthBackgrounds.Remove(obj);
-                    await DeleteFolder(Path.GetDirectoryName(obj.Image));
+                    Directory.Delete(Path.GetDirectoryName(obj.Image), true);
                 }
                 break;
             case ShaderTypes.clouds:
@@ -388,9 +384,8 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         }
     }
 
-    private async Task InitializeBackgrounds()
+    private void LoadDefaultBackgrounds()
     {
-        // Defaults
         foreach (var item in assetReader.GetBackgrounds(ShaderTypes.rain))
         {
             RainBackgrounds.Add(new(item.Name, item.FilePath, item.DepthPath, item.Time[0], false));
@@ -403,31 +398,32 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         {
             DepthBackgrounds.Add(new(item.Name, item.FilePath, item.DepthPath, item.Time[0], false));
         }
+    }
 
-#if WINDOWS_UWP
-        // Create cache directory
-        var localFolder = ApplicationData.Current.LocalFolder;
-        var cacheFolder = await localFolder.CreateFolderAsync("Backgrounds", CreationCollisionOption.OpenIfExists);
-        var rainCacheFolder = await cacheFolder.CreateFolderAsync("Rain", CreationCollisionOption.OpenIfExists);
-        var snowCacheFolder = await cacheFolder.CreateFolderAsync("Snow", CreationCollisionOption.OpenIfExists);
-        var depthCacheFolder = await cacheFolder.CreateFolderAsync("Depth", CreationCollisionOption.OpenIfExists);
+    private void LoadUserBackgrounds()
+    {
+        var userBackgroundsRain = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Rain");
+        var userBackgroundsSnow = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Snow");
+        var userBackgroundsDepth = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Depth");
+        // Create if does not exists
+        Directory.CreateDirectory(userBackgroundsRain);
+        Directory.CreateDirectory(userBackgroundsSnow);
+        Directory.CreateDirectory(userBackgroundsDepth);
 
-        // Populate cache
-        foreach (var item in await rainCacheFolder.GetFilesAsync())
+        foreach (var filePath in Directory.GetFiles(userBackgroundsRain))
         {
-            RainBackgrounds.Add(new(item.DisplayName, item.Path, null, DateTime.Now, true));
+            var fileName = Path.GetFileNameWithoutExtension(filePath);
+            RainBackgrounds.Add(new(fileName, filePath, null, DateTime.Now, true));
         }
-        foreach (var item in await snowCacheFolder.GetFilesAsync())
+        foreach (var filePath in Directory.GetFiles(userBackgroundsSnow))
         {
-            SnowBackgrounds.Add(new(item.DisplayName, item.Path, null, DateTime.Now, true));
+            var fileName = Path.GetFileNameWithoutExtension(filePath);
+            SnowBackgrounds.Add(new(fileName, filePath, null, DateTime.Now, true));
         }
-        foreach (var item in await depthCacheFolder.GetFoldersAsync())
+        foreach (var filePath in Directory.GetDirectories(userBackgroundsDepth))
         {
-            DepthBackgrounds.Add(new("", Path.Combine(item.Path, "image.jpg"), Path.Combine(item.Path, "depth.jpg"), DateTime.Now, true));
+            DepthBackgrounds.Add(new("", Path.Combine(filePath, "image.jpg"), Path.Combine(filePath, "depth.jpg"), DateTime.Now, true));
         }
-#endif
-        // Current selection
-        UpdateBackgroundSelection();
     }
 
     private void UpdateBackgroundSelection()
@@ -437,34 +433,6 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         SelectedDepthBackground = DepthBackgrounds.FirstOrDefault(x => x.Image == ShellVm.DepthProperty.ImagePath);
         SelectedFogBackground = DepthBackgrounds.FirstOrDefault(x => x.Image == ShellVm.FogProperty.ImagePath);
     }
-
-    private async Task DeleteFile(string filePath)
-    {
-#if WINDOWS_UWP
-        await (await StorageFile.GetFileFromPathAsync(filePath)).DeleteAsync();
-#endif
-    }
-
-    private async Task DeleteFolder(string folderPath)
-    {
-#if WINDOWS_UWP
-        await (await StorageFolder.GetFolderFromPathAsync(Path.GetDirectoryName(folderPath))).DeleteAsync();
-#endif
-    }
-
-#if WINDOWS_UWP
-    private async Task<StorageFile> ShowImageDialog()
-    {
-        var picker = new FileOpenPicker
-        {
-            ViewMode = PickerViewMode.Thumbnail
-        };
-        picker.FileTypeFilter.Add(".jpg");
-        picker.FileTypeFilter.Add(".jpeg");
-        picker.FileTypeFilter.Add(".png");
-        return await picker.PickSingleFileAsync();
-    }
-#endif
 
     #endregion //background selection
 }

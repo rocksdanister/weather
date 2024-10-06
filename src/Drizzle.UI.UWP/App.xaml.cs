@@ -5,6 +5,7 @@ using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Factories;
+using Drizzle.UI.Shared.Services;
 using Drizzle.UI.Shared.ViewModels;
 using Drizzle.UI.UWP.Extensions;
 using Drizzle.UI.UWP.Helpers;
@@ -17,14 +18,12 @@ using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using System;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Globalization;
-using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -126,7 +125,7 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(
                     e.GetRequiredService<IHttpClientFactory>(),
-                    Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"),
+                    e.GetRequiredService<IFileService>().CachePath,
                     TimeSpan.FromHours(1)))
                 .AddSingleton<IDepthEstimate, MiDaS>()
                 .AddSingleton<ISoundService, SoundService>()
@@ -150,8 +149,9 @@ namespace Drizzle.UI.UWP
                 .AddTransient<IShaderViewModelFactory, ShaderViewModelFactory>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
-                .AddTransient<IDownloadUtil, HttpDownloadUtil>()
+                .AddTransient<IDownloadService, HttpDownloadService>()
                 .AddTransient<IBrowserUtil, BrowserUtil>()
+                .AddTransient<IFileService, FileService>()
                 // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()
                 // Remove HttpClientFactory logging

@@ -35,7 +35,6 @@ public partial class ShellViewModel : ObservableObject
     private readonly ISoundService soundService;
     private readonly ICacheService cacheService;
     private readonly IWeatherClientFactory weatherClientFactory;
-    private readonly IShaderViewModelFactory shaderViewModelFactory;
     private readonly IWeatherViewModelFactory weatherViewModelFactory;
     private readonly IGeolocationService geolocationService;
     private readonly ILogger logger;
@@ -65,7 +64,6 @@ public partial class ShellViewModel : ObservableObject
         this.soundService = soundService;
         this.cacheService = cacheService;
         this.weatherClientFactory = weatherClientFactory;
-        this.shaderViewModelFactory = shaderViewModelFactory;
         this.weatherViewModelFactory = weatherViewModelFactory;
         this.geolocationService = geolocationService;
         this.logger = logger;

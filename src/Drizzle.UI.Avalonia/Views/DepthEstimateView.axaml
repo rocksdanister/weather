@@ -1,0 +1,98 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.DepthEstimateView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shaderControls="clr-namespace:Drizzle.UI.Avalonia.UserControls.Shaders"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:DepthEstimateViewModel"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <!--  Background  -->
+        <Border ClipToBounds="True" CornerRadius="5">
+            <shaderControls:DrawControl
+                Width="500"
+                Height="350"
+                Model="{Binding SelectedShader.Model}">
+                <shaderControls:DrawControl.Transitions>
+                    <Transitions>
+                        <DoubleTransition
+                            Easing="SineEaseOut"
+                            Property="Opacity"
+                            Duration="0:0:0.5" />
+                    </Transitions>
+                </shaderControls:DrawControl.Transitions>
+            </shaderControls:DrawControl>
+        </Border>
+        <!--  Image preview  -->
+        <Grid Background="{DynamicResource SystemAltMediumLowColor}" IsVisible="{Binding IsModelExists}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Viewbox
+                Grid.Row="0"
+                Width="320"
+                Height="180">
+                <Border
+                    Height="250"
+                    ClipToBounds="True"
+                    CornerRadius="5">
+                    <Image asyncImageLoader:ImageLoader.Source="{Binding PreviewImage, Mode=OneWay}" Stretch="UniformToFill" />
+                </Border>
+            </Viewbox>
+            <TextBlock
+                Grid.Row="1"
+                IsVisible="{Binding IsRunning}"
+                Text="{x:Static i18n:Resources.DescDepthApproximating_Text}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <ProgressBar
+                Grid.Row="2"
+                VerticalAlignment="Bottom"
+                IsIndeterminate="True"
+                IsVisible="{Binding IsRunning}" />
+        </Grid>
+        <!--  Download model  -->
+        <ui:InfoBar
+            Title="{x:Static i18n:Resources.TitleDownloadRequired_Text}"
+            Margin="-1.25"
+            VerticalAlignment="Top"
+            Background="#323232"
+            IsClosable="False"
+            IsOpen="{Binding !IsModelExists}"
+            Message="{x:Static i18n:Resources.DescriptionDownloadRequired_Text}"
+            Severity="Informational">
+            <ui:InfoBar.ActionButton>
+                <Button Command="{Binding DownloadModelCommand}" Content="{x:Static i18n:Resources.TitleDownload_Content}" />
+            </ui:InfoBar.ActionButton>
+            <ProgressBar Margin="-50,0,0,0" Value="{Binding ModelDownloadProgress}" />
+        </ui:InfoBar>
+        <!--  Error  -->
+        <ui:InfoBar
+            Title="{x:Static i18n:Resources.InfoError_Title}"
+            Margin="-1.25"
+            VerticalAlignment="Top"
+            Closing="ErrorInfoBar_Closing"
+            IsOpen="{Binding ErrorText, Mode=OneWay, Converter={StaticResource StringNullOrEmptyToBoolConverter}, ConverterParameter=Reverse}"
+            Severity="Error">
+            <StackPanel>
+                <TextBlock Text="{Binding ErrorText}" />
+                <HyperlinkButton Content="https://github.com/rocksdanister/weather/wiki/Machine-Learning" NavigateUri="https://github.com/rocksdanister/weather/wiki/Machine-Learning" />
+            </StackPanel>
+        </ui:InfoBar>
+    </Grid>
+</UserControl>

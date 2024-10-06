@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Drizzle.Common.Helpers;
+using Drizzle.Common.Services;
 using Drizzle.ImageProcessing;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
@@ -10,38 +11,34 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
-
-#if WINDOWS_UWP
-using Windows.ApplicationModel.Core;
-using Windows.Storage;
-using Windows.UI.Core;
-#endif
 
 namespace Drizzle.UI.Shared.ViewModels;
 
 public partial class DepthEstimateViewModel : ObservableObject
 {
-    private readonly IShaderViewModelFactory shaderViewModelFactory;
     private readonly IDepthEstimate depthEstimate;
-    private readonly IDownloadUtil downloader;
+    private readonly IDownloadService downloader;
+    private readonly IFileService fileService;
 
     public string DepthAssetDir { get; private set; }
     public event EventHandler OnRequestClose;
 
+    private readonly Uri modelUri = new("https://github.com/rocksdanister/lively-ml-models/releases/download/v1.0.0.0/model.onnx");
+    private CancellationTokenSource downloadCts;
     private readonly string modelPath;
 
-    public DepthEstimateViewModel(IShaderViewModelFactory shaderViewModelFactory, IDepthEstimate depthEstimate, IDownloadUtil downloader)
+    public DepthEstimateViewModel(IShaderViewModelFactory shaderViewModelFactory,
+        IDepthEstimate depthEstimate,
+        IDownloadService downloader,
+        IFileService fileService)
     {
-        this.shaderViewModelFactory = shaderViewModelFactory;
         this.depthEstimate = depthEstimate;
         this.downloader = downloader;
+        this.fileService = fileService;
 
-        // TODO: Cross-platform
-#if WINDOWS_UWP
-        modelPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "ML", "midas", "model.onnx");
-#endif
-
+        this.modelPath = Path.Combine(fileService.LocalFolderPath, "ML", "midas", "model.onnx");
         IsModelExists = CheckModel();
         CanRunCommand = IsModelExists && SelectedImage is not null;
         RunCommand.NotifyCanExecuteChanged();
@@ -98,18 +95,40 @@ public partial class DepthEstimateViewModel : ObservableObject
 
     private bool CanDownloadModelCommand { get; set; } = true;
 
+    [RelayCommand]
+    private async Task AddImage()
+    {
+        var (stream, fileName) = await fileService.OpenImageFileAsync();
+        if (stream is null)
+            return;
+
+        var tempFilePath = Path.Combine(fileService.TempFolderPath, fileName);
+        tempFilePath = FileUtil.NextAvailableFilename(tempFilePath);
+        using (stream)
+        {
+            using var fileStream = File.Create(tempFilePath);
+            await stream.CopyToAsync(fileStream);
+        }
+
+        // Resizing with blur to avoid aliasing on images with details.
+        var shaderTexturePath = FileUtil.NextAvailableFilename(tempFilePath);
+        await Task.Run(() => ImageUtil.GaussianBlur(tempFilePath, shaderTexturePath, 1, 800));
+        SelectedShaderProperties.ImagePath = shaderTexturePath;
+
+        SelectedImage = tempFilePath;
+        CanRunCommand = IsModelExists && SelectedImage is not null;
+        RunCommand.NotifyCanExecuteChanged();
+    }
+
     [RelayCommand(CanExecute = nameof(CanRunCommand))]
     private async Task Run()
     {
-        // TODO: Cross-platform
-#if WINDOWS_UWP
-        var localFolder = ApplicationData.Current.LocalFolder;
-        var cacheFolder = await localFolder.CreateFolderAsync("Backgrounds", CreationCollisionOption.OpenIfExists);
-        var depthCacheFolder = await cacheFolder.CreateFolderAsync("Depth", CreationCollisionOption.OpenIfExists);
-        var destinationFolder = await depthCacheFolder.CreateFolderAsync(Path.GetFileNameWithoutExtension(SelectedImage), CreationCollisionOption.GenerateUniqueName);
-        var inputImageFile = await StorageFile.GetFileFromPathAsync(SelectedImage);
-        var depthImagePath = Path.Combine(destinationFolder.Path, "depth.jpg");
-        var inputImageCopyPath = Path.Combine(destinationFolder.Path, "image.jpg");
+        if (SelectedImage is null)
+            return;
+
+        var destinationFolder = Path.Combine(fileService.LocalFolderPath, "Backgrounds", "Depth", Path.GetRandomFileName());
+        var depthImagePath = Path.Combine(destinationFolder, "depth.jpg");
+        var inputImageCopyPath = Path.Combine(destinationFolder, "image.jpg");
 
         try
         {
@@ -119,9 +138,11 @@ public partial class DepthEstimateViewModel : ObservableObject
             CanCancelCommand = false;
             CancelCommand.NotifyCanExecuteChanged();
 
+            Directory.CreateDirectory(destinationFolder);
+
             await Task.Run(async () =>
             {
-                using var inputImage = Image.Load(inputImageFile.Path);
+                using var inputImage = Image.Load(SelectedImage);
                 //Resize input for performance and memory
                 if (inputImage.Width > 3840 || inputImage.Height > 3840)
                 {
@@ -138,7 +159,7 @@ public partial class DepthEstimateViewModel : ObservableObject
 
                 if (!modelPath.Equals(depthEstimate.ModelPath, StringComparison.Ordinal))
                     depthEstimate.LoadModel(modelPath);
-                var depthOutput = depthEstimate.Run(inputImageFile.Path);
+                var depthOutput = depthEstimate.Run(SelectedImage);
                 //Resize depth to same size as input
                 using var depthImage = ImageUtil.FloatArrayToImage(depthOutput.Depth, depthOutput.Width, depthOutput.Height);
                 depthImage.Mutate(x =>
@@ -158,14 +179,18 @@ public partial class DepthEstimateViewModel : ObservableObject
             PreviewImage = depthImagePath;
             await Task.Delay(1500);
 
-            DepthAssetDir = destinationFolder.Path;
+            DepthAssetDir = destinationFolder;
             // Close dialog
             OnRequestClose?.Invoke(this, EventArgs.Empty);
         }
         catch (Exception ex)
         {
             ErrorText = $"Error: {ex.Message}";
-            await destinationFolder.DeleteAsync();
+            try
+            {
+                Directory.Delete(destinationFolder, true);
+            }
+            catch { /* Nothing to do */ }
         }
         finally
         {
@@ -173,59 +198,38 @@ public partial class DepthEstimateViewModel : ObservableObject
             CanCancelCommand = true;
             CancelCommand.NotifyCanExecuteChanged();
         }
-#endif
     }
 
 
     [RelayCommand(CanExecute = nameof(CanCancelCommand))]
     private void Cancel()
     {
-        downloader?.Cancel();
+        downloadCts?.Cancel();
+        downloadCts = null;
     }
 
     [RelayCommand(CanExecute = nameof(CanDownloadModelCommand))]
     private async Task DownloadModel()
     {
-        // TODO: Cross-platform
-#if WINDOWS_UWP
         try
         {
             CanDownloadModelCommand = false;
             DownloadModelCommand.NotifyCanExecuteChanged();
 
-            var uri = new Uri("https://github.com/rocksdanister/lively-ml-models/releases/download/v1.0.0.0/model.onnx");
-            var localFolder = ApplicationData.Current.LocalFolder;
-            var machineLearningFolder = await localFolder.CreateFolderAsync("ML", CreationCollisionOption.OpenIfExists);
-            var midasFolder = await machineLearningFolder.CreateFolderAsync("Midas", CreationCollisionOption.OpenIfExists);
-            var downloadPath = Path.Combine(midasFolder.Path, "model.onnx");
-            downloader.DownloadProgressChanged += async(s, e) =>
-            {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    ModelDownloadProgressText = $"{e.DownloadedSize}/{e.TotalSize} MB";
-                    ModelDownloadProgress = (float)e.Percentage;
-                });
-            };
-            downloader.DownloadFileCompleted += async(s, success) =>
-            {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    if (success)
-                    {                 
-                        IsModelExists = CheckModel();
-                        BackgroundImage = IsModelExists ? SelectedImage : BackgroundImage;
+            var downloadPath = Path.Combine(fileService.LocalFolderPath, "ML", "Midas", "model.onnx");
+            downloadCts = new CancellationTokenSource();
 
-                        CanRunCommand = IsModelExists;
-                        RunCommand.NotifyCanExecuteChanged();
-                    }
-                    else
-                    {
-                        ErrorText = $"Error: Download failed.";
-                    }
-                });
-            };
+            await downloader.DownloadFile(modelUri, downloadPath, new Progress<(double downloaded, double total)>(progress =>
+            {
+                ModelDownloadProgressText = $"{progress.downloaded}/{progress.total} MB";
+                ModelDownloadProgress = (float)(progress.downloaded * 100 / progress.total);
+            }), downloadCts.Token);
 
-            await downloader.DownloadFile(uri, downloadPath);
+            IsModelExists = CheckModel();
+            BackgroundImage = IsModelExists ? SelectedImage : BackgroundImage;
+
+            CanRunCommand = IsModelExists;
+            RunCommand.NotifyCanExecuteChanged();
         }
         catch (Exception ex)
         {
@@ -236,24 +240,21 @@ public partial class DepthEstimateViewModel : ObservableObject
         //    _canDownloadModelCommand = true;
         //    DownloadModelCommand.NotifyCanExecuteChanged();
         //}
-#endif
     }
 
-    public async Task OnClose()
+    public void OnClose()
     {
         SelectedShader = null;
-        // TODO: Cross-platform
-#if WINDOWS_UWP
+
         try
         {
             if (SelectedImage is not null)
-                await (await StorageFile.GetFileFromPathAsync(SelectedImage)).DeleteAsync();
+                File.Delete(SelectedImage);
 
             if (SelectedShaderProperties?.ImagePath is not null)
-                await (await StorageFile.GetFileFromPathAsync(SelectedShaderProperties.ImagePath)).DeleteAsync();
+                File.Delete(SelectedShaderProperties.ImagePath);
         }
         catch { /* Tempfolder, ignore. */ }
-#endif
     }
 
     private bool CheckModel() => File.Exists(modelPath);

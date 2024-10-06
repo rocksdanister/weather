@@ -1,6 +1,5 @@
 ﻿using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
-using Drizzle.UI.Avalonia.Constants;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,9 +14,9 @@ public class LocalSettings : IUserSettings
     private readonly string setingsPath;
     private readonly Dictionary<string, object> settings;
 
-    public LocalSettings()
+    public LocalSettings(IFileService fileService)
     {
-        setingsPath = PathConstants.SettingsFile;
+        setingsPath = Path.Combine(fileService.LocalFolderPath, "Settings.json");
         settings = LoadSettings();
     }
 
