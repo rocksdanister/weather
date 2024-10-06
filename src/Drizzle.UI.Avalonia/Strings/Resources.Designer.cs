@@ -1096,6 +1096,15 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distance.
+        /// </summary>
+        public static string TitleDistance_Text {
+            get {
+                return ResourceManager.GetString("TitleDistance.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string TitleDownload_Content {

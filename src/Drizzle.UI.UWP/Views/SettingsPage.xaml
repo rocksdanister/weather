@@ -138,7 +138,7 @@
 
                         <labs:SettingsCard>
                             <labs:SettingsCard.Header>
-                                <TextBlock Text="Distance" />
+                                <TextBlock x:Uid="TitleDistance" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xED5E;" />

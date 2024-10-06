@@ -462,6 +462,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contributors</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Download</value>
   </data>

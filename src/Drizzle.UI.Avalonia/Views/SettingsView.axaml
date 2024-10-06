@@ -175,7 +175,7 @@
                         </ui:SettingsExpanderItem.Footer>
                     </ui:SettingsExpanderItem>
 
-                    <ui:SettingsExpanderItem Content="Distance">
+                    <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitleDistance_Text}">
                         <ui:SettingsExpanderItem.IconSource>
                             <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0578;" />
                         </ui:SettingsExpanderItem.IconSource>
