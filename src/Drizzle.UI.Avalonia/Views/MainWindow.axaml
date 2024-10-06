@@ -95,7 +95,6 @@
                     </Transitions>
                 </shaderControls:DrawControl.Transitions>
             </shaderControls:DrawControl>
-
             <shaderControls:DrawControl
                 IsPaused="{Binding IsPausedShader2}"
                 Model="{Binding SelectedShader2.Model}"
@@ -109,11 +108,9 @@
                     </Transitions>
                 </shaderControls:DrawControl.Transitions>
             </shaderControls:DrawControl>
-
+            <userControls:ImageEx IsVisible="{Binding IsFallbackBackground}" Source="{Binding FallbackBackground}" />
             <!--  Improve visibility  -->
             <Rectangle Fill="{DynamicResource SystemAltLowColor}" IsHitTestVisible="False" />
-
-            <userControls:ImageEx IsVisible="{Binding IsFallbackBackground}" Source="{Binding FallbackBackground}" />
         </Grid>
 
         <!--  Titlebar  -->
