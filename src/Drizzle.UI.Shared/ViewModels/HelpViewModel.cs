@@ -1,34 +1,34 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Drizzle.Common.Helpers;
+using Drizzle.Common.Services;
 using System.Threading.Tasks;
 
 namespace Drizzle.UI.Shared.ViewModels;
 
 public partial class HelpViewModel : ObservableObject
 {
-    private readonly IBrowserUtil browserUtil;
+    private readonly ILauncherService launcher;
 
-    public HelpViewModel(IBrowserUtil browserUtil)
+    public HelpViewModel(ILauncherService launcher)
     {
-        this.browserUtil = browserUtil;
+        this.launcher = launcher;
     }
 
     [RelayCommand]
     private async Task OpenWebsite()
     {
-        await browserUtil.OpenBrowserAsync("https://www.rocksdanister.com/weather");
+        await launcher.OpenBrowserAsync("https://www.rocksdanister.com/weather");
     }
 
     [RelayCommand]
     private async Task OpenSource()
     {
-        await browserUtil.OpenBrowserAsync("https://github.com/rocksdanister/weather");
+        await launcher.OpenBrowserAsync("https://github.com/rocksdanister/weather");
     }
 
     [RelayCommand]
     private async Task OpenContact()
     {
-        await browserUtil.OpenBrowserAsync("https://github.com/rocksdanister/weather/wiki/Frequently-Asked-Questions-(FAQ)");
+        await launcher.OpenBrowserAsync("https://github.com/rocksdanister/weather/wiki/Frequently-Asked-Questions-(FAQ)");
     }
 }

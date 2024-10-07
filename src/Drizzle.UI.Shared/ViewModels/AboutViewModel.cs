@@ -1,27 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Threading.Tasks;
-using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
-
-
-
-#if WINDOWS_UWP
-using Drizzle.UI.UWP.Helpers;
-#else
-using System.Reflection;
-#endif
+using System.Threading.Tasks;
 
 namespace Drizzle.UI.Shared.ViewModels;
 
 public sealed partial class AboutViewModel : ObservableObject
 {
-    private readonly IBrowserUtil browserUtil;
+    private readonly ILauncherService launcher;
 
-    public AboutViewModel(IBrowserUtil browserUtil, ISystemInfoProvider systemInfo)
+    public AboutViewModel(ILauncherService launcher, ISystemInfoProvider systemInfo)
     {
-        this.browserUtil = browserUtil;
-
+        this.launcher = launcher;
         AppVersion = $"v{systemInfo.AppVersion}";
     }
 
@@ -31,36 +21,36 @@ public sealed partial class AboutViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenPersonalWebsite()
     {
-        await browserUtil.OpenBrowserAsync("https://rocksdanister.com");
+        await launcher.OpenBrowserAsync("https://rocksdanister.com");
     }
 
     [RelayCommand]
     private async Task OpenGithub()
     {
-        await browserUtil.OpenBrowserAsync("https://github.com/rocksdanister");
+        await launcher.OpenBrowserAsync("https://github.com/rocksdanister");
     }
 
     [RelayCommand]
     private async Task OpenTwitter()
     {
-        await browserUtil.OpenBrowserAsync("https://twitter.com/rocksdanister");
+        await launcher.OpenBrowserAsync("https://twitter.com/rocksdanister");
     }
 
     [RelayCommand]
     private async Task OpenYoutube()
     {
-        await browserUtil.OpenBrowserAsync("https://www.youtube.com/channel/UClep84ofxC41H8-R9UfNPSQ");
+        await launcher.OpenBrowserAsync("https://www.youtube.com/channel/UClep84ofxC41H8-R9UfNPSQ");
     }
 
     [RelayCommand]
     private async Task OpenReddit()
     {
-        await browserUtil.OpenBrowserAsync("https://reddit.com/u/rocksdanister");
+        await launcher.OpenBrowserAsync("https://reddit.com/u/rocksdanister");
     }
 
     [RelayCommand]
     private async Task OpenEmail()
     {
-        await browserUtil.OpenBrowserAsync("mailto:awoo.git@gmail.com");
+        await launcher.OpenBrowserAsync("mailto:awoo.git@gmail.com");
     }
 }

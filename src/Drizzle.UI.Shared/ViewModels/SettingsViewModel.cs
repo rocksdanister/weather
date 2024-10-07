@@ -5,14 +5,12 @@ using Drizzle.Common.Services;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Factories;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 #if WINDOWS_UWP
-using Windows.Storage;
 using Windows.ApplicationModel.Resources;
-using Windows.System;
 #endif
 
 namespace Drizzle.UI.Shared.ViewModels;
@@ -22,6 +20,7 @@ public sealed partial class SettingsViewModel : ObservableObject
     private readonly IUserSettings userSettings;
     private readonly IWeatherClientFactory weatherClientFactory;
     private readonly IFileService fileService;
+    private readonly ILauncherService launcher;
 #if WINDOWS_UWP
     private readonly ResourceLoader resourceLoader;
 #endif
@@ -29,12 +28,14 @@ public sealed partial class SettingsViewModel : ObservableObject
     public SettingsViewModel(IUserSettings userSettings,
         ShellViewModel shellVm,
         IWeatherClientFactory weatherClientFactory,
-        IFileService fileService)
+        IFileService fileService,
+        ILauncherService launcher)
     {
         this.weatherClientFactory = weatherClientFactory;
         this.userSettings = userSettings;
         this.ShellVm = shellVm;
         this.fileService = fileService;
+        this.launcher = launcher;
 
 #if WINDOWS_UWP
         if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
@@ -276,15 +277,10 @@ public sealed partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenLogs()
     {
-#if WINDOWS_UWP
-        var localFolder = await StorageFolder.GetFolderFromPathAsync(fileService.LocalFolderPath);
-        var logsFolder = await localFolder.GetFolderAsync("Logs");
-        var sortedLogs = (await logsFolder.GetFilesAsync()).OrderByDescending(f => f.DateCreated);
-        var latestLog = sortedLogs.FirstOrDefault();
-
+        // DateCreated is not reliably available in some file system/OS combinations.
+        var latestLog = Directory.GetFiles(fileService.LogFolderPath).OrderByDescending(f => new FileInfo(f).LastWriteTime).FirstOrDefault();
         if (latestLog != null)
-            await Launcher.LaunchFileAsync(latestLog);
-#endif
+            await launcher.OpenFileAsync(latestLog);
     }
 
     // Save settings that require confirmation here

@@ -147,7 +147,7 @@ namespace Drizzle.UI.UWP
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
                 .AddTransient<IDownloadService, HttpDownloadService>()
-                .AddTransient<IBrowserUtil, BrowserUtil>()
+                .AddTransient<ILauncherService, LauncherService>()
                 .AddTransient<IFileService, FileService>()
                 // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Drizzle.Common.Helpers
+namespace Drizzle.Common.Services
 {
-    public interface IBrowserUtil
+    public interface ILauncherService
     {
         public Task<bool> OpenBrowserAsync(Uri uri);
         public Task<bool> OpenBrowserAsync(string url);
+        public Task<bool> OpenFileAsync(string filePath);
     }
 }

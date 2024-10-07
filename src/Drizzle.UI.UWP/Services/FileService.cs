@@ -15,6 +15,8 @@ namespace Drizzle.UI.UWP.Services
 
         public string TempFolderPath => ApplicationData.Current.TemporaryFolder.Path;
 
+        public string LogFolderPath => Path.Combine(ApplicationData.Current.LocalFolder.Path, "Logs");
+
         public async Task<(Stream, string)> OpenFileAsync()
         {
             var picker = new FileOpenPicker

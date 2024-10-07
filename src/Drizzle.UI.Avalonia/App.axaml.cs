@@ -110,7 +110,7 @@ public partial class App : Application
             .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
             .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
             .AddTransient<IDownloadService, HttpDownloadService>()
-            .AddTransient<IBrowserUtil, BrowserUtil>()
+            .AddTransient<ILauncherService, LauncherService>()
             // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
             .AddHttpClient()
             // Remove HttpClientFactory logging

@@ -26,6 +26,8 @@ namespace Drizzle.UI.Avalonia.Services
 
         public string TempFolderPath => GetTempFolderPath();
 
+        public string LogFolderPath => Path.Combine(GetLocalFolderPath(), "Logs");
+
         public async Task<(Stream stream, string fileName)> OpenFileAsync()
         {
             var mainWindow = navigator.RootFrame as MainWindow;
