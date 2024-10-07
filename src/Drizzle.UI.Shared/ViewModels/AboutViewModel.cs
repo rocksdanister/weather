@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Threading.Tasks;
 using Drizzle.Common.Helpers;
+using Drizzle.Common.Services;
+
 
 
 #if WINDOWS_UWP
@@ -16,19 +18,11 @@ public sealed partial class AboutViewModel : ObservableObject
 {
     private readonly IBrowserUtil browserUtil;
 
-    public AboutViewModel(IBrowserUtil browserUtil)
+    public AboutViewModel(IBrowserUtil browserUtil, ISystemInfoProvider systemInfo)
     {
         this.browserUtil = browserUtil;
 
-#if WINDOWS_UWP
-        AppVersion = $"v{SystemInfoUtil.Instance.ApplicationVersion.Major}." +
-            $"{SystemInfoUtil.Instance.ApplicationVersion.Minor}." +
-            $"{SystemInfoUtil.Instance.ApplicationVersion.Build}." +
-            $"{SystemInfoUtil.Instance.ApplicationVersion.Revision}";
-#else
-        var version = Assembly.GetEntryAssembly()?.GetName().Version;
-        AppVersion = version is null ? "Error" : $"v{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-#endif
+        AppVersion = $"v{systemInfo.AppVersion}";
     }
 
     [ObservableProperty]

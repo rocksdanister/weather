@@ -191,7 +191,6 @@
     <Compile Include="Extensions\ThemeExtensions.cs" />
     <Compile Include="Helpers\ComputeSharpUtil.cs" />
     <Compile Include="Helpers\BrowserUtil.cs" />
-    <Compile Include="Helpers\SystemInfoUtil.cs" />
     <Compile Include="Services\AppUpdaterService.cs" />
     <Compile Include="Services\AssetReader.cs" />
     <Compile Include="Services\DialogService.cs" />

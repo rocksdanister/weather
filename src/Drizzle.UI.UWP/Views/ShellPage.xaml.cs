@@ -55,7 +55,7 @@ namespace Drizzle.UI.UWP.Views
             this.soundService = App.Services.GetRequiredService<ISoundService>();
             this.DataContext = shellVm;
 
-            if (App.IsTenFoot)
+            if (App.Services.GetRequiredService<ISystemInfoProvider>().IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);

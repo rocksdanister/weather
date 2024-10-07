@@ -55,6 +55,7 @@ public partial class ShellViewModel : ObservableObject
         IShaderViewModelFactory shaderViewModelFactory,
         IWeatherViewModelFactory weatherViewModelFactory,
         IGeolocationService geolocationService,
+        ISystemInfoProvider systemInfo,
         ILogger<ShellViewModel> logger)
     {
         this.userSettings = userSettings;
@@ -132,14 +133,10 @@ public partial class ShellViewModel : ObservableObject
         SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);
         SelectedMainGraphTypeIndex = (int)userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
 
-#if WINDOWS_UWP
-        IsFirstRun = SystemInfoUtil.Instance.IsFirstRun;
-        IsAppUpdated = SystemInfoUtil.Instance.IsAppUpdated;
-
-        var gpu = ComputeSharp.GraphicsDevice.GetDefault();
-        IsHardwareAccelerated = gpu.IsHardwareAccelerated;
-        logger.LogInformation($"GPU: {gpu.Name}, Hardware acceleration: {gpu.IsHardwareAccelerated}");
-#endif
+        IsFirstRun = systemInfo.IsFirstRun;
+        IsAppUpdated = systemInfo.IsAppUpdated;
+        IsHardwareAccelerated = systemInfo.IsHardwareAccelerated;
+        logger.LogInformation($"GPU: {systemInfo.GpuName}, Hardware acceleration: {IsHardwareAccelerated}");
 
         var quality = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;

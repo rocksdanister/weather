@@ -48,12 +48,8 @@ namespace Drizzle.UI.UWP
                 return serviceProvider ?? throw new InvalidOperationException("The service provider is not initialized");
             }
         }
-        public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
-        public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
-
         private readonly ILogger logger;
         private readonly IServiceProvider _serviceProvider;
-        private static readonly bool _isTenFootPc = false;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -64,13 +60,13 @@ namespace Drizzle.UI.UWP
             this.InitializeComponent();
             _serviceProvider = ConfigureServices();
 
-            
             logger = Services.GetRequiredService<ILogger<App>>();
             var userSettings = Services.GetRequiredService<IUserSettings>();
+            var systemInfo = Services.GetRequiredService<ISystemInfoProvider>();
             SetupUnhandledExceptionLogging();
-            LogHardwareInformation();
+            logger.LogInformation($"{systemInfo.AppName} v{systemInfo.AppVersion}");
 
-            if (IsTenFoot)
+            if (systemInfo.IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
                 //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
@@ -79,7 +75,7 @@ namespace Drizzle.UI.UWP
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
-            if (SystemInfoUtil.Instance.IsFirstRun)
+            if (systemInfo.IsFirstRun)
             {
                 // Update before viewModel initialization
                 var region = new GeographicRegion();
@@ -93,7 +89,7 @@ namespace Drizzle.UI.UWP
                         break;
                 }
             }
-            else if (SystemInfoUtil.Instance.IsAppUpdated)
+            else if (systemInfo.IsAppUpdated)
             {
                 logger.LogInformation("App updated, performing maintenance..");
                 // Clear cache incase any changes made to the impl
@@ -120,6 +116,7 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IUserSettings, LocalSettings>()
+                // Managed by Microsoft Store.
                 //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IGeolocationService, GeolocationService>()
@@ -263,15 +260,6 @@ namespace Drizzle.UI.UWP
 
             Windows.ApplicationModel.Core.CoreApplication.UnhandledErrorDetected += (s, e) =>
                 LogUnhandledException(e.UnhandledError);
-        }
-
-        private void LogHardwareInformation()
-        {
-            logger.LogInformation($"{SystemInfoUtil.Instance.ApplicationName} " +
-                $"v{SystemInfoUtil.Instance.ApplicationVersion.Major}.{SystemInfoUtil.Instance.ApplicationVersion.Minor}" +
-                $".{SystemInfoUtil.Instance.ApplicationVersion.Build}.{SystemInfoUtil.Instance.ApplicationVersion.Revision}");
-            //logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
-            //    $"{SystemInformation.Instance.Culture}");
         }
 
         private void LogUnhandledException<T>(T exception) => logger.LogError(exception?.ToString());

@@ -21,15 +21,20 @@ public sealed partial class SettingsViewModel : ObservableObject
 {
     private readonly IUserSettings userSettings;
     private readonly IWeatherClientFactory weatherClientFactory;
+    private readonly IFileService fileService;
 #if WINDOWS_UWP
     private readonly ResourceLoader resourceLoader;
 #endif
 
-    public SettingsViewModel(IUserSettings userSettings, ShellViewModel shellVm, IWeatherClientFactory weatherClientFactory)
+    public SettingsViewModel(IUserSettings userSettings,
+        ShellViewModel shellVm,
+        IWeatherClientFactory weatherClientFactory,
+        IFileService fileService)
     {
         this.weatherClientFactory = weatherClientFactory;
         this.userSettings = userSettings;
         this.ShellVm = shellVm;
+        this.fileService = fileService;
 
 #if WINDOWS_UWP
         if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
@@ -272,7 +277,7 @@ public sealed partial class SettingsViewModel : ObservableObject
     private async Task OpenLogs()
     {
 #if WINDOWS_UWP
-        var localFolder = ApplicationData.Current.LocalFolder;
+        var localFolder = await StorageFolder.GetFolderFromPathAsync(fileService.LocalFolderPath);
         var logsFolder = await localFolder.GetFolderAsync("Logs");
         var sortedLogs = (await logsFolder.GetFilesAsync()).OrderByDescending(f => f.DateCreated);
         var latestLog = sortedLogs.FirstOrDefault();
