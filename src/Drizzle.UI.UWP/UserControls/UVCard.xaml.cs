@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Drizzle.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
-using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -80,15 +81,11 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty MessageProperty =
             DependencyProperty.Register("Message", typeof(string), typeof(UVCard), new PropertyMetadata(string.Empty));
 
-        private readonly ResourceLoader resourceLoader;
         private readonly int margin = 10;
 
         public UVCard()
         {
             this.InitializeComponent();
-
-            if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
-                resourceLoader = ResourceLoader.GetForCurrentView();
         }
 
         private void Update()
@@ -120,13 +117,14 @@ namespace Drizzle.UI.UWP.UserControls
             if (index is null)
                 return "---";
 
+            var resources = App.Services.GetRequiredService<IResourceService>();
             try
             {
                 return index switch
                 {
-                    <= 2 => resourceLoader?.GetString($"UVIndex0"),
-                    <= 7 => resourceLoader?.GetString($"UVIndex1"),
-                    _ => resourceLoader?.GetString($"UVIndex2")
+                    <= 2 => resources.GetString($"UVIndex0"),
+                    <= 7 => resources.GetString($"UVIndex1"),
+                    _ => resources.GetString($"UVIndex2")
                 };
             }
             catch

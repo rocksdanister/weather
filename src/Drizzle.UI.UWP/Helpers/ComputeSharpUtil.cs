@@ -1,20 +1,19 @@
 ﻿using ComputeSharp;
 
-namespace Drizzle.UI.UWP.Helpers
+namespace Drizzle.UI.UWP.Helpers;
+
+public static class ComputeSharpUtil
 {
-    public static class ComputeSharpUtil
+    public static ReadOnlyTexture2D<Rgba32, float4> CreateTextureOrPlaceholder(string filePath, GraphicsDevice device)
     {
-        public static ReadOnlyTexture2D<Rgba32, float4> CreateTextureOrPlaceholder(string filePath, GraphicsDevice device)
+        if (!string.IsNullOrEmpty(filePath))
         {
-            if (!string.IsNullOrEmpty(filePath))
+            try
             {
-                try
-                {
-                    return device.LoadReadOnlyTexture2D<Rgba32, float4>(filePath);
-                }
-                catch { /* Nothing to do */ }
+                return device.LoadReadOnlyTexture2D<Rgba32, float4>(filePath);
             }
-            return device.AllocateReadOnlyTexture2D<Rgba32, float4>(1, 1);
+            catch { /* Nothing to do */ }
         }
+        return device.AllocateReadOnlyTexture2D<Rgba32, float4>(1, 1);
     }
 }

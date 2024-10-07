@@ -1,20 +1,9 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Drizzle.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Resources;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace Drizzle.UI.UWP.UserControls
 {
@@ -89,14 +78,10 @@ namespace Drizzle.UI.UWP.UserControls
             DependencyProperty.Register("Message", typeof(string), typeof(AirQualityCard), new PropertyMetadata(string.Empty));
 
         private readonly int margin = 10;
-        private readonly ResourceLoader resourceLoader;
 
         public AirQualityCard()
         {
             this.InitializeComponent();
-
-            if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
-                resourceLoader = ResourceLoader.GetForCurrentView();
         }
 
         private void Update()
@@ -131,16 +116,18 @@ namespace Drizzle.UI.UWP.UserControls
             if (aqi is null)
                 return "---";
 
+            var resources = App.Services.GetRequiredService<IResourceService>();
+
             try
             {
                 return aqi switch
                 {
-                    <= 50 => resourceLoader?.GetString($"AirQualityIndex0"),
-                    <= 100 => resourceLoader?.GetString($"AirQualityIndex1"),
-                    <= 150 => resourceLoader?.GetString($"AirQualityIndex2"),
-                    <= 200 => resourceLoader?.GetString($"AirQualityIndex3"),
-                    <= 300 => resourceLoader?.GetString($"AirQualityIndex4"),
-                    <= 500 => resourceLoader?.GetString($"AirQualityIndex5"),
+                    <= 50 => resources.GetString($"AirQualityIndex0"),
+                    <= 100 => resources.GetString($"AirQualityIndex1"),
+                    <= 150 => resources.GetString($"AirQualityIndex2"),
+                    <= 200 => resources.GetString($"AirQualityIndex3"),
+                    <= 300 => resources.GetString($"AirQualityIndex4"),
+                    <= 500 => resources.GetString($"AirQualityIndex5"),
                     _ => "---"
                 };
             }

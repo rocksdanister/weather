@@ -1,5 +1,6 @@
 ﻿using Avalonia.Data.Converters;
-using Drizzle.UI.Avalonia.Helpers;
+using Drizzle.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Globalization;
 
@@ -11,7 +12,7 @@ public class WmoWeatherToStringConverter : IValueConverter
     {
         try
         {
-            return ResourceUtil.GetString($"WmoWeatherString{(int)value}");
+            return App.Services.GetRequiredService<IResourceService>().GetString($"WmoWeatherString{(int)value}");
         }
         catch
         {

@@ -80,6 +80,7 @@ public partial class App : Application
             .AddSingleton<IDialogService, DialogService>()
             .AddSingleton<IUserSettings, LocalSettings>()
             //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
+            .AddSingleton<IResourceService, ResourceService>()
             .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
             .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(

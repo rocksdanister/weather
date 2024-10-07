@@ -4,22 +4,20 @@ using Drizzle.UI.UWP.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Drizzle.UI.UWP.Services;
 
-//Issue: https://github.com/microsoft/microsoft-ui-xaml/issues/2331
+// Auto theme issue: https://github.com/microsoft/microsoft-ui-xaml/issues/2331
 public class DialogService : IDialogService
 {
-    private readonly ResourceLoader resourceLoader;
+    private readonly IResourceService resources;
 
-    public DialogService()
+    public DialogService(IResourceService resources)
     {
-        if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
-            resourceLoader = ResourceLoader.GetForCurrentView();
+        this.resources = resources;
     }
 
     public async Task ShowSettingsDialogAsync()
@@ -27,9 +25,9 @@ public class DialogService : IDialogService
         var vm = App.Services.GetRequiredService<SettingsViewModel>();
         var dialog = new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringSettings"),
+            Title = resources.GetString("StringSettings"),
             Content = new SettingsPage(vm),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         };
         //dialog.Resources["ContentDialogMaxWidth"] = 1200;
@@ -45,9 +43,9 @@ public class DialogService : IDialogService
     {
         await new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringAbout"),
+            Title = resources.GetString("StringAbout"),
             Content = new AboutPage(),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         }.ShowAsync();
     }
@@ -56,9 +54,9 @@ public class DialogService : IDialogService
     {
         await new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringHelp"),
+            Title = resources.GetString("StringHelp"),
             Content = new HelpPage(),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         }.ShowAsync();
     }
@@ -69,10 +67,10 @@ public class DialogService : IDialogService
         // Don't use Acrylic background since this operation can be heavy
         var depthDialog = new ContentDialog
         {
-            Title = resourceLoader?.GetString("StringDepthApprox"),
+            Title = resources.GetString("StringDepthApprox"),
             Content = new DepthEstimateView(vm),
-            PrimaryButtonText = resourceLoader?.GetString("StringContinue"),
-            SecondaryButtonText = resourceLoader?.GetString("StringCancel"),
+            PrimaryButtonText = resources.GetString("StringContinue"),
+            SecondaryButtonText = resources.GetString("StringCancel"),
             DefaultButton = ContentDialogButton.Primary,
             SecondaryButtonCommand = vm.CancelCommand,
             PrimaryButtonCommand = vm.RunCommand,

@@ -199,6 +199,7 @@
     <Compile Include="Services\LauncherService.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\Navigator.cs" />
+    <Compile Include="Services\ResourceService.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="Shaders\Clouds.cs" />

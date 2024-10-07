@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Drizzle.UI.UWP.Services
+namespace Drizzle.UI.UWP.Services;
+
+public class AppUpdaterService : IAppUpdaterService
 {
-    public class AppUpdaterService : IAppUpdaterService
-    {
-    }
 }

@@ -5,13 +5,9 @@ using Drizzle.Common.Services;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Factories;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
-
-#if WINDOWS_UWP
-using Windows.ApplicationModel.Resources;
-#endif
 
 namespace Drizzle.UI.Shared.ViewModels;
 
@@ -21,26 +17,21 @@ public sealed partial class SettingsViewModel : ObservableObject
     private readonly IWeatherClientFactory weatherClientFactory;
     private readonly IFileService fileService;
     private readonly ILauncherService launcher;
-#if WINDOWS_UWP
-    private readonly ResourceLoader resourceLoader;
-#endif
+    private readonly IResourceService resources;
 
     public SettingsViewModel(IUserSettings userSettings,
         ShellViewModel shellVm,
         IWeatherClientFactory weatherClientFactory,
         IFileService fileService,
-        ILauncherService launcher)
+        ILauncherService launcher,
+        IResourceService resources)
     {
         this.weatherClientFactory = weatherClientFactory;
         this.userSettings = userSettings;
         this.ShellVm = shellVm;
         this.fileService = fileService;
         this.launcher = launcher;
-
-#if WINDOWS_UWP
-        if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
-            resourceLoader = ResourceLoader.GetForCurrentView();
-#endif
+        this.resources = resources;
 
         ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
         BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
@@ -302,10 +293,7 @@ public sealed partial class SettingsViewModel : ObservableObject
             // If key is removed from already selected provider, restore default.
             if (currentWeatherProvider == newWeatherProvider)
                 userSettings.SetAndSerialize(UserSettingsConstants.SelectedWeatherProvider, WeatherProviders.OpenMeteo);
-
-#if WINDOWS_UWP
-            ShellVm.ErrorMessage = resourceLoader?.GetString("StringWeatherKeyMissingRestoredDefault");
-#endif
+            ShellVm.ErrorMessage = resources.GetString("StringWeatherKeyMissingRestoredDefault");
         }
         else
         {

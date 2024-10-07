@@ -1,16 +1,9 @@
-﻿using Drizzle.Common;
+﻿using Drizzle.Common.Services;
 using Drizzle.Models.Weather;
 using Drizzle.UI.UWP.AnimatedVisuals;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Resources;
-using Windows.UI.Core;
-using Windows.UI.Xaml.Data;
 
 namespace Drizzle.UI.UWP.Converters
 {
@@ -35,16 +28,13 @@ namespace Drizzle.UI.UWP.Converters
         {
             try
             {
-                return resourceLoader?.GetString($"WmoWeatherString{code}");
+                return App.Services.GetRequiredService<IResourceService>().GetString($"WmoWeatherString{code}");
             }
             catch
             {
                 return "Error";
             }
         }
-
-        private static readonly ResourceLoader resourceLoader =
-            CoreWindow.GetForCurrentThread() is not null ? ResourceLoader.GetForCurrentView() : null;
 
         // Reuse the same icon across the app
         private static readonly IReadOnlyDictionary<WmoWeatherCode, IAnimatedVisualSource> dayIcons = new Dictionary<WmoWeatherCode, IAnimatedVisualSource>()

@@ -4,37 +4,36 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.System;
 
-namespace Drizzle.UI.UWP.Services
+namespace Drizzle.UI.UWP.Services;
+
+public class LauncherService : ILauncherService
 {
-    public class LauncherService : ILauncherService
+    public async Task<bool> OpenBrowserAsync(Uri uri) =>
+        await Launcher.LaunchUriAsync(uri);
+
+    public async Task<bool> OpenBrowserAsync(string url)
     {
-        public async Task<bool> OpenBrowserAsync(Uri uri) =>
-            await Launcher.LaunchUriAsync(uri);
-
-        public async Task<bool> OpenBrowserAsync(string url)
+        try
         {
-            try
-            {
-                var uri = new Uri(url);
-                return await Launcher.LaunchUriAsync(uri);
-            }
-            catch
-            {
-                return false;
-            }
+            var uri = new Uri(url);
+            return await Launcher.LaunchUriAsync(uri);
         }
-
-        public async Task<bool> OpenFileAsync(string filePath)
+        catch
         {
-            try
-            {
-                var file = await StorageFile.GetFileFromPathAsync(filePath);
-                return await Launcher.LaunchFileAsync(file);
-            }
-            catch
-            {
-                return false;
-            }
+            return false;
+        }
+    }
+
+    public async Task<bool> OpenFileAsync(string filePath)
+    {
+        try
+        {
+            var file = await StorageFile.GetFileFromPathAsync(filePath);
+            return await Launcher.LaunchFileAsync(file);
+        }
+        catch
+        {
+            return false;
         }
     }
 }

@@ -11,12 +11,19 @@ namespace Drizzle.UI.Avalonia.Services;
 
 public class DialogService : IDialogService
 {
+    private readonly IResourceService resources;
+
+    public DialogService(IResourceService resources)
+    {
+        this.resources = resources;
+    }
+
     public async Task ShowHelpDialogAsync()
     {
         await new ContentDialog()
         {
-            Title = ResourceUtil.GetString("StringHelp"),
-            CloseButtonText = ResourceUtil.GetString("StringOk"),
+            Title = resources.GetString("StringHelp"),
+            CloseButtonText = resources.GetString("StringOk"),
             Content = new HelpView()
         }.ShowAsync();
     }
@@ -25,8 +32,8 @@ public class DialogService : IDialogService
     {
         var dialog = new ContentDialog()
         {
-            Title = ResourceUtil.GetString("StringAbout"),
-            CloseButtonText = ResourceUtil.GetString("StringOk"),
+            Title = resources.GetString("StringAbout"),
+            CloseButtonText = resources.GetString("StringOk"),
             Content = new AboutView()
         };
         dialog.Resources["ContentDialogMinWidth"] = 550d;
@@ -38,8 +45,8 @@ public class DialogService : IDialogService
         var vm = App.Services.GetRequiredService<SettingsViewModel>();
         var dialog = new ContentDialog()
         {
-            Title = ResourceUtil.GetString("StringSettings"),
-            CloseButtonText = ResourceUtil.GetString("StringOk"),
+            Title = resources.GetString("StringSettings"),
+            CloseButtonText = resources.GetString("StringOk"),
             Content = new SettingsView(vm)
         };
         dialog.Resources["ContentDialogMinWidth"] = 650d;
@@ -55,10 +62,10 @@ public class DialogService : IDialogService
         var vm = App.Services.GetRequiredService<DepthEstimateViewModel>();
         var depthDialog = new ContentDialog
         {
-            Title = ResourceUtil.GetString("StringDepthApprox"),
+            Title = resources.GetString("StringDepthApprox"),
             Content = new DepthEstimateView(vm),
-            PrimaryButtonText = ResourceUtil.GetString("StringContinue"),
-            SecondaryButtonText = ResourceUtil.GetString("StringCancel"),
+            PrimaryButtonText = resources.GetString("StringContinue"),
+            SecondaryButtonText = resources.GetString("StringCancel"),
             DefaultButton = ContentDialogButton.Primary,
             SecondaryButtonCommand = vm.CancelCommand,
             PrimaryButtonCommand = vm.RunCommand,

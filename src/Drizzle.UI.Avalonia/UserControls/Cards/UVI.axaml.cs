@@ -1,7 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
 using Drizzle.Common.Helpers;
-using Drizzle.UI.Avalonia.Helpers;
+using Drizzle.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 
@@ -121,13 +122,14 @@ public partial class UVI : UserControl
         if (index is null)
             return "---";
 
+        var resources = App.Services.GetRequiredService<IResourceService>();
         try
         {
             return index switch
             {
-                <= 2 => ResourceUtil.GetString($"UVIndex0"),
-                <= 7 => ResourceUtil.GetString($"UVIndex1"),
-                _ => ResourceUtil.GetString($"UVIndex2")
+                <= 2 => resources.GetString($"UVIndex0"),
+                <= 7 => resources.GetString($"UVIndex1"),
+                _ => resources.GetString($"UVIndex2")
             } ?? "---";
         }
         catch

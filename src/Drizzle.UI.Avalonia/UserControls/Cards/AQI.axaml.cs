@@ -2,9 +2,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Drizzle.Common.Helpers;
-using Drizzle.UI.Avalonia.Helpers;
-using System.Linq;
+using Drizzle.Common.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
 
 namespace Drizzle.UI.Avalonia.UserControls.Cards;
 
@@ -140,16 +141,17 @@ public partial class AQI : UserControl
         if (aqi is null)
             return "---";
 
+        var resources = App.Services.GetRequiredService<IResourceService>();
         try
         {
             return aqi switch
             {
-                <= 50 => ResourceUtil.GetString($"AirQualityIndex0"),
-                <= 100 => ResourceUtil.GetString($"AirQualityIndex1"),
-                <= 150 => ResourceUtil.GetString($"AirQualityIndex2"),
-                <= 200 => ResourceUtil.GetString($"AirQualityIndex3"),
-                <= 300 => ResourceUtil.GetString($"AirQualityIndex4"),
-                <= 500 => ResourceUtil.GetString($"AirQualityIndex5"),
+                <= 50 => resources.GetString($"AirQualityIndex0"),
+                <= 100 => resources.GetString($"AirQualityIndex1"),
+                <= 150 => resources.GetString($"AirQualityIndex2"),
+                <= 200 => resources.GetString($"AirQualityIndex3"),
+                <= 300 => resources.GetString($"AirQualityIndex4"),
+                <= 500 => resources.GetString($"AirQualityIndex5"),
                 _ => "---"
             };
         }

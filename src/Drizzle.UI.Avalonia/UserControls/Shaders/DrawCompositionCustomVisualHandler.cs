@@ -7,6 +7,7 @@ using Drizzle.Common.Helpers;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Shaders;
 using Drizzle.Models.Shaders.Uniform;
+using Drizzle.UI.Avalonia.Helpers;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -259,7 +260,7 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
                             var currentValue = uniformTextures[item.Value.UniformName];
                             if (assetPath != currentValue.assetPath)
                             {
-                                var (imageShader, dimensions) = CreateImageShader(new Uri(assetPath), WrapToSkTile(property.WrapMode));
+                                var (imageShader, dimensions) = SKShaderUtil.CreateImageShader(new Uri(assetPath), SKShaderUtil.WrapToSkTile(property.WrapMode));
                                 currentValue = (assetPath, imageShader, dimensions);
                                 uniformTextures[item.Value.UniformName] = currentValue;
                             }
@@ -365,46 +366,5 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
                 Draw(canvas);
             }
         }
-    }
-
-    private static (SKShader? imageShader, Vector3 dimensions) CreateImageShader(Uri assetUri, SKShaderTileMode wrap = SKShaderTileMode.Clamp)
-    {
-        if (assetUri is null)
-            return (null, Vector3.Zero);
-
-        SKImage? image = null;
-
-        try
-        {
-            if (assetUri.IsFile)
-            {
-                var filePath = assetUri.LocalPath;
-                using var stream = File.OpenRead(filePath);
-                image = SKImage.FromEncodedData(stream);
-            }
-            else
-            {
-                // Assume Avalonia embedded asset
-                image = SKImage.FromEncodedData(AssetLoader.Open(assetUri));
-            }
-
-            var dimensions = image != null ? new Vector3(image.Width, image.Height, 0) : Vector3.Zero;
-            return new(image?.ToShader(wrap, wrap), dimensions);
-        }
-        finally
-        {
-            image?.Dispose();
-        }
-    }
-
-    private static SKShaderTileMode WrapToSkTile(TextureWrapMode wrap)
-    {
-        return wrap switch
-        {
-            TextureWrapMode.clamp => SKShaderTileMode.Clamp,
-            TextureWrapMode.repeat => SKShaderTileMode.Repeat,
-            TextureWrapMode.mirror => SKShaderTileMode.Mirror,
-            _ => SKShaderTileMode.Clamp,
-        };
     }
 }
