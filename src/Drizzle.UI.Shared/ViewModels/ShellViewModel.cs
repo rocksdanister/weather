@@ -41,7 +41,6 @@ public partial class ShellViewModel : ObservableObject
     private readonly IGeolocationService geolocationService;
     private readonly ILogger logger;
 
-    private readonly TimeSpan appUpdateCheckInterval = TimeSpan.FromHours(6);
     private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.MainlyClear;
     private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
     private readonly int maxPinnedLocations;
@@ -147,13 +146,9 @@ public partial class ShellViewModel : ObservableObject
         // Alert user only on first run
         IsHardwareAccelerationMissingNotify = !IsHardwareAccelerated && IsFirstRun;
 
-        if (!BuildInfoUtil.IsDebugBuild() && (DateTime.UtcNow - appUpdater.LastChecked) > appUpdateCheckInterval)
-        {
-            appUpdater.CheckUpdateAsync().Await((x) => {
-                logger.LogInformation($"Application update checked: {x}");
-                IsAppUpdateAvailable = x == AppUpdateStatus.available;
-            }, (ex) => logger.LogError(ex, "Update check failed."));
-        }
+        appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
+        if (!BuildInfoUtil.IsDebugBuild())
+            appUpdater.Start();
     }
 
     public IReadOnlyList<ShaderViewModel> ShaderViewModels { get; private set; }
@@ -916,6 +911,12 @@ public partial class ShellViewModel : ObservableObject
     {
         var sortedLocations = Weathers.OrderBy(x => x.SortOrder).Select(x => x.Location).ToArray();
         userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, sortedLocations);
+    }
+
+    private void AppUpdater_UpdateChecked(object sender, AppUpdateStatus e)
+    {
+        logger.LogInformation($"Application update checked: {e}");
+        IsAppUpdateAvailable = e == AppUpdateStatus.available;
     }
 
     private WeatherUnitSettings GetWeatherUnits()

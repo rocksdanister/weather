@@ -1,4 +1,5 @@
-﻿using Drizzle.Common.Services;
+﻿using Avalonia.Threading;
+using Drizzle.Common.Services;
 using Drizzle.Models;
 using Drizzle.Models.Enums;
 using Microsoft.Extensions.Logging;
@@ -15,13 +16,18 @@ namespace Drizzle.UI.Avalonia.Services;
 public class GithubUpdaterService : IAppUpdaterService
 {
     private readonly string lastUpdateCheckedSettingKey = "UpdateLastChecked";
+    private readonly TimeSpan updateCheckInterval = TimeSpan.FromHours(6);
     private readonly string manifestFileName = "Update.json";
+    private readonly DispatcherTimer dispatcherTimer = new();
+
     private readonly ISystemInfoProvider systemInfo;
     private readonly IUserSettings userSettings;
     private readonly HttpClient httpClient;
     private readonly ILogger logger;
 
-    public DateTime LastChecked { get; private set; }
+    public event EventHandler<AppUpdateStatus> UpdateChecked;
+    public DateTime LastCheckedTime { get; private set; }
+    public AppUpdateStatus LastCheckedStatus { get; private set; } = AppUpdateStatus.notchecked;
 
     public GithubUpdaterService(IHttpClientFactory httpClientFactory,
         ISystemInfoProvider systemInfo,
@@ -33,11 +39,22 @@ public class GithubUpdaterService : IAppUpdaterService
         this.userSettings = userSettings;
         httpClient = httpClientFactory.CreateClient();
 
-        LastChecked = userSettings.Get(lastUpdateCheckedSettingKey, DateTime.MinValue);
+        LastCheckedTime = userSettings.Get(lastUpdateCheckedSettingKey, DateTime.MinValue);
+
+        dispatcherTimer.Tick += DispatcherTimer_Tick;
+        dispatcherTimer.Interval = new TimeSpan(0, 30, 0);
+    }
+
+    public void Start()
+    {
+        dispatcherTimer.Start();
+        // Start does not call once initially.
+        DispatcherTimer_Tick(this, EventArgs.Empty);
     }
 
     public async Task<AppUpdateStatus> CheckUpdateAsync()
     {
+        AppUpdateStatus result;
         try
         {
             var release = await GetLatestRelease("rocksdanister", "weather");
@@ -46,22 +63,30 @@ public class GithubUpdaterService : IAppUpdaterService
             var manifest = JsonConvert.DeserializeObject<AppUpdateManifest>(manifestString);
 
             // Keep track to avoid checking frequently
-            LastChecked = DateTime.UtcNow;
-            userSettings.Set(lastUpdateCheckedSettingKey, LastChecked);
+            LastCheckedTime = DateTime.UtcNow;
+            userSettings.Set(lastUpdateCheckedSettingKey, LastCheckedTime);
 
             if (systemInfo.AppVersion < manifest.ReleaseVersion)
-                return AppUpdateStatus.available;
+                result = AppUpdateStatus.available;
             else if (systemInfo.AppVersion > manifest.ReleaseVersion)
-                return AppUpdateStatus.invalid;
-
-            return AppUpdateStatus.uptodate;
+                result = AppUpdateStatus.invalid;
+            else
+                result = AppUpdateStatus.uptodate;
         }
         catch (Exception ex)
         {
+            result = AppUpdateStatus.error;
             logger.LogError(ex, "Failed to check update.");
         }
 
-        return AppUpdateStatus.error;
+        LastCheckedStatus = result;
+        return result;
+    }
+
+    private async void DispatcherTimer_Tick(object? sender, EventArgs e)
+    {
+        if ((DateTime.UtcNow - LastCheckedTime) > updateCheckInterval)
+            UpdateChecked?.Invoke(this, await CheckUpdateAsync());
     }
 
     private static async Task<Release> GetLatestRelease(string userName, string repositoryName)

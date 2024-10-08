@@ -12,6 +12,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <None Remove="Assets\AnimatedIcons\Bell.json" />
     <None Remove="Assets\AnimatedIcons\Birds.json" />
     <None Remove="Assets\AnimatedIcons\clouds25.json" />
     <None Remove="Assets\AnimatedIcons\Clouds3.json" />

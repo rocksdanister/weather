@@ -422,7 +422,7 @@
             TimeZone="{Binding SelectedLocation.TimeZone}"
             ToolTip.Tip="{Binding SelectedLocation.TimeZone}" />
 
-        <!--  Updated Notification  -->
+        <!--  Updated notification  -->
         <ui:TeachingTip
             BorderBrush="{DynamicResource ThemeAccentBrush}"
             BorderThickness="0,3,0,0"
@@ -432,7 +432,17 @@
             <views:UpdateCompletedView />
         </ui:TeachingTip>
 
-        <!--  Error Notification  -->
+        <!--  Update available notification  -->
+        <ui:TeachingTip
+            BorderBrush="Green"
+            BorderThickness="0,3,0,0"
+            IsOpen="{Binding IsAppUpdateAvailable}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <views:UpdateAvailableView />
+        </ui:TeachingTip>
+
+        <!--  Error notification  -->
         <ui:InfoBar
             Title="{x:Static i18n:Resources.InfoError_Title}"
             Grid.Row="1"

@@ -9,6 +9,10 @@ public interface IAppUpdaterService
     /// <summary>
     /// Utc time since last update checked succesfully.
     /// </summary>
-    DateTime LastChecked { get; }
+    DateTime LastCheckedTime { get; }
+    AppUpdateStatus LastCheckedStatus { get; }
     Task<AppUpdateStatus> CheckUpdateAsync();
+    void Start();
+
+    event EventHandler<AppUpdateStatus> UpdateChecked;
 }
