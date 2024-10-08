@@ -15,10 +15,6 @@
     x:DataType="vm:DepthEstimateViewModel"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <converters:StringNullOrEmptyToBoolConverter x:Key="StringNullOrEmptyToBoolConverter" />
-    </UserControl.Resources>
-
     <Grid>
         <!--  Background  -->
         <Border ClipToBounds="True" CornerRadius="5">
@@ -79,7 +75,7 @@
             <ui:InfoBar.ActionButton>
                 <Button Command="{Binding DownloadModelCommand}" Content="{x:Static i18n:Resources.TitleDownload_Content}" />
             </ui:InfoBar.ActionButton>
-            <ProgressBar Margin="-50,0,0,0" Value="{Binding ModelDownloadProgress}" />
+            <ProgressBar Margin="-42.5,0,2.5,0" Value="{Binding ModelDownloadProgress}" />
         </ui:InfoBar>
         <!--  Error  -->
         <ui:InfoBar
@@ -87,7 +83,7 @@
             Margin="-1.25"
             VerticalAlignment="Top"
             Closing="ErrorInfoBar_Closing"
-            IsOpen="{Binding ErrorText, Mode=OneWay, Converter={StaticResource StringNullOrEmptyToBoolConverter}, ConverterParameter=Reverse}"
+            IsOpen="{Binding ErrorText, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
             Severity="Error">
             <StackPanel>
                 <TextBlock Text="{Binding ErrorText}" />
