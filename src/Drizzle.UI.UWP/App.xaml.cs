@@ -116,8 +116,7 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IUserSettings, LocalSettings>()
-                // Managed by Microsoft Store.
-                //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
+                .AddSingleton<IAppUpdaterService, MicrosoftStoreUpdaterService>()
                 .AddSingleton<IResourceService, ResourceService>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IGeolocationService, GeolocationService>()

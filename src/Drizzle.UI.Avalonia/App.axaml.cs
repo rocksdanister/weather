@@ -63,7 +63,7 @@ public partial class App : Application
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
-            { 
+            {
                 DataContext = Services.GetRequiredService<ShellViewModel>()
             };
         }
@@ -79,7 +79,7 @@ public partial class App : Application
             .AddSingleton<INavigator, Navigator>()
             .AddSingleton<IDialogService, DialogService>()
             .AddSingleton<IUserSettings, LocalSettings>()
-            //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
+            .AddSingleton<IAppUpdaterService, GithubUpdaterService>()
             .AddSingleton<IResourceService, ResourceService>()
             .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
             .AddSingleton<IGeolocationService, GeolocationService>()

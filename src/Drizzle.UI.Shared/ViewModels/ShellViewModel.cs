@@ -15,14 +15,15 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Drizzle.Common.Helpers;
 using System.Numerics;
 using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.Extensions;
+using Drizzle.Common.Extensions;
+using Drizzle.Common.Helpers;
+
 
 #if WINDOWS_UWP
 using CommunityToolkit.WinUI.Collections;
-using Drizzle.UI.UWP.Helpers;
 #endif
 
 namespace Drizzle.UI.Shared.ViewModels;
@@ -40,6 +41,7 @@ public partial class ShellViewModel : ObservableObject
     private readonly IGeolocationService geolocationService;
     private readonly ILogger logger;
 
+    private readonly TimeSpan appUpdateCheckInterval = TimeSpan.FromHours(6);
     private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.MainlyClear;
     private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
     private readonly int maxPinnedLocations;
@@ -57,6 +59,7 @@ public partial class ShellViewModel : ObservableObject
         IWeatherViewModelFactory weatherViewModelFactory,
         IGeolocationService geolocationService,
         ISystemInfoProvider systemInfo,
+        IAppUpdaterService appUpdater,
         ILogger<ShellViewModel> logger)
     {
         this.userSettings = userSettings;
@@ -143,6 +146,14 @@ public partial class ShellViewModel : ObservableObject
         IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
         // Alert user only on first run
         IsHardwareAccelerationMissingNotify = !IsHardwareAccelerated && IsFirstRun;
+
+        if (!BuildInfoUtil.IsDebugBuild() && (DateTime.UtcNow - appUpdater.LastChecked) > appUpdateCheckInterval)
+        {
+            appUpdater.CheckUpdateAsync().Await((x) => {
+                logger.LogInformation($"Application update checked: {x}");
+                IsAppUpdateAvailable = x == AppUpdateStatus.available;
+            }, (ex) => logger.LogError(ex, "Update check failed."));
+        }
     }
 
     public IReadOnlyList<ShaderViewModel> ShaderViewModels { get; private set; }
@@ -221,6 +232,9 @@ public partial class ShellViewModel : ObservableObject
             SetProperty(ref _selectedMainGraphTypeIndex, value);
         }
     }
+
+    [ObservableProperty]
+    private bool isAppUpdateAvailable;
 
     [ObservableProperty]
     private string fallbackBackground;

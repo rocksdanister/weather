@@ -123,6 +123,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="NLog" Version="5.3.3" />
     <PackageReference Include="NLog.Extensions.Logging" Version="5.3.12" />
+    <PackageReference Include="Octokit" Version="13.0.1" />
     <PackageReference Include="SkiaSharp" Version="3.0.0-preview.4.1" />
     <!-- Linux crash fix -->
     <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.0.0-preview.4.1" />

@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Drizzle.Models.Enums;
+using System;
+using System.Threading.Tasks;
 
-namespace Drizzle.Common.Services
+namespace Drizzle.Common.Services;
+
+public interface IAppUpdaterService
 {
-    public interface IAppUpdaterService
-    {
-    }
+    /// <summary>
+    /// Utc time since last update checked succesfully.
+    /// </summary>
+    DateTime LastChecked { get; }
+    Task<AppUpdateStatus> CheckUpdateAsync();
 }

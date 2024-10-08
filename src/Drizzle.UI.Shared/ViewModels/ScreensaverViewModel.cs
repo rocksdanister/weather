@@ -27,7 +27,6 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     private readonly IFileService fileService;
 
     private readonly WmoWeatherCode defaultWeatherAnimation;
-    private readonly bool isResetBackgroundsOnExit;
 
     public ScreensaverViewModel(ShellViewModel shellVm,
         INavigator navigator,
@@ -44,13 +43,6 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         this.userSettings = userSettings;
         this.fileService = fileService;
         this.logger = logger;
-
-        // Useful for testing/demo, on release prevent user selection outside screensaver page.
-#if DEBUG
-        isResetBackgroundsOnExit = false;
-#else
-        isResetBackgroundsOnExit = true;
-#endif
 
         // Mouse drag effect only in screensaver mode
         ShellVm.IsMouseDrag = true;
@@ -142,7 +134,8 @@ public sealed partial class ScreensaverViewModel : ObservableObject
 
         navigator.NavigateTo(ContentPageType.Main);
 
-        if (isResetBackgroundsOnExit)
+        // Useful for testing/demo, on release prevent user selection outside screensaver page.
+        if (!BuildInfoUtil.IsDebugBuild())
         {
             // Reset all backgrounds to stock
             ShellVm.RandomizeWeatherBackgrounds();

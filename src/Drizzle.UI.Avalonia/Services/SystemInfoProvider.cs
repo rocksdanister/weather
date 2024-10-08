@@ -6,8 +6,8 @@ namespace Drizzle.UI.Avalonia.Services;
 
 public class SystemInfoProvider : ISystemInfoProvider
 {
-    private readonly string appVersionKey = "AppVersion";
-    private readonly string isFirstRunKey = "IsFirstRun";
+    private readonly string appVersionSettingKey = "AppVersion";
+    private readonly string isFirstRunSettingKey = "IsFirstRun";
     private readonly IUserSettings userSettings;
 
     public SystemInfoProvider(IUserSettings userSettings)
@@ -41,13 +41,13 @@ public class SystemInfoProvider : ISystemInfoProvider
         var currentVersion = AppVersion.ToString();
 
         // Get the previously installed version from settings
-        var previousVersionString = userSettings.Get<string>(appVersionKey, currentVersion);
+        var previousVersionString = userSettings.Get<string>(appVersionSettingKey, currentVersion);
         var previousVersion = Version.Parse(previousVersionString);
 
         if (previousVersionString != currentVersion)
         {
             // Update the stored version to the current version
-            userSettings.Set(appVersionKey, currentVersion);
+            userSettings.Set(appVersionSettingKey, currentVersion);
 
             // App has been updated
             return (true, previousVersion);
@@ -57,10 +57,10 @@ public class SystemInfoProvider : ISystemInfoProvider
 
     private bool DetectIfFirstUse()
     {
-        if (userSettings.Get<bool>(isFirstRunKey, true))
+        if (userSettings.Get<bool>(isFirstRunSettingKey, true))
         {
             // After checking set it to false, we only need to check if the key exists.
-            userSettings.Set(isFirstRunKey, false);
+            userSettings.Set(isFirstRunSettingKey, false);
             // If the key does not exists or its true (default override) then its first time.
             return true;
         }
