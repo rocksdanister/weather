@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using Drizzle.Common.Helpers;
 using System.Numerics;
 using Drizzle.UI.Shared.Factories;
+using Drizzle.UI.Shared.Extensions;
 
 #if WINDOWS_UWP
 using CommunityToolkit.WinUI.Collections;

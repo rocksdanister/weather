@@ -7,6 +7,7 @@ using Drizzle.ImageProcessing;
 using Drizzle.Models;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.Extensions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.ObjectModel;

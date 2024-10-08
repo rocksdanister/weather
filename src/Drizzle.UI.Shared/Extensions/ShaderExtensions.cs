@@ -4,9 +4,9 @@ using Drizzle.Models.Weather;
 using System;
 using System.Numerics;
 
-namespace Drizzle.Common.Helpers;
+namespace Drizzle.UI.Shared.Extensions;
 
-public static class ShaderUtil
+public static class ShaderExtensions
 {
     public static ShaderTypes GetShader(this WmoWeatherCode weatherCode)
     {
@@ -14,8 +14,13 @@ public static class ShaderUtil
         {
             WmoWeatherCode.ClearSky => ShaderTypes.depth,
             WmoWeatherCode.MainlyClear => ShaderTypes.depth,
+#if WINDOWS_UWP
             WmoWeatherCode.PartlyCloudy => ShaderTypes.clouds,
             WmoWeatherCode.Overcast => ShaderTypes.clouds,
+#else
+            WmoWeatherCode.PartlyCloudy => ShaderTypes.depth,
+            WmoWeatherCode.Overcast => ShaderTypes.depth,
+#endif
             WmoWeatherCode.Haze => ShaderTypes.fog,
             WmoWeatherCode.Dust => ShaderTypes.fog,
             WmoWeatherCode.Mist => ShaderTypes.fog,
@@ -53,11 +58,16 @@ public static class ShaderUtil
         {
             WmoWeatherCode.ClearSky => new DepthModel(),
             WmoWeatherCode.MainlyClear => new DepthModel(),
+#if WINDOWS_UWP
             WmoWeatherCode.PartlyCloudy => new CloudsModel()
             {
                 Scale = 0.45f,
             },
             WmoWeatherCode.Overcast => new CloudsModel(),
+#else
+            WmoWeatherCode.PartlyCloudy => new DepthModel(),
+            WmoWeatherCode.Overcast => new DepthModel(),
+#endif
             WmoWeatherCode.Haze => new WindModel()
             {
                 Color1 = new Vector3(0.8f, .8f, .76f)
