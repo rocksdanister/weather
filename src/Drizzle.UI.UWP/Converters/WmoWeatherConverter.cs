@@ -1,6 +1,6 @@
 ﻿using Drizzle.Common.Services;
 using Drizzle.Models.Weather;
-using Drizzle.UI.UWP.AnimatedVisuals;
+using Drizzle.UI.UWP.AnimatedIcons;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace Drizzle.UI.UWP.Converters
 
         public static string WmoWeatherToFluentIcon(int code)
         {
-            return $"ms-appx:///Assets/Weather/Fluent Icons/{code}d.svg";
+            return $"ms-appx:///Assets/WeatherIcons/{code}d.svg";
         }
 
         public static string WmoWeatherToString(int code)
@@ -48,12 +48,12 @@ namespace Drizzle.UI.UWP.Converters
             { WmoWeatherCode.Mist, new Mist() },
             { WmoWeatherCode.Fog, new Fog() },
             { WmoWeatherCode.DepositingRimeFog, new Fog() },
-            { WmoWeatherCode.LightDrizzle, new AnimatedVisuals.Drizzle() },
-            { WmoWeatherCode.ModerateDrizzle, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.LightDrizzle, new AnimatedIcons.Drizzle() },
+            { WmoWeatherCode.ModerateDrizzle, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.DenseDrizzle, new DrizzleExtreme() },
             { WmoWeatherCode.LightFreezingDrizzle, new Snow() },
             { WmoWeatherCode.DenseFreezingDrizzle, new Snow() },
-            { WmoWeatherCode.SlightRain, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.SlightRain, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.ModerateRain, new Rain() },
             { WmoWeatherCode.HeavyRain, new RainExtreme()},
             { WmoWeatherCode.LightFreezingRain, new Sleet() },
@@ -62,7 +62,7 @@ namespace Drizzle.UI.UWP.Converters
             { WmoWeatherCode.ModerateSnowFall, new Snow() },
             { WmoWeatherCode.HeavySnowFall, new SnowExtreme() },
             { WmoWeatherCode.SnowGrains, new Hail() },
-            { WmoWeatherCode.SlightRainShowers, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.SlightRainShowers, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.ModerateRainShowers, new Rain() },
             { WmoWeatherCode.ViolentRainShowers, new RainExtreme() },
             { WmoWeatherCode.SlightSnowShowers, new Snow() },
@@ -83,12 +83,12 @@ namespace Drizzle.UI.UWP.Converters
             { WmoWeatherCode.Mist, new Mist() },
             { WmoWeatherCode.Fog, new Fog() },
             { WmoWeatherCode.DepositingRimeFog, new Fog() },
-            { WmoWeatherCode.LightDrizzle, new AnimatedVisuals.Drizzle() },
-            { WmoWeatherCode.ModerateDrizzle, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.LightDrizzle, new AnimatedIcons.Drizzle() },
+            { WmoWeatherCode.ModerateDrizzle, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.DenseDrizzle, new DrizzleExtreme() },
             { WmoWeatherCode.LightFreezingDrizzle, new Snow() },
             { WmoWeatherCode.DenseFreezingDrizzle, new Snow() },
-            { WmoWeatherCode.SlightRain, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.SlightRain, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.ModerateRain, new Rain() },
             { WmoWeatherCode.HeavyRain, new RainExtreme()},
             { WmoWeatherCode.LightFreezingRain, new Sleet() },
@@ -97,7 +97,7 @@ namespace Drizzle.UI.UWP.Converters
             { WmoWeatherCode.ModerateSnowFall, new Snow() },
             { WmoWeatherCode.HeavySnowFall, new SnowExtreme() },
             { WmoWeatherCode.SnowGrains, new Hail() },
-            { WmoWeatherCode.SlightRainShowers, new AnimatedVisuals.Drizzle() },
+            { WmoWeatherCode.SlightRainShowers, new AnimatedIcons.Drizzle() },
             { WmoWeatherCode.ModerateRainShowers, new Rain() },
             { WmoWeatherCode.ViolentRainShowers, new RainExtreme() },
             { WmoWeatherCode.SlightSnowShowers, new Snow() },

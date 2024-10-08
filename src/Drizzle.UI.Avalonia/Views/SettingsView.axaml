@@ -177,7 +177,7 @@
 
                     <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitleDistance_Text}">
                         <ui:SettingsExpanderItem.IconSource>
-                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0578;" />
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE916;" />
                         </ui:SettingsExpanderItem.IconSource>
                         <ui:SettingsExpanderItem.Footer>
                             <Border
@@ -213,7 +213,7 @@
 
                     <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitlePrecipitation_Text}">
                         <ui:SettingsExpanderItem.IconSource>
-                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF062;" />
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE914;" />
                         </ui:SettingsExpanderItem.IconSource>
                         <ui:SettingsExpanderItem.Footer>
                             <Border

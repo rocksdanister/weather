@@ -12,7 +12,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="rootPage"
     Background="Transparent"
     Loaded="Page_Loaded"

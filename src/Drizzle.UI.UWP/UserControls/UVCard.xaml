@@ -8,7 +8,7 @@
     xmlns:local="using:Drizzle.UI.UWP.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     d:DesignHeight="300"
     d:DesignWidth="400"
     Loaded="UserControl_Loaded"

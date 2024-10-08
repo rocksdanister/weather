@@ -15,7 +15,7 @@
             <StaticResource x:Key="WindowCaptionBackground" ResourceKey="ApplicationPageBackgroundThemeBrush" />
             <StaticResource x:Key="WindowCaptionBackgroundDisabled" ResourceKey="ApplicationPageBackgroundThemeBrush" />
             <!--  ref: https://medium.com/@Niels9001/create-custom-icon-fonts-and-use-them-in-your-uwp-app-1c518febbda1  -->
-            <FontFamily x:Key="CustomIconFonts">ms-appx:///Assets/CustomIcons.ttf#CustomIcons</FontFamily>
+            <FontFamily x:Key="CustomIconFonts">ms-appx:///Assets/FontIcons/CustomIcons.ttf#CustomIcons</FontFamily>
 
             <!--  ref: https://edi.wang/post/2018/7/31/fix-titlebar-overlapping-navigationview-pane-toggle-button  -->
             <Style x:Key="NavigationBackButtonNormalStyle" TargetType="Button">

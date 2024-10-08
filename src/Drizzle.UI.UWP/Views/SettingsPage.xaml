@@ -141,7 +141,7 @@
                                 <TextBlock x:Uid="TitleDistance" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xED5E;" />
+                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE916;" />
                             </labs:SettingsCard.HeaderIcon>
                             <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedVisibilityUnitIndex, Mode=TwoWay}">
                                 <labs:SegmentedItem>km</labs:SegmentedItem>
@@ -154,7 +154,7 @@
                                 <TextBlock x:Uid="TitlePrecipitation" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xED5E;" />
+                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE914;" />
                             </labs:SettingsCard.HeaderIcon>
                             <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedPrecipitationUnitIndex, Mode=TwoWay}">
                                 <labs:SegmentedItem>mm</labs:SegmentedItem>
