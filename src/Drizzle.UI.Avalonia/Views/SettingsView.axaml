@@ -11,6 +11,23 @@
     d:DesignWidth="800"
     x:DataType="vm:SettingsViewModel"
     mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <Style Selector="ListBox.WeatherUnitListBox ListBoxItem">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Style Selector="^:selected /template/ ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
+            </Style>
+        </Style>
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+        <ItemsPanelTemplate x:Key="WeatherUnitListBoxItemPanelTemplate">
+            <VirtualizingStackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+    </UserControl.Resources>
+
     <Grid Margin="0,0,5,0">
         <ScrollViewer>
             <StackPanel Spacing="3">
@@ -115,24 +132,12 @@
                                 <ListBox
                                     Padding="-2.5"
                                     Background="{DynamicResource SystemAltLowColor}"
+                                    Classes="WeatherUnitListBox"
                                     IsEnabled="{Binding !IsPresetUnit}"
+                                    ItemsPanel="{StaticResource WeatherUnitListBoxItemPanelTemplate}"
                                     SelectedIndex="{Binding SelectedTemperatureUnitIndex, Mode=TwoWay}">
-                                    <ListBox.Styles>
-                                        <Style Selector="ListBoxItem">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Padding" Value="0" />
-                                        </Style>
-                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                                        </Style>
-                                    </ListBox.Styles>
                                     <TextBlock HorizontalAlignment="Center">°C</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">°F</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
                                 </ListBox>
                             </Border>
                         </ui:SettingsExpanderItem.Footer>
@@ -151,25 +156,13 @@
                                 <ListBox
                                     Padding="-2.5"
                                     Background="{DynamicResource SystemAltLowColor}"
+                                    Classes="WeatherUnitListBox"
                                     IsEnabled="{Binding !IsPresetUnit}"
+                                    ItemsPanel="{StaticResource WeatherUnitListBoxItemPanelTemplate}"
                                     SelectedIndex="{Binding SelectedWindSpeedUnitIndex, Mode=TwoWay}">
-                                    <ListBox.Styles>
-                                        <Style Selector="ListBoxItem">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Padding" Value="0" />
-                                        </Style>
-                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                                        </Style>
-                                    </ListBox.Styles>
                                     <TextBlock HorizontalAlignment="Center">km/h</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">mph</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">m/s</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
                                 </ListBox>
                             </Border>
                         </ui:SettingsExpanderItem.Footer>
@@ -188,24 +181,12 @@
                                 <ListBox
                                     Padding="-2.5"
                                     Background="{DynamicResource SystemAltLowColor}"
+                                    Classes="WeatherUnitListBox"
                                     IsEnabled="{Binding !IsPresetUnit}"
+                                    ItemsPanel="{StaticResource WeatherUnitListBoxItemPanelTemplate}"
                                     SelectedIndex="{Binding SelectedVisibilityUnitIndex, Mode=TwoWay}">
-                                    <ListBox.Styles>
-                                        <Style Selector="ListBoxItem">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Padding" Value="0" />
-                                        </Style>
-                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                                        </Style>
-                                    </ListBox.Styles>
                                     <TextBlock HorizontalAlignment="Center">km</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">mi</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
                                 </ListBox>
                             </Border>
                         </ui:SettingsExpanderItem.Footer>
@@ -224,24 +205,12 @@
                                 <ListBox
                                     Padding="-2.5"
                                     Background="{DynamicResource SystemAltLowColor}"
+                                    Classes="WeatherUnitListBox"
                                     IsEnabled="{Binding !IsPresetUnit}"
+                                    ItemsPanel="{StaticResource WeatherUnitListBoxItemPanelTemplate}"
                                     SelectedIndex="{Binding SelectedPrecipitationUnitIndex, Mode=TwoWay}">
-                                    <ListBox.Styles>
-                                        <Style Selector="ListBoxItem">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Padding" Value="0" />
-                                        </Style>
-                                        <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-                                            <Setter Property="Background" Value="{DynamicResource AccentFillColorDefaultBrush}" />
-                                        </Style>
-                                    </ListBox.Styles>
                                     <TextBlock HorizontalAlignment="Center">mm</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">inch</TextBlock>
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <VirtualizingStackPanel Orientation="Horizontal" />
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
                                 </ListBox>
                             </Border>
                         </ui:SettingsExpanderItem.Footer>
