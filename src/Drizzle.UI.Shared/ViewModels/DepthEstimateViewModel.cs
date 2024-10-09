@@ -38,7 +38,7 @@ public partial class DepthEstimateViewModel : ObservableObject
         this.downloader = downloader;
         this.fileService = fileService;
 
-        this.modelPath = Path.Combine(fileService.LocalFolderPath, "ML", "midas", "model.onnx");
+        this.modelPath = Path.Combine(fileService.LocalFolderPath, "ML", "Midas", "model.onnx");
         IsModelExists = CheckModel();
         CanRunCommand = IsModelExists && SelectedImage is not null;
         RunCommand.NotifyCanExecuteChanged();
@@ -216,7 +216,7 @@ public partial class DepthEstimateViewModel : ObservableObject
             CanDownloadModelCommand = false;
             DownloadModelCommand.NotifyCanExecuteChanged();
 
-            var downloadPath = Path.Combine(fileService.LocalFolderPath, "ML", "Midas", "model.onnx");
+            var downloadPath = modelPath;
             downloadCts = new CancellationTokenSource();
 
             await downloader.DownloadFile(modelUri, downloadPath, new Progress<(double downloaded, double total)>(progress =>
