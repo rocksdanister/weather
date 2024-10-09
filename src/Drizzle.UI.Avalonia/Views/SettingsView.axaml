@@ -282,7 +282,7 @@
 
                 <ui:SettingsExpander Header="{x:Static i18n:Resources.ReduceMotionSettings_Header}" IsEnabled="{Binding !ShellVm.IsFallbackBackground}">
                     <ui:SettingsExpander.IconSource>
-                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF0649;" />
+                        <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xF104;" />
                     </ui:SettingsExpander.IconSource>
                     <ui:SettingsExpander.Footer>
                         <CheckBox IsChecked="{Binding ReducedMotion, Mode=TwoWay}" />
