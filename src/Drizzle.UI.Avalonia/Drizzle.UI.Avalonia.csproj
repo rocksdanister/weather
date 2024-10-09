@@ -154,12 +154,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Update="Nlog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 
   <Import Project="..\Drizzle.UI.Shared\Drizzle.UI.Shared.projitems" Label="Shared" />
 </Project>

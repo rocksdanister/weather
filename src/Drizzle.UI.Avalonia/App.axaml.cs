@@ -8,6 +8,7 @@ using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
+using Drizzle.UI.Avalonia.Helpers;
 using Drizzle.UI.Avalonia.Services;
 using Drizzle.UI.Avalonia.Views;
 using Drizzle.UI.Shared.Factories;
@@ -143,20 +144,25 @@ public partial class App : Application
             .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
             .AddTransient<IDownloadService, HttpDownloadService>()
             .AddTransient<ILauncherService, LauncherService>()
-            // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+            .AddTransient<INLogConfigFactory, NLogConfigFactory>()
+            // Ref: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
             .AddHttpClient()
             // Remove HttpClientFactory logging
             .RemoveAll<IHttpMessageHandlerBuilderFilter>()
-            // TODO: Use proper MacOS, Linux logfile location.
-            .AddLogging(loggingBuilder =>
+            // Deferred logging initialization
+            .AddSingleton(provider =>
             {
-                // Configure Logging with NLog
-                loggingBuilder.ClearProviders();
-                // https://github.com/NLog/NLog.Extensions.Logging/issues/389
-                loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                loggingBuilder.AddNLog("Nlog.config");
-            })
-            .BuildServiceProvider();
+                var configFactory = provider.GetRequiredService<INLogConfigFactory>();
+                var logFolderPath = provider.GetRequiredService<IFileService>().LogFolderPath;
+
+                return LoggerFactory.Create(builder =>
+                {
+                    builder.ClearProviders();
+                    // Ref: https://github.com/NLog/NLog.Extensions.Logging/issues/389
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                    builder.AddNLog(configFactory.Create(logFolderPath));
+                });
+            }).BuildServiceProvider();
     }
 
     private void SetupUnhandledExceptionLogging()

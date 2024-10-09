@@ -640,11 +640,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Nlog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Drizzle.Common\Drizzle.Common.csproj">
       <Project>{1cc71c1d-6019-41fa-8226-b11d7c8d38e0}</Project>
       <Name>Drizzle.Common</Name>

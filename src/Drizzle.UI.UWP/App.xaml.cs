@@ -149,19 +149,25 @@ namespace Drizzle.UI.UWP
                 .AddTransient<IDownloadService, HttpDownloadService>()
                 .AddTransient<ILauncherService, LauncherService>()
                 .AddTransient<IFileService, FileService>()
-                // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+                .AddTransient<INLogConfigFactory, NLogConfigFactory>()
+                // Ref: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()
                 // Remove HttpClientFactory logging
                 .RemoveAll<IHttpMessageHandlerBuilderFilter>()
-                .AddLogging(loggingBuilder =>
+                // Deferred logging initialization
+                .AddSingleton(provider =>
                 {
-                    // Configure Logging with NLog
-                    loggingBuilder.ClearProviders();
-                    // https://github.com/NLog/NLog.Extensions.Logging/issues/389
-                    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                    loggingBuilder.AddNLog("Nlog.config");
-                })
-                .BuildServiceProvider();
+                    var configFactory = provider.GetRequiredService<INLogConfigFactory>();
+                    var logFolderPath = provider.GetRequiredService<IFileService>().LogFolderPath;
+
+                    return LoggerFactory.Create(builder =>
+                    {
+                        builder.ClearProviders();
+                        // Ref: https://github.com/NLog/NLog.Extensions.Logging/issues/389
+                        builder.SetMinimumLevel(LogLevel.Trace);
+                        builder.AddNLog(configFactory.Create(logFolderPath));
+                    });
+                }).BuildServiceProvider();
         }
 
         /// <summary>

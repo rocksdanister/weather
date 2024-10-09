@@ -10,6 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ShaderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\NLogConfigFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\INLogConfigFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IShaderViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherClientFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherViewModelFactory.cs" />
