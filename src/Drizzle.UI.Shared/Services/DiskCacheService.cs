@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Drizzle.Common.Services;
 
-namespace Drizzle.UI.Avalonia.Services;
+namespace Drizzle.UI.Shared.Services;
 
 public class DiskCacheService : ICacheService
 {
