@@ -268,6 +268,9 @@ public sealed partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenLogs()
     {
+        if (!Directory.Exists(fileService.LogFolderPath))
+            return;
+
         // DateCreated is not reliably available in some file system/OS combinations.
         var latestLog = Directory.GetFiles(fileService.LogFolderPath).OrderByDescending(f => new FileInfo(f).LastWriteTime).FirstOrDefault();
         if (latestLog != null)

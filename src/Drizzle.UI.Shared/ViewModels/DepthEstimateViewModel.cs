@@ -100,7 +100,10 @@ public partial class DepthEstimateViewModel : ObservableObject
     {
         var (stream, fileName) = await fileService.OpenImageFileAsync();
         if (stream is null)
+        {
+            OnRequestClose?.Invoke(this, EventArgs.Empty);
             return;
+        }
 
         var tempFilePath = Path.Combine(fileService.TempFolderPath, fileName);
         tempFilePath = FileUtil.NextAvailableFilename(tempFilePath);
@@ -244,6 +247,8 @@ public partial class DepthEstimateViewModel : ObservableObject
 
     public void OnClose()
     {
+        downloadCts?.Cancel();
+        downloadCts = null;
         SelectedShader = null;
 
         try
