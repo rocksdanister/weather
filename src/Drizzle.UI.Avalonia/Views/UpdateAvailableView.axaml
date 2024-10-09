@@ -24,7 +24,7 @@
             Margin="-50,0,0,0"
             VerticalAlignment="Center"
             Spacing="5">
-            <TextBlock FontWeight="SemiBold" Text="Update Available!" />
+            <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleUpdateAvailable_Text}" />
             <HyperlinkButton NavigateUri="https://github.com/rocksdanister/weather/releases">
                 <TextBlock Text="{x:Static i18n:Resources.LearnMore_Content}" />
             </HyperlinkButton>

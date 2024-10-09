@@ -507,6 +507,9 @@
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>Temperature</value>
   </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update Available!</value>
+  </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Update Completed</value>
   </data>

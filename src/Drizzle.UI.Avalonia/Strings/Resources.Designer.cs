@@ -1231,6 +1231,15 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Available!.
+        /// </summary>
+        public static string TitleUpdateAvailable_Text {
+            get {
+                return ResourceManager.GetString("TitleUpdateAvailable.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Completed.
         /// </summary>
         public static string TitleUpdateComplete_Text {
