@@ -2,11 +2,11 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using Drizzle.Common.Constants;
-using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
-using Drizzle.UI.Avalonia.Helpers;
+using Drizzle.Models.Weather;
 using Drizzle.UI.Avalonia.Services;
 using Drizzle.UI.Avalonia.Views;
 using Drizzle.UI.Shared.Factories;
@@ -21,6 +21,7 @@ using NLog.Extensions.Logging;
 using System;
 using System.Globalization;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Drizzle.UI.Avalonia;
 
@@ -34,11 +35,39 @@ public partial class App : Application
             return serviceProvider ?? throw new InvalidOperationException("The service provider is not initialized");
         }
     }
+    private readonly ILogger logger;
     private readonly IServiceProvider _serviceProvider;
 
     public App()
     {
         _serviceProvider = ConfigureServices();
+        // Note: Application.Current is not ready.
+        logger = _serviceProvider.GetRequiredService<ILogger<App>>();
+        SetupUnhandledExceptionLogging();
+        var systemInfo = _serviceProvider.GetRequiredService<ISystemInfoProvider>();
+        logger.LogInformation("Application {AppName} v{AppVersion}", systemInfo.AppName, systemInfo.AppVersion);
+
+        if (systemInfo.IsFirstRun)
+        {
+            // Update before viewModel initialization
+            var regionInfo = new RegionInfo(CultureInfo.CurrentCulture.Name);
+            var userSettings = _serviceProvider.GetRequiredService<IUserSettings>();
+            switch (regionInfo.TwoLetterISORegionName)
+            {
+                case "US":
+                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.imperial);
+                    break;
+                case "GB":
+                    userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
+                    break;
+            }
+        }
+        else if (systemInfo.IsAppUpdated)
+        {
+            logger.LogInformation("App updated, performing maintenance..");
+            // Clear cache incase any changes made to the impl
+            _serviceProvider.GetRequiredService<ICacheService>().Clear();
+        }
     }
 
     public override void Initialize()
@@ -52,7 +81,6 @@ public partial class App : Application
         // Without this line you will get duplicate validations from both Avalonia and CT
         BindingPlugins.DataValidators.RemoveAt(0);
 
-        //ResourceUtil.SetCulture("en-US");
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
@@ -126,5 +154,23 @@ public partial class App : Application
                 loggingBuilder.AddNLog("Nlog.config");
             })
             .BuildServiceProvider();
+    }
+
+    private void SetupUnhandledExceptionLogging()
+    {
+        AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            LogUnhandledException((Exception)e.ExceptionObject);
+
+        TaskScheduler.UnobservedTaskException += (s, e) =>
+            LogUnhandledException(e.Exception);
+
+        Dispatcher.UIThread.UnhandledException += (s, e) =>
+            LogUnhandledException(e.Exception);
+    }
+
+    private void LogUnhandledException(Exception? ex)
+    {
+        if (ex is not null)
+            logger.LogError(ex, "An unhandled exception occurred.");
     }
 }
