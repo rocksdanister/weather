@@ -6,6 +6,7 @@ using Avalonia.Threading;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
+using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Avalonia.Services;
 using Drizzle.UI.Avalonia.Views;
@@ -61,6 +62,8 @@ public partial class App : Application
                     userSettings.SetAndSerialize(UserSettingsConstants.WeatherUnit, WeatherUnits.hybrid);
                     break;
             }
+            // Only Quality and Potato available in Avalonia for now.
+            userSettings.SetAndSerialize(UserSettingsConstants.Performance, AppPerformance.quality);
         }
         else if (systemInfo.IsAppUpdated)
         {
