@@ -146,6 +146,7 @@ public partial class ShellViewModel : ObservableObject
         // Alert user only on first run
         IsHardwareAccelerationMissingNotify = !IsHardwareAccelerated && IsFirstRun;
 
+        // We are not checking last run update checked status to avoid spamming the user with notification.
         appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
         if (!BuildInfoUtil.IsDebugBuild())
             appUpdater.Start();

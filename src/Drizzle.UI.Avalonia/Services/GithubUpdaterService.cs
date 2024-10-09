@@ -15,7 +15,8 @@ namespace Drizzle.UI.Avalonia.Services;
 
 public class GithubUpdaterService : IAppUpdaterService
 {
-    private readonly string lastUpdateCheckedSettingKey = "UpdateLastChecked";
+    private readonly string lastUpdateCheckedUtcTimeSettingKey = "UpdateLastCheckedUtcTime";
+    private readonly string lastUpdateCheckedStatusKey = "UpdateLastCheckedStatus";
     private readonly TimeSpan updateCheckInterval = TimeSpan.FromHours(6);
     private readonly string manifestFileName = "Update.json";
     private readonly DispatcherTimer dispatcherTimer = new();
@@ -27,7 +28,7 @@ public class GithubUpdaterService : IAppUpdaterService
 
     public event EventHandler<AppUpdateStatus> UpdateChecked;
     public DateTime LastCheckedTime { get; private set; }
-    public AppUpdateStatus LastCheckedStatus { get; private set; } = AppUpdateStatus.notchecked;
+    public AppUpdateStatus LastCheckedStatus { get; private set; }
 
     public GithubUpdaterService(IHttpClientFactory httpClientFactory,
         ISystemInfoProvider systemInfo,
@@ -39,7 +40,10 @@ public class GithubUpdaterService : IAppUpdaterService
         this.userSettings = userSettings;
         httpClient = httpClientFactory.CreateClient();
 
-        LastCheckedTime = userSettings.Get(lastUpdateCheckedSettingKey, DateTime.MinValue);
+        LastCheckedTime = userSettings.Get(lastUpdateCheckedUtcTimeSettingKey, DateTime.MinValue);
+        // If the application just updated we do not know if it is latest update, assume not checked.
+        LastCheckedStatus = systemInfo.IsAppUpdated ? 
+            AppUpdateStatus.notchecked : userSettings.GetAndDeserialize(lastUpdateCheckedStatusKey, AppUpdateStatus.notchecked);
 
         dispatcherTimer.Tick += DispatcherTimer_Tick;
         dispatcherTimer.Interval = new TimeSpan(0, 30, 0);
@@ -64,7 +68,7 @@ public class GithubUpdaterService : IAppUpdaterService
 
             // Keep track to avoid checking frequently
             LastCheckedTime = DateTime.UtcNow;
-            userSettings.Set(lastUpdateCheckedSettingKey, LastCheckedTime);
+            userSettings.Set(lastUpdateCheckedUtcTimeSettingKey, LastCheckedTime);
 
             if (systemInfo.AppVersion < manifest.ReleaseVersion)
                 result = AppUpdateStatus.available;
@@ -78,8 +82,9 @@ public class GithubUpdaterService : IAppUpdaterService
             result = AppUpdateStatus.error;
             logger.LogError(ex, "Failed to check update.");
         }
-
         LastCheckedStatus = result;
+        userSettings.SetAndSerialize(lastUpdateCheckedStatusKey, LastCheckedStatus);
+
         return result;
     }
 

@@ -43,6 +43,18 @@ public class LocalSettings : IUserSettings
     }
 
     /// <inheritdoc/>
+    public T? GetAndDeserialize<T>(string settingKey, T defaultOverride)
+    {
+        object result = ApplicationData.Current.LocalSettings.Values[settingKey];
+        if (result is string serialized)
+        {
+            return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
+        return defaultOverride;
+    }
+
+    /// <inheritdoc/>
     public void SetAndSerialize<T>(string settingKey, T value)
     {
         var serialized = JsonConvert.SerializeObject(value);

@@ -52,6 +52,14 @@ public class LocalSettings : IUserSettings
         return (T)UserSettingsConstants.Defaults[settingKey];
     }
 
+    public T? GetAndDeserialize<T>(string settingKey, T defaultOverride)
+    {
+        if (settings.TryGetValue(settingKey, out var value) && value is string jsonString)
+            return JsonConvert.DeserializeObject<T>(jsonString);
+
+        return defaultOverride;
+    }
+
     public void Set<T>(string settingKey, T value)
     {
         settings[settingKey] = value!;
