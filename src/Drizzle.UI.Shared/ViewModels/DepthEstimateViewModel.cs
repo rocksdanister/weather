@@ -7,6 +7,7 @@ using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Shaders;
 using Drizzle.UI.Shared.Factories;
+using Microsoft.Extensions.Logging;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
@@ -21,6 +22,7 @@ public partial class DepthEstimateViewModel : ObservableObject
     private readonly IDepthEstimate depthEstimate;
     private readonly IDownloadService downloader;
     private readonly IFileService fileService;
+    private readonly ILogger logger;
 
     public string DepthAssetDir { get; private set; }
     public event EventHandler OnRequestClose;
@@ -32,11 +34,13 @@ public partial class DepthEstimateViewModel : ObservableObject
     public DepthEstimateViewModel(IShaderViewModelFactory shaderViewModelFactory,
         IDepthEstimate depthEstimate,
         IDownloadService downloader,
-        IFileService fileService)
+        IFileService fileService,
+        ILogger<DepthEstimateViewModel> logger)
     {
         this.depthEstimate = depthEstimate;
         this.downloader = downloader;
         this.fileService = fileService;
+        this.logger = logger;
 
         this.modelPath = Path.Combine(fileService.LocalFolderPath, "ML", "Midas", "model.onnx");
         IsModelExists = CheckModel();
@@ -188,6 +192,7 @@ public partial class DepthEstimateViewModel : ObservableObject
         }
         catch (Exception ex)
         {
+            logger.LogError(ex, "Depth estimate failed.");
             ErrorText = $"Error: {ex.Message}";
             try
             {
@@ -236,6 +241,7 @@ public partial class DepthEstimateViewModel : ObservableObject
         }
         catch (Exception ex)
         {
+            logger.LogError(ex, "Failed to download model.");
             ErrorText = $"Error: {ex.Message}";
         }
         //finally

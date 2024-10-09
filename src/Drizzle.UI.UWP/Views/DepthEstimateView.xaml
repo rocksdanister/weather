@@ -144,7 +144,12 @@
         </StackPanel>
         <!--  Error message  -->
         <StackPanel Margin="5" Visibility="{x:Bind viewModel.ErrorText, Converter={StaticResource StringVisibilityConverter}, Mode=OneWay}">
-            <TextBlock Foreground="Red" Text="{x:Bind viewModel.ErrorText, Mode=OneWay}" />
+            <ScrollViewer MaxHeight="100">
+                <TextBlock
+                    Foreground="Red"
+                    Text="{x:Bind viewModel.ErrorText, Mode=OneWay}"
+                    TextWrapping="Wrap" />
+            </ScrollViewer>
             <HyperlinkButton Content="https://github.com/rocksdanister/weather/wiki/Machine-Learning" NavigateUri="https://github.com/rocksdanister/weather/wiki/Machine-Learning" />
         </StackPanel>
     </Grid>
