@@ -48,13 +48,18 @@
                             <HyperlinkButton Content="{x:Static i18n:Resources.LanguageSettingsHelpTranslate_Content}" NavigateUri="https://crwd.in/lively-weather" />
                             <ComboBox
                                 MinWidth="165"
-                                IsEnabled="False"
-                                SelectedIndex="0">
-                                <ComboBoxItem Content="{x:Static i18n:Resources.LanguageSettingsItemSystemDefault_Content}" />
-                            </ComboBox>
+                                DisplayMemberBinding="{Binding DisplayName}"
+                                ItemsSource="{Binding Languages}"
+                                SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" />
                         </StackPanel>
                     </ui:SettingsExpander.Footer>
                 </ui:SettingsExpander>
+                <ui:InfoBar
+                    IsClosable="False"
+                    IsOpen="{Binding IsLanguageChanged}"
+                    IsVisible="{Binding IsLanguageChanged}"
+                    Message="{x:Static i18n:Resources.InfoSettingsRestartRequest_Message}"
+                    Severity="Informational" />
 
                 <ui:SettingsExpander
                     ActionIconSource="ChevronRight"

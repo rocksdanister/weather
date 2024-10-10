@@ -1,5 +1,4 @@
 ﻿using Drizzle.Common.Constants;
-using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
@@ -8,7 +7,6 @@ using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.Services;
 using Drizzle.UI.Shared.ViewModels;
 using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Helpers;
 using Drizzle.UI.UWP.Services;
 using Drizzle.UI.UWP.Views;
 using Drizzle.Weather;
@@ -24,7 +22,6 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Globalization;
-using Windows.System.Profile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -177,6 +174,14 @@ namespace Drizzle.UI.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            // Set display language.
+            var userSettings = Services.GetRequiredService<IUserSettings>();
+            var resources = Services.GetRequiredService<IResourceService>();
+            if (userSettings.Get<bool>(UserSettingsConstants.UseSystemDefaultLanguage))
+                resources.SetSystemDefaultCulture();
+            else
+                resources.SetCulture(userSettings.Get<string>(UserSettingsConstants.SelectedLanguageCode));
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,

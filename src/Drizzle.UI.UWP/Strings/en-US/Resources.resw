@@ -255,6 +255,9 @@
   <data name="InfoError.Title" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Please restart application for settings to take effect.</value>
+  </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribute to this program by translating it into other languages.</value>
   </data>

@@ -475,6 +475,15 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please restart application for settings to take effect..
+        /// </summary>
+        public static string InfoSettingsRestartRequest_Message {
+            get {
+                return ResourceManager.GetString("InfoSettingsRestartRequest.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contribute to this program by translating it into other languages..
         /// </summary>
         public static string InfoTranslation_Message {

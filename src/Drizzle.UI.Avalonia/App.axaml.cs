@@ -8,7 +8,6 @@ using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
-using Drizzle.UI.Avalonia.Helpers;
 using Drizzle.UI.Avalonia.Services;
 using Drizzle.UI.Avalonia.Views;
 using Drizzle.UI.Shared.Factories;
@@ -84,6 +83,14 @@ public partial class App : Application
         // Line below is needed to remove Avalonia data validation.
         // Without this line you will get duplicate validations from both Avalonia and CT
         BindingPlugins.DataValidators.RemoveAt(0);
+
+        // Set display language.
+        var userSettings = Services.GetRequiredService<IUserSettings>();
+        var resources = Services.GetRequiredService<IResourceService>();
+        if (userSettings.Get<bool>(UserSettingsConstants.UseSystemDefaultLanguage))
+            resources.SetSystemDefaultCulture();
+        else
+            resources.SetCulture(userSettings.Get<string>(UserSettingsConstants.SelectedLanguageCode));
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

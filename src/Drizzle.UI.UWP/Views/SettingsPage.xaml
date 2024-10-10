@@ -12,6 +12,7 @@
 
     <Page.Resources>
         <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </Page.Resources>
 
     <Grid>
@@ -44,12 +45,16 @@
                         <HyperlinkButton x:Uid="LanguageSettingsHelpTranslate" NavigateUri="https://crwd.in/lively-weather" />
                         <ComboBox
                             MinWidth="165"
-                            IsEnabled="False"
-                            SelectedIndex="0">
-                            <ComboBoxItem x:Uid="LanguageSettingsItemSystemDefault" />
-                        </ComboBox>
+                            DisplayMemberPath="DisplayName"
+                            ItemsSource="{x:Bind viewModel.Languages, Mode=OneWay}"
+                            SelectedItem="{x:Bind viewModel.SelectedLanguage, Mode=TwoWay}" />
                     </StackPanel>
                 </labs:SettingsCard>
+                <muxc:InfoBar
+                    x:Uid="InfoSettingsRestartRequest"
+                    IsClosable="False"
+                    IsOpen="{x:Bind viewModel.IsLanguageChanged, Mode=OneWay}"
+                    Visibility="{x:Bind viewModel.IsLanguageChanged, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                 <labs:SettingsCard
                     x:Uid="OpenLogs"

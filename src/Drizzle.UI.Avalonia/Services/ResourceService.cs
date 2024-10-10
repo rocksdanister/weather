@@ -14,10 +14,18 @@ public class ResourceService : IResourceService
 
     public void SetCulture(string name)
     {
+        if (string.IsNullOrEmpty(name))
+            return;
+
         var culture = new CultureInfo(name);
         CultureInfo.CurrentCulture = culture;
         CultureInfo.CurrentUICulture = culture;
         // ResourceManager.GetString ignores this and uses CurrentUICulture.
         Strings.Resources.Culture = culture;
+    }
+
+    public void SetSystemDefaultCulture()
+    {
+        // Nothing to do here.
     }
 }
