@@ -205,18 +205,29 @@ public partial class MainWindow : Window
         shellVm.ErrorMessage = null;
     }
 
-    #region helpers
+    private void DeleteLocationButton_Click(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        shellVm.DeleteLocationCommand.Execute((sender as Button)?.DataContext);
+    }
+
+    private void LocationPane_Inner_Button_Click(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        CloseLocationPanel();
+    }
+
+    private void LocationOverlay_PointerPressed(object? sender, global::Avalonia.Input.PointerPressedEventArgs e)
+    {
+        CloseLocationPanel();
+    }
+
+    private void CloseLocationPanel()
+    {
+        LocationPaneButton.IsChecked = false;
+    }
 
     private static Size GetMonitorResolution(Window window)
     {
         var screen = window?.Screens.ScreenFromVisual(window);
         return screen != null ? new Size(screen.Bounds.Width, screen.Bounds.Height) : new Size(0, 0);
     }
-
-    private void DeleteLocationButton_Click(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        shellVm.DeleteLocationCommand.Execute((sender as Button)?.DataContext);
-    }
-
-    #endregion //helpers
 }
