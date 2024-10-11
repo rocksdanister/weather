@@ -277,7 +277,7 @@
                 </ToolTipService.ToolTip>
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <customControls:SoundControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
+                        <customControls:VolumeControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>

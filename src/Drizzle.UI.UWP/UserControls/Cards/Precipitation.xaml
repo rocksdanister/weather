@@ -1,24 +1,23 @@
 ﻿<UserControl
-    x:Class="Drizzle.UI.UWP.UserControls.PressureCard"
+    x:Class="Drizzle.UI.UWP.UserControls.Cards.Precipitation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Drizzle.UI.UWP.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     d:DesignHeight="300"
     d:DesignWidth="400"
+    Loaded="UserControl_Loaded"
     mc:Ignorable="d">
 
     <UserControl.Resources>
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
     </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -34,46 +33,32 @@
             <FontIcon
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
-                Glyph="&#xE901;" />
-            <TextBlock x:Uid="TitlePressure" />
+                Glyph="&#xE914;" />
+            <TextBlock x:Uid="TitlePrecipitation" />
         </StackPanel>
 
-        <Image
-            Grid.RowSpan="2"
-            Width="120"
-            Height="105"
-            Margin="0,5,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Opacity="0.4"
-            Stretch="UniformToFill"
-            Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-            <Image.Source>
-                <SvgImageSource
-                    RasterizePixelHeight="464"
-                    RasterizePixelWidth="464"
-                    UriSource="ms-appx:///Assets/UserControls/icons8-barometer.svg" />
-            </Image.Source>
-        </Image>
-
-        <StackPanel
-            Grid.RowSpan="2"
-            Margin="0,0,0,2.5"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Orientation="Vertical"
-            Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+        <Grid Grid.Row="1" Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <TextBlock
-                HorizontalAlignment="Center"
-                FontSize="21"
+                Margin="0,-20,0,0"
+                VerticalAlignment="Center"
+                FontSize="28"
                 FontWeight="SemiBold"
-                Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
-            <TextBlock
+                HorizontalTextAlignment="Center">
+                <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F3}'}" />
+                <Run Text="{x:Bind UnitString, Mode=OneWay}" />
+            </TextBlock>
+            <muxc:AnimatedVisualPlayer
+                x:Name="WaveAnimation"
+                Width="1000"
+                Margin="0,0,0,-50"
                 HorizontalAlignment="Center"
-                FontSize="9"
-                Opacity="0.7"
-                Text="{x:Bind Unit, Mode=OneWay}" />
-        </StackPanel>
+                VerticalAlignment="Bottom"
+                Opacity="0.075"
+                PlaybackRate="0.25"
+                Stretch="Fill">
+                <visuals:Water />
+            </muxc:AnimatedVisualPlayer>
+        </Grid>
 
         <muxc:AnimatedVisualPlayer
             Grid.RowSpan="2"

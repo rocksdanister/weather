@@ -1,19 +1,16 @@
 ﻿<UserControl
-    x:Class="Drizzle.UI.UWP.UserControls.VisibilityCard"
+    x:Class="Drizzle.UI.UWP.UserControls.Cards.Pressure"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Drizzle.UI.UWP.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Loaded="UserControl_Loaded"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -36,45 +33,46 @@
             <FontIcon
                 FontFamily="{StaticResource CustomIconFonts}"
                 FontSize="16"
-                Glyph="&#xE913;" />
-            <TextBlock x:Uid="TitleVisibility" />
+                Glyph="&#xE901;" />
+            <TextBlock x:Uid="TitlePressure" />
         </StackPanel>
 
-        <Grid
-            Grid.Row="1"
-            HorizontalAlignment="Stretch"
+        <Image
+            Grid.RowSpan="2"
+            Width="120"
+            Height="105"
+            Margin="0,5,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Opacity="0.4"
+            Stretch="UniformToFill"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
+            <Image.Source>
+                <SvgImageSource
+                    RasterizePixelHeight="464"
+                    RasterizePixelWidth="464"
+                    UriSource="ms-appx:///Assets/UserControls/icons8-barometer.svg" />
+            </Image.Source>
+        </Image>
 
-            <muxc:AnimatedVisualPlayer
-                Grid.Row="0"
-                Width="100"
-                Height="100"
-                PlaybackRate="0.45">
-                <visuals:Eyes />
-            </muxc:AnimatedVisualPlayer>
-            <Border Grid.Row="0" Margin="0,5,0,5">
-                <Border.Background>
-                    <media:BackdropBlurBrush x:Name="AnimationBlur" Amount="5" />
-                </Border.Background>
-            </Border>
+        <StackPanel
+            Grid.RowSpan="2"
+            Margin="0,0,0,2.5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical"
+            Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <TextBlock
-                Grid.Row="1"
-                FontSize="28"
+                HorizontalAlignment="Center"
+                FontSize="21"
                 FontWeight="SemiBold"
-                HorizontalTextAlignment="Center">
-                <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F1}'}" />
-                <Run Text="{x:Bind UnitString, Mode=OneWay}" />
-            </TextBlock>
-            <Border Grid.Row="1">
-                <Border.Background>
-                    <media:BackdropBlurBrush x:Name="TextBlur" Amount="1" />
-                </Border.Background>
-            </Border>
-        </Grid>
+                Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="9"
+                Opacity="0.7"
+                Text="{x:Bind Unit, Mode=OneWay}" />
+        </StackPanel>
 
         <muxc:AnimatedVisualPlayer
             Grid.RowSpan="2"

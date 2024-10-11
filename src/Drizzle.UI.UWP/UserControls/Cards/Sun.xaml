@@ -1,11 +1,10 @@
 ﻿<UserControl
-    x:Class="Drizzle.UI.UWP.UserControls.SunCard"
+    x:Class="Drizzle.UI.UWP.UserControls.Cards.Sun"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:Drizzle.UI.UWP.UserControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
@@ -48,7 +47,7 @@
             Grid.RowSpan="3"
             Margin="0,-25,0,0"
             Visibility="{x:Bind Sunrise, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-            <Ellipse x:Name="sunLine">
+            <Ellipse x:Name="SunLine">
                 <Ellipse.Stroke>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.25">
                         <GradientStop Offset="0.0" Color="White" />
@@ -63,7 +62,7 @@
                 </Ellipse.Fill>
             </Ellipse>
             <muxc:AnimatedVisualPlayer
-                x:Name="sun"
+                x:Name="SunAnimation"
                 Width="50"
                 Height="50"
                 Margin="0,-50,0,0">

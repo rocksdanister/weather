@@ -507,7 +507,7 @@
                                         </GridView.ItemsPanel>
                                     </GridView>
                                     <Grid>
-                                        <customControls:SoundControl HorizontalAlignment="Right" Volume="{x:Bind viewModel.ShellVm.SoundVolume, Mode=TwoWay}" />
+                                        <customControls:VolumeControl HorizontalAlignment="Right" Volume="{x:Bind viewModel.ShellVm.SoundVolume, Mode=TwoWay}" />
                                         <CheckBox x:Uid="AlwaysHideScreensaverMenu" IsChecked="{x:Bind viewModel.AutoHideMenu, Mode=TwoWay}" />
                                     </Grid>
                                 </StackPanel>

@@ -213,47 +213,47 @@
     <Compile Include="Shaders\Snow.cs" />
     <Compile Include="Shaders\Tunnel.cs" />
     <Compile Include="Shaders\Wind.cs" />
-    <Compile Include="UserControls\AirQualityCard.xaml.cs">
-      <DependentUpon>AirQualityCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\AQI.xaml.cs">
+      <DependentUpon>AQI.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Clock.xaml.cs">
       <DependentUpon>Clock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CloudAmountCard.xaml.cs">
-      <DependentUpon>CloudAmountCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Clouds.xaml.cs">
+      <DependentUpon>Clouds.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ColorPickerButton.xaml.cs">
       <DependentUpon>ColorPickerButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\CompassCard.xaml.cs">
-      <DependentUpon>CompassCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Compass.xaml.cs">
+      <DependentUpon>Compass.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DailyGraph.xaml.cs">
       <DependentUpon>DailyGraph.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HumidityCard.xaml.cs">
-      <DependentUpon>HumidityCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Humidity.xaml.cs">
+      <DependentUpon>Humidity.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ImageEx.xaml.cs">
       <DependentUpon>ImageEx.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PrecipitationCard.xaml.cs">
-      <DependentUpon>PrecipitationCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Precipitation.xaml.cs">
+      <DependentUpon>Precipitation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PressureCard.xaml.cs">
-      <DependentUpon>PressureCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Pressure.xaml.cs">
+      <DependentUpon>Pressure.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SoundControl.xaml.cs">
-      <DependentUpon>SoundControl.xaml</DependentUpon>
+    <Compile Include="UserControls\VolumeControl.xaml.cs">
+      <DependentUpon>VolumeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SunCard.xaml.cs">
-      <DependentUpon>SunCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Sun.xaml.cs">
+      <DependentUpon>Sun.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UVCard.xaml.cs">
-      <DependentUpon>UVCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\UVI.xaml.cs">
+      <DependentUpon>UVI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\VisibilityCard.xaml.cs">
-      <DependentUpon>VisibilityCard.xaml</DependentUpon>
+    <Compile Include="UserControls\Cards\Visibility.xaml.cs">
+      <DependentUpon>Visibility.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
@@ -494,7 +494,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="UserControls\AirQualityCard.xaml">
+    <Page Include="UserControls\Cards\AQI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -502,7 +502,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CloudAmountCard.xaml">
+    <Page Include="UserControls\Cards\Clouds.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -510,7 +510,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\CompassCard.xaml">
+    <Page Include="UserControls\Cards\Compass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -518,7 +518,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\HumidityCard.xaml">
+    <Page Include="UserControls\Cards\Humidity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -526,27 +526,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PrecipitationCard.xaml">
+    <Page Include="UserControls\Cards\Precipitation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\PressureCard.xaml">
+    <Page Include="UserControls\Cards\Pressure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\SoundControl.xaml">
+    <Page Include="UserControls\VolumeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\SunCard.xaml">
+    <Page Include="UserControls\Cards\Sun.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UVCard.xaml">
+    <Page Include="UserControls\Cards\UVI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\VisibilityCard.xaml">
+    <Page Include="UserControls\Cards\Visibility.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
