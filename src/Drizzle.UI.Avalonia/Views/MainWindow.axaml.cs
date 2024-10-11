@@ -50,6 +50,7 @@ public partial class MainWindow : Window
         navigator.Frame = MainFrame;
         navigator.NavigateTo(ContentPageType.Main);
 
+        // Operating system buttons on right-side.
         if (OperatingSystem.IsMacOS())
             AppTitle.IsVisible = false;
 
@@ -66,6 +67,15 @@ public partial class MainWindow : Window
 
     private async void MainWindow_Loaded(object? sender, global::Avalonia.Interactivity.RoutedEventArgs e)
     {
+        // On some Linux distro extend not possible.
+        if (!this.IsExtendedIntoWindowDecorations)
+        {
+            AppTitle.IsVisible = false;
+            LocationPaneInnerButton.Margin = new Thickness(0, 5, 0, 0);
+            Grid.SetRow(LocationPaneButton, 0);
+            Grid.SetRow(RightCommandBar, 0);
+        }
+        // We are waiting for Window to be ready before running animations to avoid shader related issues.
         await shellVm.RestoreWeather();
     }
 

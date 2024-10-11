@@ -13,7 +13,7 @@
     xmlns:views="clr-namespace:Drizzle.UI.Avalonia.Views"
     xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
     x:Name="Root"
-    Title="Drizzle.UI.Avalonia"
+    Title="Lively Weather (Beta)"
     Width="1280"
     Height="800"
     d:DesignHeight="1280"
@@ -166,12 +166,13 @@
                 Margin="0,0,0,2.5"
                 VerticalAlignment="Center"
                 FontSize="14">
-                Lively Weather (Alpha)
+                Lively Weather (Beta)
             </TextBlock>
         </StackPanel>
 
         <!--  Commandbar (Right)  -->
         <ui:CommandBar
+            x:Name="RightCommandBar"
             Grid.Row="1"
             HorizontalAlignment="Right"
             DefaultLabelPosition="Right"
@@ -245,6 +246,7 @@
                 Background="{DynamicResource SolidBackgroundFillColorBase}"
                 Spacing="10">
                 <Button
+                    x:Name="LocationPaneInnerButton"
                     Height="35"
                     Margin="0,50,0,0"
                     HorizontalAlignment="Stretch"
