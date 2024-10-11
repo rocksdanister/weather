@@ -255,6 +255,9 @@
   <data name="InfoError.Title" xml:space="preserve">
     <value>Lỗi</value>
   </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Please restart application for settings to take effect.</value>
+  </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Đóng góp vào chương trình này bằng cách dịch nó sang các ngôn ngữ khác.</value>
   </data>
@@ -463,6 +466,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Người đóng góp</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Tải về</value>
   </data>
@@ -504,6 +510,9 @@
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>Nhiệt độ</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update Available!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Cập nhật hoàn tất</value>

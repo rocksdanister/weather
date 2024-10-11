@@ -255,6 +255,9 @@
   <data name="InfoError.Title" xml:space="preserve">
     <value>Hata</value>
   </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Please restart application for settings to take effect.</value>
+  </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Bu programa diğer dillere çevirerek katkıda bulunun.</value>
   </data>
@@ -462,6 +465,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Katkıda Bulunanlar</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>İndir</value>
   </data>
@@ -503,6 +509,9 @@
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>Derece</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update Available!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Güncelleme tamamlandı</value>

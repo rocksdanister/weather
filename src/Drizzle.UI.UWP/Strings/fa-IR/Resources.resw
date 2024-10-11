@@ -255,6 +255,9 @@
   <data name="InfoError.Title" xml:space="preserve">
     <value>خطا</value>
   </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Please restart application for settings to take effect.</value>
+  </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>با ترجمه آن به زبان های دیگر در این برنامه مشارکت کنید.</value>
   </data>
@@ -462,6 +465,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contributors</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Download</value>
   </data>
@@ -503,6 +509,9 @@
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>Temperature</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update Available!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Update Completed</value>

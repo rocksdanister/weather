@@ -203,7 +203,7 @@
     <value>ה- AQI עוצב במטרה לספק מידע על ההשפעות הבריאותיות הנגרם על ידי חמשת מזהמי האוורי העיקריים. יש טווח בסולם מ- 0 עד 500, ערכים גבוהים בסולם מעידים על זיהום אוויר חמור יותר וכן על יותר סיכונים בריאותיים.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>כמות העננים מתייחסת לחלק השמים המוסתר על ידי עננים בממוצע בעת צפיה ממיקום מסוים.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>טרמפטורת נקודת טל היא מדד על כמות אדי המים באוויר. כשנקודת הטל וטרמפטורת אוויר שווים, לחות היחסית הינה 100%. בנקודה זו, האוויר רווי באדי מים. מה שמוביל להתעבות בצורת טל, ערפל או עננים.</value>
@@ -212,7 +212,7 @@
     <value>לחות יחסית הינה מדד לכמות אדי המים ביחס לאוויר בהשוואה למקסימום כמות שהאוויר יכול להחזיק בכזאת טרמפטורה. זה מבוטה באחוזים ומספק מידע אודות כמה קרוב האוויר למצב רווי.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>משקעים הם עומק המים שיצטבר על משטח שטוח מהתעבות של אדי מים אטמוספריים הנופלים מעננים עקב כח המשיכה. הוא כולל צורות שונות כמו גשם, שלג, גשם וברד.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>לחץ ברומטרי, הידוע גם בשם לחץ אטמוספרי, הוא מדד לחץ האוויר באזור נתון.</value>
@@ -221,7 +221,7 @@
     <value>הארגון בריאות הלאומי (UVI) מדד את עוצמת הקרינה האולטרה סגולה המייצרת כווית שמש. זה סולם לינארי על טווח 0 עד 11+, ערכים גבוהים מעידים על סיכונים גבוהים יותר לחשיפה לקרינה UV והגדלת הסיכויים לכווית שמש ונזק לעור היכול לגרום בסופו של דבר להוביל לסרטן העור.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>נראות היא מדד למרחק שבו ניתן להבחין בבירור באובייקט או באור. ערך של או יותר מ-10 ק"מ נחשב טוב ופחות מ-1 ק"מ גרוע.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>מהירות הרוח היא קצב שבו הרוח נע בצורה אופקית מעבר לנקודה. זאת כמות אטמוספורית בסיסית הנגרם על ידי משב אוויר מלחץ גבוה לנמוך, בדרך כלל עקב שינויים בטרמפטורה. משבים הם עלייה פתאומית במהירות הרוח מעל משב הרוח הממוצעת, זה בדרך כלל נמשך פחות מ- 20 שניות.</value>
@@ -255,6 +255,9 @@
   </data>
   <data name="InfoError.Title" xml:space="preserve">
     <value>שגיאה</value>
+  </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Please restart application for settings to take effect.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>תרום לתוכנית זו על ידי תרגום לשפות אחרות.</value>
@@ -404,7 +407,7 @@
     <value>הגדרות</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>מפתח API נדרש חסר עבור ספק מזג האוויר שנבחר, ההגדרות בוטלו.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
     <value>אוטומטי</value>
@@ -463,6 +466,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>תורמים</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Distance</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>הורד</value>
   </data>
@@ -504,6 +510,9 @@
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>טמפרטורה</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update Available!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>העדכון הושלם</value>
@@ -593,7 +602,7 @@
     <value>הפקדת ריים ערפל</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>אובך</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>טפטוף קל</value>

@@ -255,6 +255,9 @@
   <data name="InfoError.Title" xml:space="preserve">
     <value>Fehler</value>
   </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Bitte starten Sie die Anwendung neu, damit die Einstellungen wirksam werden.</value>
+  </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Trage zu diesem Programm bei, indem du es in andere Sprachen übersetzt.</value>
   </data>
@@ -462,6 +465,9 @@
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Mitwirkende</value>
   </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Entfernung</value>
+  </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Herunterladen</value>
   </data>
@@ -503,6 +509,9 @@
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
     <value>Temperatur</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Update verfügbar!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aktualisierung abgeschlossen</value>
