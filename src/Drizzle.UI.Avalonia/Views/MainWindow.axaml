@@ -120,14 +120,15 @@
             Width="400"
             Margin="5"
             HorizontalAlignment="Center"
+            AsyncPopulator="SearchAsync"
             Background="{DynamicResource SystemAltLowColor}"
             Classes="SearchBox"
             FilterMode="None"
             IsVisible="{Binding IsMainPage}"
             ItemsSource="{Binding SearchSuggestions}"
+            KeyUp="AutoCompleteBox_KeyUp"
             MinimumPrefixLength="0"
             SelectionChanged="AutoCompleteBox_SelectionChanged"
-            TextChanged="AutoCompleteBox_TextChanged"
             Watermark="Search a place"
             ZIndex="1">
             <AutoCompleteBox.ItemTemplate>

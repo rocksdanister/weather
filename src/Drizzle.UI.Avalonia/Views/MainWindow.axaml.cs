@@ -6,9 +6,12 @@ using Drizzle.Common.Services;
 using Drizzle.UI.Shared.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Drizzle.UI.Avalonia.Views;
 
@@ -24,11 +27,10 @@ public partial class MainWindow : Window
     private Vector2 dragStartPosition = Vector2.Zero;
 
     // Timer
+    private CancellationTokenSource locationSearchCts = new();
     private readonly DispatcherTimer dispatcherTimer = new();
     private readonly Stopwatch deactivatedStopwatch = new();
-    private readonly Stopwatch searchIdleStopwatch = new();
     private readonly long deactivatedTimeout = 3000;
-    private readonly long searchIdleTimeout = 500;
     private bool isWindowDeactivated = false;
 
     public MainWindow()
@@ -158,54 +160,63 @@ public partial class MainWindow : Window
         isMouseDrag = false;
     }
 
+    // Issue: Keyboard navigation not possible. Ref: https://github.com/AvaloniaUI/Avalonia/issues/8721
+    // Issue: Crash when clearing SearchSuggestions if IsDropDownOpen="true". Ref: https://github.com/AvaloniaUI/Avalonia/issues/6128
     private async void AutoCompleteBox_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if (SearchBox.SelectedItem is Models.Weather.Location selection)
-        {
-            SearchBox.Text = selection.DisplayName;
-            await shellVm.SetWeather(selection.DisplayName, selection.Latitude, selection.Longitude);
-        }
-        else
-        {
-            var firstSelection = shellVm.SearchSuggestions?.FirstOrDefault();
-            if (firstSelection != null)
-            {
-                SearchBox.Text = firstSelection.DisplayName;
-                await shellVm.SetWeather(firstSelection.DisplayName, firstSelection.Latitude, firstSelection.Longitude);
-            }
-        }
+        if (SearchBox.SelectedItem is not Models.Weather.Location selection)
+            return;
 
+        // SearchBox.Text = selection.DisplayName; not working.
+        // Instead, we override the ToString method of Drizzle.Models.Weather.Location.
+        await shellVm.SetWeather(selection.DisplayName, selection.Latitude, selection.Longitude);
+
+        // Reset Text and Selection.
         SearchBox.Text = string.Empty;
         shellVm.SearchSuggestions.Clear();
     }
 
-    private void AutoCompleteBox_TextChanged(object? sender, TextChangedEventArgs e)
+    private void AutoCompleteBox_KeyUp(object? sender, global::Avalonia.Input.KeyEventArgs e)
     {
-        if (!string.IsNullOrEmpty(SearchBox.Text) && SearchBox.Text.Length > 1)
+        // If user press Enter without selecting any location.
+        if (e.Key == global::Avalonia.Input.Key.Enter && SearchBox.SelectedItem is not Models.Weather.Location)
         {
-            searchIdleStopwatch.Reset();
-            searchIdleStopwatch.Start();
-        }
-        else
-        {
-            // When SearchBox.Text changes from >1 to empty or 1 length close the suggestionbox
-            shellVm.SearchSuggestions.Clear();
+            var firstSelection = shellVm.SearchSuggestions?.FirstOrDefault();
+            if (firstSelection != null)
+                SearchBox.SelectedItem = firstSelection;
         }
     }
 
-    private async void DispatcherTimer_Tick(object? sender, EventArgs e)
+    public async Task<IEnumerable<object>> SearchAsync(string searchText, CancellationToken _)
+    {
+        if (string.IsNullOrWhiteSpace(searchText) || searchText.Length < 2)
+        {
+            shellVm.SearchSuggestions.Clear();
+            return [];
+        }
+
+        // Cancel the previous fetch request.
+        locationSearchCts?.Cancel();
+        locationSearchCts?.Dispose();
+        locationSearchCts = new CancellationTokenSource();
+
+        // Reduce fetch request, wait till user idle.
+        await Task.Delay(500, locationSearchCts.Token);
+
+        if (!locationSearchCts.Token.IsCancellationRequested)
+        {
+            await shellVm.FetchLocations(searchText);
+            return shellVm.SearchSuggestions;
+        }
+        return [];
+    }
+
+    private void DispatcherTimer_Tick(object? sender, EventArgs e)
     {
         if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
         {
             deactivatedStopwatch.Reset();
             shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = true;
-        }
-
-        if (searchIdleStopwatch.ElapsedMilliseconds > searchIdleTimeout)
-        {
-            searchIdleStopwatch.Reset();
-            await shellVm.FetchLocations(SearchBox.Text);
-            SearchBox.IsDropDownOpen = true;
         }
     }
 
