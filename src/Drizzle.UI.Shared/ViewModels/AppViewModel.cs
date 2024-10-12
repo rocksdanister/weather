@@ -18,4 +18,10 @@ public sealed partial class AppViewModel : ObservableObject
     {
         windowService.ShowAboutWindow();
     }
+
+    [RelayCommand]
+    private void OpenHelpWindow()
+    {
+        windowService.ShowHelpWindow();
+    }
 }

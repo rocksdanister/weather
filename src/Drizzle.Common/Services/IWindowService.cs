@@ -3,4 +3,5 @@
 public interface IWindowService
 {
     void ShowAboutWindow();
+    void ShowHelpWindow();
 }

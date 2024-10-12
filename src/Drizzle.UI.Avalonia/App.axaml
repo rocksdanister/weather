@@ -40,6 +40,7 @@
     <!--  Ref: https://github.com/AvaloniaUI/Avalonia/issues/3541  -->
     <NativeMenu.Menu>
         <NativeMenu>
+            <NativeMenuItem Command="{Binding OpenHelpWindowCommand}" Header="{x:Static i18n:Resources.StringHelp}" />
             <NativeMenuItem Command="{Binding OpenAboutWindowCommand}" Header="{x:Static i18n:Resources.StringAbout}" />
         </NativeMenu>
     </NativeMenu.Menu>

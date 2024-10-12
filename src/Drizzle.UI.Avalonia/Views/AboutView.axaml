@@ -14,10 +14,9 @@
     mc:Ignorable="d">
     <Grid>
         <StackPanel Spacing="5">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock
                     Width="375"
-                    Margin="5,0,5,5"
                     VerticalAlignment="Center"
                     FontSize="12"
                     Text="{x:Static i18n:Resources.AboutMe_Text}"
@@ -36,7 +35,10 @@
                 </Border>
             </StackPanel>
 
-            <ui:CommandBar HorizontalAlignment="Left" OverflowButtonVisibility="Collapsed">
+            <ui:CommandBar
+                Margin="-10,0,0,0"
+                HorizontalAlignment="Center"
+                OverflowButtonVisibility="Collapsed">
                 <ui:CommandBar.PrimaryCommands>
                     <ui:CommandBarButton
                         Command="{Binding OpenPersonalWebsiteCommand}"
