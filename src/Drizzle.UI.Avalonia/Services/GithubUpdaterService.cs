@@ -92,7 +92,7 @@ public class GithubUpdaterService : IAppUpdaterService
     private async void DispatcherTimer_Tick(object? sender, EventArgs e)
     {
         if ((DateTime.UtcNow - LastCheckedTime) > updateCheckInterval)
-            UpdateChecked?.Invoke(this, await CheckUpdateAsync());
+            await CheckUpdateAsync();
     }
 
     private static async Task<Release> GetLatestRelease(string userName, string repositoryName)
