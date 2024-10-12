@@ -434,6 +434,15 @@
             TimeZone="{Binding SelectedLocation.TimeZone}"
             ToolTip.Tip="{Binding SelectedLocation.TimeZone}" />
 
+        <!--  Welcome message  -->
+        <ui:TeachingTip
+            BorderBrush="LightBlue"
+            BorderThickness="0,3,0,0"
+            IsOpen="{Binding IsFirstRun}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <views:WelcomeView />
+        </ui:TeachingTip>
         <!--  Updated notification  -->
         <ui:TeachingTip
             BorderBrush="{DynamicResource ThemeAccentBrush}"
@@ -443,7 +452,6 @@
             PreferredPlacement="TopRight">
             <views:UpdateCompletedView />
         </ui:TeachingTip>
-
         <!--  Update available notification  -->
         <ui:TeachingTip
             BorderBrush="Green"

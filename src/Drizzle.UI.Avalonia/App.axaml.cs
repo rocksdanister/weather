@@ -50,6 +50,7 @@ public partial class App : Application
 
         if (systemInfo.IsFirstRun)
         {
+            logger.LogInformation("First time run, performing initial setup.");
             // Update before viewModel initialization
             var regionInfo = new RegionInfo(CultureInfo.CurrentCulture.Name);
             var userSettings = _serviceProvider.GetRequiredService<IUserSettings>();
