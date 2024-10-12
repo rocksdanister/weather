@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <Nullable>enable</Nullable>
     <OutputType>WinExe</OutputType>
     <!--If you are willing to use Windows/MacOS native APIs you will need to create 3 projects.
     One for Windows with net8.0-windows TFM, one for MacOS with net8.0-macos and one with net8.0 TFM for Linux.-->
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Desktop" Version="11.2.0-beta1" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.0-rc1" />
     <PackageReference Include="Avalonia.Labs.Lottie" Version="11.1.0" />
   </ItemGroup>
 
