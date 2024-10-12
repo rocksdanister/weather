@@ -5,12 +5,12 @@ namespace Drizzle.Models.Shaders.Uniform;
 
 public class UniformProperty
 {
-    public UniformProperty(UniformTypes type)
+    public UniformProperty(UniformType type)
     {
         this.UniformType = type;
     }
 
-    public UniformTypes UniformType { get; }
+    public UniformType UniformType { get; }
     public string UniformName { get; set; }
     public Func<ShaderModel, object> GetValue { get; set; }
 }

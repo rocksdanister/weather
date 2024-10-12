@@ -163,9 +163,9 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
         uniformTextures.Clear();
         foreach (var item in shaderModel.UniformMappings)
         {
-            if (item.Value.UniformType == UniformTypes.float_ && ((FloatProperty)item.Value).LerpSpeed != 0)
+            if (item.Value.UniformType == UniformType.float_ && ((FloatProperty)item.Value).LerpSpeed != 0)
                 uniformFloats.Add(item.Value.UniformName, (float)item.Value.GetValue(shaderModel));
-            else if (item.Value.UniformType == UniformTypes.textureUri)
+            else if (item.Value.UniformType == UniformType.textureUri)
                 uniformTextures.Add(item.Value.UniformName, (null, null, Vector3.Zero));
         }
 
@@ -223,17 +223,17 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
             {
                 switch (item.Value.UniformType)
                 {
-                    case UniformTypes.bool_:
+                    case UniformType.bool_:
                         {
                             uniforms[item.Value.UniformName] = (bool)(item.Value.GetValue(shaderModel)) ? 1 : 0;
                         }
                         break;
-                    case UniformTypes.int_:
+                    case UniformType.int_:
                         {
                             uniforms[item.Value.UniformName] = (int)item.Value.GetValue(shaderModel);
                         }
                         break;
-                    case UniformTypes.float_:
+                    case UniformType.float_:
                         {
                             var property = item.Value as FloatProperty;
                             if (property.LerpSpeed != 0)
@@ -247,13 +247,13 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
                             }
                         }
                         break;
-                    case UniformTypes.color:
+                    case UniformType.color:
                         {
                             var color = (Vector3)item.Value.GetValue(shaderModel);
                             uniforms[item.Value.UniformName] = new[] { color.X, color.Y, color.Z };
                         }
                         break;
-                    case UniformTypes.textureUri:
+                    case UniformType.textureUri:
                         {
                             var property = item.Value as TextureProperty;
                             var assetPath = (string)item.Value.GetValue(shaderModel);

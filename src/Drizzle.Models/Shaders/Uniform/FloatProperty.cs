@@ -6,7 +6,7 @@ public class FloatProperty : UniformProperty
 {
     public float LerpSpeed { get; set; }
 
-    public FloatProperty() : base(UniformTypes.float_)
+    public FloatProperty() : base(UniformType.float_)
     {
     }
 }

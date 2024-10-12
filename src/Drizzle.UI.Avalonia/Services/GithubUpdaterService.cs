@@ -84,6 +84,7 @@ public class GithubUpdaterService : IAppUpdaterService
         }
         LastCheckedStatus = result;
         userSettings.SetAndSerialize(lastUpdateCheckedStatusKey, LastCheckedStatus);
+        UpdateChecked?.Invoke(this, LastCheckedStatus);
 
         return result;
     }

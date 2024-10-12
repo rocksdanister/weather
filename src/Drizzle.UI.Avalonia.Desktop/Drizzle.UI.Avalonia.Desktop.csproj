@@ -9,6 +9,8 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <ApplicationIcon>icon_128.ico</ApplicationIcon>
+    <!--Services are configured to take EntryAssembly version.-->
+    <Version>2.0.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="icon_128.ico" />

@@ -6,7 +6,7 @@ public class TextureProperty : UniformProperty
 {
     public TextureWrapMode WrapMode { get; set; } = TextureWrapMode.clamp;
 
-    public TextureProperty() : base(UniformTypes.textureUri)
+    public TextureProperty() : base(UniformType.textureUri)
     {
     }
 }

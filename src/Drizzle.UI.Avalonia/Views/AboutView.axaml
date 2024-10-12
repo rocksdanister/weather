@@ -3,6 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
     xmlns:labs="clr-namespace:Avalonia.Labs.Controls;assembly=Avalonia.Labs.Controls"
@@ -12,8 +13,14 @@
     d:DesignWidth="500"
     x:DataType="vm:AboutViewModel"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:NotificationToInfoBarSeverityConverter x:Key="NotificationToInfoBarSeverityConverter" />
+    </UserControl.Resources>
+
     <Grid>
         <StackPanel Spacing="5">
+            <!--  Profile  -->
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <TextBlock
                     Width="375"
@@ -34,7 +41,7 @@
                     <Image asyncImageLoader:ImageLoader.Source="https://avatars.githubusercontent.com/rocksdanister" />
                 </Border>
             </StackPanel>
-
+            <!--  Socials  -->
             <ui:CommandBar
                 Margin="-10,0,0,0"
                 HorizontalAlignment="Center"
@@ -66,13 +73,34 @@
                     </ui:CommandBarButton>
                 </ui:CommandBar.PrimaryCommands>
             </ui:CommandBar>
-
+            <!--  Update  -->
             <ui:SettingsExpander Header="{Binding AppVersion}" IconSource="Refresh">
                 <ui:SettingsExpander.Footer>
-                    <Button Content="{x:Static i18n:Resources.CheckUpdate_Content}" IsVisible="False" />
+                    <Button Command="{Binding CheckUpdateCommand}" Content="{x:Static i18n:Resources.CheckUpdate_Content}" />
                 </ui:SettingsExpander.Footer>
             </ui:SettingsExpander>
+            <ui:InfoBar
+                Margin="0,-5,0,0"
+                IsClosable="False"
+                IsOpen="{Binding UpdateNotificationMessage, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+                IsVisible="{Binding UpdateNotificationMessage, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+                Message="{Binding UpdateNotificationMessage}"
+                Severity="{Binding UpdateNotificationType, Mode=OneWay, Converter={StaticResource NotificationToInfoBarSeverityConverter}}">
+                <ui:InfoBar.ActionButton>
+                    <Grid>
+                        <HyperlinkButton
+                            Content="{x:Static i18n:Resources.TitleDownload_Content}"
+                            IsVisible="{Binding IsUpdateAvailable}"
+                            NavigateUri="https://github.com/rocksdanister/weather/releases/latest" />
+                        <HyperlinkButton
+                            Content="{x:Static i18n:Resources.LearnMore_Content}"
+                            IsVisible="{Binding !IsUpdateAvailable}"
+                            NavigateUri="https://github.com/rocksdanister/weather/releases" />
+                    </Grid>
+                </ui:InfoBar.ActionButton>
 
+            </ui:InfoBar>
+            <!--  Contributors  -->
             <Border
                 Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
                 BorderBrush="{DynamicResource CardStrokeColorDefault}"
@@ -123,7 +151,7 @@
                     </StackPanel>
                 </StackPanel>
             </Border>
-
+            <!--  Attribution  -->
             <StackPanel Margin="0,5,5,0">
                 <HyperlinkButton Content="{x:Static i18n:Resources.Attribution_Content}" NavigateUri="https://www.rocksdanister.com/weather/attribution" />
                 <HyperlinkButton Content="{x:Static i18n:Resources.SoftwareLicense_Content}" NavigateUri="https://github.com/rocksdanister/weather/blob/main/LICENSE" />

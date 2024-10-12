@@ -1,6 +1,6 @@
 ﻿namespace Drizzle.Models.Enums;
 
-public enum UniformTypes
+public enum UniformType
 {
     int_,
     float_,
