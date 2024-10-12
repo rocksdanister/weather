@@ -103,7 +103,7 @@ public class BackdropBlurControl : Control
             using (var blurSnapPaint = new SKPaint
             {
                 Shader = blurSnapShader,
-                IsAntialias = true
+                IsAntialias = false
             })
                 skiaContext.SkCanvas.DrawRect(0, 0, (float)_bounds.Width, (float)_bounds.Height, blurSnapPaint);
 
