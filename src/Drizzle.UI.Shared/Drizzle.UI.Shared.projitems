@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\DiskCacheService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\HttpDownloadService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AppViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DepthEstimateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HelpViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ScreensaverViewModel.cs" />

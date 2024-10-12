@@ -84,6 +84,8 @@ public partial class App : Application
         // Without this line you will get duplicate validations from both Avalonia and CT
         BindingPlugins.DataValidators.RemoveAt(0);
 
+        // MacOS native menu impl.
+        this.DataContext = Services.GetRequiredService<AppViewModel>();
         // Set display language.
         var userSettings = Services.GetRequiredService<IUserSettings>();
         var resources = Services.GetRequiredService<IResourceService>();
@@ -117,6 +119,7 @@ public partial class App : Application
             .AddSingleton<ShellViewModel>()
             .AddSingleton<INavigator, Navigator>()
             .AddSingleton<IDialogService, DialogService>()
+            .AddSingleton<IWindowService, WindowService>()
             .AddSingleton<IUserSettings, LocalSettings>()
             .AddSingleton<IAppUpdaterService, GithubUpdaterService>()
             .AddSingleton<IResourceService, ResourceService>()
@@ -141,6 +144,7 @@ public partial class App : Application
                 e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.QweatherApiKey)
                 ))
             // Transient
+            .AddTransient<AppViewModel>()
             .AddTransient<HelpViewModel>()
             .AddTransient<AboutViewModel>()
             .AddTransient<SettingsViewModel>()
