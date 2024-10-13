@@ -36,7 +36,7 @@ public partial class RainModel : ShaderModel
     /// <summary>
     /// Use N14 random function for static drops (Apply M1 Mac black spot patch.)
     /// </summary>
-    public bool IsRandomN14 { get; private set; } = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+    public bool IsRandomN14 { get; } = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
 
     public string? ImagePath { get; set; } = null;
 
@@ -140,7 +140,7 @@ public partial class RainModel : ShaderModel
                 nameof(IsRandomN14), new BoolProperty {
                     UniformName = "u_IsRandomN14",
                     GetValue = model => ((RainModel)model).IsRandomN14,
-                    SetValue = (model, value) => ((RainModel)model).IsRandomN14 = (bool)value
+                    SetValue = (model, value) => { }
                 }
             },
             {
