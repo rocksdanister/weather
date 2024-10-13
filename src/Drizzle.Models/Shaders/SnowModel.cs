@@ -62,7 +62,9 @@ public partial class SnowModel : ShaderModel
 
     protected override void InitializeUniformMappings()
     {
-        uniformMappings = new Dictionary<string, UniformProperty>
+        base.InitializeUniformMappings();
+
+        AddUniformMappings(new Dictionary<string, UniformProperty>
         {
             {
                 nameof(Speed), new FloatProperty {
@@ -114,6 +116,6 @@ public partial class SnowModel : ShaderModel
                     GetValue = model => ((SnowModel)model).ImagePath
                 }
             }
-        };
+        });
     }
 }

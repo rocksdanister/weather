@@ -38,7 +38,9 @@ namespace Drizzle.Models.Shaders
 
         protected override void InitializeUniformMappings()
         {
-            uniformMappings = new Dictionary<string, UniformProperty>
+            base.InitializeUniformMappings();
+
+            AddUniformMappings(new Dictionary<string, UniformProperty>
             {
                 {
                     nameof(Speed), new FloatProperty {
@@ -59,7 +61,7 @@ namespace Drizzle.Models.Shaders
                         GetValue = model => ((TunnelModel)model).ImagePath
                     }
                 }
-            };
+            });
         }
     }
 }

@@ -34,7 +34,7 @@ public abstract class ShaderModel : ObservableObject
 
     public IReadOnlyDictionary<string, UniformProperty> UniformMappings => uniformMappings;
 
-    protected Dictionary<string, UniformProperty> uniformMappings;
+    private readonly Dictionary<string, UniformProperty> uniformMappings = [];
 
     protected ShaderModel(Uri? shaderUri,
         ShaderTypes type,
@@ -51,5 +51,39 @@ public abstract class ShaderModel : ObservableObject
         this.MouseSpeed = mouseSpeed;
     }
 
-    protected abstract void InitializeUniformMappings();
+    protected virtual void InitializeUniformMappings()
+    {
+        // ShaderModel defaults
+        AddUniformMappings(new Dictionary<string, UniformProperty>
+        {
+            {
+                nameof(Brightness), new FloatProperty
+                {
+                    IsDefault = true,
+                    UniformName = "u_Brightness",
+                    LerpSpeed = 0.02f,
+                    GetValue = model => model.Brightness,
+                    SetValue = (model, value) => model.Brightness = (float)value
+                }
+            },
+            {
+                nameof(Saturation), new FloatProperty
+                {
+                    IsDefault = true,
+                    UniformName = "u_Saturation",
+                    LerpSpeed = 0.01f,
+                    GetValue = model => model.Saturation,
+                    SetValue = (model, value) => model.Saturation = (float)value
+                }
+            }
+        });
+    }
+
+    protected void AddUniformMappings(Dictionary<string, UniformProperty> newMappings)
+    {
+        foreach (var mapping in newMappings)
+        {
+            uniformMappings[mapping.Key] = mapping.Value;
+        }
+    }
 }

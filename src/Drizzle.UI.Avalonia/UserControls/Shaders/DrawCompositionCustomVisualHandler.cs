@@ -208,11 +208,6 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
             simulatedTime += (time - previousTime) * timeMultiplier;
             previousTime = time;
             uniforms["u_Time"] = simulatedTime;
-            // ShaderModel defaults
-            brightness = MathUtil.Lerp(brightness, shaderModel.Brightness, 0.02f);
-            uniforms["u_Brightness"] = brightness;
-            saturation = MathUtil.Lerp(saturation, shaderModel.Saturation, 0.01f);
-            uniforms["u_Saturation"] = saturation;
             // Mouse
             mouseOffset.X += (shaderModel.MouseSpeed * shaderModel.Mouse.X - mouseOffset.X) * shaderModel.MouseInertia;
             mouseOffset.Y += (shaderModel.MouseSpeed * shaderModel.Mouse.Y - mouseOffset.Y) * shaderModel.MouseInertia;

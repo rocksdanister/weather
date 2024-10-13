@@ -64,7 +64,9 @@ public partial class WindModel : ShaderModel
 
     protected override void InitializeUniformMappings()
     {
-        uniformMappings = new Dictionary<string, UniformProperty>
+        base.InitializeUniformMappings();
+
+        AddUniformMappings(new Dictionary<string, UniformProperty>
         {
             {
                 nameof(Color1), new ColorProperty {
@@ -114,6 +116,6 @@ public partial class WindModel : ShaderModel
                     GetValue = model => ((WindModel)model).DepthPath
                 }
             }
-        };
+        });
     }
 }

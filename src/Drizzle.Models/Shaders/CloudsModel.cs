@@ -44,38 +44,45 @@ public partial class CloudsModel : ShaderModel
 
     protected override void InitializeUniformMappings()
     {
-        uniformMappings = new Dictionary<string, UniformProperty>
+        base.InitializeUniformMappings();
+
+        AddUniformMappings(new Dictionary<string, UniformProperty>
         {
             {
                 nameof(Scale), new FloatProperty {
                     UniformName = "u_Scale",
-                    GetValue = model => ((CloudsModel)model).Scale
+                    GetValue = model => ((CloudsModel)model).Scale,
+                    SetValue = (model, value) => ((CloudsModel)model).Scale = (float)value
                 }
             },
             {
                 nameof(Iterations), new IntProperty {
                     UniformName = "u_Iterations",
-                    GetValue = model => ((CloudsModel)model).Iterations
+                    GetValue = model => ((CloudsModel)model).Iterations,
+                    SetValue = (model, value) => ((CloudsModel)model).Iterations = (int)value
                 }
             },
             {
                 nameof(Speed), new FloatProperty {
                     UniformName = "u_Speed",
-                    GetValue = model => ((CloudsModel)model).Speed
+                    GetValue = model => ((CloudsModel)model).Speed,
+                    SetValue = (model, value) => ((CloudsModel)model).Speed = (float)value
                 }
             },
             {
                 nameof(IsDaytime), new BoolProperty {
                     UniformName = "u_IsDaytime",
-                    GetValue = model => ((CloudsModel)model).IsDaytime
+                    GetValue = model => ((CloudsModel)model).IsDaytime,
+                    SetValue = (model, value) => ((CloudsModel)model).IsDaytime = (bool)value
                 }
             },
             {
                 nameof(IsDayNightShift), new BoolProperty {
                     UniformName = "u_IsDayNightShift",
-                    GetValue = model => ((CloudsModel)model).IsDayNightShift
+                    GetValue = model => ((CloudsModel)model).IsDayNightShift,
+                    SetValue = (model, value) => ((CloudsModel)model).IsDayNightShift = (bool)value
                 }
             }
-        };
+        });
     }
 }

@@ -72,7 +72,9 @@ public partial class RainModel : ShaderModel
 
     protected override void InitializeUniformMappings()
     {
-        uniformMappings = new Dictionary<string, UniformProperty>
+        base.InitializeUniformMappings();
+
+        AddUniformMappings(new Dictionary<string, UniformProperty>
         {
             {
                 nameof(Speed), new FloatProperty {
@@ -138,6 +140,6 @@ public partial class RainModel : ShaderModel
                     GetValue = model => ((RainModel)model).ImagePath
                 }
             }
-        };
+        });
     }
 }

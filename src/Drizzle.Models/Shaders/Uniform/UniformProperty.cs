@@ -10,7 +10,9 @@ public class UniformProperty
         this.UniformType = type;
     }
 
+    public bool IsDefault { get; set; }
     public UniformType UniformType { get; }
     public string UniformName { get; set; }
     public Func<ShaderModel, object> GetValue { get; set; }
+    public Action<ShaderModel, object> SetValue { get; set; }
 }

@@ -46,7 +46,9 @@ public partial class DepthModel : ShaderModel
 
     protected override void InitializeUniformMappings()
     {
-        uniformMappings = new Dictionary<string, UniformProperty>
+        base.InitializeUniformMappings();
+
+        AddUniformMappings(new Dictionary<string, UniformProperty>
         {
             {
                 nameof(IntensityX), new FloatProperty {
@@ -78,6 +80,6 @@ public partial class DepthModel : ShaderModel
                     GetValue = model => ((DepthModel)model).DepthPath
                 }
             }
-        };
+        });
     }
 }
