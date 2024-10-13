@@ -419,7 +419,7 @@
 
         <!--  Main Content  -->
         <!--  Disabling cache because ScreensaverViewModel is transient and mtaintain UWP default behaviour.  -->
-        <ScrollViewer Grid.Row="1" Margin="5,25,5,25">
+        <ScrollViewer Grid.Row="1" Margin="5,15,5,15">
             <ui:Frame x:Name="MainFrame" CacheSize="0" />
         </ScrollViewer>
 

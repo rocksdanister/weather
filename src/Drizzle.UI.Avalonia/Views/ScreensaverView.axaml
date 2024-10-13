@@ -29,7 +29,7 @@
                     <DropShadowDirectionEffect
                         BlurRadius="4"
                         Direction="45"
-                        ShadowDepth="4"
+                        ShadowDepth="2"
                         Color="{DynamicResource SystemAltLowColor}" />
                 </Setter.Value>
             </Setter>
