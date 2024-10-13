@@ -53,31 +53,36 @@ public partial class DepthModel : ShaderModel
             {
                 nameof(IntensityX), new FloatProperty {
                     UniformName = "u_IntensityX",
-                    GetValue = model => ((DepthModel)model).IntensityX
+                    GetValue = model => ((DepthModel)model).IntensityX,
+                    SetValue = (model, value) => ((DepthModel)model).IntensityX = (float)value
                 }
             },
             {
                 nameof(IntensityY), new FloatProperty {
                     UniformName = "u_IntensityY",
-                    GetValue = model => ((DepthModel)model).IntensityY
+                    GetValue = model => ((DepthModel)model).IntensityY,
+                    SetValue = (model, value) => ((DepthModel)model).IntensityY = (float)value
                 }
             },
             {
                 nameof(IsBlur), new BoolProperty {
                     UniformName = "u_IsBlur",
-                    GetValue = model => ((DepthModel)model).IsBlur
+                    GetValue = model => ((DepthModel)model).IsBlur,
+                    SetValue = (model, value) => ((DepthModel)model).IsBlur = (bool)value
                 }
             },
             {
                 nameof(ImagePath), new TextureProperty {
                     UniformName = "u_Texture",
-                    GetValue = model => ((DepthModel)model).ImagePath
+                    GetValue = model => ((DepthModel)model).ImagePath,
+                    SetValue = (model, value) => ((DepthModel)model).ImagePath = (string)value
                 }
             },
             {
                 nameof(DepthPath), new TextureProperty {
                     UniformName = "u_DepthTexture",
-                    GetValue = model => ((DepthModel)model).DepthPath
+                    GetValue = model => ((DepthModel)model).DepthPath,
+                    SetValue = (model, value) => ((DepthModel)model).DepthPath = (string)value
                 }
             }
         });

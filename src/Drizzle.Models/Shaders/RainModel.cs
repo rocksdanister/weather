@@ -36,7 +36,7 @@ public partial class RainModel : ShaderModel
     /// <summary>
     /// Use N14 random function for static drops (Apply M1 Mac black spot patch.)
     /// </summary>
-    public bool IsRandomN14 { get; } = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+    public bool IsRandomN14 { get; private set; } = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
 
     public string? ImagePath { get; set; } = null;
 
@@ -79,65 +79,75 @@ public partial class RainModel : ShaderModel
             {
                 nameof(Speed), new FloatProperty {
                     UniformName = "u_Speed",
-                    GetValue = model => ((RainModel)model).Speed
+                    GetValue = model => ((RainModel)model).Speed,
+                    SetValue = (model, value) => ((RainModel)model).Speed = (float)value
                 }
             },
             {
                 nameof(Intensity), new FloatProperty {
                     UniformName = "u_Intensity",
                     LerpSpeed = 0.05f,
-                    GetValue = model => ((RainModel)model).Intensity
+                    GetValue = model => ((RainModel)model).Intensity,
+                    SetValue = (model, value) => ((RainModel)model).Intensity = (float)value
                 }
             },
             {
                 nameof(Zoom), new FloatProperty {
                     UniformName = "u_Zoom",
                     LerpSpeed = 0.1f,
-                    GetValue = model => ((RainModel)model).Zoom
+                    GetValue = model => ((RainModel)model).Zoom,
+                    SetValue = (model, value) => ((RainModel)model).Zoom = (float)value
                 }
             },
             {
                 nameof(Normal), new FloatProperty {
                     UniformName = "u_Normal",
                     LerpSpeed = 0.05f,
-                    GetValue = model => ((RainModel)model).Normal
+                    GetValue = model => ((RainModel)model).Normal,
+                    SetValue = (model, value) => ((RainModel)model).Normal = (float)value
                 }
             },
             {
                 nameof(PostProcessing), new FloatProperty {
                     UniformName = "u_PostProcessing",
                     LerpSpeed = 0.05f,
-                    GetValue = model => ((RainModel)model).PostProcessing
+                    GetValue = model => ((RainModel)model).PostProcessing,
+                    SetValue = (model, value) => ((RainModel)model).PostProcessing = (float)value
                 }
             },
             {
                 nameof(IsPanning), new BoolProperty {
                     UniformName = "u_IsPanning",
-                    GetValue = model => ((RainModel)model).IsPanning
+                    GetValue = model => ((RainModel)model).IsPanning,
+                    SetValue = (model, value) => ((RainModel)model).IsPanning = (bool)value
                 }
             },
             {
                 nameof(IsFreezing), new BoolProperty {
                     UniformName = "u_IsFreezing",
-                    GetValue = model => ((RainModel)model).IsFreezing
+                    GetValue = model => ((RainModel)model).IsFreezing,
+                    SetValue = (model, value) => ((RainModel)model).IsFreezing = (bool)value
                 }
             },
             {
                 nameof(IsLightning), new BoolProperty {
                     UniformName = "u_IsLightning",
-                    GetValue = model => ((RainModel)model).IsLightning
+                    GetValue = model => ((RainModel)model).IsLightning,
+                    SetValue = (model, value) => ((RainModel)model).IsLightning = (bool)value
                 }
             },
             {
                 nameof(IsRandomN14), new BoolProperty {
                     UniformName = "u_IsRandomN14",
-                    GetValue = model => ((RainModel)model).IsRandomN14
+                    GetValue = model => ((RainModel)model).IsRandomN14,
+                    SetValue = (model, value) => ((RainModel)model).IsRandomN14 = (bool)value
                 }
             },
             {
                 nameof(ImagePath), new TextureProperty {
                     UniformName = "u_Texture",
-                    GetValue = model => ((RainModel)model).ImagePath
+                    GetValue = model => ((RainModel)model).ImagePath,
+                    SetValue = (model, value) => ((RainModel)model).ImagePath = (string)value
                 }
             }
         });

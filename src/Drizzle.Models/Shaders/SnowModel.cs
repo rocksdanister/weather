@@ -69,51 +69,59 @@ public partial class SnowModel : ShaderModel
             {
                 nameof(Speed), new FloatProperty {
                     UniformName = "u_Speed",
-                    GetValue = model => ((SnowModel)model).Speed
+                    GetValue = model => ((SnowModel)model).Speed,
+                    SetValue = (model, value) => ((SnowModel)model).Speed = (float)value
                 }
             },
             {
                 nameof(Depth), new FloatProperty {
                     UniformName = "u_Depth",
-                    GetValue = model => ((SnowModel)model).Depth
+                    GetValue = model => ((SnowModel)model).Depth,
+                    SetValue = (model, value) => ((SnowModel)model).Depth = (float)value
                 }
             },
             {
                 nameof(Width), new FloatProperty {
                     UniformName = "u_Width",
                     LerpSpeed = 0.01f,
-                    GetValue = model => ((SnowModel)model).Width
+                    GetValue = model => ((SnowModel)model).Width,
+                    SetValue = (model, value) => ((SnowModel)model).Width = (float)value
                 }
             },
             {
                 nameof(Layers), new IntProperty {
                     UniformName = "u_Layers",
-                    GetValue = model => ((SnowModel)model).Layers
+                    GetValue = model => ((SnowModel)model).Layers,
+                    SetValue = (model, value) => ((SnowModel)model).Layers = (int)value
                 }
             },
             {
                 nameof(PostProcessing), new FloatProperty {
                     UniformName = "u_PostProcessing",
                     LerpSpeed = 0.05f,
-                    GetValue = model => ((SnowModel)model).PostProcessing
+                    GetValue = model => ((SnowModel)model).PostProcessing,
+                    SetValue = (model, value) => ((SnowModel)model).PostProcessing = (float)value
                 }
             },
             {
                 nameof(IsLightning), new BoolProperty {
                     UniformName = "u_IsLightning",
-                    GetValue = model => ((SnowModel)model).IsLightning
+                    GetValue = model => ((SnowModel)model).IsLightning,
+                    SetValue = (model, value) => ((SnowModel)model).IsLightning = (bool)value
                 }
             },
             {
                 nameof(IsBlur), new BoolProperty {
                     UniformName = "u_IsBlur",
-                    GetValue = model => ((SnowModel)model).IsBlur
+                    GetValue = model => ((SnowModel)model).IsBlur,
+                    SetValue = (model, value) => ((SnowModel)model).IsBlur = (bool)value
                 }
             },
             {
                 nameof(ImagePath), new TextureProperty {
                     UniformName = "u_Texture",
-                    GetValue = model => ((SnowModel)model).ImagePath
+                    GetValue = model => ((SnowModel)model).ImagePath,
+                    SetValue = (model, value) => ((SnowModel)model).ImagePath = (string)value
                 }
             }
         });

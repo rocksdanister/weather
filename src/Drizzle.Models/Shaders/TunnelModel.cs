@@ -45,20 +45,23 @@ namespace Drizzle.Models.Shaders
                 {
                     nameof(Speed), new FloatProperty {
                         UniformName = "u_Speed",
-                        GetValue = model => ((TunnelModel)model).Speed
+                        GetValue = model => ((TunnelModel)model).Speed,
+                        SetValue = (model, value) => ((TunnelModel)model).Speed = (float)value
                     }
                 },
                 {
                     nameof(IsSquare), new BoolProperty {
                         UniformName = "u_IsSquare",
-                        GetValue = model => ((TunnelModel)model).IsSquare
+                        GetValue = model => ((TunnelModel)model).IsSquare,
+                        SetValue = (model, value) => ((TunnelModel)model).IsSquare = (bool)value
                     }
                 },
                 {
                     nameof(ImagePath), new TextureProperty {
                         UniformName = "u_Texture",
                         WrapMode = TextureWrapMode.mirror,
-                        GetValue = model => ((TunnelModel)model).ImagePath
+                        GetValue = model => ((TunnelModel)model).ImagePath,
+                        SetValue = (model, value) => ((TunnelModel)model).ImagePath = (string)value
                     }
                 }
             });

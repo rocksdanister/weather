@@ -71,49 +71,57 @@ public partial class WindModel : ShaderModel
             {
                 nameof(Color1), new ColorProperty {
                     UniformName = "u_Color1",
-                    GetValue = model => ((WindModel)model).Color1
+                    GetValue = model => ((WindModel)model).Color1,
+                    SetValue = (model, value) => ((WindModel)model).Color1 = (Vector3)value
                 }
             },
             {
                nameof(Color2), new ColorProperty {
                     UniformName = "u_Color2",
-                    GetValue = model => ((WindModel)model).Color2
+                    GetValue = model => ((WindModel)model).Color2,
+                    SetValue = (model, value) => ((WindModel)model).Color2 = (Vector3)value
                 }
             },
             {
                 nameof(Speed), new FloatProperty {
                     UniformName = "u_Speed",
-                    GetValue = model => ((WindModel)model).Speed
+                    GetValue = model => ((WindModel)model).Speed,
+                    SetValue = (model, value) => ((WindModel)model).Speed = (float)value
                 }
             },
             {
                nameof(Amplitude), new FloatProperty {
                     UniformName = "u_Amplitude",
-                    GetValue = model => ((WindModel)model).Amplitude
+                    GetValue = model => ((WindModel)model).Amplitude,
+                    SetValue = (model, value) => ((WindModel)model).Amplitude = (float)value
                 }
             },
             {
                nameof(ParallaxIntensityX), new FloatProperty {
                     UniformName = "u_ParallaxIntensityX",
-                    GetValue = model => ((WindModel)model).ParallaxIntensityX
+                    GetValue = model => ((WindModel)model).ParallaxIntensityX,
+                    SetValue = (model, value) => ((WindModel)model).ParallaxIntensityX = (float)value
                 }
             },
             {
                nameof(ParallaxIntensityY), new FloatProperty {
                     UniformName = "u_ParallaxIntensityY",
-                    GetValue = model => ((WindModel)model).ParallaxIntensityY
+                    GetValue = model => ((WindModel)model).ParallaxIntensityY,
+                    SetValue = (model, value) => ((WindModel)model).ParallaxIntensityY = (float)value
                 }
             },
             {
                 nameof(ImagePath), new TextureProperty {
                     UniformName = "u_Texture",
-                    GetValue = model => ((WindModel)model).ImagePath
+                    GetValue = model => ((WindModel)model).ImagePath,
+                    SetValue = (model, value) => ((WindModel)model).ImagePath = (string)value
                 }
             },
             {
                 nameof(DepthPath), new TextureProperty {
                     UniformName = "u_DepthTexture",
-                    GetValue = model => ((WindModel)model).DepthPath
+                    GetValue = model => ((WindModel)model).DepthPath,
+                    SetValue = (model, value) => ((WindModel)model).DepthPath = (string)value
                 }
             }
         });

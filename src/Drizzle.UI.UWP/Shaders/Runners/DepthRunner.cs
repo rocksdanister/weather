@@ -2,6 +2,7 @@
 using ComputeSharp.Uwp;
 using Drizzle.Common.Helpers;
 using Drizzle.Models.Shaders;
+using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using System;
 
@@ -32,22 +33,7 @@ public sealed class DepthRunner : IShaderRunner
 
     public bool TryExecute(IReadWriteNormalizedTexture2D<float4> texture, TimeSpan timespan, object parameter)
     {
-        if (currentProperties.ImagePath != properties().ImagePath
-            || currentProperties.DepthPath != properties().DepthPath
-            || this.image is null 
-            || this.depth is null
-            || this.image.GraphicsDevice != texture.GraphicsDevice
-            || this.depth.GraphicsDevice != texture.GraphicsDevice)
-        {
-            this.image?.Dispose();
-            this.depth?.Dispose();
-            currentProperties.ImagePath = properties().ImagePath;
-            currentProperties.DepthPath = properties().DepthPath;
-            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(currentProperties.ImagePath, texture.GraphicsDevice);
-            this.depth = ComputeSharpUtil.CreateTextureOrPlaceholder(currentProperties.DepthPath, texture.GraphicsDevice);
-        }
-
-        UpdateProperties();
+        UpdateUniforms(texture.GraphicsDevice);
         texture.GraphicsDevice.ForEach(texture, new Depth(image,
             depth,
             new float4(currentProperties.Mouse.X, currentProperties.Mouse.Y, currentProperties.Mouse.W, currentProperties.Mouse.Z),
@@ -60,21 +46,34 @@ public sealed class DepthRunner : IShaderRunner
         return true;
     }
 
-    private void UpdateProperties()
+    private void UpdateUniforms(GraphicsDevice device)
     {
-        // Smoothing
-        currentProperties.Brightness = MathUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
-        currentProperties.Saturation = MathUtil.Lerp(currentProperties.Saturation, properties().Saturation, 0.01f);
+        // Textures
+        if (currentProperties.ImagePath != properties().ImagePath
+            || currentProperties.DepthPath != properties().DepthPath
+            || this.image is null
+            || this.depth is null
+            || this.image.GraphicsDevice != device
+            || this.depth.GraphicsDevice != device)
+        {
+            this.image?.Dispose();
+            this.depth?.Dispose();
+
+            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(properties().ImagePath, device);
+            this.depth = ComputeSharpUtil.CreateTextureOrPlaceholder(properties().DepthPath, device);
+        }
+
         // Mouse
         currentProperties.Mouse = properties().Mouse;
         currentProperties.MouseSpeed = properties().MouseSpeed;
         currentProperties.MouseInertia = properties().MouseInertia;
         mouseOffset.X += (currentProperties.MouseSpeed * currentProperties.Mouse.X - mouseOffset.X) * currentProperties.MouseInertia;
         mouseOffset.Y += (currentProperties.MouseSpeed * currentProperties.Mouse.Y - mouseOffset.Y) * currentProperties.MouseInertia;
-        // Other
-        currentProperties.IntensityX = properties().IntensityX;
-        currentProperties.IntensityY = properties().IntensityY;
-        currentProperties.IsBlur = properties().IsBlur;
-        currentProperties.IsDaytime = properties().IsDaytime;
+
+        // Time
+        currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+
+        // Shader specific
+        properties().UniformFrameUpdate(currentProperties);
     }
 }

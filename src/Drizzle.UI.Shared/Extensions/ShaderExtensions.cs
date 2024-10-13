@@ -1,13 +1,72 @@
-﻿using Drizzle.Models.Enums;
+﻿using Drizzle.Common.Helpers;
+using Drizzle.Models.Enums;
 using Drizzle.Models.Shaders;
+using Drizzle.Models.Shaders.Uniform;
 using Drizzle.Models.Weather;
 using System;
+using System.Diagnostics;
 using System.Numerics;
 
 namespace Drizzle.UI.Shared.Extensions;
 
 public static class ShaderExtensions
 {
+    /// <summary>
+    /// Updates src value to dest for the current frame, increment value by small step % every frame if required.
+    /// </summary>
+    public static void UniformFrameUpdate(this ShaderModel src, ShaderModel dest)
+    {
+        foreach (var item in src.UniformMappings)
+        {
+            switch (item.Value.UniformType)
+            {
+                case UniformType.int_:
+                    {
+                        var value = (int)item.Value.GetValue(src);
+                        item.Value.SetValue(dest, value);
+                    }
+                    break;
+                case UniformType.float_:
+                    {
+                        var property = item.Value as FloatProperty;
+                        if (property.LerpSpeed != 0)
+                        {
+                            var srcValue = (float)item.Value.GetValue(src);
+                            var destValue = (float)item.Value.GetValue(dest);
+                            var lerpedValue = MathUtil.Lerp(destValue, srcValue, property.LerpSpeed);
+                            item.Value.SetValue(dest, lerpedValue);
+                        }
+                        else
+                        {
+                            var value = (float)item.Value.GetValue(src);
+                            item.Value.SetValue(dest, value);
+                        }
+                    }
+                    break;
+                case UniformType.bool_:
+                    {
+                        var value = (bool)item.Value.GetValue(src);
+                        item.Value.SetValue(dest, value);
+                    }
+                    break;
+                case UniformType.color:
+                    {
+                        var value = (Vector3)item.Value.GetValue(src);
+                        item.Value.SetValue(dest, value);
+                    }
+                    break;
+                case UniformType.textureUri:
+                    {
+                        var value = (string)item.Value.GetValue(src);
+                        item.Value.SetValue(dest, value);
+                    }
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+    }
+
     public static ShaderTypes GetShader(this WmoWeatherCode weatherCode)
     {
         return weatherCode switch

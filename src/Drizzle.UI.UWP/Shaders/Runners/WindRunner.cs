@@ -2,6 +2,7 @@
 using ComputeSharp.Uwp;
 using Drizzle.Common.Helpers;
 using Drizzle.Models.Shaders;
+using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using System;
 
@@ -33,26 +34,7 @@ public class WindRunner : IShaderRunner
 
     public bool TryExecute(IReadWriteNormalizedTexture2D<float4> texture, TimeSpan timespan, object parameter)
     {
-        if (currentProperties.ImagePath != properties().ImagePath
-            || currentProperties.DepthPath != properties().DepthPath
-            || this.image is null
-            || this.depth is null
-            || this.image.GraphicsDevice != texture.GraphicsDevice
-            || this.depth.GraphicsDevice != texture.GraphicsDevice)
-        {
-            this.image?.Dispose();
-            this.depth?.Dispose();
-            currentProperties.ImagePath = properties().ImagePath;
-            currentProperties.DepthPath = properties().DepthPath;
-            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(currentProperties.ImagePath, texture.GraphicsDevice);
-            this.depth = ComputeSharpUtil.CreateTextureOrPlaceholder(currentProperties.DepthPath, texture.GraphicsDevice);
-        }
-
-        UpdateProperties();
-        // Adjust delta instead of actual time/speed to avoid rewinding time
-        simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
-        previousTime = timespan.TotalSeconds;
-
+        UpdateUniforms(texture.GraphicsDevice, timespan);
         texture.GraphicsDevice.ForEach(texture, new Wind((float)simulatedTime,
             image,
             depth,
@@ -69,25 +51,36 @@ public class WindRunner : IShaderRunner
         return true;
     }
 
-    private void UpdateProperties()
+    private void UpdateUniforms(GraphicsDevice device, TimeSpan timespan)
     {
-        // Smoothing
-        currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
-        currentProperties.Brightness = MathUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
-        currentProperties.Saturation = MathUtil.Lerp(currentProperties.Saturation, properties().Saturation, 0.01f);
+        // Textures
+        if (currentProperties.ImagePath != properties().ImagePath
+            || currentProperties.DepthPath != properties().DepthPath
+            || this.image is null
+            || this.depth is null
+            || this.image.GraphicsDevice != device
+            || this.depth.GraphicsDevice != device)
+        {
+            this.image?.Dispose();
+            this.depth?.Dispose();
+
+            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(properties().ImagePath, device);
+            this.depth = ComputeSharpUtil.CreateTextureOrPlaceholder(properties().DepthPath, device);
+        }
+
         // Mouse
         currentProperties.Mouse = properties().Mouse;
         currentProperties.MouseSpeed = properties().MouseSpeed;
         currentProperties.MouseInertia = properties().MouseInertia;
         mouseOffset.X += (currentProperties.MouseSpeed * currentProperties.Mouse.X - mouseOffset.X) * currentProperties.MouseInertia;
         mouseOffset.Y += (currentProperties.MouseSpeed * currentProperties.Mouse.Y - mouseOffset.Y) * currentProperties.MouseInertia;
-        // Other
-        currentProperties.Color1 = properties().Color1;
-        currentProperties.Color2 = properties().Color2;
-        currentProperties.Speed = properties().Speed;
-        currentProperties.Amplitude = properties().Amplitude;
-        currentProperties.ParallaxIntensityX = properties().ParallaxIntensityX;
-        currentProperties.ParallaxIntensityY = properties().ParallaxIntensityY;
-        currentProperties.IsDaytime = properties().IsDaytime;
+
+        // Time, adjust delta instead of actual time/speed to avoid rewinding time
+        currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+        simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
+        previousTime = timespan.TotalSeconds;
+
+        // Shader specific
+        properties().UniformFrameUpdate(currentProperties);
     }
 }

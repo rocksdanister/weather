@@ -2,6 +2,7 @@
 using ComputeSharp.Uwp;
 using Drizzle.Common.Helpers;
 using Drizzle.Models.Shaders;
+using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using System;
 
@@ -30,18 +31,7 @@ public sealed class RainRunner : IShaderRunner
 
     public bool TryExecute(IReadWriteNormalizedTexture2D<float4> texture, TimeSpan timespan, object parameter)
     {
-        if (currentProperties.ImagePath != properties().ImagePath || this.image is null || this.image.GraphicsDevice != texture.GraphicsDevice)
-        {
-            this.image?.Dispose();
-            currentProperties.ImagePath = properties().ImagePath;
-            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(currentProperties.ImagePath, texture.GraphicsDevice);
-        }
-
-        UpdateProperties();
-        // Adjust delta instead of actual time/speed to avoid rewinding time
-        simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
-        previousTime = timespan.TotalSeconds;
-
+        UpdateUniforms(texture.GraphicsDevice, timespan);
         texture.GraphicsDevice.ForEach(texture, new Rain((float)simulatedTime,
             mouseOffset,
             currentProperties.Speed,
@@ -59,28 +49,30 @@ public sealed class RainRunner : IShaderRunner
         return true;
     }
 
-    private void UpdateProperties()
+    private void UpdateUniforms(GraphicsDevice device, TimeSpan timespan)
     {
-        // Smoothing, value is increased by small step % every frame
-        currentProperties.Intensity = MathUtil.Lerp(currentProperties.Intensity, properties().Intensity, 0.05f);
-        currentProperties.Zoom = MathUtil.Lerp(currentProperties.Zoom, properties().Zoom, 0.1f);
-        currentProperties.Normal = MathUtil.Lerp(currentProperties.Normal, properties().Normal, 0.05f);
-        currentProperties.PostProcessing = MathUtil.Lerp(currentProperties.PostProcessing, properties().PostProcessing, 0.05f);
-        currentProperties.Brightness = MathUtil.Lerp(currentProperties.Brightness, properties().Brightness, 0.05f);
-        currentProperties.Saturation = MathUtil.Lerp(currentProperties.Saturation, properties().Saturation, 0.01f);
-        currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+        // Textures
+        if (currentProperties.ImagePath != properties().ImagePath || this.image is null || this.image.GraphicsDevice != device)
+        {
+            this.image?.Dispose();
+
+            this.image = ComputeSharpUtil.CreateTextureOrPlaceholder(properties().ImagePath, device);
+        }
+
         // Mouse
         currentProperties.Mouse = properties().Mouse;
         currentProperties.MouseSpeed = properties().MouseSpeed;
         currentProperties.MouseInertia = properties().MouseInertia;
         mouseOffset.X += (currentProperties.MouseSpeed * currentProperties.Mouse.X - mouseOffset.X) * currentProperties.MouseInertia;
         mouseOffset.Y += (currentProperties.MouseSpeed * currentProperties.Mouse.Y - mouseOffset.Y) * currentProperties.MouseInertia;
-        // Other
-        currentProperties.IsFreezing = properties().IsFreezing;
-        currentProperties.IsLightning = properties().IsLightning;
-        currentProperties.IsPanning = properties().IsPanning;
-        currentProperties.Speed = properties().Speed;
-        currentProperties.IsDaytime = properties().IsDaytime;
+
+        // Time, adjust delta instead of actual time/speed to avoid rewinding time
+        currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
+        simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
+        previousTime = timespan.TotalSeconds;
+
+        // Shader specific
+        properties().UniformFrameUpdate(currentProperties);
     }
 }
 
