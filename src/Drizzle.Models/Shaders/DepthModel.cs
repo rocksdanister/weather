@@ -31,7 +31,7 @@ public partial class DepthModel : ShaderModel
         InitializeUniformMappings();
     }
 
-    public DepthModel(DepthModel properties) : base(null, ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
+    public DepthModel(DepthModel properties) : base(properties.ShaderUri, ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
     {
         this.Mouse = properties.Mouse;
         this.IntensityX = properties.IntensityX;

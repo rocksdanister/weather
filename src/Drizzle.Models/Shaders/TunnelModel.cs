@@ -26,7 +26,7 @@ namespace Drizzle.Models.Shaders
             InitializeUniformMappings();
         }
 
-        public TunnelModel(TunnelModel properties) : base(null, ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: 1f, mouseInertia: 1f)
+        public TunnelModel(TunnelModel properties) : base(properties.ShaderUri, ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: 1f, mouseInertia: 1f)
         {
             this.ImagePath = properties.ImagePath;
             this.IsSquare = properties.IsSquare;

@@ -46,7 +46,7 @@ public partial class WindModel : ShaderModel
         InitializeUniformMappings();
     }
 
-    public WindModel(WindModel properties) : base(null, ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
+    public WindModel(WindModel properties) : base(properties.ShaderUri, ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
     {
         this.Color1 = properties.Color1;
         this.color2 = properties.Color2;

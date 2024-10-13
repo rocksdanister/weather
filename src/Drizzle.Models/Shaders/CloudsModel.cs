@@ -30,7 +30,7 @@ public partial class CloudsModel : ShaderModel
         InitializeUniformMappings();
     }
 
-    public CloudsModel(CloudsModel properties) : base(null, ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
+    public CloudsModel(CloudsModel properties) : base(properties.ShaderUri, ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
     {
         this.Speed = properties.Speed;
         this.Scale = properties.Scale;

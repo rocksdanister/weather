@@ -41,7 +41,7 @@ public partial class SnowModel : ShaderModel
         InitializeUniformMappings();
     }
 
-    public SnowModel(SnowModel properties) : base(null, ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
+    public SnowModel(SnowModel properties) : base(properties.ShaderUri, ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
     {
         this.Speed = properties.Speed;
         this.MouseSpeed = properties.MouseSpeed;

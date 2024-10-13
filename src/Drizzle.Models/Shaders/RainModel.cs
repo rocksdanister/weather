@@ -50,7 +50,7 @@ public partial class RainModel : ShaderModel
         InitializeUniformMappings();
     }
 
-    public RainModel(RainModel properties) : base(null, ShaderTypes.rain, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 0.5f, mouseInertia: 0.04f)
+    public RainModel(RainModel properties) : base(properties.ShaderUri, ShaderTypes.rain, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 0.5f, mouseInertia: 0.04f)
     {
         this.Speed = properties.Speed;
         this.MouseSpeed = properties.MouseSpeed;
