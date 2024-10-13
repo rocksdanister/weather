@@ -29,7 +29,7 @@ public readonly partial struct Clouds : IPixelShader<float4>
 
     private readonly float saturation;
 
-    private readonly float timeStep;
+    private readonly bool isDaytime;
 
     private readonly bool isDayNightShift;
 
@@ -186,6 +186,7 @@ public readonly partial struct Clouds : IPixelShader<float4>
 
         rd.XY = Hlsl.Mul(rd.XY, Rotate((-Disp(scaledTime + 3.5f).X * 0.2f) + bsMo.X));
 
+        float timeStep = isDaytime ? 0.75f : 0.25f;
         float prm1 = isDayNightShift ? timeStep : Hlsl.SmoothStep(-0.4f, 0.4f, Hlsl.Sin(Time() * 0.3f));
         float4 scn = Render(ro, rd, scaledTime, prm1, bsMo);
         float3 col = scn.RGB;

@@ -14,7 +14,6 @@ public sealed class CloudsRunner : IShaderRunner
     private readonly CloudsModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
-    private readonly float currentTimeStep = 0.75f;
 
     public CloudsRunner()
     {
@@ -38,7 +37,7 @@ public sealed class CloudsRunner : IShaderRunner
             currentProperties.Iterations,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            currentTimeStep, 
+            currentProperties.IsDaytime, 
             currentProperties.IsDayNightShift));
 
         return true;
