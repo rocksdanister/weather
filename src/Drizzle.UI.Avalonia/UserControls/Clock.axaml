@@ -15,6 +15,13 @@
         <converters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
     </UserControl.Resources>
     <Grid>
+        <Grid.Effect>
+            <DropShadowDirectionEffect
+                BlurRadius="2"
+                Direction="30"
+                ShadowDepth="2"
+                Color="{DynamicResource SystemAltLowColor}" />
+        </Grid.Effect>
         <TextBlock Text="{Binding #Root.Time, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
     </Grid>
 </UserControl>

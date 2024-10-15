@@ -86,7 +86,7 @@
                 <StackPanel.Effect>
                     <DropShadowDirectionEffect
                         BlurRadius="4"
-                        Direction="330"
+                        Direction="30"
                         ShadowDepth="4"
                         Color="{DynamicResource SystemAltLowColor}" />
                 </StackPanel.Effect>
