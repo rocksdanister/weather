@@ -74,8 +74,7 @@ public partial class MainWindow : Window
         {
             AppTitle.IsVisible = false;
             LocationPaneInnerButton.Margin = new Thickness(0, 5, 0, 0);
-            Grid.SetRow(LocationPaneButton, 0);
-            Grid.SetRow(RightCommandBar, 0);
+            Grid.SetRow(MainCommandBar, 0);
         }
         // We are waiting for Window to be ready before running animations to avoid shader related issues.
         await shellVm.RestoreWeather();
