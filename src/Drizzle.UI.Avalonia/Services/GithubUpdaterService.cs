@@ -18,7 +18,7 @@ public class GithubUpdaterService : IAppUpdaterService
     private readonly string lastUpdateCheckedUtcTimeSettingKey = "UpdateLastCheckedUtcTime";
     private readonly string lastUpdateCheckedStatusKey = "UpdateLastCheckedStatus";
     private readonly TimeSpan updateCheckInterval = TimeSpan.FromHours(6);
-    private readonly string manifestFileName = "Update.json";
+    private readonly string manifestFileName = "Update.Linux.json";
     private readonly DispatcherTimer dispatcherTimer = new();
 
     private readonly ISystemInfoProvider systemInfo;
