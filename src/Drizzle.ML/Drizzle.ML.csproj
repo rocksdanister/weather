@@ -7,7 +7,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.15.1" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.19.2" />
+    <!-- (UWP) Use local modified version with fix .NET native ref struct return, ref:https://github.com/rocksdanister/weather/wiki/Building -->
+    <!--<PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="5.0.0" />-->
   </ItemGroup>
   
   <ItemGroup>

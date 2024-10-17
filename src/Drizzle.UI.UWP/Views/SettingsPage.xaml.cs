@@ -1,5 +1,5 @@
-﻿using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.UI.Shared.ViewModels;
+using Drizzle.UI.UWP.Extensions;
 using Windows.UI.Xaml.Controls;
 
 namespace Drizzle.UI.UWP.Views

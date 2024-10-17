@@ -1,6 +1,7 @@
 ﻿using Drizzle.Common.Helpers;
 using Drizzle.Models;
 using Drizzle.Models.AQI;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +13,6 @@ namespace Drizzle.Weather.Helpers
 {
     public static class AirQualityUtil
     {
-        private static readonly string aqiAssetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "aqi-breakpoint.json");
         private readonly static List<Breakpoints> breakpoints = GetbreakPoints();
 
         // aqi-breakpoint.json ref:
@@ -78,7 +78,9 @@ namespace Drizzle.Weather.Helpers
 
         private static List<Breakpoints> GetbreakPoints()
         {
-            return JsonUtil.Load<List<Breakpoints>>(aqiAssetPath);
+            var assembly = typeof(AirQualityUtil).Assembly;
+            using var stream = assembly.GetManifestResourceStream("Drizzle.Weather.Assets.aqi-breakpoint.json");
+            return JsonUtil.Load<List<Breakpoints>>(stream);
         }
     }
 }

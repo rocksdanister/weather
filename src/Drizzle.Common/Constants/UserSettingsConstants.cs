@@ -42,6 +42,10 @@ public static class UserSettingsConstants
 
     public const string SelectedWeatherProvider = "SelectedWeatherProvider";
 
+    public const string SelectedLanguageCode = "SelectedLanguageCode";
+
+    public const string UseSystemDefaultLanguage = "UseSystemDefaultLanguage";
+
     // Custom user selected units.
 
     public const string SelectedTemperatureUnit = "SelectedTemperatureUnit";
@@ -80,6 +84,8 @@ public static class UserSettingsConstants
         { SelectedVisibilityUnit, VisibilityUnits.km },
         { SelectedPressureUnit, PressureUnits.hPa_mb },
         { SelectedMainGraphType, GraphType.temperature },
-        { SelectedPrecipitationUnit, PrecipitationUnits.mm }
+        { SelectedPrecipitationUnit, PrecipitationUnits.mm },
+        { SelectedLanguageCode, string.Empty }, //en-US, zh-CN
+        { UseSystemDefaultLanguage, true } // Ignores "SelectedLanguageCode"
     };
 }

@@ -1,0 +1,40 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.HelpView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    Width="400"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:HelpViewModel"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Spacing="3">
+            <ui:SettingsExpander
+                ActionIconSource="ChevronRight"
+                Command="{Binding OpenWebsiteCommand}"
+                Description="{x:Static i18n:Resources.WebpageCard_Description}"
+                Header="{x:Static i18n:Resources.WebpageCard_Header}"
+                IconSource="Contact"
+                IsClickEnabled="True" />
+            <ui:SettingsExpander
+                ActionIconSource="ChevronRight"
+                Command="{Binding OpenSourceCommand}"
+                Description="{x:Static i18n:Resources.SourceCodeCard_Description}"
+                Header="{x:Static i18n:Resources.SourceCodeCard_Header}"
+                IconSource="Star"
+                IsClickEnabled="True" />
+            <ui:SettingsExpander
+                ActionIconSource="ChevronRight"
+                Command="{Binding OpenContactCommand}"
+                Description="{x:Static i18n:Resources.ContactCard_Description}"
+                Header="{x:Static i18n:Resources.ContactCard_Header}"
+                IconSource="Message"
+                IsClickEnabled="True" />
+        </StackPanel>
+    </Grid>
+</UserControl>

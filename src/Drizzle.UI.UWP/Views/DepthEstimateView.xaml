@@ -39,8 +39,8 @@
                 Height="350"
                 IsDynamicResolutionEnabled="False"
                 IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind viewModel.SelectedShader.ScaleFactor, Mode=OneWay}"
-                ShaderRunner="{x:Bind viewModel.SelectedShader.ShaderRunner, Mode=OneWay}">
+                ResolutionScale="{x:Bind viewModel.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
+                ShaderRunner="{x:Bind viewModel.SelectedShader.Runner, Mode=OneWay}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         From="0"
@@ -144,7 +144,12 @@
         </StackPanel>
         <!--  Error message  -->
         <StackPanel Margin="5" Visibility="{x:Bind viewModel.ErrorText, Converter={StaticResource StringVisibilityConverter}, Mode=OneWay}">
-            <TextBlock Foreground="Red" Text="{x:Bind viewModel.ErrorText, Mode=OneWay}" />
+            <ScrollViewer MaxHeight="100">
+                <TextBlock
+                    Foreground="Red"
+                    Text="{x:Bind viewModel.ErrorText, Mode=OneWay}"
+                    TextWrapping="Wrap" />
+            </ScrollViewer>
             <HyperlinkButton Content="https://github.com/rocksdanister/weather/wiki/Machine-Learning" NavigateUri="https://github.com/rocksdanister/weather/wiki/Machine-Learning" />
         </StackPanel>
     </Grid>
