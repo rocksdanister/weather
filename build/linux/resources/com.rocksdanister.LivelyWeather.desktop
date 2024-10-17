@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Lively Weather
+Comment=Weather app powered by gpu shader animations.
+Exec=livelyweather
+Icon=com.rocksdanister.LivelyWeather
+Terminal=false
+Type=Application
+Categories=Utility;Science;Geography;X-Weather;
+StartupNotify=true
