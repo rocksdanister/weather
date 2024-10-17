@@ -2,10 +2,12 @@
 --name livelyweather
 --description "Weather app powered by gpu shader animations."
 --url "https://www.rocksdanister.com/weather"
---license "MIT"
---version 2.0.0
---architecture x86_64
 --maintainer "Rocksdanister <awoo.git@gmail.com>"
+--vendor "Rocksdanister"
+--license "MIT"
+--version 2.0.0.0
+--architecture x86_64
 --deb-no-default-config-files
---deb-compression gz
+--deb-compression xz
+--rpm-compression xz
 .

@@ -23,4 +23,6 @@ chmod +x package/usr/lib/livelyweather/Drizzle.UI.Avalonia.Desktop
 # Build package
 fpm -t deb 
 fpm -t rpm 
-
+# tar -> tar.gz
+fpm -t tar
+gzip livelyweather.tar
