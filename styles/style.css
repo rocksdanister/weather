@@ -204,7 +204,7 @@ a {
 /* Download button */
 
 .downloads {
-  position: absolute;
+  position: relative;
   display: flex;
 }
 .downloads .holder {
@@ -244,7 +244,7 @@ a {
 .downloads .drawer {
   top: 70px;
   padding-top: 10px;
-  width: 100%;
+  width: 305px;
   height: auto;
   max-height: 270px;
   overflow: auto;
@@ -258,6 +258,7 @@ a {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   flex-direction: column;
   justify-content: flex-start;
+  position: absolute;
 }
 .downloads .drawer.closed {
   max-height: 0;
