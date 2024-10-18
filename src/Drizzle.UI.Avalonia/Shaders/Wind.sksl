@@ -1,0 +1,112 @@
+/*
+ * Wind of Change
+ * Ported from: https://www.shadertoy.com/view/ldBSDd.
+ * Copyright 2014 Roman Bobniev (FatumR).
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ */
+
+// Defaults
+uniform vec3 u_Resolution;
+uniform float u_Time;
+uniform vec4 u_Mouse;
+// ShaderModel class defaults
+uniform float u_Brightness;
+uniform float u_Saturation;
+// Custom
+uniform vec3 u_Color1;
+uniform vec3 u_Color2;
+uniform float u_Speed;
+uniform float u_Amplitude;
+uniform float u_ParallaxIntensityX;
+uniform float u_ParallaxIntensityY;
+// Textures
+uniform shader u_Texture;
+uniform shader u_DepthTexture;
+uniform vec3 u_TextureResolution;
+uniform vec3 u_DepthTextureResolution;
+
+float rand(vec2 co) {
+    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+float rand2(vec2 co) {
+    return fract(cos(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+    // Rough Value noise implementation
+float valueNoiseSimple(vec2 vl) {
+    float minStep = 1.;
+
+    vec2 grid = floor(vl);
+    vec2 gridPnt1 = grid;
+    vec2 gridPnt2 = vec2(grid.x, grid.y + minStep);
+    vec2 gridPnt3 = vec2(grid.x + minStep, grid.y);
+    vec2 gridPnt4 = vec2(gridPnt3.x, gridPnt2.y);
+
+    float s = rand2(grid);
+    float t = rand2(gridPnt3);
+    float u = rand2(gridPnt2);
+    float v = rand2(gridPnt4);
+
+    float x1 = smoothstep(0., 1., fract(vl.x));
+    float interpX1 = mix(s, t, x1);
+    float interpX2 = mix(u, v, x1);
+
+    float y = smoothstep(0., 1., fract(vl.y));
+    float interpY = mix(interpX1, interpX2, y);
+
+    return interpY;
+}
+
+float fractalNoise(vec2 vl) {
+    float persistance = 2.;
+    float a = u_Amplitude;
+    float rez = 0.;
+    vec2 p = vl;
+
+    for(int i = 0; i < 8; i++) {
+        rez += a * valueNoiseSimple(p);
+        a /= persistance;
+        p *= persistance;
+    }
+    return rez;
+}
+
+float complexFBM(vec2 p) {
+    float sound = 0.;
+    float slow = u_Time / u_Speed;
+    float fast = u_Time / (u_Speed / 5.);
+    vec2 offset1 = vec2(slow, 0.); // Main front
+    vec2 offset2 = vec2(sin(fast) * 0.1, 0.); // sub fronts
+
+    return (1. + sound) * fractalNoise(p + offset1 + fractalNoise(p + fractalNoise(p + 2. * fractalNoise(p - offset2))));
+}
+
+// Ref: https://stackoverflow.com/questions/9320953/what-algorithm-does-photoshop-use-to-desaturate-an-image
+vec4 Desaturate(vec4 color) {
+    float bw = (min(color.r, min(color.g, color.b)) + min(color.r, min(color.g, color.b))) * 0.5;
+    return vec4(bw, bw, bw, 1.);
+}
+
+half4 main(vec2 fragCoord) {
+    vec2 uv = fragCoord.xy / u_Resolution.xy;
+    vec2 scale = u_TextureResolution.xy / u_Resolution.xy;
+    float screenAspect = u_Resolution.x / u_Resolution.y;
+    float textureAspect = u_TextureResolution.x / u_TextureResolution.y;
+    float scaleX = 1., scaleY = 1.;
+    if(textureAspect > screenAspect)
+        scaleX = screenAspect / textureAspect;
+    else
+        scaleY = textureAspect / screenAspect;
+    uv = vec2(scaleX, scaleY) * (uv - 0.5) + 0.5;
+    vec2 UV = uv * u_Resolution.xy * scale;
+
+    float depth = u_DepthTexture.eval(UV).r;
+    vec2 parallax = (u_Mouse.xy * u_Resolution.xy) * depth * vec2(u_ParallaxIntensityX, u_ParallaxIntensityY);
+
+    vec3 rez = mix(u_Color2, u_Color1, complexFBM(uv));
+    vec4 col = vec4(rez + u_Texture.eval(UV + parallax).rgb, 1.);
+
+    col = u_Saturation < 1. ? mix(Desaturate(col), col, u_Saturation) : col;
+    return col * u_Brightness * 0.75;
+}

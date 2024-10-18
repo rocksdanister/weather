@@ -1,0 +1,33 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.Views.UpdateAvailableView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <lottie:Lottie
+            Grid.Column="0"
+            Width="75"
+            Margin="-50,-50,0,-50"
+            Path="/Assets/AnimatedIcons/Bell.json" />
+        <StackPanel
+            Grid.Column="1"
+            Margin="-50,0,0,0"
+            VerticalAlignment="Center"
+            Spacing="5">
+            <TextBlock FontWeight="SemiBold" Text="{x:Static i18n:Resources.TitleUpdateAvailable_Text}" />
+            <HyperlinkButton NavigateUri="https://github.com/rocksdanister/weather/releases">
+                <TextBlock Text="{x:Static i18n:Resources.LearnMore_Content}" />
+            </HyperlinkButton>
+        </StackPanel>
+    </Grid>
+</UserControl>

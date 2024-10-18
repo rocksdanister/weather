@@ -1,8 +1,7 @@
-﻿namespace Drizzle.Models.Enums
+﻿namespace Drizzle.Models.Enums;
+
+public enum GraphType
 {
-    public enum GraphType
-    {
-        temperature,
-        apparentTemperature,
-    }
+    temperature,
+    apparentTemperature,
 }

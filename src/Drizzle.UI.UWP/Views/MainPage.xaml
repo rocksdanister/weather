@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
+    xmlns:cards="using:Drizzle.UI.UWP.UserControls.Cards"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
@@ -12,7 +13,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="rootPage"
     Background="Transparent"
     Loaded="Page_Loaded"
@@ -354,7 +355,7 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:UVCard HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
+                            <cards:UVI HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyUltravioletIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.UltravioletIndex, Mode=OneWay}" />
                         </Button>
                     </Border>
                     <!--  Sunrise-Sunset  -->
@@ -386,7 +387,7 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:SunCard
+                            <cards:Sun
                                 Sunrise="{x:Bind shellVm.SelectedWeather.Sunrise, Mode=OneWay}"
                                 Sunset="{x:Bind shellVm.SelectedWeather.Sunset, Mode=OneWay}"
                                 TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}" />
@@ -439,7 +440,7 @@
                                     </StackPanel>
                                 </Flyout>
                             </Button.Flyout>
-                            <customControls:HumidityCard Humidity="{x:Bind shellVm.SelectedWeather.Humidity, Mode=OneWay}" />
+                            <cards:Humidity Value="{x:Bind shellVm.SelectedWeather.Humidity, Mode=OneWay}" />
                         </Button>
                     </Border>
                 </StackPanel>
@@ -489,7 +490,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:CompassCard
+                        <cards:Compass
                             Direction="{x:Bind shellVm.SelectedWeather.WindDirection, Mode=OneWay}"
                             Unit="{x:Bind shellVm.SelectedWeather.WindSpeedUnit, Mode=OneWay}"
                             Value="{x:Bind shellVm.SelectedWeather.WindSpeed, Mode=OneWay}" />
@@ -533,7 +534,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:AirQualityCard HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
+                        <cards:AQI HourlyValue="{x:Bind shellVm.SelectedWeather.HourlyAirQualityIndex, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.AirQualityIndex, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Pressure  -->
@@ -569,7 +570,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:PressureCard Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
+                        <cards:Pressure Unit="{x:Bind shellVm.SelectedWeather.PressureUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Pressure, Mode=OneWay}" />
                     </Button>
                 </Border>
             </StackPanel>
@@ -613,7 +614,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:VisibilityCard Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                        <cards:Visibility Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Cloud Cover  -->
@@ -649,7 +650,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:CloudAmountCard Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
+                        <cards:Clouds Value="{x:Bind shellVm.SelectedWeather.CloudCover, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Precipitation  -->
@@ -685,7 +686,7 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <customControls:PrecipitationCard Unit="{x:Bind shellVm.SelectedWeather.PrecipitationUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Precipitation, Mode=OneWay}" />
+                        <cards:Precipitation Unit="{x:Bind shellVm.SelectedWeather.PrecipitationUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Precipitation, Mode=OneWay}" />
                     </Button>
                 </Border>
             </StackPanel>

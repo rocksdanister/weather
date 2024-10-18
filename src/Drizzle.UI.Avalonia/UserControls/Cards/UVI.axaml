@@ -1,0 +1,118 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.Cards.UVI"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:local="Drizzle.UI.Avalonia.UserControls.Cards"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="175"
+    d:DesignWidth="240"
+    Loaded="UserControl_Loaded"
+    SizeChanged="UserControl_SizeChanged"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Margin="10,5,0,0"
+            Opacity="0.4"
+            Orientation="Horizontal"
+            Spacing="4">
+            <TextBlock
+                FontFamily="{StaticResource CustomIconFonts}"
+                FontSize="16"
+                Text="&#xE904;" />
+            <TextBlock Padding="0,-1,0,0" Text="{x:Static i18n:Resources.TitleUVIndex_Text}" />
+        </StackPanel>
+
+        <!--  #Name Or RelativeSource={RelativeSource AncestorType=UserControl}  -->
+        <StackPanel
+            Grid.Row="1"
+            Margin="10,0,0,0"
+            VerticalAlignment="Center"
+            IsVisible="{Binding #Root.Value, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+            Spacing="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    FontSize="40"
+                    FontWeight="SemiBold"
+                    Text="{Binding #Root.Value, Mode=OneWay}" />
+                <StackPanel
+                    Margin="5,0,0,7.5"
+                    VerticalAlignment="Bottom"
+                    Opacity="0.45"
+                    Orientation="Horizontal"
+                    Spacing="5">
+                    <StackPanel
+                        IsVisible="{Binding #Root.MinValue, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+                        Orientation="Horizontal"
+                        Spacing="2.5">
+                        <TextBlock FontSize="14" Text="{Binding #Root.MinValue}" />
+                        <TextBlock FontFamily="{StaticResource FluentSystemIcons-Regular}" Text="&#xF147;" />
+                    </StackPanel>
+                    <StackPanel
+                        IsVisible="{Binding #Root.MaxValue, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+                        Orientation="Horizontal"
+                        Spacing="2.5">
+                        <TextBlock FontSize="14" Text="{Binding #Root.MaxValue}" />
+                        <TextBlock FontFamily="{StaticResource FluentSystemIcons-Regular}" Text="&#xE12A;" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock
+                FontSize="16"
+                Opacity="0.6"
+                Text="{Binding #Root.Message}" />
+        </StackPanel>
+
+        <Canvas
+            x:Name="SliderCanvas"
+            Grid.Row="2"
+            Margin="0,25,0,0"
+            IsVisible="{Binding #Root.Value, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+            <Rectangle
+                x:Name="SliderLine"
+                Canvas.Left="0"
+                Canvas.Top="2.5"
+                Width="350"
+                Height="5"
+                RadiusX="2.5"
+                RadiusY="2.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                        <GradientStop Offset="0.0" Color="#00e400" />
+                        <GradientStop Offset="0.2" Color="#ffff00" />
+                        <GradientStop Offset="0.4" Color="#ff7e00 " />
+                        <GradientStop Offset="0.6" Color="#ff0000 " />
+                        <GradientStop Offset="0.8" Color="#8f3f97" />
+                        <GradientStop Offset="1.0" Color="#7e0023 " />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Ellipse
+                x:Name="SliderKnob"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Width="10"
+                Height="10"
+                Fill="White" />
+        </Canvas>
+
+        <lottie:Lottie
+            Grid.RowSpan="3"
+            Width="125"
+            Height="125"
+            Margin="0,25,0,0"
+            IsVisible="{Binding #Root.Value, Mode=OneWay, Converter={x:Static ObjectConverters.IsNull}}"
+            Opacity="0.35"
+            Path="/Assets/AnimatedIcons/Missing.json" />
+    </Grid>
+</UserControl>

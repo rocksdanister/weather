@@ -55,6 +55,16 @@ public interface IUserSettings
     T? GetAndDeserialize<T>(string settingKey);
 
     /// <summary>
+    /// Retrieves the value for the desired settings key
+    /// and performs json deserialization on the stored value.
+    /// </summary>
+    /// <typeparam name="T">Type of the value.</typeparam>
+    /// <param name="settingKey">The settings key, generally found in <see cref="UserSettingsConstants"/>.</param>
+    /// <param name="defaultOverride">The default override to use if the setting has no value.</param>
+    /// <returns>The desired value or returns the default.</returns>
+    T? GetAndDeserialize<T>(string settingKey, T defaultOverride);
+
+    /// <summary>
     /// Saves settings into persistent local storage
     /// after serializing the object.
     /// </summary>

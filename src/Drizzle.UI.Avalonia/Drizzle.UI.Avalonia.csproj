@@ -1,0 +1,160 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Shaders\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Assets\AnimatedIcons\Bell.json" />
+    <None Remove="Assets\AnimatedIcons\Birds.json" />
+    <None Remove="Assets\AnimatedIcons\clouds25.json" />
+    <None Remove="Assets\AnimatedIcons\Clouds3.json" />
+    <None Remove="Assets\AnimatedIcons\Clouds50.json" />
+    <None Remove="Assets\AnimatedIcons\Clouds75.json" />
+    <None Remove="Assets\AnimatedIcons\Confetti.json" />
+    <None Remove="Assets\AnimatedIcons\Eyes.json" />
+    <None Remove="Assets\AnimatedIcons\LocationSearch.json" />
+    <None Remove="Assets\AnimatedIcons\Missing.json" />
+    <None Remove="Assets\AnimatedIcons\SoundWave.json" />
+    <None Remove="Assets\AnimatedIcons\Water.json" />
+    <None Remove="Assets\AnimatedIcons\Wind.json" />
+    <None Remove="Assets\chart_increasing_3d.png" />
+    <None Remove="Assets\CustomIcons.ttf" />
+    <None Remove="Assets\FluentSystemIcons-Regular.ttf" />
+    <None Remove="Assets\icons8-barometer.svg" />
+    <None Remove="Assets\icon_128.ico" />
+    <None Remove="Assets\logo_512.png" />
+    <None Remove="Assets\WeatherIcons\ClearDay.json" />
+    <None Remove="Assets\WeatherIcons\ClearNight.json" />
+    <None Remove="Assets\WeatherIcons\Cloudy.json" />
+    <None Remove="Assets\WeatherIcons\Drizzle.json" />
+    <None Remove="Assets\WeatherIcons\DrizzleExtreme.json" />
+    <None Remove="Assets\WeatherIcons\DustDay.json" />
+    <None Remove="Assets\WeatherIcons\DustNight.json" />
+    <None Remove="Assets\WeatherIcons\Fog.json" />
+    <None Remove="Assets\WeatherIcons\Hail.json" />
+    <None Remove="Assets\WeatherIcons\Haze.json" />
+    <None Remove="Assets\WeatherIcons\Mist.json" />
+    <None Remove="Assets\WeatherIcons\Overcast.json" />
+    <None Remove="Assets\WeatherIcons\PartlyCloudyDay.json" />
+    <None Remove="Assets\WeatherIcons\PartlyCloudyNight.json" />
+    <None Remove="Assets\WeatherIcons\Rain.json" />
+    <None Remove="Assets\WeatherIcons\RainExtreme.json" />
+    <None Remove="Assets\WeatherIcons\Sleet.json" />
+    <None Remove="Assets\WeatherIcons\SleetExtreme.json" />
+    <None Remove="Assets\WeatherIcons\Snow.json" />
+    <None Remove="Assets\WeatherIcons\SnowExtreme.json" />
+    <None Remove="Assets\WeatherIcons\Sunrise.json" />
+    <None Remove="Assets\WeatherIcons\Sunset.json" />
+    <None Remove="Assets\WeatherIcons\Thunderstorms.json" />
+    <None Remove="Assets\WeatherIcons\ThunderstormsExtreme.json" />
+    <None Remove="Assets\WeatherIcons\Wind.json" />
+    <None Remove="Shaders\Clouds.sksl" />
+    <None Remove="Shaders\Depth.sksl" />
+    <None Remove="Shaders\Rain.sksl" />
+    <None Remove="Shaders\Snow.sksl" />
+    <None Remove="Shaders\Tunnel.sksl" />
+    <None Remove="Shaders\Wind.sksl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Backgrounds\Data.json" />
+    <Content Include="Assets\Backgrounds\Depth\0\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\0\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\1\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\1\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\2\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\2\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\3\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\3\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\4\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\4\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\5\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\5\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\6\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\6\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\7\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\7\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\8\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\8\image.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\9\depth.jpg" />
+    <Content Include="Assets\Backgrounds\Depth\9\image.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\0.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\1.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\10.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\11.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\12.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\13.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\2.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\3.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\4.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\5.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\6.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\7.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\8.jpg" />
+    <Content Include="Assets\Backgrounds\Rain\9.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\0.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\1.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\2.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\3.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\4.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\5.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\6.jpg" />
+    <Content Include="Assets\Backgrounds\Snow\7.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
+    <PackageReference Include="Avalonia" Version="11.2.0-rc1" />
+    <PackageReference Include="Avalonia.Labs.Controls" Version="11.1.0" />
+    <PackageReference Include="Avalonia.Labs.Lottie" Version="11.1.0" />
+    <PackageReference Include="Avalonia.Skia" Version="11.2.0-rc1" />
+    <PackageReference Include="Avalonia.Svg" Version="11.1.0.1" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0-rc1" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.0-rc1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="FluentAvaloniaUI" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="NLog" Version="5.3.4" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="5.3.14" />
+    <PackageReference Include="Octokit" Version="13.0.1" />
+    <PackageReference Include="SkiaSharp" Version="3.0.0-preview.4.1" />
+    <!-- Linux crash fix -->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.0.0-preview.4.1" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.0-rc1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Drizzle.Common\Drizzle.Common.csproj" />
+    <ProjectReference Include="..\Drizzle.ML\Drizzle.ML.csproj" />
+    <ProjectReference Include="..\Drizzle.Models\Drizzle.Models.csproj" />
+    <ProjectReference Include="..\Drizzle.Weather\Drizzle.Weather.csproj" />
+  </ItemGroup>
+
+  <!-- Localization -->
+  <ItemGroup>
+    <EmbeddedResource Update="Strings\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="Strings\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <Import Project="..\Drizzle.UI.Shared\Drizzle.UI.Shared.projitems" Label="Shared" />
+</Project>

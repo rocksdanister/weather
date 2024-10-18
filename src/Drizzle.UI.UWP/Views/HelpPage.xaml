@@ -13,7 +13,7 @@
         <StackPanel Spacing="3">
             <labs:SettingsCard
                 x:Uid="WebpageCard"
-                Click="WebsiteCard_Click"
+                Command="{x:Bind viewModel.OpenWebsiteCommand}"
                 IsClickEnabled="True">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xEB41;" />
@@ -22,7 +22,7 @@
 
             <labs:SettingsCard
                 x:Uid="SourceCodeCard"
-                Click="SoureCodeCard_Click"
+                Command="{x:Bind viewModel.OpenSourceCommand}"
                 IsClickEnabled="True">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE716;" />
@@ -31,7 +31,7 @@
 
             <labs:SettingsCard
                 x:Uid="ContactCard"
-                Click="ContactCard_Click"
+                Command="{x:Bind viewModel.OpenContactCommand}"
                 IsClickEnabled="True">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE779;" />

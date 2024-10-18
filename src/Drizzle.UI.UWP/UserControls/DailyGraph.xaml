@@ -24,7 +24,7 @@
         <Image
             Height="125"
             Margin="25"
-            Source="ms-appx:///Assets/Icons/chart_increasing_3d.png"
+            Source="ms-appx:///Assets/UserControls/chart_increasing_3d.png"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToVisibilityConverter}, ConverterParameter=Reverse}" />
         <!--  Hourly graph  -->
         <canvas:CanvasControl

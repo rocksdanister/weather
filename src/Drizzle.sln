@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drizzle.ImageProcessing", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drizzle.ML", "Drizzle.ML\Drizzle.ML.csproj", "{35150613-17C2-4DF1-AEEC-1D34A92AF72D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drizzle.Weather", "Drizzle.Weather\Drizzle.Weather.csproj", "{229B68B2-8E13-47B8-A6F9-2298F7F22957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drizzle.Weather", "Drizzle.Weather\Drizzle.Weather.csproj", "{229B68B2-8E13-47B8-A6F9-2298F7F22957}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drizzle.UI.Avalonia", "Drizzle.UI.Avalonia\Drizzle.UI.Avalonia.csproj", "{08C53C33-EC81-47A1-9F69-7B9BBF708C13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drizzle.UI.Avalonia.Desktop", "Drizzle.UI.Avalonia.Desktop\Drizzle.UI.Avalonia.Desktop.csproj", "{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +165,46 @@ Global
 		{229B68B2-8E13-47B8-A6F9-2298F7F22957}.Release|x64.Build.0 = Release|Any CPU
 		{229B68B2-8E13-47B8-A6F9-2298F7F22957}.Release|x86.ActiveCfg = Release|Any CPU
 		{229B68B2-8E13-47B8-A6F9-2298F7F22957}.Release|x86.Build.0 = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|ARM.Build.0 = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|x64.Build.0 = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Debug|x86.Build.0 = Debug|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|ARM.ActiveCfg = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|ARM.Build.0 = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|ARM64.Build.0 = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|x64.ActiveCfg = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|x64.Build.0 = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|x86.ActiveCfg = Release|Any CPU
+		{08C53C33-EC81-47A1-9F69-7B9BBF708C13}.Release|x86.Build.0 = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|x64.Build.0 = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Debug|x86.Build.0 = Debug|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|ARM.Build.0 = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|ARM64.Build.0 = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|x64.ActiveCfg = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|x64.Build.0 = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|x86.ActiveCfg = Release|Any CPU
+		{7368AAE3-A5AA-4AB3-8BBE-DDCF380D4593}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +213,7 @@ Global
 		SolutionGuid = {BD6F7AED-A6F8-45CE-A916-60D7A602D560}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Drizzle.UI.Shared\Drizzle.UI.Shared.projitems*{08c53c33-ec81-47a1-9f69-7b9bbf708c13}*SharedItemsImports = 5
 		Drizzle.UI.Shared\Drizzle.UI.Shared.projitems*{da7435ff-7175-4a57-a7e4-02abc79a6189}*SharedItemsImports = 13
 		Drizzle.UI.Shared\Drizzle.UI.Shared.projitems*{e585fff2-9a5d-4461-a94b-34fb4f829b15}*SharedItemsImports = 4
 	EndGlobalSection

@@ -2,10 +2,6 @@
 using Drizzle.Common.Services;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace Drizzle.UI.UWP.Services;
@@ -44,6 +40,18 @@ public class LocalSettings : IUserSettings
         }
 
         return (T)UserSettingsConstants.Defaults[settingKey];
+    }
+
+    /// <inheritdoc/>
+    public T? GetAndDeserialize<T>(string settingKey, T defaultOverride)
+    {
+        object result = ApplicationData.Current.LocalSettings.Values[settingKey];
+        if (result is string serialized)
+        {
+            return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
+        return defaultOverride;
     }
 
     /// <inheritdoc/>
