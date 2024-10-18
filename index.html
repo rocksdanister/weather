@@ -1,115 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Lively Weather by rocksdanister</title>
-    <meta name="description" content="Windows native weather app powered by DirectX" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- styles -->
-    <link rel="stylesheet" href="styles/controls.css" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <!-- preload preview -->
-    <link rel="preload" href="assets/temp_background.webp" as="image" />
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <!-- background -->
-    <div id="container"></div>
 
-    <div class="indeterminate-progress-bar">
-      <div class="indeterminate-progress-bar__progress"></div>
-    </div>
+<head>
+  <title>Lively Weather by rocksdanister</title>
+  <meta name="description" content="Windows native weather app powered by DirectX" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles/controls.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <!-- preload preview -->
+  <link rel="preload" href="assets/temp_background.webp" as="image" />
+  <meta charset="utf-8" />
+</head>
 
-    <div class="wrapper">
-      <div
-        id="content-demo"
-        data-tilt-max="7.5"
-        data-tilt
-        data-tilt-speed="1000"
-        data-tilt-startY="0"
-        data-tilt-reset-to-start="true"
-      >
-        <div id="dynamic-labels">
-          <img id="app-icon" src="assets/icon_100.webp" width="12" height="12" />
-          <div id="weather-header">
-            <div id="weather-header-city">Edmonton, Canada</div>
-            <div id="weather-header-temp">3 °C</div>
-            <div id="weather-header-label">Cloudy</div>
-          </div>
-          <!-- Week -->
-          <section id="day-selector">
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Monday</div>
-              <div class="day-icon">☁️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Tuesday</div>
-              <div class="day-icon">🌧️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Wednesday</div>
-              <div class="day-icon">🌧️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Thursday</div>
-              <div class="day-icon">🌨️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Friday</div>
-              <div class="day-icon">☁️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Saturday</div>
-              <div class="day-icon">🌨️</div>
-            </div>
-            <div style="display: flex; flex-direction: row">
-              <div class="day-text">Sunday</div>
-              <div class="day-icon">🌨️</div>
-            </div>
-          </section>
-          <!-- Card row1 -->
-          <div id="card-uv">
-            <div id="card-uv-number">1</div>
-            <div id="card-uv-desc">Good</div>
-          </div>
-          <div id="card-humidity">69%</div>
-          <!-- Card row2 -->
-          <div id="card-wind">6 kmh</div>
-          <div id="card-aqi">
-            <div id="card-aqi-number">8</div>
-            <div id="card-aqi-desc">Good</div>
-          </div>
-          <div id="card-pressure">1000 mb</div>
+<body>
+  <!-- background -->
+  <div id="container"></div>
+
+  <div class="indeterminate-progress-bar">
+    <div class="indeterminate-progress-bar__progress"></div>
+  </div>
+
+  <div class="wrapper">
+    <div id="content-demo" data-tilt-max="7.5" data-tilt data-tilt-speed="1000" data-tilt-startY="0"
+      data-tilt-reset-to-start="true">
+      <div id="dynamic-labels">
+        <img id="app-icon" src="assets/icon_100.webp" width="12" height="12" />
+        <div id="weather-header">
+          <div id="weather-header-city">Edmonton, Canada</div>
+          <div id="weather-header-temp">3 °C</div>
+          <div id="weather-header-label">Cloudy</div>
         </div>
-        <!-- Demo clip -->
-        <div id="demo-clip-border">
-          <video
-            poster="assets/temp_poster.webp"
-            id="demo-clip"
-            class="video"
-            disablePictureInPicture
-            loop
-            muted
-            autoplay
-          >
-            <source src="assets/app_demo_lq.mp4" type="video/mp4" />
-          </video>
+        <!-- Week -->
+        <section id="day-selector">
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Monday</div>
+            <div class="day-icon">☁️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Tuesday</div>
+            <div class="day-icon">🌧️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Wednesday</div>
+            <div class="day-icon">🌧️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Thursday</div>
+            <div class="day-icon">🌨️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Friday</div>
+            <div class="day-icon">☁️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Saturday</div>
+            <div class="day-icon">🌨️</div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div class="day-text">Sunday</div>
+            <div class="day-icon">🌨️</div>
+          </div>
+        </section>
+        <!-- Card row1 -->
+        <div id="card-uv">
+          <div id="card-uv-number">1</div>
+          <div id="card-uv-desc">Good</div>
         </div>
+        <div id="card-humidity">69%</div>
+        <!-- Card row2 -->
+        <div id="card-wind">6 kmh</div>
+        <div id="card-aqi">
+          <div id="card-aqi-number">8</div>
+          <div id="card-aqi-desc">Good</div>
+        </div>
+        <div id="card-pressure">1000 mb</div>
       </div>
-      <div id="content-download">
-        <h1>Lively Weather</h1>
-        <div>
-          <p>
-            Weather app, real weather, real time.
-            <a href="https://github.com/rocksdanister/weather?tab=readme-ov-file#about" target="_blank">Learn more</a>
-          </p>
-        </div>
-        <!-- <button class="acrylic-button"><span>Download</span></button> -->
-        <!-- <ms-store-badge productid="9PP0MFQFVSC5" window-mode="popup" theme="auto" language="en"
+      <!-- Demo clip -->
+      <div id="demo-clip-border">
+        <video poster="assets/temp_poster.webp" id="demo-clip" class="video" disablePictureInPicture loop muted
+          autoplay>
+          <source src="assets/app_demo_lq.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    <div id="content-download">
+      <h1>Lively Weather</h1>
+      <div>
+        <p>
+          Weather app, real weather, real time.
+          <a href="https://github.com/rocksdanister/weather?tab=readme-ov-file#about" target="_blank">Learn more</a>
+        </p>
+      </div>
+      <!-- <button class="acrylic-button"><span>Download</span></button> -->
+      <!-- <ms-store-badge productid="9PP0MFQFVSC5" window-mode="popup" theme="auto" language="en"
         animation="off"></ms-store-badge> -->
       <span class="downloads">
         <span class="holder">
@@ -175,47 +164,41 @@
           </div>
         </span>
       </span>
-      </div>
     </div>
+  </div>
 
-    <div class="floating-container">
-      <div class="floating-button">+</div>
-      <div class="element-container">
-        <span class="float-element tooltip-left">
-          <a target="_blank" href="mailto: awoo.git@gmail.com" title="awoo.git@gmail.com">
-            <img
-              style="width: 50px; height: 50px; border-radius: 0"
-              src="assets/icons/filled-message.png"
-              alt="filled-message"
-            />
-          </a>
-        </span>
-        <span class="float-element">
-          <a target="_blank" href="https://github.com/rocksdanister/weather" title="Source code">
-            <img style="width: 50px; height: 50px; border-radius: 50%" src="assets/icons/github.png" alt="github" />
-          </a>
-        </span>
-        <span class="float-element">
-          <a target="_blank" href="https://rocksdanister.com" title="About">
-            <img
-              alt="github profile"
-              style="width: 50px; height: 50px; border-radius: 50%"
-              src="https://avatars.githubusercontent.com/rocksdanister"
-              class="avatar"
-            />
-          </a>
-        </span>
-      </div>
+  <div class="floating-container">
+    <div class="floating-button">+</div>
+    <div class="element-container">
+      <span class="float-element tooltip-left">
+        <a target="_blank" href="mailto: awoo.git@gmail.com" title="awoo.git@gmail.com">
+          <img style="width: 50px; height: 50px; border-radius: 0" src="assets/icons/filled-message.png"
+            alt="filled-message" />
+        </a>
+      </span>
+      <span class="float-element">
+        <a target="_blank" href="https://github.com/rocksdanister/weather" title="Source code">
+          <img style="width: 50px; height: 50px; border-radius: 50%" src="assets/icons/github.png" alt="github" />
+        </a>
+      </span>
+      <span class="float-element">
+        <a target="_blank" href="https://rocksdanister.com" title="About">
+          <img alt="github profile" style="width: 50px; height: 50px; border-radius: 50%"
+            src="https://avatars.githubusercontent.com/rocksdanister" class="avatar" />
+        </a>
+      </span>
     </div>
-  </body>
-  <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
-  <!-- load in this order -->
-  <script src="js/controls.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/vanilla-tilt.min.js"></script>
-  <script src="js/index.js"></script>
-  <script data-goatcounter="https://weather.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  </div>
+</body>
+<script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+<!-- load in this order -->
+<script src="js/controls.js"></script>
+<script src="js/script.js"></script>
+<script src="js/vanilla-tilt.min.js"></script>
+<script src="js/index.js"></script>
+<script data-goatcounter="https://weather.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </html>

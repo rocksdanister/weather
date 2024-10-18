@@ -341,12 +341,13 @@ a {
   h1 {
     font-size: 28px;
   }
-  
+
   p {
     font-size: 18px;
   }
 
-  .video, #demo-clip-border {
+  .video,
+  #demo-clip-border {
     height: 320px;
     width: 369px;
   }
@@ -355,17 +356,17 @@ a {
     position: absolute;
     padding: 20px 0 0 140px;
   }
-  
+
   #weather-header-city {
     font-size: 10px;
     text-align: center;
   }
-  
+
   #weather-header-temp {
     font-size: 12px;
     text-align: center;
   }
-  
+
   #weather-header-label {
     font-size: 9px;
     text-align: center;
@@ -386,30 +387,30 @@ a {
     padding: 190px 0 0 55px;
     font-size: 16px;
   }
-  
+
   #card-uv-desc {
     font-size: 9px;
   }
-  
+
   #card-humidity {
     padding: 202px 0 0 267px;
     font-size: 10px;
   }
-  
+
   #card-wind {
     padding: 267px 0 0 77px;
     font-size: 8px;
   }
-  
+
   #card-aqi {
     padding: 255px 0 0 140px;
     font-size: 16px;
   }
-  
+
   #card-aqi-desc {
     font-size: 9px;
   }
-  
+
   #card-pressure {
     padding: 260px 0 0 240px;
     font-size: 14px;
