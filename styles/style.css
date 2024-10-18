@@ -26,7 +26,8 @@ h1 {
   margin-bottom: -15px;
 }
 
-p, a {
+p,
+a {
   color: var(--color-font2);
   font-size: 21px;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -78,7 +79,7 @@ p, a {
 }
 
 #app-icon {
-  position: absolute; 
+  position: absolute;
   padding: 10px 0 0 12.5px;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
@@ -95,8 +96,8 @@ p, a {
 
 .day-text {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  width: 50px; 
-  margin-right: 35px
+  width: 50px;
+  margin-right: 35px;
 }
 
 .day-icon {
@@ -198,6 +199,119 @@ p, a {
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-name: indeterminate-progress-bar;
+}
+
+/* Download button */
+
+.downloads {
+  position: absolute;
+  display: flex;
+}
+.downloads .holder {
+  display: flex;
+  height: 80px;
+  width: 305px;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  background-color: rgb(32 32 32);
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+#mainDownload {
+  z-index: 4;
+}
+
+.downloads button {
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 5px 5px 0;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 400ms, outline 400ms;
+  animation: none;
+}
+.downloads button:hover {
+  border: none;
+  outline: 1px solid rgba(255, 255, 255, 0.3);
+}
+.downloads img {
+  width: 50px;
+  aspect-ratio: 1;
+}
+
+.downloads .drawer {
+  top: 70px;
+  padding-top: 10px;
+  width: 100%;
+  height: auto;
+  max-height: 270px;
+  overflow: auto;
+  z-index: 0;
+  transition: max-height 400ms;
+  backdrop-filter: blur(5px);
+  background-color: rgb(32 32 32);
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: auto;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.downloads .drawer.closed {
+  max-height: 0;
+}
+
+.downloads div.item {
+  display: flex;
+  height: 60px;
+  padding: 10px 5px;
+  margin: 3px 10px;
+  cursor: pointer;
+  align-items: center;
+}
+.downloads #mainDownload div.item {
+  width: 225px;
+  margin: 0 10px;
+}
+.downloads .drawer div.item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.downloads div.item img {
+  width: 40px;
+  margin-right: 10px;
+  height: 40px;
+}
+.downloads div.item p {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.downloads .drawer::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.downloads .drawer::-webkit-scrollbar-thumb {
+  background: #4e4e4e;
+  border: 0px solid black;
+  border-radius: 20px;
+}
+.downloads .drawer::-webkit-scrollbar-track {
+  background: #a1a1aa;
+}
+.downloads .drawer::-webkit-scrollbar-corner {
+  background: #ffffff;
+  border: 0px solid black;
+  border-radius: 20px;
+}
+
+.downloads .drawer::-webkit-scrollbar-button:vertical:start:increment,
+.downloads .drawer::-webkit-scrollbar-button:vertical:end:decrement,
+.downloads .drawer::-webkit-scrollbar-button:horizontal:start:increment,
+.downloads .drawer::-webkit-scrollbar-button:horizontal:end:decrement {
+  display: none;
 }
 
 @keyframes fade-in {
