@@ -8,7 +8,6 @@
     Name="Lively Weather (Beta)"
     RequestedThemeVariant="Dark">
     <Application.Styles>
-        <FluentTheme />
         <labs:ControlThemes />
         <sty:FluentAvaloniaTheme />
     </Application.Styles>
