@@ -13,7 +13,7 @@
     xmlns:views="clr-namespace:Drizzle.UI.Avalonia.Views"
     xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
     x:Name="Root"
-    Title="Lively Weather (Beta)"
+    Title="Lively Weather (Preview)"
     Width="1280"
     Height="800"
     d:DesignHeight="1280"
@@ -167,7 +167,7 @@
                 Margin="0,0,0,2.5"
                 VerticalAlignment="Center"
                 FontSize="14">
-                Lively Weather (Beta)
+                Lively Weather (Preview)
             </TextBlock>
         </StackPanel>
 

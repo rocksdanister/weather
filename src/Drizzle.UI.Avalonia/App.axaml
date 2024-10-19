@@ -5,7 +5,7 @@
     xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
     xmlns:labs="using:Avalonia.Labs.Controls"
     xmlns:sty="using:FluentAvalonia.Styling"
-    Name="Lively Weather (Beta)"
+    Name="Lively Weather (Preview)"
     RequestedThemeVariant="Dark">
     <Application.Styles>
         <labs:ControlThemes />
