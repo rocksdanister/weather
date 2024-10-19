@@ -222,20 +222,29 @@ a {
   z-index: 4;
 }
 
+.downloads button,
+.downloads div.item {
+  border: none;
+  outline: 1px solid rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  /* transition: background-color 400ms, outline 400ms; */
+  transition: background-color 400ms;
+}
+.downloads button:hover,
+.downloads div.item:hover {
+  border: none;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .downloads button {
   padding: 0;
   box-shadow: none;
-  border: none;
-  outline: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0 5px 5px 0;
-  background-color: rgba(255, 255, 255, 0);
-  transition: background-color 400ms, outline 400ms;
   animation: none;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
 }
-.downloads button:hover {
-  border: none;
-  outline: 1px solid rgba(255, 255, 255, 0.3);
-}
+
 .downloads img {
   width: 50px;
   aspect-ratio: 1;
@@ -243,18 +252,18 @@ a {
 
 .downloads .drawer {
   top: 70px;
-  padding-top: 10px;
+  padding-top: 15px;
   width: 305px;
   height: auto;
   max-height: 270px;
-  overflow: auto;
+  /* overflow: auto; */
+  overflow: hidden;
   z-index: 0;
-  transition: max-height 400ms;
+  transition: max-height 400ms, outline 0ms, overflow 0ms, padding 0ms;
   backdrop-filter: blur(5px);
   background-color: rgb(32 32 32);
   outline: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
-  overflow: auto;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   flex-direction: column;
   justify-content: flex-start;
@@ -262,6 +271,11 @@ a {
 }
 .downloads .drawer.closed {
   max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  outline: none;
+  transition: max-height 400ms, outline 0ms 400ms, overflow 0ms 400ms,
+    padding 0ms 400ms;
 }
 
 .downloads div.item {
@@ -271,14 +285,17 @@ a {
   margin: 3px 10px;
   cursor: pointer;
   align-items: center;
+  border-radius: 5px;
 }
 .downloads #mainDownload div.item {
   width: 225px;
-  margin: 0 10px;
+  margin: 0 0;
+  padding: 10px 15px;
+  border-radius: 5px 0 0 5px;
 }
-.downloads .drawer div.item:not(:last-child) {
+/* .downloads .drawer div.item:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+} */
 .downloads div.item img {
   width: 40px;
   margin-right: 10px;
