@@ -6,7 +6,7 @@
 --vendor "Rocksdanister"
 --license "MIT"
 --version 2.0.0.0
---architecture x86_64
+--architecture amd64
 --deb-no-default-config-files
 --deb-compression xz
 --rpm-compression xz
