@@ -387,6 +387,8 @@ Copyright (c) 2023 Vincent Van Goggles (https://codepen.io/Gogh/pen/XzrNZd)
 }
 #mainDownload {
   z-index: 4;
+  opacity: 0;
+  transition: opacity 400ms;
 }
 
 .downloads button,

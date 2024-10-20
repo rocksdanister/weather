@@ -102,7 +102,7 @@
         animation="off"></ms-store-badge> -->
       <span class="downloads">
         <span class="holder">
-          <div id="mainDownload">
+          <div id="mainDownload" style="opacity: 0;">
             <div class="item" id="ms-store" href="ms-windows-store://pdp/?productid=9PP0MFQFVSC5&mode=mini"
               onclick="window.open(this.attributes.href.value,'_self').focus()">
               <img
@@ -202,6 +202,23 @@
     </div>
   </div>
 </body>
+<script>
+  // private and critical JS function that loads right after the document body
+  (() => {
+    const navApp = navigator.appVersion ?? null;
+    const mainDownload = document.querySelector('#mainDownload');
+    if (navApp !== null) {
+      if (navApp.includes("Linux")) {
+        // bring deb to front and put windows store in drawer
+        const ms = document.querySelector('#ms-store').outerHTML;
+        const deb = document.querySelector('#deb').outerHTML;
+        document.querySelector('#mainDownload').innerHTML = deb;
+        document.querySelector('.drawer').innerHTML = ms + document.querySelector('.drawer').innerHTML.replace(deb, '')
+      }
+    }
+    mainDownload.style.opacity = 1;
+  })();
+</script>
 <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.min.js"></script>

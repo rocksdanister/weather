@@ -98,16 +98,4 @@ window.onload = (e) => {
   // document
   //   .querySelector("ms-store-badge")
   //   .shadowRoot.appendChild(styleOverride);
-
-  const navApp = navigator.appVersion ?? null;
-  if (navApp == null) return;
-
-  if (navApp.includes("Linux")) {
-    // bring deb to front and put windows store in drawer
-    const ms = document.querySelector('#ms-store').outerHTML;
-    const deb = document.querySelector('#deb').outerHTML;
-    document.querySelector('#mainDownload').innerHTML = deb;
-    document.querySelector('.drawer').innerHTML = ms + document.querySelector('.drawer').innerHTML.replace(deb, '')
-  }
 };
-
