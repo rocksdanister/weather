@@ -274,7 +274,7 @@
     <value>Pomôžte s prekladmi!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Rovnaký ako vo Windowse</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Ďalšie informácie</value>

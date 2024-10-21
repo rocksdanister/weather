@@ -274,7 +274,7 @@
     <value>Ajude a traduzir!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Mesma que o Windows</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Saiba Mais</value>

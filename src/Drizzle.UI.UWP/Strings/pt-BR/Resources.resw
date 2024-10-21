@@ -256,7 +256,7 @@
     <value>Erro</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Por favor, reinicie o aplicativo para que as configurações tenham efeito.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribua para este programa, traduzindo-o para outras línguas.</value>
@@ -274,7 +274,7 @@
     <value>Ajude a traduzir!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Padrão do Windows</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Saiba mais</value>

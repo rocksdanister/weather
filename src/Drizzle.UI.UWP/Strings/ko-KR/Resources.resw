@@ -274,7 +274,7 @@
     <value>번역을 도와주십시오!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>시스템 기본 설정과 동일</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>자세히 알아보기</value>

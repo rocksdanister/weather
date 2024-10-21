@@ -202,7 +202,7 @@
     <value>AQI est l'abréviation de "Air Quality Index" (Indice de Qualité de l’Air). Comme son nom le laisse entendre, il s’agit d’un indicateur qui permet d’évaluer la qualité de l’air dans son ensemble avec une seule valeur.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>La quantité de nuages correspond à la fraction du ciel masquée par les nuages en moyenne lorsqu'ils sont observés à partir d'un endroit donné.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La température du point de rosée est une mesure absolue de la quantité de vapeur d'eau dans l'air. Lorsque la température du point de rosée et la température de l’air sont égales, l’humidité relative est de 100%. A ce stade, l'air est complètement saturé de vapeur d'eau, ce qui conduit à la condensation sous forme de rosée, de brouillard ou de nuages.</value>
@@ -211,7 +211,7 @@
     <value>L'humidité relative est une mesure de la quantité de vapeur d'eau présente dans l'air par rapport à la quantité maximale que l'air pourrait contenir à cette température. Il est exprimé en pourcentage et fournit des informations sur la proximité de l'air à la saturation.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Les précipitations sont la profondeur de l'eau qui s'accumulerait sur une surface plate à partir de la condensation de la vapeur d'eau atmosphérique tombant des nuages en raison de l'attraction gravitationnelle. Il comprend diverses formes telles que la pluie, la neige, la neige et la grêle.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>La pression barométrique, également connue sous le nom de pression atmosphérique, est la mesure de la pression atmosphérique dans une zone donnée.</value>
@@ -220,7 +220,7 @@
     <value>L'indice UV de l'Organisation mondiale de la santé (UVI) mesure la force des rayonnements ultraviolets. C'est une échelle linéaire comprise entre 0 et 11+, avec des valeurs plus élevées indiquant un plus grand risque d'exposition aux rayons UV et une augmentation des risques de coups de soleil et de dommages de la peau qui pourraient en fin de compte conduire au cancer de la peau.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>La visibilité est une mesure de la distance à laquelle un objet ou une lumière peut être clairement identifié. Une valeur à ou supérieure à 10 km est considérée comme bonne et inférieure à 1 km de pauvres.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>La vitesse du vent est la vitesse à laquelle l'air se déplace horizontalement au-delà d'un point donné. Il s'agit d'une quantité atmosphérique fondamentale causée par le déplacement de l'air de haute à basse pression, généralement en raison des changements de température. Les rafales sont une augmentation soudaine de la vitesse du vent au-dessus de la vitesse moyenne du vent. Elles durent généralement moins de 20 secondes.</value>
@@ -256,7 +256,7 @@
     <value>Erreur</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Lively doit être redémarrée pour que les nouveaux paramètres prennent effet.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribuez à ce programme en le traduisant dans d'autres langues.</value>
@@ -274,7 +274,7 @@
     <value>Aide-nous à traduire !</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Système</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>En savoir plus</value>
@@ -427,7 +427,7 @@
     <value>À propos de l'indice de qualité de l'air (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>À propos de la quantité de nuage</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Point de rosée</value>
@@ -436,7 +436,7 @@
     <value>À propos de l'humidité</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>À propos des précipitations</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>À propos de la pression</value>
@@ -445,7 +445,7 @@
     <value>À propos de l'indice UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>À propos de la visibilité</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>À propos de la vitesse du vent et des rafales</value>
@@ -460,7 +460,7 @@
     <value>Qualité de l'air</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>Quantité de nuage</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contributeurs</value>
@@ -511,7 +511,7 @@
     <value>Température</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Mise à jour disponible !</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Mise à jour terminée</value>

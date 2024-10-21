@@ -274,7 +274,7 @@
     <value>翻訳を助けてください！</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>システムのデフォルト</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>もっと詳しく</value>

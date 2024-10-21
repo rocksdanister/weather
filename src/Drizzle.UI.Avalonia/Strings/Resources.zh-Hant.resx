@@ -274,7 +274,7 @@
     <value>協助翻譯</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>與 Windows 相同</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>瞭解更多資訊</value>

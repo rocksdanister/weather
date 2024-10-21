@@ -256,7 +256,7 @@
     <value>Σφάλμα</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Παρακαλώ επανεκκινήστε την εφαρμογή για να τεθούν σε ισχύ οι ρυθμίσεις.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Συνεισφέρετε σε αυτό το πρόγραμμα μεταφράζοντάς το σε άλλες γλώσσες.</value>
@@ -274,7 +274,7 @@
     <value>Βοηθήστε στη Μετάφραση!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Ίδια με των Windows</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Μάθετε Περισσότερα</value>
@@ -466,7 +466,7 @@
     <value>Συνεισφέροντες</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Απόσταση</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Λήψη</value>
@@ -511,7 +511,7 @@
     <value>Θερμοκρασία</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Διαθέσιμη ενημέρωση!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Η ενημέρωση ολοκληρώθηκε</value>

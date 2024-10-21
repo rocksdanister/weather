@@ -529,7 +529,7 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Same as Windows.
+        ///   Looks up a localized string similar to Same as System.
         /// </summary>
         public static string LanguageSettingsItemSystemDefault_Content {
             get {

@@ -274,7 +274,7 @@
     <value>Segíts fordítani!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Ugyanaz, mint a Windows</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Több info</value>

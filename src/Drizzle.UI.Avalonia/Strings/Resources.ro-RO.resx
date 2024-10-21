@@ -256,7 +256,7 @@
     <value>Eroare</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Vă rugăm să reporniți Lively pentru ca setările să aibă efect.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribuiți la acest program traducându-l în alte limbi.</value>
@@ -274,7 +274,7 @@
     <value>Ajutați la traducere!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>La fel ca Windows</value>
+    <value>Same as System</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Aflați mai multe</value>
@@ -511,7 +511,7 @@
     <value>Temperatură</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Actualizare disponibilă!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Actualizare completă</value>
