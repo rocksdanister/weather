@@ -21,7 +21,7 @@
             <shaderControls:DrawControl
                 Width="500"
                 Height="350"
-                Model="{Binding SelectedShader.Model}">
+                Shader="{Binding SelectedShader.Model}">
                 <shaderControls:DrawControl.Transitions>
                     <Transitions>
                         <DoubleTransition

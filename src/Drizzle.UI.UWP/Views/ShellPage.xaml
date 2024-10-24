@@ -47,55 +47,12 @@
         </Grid.RowDefinitions>
 
         <!--  Background  -->
-        <Grid Grid.RowSpan="2" Padding="-5">
-            <computesharp:AnimatedComputeShaderPanel
-                x:Name="shaderPanel1"
-                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader1, Mode=OneWay}"
-                IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader1, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader1.Runner, Mode=OneWay}"
-                Visibility="{x:Bind shellVm.SelectedShader1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                <animation:Implicit.ShowAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:1" />
-                </animation:Implicit.ShowAnimations>
-                <animation:Implicit.HideAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        To="0"
-                        Duration="0:0:1" />
-                </animation:Implicit.HideAnimations>
-            </computesharp:AnimatedComputeShaderPanel>
-            <computesharp:AnimatedComputeShaderPanel
-                x:Name="shaderPanel2"
-                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader2, Mode=OneWay}"
-                IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader2, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader2.Runner, Mode=OneWay}"
-                Visibility="{x:Bind shellVm.SelectedShader2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                <animation:Implicit.ShowAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:1" />
-                </animation:Implicit.ShowAnimations>
-                <animation:Implicit.HideAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        To="0"
-                        Duration="0:0:1" />
-                </animation:Implicit.HideAnimations>
-            </computesharp:AnimatedComputeShaderPanel>
+        <Grid Grid.RowSpan="2">
+            <customControls:AnimatedComputeShaderPanelEx
+                IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
+                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader.Runner, Mode=OneWay}" />
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"

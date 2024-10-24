@@ -105,7 +105,7 @@ public partial class MainWindow : Window
 
         isWindowDeactivated = false;
         deactivatedStopwatch.Reset();
-        shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = false;
+        shellVm.IsPausedShader = false;
     }
 
     private void MainWindow_PositionChanged(object? sender, PixelPointEventArgs e)
@@ -215,7 +215,7 @@ public partial class MainWindow : Window
         if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
         {
             deactivatedStopwatch.Reset();
-            shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = true;
+            shellVm.IsPausedShader = true;
         }
     }
 

@@ -45,13 +45,13 @@ public partial class DrawControl : UserControl
         set { SetValue(StretchDirectionProperty, value); }
     }
 
-    public static readonly StyledProperty<ShaderModel?> ModelProperty =
-        AvaloniaProperty.Register<DrawControl, ShaderModel?>(nameof(Model), null);
+    public static readonly StyledProperty<ShaderModel?> ShaderProperty =
+        AvaloniaProperty.Register<DrawControl, ShaderModel?>(nameof(Shader), null);
 
-    public ShaderModel? Model
+    public ShaderModel? Shader
     {
-        get { return GetValue(ModelProperty); }
-        set { SetValue(ModelProperty, value); }
+        get { return GetValue(ShaderProperty); }
+        set { SetValue(ShaderProperty, value); }
     }
 
     public static readonly StyledProperty<bool> IsPausedProperty =
@@ -69,7 +69,7 @@ public partial class DrawControl : UserControl
     public DrawControl()
     {
         InitializeComponent();
-        ModelProperty.Changed.AddClassHandler<DrawControl>(OnPropertyChanged);
+        ShaderProperty.Changed.AddClassHandler<DrawControl>(OnPropertyChanged);
         IsPausedProperty.Changed.AddClassHandler<DrawControl>(OnPropertyChanged);
         OpacityProperty.Changed.AddClassHandler<DrawControl>(OnPropertyChanged);
     }
@@ -100,18 +100,15 @@ public partial class DrawControl : UserControl
                 Stretch, 
                 StretchDirection));
 
-        Start(Model);
+        Start(Shader);
     }
 
     private void OnPropertyChanged(DrawControl sender, AvaloniaPropertyChangedEventArgs e)
     {
-        if (e.Property == ModelProperty)
+        if (e.Property == ShaderProperty)
         {
-            //if (e.OldValue is not null)
-            //    await Task.Delay(500);
-
             Stop();
-            Start(Model);
+            Start(Shader);
         }
         else if (e.Property == IsPausedProperty)
         {

@@ -41,8 +41,6 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
     private float simulatedTime = 0;
     private float previousTime = 0;
     private float timeMultiplier = 1;
-    private float brightness = 1;
-    private float saturation = 1;
 
     public override void OnMessage(object message)
     {
@@ -127,7 +125,7 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
         time = 0;
         simulatedTime = 0;
         previousTime = 0;
-        timeMultiplier = 0;
+        timeMultiplier = 1;
     }
 
     public override void OnAnimationFrameUpdate()
@@ -169,8 +167,6 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
                 uniformTextures.Add(item.Value.UniformName, (null, null, Vector3.Zero));
         }
 
-        time = 0f;
-
         var rb = GetRenderBounds();
         var currentSize = this.size ?? rb.Size;
 
@@ -186,7 +182,7 @@ internal class DrawCompositionCustomVisualHandler : CompositionCustomVisualHandl
         uniforms = new SKRuntimeEffectUniforms(effect)
         {
             ["u_Resolution"] = new[] { (float)currentSize.Width, (float)currentSize.Height, 0f },
-            ["u_Time"] = time,
+            ["u_Time"] = 0f,
             ["u_Mouse"] = new[] { 0f, 0f, -1f, -1f },
             //["u_TextureResolution"] = new[] { 1620f, 1080f, 0f },
         };

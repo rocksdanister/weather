@@ -260,22 +260,13 @@ public partial class ShellViewModel : ObservableObject
     private WindModel fogProperty;
 
     [ObservableProperty]
-    private ShaderViewModel selectedShader1;
+    private ShaderViewModel selectedShader;
 
     [ObservableProperty]
-    private ShaderViewModel selectedShader2;
+    private float resolutionScaleShader = 1f;
 
     [ObservableProperty]
-    private float resolutionScaleShader1 = 1f;
-
-    [ObservableProperty]
-    private float resolutionScaleShader2 = 1f;
-
-    [ObservableProperty]
-    private bool isPausedShader1 = false;
-
-    [ObservableProperty]
-    private bool isPausedShader2 = true;
+    private bool isPausedShader = false;
 
     [ObservableProperty]
     private bool isDynamicResolution = true;
@@ -758,11 +749,6 @@ public partial class ShellViewModel : ObservableObject
         SnowProperty.ImagePath = snowAsset.FilePath;
     }
 
-    /// <summary>
-    /// Switches shader with transition effect by using two panels
-    /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
     private void SetShader(ShaderTypes type)
     {
         // CPU emulation, skip for better UX
@@ -772,43 +758,24 @@ public partial class ShellViewModel : ObservableObject
         // Turn off all animations
         if (IsFallbackBackground)
         {
-            IsPausedShader1 = true;
-            IsPausedShader2 = true;
-
+            IsPausedShader = true;
             // Turn off shader if running
-            SelectedShader1 = SelectedShader2 = null;
+            SelectedShader = null;
 
             return;
         }
 
         // Skip if running already
-        if (SelectedShader2?.Model?.Type == type || SelectedShader1?.Model?.Type == type)
+        if (SelectedShader?.Model?.Type == type)
             return;
 
         var selection = ShaderViewModels.First(x => x.Model.Type == type);
+        SelectedShader = selection;
+        IsPausedShader = false;
 
-        if (SelectedShader1 is null)
-        {
-            SelectedShader1 = selection;
-            IsPausedShader1 = false;
-            IsPausedShader2 = true;
-
-            SelectedShader2 = null;
-        }
-        else
-        {
-            SelectedShader2 = selection;
-            IsPausedShader1 = true;
-            IsPausedShader2 = false;
-
-            SelectedShader1 = null;
-        }
-
-        // Update uniforms
+        // Reset config
         UpdateShaderScale();
         UpdateBrightness();
-
-        // Reset mouse
         RainProperty.Mouse =
             CloudsProperty.Mouse =
             SnowProperty.Mouse =
@@ -835,6 +802,8 @@ public partial class ShellViewModel : ObservableObject
         var quality = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
         SetWeatherAnimation(SelectedWeatherAnimation);
+        // Force update since selected shader is unchanged.
+        UpdateShaderScale();
     }
 
     private void UpdateMotionSettings()
@@ -845,24 +814,21 @@ public partial class ShellViewModel : ObservableObject
 
     private void UpdateShaderScale()
     {
+        if (SelectedShader?.Model is null)
+            return;
+
         switch (userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance))
         {
             case AppPerformance.performance:
                 {
                     IsDynamicResolution = false;
-                    if (SelectedShader1 is not null)
-                        ResolutionScaleShader1 = SelectedShader1.Model.ScaleFactor;
-                    else if (SelectedShader2 is not null)
-                        ResolutionScaleShader2 = SelectedShader2.Model.ScaleFactor;
+                    ResolutionScaleShader = SelectedShader.Model.ScaleFactor;
                 }
                 break;
             case AppPerformance.quality:
                 {
                     IsDynamicResolution = false;
-                    if (SelectedShader1 is not null)
-                        ResolutionScaleShader1 = SelectedShader1.Model.MaxScaleFactor;
-                    else if (SelectedShader2 is not null)
-                        ResolutionScaleShader2 = SelectedShader2.Model.MaxScaleFactor;
+                    ResolutionScaleShader = SelectedShader.Model.MaxScaleFactor;
                 }
                 break;
             case AppPerformance.dynamic:

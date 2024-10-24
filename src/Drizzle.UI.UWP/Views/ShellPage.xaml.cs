@@ -173,7 +173,7 @@ namespace Drizzle.UI.UWP.Views
                         soundService.Play();
                         isWindowDeactivated = false;
                         deactivatedStopwatch.Reset();
-                        shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = false;
+                        shellVm.IsPausedShader = false;
                     }
                     break;
             }
@@ -348,7 +348,7 @@ namespace Drizzle.UI.UWP.Views
             if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
             {
                 deactivatedStopwatch.Reset();
-                shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = true;
+                shellVm.IsPausedShader = true;
             }
 
             if (searchIdleStopwatch.ElapsedMilliseconds > searchIdleTimeout)

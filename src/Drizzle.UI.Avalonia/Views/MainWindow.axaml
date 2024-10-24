@@ -37,7 +37,6 @@
         <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
         <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
         <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
-        <converters:ObjectToOpacityConverter x:Key="ObjectToOpacityConverter" />
     </Window.Resources>
 
     <Window.Styles>
@@ -78,36 +77,8 @@
         </Grid.RowDefinitions>
 
         <!--  Background  -->
-        <Grid
-            Grid.RowSpan="2"
-            Margin="-5"
-            IsVisible="True">
-            <shaderControls:DrawControl
-                IsPaused="{Binding IsPausedShader1}"
-                Model="{Binding SelectedShader1.Model}"
-                Opacity="{Binding SelectedShader1, Mode=OneWay, Converter={StaticResource ObjectToOpacityConverter}}">
-                <shaderControls:DrawControl.Transitions>
-                    <Transitions>
-                        <DoubleTransition
-                            Easing="SineEaseOut"
-                            Property="Opacity"
-                            Duration="0:0:0.5" />
-                    </Transitions>
-                </shaderControls:DrawControl.Transitions>
-            </shaderControls:DrawControl>
-            <shaderControls:DrawControl
-                IsPaused="{Binding IsPausedShader2}"
-                Model="{Binding SelectedShader2.Model}"
-                Opacity="{Binding SelectedShader2, Mode=OneWay, Converter={StaticResource ObjectToOpacityConverter}}">
-                <shaderControls:DrawControl.Transitions>
-                    <Transitions>
-                        <DoubleTransition
-                            Easing="SineEaseOut"
-                            Property="Opacity"
-                            Duration="0:0:0.5" />
-                    </Transitions>
-                </shaderControls:DrawControl.Transitions>
-            </shaderControls:DrawControl>
+        <Grid Grid.RowSpan="2">
+            <shaderControls:DrawControlEx IsPaused="{Binding IsPausedShader}" Shader="{Binding SelectedShader.Model}" />
             <userControls:ImageEx IsVisible="{Binding IsFallbackBackground}" Source="{Binding FallbackBackground}" />
             <!--  Improve visibility  -->
             <Rectangle Fill="{DynamicResource SystemAltLowColor}" IsHitTestVisible="False" />
