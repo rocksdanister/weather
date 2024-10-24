@@ -23,4 +23,9 @@ public partial class ScreensaverView : UserControl
         if (obj is not null)
             viewModel.DeleteBackgroundCommand.Execute(obj);
     }
+
+    private void Rectangle_PointerPressed(object? sender, global::Avalonia.Input.PointerPressedEventArgs e)
+    {
+        SettingsPaneButton.IsChecked = false;
+    }
 }
