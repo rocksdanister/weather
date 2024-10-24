@@ -1,0 +1,69 @@
+﻿<UserControl
+    x:Class="Drizzle.UI.UWP.UserControls.AnimatedComputeShaderPanelEx"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animation="using:CommunityToolkit.WinUI.Animations"
+    xmlns:computesharp="using:ComputeSharp.Uwp"
+    xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
+    xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Drizzle.UI.UWP.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+    </UserControl.Resources>
+
+    <!--  Cropping to hide depth shader edges.  -->
+    <Grid Padding="-5">
+        <computesharp:AnimatedComputeShaderPanel
+            IsDynamicResolutionEnabled="{x:Bind IsDynamicResolution, Mode=OneWay}"
+            IsPaused="{x:Bind IsPausedShader1, Mode=OneWay}"
+            IsVerticalSyncEnabled="True"
+            ResolutionScale="{x:Bind ResolutionScaleShader1, Mode=OneWay}"
+            ShaderRunner="{x:Bind ShaderRunner1, Mode=OneWay}"
+            Visibility="{x:Bind ShaderRunner1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    EasingMode="EaseOut"
+                    EasingType="Linear"
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:1" />
+            </animation:Implicit.ShowAnimations>
+            <animation:Implicit.HideAnimations>
+                <animation:OpacityAnimation
+                    EasingMode="EaseOut"
+                    EasingType="Linear"
+                    To="0"
+                    Duration="0:0:1" />
+            </animation:Implicit.HideAnimations>
+        </computesharp:AnimatedComputeShaderPanel>
+        <computesharp:AnimatedComputeShaderPanel
+            IsDynamicResolutionEnabled="{x:Bind IsDynamicResolution, Mode=OneWay}"
+            IsPaused="{x:Bind IsPausedShader2, Mode=OneWay}"
+            IsVerticalSyncEnabled="True"
+            ResolutionScale="{x:Bind ResolutionScaleShader2, Mode=OneWay}"
+            ShaderRunner="{x:Bind ShaderRunner2, Mode=OneWay}"
+            Visibility="{x:Bind ShaderRunner2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    EasingMode="EaseOut"
+                    EasingType="Linear"
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:1" />
+            </animation:Implicit.ShowAnimations>
+            <animation:Implicit.HideAnimations>
+                <animation:OpacityAnimation
+                    EasingMode="EaseOut"
+                    EasingType="Linear"
+                    To="0"
+                    Duration="0:0:1" />
+            </animation:Implicit.HideAnimations>
+        </computesharp:AnimatedComputeShaderPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,501 @@
+[
+  {
+    "MetaDataVersion": 1,
+    "Name": "Red Concrete Bridge",
+    "FilePath": "Rain\\0.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#8399a7",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/red-concrete-bridge-1398195/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Water flowing on Stream",
+    "FilePath": "Rain\\2.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#1c2220",
+    "WeatherCode": [
+      61,
+      63,
+      65,
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/water-flowing-on-stream-6613662/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Mountain Surrounded With Fog",
+    "FilePath": "Rain\\3.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#1a1e20",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/mountain-surrounded-with-fog-1772973/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Wet Road in Forest after Rain",
+    "FilePath": "Rain\\4.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#606d78",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/wet-road-in-forest-after-rain-17497197/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Selective Focus Photo of Wet Ground",
+    "FilePath": "Rain\\6.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "##444641",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/selective-focus-photo-of-wet-ground-2478657/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "White Row Boat on Body of Water",
+    "FilePath": "Rain\\7.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#695c8f",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/white-row-boat-on-body-of-water-33227/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Gray Road between Trees",
+    "FilePath": "Rain\\8.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#433f34",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://unsplash.com/photos/gray-road-between-trees-vwMBY66ED6Y"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Person Walking on Street Holding Umbrella During Rain",
+    "FilePath": "Rain\\9.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#51443e",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://unsplash.com/photos/person-walking-on-street-and-holding-umbrella-while-raining-with-vehicle-nearby-GXEZuWo5m4I"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Moon Above Forest during Night Time",
+    "FilePath": "Rain\\10.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#1d3c4c",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/moon-above-forest-during-night-time-1685543/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "People Standing Beside Road",
+    "FilePath": "Rain\\11.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#2c3c2c",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/people-standing-beside-road-3048538/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Milky Way Galaxy",
+    "FilePath": "Rain\\12.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#312e2f",
+    "WeatherCode": [
+      61,
+      63,
+      65
+    ],
+    "Attribution": "https://www.pexels.com/photo/milky-way-galaxy-433155/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Starry Sky Over Mountains",
+    "FilePath": "Rain\\13.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#23384f",
+    "WeatherCode": [
+      61,
+      63,
+      65,
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/starry-sky-over-mountains-2469122/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Silhouette Of Mountains During Dawn",
+    "FilePath": "Snow\\0.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#474355",
+    "WeatherCode": [
+      61,
+      63,
+      65,
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/silhouette-of-mountains-during-dawn-1809644/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Scenic View of Landscape Against Sky",
+    "FilePath": "Snow\\1.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#9ca0a6",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/scenic-view-of-landscape-against-sky-325139/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Icy Pine Trees",
+    "FilePath": "Snow\\2.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#344a53",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/icy-pine-trees-1110504/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Rocky Mountain",
+    "FilePath": "Snow\\3.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#8c8a92",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/rocky-mountain-1699030/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Snow Mountain",
+    "FilePath": "Snow\\4.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#8e9aa0",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/snowy-mountain-1287145/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Aurora Northern Lights",
+    "FilePath": "Snow\\5.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#226087",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://pixabay.com/photos/aurora-northern-lights-1197753/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Silhouette of Trees Under Starry Night",
+    "FilePath": "Snow\\6.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#463437",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/silhouette-of-trees-under-starry-night-3801516/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Empty Road Between High Rise Buildings",
+    "FilePath": "Snow\\7.jpg",
+    "DepthPath": null,
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#3a454d",
+    "WeatherCode": [
+      71,
+      73,
+      75
+    ],
+    "Attribution": "https://www.pexels.com/photo/empty-road-between-high-rise-buildings-4190056/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Amazing Waterfall with Lush Foliage on Rocks",
+    "FilePath": "Depth\\0\\image.jpg",
+    "DepthPath": "Depth\\0\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#5a6557",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/amazing-waterfall-with-lush-foliage-on-rocks-4534200/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Old houses on green hillside behind foggy mountain in evening",
+    "FilePath": "Depth\\1\\image.jpg",
+    "DepthPath": "Depth\\1\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#5b5948",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/old-houses-on-green-hillside-behind-foggy-mountain-in-evening-4215110/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Tall Waterfall of Mountain River",
+    "FilePath": "Depth\\2\\image.jpg",
+    "DepthPath": "Depth\\2\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#66675a",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/tall-waterfall-of-mountain-river-4210252/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Green Field Near Trees",
+    "FilePath": "Depth\\3\\image.jpg",
+    "DepthPath": "Depth\\3\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#484639",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/green-field-near-trees-1292301/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Brown Wooden House on Green Grass Field Near Green Trees and Mountains",
+    "FilePath": "Depth\\4\\image.jpg",
+    "DepthPath": "Depth\\4\\depth.jpg",
+    "Time": [
+      "0001-01-01T12:00:00"
+    ],
+    "ColorHex": "#65675e",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/brown-wooden-house-on-green-grass-field-near-green-trees-and-mountains-4275885/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Body of Water Between Rock Formation",
+    "FilePath": "Depth\\5\\image.jpg",
+    "DepthPath": "Depth\\5\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#4a707c",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/body-of-water-between-rock-formation-1776898/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Wide Road with Street Lights",
+    "FilePath": "Depth\\6\\image.jpg",
+    "DepthPath": "Depth\\6\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#2a2b2d",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/desert-during-nighttime-847402/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Photo of Vehicle on Asphalt Road",
+    "FilePath": "Depth\\7\\image.jpg",
+    "DepthPath": "Depth\\7\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#4b3341",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/photo-of-vehicle-on-asphalt-road-3066867/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Scenic View Of Rocky Mountain During Evening",
+    "FilePath": "Depth\\8\\image.jpg",
+    "DepthPath": "Depth\\8\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#192026",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/scenic-view-of-rocky-mountain-during-evening-1624438/"
+  },
+  {
+    "MetaDataVersion": 1,
+    "Name": "Cropland duiring Nighttime",
+    "FilePath": "Depth\\9\\image.jpg",
+    "DepthPath": "Depth\\9\\depth.jpg",
+    "Time": [
+      "0001-01-01T21:00:00"
+    ],
+    "ColorHex": "#1b5163",
+    "WeatherCode": [
+      0,
+      1,
+      45,
+      48
+    ],
+    "Attribution": "https://www.pexels.com/photo/cropland-duiring-night-time-1743165/"
+  }
+]

@@ -1,34 +1,23 @@
-﻿using Drizzle.Common.Constants;
-using Drizzle.Common;
-using Drizzle.Common.Services;
-using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.Common.Services;
+using Drizzle.UI.Shared.ViewModels;
 using Drizzle.UI.UWP.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
-using System.Diagnostics;
-using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Helpers;
-using Windows.Storage;
-using Windows.ApplicationModel.Resources;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace Drizzle.UI.UWP.Services;
 
-//Issue: https://github.com/microsoft/microsoft-ui-xaml/issues/2331
+// Auto theme issue: https://github.com/microsoft/microsoft-ui-xaml/issues/2331
 public class DialogService : IDialogService
 {
-    private readonly ResourceLoader resourceLoader;
+    private readonly IResourceService resources;
 
-    public DialogService()
+    public DialogService(IResourceService resources)
     {
-        if (Windows.UI.Core.CoreWindow.GetForCurrentThread() is not null)
-            resourceLoader = ResourceLoader.GetForCurrentView();
+        this.resources = resources;
     }
 
     public async Task ShowSettingsDialogAsync()
@@ -36,9 +25,9 @@ public class DialogService : IDialogService
         var vm = App.Services.GetRequiredService<SettingsViewModel>();
         var dialog = new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringSettings"),
+            Title = resources.GetString("StringSettings"),
             Content = new SettingsPage(vm),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         };
         //dialog.Resources["ContentDialogMaxWidth"] = 1200;
@@ -54,9 +43,9 @@ public class DialogService : IDialogService
     {
         await new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringAbout"),
+            Title = resources.GetString("StringAbout"),
             Content = new AboutPage(),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         }.ShowAsync();
     }
@@ -65,9 +54,9 @@ public class DialogService : IDialogService
     {
         await new ContentDialog()
         {
-            Title = resourceLoader?.GetString("StringHelp"),
+            Title = resources.GetString("StringHelp"),
             Content = new HelpPage(),
-            CloseButtonText = resourceLoader?.GetString("StringOk"),
+            CloseButtonText = resources.GetString("StringOk"),
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"]
         }.ShowAsync();
     }
@@ -78,10 +67,10 @@ public class DialogService : IDialogService
         // Don't use Acrylic background since this operation can be heavy
         var depthDialog = new ContentDialog
         {
-            Title = resourceLoader?.GetString("StringDepthApprox"),
+            Title = resources.GetString("StringDepthApprox"),
             Content = new DepthEstimateView(vm),
-            PrimaryButtonText = resourceLoader?.GetString("StringContinue"),
-            SecondaryButtonText = resourceLoader?.GetString("StringCancel"),
+            PrimaryButtonText = resources.GetString("StringContinue"),
+            SecondaryButtonText = resources.GetString("StringCancel"),
             DefaultButton = ContentDialogButton.Primary,
             SecondaryButtonCommand = vm.CancelCommand,
             PrimaryButtonCommand = vm.RunCommand,
@@ -97,25 +86,17 @@ public class DialogService : IDialogService
         //binding canExecute not working
         vm.RunCommand.CanExecuteChanged += (_, _) =>
         {
-            depthDialog.IsPrimaryButtonEnabled = !vm.IsRunning;
+            depthDialog.IsPrimaryButtonEnabled = vm.RunCommand.CanExecute(null) && !vm.IsRunning;
         };
         vm.CancelCommand.CanExecuteChanged += (s, e) =>
         {
             depthDialog.IsSecondaryButtonEnabled = !vm.IsRunning;
         };
 
-        var file = await FilePickerUtil.ShowImageDialogAsync();
-        if (file is not null)
-        {
-            // File access permission for onnx library
-            // TODO: Rewrite to stream
-            var copyFile = await file.CopyAsync(ApplicationData.Current.TemporaryFolder, file.Name, NameCollisionOption.GenerateUniqueName);
-            vm.SelectedImage = copyFile.Path;
-
-            await depthDialog.ShowAsync();
-            // Dispose resources
-            await vm.OnClose();
-        }
+        await vm.AddImageCommand.ExecuteAsync(null);
+        await depthDialog.ShowAsync();
+        // Dispose resources
+        vm.OnClose();
         return vm.DepthAssetDir;
     }
 }

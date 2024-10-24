@@ -1,0 +1,450 @@
+<Window
+    x:Class="Drizzle.UI.Avalonia.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shaderControls="clr-namespace:Drizzle.UI.Avalonia.UserControls.Shaders"
+    xmlns:ui="using:FluentAvalonia.UI.Controls"
+    xmlns:userControls="clr-namespace:Drizzle.UI.Avalonia.UserControls"
+    xmlns:views="clr-namespace:Drizzle.UI.Avalonia.Views"
+    xmlns:vm="clr-namespace:Drizzle.UI.Shared.ViewModels"
+    x:Name="Root"
+    Title="Lively Weather (Preview)"
+    Width="1280"
+    Height="800"
+    d:DesignHeight="1280"
+    d:DesignWidth="800"
+    x:DataType="vm:ShellViewModel"
+    Background="Black"
+    ExtendClientAreaToDecorationsHint="True"
+    Icon="/Assets/Application/icon_128.ico"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <ExperimentalAcrylicMaterial
+            x:Key="OverlayAcrylicMaterial"
+            MaterialOpacity="0.1"
+            PlatformTransparencyCompensationLevel="0"
+            TintColor="Black"
+            TintOpacity="0.25" />
+        <!--  Converters  -->
+        <converters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+        <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+    </Window.Resources>
+
+    <Window.Styles>
+        <Style Selector="AutoCompleteBox.SearchBox /template/ TextBox#PART_TextBox">
+            <Setter Property="InnerRightContent">
+                <Template>
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Command="{Binding $parent[TextBox].Clear}"
+                            Content="&#xE8BB;"
+                            FontFamily="{StaticResource SymbolThemeFontFamily}"
+                            IsVisible="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                            Theme="{StaticResource TransparentButton}" />
+                        <Button
+                            Command="{Binding $parent[TextBox].Clear}"
+                            Content="&#xE721;"
+                            FontFamily="{StaticResource SymbolThemeFontFamily}"
+                            IsHitTestVisible="False"
+                            Theme="{StaticResource TransparentButton}" />
+                    </StackPanel>
+                </Template>
+            </Setter>
+        </Style>
+
+        <Style Selector="UserControl.transition">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
+    </Window.Styles>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Background  -->
+        <Grid Grid.RowSpan="2">
+            <shaderControls:DrawControlEx IsPaused="{Binding IsPausedShader}" Shader="{Binding SelectedShader.Model}" />
+            <userControls:ImageEx IsVisible="{Binding IsFallbackBackground}" Source="{Binding FallbackBackground}" />
+            <!--  Improve visibility  -->
+            <Rectangle Fill="{DynamicResource SystemAltLowColor}" IsHitTestVisible="False" />
+        </Grid>
+
+        <!--  Titlebar  -->
+        <AutoCompleteBox
+            x:Name="SearchBox"
+            Grid.Row="0"
+            Width="400"
+            Margin="5"
+            HorizontalAlignment="Center"
+            AsyncPopulator="SearchAsync"
+            Background="{DynamicResource SystemAltLowColor}"
+            Classes="SearchBox"
+            FilterMode="None"
+            IsVisible="{Binding IsMainPage}"
+            ItemsSource="{Binding SearchSuggestions}"
+            KeyUp="AutoCompleteBox_KeyUp"
+            MinimumPrefixLength="0"
+            SelectionChanged="AutoCompleteBox_SelectionChanged"
+            Watermark="Search a place"
+            ZIndex="1">
+            <AutoCompleteBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding Name}" />
+                        <Run Text=", " />
+                        <Run Text="{Binding Admin1}" />
+                        <Run Text=", " />
+                        <Run Text="{Binding Country}" />
+                    </TextBlock>
+                </DataTemplate>
+            </AutoCompleteBox.ItemTemplate>
+        </AutoCompleteBox>
+        <ProgressBar
+            x:Name="SearchBoxProgress"
+            Width="390"
+            Margin="0,25,0,0"
+            HorizontalAlignment="Center"
+            IsEnabled="True"
+            IsIndeterminate="{Binding IsWorking}"
+            IsVisible="{Binding IsWorking}"
+            ZIndex="2" />
+        <!--  App Title  -->
+        <StackPanel
+            x:Name="AppTitle"
+            Grid.Row="0"
+            Margin="10"
+            HorizontalAlignment="Left"
+            IsHitTestVisible="False"
+            Orientation="Horizontal"
+            Spacing="5"
+            ZIndex="1">
+            <Image Height="16" Source="avares://Drizzle.UI.Avalonia/Assets/Application/icon_128.ico" />
+            <TextBlock
+                Margin="0,0,0,2.5"
+                VerticalAlignment="Center"
+                FontSize="14">
+                Lively Weather (Preview)
+            </TextBlock>
+        </StackPanel>
+
+        <!--  Commandbar  -->
+        <Grid
+            x:Name="MainCommandBar"
+            Grid.Row="1"
+            IsVisible="{Binding IsMainPage}"
+            ZIndex="1">
+            <!--  Right  -->
+            <ui:CommandBar HorizontalAlignment="Right" DefaultLabelPosition="Right">
+                <ui:CommandBar.PrimaryCommands>
+                    <ui:CommandBarButton
+                        Command="{Binding DetectLocationCommand}"
+                        IsCompact="True"
+                        IsEnabled="False"
+                        IsVisible="{Binding IsShowDetectLocation}">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE911;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                    <ui:CommandBarButton
+                        IconSource="Mute"
+                        IsCompact="True"
+                        IsEnabled="False" />
+                    <ui:CommandBarButton
+                        Command="{Binding OpenScreensaverCommand}"
+                        IsCompact="True"
+                        IsEnabled="{Binding !IsFallbackBackground}">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource FluentSystemIcons-Regular}" Glyph="&#xE728;" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                    <ui:CommandBarSeparator />
+                    <ui:CommandBarButton
+                        Command="{Binding OpenSettingsCommand}"
+                        IconSource="Setting"
+                        IsCompact="True" />
+                </ui:CommandBar.PrimaryCommands>
+                <ui:CommandBar.SecondaryCommands>
+                    <ui:CommandBarButton
+                        MinWidth="125"
+                        Command="{Binding OpenHelpCommand}"
+                        IconSource="Help"
+                        Label="{x:Static i18n:Resources.AppBarHelp_Label}" />
+                    <ui:CommandBarButton
+                        Command="{Binding OpenAboutCommand}"
+                        IconSource="Message"
+                        Label="{x:Static i18n:Resources.AppBarAbout_Label}" />
+                </ui:CommandBar.SecondaryCommands>
+            </ui:CommandBar>
+            <!--  Left  -->
+            <ToggleButton
+                x:Name="LocationPaneButton"
+                Margin="5"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                BorderBrush="Transparent">
+                <TextBlock
+                    FontFamily="{StaticResource FluentSystemIcons-Regular}"
+                    FontSize="18"
+                    Text="&#xE85F;" />
+            </ToggleButton>
+        </Grid>
+        <!--  Location selector  -->
+        <Grid
+            Grid.RowSpan="2"
+            IsVisible="{Binding #LocationPaneButton.IsChecked}"
+            ZIndex="1">
+            <Rectangle Fill="{DynamicResource SystemAltMediumLowColor}" PointerPressed="LocationOverlay_PointerPressed" />
+            <StackPanel
+                Width="318"
+                HorizontalAlignment="Left"
+                Background="{DynamicResource SolidBackgroundFillColorBase}"
+                Spacing="10">
+                <Button
+                    x:Name="LocationPaneInnerButton"
+                    Height="35"
+                    Margin="0,50,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="LocationPane_Inner_Button_Click">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontFamily="{StaticResource FluentSystemIcons-Regular}"
+                            Text="&#xE85F;" />
+                        <TextBlock Text="{x:Static i18n:Resources.LocationNavView_PaneTitle}" />
+                    </StackPanel>
+                </Button>
+                <ListBox ItemsSource="{Binding Weathers}" SelectedItem="{Binding SelectedLocation, Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="vm:WeatherViewModel">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Grid.Column="0"
+                                    Margin="0,10,0,10"
+                                    Orientation="Vertical"
+                                    Spacing="4">
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"
+                                        Text="{Binding Location.Name}" />
+                                    <StackPanel Orientation="Horizontal" Spacing="2.5">
+                                        <lottie:Lottie Width="30" Height="30">
+                                            <lottie:Lottie.Path>
+                                                <MultiBinding Converter="{StaticResource WmoWeatherToAnimatedVisualConverter}">
+                                                    <Binding Mode="OneWay" Path="Today.WeatherCode" />
+                                                    <Binding Mode="OneWay" Path="Today.IsDaytime" />
+                                                </MultiBinding>
+                                            </lottie:Lottie.Path>
+                                        </lottie:Lottie>
+                                        <TextBlock
+                                            VerticalAlignment="Center"
+                                            Opacity="0.4"
+                                            Text="{Binding Today.WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    FontSize="21">
+                                    <Run Text="{Binding Today.Temperature, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F0}'}" />
+                                    <Run Text="{Binding Today.TemperatureUnit}" />
+                                </TextBlock>
+                                <!--
+                                    ElementName binding not working?
+                                    Command="{Binding DeleteLocationCommand, ElementName=rootPage}"
+                                    CommandParameter="{Binding}"
+                                    Click="DeleteLocationButton_Click"
+                                -->
+                                <Button
+                                    Grid.Column="2"
+                                    Height="68"
+                                    Margin="10,0,-10,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Stretch"
+                                    Background="#258B0000"
+                                    Click="DeleteLocationButton_Click"
+                                    ToolTip.Tip="Remove">
+                                    <Button.Styles>
+                                        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Background" Value="#55ff0000" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrushPointerOver}" />
+                                            <Setter Property="TextBlock.Foreground" Value="{DynamicResource ButtonForegroundPointerOver}" />
+                                        </Style>
+                                    </Button.Styles>
+                                    <ui:SymbolIcon
+                                        FontSize="12"
+                                        Opacity="0.75"
+                                        Symbol="Delete" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <!--  Refresh weather  -->
+            <Button
+                Width="318"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                HorizontalContentAlignment="Left"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding RefreshWeatherCommand}"
+                IsVisible="{Binding SelectedLocation, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <ToolTip.Tip>
+                    <TextBlock Text="{x:Static i18n:Resources.RefreshWeatherTooltip_Text}" />
+                </ToolTip.Tip>
+                <StackPanel
+                    MinHeight="25"
+                    Orientation="Horizontal"
+                    Spacing="2">
+                    <ui:SymbolIcon
+                        Margin="0,2.5,5,0"
+                        FontSize="12"
+                        Symbol="Refresh" />
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static i18n:Resources.RefreshWeather_Text}" />
+                    <TextBlock VerticalAlignment="Center" Text="{Binding SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <!--  Add location message  -->
+        <Grid
+            Grid.RowSpan="2"
+            IsHitTestVisible="False"
+            IsVisible="{Binding IsShowAddLocation}">
+            <userControls:BackdropBlurControl Material="{StaticResource OverlayAcrylicMaterial}" />
+            <StackPanel
+                Margin="0,0,0,100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsVisible="{Binding !IsFetchingWeather}"
+                Spacing="5">
+                <lottie:Lottie
+                    Width="200"
+                    Height="200"
+                    Path="/Assets/AnimatedIcons/LocationSearch.json" />
+                <TextBlock
+                    Margin="0,-60,0,0"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitleAddLocation_Text}" />
+            </StackPanel>
+            <StackPanel
+                Margin="0,0,0,100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                IsVisible="{Binding IsFetchingWeather}"
+                Spacing="5">
+                <lottie:Lottie
+                    Width="200"
+                    Height="200"
+                    Path="/Assets/AnimatedIcons/Wind.json" />
+                <TextBlock
+                    Margin="0,-60,0,0"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="{x:Static i18n:Resources.TitleFetchingData_Text}" />
+            </StackPanel>
+        </Grid>
+
+        <!--  Improves top visibility  -->
+        <Rectangle
+            Grid.RowSpan="2"
+            IsHitTestVisible="False"
+            IsVisible="{Binding IsMainPage}">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0%,100%" EndPoint="0%,0%">
+                    <GradientStop Offset="0" Color="#00000000" />
+                    <GradientStop Offset="1" Color="#33000000" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!--  Main Content  -->
+        <!--  Disabling cache because ScreensaverViewModel is transient and mtaintain UWP default behaviour.  -->
+        <ScrollViewer Grid.Row="1" Margin="5,15,5,15">
+            <ui:Frame x:Name="MainFrame" CacheSize="0" />
+        </ScrollViewer>
+
+        <!--  Local time clock  -->
+        <userControls:Clock
+            Grid.Row="1"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            IsVisible="{Binding SelectedLocation, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+            Opacity="0.6"
+            TimeZone="{Binding SelectedLocation.TimeZone}"
+            ToolTip.Tip="{Binding SelectedLocation.TimeZone}" />
+
+        <!--  Welcome message  -->
+        <ui:TeachingTip
+            BorderBrush="LightBlue"
+            BorderThickness="0,3,0,0"
+            IsOpen="{Binding IsFirstRun}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <views:WelcomeView />
+        </ui:TeachingTip>
+        <!--  Updated notification  -->
+        <ui:TeachingTip
+            BorderBrush="{DynamicResource ThemeAccentBrush}"
+            BorderThickness="0,3,0,0"
+            IsOpen="{Binding IsAppUpdated}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <views:UpdateCompletedView />
+        </ui:TeachingTip>
+        <!--  Update available notification  -->
+        <ui:TeachingTip
+            BorderBrush="Green"
+            BorderThickness="0,3,0,0"
+            IsOpen="{Binding IsAppUpdateAvailable}"
+            PlacementMargin="0,20,-15,0"
+            PreferredPlacement="TopRight">
+            <views:UpdateAvailableView />
+        </ui:TeachingTip>
+
+        <!--  Error notification  -->
+        <ui:InfoBar
+            Title="{x:Static i18n:Resources.InfoError_Title}"
+            Grid.Row="1"
+            Closed="ErrorInfoBar_Closed"
+            IsOpen="{Binding ErrorMessage, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}"
+            Severity="Error"
+            ZIndex="2">
+            <StackPanel Margin="0,0,0,10" Spacing="5">
+                <ScrollViewer MaxHeight="300">
+                    <TextBlock Text="{Binding ErrorMessage}" TextWrapping="Wrap" />
+                </ScrollViewer>
+                <HyperlinkButton Content="{x:Static i18n:Resources.LearnMore_Content}" NavigateUri="https://github.com/rocksdanister/weather/wiki/Frequently-Asked-Questions-(FAQ)" />
+            </StackPanel>
+        </ui:InfoBar>
+    </Grid>
+</Window>

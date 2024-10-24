@@ -6,7 +6,7 @@
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     mc:Ignorable="d">
 
     <Grid>

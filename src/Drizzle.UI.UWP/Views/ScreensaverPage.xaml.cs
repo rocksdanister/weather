@@ -1,7 +1,5 @@
-﻿using Drizzle.Common.Services;
-using Drizzle.Models;
-using Drizzle.UI.UWP.Services;
-using Drizzle.UI.UWP.ViewModels;
+﻿using Drizzle.Models;
+using Drizzle.UI.Shared.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Diagnostics;
@@ -110,16 +108,7 @@ public sealed partial class ScreensaverPage : Page
         var menu = sender as MenuFlyoutItem;
         var obj = menu?.DataContext as UserImageModel;
         if (obj is not null)
-        {
-            if (viewModel.IsRainPropertyVisible)
-                viewModel.RainBackgroundDeleteCommand.Execute(obj);
-            else if (viewModel.IsSnowPropertyVisible)
-                viewModel.SnowBackgroundDeleteCommand.Execute(obj);
-            else if (viewModel.IsDepthPropertyVisible)
-                viewModel.DepthBackgroundDeleteCommand.Execute(obj);
-            else if (viewModel.IsFogPropertyVisible)
-                viewModel.FogBackgroundDeleteCommand.Execute(obj);
-        }
+            viewModel.DeleteBackgroundCommand.Execute(obj);
     }
 
     //protected override void OnNavigatedTo(NavigationEventArgs e)

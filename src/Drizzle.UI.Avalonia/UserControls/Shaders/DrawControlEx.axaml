@@ -1,0 +1,47 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.Shaders.DrawControlEx"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shaderControls="clr-namespace:Drizzle.UI.Avalonia.UserControls.Shaders"
+    x:Name="Root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:ObjectToOpacityConverter x:Key="ObjectToOpacityConverter" />
+        <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+    </UserControl.Resources>
+
+    <!--  Cropping to hide depth shader edges.  -->
+    <Grid Margin="-25">
+        <shaderControls:DrawControl
+            IsPaused="{Binding #Root.IsPausedShader1}"
+            Opacity="{Binding #Root.IsVisibleShader1, Mode=OneWay, Converter={StaticResource BoolToOpacityConverter}}"
+            Shader="{Binding #Root.Shader1}">
+            <shaderControls:DrawControl.Transitions>
+                <Transitions>
+                    <DoubleTransition
+                        Easing="SineEaseOut"
+                        Property="Opacity"
+                        Duration="0:0:0.5" />
+                </Transitions>
+            </shaderControls:DrawControl.Transitions>
+        </shaderControls:DrawControl>
+        <shaderControls:DrawControl
+            IsPaused="{Binding #Root.IsPausedShader2}"
+            Opacity="{Binding #Root.IsVisibleShader2, Mode=OneWay, Converter={StaticResource BoolToOpacityConverter}}"
+            Shader="{Binding #Root.Shader2}">
+            <shaderControls:DrawControl.Transitions>
+                <Transitions>
+                    <DoubleTransition
+                        Easing="SineEaseOut"
+                        Property="Opacity"
+                        Duration="0:0:0.5" />
+                </Transitions>
+            </shaderControls:DrawControl.Transitions>
+        </shaderControls:DrawControl>
+    </Grid>
+</UserControl>

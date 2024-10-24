@@ -1,0 +1,27 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.Clock"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    Unloaded="UserControl_Unloaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Effect>
+            <DropShadowDirectionEffect
+                BlurRadius="2"
+                Direction="30"
+                ShadowDepth="2"
+                Color="{DynamicResource SystemAltLowColor}" />
+        </Grid.Effect>
+        <TextBlock Text="{Binding #Root.Time, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+    </Grid>
+</UserControl>

@@ -1,9 +1,8 @@
-﻿namespace Drizzle.Models.Enums
+﻿namespace Drizzle.Models.Enums;
+
+public enum AppTheme
 {
-    public enum AppTheme
-    {
-        auto,
-        dark,
-        light
-    }
+    auto,
+    dark,
+    light
 }

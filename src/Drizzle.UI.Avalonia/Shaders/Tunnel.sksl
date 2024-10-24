@@ -1,0 +1,53 @@
+/*
+ * A 2D square tunnel.
+ * Ported from: https://www.shadertoy.com/view/Ms2SWW.
+ * Copyright © 2013 Inigo Quilez.
+ * YouTube: https://www.youtube.com/c/InigoQuilez
+ * Website: https://iquilezles.org/
+ * License: The MIT License.
+ */
+
+// Defaults
+uniform vec3      u_Resolution;
+uniform float     u_Time;
+uniform vec4      u_Mouse;
+// ShaderModel class defaults
+uniform float u_Brightness;
+uniform float u_Saturation;
+// Custom
+uniform float u_Speed;
+uniform int u_IsSquare;
+// Textures
+uniform vec3 u_TextureResolution;
+uniform shader u_Texture;
+
+// Ref: https://stackoverflow.com/questions/9320953/what-algorithm-does-photoshop-use-to-desaturate-an-image
+vec3 Desaturate(vec3 color) {
+    float bw = (min(color.r, min(color.g, color.b)) + min(color.r, min(color.g, color.b))) * 0.5;
+    return vec3(bw, bw, bw);
+}
+
+half4 main(vec2 fragCoord) {
+    // normalized coordinates
+    vec2 p = (2. * fragCoord.xy - u_Resolution.xy) / u_Resolution.y;
+
+    // angle of each pixel to the center of the screen
+    float a = atan(p.y, p.x);
+
+    float r = 0.;
+    if(u_IsSquare > 0) {
+        vec2 p2 = p * p, p4 = p2 * p2, p8 = p4 * p4;
+        r = pow(p8.x + p8.y, 1.0 / 8.0);
+    } else {
+        // cylindrical tunne
+        r = length(p);
+    }
+
+    vec2 scale = u_TextureResolution.xy / u_Resolution.xy;
+    // index texture by radious and angle 
+    vec2 uv = vec2(0.3 / r + 0.2 * u_Time * u_Speed, 0.5 + a / 3.1415927);
+    vec3 col = u_Texture.eval(uv * u_Resolution.xy * scale).rgb; 
+
+    col = u_Saturation < 1. ? mix(Desaturate(col), col, u_Saturation) : col;
+    return vec4(col * u_Brightness, 1.0);
+}

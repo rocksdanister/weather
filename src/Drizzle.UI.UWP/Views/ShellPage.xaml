@@ -2,7 +2,6 @@
     x:Class="Drizzle.UI.UWP.Views.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:animation="using:CommunityToolkit.WinUI.Animations"
     xmlns:computesharp="using:ComputeSharp.Uwp"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
@@ -15,8 +14,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:viewmodels="using:Drizzle.UI.UWP.ViewModels"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
+    xmlns:viewmodels="using:Drizzle.UI.Shared.ViewModels"
+    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="mainPage"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
     Background="Black"
@@ -48,55 +47,12 @@
         </Grid.RowDefinitions>
 
         <!--  Background  -->
-        <Grid Grid.RowSpan="2" Padding="-5">
-            <computesharp:AnimatedComputeShaderPanel
-                x:Name="shaderPanel1"
-                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader1, Mode=OneWay}"
-                IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader1, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader1.ShaderRunner, Mode=OneWay}"
-                Visibility="{x:Bind shellVm.SelectedShader1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                <animation:Implicit.ShowAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:1" />
-                </animation:Implicit.ShowAnimations>
-                <animation:Implicit.HideAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        To="0"
-                        Duration="0:0:1" />
-                </animation:Implicit.HideAnimations>
-            </computesharp:AnimatedComputeShaderPanel>
-            <computesharp:AnimatedComputeShaderPanel
-                x:Name="shaderPanel2"
-                IsDynamicResolutionEnabled="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader2, Mode=OneWay}"
-                IsVerticalSyncEnabled="True"
-                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader2, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader2.ShaderRunner, Mode=OneWay}"
-                Visibility="{x:Bind shellVm.SelectedShader2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
-                <animation:Implicit.ShowAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:1" />
-                </animation:Implicit.ShowAnimations>
-                <animation:Implicit.HideAnimations>
-                    <animation:OpacityAnimation
-                        EasingMode="EaseOut"
-                        EasingType="Linear"
-                        To="0"
-                        Duration="0:0:1" />
-                </animation:Implicit.HideAnimations>
-            </computesharp:AnimatedComputeShaderPanel>
+        <Grid Grid.RowSpan="2">
+            <customControls:AnimatedComputeShaderPanelEx
+                IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
+                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader, Mode=OneWay}"
+                ShaderRunner="{x:Bind shellVm.SelectedShader.Runner, Mode=OneWay}" />
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"
@@ -278,7 +234,7 @@
                 </ToolTipService.ToolTip>
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <customControls:SoundControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
+                        <customControls:VolumeControl Volume="{x:Bind shellVm.SoundVolume, Mode=TwoWay}" />
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
