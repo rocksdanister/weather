@@ -230,6 +230,7 @@
                 Width="318"
                 Padding="10"
                 HorizontalAlignment="Right"
+                VerticalAlignment="Top"
                 Background="{DynamicResource SolidBackgroundFillColorBase}"
                 BorderBrush="#10EFEFEF"
                 BorderThickness="1"
@@ -246,6 +247,7 @@
                     <DropDownButton
                         Grid.Row="0"
                         Margin="0,5,0,10"
+                        Padding="0"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Left">
                         <Button.Styles>
