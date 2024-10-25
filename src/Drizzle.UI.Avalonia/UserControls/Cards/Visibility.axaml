@@ -47,6 +47,7 @@
                 Grid.Row="0"
                 Width="100"
                 Height="100"
+                Opacity="0.75"
                 Path="/Assets/AnimatedIcons/Eyes.json">
                 <lottie:Lottie.Effect>
                     <BlurEffect Radius="{Binding #Root.AnimationBlurAmount}" />
