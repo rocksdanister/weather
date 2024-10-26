@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Drizzle.Common.Helpers
 {
@@ -18,6 +16,16 @@ namespace Drizzle.Common.Helpers
             var tmp = (T)serializer.Deserialize(file, typeof(T));
 
             //if file is corrupted, json can return null.
+            return tmp != null ? tmp : throw new InvalidOperationException("json null/corrupt");
+        }
+
+        public static T Load<T>(Stream stream)
+        {
+            using var reader = new StreamReader(stream);
+            using var jsonReader = new JsonTextReader(reader);
+            var serializer = new JsonSerializer();
+            var tmp = serializer.Deserialize<T>(jsonReader);
+
             return tmp != null ? tmp : throw new InvalidOperationException("json null/corrupt");
         }
 

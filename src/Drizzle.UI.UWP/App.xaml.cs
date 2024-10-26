@@ -1,14 +1,13 @@
 ﻿using Drizzle.Common.Constants;
-using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.Factories;
+using Drizzle.UI.Shared.Services;
+using Drizzle.UI.Shared.ViewModels;
 using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Factories;
-using Drizzle.UI.UWP.Helpers;
 using Drizzle.UI.UWP.Services;
-using Drizzle.UI.UWP.ViewModels;
 using Drizzle.UI.UWP.Views;
 using Drizzle.Weather;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,15 +16,12 @@ using Microsoft.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using System;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Globalization;
-using Windows.Storage;
-using Windows.System.Profile;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -49,12 +45,8 @@ namespace Drizzle.UI.UWP
                 return serviceProvider ?? throw new InvalidOperationException("The service provider is not initialized");
             }
         }
-        public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
-        public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
-
         private readonly ILogger logger;
         private readonly IServiceProvider _serviceProvider;
-        private static readonly bool _isTenFootPc = false;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -65,13 +57,13 @@ namespace Drizzle.UI.UWP
             this.InitializeComponent();
             _serviceProvider = ConfigureServices();
 
-            
             logger = Services.GetRequiredService<ILogger<App>>();
             var userSettings = Services.GetRequiredService<IUserSettings>();
+            var systemInfo = Services.GetRequiredService<ISystemInfoProvider>();
             SetupUnhandledExceptionLogging();
-            LogHardwareInformation();
+            logger.LogInformation($"{systemInfo.AppName} v{systemInfo.AppVersion}");
 
-            if (IsTenFoot)
+            if (systemInfo.IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
                 //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
@@ -80,7 +72,7 @@ namespace Drizzle.UI.UWP
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
-            if (SystemInfoUtil.Instance.IsFirstRun)
+            if (systemInfo.IsFirstRun)
             {
                 // Update before viewModel initialization
                 var region = new GeographicRegion();
@@ -94,7 +86,7 @@ namespace Drizzle.UI.UWP
                         break;
                 }
             }
-            else if (SystemInfoUtil.Instance.IsAppUpdated)
+            else if (systemInfo.IsAppUpdated)
             {
                 logger.LogInformation("App updated, performing maintenance..");
                 // Clear cache incase any changes made to the impl
@@ -121,12 +113,13 @@ namespace Drizzle.UI.UWP
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IUserSettings, LocalSettings>()
-                //.AddSingleton<IAppUpdaterService, AppUpdaterService>()
+                .AddSingleton<IAppUpdaterService, MicrosoftStoreUpdaterService>()
+                .AddSingleton<IResourceService, ResourceService>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IGeolocationService, GeolocationService>()
                 .AddSingleton<ICacheService, DiskCacheService>((e) => new DiskCacheService(
-                    e.GetRequiredService<IHttpClientFactory>(), 
-                    Path.Combine(ApplicationData.Current.TemporaryFolder.Path, "Cache"), 
+                    e.GetRequiredService<IHttpClientFactory>(),
+                    e.GetRequiredService<IFileService>().CachePath,
                     TimeSpan.FromHours(1)))
                 .AddSingleton<IDepthEstimate, MiDaS>()
                 .AddSingleton<ISoundService, SoundService>()
@@ -142,26 +135,36 @@ namespace Drizzle.UI.UWP
                     e.GetRequiredService<IUserSettings>().Get<string>(UserSettingsConstants.QweatherApiKey)
                     ))
                 // Transient
+                .AddTransient<HelpViewModel>()
                 .AddTransient<AboutViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<DepthEstimateViewModel>()
+                .AddTransient<IShaderViewModelFactory, ShaderViewModelFactory>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IWeatherClientFactory, WeatherClientFactory>()
-                .AddTransient<IDownloadUtil, HttpDownloadUtil>()
-                // https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+                .AddTransient<IDownloadService, HttpDownloadService>()
+                .AddTransient<ILauncherService, LauncherService>()
+                .AddTransient<IFileService, FileService>()
+                .AddTransient<INLogConfigFactory, NLogConfigFactory>()
+                // Ref: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
                 .AddHttpClient()
                 // Remove HttpClientFactory logging
                 .RemoveAll<IHttpMessageHandlerBuilderFilter>()
-                .AddLogging(loggingBuilder =>
+                // Deferred logging initialization
+                .AddSingleton(provider =>
                 {
-                    // Configure Logging with NLog
-                    loggingBuilder.ClearProviders();
-                    // https://github.com/NLog/NLog.Extensions.Logging/issues/389
-                    loggingBuilder.SetMinimumLevel(LogLevel.Trace);
-                    loggingBuilder.AddNLog("Nlog.config");
-                })
-                .BuildServiceProvider();
+                    var configFactory = provider.GetRequiredService<INLogConfigFactory>();
+                    var logFolderPath = provider.GetRequiredService<IFileService>().LogFolderPath;
+
+                    return LoggerFactory.Create(builder =>
+                    {
+                        builder.ClearProviders();
+                        // Ref: https://github.com/NLog/NLog.Extensions.Logging/issues/389
+                        builder.SetMinimumLevel(LogLevel.Trace);
+                        builder.AddNLog(configFactory.Create(logFolderPath));
+                    });
+                }).BuildServiceProvider();
         }
 
         /// <summary>
@@ -171,6 +174,14 @@ namespace Drizzle.UI.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            // Set display language.
+            var userSettings = Services.GetRequiredService<IUserSettings>();
+            var resources = Services.GetRequiredService<IResourceService>();
+            if (userSettings.Get<bool>(UserSettingsConstants.UseSystemDefaultLanguage))
+                resources.SetSystemDefaultCulture();
+            else
+                resources.SetCulture(userSettings.Get<string>(UserSettingsConstants.SelectedLanguageCode));
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -260,15 +271,6 @@ namespace Drizzle.UI.UWP
 
             Windows.ApplicationModel.Core.CoreApplication.UnhandledErrorDetected += (s, e) =>
                 LogUnhandledException(e.UnhandledError);
-        }
-
-        private void LogHardwareInformation()
-        {
-            logger.LogInformation($"{SystemInfoUtil.Instance.ApplicationName} " +
-                $"v{SystemInfoUtil.Instance.ApplicationVersion.Major}.{SystemInfoUtil.Instance.ApplicationVersion.Minor}" +
-                $".{SystemInfoUtil.Instance.ApplicationVersion.Build}.{SystemInfoUtil.Instance.ApplicationVersion.Revision}");
-            //logger.LogInformation($"OS: {SystemInformation.Instance.OperatingSystem} {SystemInformation.Instance.OperatingSystemVersion}, " +
-            //    $"{SystemInformation.Instance.Culture}");
         }
 
         private void LogUnhandledException<T>(T exception) => logger.LogError(exception?.ToString());

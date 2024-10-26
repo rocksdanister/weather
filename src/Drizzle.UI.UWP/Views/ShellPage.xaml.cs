@@ -1,40 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Drizzle.Common.Constants;
+using Drizzle.Common.Services;
+using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Numerics;
 using Windows.ApplicationModel.Core;
-using Windows.UI.ViewManagement;
+using Windows.Graphics.Display;
 using Windows.UI;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Core;
 using WindowsEx.UI.Core;
-using System.Reflection;
-using Windows.Graphics.Display;
 using Size = Windows.Foundation.Size;
-using System.Threading.Tasks;
-using Drizzle.UI.UWP.ViewModels;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using Drizzle.Common.Services;
-using System.Diagnostics;
-using Drizzle.Common;
-using Drizzle.Common.Constants;
-using Windows.Foundation.Collections;
-using System.Collections.ObjectModel;
-using System.Collections;
-using Drizzle.Weather;
-using Drizzle.Models.Weather;
-using Drizzle.UI.Shared.Shaders.Models;
-using Microsoft.Extensions.Logging;
-using System.Threading;
-using Drizzle.UI.UWP.AnimatedVisuals;
 
 namespace Drizzle.UI.UWP.Views
 {
@@ -70,7 +55,7 @@ namespace Drizzle.UI.UWP.Views
             this.soundService = App.Services.GetRequiredService<ISoundService>();
             this.DataContext = shellVm;
 
-            if (App.IsTenFoot)
+            if (App.Services.GetRequiredService<ISystemInfoProvider>().IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
@@ -188,7 +173,7 @@ namespace Drizzle.UI.UWP.Views
                         soundService.Play();
                         isWindowDeactivated = false;
                         deactivatedStopwatch.Reset();
-                        shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = false;
+                        shellVm.IsPausedShader = false;
                     }
                     break;
             }
@@ -208,13 +193,7 @@ namespace Drizzle.UI.UWP.Views
 
             //var point = CoreWindow.GetForCurrentThread().PointerPosition;
             var point = new Windows.Foundation.Point(sender.Bounds.X, sender.Bounds.Y);
-            var mouse = new float4
-            {
-                X = (float)(point.X / screenSize.Width),
-                Y = (float)(point.Y / screenSize.Height),
-                Z = 0,
-                W = 0
-            };
+            var mouse = new Vector4((float)(point.X / screenSize.Width), (float)(point.Y / screenSize.Height), 0, 0);
 
             // Skip animation when minimize-maximize..
             if (Math.Abs(shellVm.RainProperty.Mouse.X - mouse.X) > 1)
@@ -232,13 +211,7 @@ namespace Drizzle.UI.UWP.Views
         {
             var point = e.GetCurrentPoint((UIElement)sender);
             // Mouse pixel coords. xy: current (if MLB down), zw: click
-            var mouse = new float4
-            {
-                X = (float)(point.Position.X / this.ActualWidth),
-                Y = (float)(point.Position.Y / this.ActualHeight),
-                Z = 0,
-                W = 0
-            };
+            var mouse = new Vector4((float)(point.Position.X / this.ActualWidth), (float)(point.Position.Y / this.ActualHeight), 0, 0);
 
             if (shellVm.IsMouseDrag
                 && !(Math.Abs(point.Position.X - dragStartPosition.X) < dragDelta && Math.Abs(point.Position.Y - dragStartPosition.Y) < dragDelta)
@@ -375,7 +348,7 @@ namespace Drizzle.UI.UWP.Views
             if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
             {
                 deactivatedStopwatch.Reset();
-                shellVm.IsPausedShader1 = shellVm.IsPausedShader2 = true;
+                shellVm.IsPausedShader = true;
             }
 
             if (searchIdleStopwatch.ElapsedMilliseconds > searchIdleTimeout)

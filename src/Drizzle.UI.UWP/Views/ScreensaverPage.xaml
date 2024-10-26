@@ -13,7 +13,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:visuals="using:Drizzle.UI.UWP.AnimatedVisuals"
     x:Name="rootPage"
     Background="Transparent"
     Loaded="Page_Loaded"
@@ -39,11 +38,17 @@
             TrueValue="1.0" />
         <customConverters:TimeToIsDaytimeVisibilityConverter x:Key="TimeToIsDaytimeVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <customConverters:ComputeSharpFloat3ToColorConverter x:Key="ComputeSharpFloat3ToColorConverter" />
+        <customConverters:Vector3ToColorConverter x:Key="Vector3ToColorConverter" />
         <Style x:Name="BackgroundFlyoutPresenter" TargetType="FlyoutPresenter">
             <Setter Property="MinWidth" Value="470" />
             <Setter Property="CornerRadius" Value="5" />
         </Style>
+        <Style x:Name="WeatherFlyoutPresenter" TargetType="FlyoutPresenter">
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="MaxWidth" Value="700" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>
+        <!--  GridView (Background)  -->
         <DataTemplate x:Key="GridViewBackgroundDataTemplate">
             <Grid Width="70" Height="70">
                 <!--<ToolTipService.ToolTip>
@@ -103,7 +108,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     Background="Red"
-                    Command="{Binding DataContext.SnowBackgroundDeleteCommand, ElementName=rootPage}"
+                    Command="{Binding DataContext.DeleteBackgroundCommand, ElementName=rootPage}"
                     CommandParameter="{Binding}"
                     CornerRadius="0">
                     <FontIcon FontSize="6" Glyph="&#xE8BB;" />
@@ -111,6 +116,35 @@
             </Grid>
         </DataTemplate>
         <ItemsPanelTemplate x:Key="GridViewBackgroundPaneltemplate">
+            <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <!--  GridView (Weather)  -->
+        <DataTemplate x:Key="GridViewWeatherItemTemplate" x:DataType="data:ScreensaverModel">
+            <Grid
+                Width="100"
+                Height="100"
+                Background="{ThemeResource SystemAltLowColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <muxc:AnimatedVisualPlayer
+                    Grid.Row="0"
+                    Width="55"
+                    Height="55"
+                    Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}" />
+                <Border
+                    Grid.Row="1"
+                    Padding="5"
+                    Background="{ThemeResource SystemAltMediumLowColor}">
+                    <TextBlock
+                        FontSize="12"
+                        Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(WeatherCode), Mode=OneWay}"
+                        TextWrapping="WrapWholeWords" />
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="GridViewWeatherPaneltemplate">
             <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
         </ItemsPanelTemplate>
     </Page.Resources>
@@ -201,10 +235,53 @@
                                 Placement="BottomEdgeAlignedRight">
                                 <Grid Width="250" Padding="5">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    <Grid Grid.Row="0">
+
+                                    <!--  Weather Selector  -->
+                                    <muxc:DropDownButton
+                                        Grid.Row="0"
+                                        Margin="0,5,0,10"
+                                        Padding="0,0,5,0"
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Left">
+                                        <muxc:DropDownButton.Flyout>
+                                            <Flyout
+                                                Closed="Flyout_Closed"
+                                                FlyoutPresenterStyle="{StaticResource WeatherFlyoutPresenter}"
+                                                Opened="Flyout_Opened"
+                                                Placement="Bottom">
+                                                <StackPanel Padding="2.5,2.5,0,0">
+                                                    <GridView
+                                                        ItemTemplate="{StaticResource GridViewWeatherItemTemplate}"
+                                                        ItemsPanel="{StaticResource GridViewWeatherPaneltemplate}"
+                                                        ItemsSource="{x:Bind viewModel.Weathers}"
+                                                        SelectedItem="{x:Bind viewModel.SelectedWeather, Mode=TwoWay}" />
+                                                    <Grid>
+                                                        <customControls:VolumeControl HorizontalAlignment="Right" Volume="{x:Bind viewModel.ShellVm.SoundVolume, Mode=TwoWay}" />
+                                                        <CheckBox x:Uid="AlwaysHideScreensaverMenu" IsChecked="{x:Bind viewModel.AutoHideMenu, Mode=TwoWay}" />
+                                                    </Grid>
+                                                </StackPanel>
+                                            </Flyout>
+                                        </muxc:DropDownButton.Flyout>
+                                        <StackPanel Orientation="Horizontal" Spacing="5">
+                                            <muxc:AnimatedVisualPlayer
+                                                Width="55"
+                                                Height="55"
+                                                Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(viewModel.SelectedWeather.WeatherCode, viewModel.SelectedWeather.IsDaytime), Mode=OneWay}" />
+                                            <TextBlock
+                                                Width="120"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(viewModel.SelectedWeather.WeatherCode), Mode=OneWay}"
+                                                TextWrapping="WrapWholeWords" />
+                                        </StackPanel>
+                                    </muxc:DropDownButton>
+
+                                    <!--  Customise  -->
+                                    <Grid Grid.Row="1">
                                         <!--  Snow  -->
                                         <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsSnowPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <Slider
@@ -249,7 +326,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.SnowBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedSnowBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.SnowBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                             <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                                                         </StackPanel>
                                                     </Flyout>
@@ -302,7 +379,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.RainBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedRainBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.RainBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                             <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                                                         </StackPanel>
                                                     </Flyout>
@@ -340,7 +417,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedDepthBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.DepthBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                         </StackPanel>
                                                     </Flyout>
                                                 </Button.Flyout>
@@ -350,10 +427,9 @@
                                         <!--  Fog  -->
                                         <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsFogPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <TextBlock x:Uid="FogColorGradient" />
-                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
-                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}" />
-                                            <!--  Change to CommunityToolkit control after 8.1 release.  -->
-                                            <!--<controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}">
+                                            <!--<customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
+                                            <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />-->
+                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
                                                 <controls:ColorPickerButton.ColorPickerStyle>
                                                     <Style TargetType="controls:ColorPicker">
                                                         <Setter Property="ColorSpectrumShape" Value="Box" />
@@ -361,14 +437,14 @@
                                                     </Style>
                                                 </controls:ColorPickerButton.ColorPickerStyle>
                                             </controls:ColorPickerButton>
-                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource ComputeSharpFloat3ToColorConverter}}">
+                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
                                                 <controls:ColorPickerButton.ColorPickerStyle>
                                                     <Style TargetType="controls:ColorPicker">
                                                         <Setter Property="ColorSpectrumShape" Value="Box" />
                                                         <Setter Property="IsAlphaEnabled" Value="False" />
                                                     </Style>
                                                 </controls:ColorPickerButton.ColorPickerStyle>
-                                            </controls:ColorPickerButton>-->
+                                            </controls:ColorPickerButton>
                                             <Slider
                                                 x:Uid="FogAmplitude"
                                                 Maximum="2"
@@ -405,7 +481,7 @@
                                                                 ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
                                                                 ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
                                                                 SelectedItem="{x:Bind viewModel.SelectedFogBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.FogBackgroundChangeCommand}" />
+                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
                                                         </StackPanel>
                                                     </Flyout>
                                                 </Button.Flyout>
@@ -433,8 +509,9 @@
                                             <CheckBox x:Uid="CloudDayNightShift" IsChecked="{x:Bind viewModel.ShellVm.CloudsProperty.IsDayNightShift, Mode=TwoWay}" />
                                         </StackPanel>
                                     </Grid>
+                                    <!--  Restore default  -->
                                     <Button
-                                        Grid.Row="1"
+                                        Grid.Row="2"
                                         Margin="5"
                                         HorizontalAlignment="Right"
                                         Command="{x:Bind viewModel.RestoreCommand}">
@@ -444,74 +521,6 @@
                                         <FontIcon Glyph="&#xE777;" />
                                     </Button>
                                 </Grid>
-                            </Flyout>
-                        </Button.Flyout>
-                    </Button>
-                </Border>
-
-                <!--  Settings  -->
-                <Border
-                    CornerRadius="5"
-                    Shadow="{StaticResource BackgroundGridShadow}"
-                    Style="{StaticResource CardBorder}"
-                    Translation="0,0,8">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
-                    <Button>
-                        <FontIcon Glyph="&#xE713;" />
-                        <Button.Flyout>
-                            <Flyout
-                                Closed="Flyout_Closed"
-                                Opened="Flyout_Opened"
-                                Placement="BottomEdgeAlignedRight">
-                                <Flyout.FlyoutPresenterStyle>
-                                    <Style TargetType="FlyoutPresenter">
-                                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-                                        <Setter Property="MaxWidth" Value="700" />
-                                        <Setter Property="CornerRadius" Value="5" />
-                                    </Style>
-                                </Flyout.FlyoutPresenterStyle>
-                                <StackPanel Padding="2.5,2.5,0,0">
-                                    <GridView ItemsSource="{x:Bind viewModel.Weathers}" SelectedItem="{x:Bind viewModel.SelectedWeather, Mode=TwoWay}">
-                                        <GridView.ItemTemplate>
-                                            <DataTemplate x:DataType="data:ScreensaverModel">
-                                                <Grid
-                                                    Width="100"
-                                                    Height="100"
-                                                    Background="{ThemeResource SystemAltLowColor}">
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto" />
-                                                        <RowDefinition Height="*" />
-                                                    </Grid.RowDefinitions>
-                                                    <muxc:AnimatedVisualPlayer
-                                                        Grid.Row="0"
-                                                        Width="55"
-                                                        Height="55"
-                                                        Source="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToAnimatedVisual(WeatherCode, IsDaytime), Mode=OneWay}" />
-                                                    <Border
-                                                        Grid.Row="1"
-                                                        Padding="5"
-                                                        Background="{ThemeResource SystemAltMediumLowColor}">
-                                                        <TextBlock
-                                                            FontSize="12"
-                                                            Text="{x:Bind customConverters:WmoWeatherConverter.WmoWeatherToString(WeatherCode), Mode=OneWay}"
-                                                            TextWrapping="WrapWholeWords" />
-                                                    </Border>
-                                                </Grid>
-                                            </DataTemplate>
-                                        </GridView.ItemTemplate>
-                                        <GridView.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal" />
-                                            </ItemsPanelTemplate>
-                                        </GridView.ItemsPanel>
-                                    </GridView>
-                                    <Grid>
-                                        <customControls:SoundControl HorizontalAlignment="Right" Volume="{x:Bind viewModel.ShellVm.SoundVolume, Mode=TwoWay}" />
-                                        <CheckBox x:Uid="AlwaysHideScreensaverMenu" IsChecked="{x:Bind viewModel.AutoHideMenu, Mode=TwoWay}" />
-                                    </Grid>
-                                </StackPanel>
                             </Flyout>
                         </Button.Flyout>
                     </Button>

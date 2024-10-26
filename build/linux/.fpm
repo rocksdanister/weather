@@ -1,0 +1,13 @@
+-s dir -C package
+--name livelyweather
+--description "Weather app powered by gpu shader animations."
+--url "https://www.rocksdanister.com/weather"
+--maintainer "Rocksdanister <awoo.git@gmail.com>"
+--vendor "Rocksdanister"
+--license "MIT"
+--version 2.0.0.0
+--architecture amd64
+--deb-no-default-config-files
+--deb-compression xz
+--rpm-compression xz
+.

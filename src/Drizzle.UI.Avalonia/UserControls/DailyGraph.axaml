@@ -1,0 +1,60 @@
+<UserControl
+    x:Class="Drizzle.UI.Avalonia.UserControls.DailyGraph"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:Drizzle.Models.UserControls"
+    xmlns:lottie="using:Avalonia.Labs.Lottie"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Loaded="UserControl_Loaded"
+    SizeChanged="UserControl_SizeChanged"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:NullOrEmptyArrayToBoolConverter x:Key="NullOrEmptyArrayToBoolConverter" />
+        <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
+        <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <!--  No data  -->
+        <Image
+            Height="125"
+            Margin="25"
+            IsVisible="{Binding #Root.Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToBoolConverter}, ConverterParameter=Reverse}"
+            Source="avares://Drizzle.UI.Avalonia/Assets/UserControls/chart_increasing_3d.png" />
+        <Grid IsVisible="{Binding #Root.Value, Mode=OneWay, Converter={StaticResource NullOrEmptyArrayToBoolConverter}}">
+            <!--  Hourly graph  -->
+            <Canvas x:Name="MainCanvas" />
+            <!--  Hourly weather condition  -->
+            <ItemsControl ItemsSource="{Binding #Root.Conditions}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="data:HourlyConditions">
+                        <lottie:Lottie Width="30" Height="30">
+                            <ToolTip.Tip>
+                                <TextBlock Text="{Binding WeatherCode, Mode=OneWay, Converter={StaticResource WmoWeatherToStringConverter}}" />
+                            </ToolTip.Tip>
+                            <!--  Canvas (Left, Top) not working: https://stackoverflow.com/questions/22324359/add-n-rectangles-to-canvas-with-mvvm-in-wpf  -->
+                            <lottie:Lottie.Path>
+                                <MultiBinding Converter="{StaticResource WmoWeatherToAnimatedVisualConverter}">
+                                    <Binding Mode="OneWay" Path="WeatherCode" />
+                                    <Binding Mode="OneWay" Path="IsDaytime" />
+                                </MultiBinding>
+                            </lottie:Lottie.Path>
+                            <lottie:Lottie.RenderTransform>
+                                <TranslateTransform X="{Binding Left}" Y="{Binding Top}" />
+                            </lottie:Lottie.RenderTransform>
+                        </lottie:Lottie>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</UserControl>
