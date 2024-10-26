@@ -87,9 +87,15 @@ function scrollToElement(id) {
 
 //override badge size
 window.onload = (e) => {
-  const styleOverride = document.createElement("style");
-  styleOverride.innerHTML = "div > img.large { width:250px; height:auto }";
-  document
-    .querySelector("ms-store-badge")
-    .shadowRoot.appendChild(styleOverride);
+  document.querySelector('button.others').addEventListener('click', () => {
+    document.querySelector('.downloads .drawer').classList.toggle('closed');
+  })
+
+  // const styleOverride = document.createElement("style");
+
+  // // disable the animation and the box shadow
+  // styleOverride.innerHTML = "div{height:fit-content;} div > img.large { width:250px; height:auto } img:hover {transform: translate(0, 0);cursor: pointer;box-shadow: none;}";
+  // document
+  //   .querySelector("ms-store-badge")
+  //   .shadowRoot.appendChild(styleOverride);
 };

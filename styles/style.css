@@ -26,7 +26,8 @@ h1 {
   margin-bottom: -15px;
 }
 
-p, a {
+p,
+a {
   color: var(--color-font2);
   font-size: 21px;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -78,7 +79,7 @@ p, a {
 }
 
 #app-icon {
-  position: absolute; 
+  position: absolute;
   padding: 10px 0 0 12.5px;
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
@@ -95,8 +96,8 @@ p, a {
 
 .day-text {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  width: 50px; 
-  margin-right: 35px
+  width: 50px;
+  margin-right: 35px;
 }
 
 .day-icon {
@@ -172,34 +173,6 @@ p, a {
   font-size: 18px;
 }
 
-/* Download */
-#content-download {
-  margin-left: 25px;
-}
-
-/*loading progressbar*/
-.indeterminate-progress-bar {
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  background-color: #d1d5db;
-  height: 5px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  animation: fade-in 1s ease;
-}
-
-.indeterminate-progress-bar__progress {
-  background-color: #c9939a;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  width: 50%;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-name: indeterminate-progress-bar;
-}
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -227,12 +200,13 @@ p, a {
   h1 {
     font-size: 28px;
   }
-  
+
   p {
     font-size: 18px;
   }
 
-  .video, #demo-clip-border {
+  .video,
+  #demo-clip-border {
     height: 320px;
     width: 369px;
   }
@@ -241,17 +215,17 @@ p, a {
     position: absolute;
     padding: 20px 0 0 140px;
   }
-  
+
   #weather-header-city {
     font-size: 10px;
     text-align: center;
   }
-  
+
   #weather-header-temp {
     font-size: 12px;
     text-align: center;
   }
-  
+
   #weather-header-label {
     font-size: 9px;
     text-align: center;
@@ -272,30 +246,30 @@ p, a {
     padding: 190px 0 0 55px;
     font-size: 16px;
   }
-  
+
   #card-uv-desc {
     font-size: 9px;
   }
-  
+
   #card-humidity {
     padding: 202px 0 0 267px;
     font-size: 10px;
   }
-  
+
   #card-wind {
     padding: 267px 0 0 77px;
     font-size: 8px;
   }
-  
+
   #card-aqi {
     padding: 255px 0 0 140px;
     font-size: 16px;
   }
-  
+
   #card-aqi-desc {
     font-size: 9px;
   }
-  
+
   #card-pressure {
     padding: 260px 0 0 240px;
     font-size: 14px;
