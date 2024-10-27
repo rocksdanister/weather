@@ -209,7 +209,7 @@
     const navApp = navigator.appVersion ?? null;
     const mainDownload = document.querySelector('#mainDownload');
     if (navApp !== null) {
-      if (navApp.includes("Linux")) {
+      if (!navApp.includes("Windows")) {
         // bring deb to front and put windows store in drawer
         const ms = document.querySelector('#ms-store');
         ms.setAttribute('href', "https://apps.microsoft.com/detail/9pp0mfqfvsc5");
