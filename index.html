@@ -207,17 +207,21 @@
   // private and critical JS function that loads right after the document body
   (() => {
     const navApp = navigator.appVersion ?? null;
-    const mainDownload = document.querySelector('#mainDownload');
+    const mainDownload = document.querySelector("#mainDownload");
     if (navApp !== null) {
-      if (!navApp.includes("Windows")) {
+      if (!navApp.includes("Win")) {
         // bring deb to front and put windows store in drawer
-        const ms = document.querySelector('#ms-store');
-        ms.setAttribute('href', "https://apps.microsoft.com/detail/9pp0mfqfvsc5");
+        const ms = document.querySelector("#ms-store");
+        ms.setAttribute("href", "https://apps.microsoft.com/detail/9pp0mfqfvsc5");
         ms.dataset.target = "_blank";
-        // https://apps.microsoft.com/detail/9pp0mfqfvsc5
-        const deb = document.querySelector('#deb').outerHTML;
-        document.querySelector('#mainDownload').innerHTML = deb;
-        document.querySelector('.drawer').innerHTML = ms.outerHTML + document.querySelector('.drawer').innerHTML.replace(deb, '');
+        if (navApp.includes("Linux")) {
+          const deb = document.querySelector("#deb").outerHTML;
+          document.querySelector("#mainDownload").innerHTML = deb;
+          document.querySelector(".drawer").innerHTML = ms.outerHTML + document.querySelector(".drawer").innerHTML.replace(deb, "");
+        } else if (navApp.includes("Mac")) {
+          // Show mac version of software
+          // when available*
+        }
       }
     }
     mainDownload.style.opacity = 1;
