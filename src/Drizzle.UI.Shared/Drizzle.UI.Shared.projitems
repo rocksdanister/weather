@@ -10,12 +10,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ShaderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\ITimerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\NLogConfigFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\INLogConfigFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IShaderViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherClientFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\IWeatherViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\ShaderViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Factories\TimerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherClientFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\WeatherViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DiskCacheService.cs" />

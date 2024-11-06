@@ -1,6 +1,7 @@
 ﻿using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
 using Drizzle.Models.Weather;
+using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,12 +26,6 @@ namespace Drizzle.UI.UWP.Views
 {
     public sealed partial class ShellPage : Page
     {
-        // Mouse
-        private bool isMouseDrag = false;
-        private readonly float dragDelta = 10;
-        private float2 dragStartPosition = float2.Zero;
-
-        // DI
         private readonly ShellViewModel shellVm;
         private readonly INavigator navigator;
         private readonly ILogger<ShellPage> logger;
@@ -38,12 +33,17 @@ namespace Drizzle.UI.UWP.Views
         private readonly ISoundService soundService;
 
         // Timer 
-        private readonly DispatcherTimer dispatcherTimer = new();
+        private readonly ITimerService timerService;
         private readonly Stopwatch deactivatedStopwatch = new();
         private readonly Stopwatch searchIdleStopwatch = new();
         private readonly long deactivatedTimeout = 3000;
         private readonly long searchIdleTimeout = 500;
         private bool isWindowDeactivated = false;
+
+        // Mouse
+        private bool isMouseDrag = false;
+        private readonly float dragDelta = 10;
+        private float2 dragStartPosition = float2.Zero;
 
         public ShellPage()
         {
@@ -53,6 +53,7 @@ namespace Drizzle.UI.UWP.Views
             this.logger = App.Services.GetRequiredService<ILogger<ShellPage>>();
             this.userSettings = App.Services.GetRequiredService<IUserSettings>();
             this.soundService = App.Services.GetRequiredService<ISoundService>();
+            this.timerService = App.Services.GetRequiredService<ITimerFactory>().CreateTimer();
             this.DataContext = shellVm;
 
             if (App.Services.GetRequiredService<ISystemInfoProvider>().IsTenFoot)
@@ -117,9 +118,8 @@ namespace Drizzle.UI.UWP.Views
                     GeotagAnimation.Stop();
             };
 
-            dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
-            dispatcherTimer.Start();
+            timerService.TimerTick += Timer_Tick;
+            timerService.Start(new TimeSpan(0, 0, 0, 0, 100));
         }
 
         // Animation playback
@@ -343,7 +343,8 @@ namespace Drizzle.UI.UWP.Views
             shellVm.SearchSuggestions.Clear();
         }
 
-        private async void DispatcherTimer_Tick(object sender, object e)
+
+        private async void Timer_Tick(object sender, EventArgs e)
         {
             if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
             {

@@ -140,6 +140,8 @@ namespace Drizzle.UI.UWP
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<DepthEstimateViewModel>()
+                .AddTransient<ITimerFactory, TimerFactory>()
+                .AddTransient<ITimerService, DispatchTimerService>()
                 .AddTransient<IShaderViewModelFactory, ShaderViewModelFactory>()
                 .AddTransient<IWeatherViewModelFactory, WeatherViewModelFactory>()
                 .AddTransient<IWeatherClientFactory, WeatherClientFactory>()

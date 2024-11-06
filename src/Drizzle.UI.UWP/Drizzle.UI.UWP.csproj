@@ -193,6 +193,7 @@
     <Compile Include="Helpers\UniformItemTemplateSelector.cs" />
     <Compile Include="Services\AssetReader.cs" />
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\DispatchTimerService.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\GeolocationService.cs" />
     <Compile Include="Services\LauncherService.cs" />

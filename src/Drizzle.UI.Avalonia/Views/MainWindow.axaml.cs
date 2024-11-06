@@ -1,8 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Threading;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Services;
+using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -27,8 +27,8 @@ public partial class MainWindow : Window
     private Vector2 dragStartPosition = Vector2.Zero;
 
     // Timer
+    private readonly ITimerService timerService;
     private CancellationTokenSource locationSearchCts = new();
-    private readonly DispatcherTimer dispatcherTimer = new();
     private readonly Stopwatch deactivatedStopwatch = new();
     private readonly long deactivatedTimeout = 3000;
     private bool isWindowDeactivated = false;
@@ -39,6 +39,7 @@ public partial class MainWindow : Window
         this.shellVm = App.Services.GetRequiredService<ShellViewModel>();
         this.userSettings = App.Services.GetRequiredService<IUserSettings>();
         this.navigator = App.Services.GetRequiredService<INavigator>();
+        this.timerService = App.Services.GetRequiredService<ITimerFactory>().CreateTimer();
 
         this.Loaded += MainWindow_Loaded;
         this.PositionChanged += MainWindow_PositionChanged;
@@ -56,9 +57,8 @@ public partial class MainWindow : Window
         if (OperatingSystem.IsMacOS())
             AppTitle.IsVisible = false;
 
-        dispatcherTimer.Tick += DispatcherTimer_Tick;
-        dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
-        dispatcherTimer.Start();
+        timerService.TimerTick += Timer_Tick;
+        timerService.Start(new TimeSpan(0, 0, 0, 0, 100));
 
 #if DEBUG
         //this.AttachDevTools();
@@ -210,7 +210,7 @@ public partial class MainWindow : Window
         return [];
     }
 
-    private void DispatcherTimer_Tick(object? sender, EventArgs e)
+    private void Timer_Tick(object? sender, EventArgs e)
     {
         if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
         {
