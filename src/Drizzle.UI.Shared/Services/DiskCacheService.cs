@@ -102,7 +102,7 @@ public class DiskCacheService : ICacheService
         var fileName = GetCacheFileName(uri);
         var filePath = Path.Combine(cacheDir, fileName);
         var fileInfo = GetFileStalenessInfo(filePath, duration);
-        if (fileInfo.isFileStale || !UseCache)
+        if (fileInfo.isStale || !UseCache)
         {
             var buffer = await httpClient.GetByteArrayAsync(uri);
             await File.WriteAllBytesAsync(filePath, buffer);
@@ -122,7 +122,7 @@ public class DiskCacheService : ICacheService
         DirectoryInfo dir = new(cacheDir);
         foreach (FileInfo file in dir.GetFiles())
         {
-            if (GetFileStalenessInfo(file.FullName, duration).isFileStale)
+            if (GetFileStalenessInfo(file.FullName, duration).isStale)
             {
                 try
                 {
@@ -151,7 +151,7 @@ public class DiskCacheService : ICacheService
         }
     }
 
-    private static (bool isFileStale, DateTime? lastWriteTime) GetFileStalenessInfo(string file, TimeSpan duration)
+    private static (bool isStale, DateTime? lastWriteTime) GetFileStalenessInfo(string file, TimeSpan duration)
     {
         if (string.IsNullOrWhiteSpace(file) || !File.Exists(file))
             return (true, null);
