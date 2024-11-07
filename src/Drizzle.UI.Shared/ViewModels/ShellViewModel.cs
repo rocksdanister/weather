@@ -149,7 +149,7 @@ public partial class ShellViewModel : ObservableObject
         // Refresh UI/Weather
         weatherRefreshTimer = timerFactory.CreateTimer();
         weatherRefreshTimer.TimerTick += WeatherRefreshTimer_Tick;
-        weatherRefreshTimer.Start(new TimeSpan(0, 0, 10));
+        weatherRefreshTimer.Start(new TimeSpan(0, 5, 0));
 
         // We are not checking last run update checked status to avoid spamming the user with notification.
         appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
