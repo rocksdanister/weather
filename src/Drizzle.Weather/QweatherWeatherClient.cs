@@ -141,7 +141,7 @@ public class QweatherWeatherClient : IWeatherClient
             dailyWeather.Add(weather);
             index++;
         }
-        result.FetchTime = cacheService.LastAccessTime;
+        result.FetchTime = cacheService.LastCachedTime;
 
         result.Daily = dailyWeather;
         return result;
@@ -187,7 +187,7 @@ public class QweatherWeatherClient : IWeatherClient
             dailyAirQuality.Add(airQuality);
             index++;
         }
-        result.FetchTime = cacheService.LastAccessTime;
+        result.FetchTime = cacheService.LastCachedTime;
         result.Daily = dailyAirQuality;
         return result;
     }

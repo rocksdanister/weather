@@ -9,9 +9,9 @@ namespace Drizzle.Common.Services
     public interface ICacheService
     {
         /// <summary>
-        /// Most recent cache item access time.
+        /// Most recent cache item creation time.
         /// </summary>
-        DateTime LastAccessTime { get; }
+        DateTime LastCachedTime { get; }
         /// <summary>
         /// Delete expired cache items
         /// </summary>

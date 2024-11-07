@@ -315,6 +315,7 @@
                 Background="Transparent"
                 BorderBrush="Transparent"
                 Command="{Binding RefreshWeatherCommand}"
+                CommandParameter="{x:True}"
                 IsVisible="{Binding SelectedLocation, Mode=OneWay, Converter={x:Static ObjectConverters.IsNotNull}}">
                 <ToolTip.Tip>
                     <TextBlock Text="{x:Static i18n:Resources.RefreshWeatherTooltip_Text}" />

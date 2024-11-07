@@ -156,7 +156,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             dailyWeather.Add(weather);
             index++;
         }
-        result.FetchTime = cacheService.LastAccessTime;
+        result.FetchTime = cacheService.LastCachedTime;
         result.Daily = dailyWeather;
         return result;
     }
@@ -225,7 +225,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
             dailyAirQuality.Add(airQuality);
             index++;
         }
-        result.FetchTime = cacheService.LastAccessTime;
+        result.FetchTime = cacheService.LastCachedTime;
         result.Daily = dailyAirQuality;
         return result;
     }
@@ -281,7 +281,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
         logger.LogInformation("Fetching weather forecast..");
         var url = MergeUrlWithOptions(weatherApiUrl, options);
         using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
-        logger.LogInformation($"Cached weather forecast {cacheService.LastAccessTime}.");
+        logger.LogInformation($"Cached weather forecast {cacheService.LastCachedTime}.");
         return await JsonSerializer.DeserializeAsync<WeatherForecast>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
 
@@ -290,7 +290,7 @@ public class OpenMeteoWeatherClient : IWeatherClient
         logger.LogInformation("Fetching airquality forecast..");
         var url = MergeUrlWithOptions(airQualityApiUrl, options);
         using var stream = await cacheService.GetFileStreamFromCacheAsync(url, true);
-        logger.LogInformation($"Cached airquality forecast {cacheService.LastAccessTime}.");
+        logger.LogInformation($"Cached airquality forecast {cacheService.LastCachedTime}.");
         return await JsonSerializer.DeserializeAsync<AirQuality>(stream, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
     }
 

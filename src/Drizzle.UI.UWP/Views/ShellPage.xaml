@@ -303,6 +303,9 @@
                     BorderBrush="Transparent"
                     Command="{x:Bind shellVm.RefreshWeatherCommand}"
                     Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
+                    <Button.CommandParameter>
+                        <x:Boolean>True</x:Boolean>
+                    </Button.CommandParameter>
                     <ToolTipService.ToolTip>
                         <TextBlock x:Uid="RefreshWeatherTooltip" />
                     </ToolTipService.ToolTip>

@@ -9,7 +9,7 @@ namespace Drizzle.UI.Shared.Services;
 public class DiskCacheService : ICacheService
 {
     public bool UseCache { get; set; } = true;
-    public DateTime LastAccessTime { get; private set; }
+    public DateTime LastCachedTime { get; private set; }
 
     private readonly HttpClient httpClient;
     private readonly TimeSpan duration;
@@ -101,13 +101,13 @@ public class DiskCacheService : ICacheService
     {
         var fileName = GetCacheFileName(uri);
         var filePath = Path.Combine(cacheDir, fileName);
-        var (isFileOutOfDateOrNotFound, lastAccessTime) = IsFileOutOfDateOrNotFoundWithLastAccesstime(filePath, duration);
-        if (isFileOutOfDateOrNotFound || !UseCache)
+        var fileInfo = GetFileStalenessInfo(filePath, duration);
+        if (fileInfo.isFileStale || !UseCache)
         {
             var buffer = await httpClient.GetByteArrayAsync(uri);
             await File.WriteAllBytesAsync(filePath, buffer);
         }
-        this.LastAccessTime = lastAccessTime is not null ? (DateTime)lastAccessTime : DateTime.Now;
+        this.LastCachedTime = fileInfo.lastWriteTime is not null ? (DateTime)fileInfo.lastWriteTime : DateTime.Now;
 
         return filePath;
     }
@@ -116,13 +116,13 @@ public class DiskCacheService : ICacheService
     {
         InternalRemoveExpired();
     }
-
+    
     private void InternalRemoveExpired()
     {
         DirectoryInfo dir = new(cacheDir);
         foreach (FileInfo file in dir.GetFiles())
         {
-            if (IsFileOutOfDateOrNotFound(file.FullName, duration))
+            if (GetFileStalenessInfo(file.FullName, duration).isFileStale)
             {
                 try
                 {
@@ -151,21 +151,13 @@ public class DiskCacheService : ICacheService
         }
     }
 
-    private static bool IsFileOutOfDateOrNotFound(string file, TimeSpan duration)
-    {
-        if (string.IsNullOrWhiteSpace(file))
-            return true;
-
-        return !File.Exists(file) || DateTime.Now.Subtract(File.GetLastAccessTime(file)) > duration;
-    }
-
-    private static (bool, DateTime?) IsFileOutOfDateOrNotFoundWithLastAccesstime(string file, TimeSpan duration)
+    private static (bool isFileStale, DateTime? lastWriteTime) GetFileStalenessInfo(string file, TimeSpan duration)
     {
         if (string.IsNullOrWhiteSpace(file) || !File.Exists(file))
             return (true, null);
 
-        var lastAccessTime = File.GetLastAccessTime(file);
-        return (DateTime.Now.Subtract(lastAccessTime) > duration, lastAccessTime);
+        var lastWriteTime = File.GetLastWriteTime(file);
+        return (DateTime.Now.Subtract(lastWriteTime) > duration, lastWriteTime);
     }
 
     //Ref: https://github.com/CommunityToolkit/WindowsCommunityToolkit/blob/main/Microsoft.Toolkit.Uwp.UI/Cache/CacheBase.cs

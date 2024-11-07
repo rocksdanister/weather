@@ -18,9 +18,7 @@ using System.Threading.Tasks;
 using System.Numerics;
 using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.Extensions;
-using Drizzle.Common.Extensions;
 using Drizzle.Common.Helpers;
-
 
 #if WINDOWS_UWP
 using CommunityToolkit.WinUI.Collections;
@@ -39,6 +37,7 @@ public partial class ShellViewModel : ObservableObject
     private readonly IWeatherClientFactory weatherClientFactory;
     private readonly IWeatherViewModelFactory weatherViewModelFactory;
     private readonly IGeolocationService geolocationService;
+    private readonly ITimerService weatherRefreshTimer;
     private readonly ILogger logger;
 
     private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.MainlyClear;
@@ -59,6 +58,7 @@ public partial class ShellViewModel : ObservableObject
         IGeolocationService geolocationService,
         ISystemInfoProvider systemInfo,
         IAppUpdaterService appUpdater,
+        ITimerFactory timerFactory,
         ILogger<ShellViewModel> logger)
     {
         this.userSettings = userSettings;
@@ -145,6 +145,11 @@ public partial class ShellViewModel : ObservableObject
         IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
         // Alert user only on first run
         IsHardwareAccelerationMissingNotify = !IsHardwareAccelerated && IsFirstRun;
+
+        // Refresh UI/Weather
+        weatherRefreshTimer = timerFactory.CreateTimer();
+        weatherRefreshTimer.TimerTick += WeatherRefreshTimer_Tick;
+        weatherRefreshTimer.Start(new TimeSpan(0, 0, 10));
 
         // We are not checking last run update checked status to avoid spamming the user with notification.
         appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
@@ -341,14 +346,15 @@ public partial class ShellViewModel : ObservableObject
     private bool CanRefreshCommand { get; set; } = true;
 
     [RelayCommand(CanExecute = nameof(CanRefreshCommand))]
-    private async Task RefreshWeather()
+    private async Task RefreshWeather(bool overrideCache)
     {
         try
         {
             CanRefreshCommand = false;
             RefreshWeatherCommand.NotifyCanExecuteChanged();
 
-            cacheService.Clear();
+            if (overrideCache)
+                cacheService.Clear();
             await UpdateWeather();
         }
         finally
@@ -525,7 +531,7 @@ public partial class ShellViewModel : ObservableObject
     {
         try
         {
-            // In case cache is outdated, new fetch request takes time.. so to avoid user spamming during.
+            // In case cache is outdated, new fetch request takes time.. so to avoid issue if user started spamming it.
             await weatherUpdatingLock.WaitAsync();
 
             if (!Weathers.Any())
@@ -534,7 +540,8 @@ public partial class ShellViewModel : ObservableObject
             IsUpdatingWeather = true;
             var units = GetWeatherUnits();
             var weatherCopy = Weathers.OrderBy(x => x.SortOrder).ToList();
-            var selectionCopy = SelectedLocation;
+            var currentSelectedLocation = SelectedLocation;
+            var currentSelectedDay = SelectedWeather;
             Weathers.Clear();
 
             for (int i = 0; i < weatherCopy.Count; i++)
@@ -547,7 +554,8 @@ public partial class ShellViewModel : ObservableObject
                                                                             units,
                                                                             userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType)));
             }
-            SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == selectionCopy.Location.Latitude && x.Location.Longitude == selectionCopy.Location.Longitude);
+            SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == currentSelectedLocation.Location.Latitude && x.Location.Longitude == currentSelectedLocation.Location.Longitude);
+            SelectedWeather = SelectedLocation?.Daily?.FirstOrDefault(x => x.ForecastStartTime.Date == currentSelectedDay.ForecastStartTime.Date) ?? SelectedLocation?.Today;
         }
         catch (Exception ex)
         {
@@ -878,6 +886,17 @@ public partial class ShellViewModel : ObservableObject
     {
         var sortedLocations = Weathers.OrderBy(x => x.SortOrder).Select(x => x.Location).ToArray();
         userSettings.SetAndSerialize(UserSettingsConstants.PinnedLocations, sortedLocations);
+    }
+
+    private async void WeatherRefreshTimer_Tick(object sender, EventArgs e)
+    {
+        // Since Screensaver mode allows custom weather animation selection, skip.
+        if (!IsMainPage)
+            return;
+
+        // Refresh weather view.
+        // Fetches new data if cache is stale.
+        await RefreshWeather(false);
     }
 
     private void AppUpdater_UpdateChecked(object sender, AppUpdateStatus e)
