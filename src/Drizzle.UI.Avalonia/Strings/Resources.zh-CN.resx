@@ -256,7 +256,7 @@
     <value>错误</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>请重新启动应用以使设置生效。</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>将其翻译成其他语言，对本应用作出贡献。</value>
@@ -274,7 +274,7 @@
     <value>帮助我们翻译</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>系统语言</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>了解更多</value>
@@ -466,7 +466,7 @@
     <value>贡献者</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>距离</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>下载</value>
@@ -511,7 +511,7 @@
     <value>温度</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>有可用更新！</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>更新完成</value>

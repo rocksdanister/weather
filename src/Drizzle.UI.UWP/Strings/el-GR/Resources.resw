@@ -274,7 +274,7 @@
     <value>Βοηθήστε στη Μετάφραση!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Ίδιο με το Σύστημα</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Μάθετε Περισσότερα</value>

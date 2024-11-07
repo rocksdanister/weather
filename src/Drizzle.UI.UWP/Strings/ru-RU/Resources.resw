@@ -124,7 +124,7 @@
     <value>Хорошее</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Умеренный</value>
+    <value>Умеренное</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
     <value>Вредный для чувствительных групп</value>
@@ -256,7 +256,7 @@
     <value>Ошибка</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Пожалуйста, перезапустите приложение, чтобы изменения вступили в силу.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Внесите свой вклад в развитие этой программы, переведя ее на другие языки.</value>
@@ -511,7 +511,7 @@
     <value>Температура</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Доступно обновление!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Обновление завершено</value>

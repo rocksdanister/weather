@@ -256,7 +256,7 @@
     <value>錯誤</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>請重新啟動 Lively 動態桌布以使設定生效.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>幫助翻譯此應用程式提供其他語言</value>
@@ -274,7 +274,7 @@
     <value>協助翻譯</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>與系統語言相同</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>瞭解更多資訊</value>
@@ -466,7 +466,7 @@
     <value>貢獻者們</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>距離</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>下載</value>
@@ -511,7 +511,7 @@
     <value>溫度</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>有新的版本可以更新！</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>更新完成</value>
