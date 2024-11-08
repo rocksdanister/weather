@@ -111,17 +111,11 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
             if (obj.ShaderRunner1 is null)
             {
                 obj.ShaderRunner1 = shaderVm?.Runner;
-                obj.IsPausedShader1 = obj.IsPaused;
-                obj.IsPausedShader2 = true;
-
                 obj.ShaderRunner2 = null;
             }
             else
             {
                 obj.ShaderRunner2 = shaderVm?.Runner;
-                obj.IsPausedShader1 = obj.IsPaused;
-                obj.IsPausedShader2 = false;
-
                 obj.ShaderRunner1 = null;
             }
             obj.UpdateQuality();
