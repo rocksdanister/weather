@@ -51,8 +51,8 @@
             <customControls:AnimatedComputeShaderPanelEx
                 IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
                 IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                ResolutionScale="{x:Bind shellVm.ResolutionScaleShader, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader.Runner, Mode=OneWay}" />
+                Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
+                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"

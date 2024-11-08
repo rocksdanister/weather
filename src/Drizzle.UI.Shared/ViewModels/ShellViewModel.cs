@@ -268,7 +268,7 @@ public partial class ShellViewModel : ObservableObject
     private ShaderViewModel selectedShader;
 
     [ObservableProperty]
-    private float resolutionScaleShader = 1f;
+    private ShaderQuality selectedShaderQuality;
 
     [ObservableProperty]
     private bool isPausedShader = false;
@@ -782,7 +782,7 @@ public partial class ShellViewModel : ObservableObject
         IsPausedShader = false;
 
         // Reset config
-        UpdateShaderScale();
+        UpdateShaderQuality();
         UpdateBrightness();
         RainProperty.Mouse =
             CloudsProperty.Mouse =
@@ -811,7 +811,7 @@ public partial class ShellViewModel : ObservableObject
         IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
         SetWeatherAnimation(SelectedWeatherAnimation);
         // Force update since selected shader is unchanged.
-        UpdateShaderScale();
+        UpdateShaderQuality();
     }
 
     private void UpdateMotionSettings()
@@ -820,7 +820,7 @@ public partial class ShellViewModel : ObservableObject
         SetWeatherAnimation(SelectedWeatherAnimation);
     }
 
-    private void UpdateShaderScale()
+    private void UpdateShaderQuality()
     {
         if (SelectedShader?.Model is null)
             return;
@@ -830,13 +830,13 @@ public partial class ShellViewModel : ObservableObject
             case AppPerformance.performance:
                 {
                     IsDynamicResolution = false;
-                    ResolutionScaleShader = SelectedShader.Model.ScaleFactor;
+                    SelectedShaderQuality = ShaderQuality.optimized;
                 }
                 break;
             case AppPerformance.quality:
                 {
                     IsDynamicResolution = false;
-                    ResolutionScaleShader = SelectedShader.Model.MaxScaleFactor;
+                    SelectedShaderQuality = ShaderQuality.maximum;
                 }
                 break;
             case AppPerformance.dynamic:

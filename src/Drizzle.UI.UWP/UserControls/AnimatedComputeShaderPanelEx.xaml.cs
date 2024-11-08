@@ -1,4 +1,7 @@
 ﻿using ComputeSharp.Uwp;
+using Drizzle.Models.Enums;
+using Drizzle.UI.Shared.ViewModels;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -9,14 +12,23 @@ namespace Drizzle.UI.UWP.UserControls;
 /// </summary>
 public sealed partial class AnimatedComputeShaderPanelEx : UserControl
 {
-    public IShaderRunner ShaderRunner
+    public ShaderViewModel Shader
     {
-        get { return (IShaderRunner)GetValue(ShaderRunnerProperty); }
-        set { SetValue(ShaderRunnerProperty, value); }
+        get { return (ShaderViewModel)GetValue(ShaderProperty); }
+        set { SetValue(ShaderProperty, value); }
     }
 
-    public static readonly DependencyProperty ShaderRunnerProperty =
-        DependencyProperty.Register("ShaderRunner", typeof(IShaderRunner), typeof(AnimatedComputeShaderPanelEx), new PropertyMetadata(null, OnDependencyPropertyChanged));
+    public static readonly DependencyProperty ShaderProperty =
+        DependencyProperty.Register("Shader", typeof(ShaderViewModel), typeof(AnimatedComputeShaderPanelEx), new PropertyMetadata(null, OnDependencyPropertyChanged));
+
+    public ShaderQuality Quality
+    {
+        get { return (ShaderQuality)GetValue(QualityProperty); }
+        set { SetValue(QualityProperty, value); }
+    }
+
+    public static readonly DependencyProperty QualityProperty =
+        DependencyProperty.Register("Quality", typeof(ShaderQuality), typeof(AnimatedComputeShaderPanelEx), new PropertyMetadata(ShaderQuality.optimized, OnDependencyPropertyChanged));
 
     public IShaderRunner ShaderRunner1
     {
@@ -72,15 +84,6 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
     public static readonly DependencyProperty IsDynamicResolutionProperty =
         DependencyProperty.Register("IsDynamicResolution", typeof(bool), typeof(AnimatedComputeShaderPanelEx), new PropertyMetadata(false));
 
-    public float ResolutionScale
-    {
-        get { return (float)GetValue(ResolutionScaleProperty); }
-        set { SetValue(ResolutionScaleProperty, value); }
-    }
-
-    public static readonly DependencyProperty ResolutionScaleProperty =
-        DependencyProperty.Register("ResolutionScale", typeof(float), typeof(AnimatedComputeShaderPanelEx), new PropertyMetadata(1f, OnDependencyPropertyChanged));
-
     public float ResolutionScaleShader1
     {
         get { return (float)GetValue(ResolutionScaleShader1Property); }
@@ -102,41 +105,63 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
     private static void OnDependencyPropertyChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
     {
         var obj = s as AnimatedComputeShaderPanelEx;
-        if (e.Property == ShaderRunnerProperty)
+        if (e.Property == ShaderProperty)
         {
-            var newRunner = e.NewValue as IShaderRunner;
+            var shaderVm = e.NewValue as ShaderViewModel;
             if (obj.ShaderRunner1 is null)
             {
-                obj.ShaderRunner1 = newRunner;
-                obj.IsPausedShader1 = false;
+                obj.ShaderRunner1 = shaderVm?.Runner;
+                obj.IsPausedShader1 = obj.IsPaused;
                 obj.IsPausedShader2 = true;
 
                 obj.ShaderRunner2 = null;
             }
             else
             {
-                obj.ShaderRunner2 = newRunner;
-                obj.IsPausedShader1 = true;
+                obj.ShaderRunner2 = shaderVm?.Runner;
+                obj.IsPausedShader1 = obj.IsPaused;
                 obj.IsPausedShader2 = false;
 
                 obj.ShaderRunner1 = null;
             }
+            obj.UpdateQuality();
         }
-        else if (e.Property == ResolutionScaleProperty)
+        else if (e.Property == QualityProperty)
         {
-            var newScale = (float)e.NewValue;
-            if (obj.ShaderRunner1 is not null)
-                obj.ResolutionScaleShader1 = newScale;
-            else if (obj.ShaderRunner2 is not null)
-                obj.ResolutionScaleShader2 = newScale;
+            obj.UpdateQuality();
         }
         else if (e.Property == IsPausedProperty)
         {
             var isPaused = (bool)e.NewValue;
-            if (obj.ShaderRunner1 is not null)
-                obj.IsPausedShader1 = isPaused;
-            else if (obj.ShaderRunner2 is not null)
-                obj.IsPausedShader2 = isPaused;
+            obj.IsPausedShader1 = obj.IsPausedShader2 = isPaused;
+        }
+    }
+
+    private void UpdateQuality()
+    {
+        if (Shader is null)
+            return;
+
+        switch (Quality)
+        {
+            case ShaderQuality.optimized:
+                {
+                    if (ShaderRunner1 is not null)
+                        ResolutionScaleShader1 = Shader.Model.ScaleFactor;
+                    else if (ShaderRunner2 is not null)
+                        ResolutionScaleShader2 = Shader.Model.ScaleFactor;
+                }
+                break;
+            case ShaderQuality.maximum:
+                {
+                    if (ShaderRunner1 is not null)
+                        ResolutionScaleShader1 = Shader.Model.MaxScaleFactor;
+                    else if (ShaderRunner2 is not null)
+                        ResolutionScaleShader2 = Shader.Model.MaxScaleFactor;
+                }
+                break;
+            default:
+                throw new NotImplementedException();
         }
     }
 
