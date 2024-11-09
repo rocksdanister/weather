@@ -772,7 +772,6 @@ public partial class ShellViewModel : ObservableObject
         // Turn off all animations
         if (IsFallbackBackground)
         {
-            IsPausedShader = true;
             // Turn off shader if running
             SelectedShader = null;
 
