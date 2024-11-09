@@ -149,7 +149,7 @@ public partial class ShellViewModel : ObservableObject
         // Refresh UI/Weather
         weatherRefreshTimer = timerFactory.CreateTimer();
         weatherRefreshTimer.TimerTick += WeatherRefreshTimer_Tick;
-        weatherRefreshTimer.Start(new TimeSpan(0, 10, 0));
+        weatherRefreshTimer.Start(new TimeSpan(0, 5, 0));
 
         // We are not checking last run update checked status to avoid spamming the user with notification.
         appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
@@ -233,6 +233,12 @@ public partial class ShellViewModel : ObservableObject
             SetProperty(ref _selectedMainGraphTypeIndex, value);
         }
     }
+
+    /// <summary>
+    /// Is user idle
+    /// </summary>
+    [ObservableProperty]
+    private bool isIdle;
 
     [ObservableProperty]
     private bool isAppUpdateAvailable;
@@ -539,23 +545,23 @@ public partial class ShellViewModel : ObservableObject
 
             IsUpdatingWeather = true;
             var units = GetWeatherUnits();
-            var weatherCopy = Weathers.OrderBy(x => x.SortOrder).ToList();
-            var currentSelectedLocation = SelectedLocation;
-            var currentSelectedDay = SelectedWeather;
+            var locations = Weathers.OrderBy(x => x.SortOrder).Select(x => x.Location).ToList();
+            var selectedLocation = SelectedLocation;
+            var selectedDay = SelectedWeather;
             Weathers.Clear();
 
-            for (int i = 0; i < weatherCopy.Count; i++)
+            for (int i = 0; i < locations.Count; i++)
             {
                 // Uses cache if configured and unit convertion takes place in the viewmodel
-                (var weather, var airQuality) = await FetchWeather(weatherCopy[i].Location.Name, weatherCopy[i].Location.Latitude, weatherCopy[i].Location.Longitude);
+                (var weather, var airQuality) = await FetchWeather(locations[i].Name, locations[i].Latitude, locations[i].Longitude);
                 Weathers.Add(weatherViewModelFactory.CreateWeatherViewModel(weather,
-                                                                            airQuality,
-                                                                            i,
-                                                                            units,
-                                                                            userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType)));
+                    airQuality,
+                    i,
+                    units,
+                    userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType)));
             }
-            SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == currentSelectedLocation.Location.Latitude && x.Location.Longitude == currentSelectedLocation.Location.Longitude);
-            SelectedWeather = SelectedLocation?.Daily?.FirstOrDefault(x => x.ForecastStartTime.Date == currentSelectedDay.ForecastStartTime.Date) ?? SelectedLocation?.Today;
+            SelectedLocation = Weathers.FirstOrDefault(x => x.Location.Latitude == selectedLocation.Location.Latitude && x.Location.Longitude == selectedLocation.Location.Longitude);
+            SelectedWeather = SelectedLocation?.Daily?.FirstOrDefault(x => x.ForecastStartTime.Date == selectedDay.ForecastStartTime.Date) ?? SelectedLocation?.Today;
         }
         catch (Exception ex)
         {
@@ -779,7 +785,6 @@ public partial class ShellViewModel : ObservableObject
 
         var selection = ShaderViewModels.First(x => x.Model.Type == type);
         SelectedShader = selection;
-        IsPausedShader = false;
 
         // Reset config
         UpdateShaderQuality();
@@ -890,12 +895,12 @@ public partial class ShellViewModel : ObservableObject
 
     private async void WeatherRefreshTimer_Tick(object sender, EventArgs e)
     {
-        // Since Screensaver mode allows custom weather animation selection, skip.
-        if (!IsMainPage)
+        // Since Screensaver mode allows custom weather animation selection, do not update.
+        // If not idle to avoid user distraction, do not update.
+        if (!IsMainPage || !IsIdle)
             return;
 
-        // Refresh weather view.
-        // Fetches new data if cache is stale.
+        // Cheap way of refreshing data and visuals.
         await RefreshWeather(false);
     }
 

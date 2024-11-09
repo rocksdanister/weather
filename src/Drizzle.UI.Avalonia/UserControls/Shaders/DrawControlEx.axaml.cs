@@ -105,6 +105,7 @@ public partial class DrawControlEx : UserControl
                 {
                     Shader1 = newShader;
                     IsPausedShader1 = false;
+                    IsPausedShader1 = sender.IsPaused;
 
                     IsVisibleShader1 = true;
                     IsVisibleShader2 = false;
@@ -117,6 +118,7 @@ public partial class DrawControlEx : UserControl
                 {
                     Shader2 = newShader;
                     IsPausedShader2 = false;
+                    IsPausedShader2 = sender.IsPaused;
 
                     IsVisibleShader1 = false;
                     IsVisibleShader2 = true;
@@ -133,10 +135,7 @@ public partial class DrawControlEx : UserControl
         else if (e.Property == IsPausedProperty)
         {
             var isPaused = (bool)e.NewValue!;
-            if (Shader1 is not null)
-                IsPausedShader1 = isPaused;
-            else if (Shader2 is not null)
-                IsPausedShader2 = isPaused;
+            IsPausedShader1 = IsPausedShader2 = isPaused;
         }
     }
 }

@@ -34,10 +34,12 @@ namespace Drizzle.UI.UWP.Views
 
         // Timer 
         private readonly ITimerService timerService;
+        private readonly Stopwatch userIdleStopeWatch = new();
         private readonly Stopwatch deactivatedStopwatch = new();
         private readonly Stopwatch searchIdleStopwatch = new();
-        private readonly long deactivatedTimeout = 3000;
-        private readonly long searchIdleTimeout = 500;
+        private readonly TimeSpan userIdleTimeout = TimeSpan.FromMinutes(5);
+        private readonly TimeSpan deactivatedTimeout = TimeSpan.FromSeconds(3);
+        private readonly TimeSpan searchIdleTimeout = TimeSpan.FromMilliseconds(500);
         private bool isWindowDeactivated = false;
 
         // Mouse
@@ -120,6 +122,7 @@ namespace Drizzle.UI.UWP.Views
 
             timerService.TimerTick += Timer_Tick;
             timerService.Start(new TimeSpan(0, 0, 0, 0, 100));
+            userIdleStopeWatch.Start();
         }
 
         // Animation playback
@@ -228,6 +231,8 @@ namespace Drizzle.UI.UWP.Views
                 shellVm.DepthProperty.Mouse = mouse;
                 shellVm.FogProperty.Mouse = mouse;
             }
+
+            userIdleStopeWatch.Restart();
         }
 
         private void Grid_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -242,12 +247,19 @@ namespace Drizzle.UI.UWP.Views
             // Close navView if open
             if (navView.IsPaneOpen)
                 navView.IsPaneOpen = false;
+
+            userIdleStopeWatch.Restart();
         }
 
         private void Grid_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             ((UIElement)sender).ReleasePointerCapture(e.Pointer);
             isMouseDrag = false;
+        }
+
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            userIdleStopeWatch.Restart();
         }
 
         // Navigation
@@ -346,17 +358,19 @@ namespace Drizzle.UI.UWP.Views
 
         private async void Timer_Tick(object sender, EventArgs e)
         {
-            if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
+            if (isWindowDeactivated && deactivatedStopwatch.Elapsed > deactivatedTimeout)
             {
                 deactivatedStopwatch.Reset();
                 shellVm.IsPausedShader = true;
             }
 
-            if (searchIdleStopwatch.ElapsedMilliseconds > searchIdleTimeout)
+            if (searchIdleStopwatch.Elapsed > searchIdleTimeout)
             {
                 searchIdleStopwatch.Reset();
                 await shellVm.FetchLocations(AppTitleSearch.Text);
             }
+
+            shellVm.IsIdle = userIdleStopeWatch.Elapsed > userIdleTimeout;
         }
 
         private void ErrorInfoBar_Closed(Microsoft.UI.Xaml.Controls.InfoBar sender, Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs args)

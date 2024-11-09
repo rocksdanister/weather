@@ -29,8 +29,10 @@ public partial class MainWindow : Window
     // Timer
     private readonly ITimerService timerService;
     private CancellationTokenSource locationSearchCts = new();
+    private readonly Stopwatch userIdleStopeWatch = new();
     private readonly Stopwatch deactivatedStopwatch = new();
-    private readonly long deactivatedTimeout = 3000;
+    private readonly TimeSpan userIdleTimeout = TimeSpan.FromMinutes(5);
+    private readonly TimeSpan deactivatedTimeout = TimeSpan.FromSeconds(3);
     private bool isWindowDeactivated = false;
 
     public MainWindow()
@@ -47,6 +49,7 @@ public partial class MainWindow : Window
         this.Deactivated += MainWindow_Deactivated;
         this.PointerPressed += MainWindow_PointerPressed;
         this.PointerReleased += MainWindow_PointerReleased;
+        this.KeyDown += MainWindow_KeyDown;
         this.PointerMoved += MainWindow_PointerMoved;
 
         navigator.RootFrame = this;
@@ -59,6 +62,7 @@ public partial class MainWindow : Window
 
         timerService.TimerTick += Timer_Tick;
         timerService.Start(new TimeSpan(0, 0, 0, 0, 100));
+        userIdleStopeWatch.Start();
 
 #if DEBUG
         //this.AttachDevTools();
@@ -141,6 +145,8 @@ public partial class MainWindow : Window
             shellVm.DepthProperty.Mouse = mouse;
             shellVm.FogProperty.Mouse = mouse;
         }
+
+        userIdleStopeWatch.Restart();
     }
 
     private void MainWindow_PointerPressed(object? sender, global::Avalonia.Input.PointerPressedEventArgs e)
@@ -152,11 +158,18 @@ public partial class MainWindow : Window
             Y = (float)(point.Y / this.Bounds.Height)
         };
         isMouseDrag = true;
+
+        userIdleStopeWatch.Restart();
     }
 
     private void MainWindow_PointerReleased(object? sender, global::Avalonia.Input.PointerReleasedEventArgs e)
     {
         isMouseDrag = false;
+    }
+
+    private void MainWindow_KeyDown(object? sender, global::Avalonia.Input.KeyEventArgs e)
+    {
+        userIdleStopeWatch.Restart();
     }
 
     // Issue: Keyboard navigation not possible. Ref: https://github.com/AvaloniaUI/Avalonia/issues/8721
@@ -212,11 +225,13 @@ public partial class MainWindow : Window
 
     private void Timer_Tick(object? sender, EventArgs e)
     {
-        if (isWindowDeactivated && deactivatedStopwatch.ElapsedMilliseconds > deactivatedTimeout)
+        if (isWindowDeactivated && deactivatedStopwatch.Elapsed > deactivatedTimeout)
         {
             deactivatedStopwatch.Reset();
             shellVm.IsPausedShader = true;
         }
+
+        shellVm.IsIdle = userIdleStopeWatch.Elapsed > userIdleTimeout;
     }
 
     private void ErrorInfoBar_Closed(FluentAvalonia.UI.Controls.InfoBar sender, FluentAvalonia.UI.Controls.InfoBarClosedEventArgs args)

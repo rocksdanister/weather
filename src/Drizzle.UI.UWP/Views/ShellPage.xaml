@@ -38,6 +38,7 @@
     </Page.Resources>
 
     <Grid
+        KeyDown="Grid_KeyDown"
         PointerMoved="Grid_PointerMoved"
         PointerPressed="Grid_PointerPressed"
         PointerReleased="Grid_PointerReleased">
