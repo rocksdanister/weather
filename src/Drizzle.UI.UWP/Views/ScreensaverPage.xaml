@@ -9,6 +9,7 @@
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:Drizzle.Models"
+    xmlns:enums="using:Drizzle.Models.Enums"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
@@ -216,7 +217,7 @@
                     </Button>
                 </Border>
 
-                <!--  Customise  -->
+                <!--  Settings Pane  -->
                 <Border
                     CornerRadius="5"
                     Shadow="{StaticResource BackgroundGridShadow}"
@@ -281,234 +282,245 @@
                                     </muxc:DropDownButton>
 
                                     <!--  Customise  -->
-                                    <Grid Grid.Row="1">
+                                    <controls:SwitchPresenter Grid.Row="1" Value="{x:Bind viewModel.SelectedShader, Mode=OneWay}">
                                         <!--  Snow  -->
-                                        <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsSnowPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <Slider
-                                                x:Uid="SnowDepth"
-                                                Maximum="10"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.SnowProperty.Depth, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="SnowLayers"
-                                                Maximum="200"
-                                                Minimum="0"
-                                                StepFrequency="1"
-                                                Value="{x:Bind viewModel.ShellVm.SnowProperty.Layers, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="SnowWidth"
-                                                Maximum="10"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.SnowProperty.Width, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderSpeed"
-                                                Maximum="10"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.SnowProperty.Speed, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderPostProcessing"
-                                                Maximum="1"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.SnowProperty.PostProcessing, Mode=TwoWay}" />
-                                            <Button x:Uid="ChangeBackground">
-                                                <Button.Flyout>
-                                                    <Flyout
-                                                        Closing="Flyout_Closing"
-                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
-                                                        Placement="Bottom">
-                                                        <StackPanel Spacing="4">
-                                                            <GridView
-                                                                ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
-                                                                ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
-                                                                ItemsSource="{x:Bind viewModel.SnowBackgrounds}"
-                                                                SelectedItem="{x:Bind viewModel.SelectedSnowBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
-                                                            <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                                                        </StackPanel>
-                                                    </Flyout>
-                                                </Button.Flyout>
-                                            </Button>
-                                            <CheckBox x:Uid="RainLightning" IsChecked="{x:Bind viewModel.ShellVm.SnowProperty.IsLightning, Mode=TwoWay}" />
-                                            <CheckBox x:Uid="ShaderFreezing" IsChecked="{x:Bind viewModel.ShellVm.SnowProperty.IsBlur, Mode=TwoWay}" />
-                                        </StackPanel>
+                                        <controls:Case Value="{x:Bind enums:ShaderTypes.snow, Mode=OneWay}">
+                                            <StackPanel Spacing="10">
+                                                <Slider
+                                                    x:Uid="SnowDepth"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.SnowProperty.Depth, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="SnowLayers"
+                                                    Maximum="200"
+                                                    Minimum="0"
+                                                    StepFrequency="1"
+                                                    Value="{x:Bind viewModel.ShellVm.SnowProperty.Layers, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="SnowWidth"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.SnowProperty.Width, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderSpeed"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.SnowProperty.Speed, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderPostProcessing"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.SnowProperty.PostProcessing, Mode=TwoWay}" />
+                                                <Button x:Uid="ChangeBackground">
+                                                    <Button.Flyout>
+                                                        <Flyout
+                                                            Closing="Flyout_Closing"
+                                                            FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                            Placement="Bottom">
+                                                            <StackPanel Spacing="4">
+                                                                <GridView
+                                                                    ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
+                                                                    ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
+                                                                    ItemsSource="{x:Bind viewModel.SnowBackgrounds}"
+                                                                    SelectedItem="{x:Bind viewModel.SelectedSnowBackground, Mode=TwoWay}" />
+                                                                <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
+                                                                <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                                            </StackPanel>
+                                                        </Flyout>
+                                                    </Button.Flyout>
+                                                </Button>
+                                                <CheckBox x:Uid="RainLightning" IsChecked="{x:Bind viewModel.ShellVm.SnowProperty.IsLightning, Mode=TwoWay}" />
+                                                <CheckBox x:Uid="ShaderFreezing" IsChecked="{x:Bind viewModel.ShellVm.SnowProperty.IsBlur, Mode=TwoWay}" />
+                                            </StackPanel>
+                                        </controls:Case>
                                         <!--  Rain  -->
-                                        <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsRainPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <Slider
-                                                x:Uid="RainIntensity"
-                                                Maximum="1"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.RainProperty.Intensity, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="RainNormal"
-                                                Maximum="3"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.RainProperty.Normal, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="RainZoom"
-                                                Maximum="3"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.RainProperty.Zoom, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderSpeed"
-                                                Maximum="5"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.RainProperty.Speed, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderPostProcessing"
-                                                Maximum="1"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.RainProperty.PostProcessing, Mode=TwoWay}" />
-                                            <Button x:Uid="ChangeBackground">
-                                                <Button.Flyout>
-                                                    <Flyout
-                                                        Closing="Flyout_Closing"
-                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
-                                                        Placement="Bottom">
-                                                        <StackPanel Spacing="4">
-                                                            <GridView
-                                                                ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
-                                                                ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
-                                                                ItemsSource="{x:Bind viewModel.RainBackgrounds}"
-                                                                SelectedItem="{x:Bind viewModel.SelectedRainBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
-                                                            <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                                                        </StackPanel>
-                                                    </Flyout>
-                                                </Button.Flyout>
-                                            </Button>
-                                            <CheckBox x:Uid="ShaderFreezing" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsFreezing, Mode=TwoWay}" />
-                                            <CheckBox x:Uid="RainPanning" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsPanning, Mode=TwoWay}" />
-                                            <CheckBox x:Uid="RainLightning" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsLightning, Mode=TwoWay}" />
-                                        </StackPanel>
+                                        <controls:Case Value="{x:Bind enums:ShaderTypes.rain, Mode=OneWay}">
+                                            <StackPanel Spacing="10">
+                                                <Slider
+                                                    x:Uid="RainIntensity"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.RainProperty.Intensity, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="RainNormal"
+                                                    Maximum="3"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.RainProperty.Normal, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="RainZoom"
+                                                    Maximum="3"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.RainProperty.Zoom, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderSpeed"
+                                                    Maximum="5"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.RainProperty.Speed, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderPostProcessing"
+                                                    Maximum="1"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.RainProperty.PostProcessing, Mode=TwoWay}" />
+                                                <Button x:Uid="ChangeBackground">
+                                                    <Button.Flyout>
+                                                        <Flyout
+                                                            Closing="Flyout_Closing"
+                                                            FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                            Placement="Bottom">
+                                                            <StackPanel Spacing="4">
+                                                                <GridView
+                                                                    ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
+                                                                    ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
+                                                                    ItemsSource="{x:Bind viewModel.RainBackgrounds}"
+                                                                    SelectedItem="{x:Bind viewModel.SelectedRainBackground, Mode=TwoWay}" />
+                                                                <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
+                                                                <muxc:ProgressBar IsIndeterminate="True" Visibility="{x:Bind viewModel.IsBusy, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                                            </StackPanel>
+                                                        </Flyout>
+                                                    </Button.Flyout>
+                                                </Button>
+                                                <CheckBox x:Uid="ShaderFreezing" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsFreezing, Mode=TwoWay}" />
+                                                <CheckBox x:Uid="RainPanning" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsPanning, Mode=TwoWay}" />
+                                                <CheckBox x:Uid="RainLightning" IsChecked="{x:Bind viewModel.ShellVm.RainProperty.IsLightning, Mode=TwoWay}" />
+                                            </StackPanel>
+                                        </controls:Case>
                                         <!--  Depth  -->
-                                        <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsDepthPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <Slider
-                                                x:Uid="DepthHorizontal"
-                                                IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
-                                                Maximum="2.5"
-                                                Minimum=".01"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityX, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="DepthVertical"
-                                                IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
-                                                Maximum="2.5"
-                                                Minimum=".01"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityY, Mode=TwoWay}" />
-                                            <Button x:Uid="ChangeBackground">
-                                                <Button.Flyout>
-                                                    <Flyout
-                                                        Closing="Flyout_Closing"
-                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
-                                                        Placement="Bottom">
-                                                        <StackPanel Spacing="4">
-                                                            <GridView
-                                                                ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
-                                                                ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
-                                                                ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
-                                                                SelectedItem="{x:Bind viewModel.SelectedDepthBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
-                                                        </StackPanel>
-                                                    </Flyout>
-                                                </Button.Flyout>
-                                            </Button>
-                                            <CheckBox x:Uid="ShaderBlur" IsChecked="{x:Bind viewModel.ShellVm.DepthProperty.IsBlur, Mode=TwoWay}" />
-                                        </StackPanel>
+                                        <controls:Case Value="{x:Bind enums:ShaderTypes.depth, Mode=OneWay}">
+                                            <StackPanel Spacing="10">
+                                                <Slider
+                                                    x:Uid="DepthHorizontal"
+                                                    IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityX, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="DepthVertical"
+                                                    IsEnabled="{x:Bind viewModel.ShellVm.IsReducedMotion, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.DepthProperty.IntensityY, Mode=TwoWay}" />
+                                                <Button x:Uid="ChangeBackground">
+                                                    <Button.Flyout>
+                                                        <Flyout
+                                                            Closing="Flyout_Closing"
+                                                            FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                            Placement="Bottom">
+                                                            <StackPanel Spacing="4">
+                                                                <GridView
+                                                                    ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
+                                                                    ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
+                                                                    ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
+                                                                    SelectedItem="{x:Bind viewModel.SelectedDepthBackground, Mode=TwoWay}" />
+                                                                <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
+                                                            </StackPanel>
+                                                        </Flyout>
+                                                    </Button.Flyout>
+                                                </Button>
+                                                <CheckBox x:Uid="ShaderBlur" IsChecked="{x:Bind viewModel.ShellVm.DepthProperty.IsBlur, Mode=TwoWay}" />
+                                            </StackPanel>
+                                        </controls:Case>
                                         <!--  Fog  -->
-                                        <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsFogPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <TextBlock x:Uid="FogColorGradient" />
-                                            <!--<customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
+                                        <controls:Case Value="{x:Bind enums:ShaderTypes.fog, Mode=OneWay}">
+                                            <StackPanel Spacing="10">
+                                                <TextBlock x:Uid="FogColorGradient" />
+                                                <!--<customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
                                             <customControls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />-->
-                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
-                                                <controls:ColorPickerButton.ColorPickerStyle>
-                                                    <Style TargetType="controls:ColorPicker">
-                                                        <Setter Property="ColorSpectrumShape" Value="Box" />
-                                                        <Setter Property="IsAlphaEnabled" Value="False" />
-                                                    </Style>
-                                                </controls:ColorPickerButton.ColorPickerStyle>
-                                            </controls:ColorPickerButton>
-                                            <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
-                                                <controls:ColorPickerButton.ColorPickerStyle>
-                                                    <Style TargetType="controls:ColorPicker">
-                                                        <Setter Property="ColorSpectrumShape" Value="Box" />
-                                                        <Setter Property="IsAlphaEnabled" Value="False" />
-                                                    </Style>
-                                                </controls:ColorPickerButton.ColorPickerStyle>
-                                            </controls:ColorPickerButton>
-                                            <Slider
-                                                x:Uid="FogAmplitude"
-                                                Maximum="2"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.FogProperty.Amplitude, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderSpeed"
-                                                Maximum="{x:Bind viewModel.ShellVm.FogProperty.MaxSpeed}"
-                                                Minimum="{x:Bind viewModel.ShellVm.FogProperty.MinSpeed}"
-                                                StepFrequency="0.1"
-                                                Value="{x:Bind viewModel.ShellVm.FogProperty.Speed, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="DepthHorizontal"
-                                                Maximum="2.5"
-                                                Minimum=".01"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.FogProperty.ParallaxIntensityX, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="DepthVertical"
-                                                Maximum="2.5"
-                                                Minimum=".01"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.FogProperty.ParallaxIntensityY, Mode=TwoWay}" />
-                                            <Button x:Uid="ChangeBackground">
-                                                <Button.Flyout>
-                                                    <Flyout
-                                                        Closing="Flyout_Closing"
-                                                        FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
-                                                        Placement="Bottom">
-                                                        <StackPanel Spacing="4">
-                                                            <GridView
-                                                                ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
-                                                                ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
-                                                                ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
-                                                                SelectedItem="{x:Bind viewModel.SelectedFogBackground, Mode=TwoWay}" />
-                                                            <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
-                                                        </StackPanel>
-                                                    </Flyout>
-                                                </Button.Flyout>
-                                            </Button>
-                                        </StackPanel>
+                                                <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
+                                                    <controls:ColorPickerButton.ColorPickerStyle>
+                                                        <Style TargetType="controls:ColorPicker">
+                                                            <Setter Property="ColorSpectrumShape" Value="Box" />
+                                                            <Setter Property="IsAlphaEnabled" Value="False" />
+                                                        </Style>
+                                                    </controls:ColorPickerButton.ColorPickerStyle>
+                                                </controls:ColorPickerButton>
+                                                <controls:ColorPickerButton SelectedColor="{x:Bind viewModel.ShellVm.FogProperty.Color2, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}">
+                                                    <controls:ColorPickerButton.ColorPickerStyle>
+                                                        <Style TargetType="controls:ColorPicker">
+                                                            <Setter Property="ColorSpectrumShape" Value="Box" />
+                                                            <Setter Property="IsAlphaEnabled" Value="False" />
+                                                        </Style>
+                                                    </controls:ColorPickerButton.ColorPickerStyle>
+                                                </controls:ColorPickerButton>
+                                                <Slider
+                                                    x:Uid="FogAmplitude"
+                                                    Maximum="2"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.FogProperty.Amplitude, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderSpeed"
+                                                    Maximum="{x:Bind viewModel.ShellVm.FogProperty.MaxSpeed}"
+                                                    Minimum="{x:Bind viewModel.ShellVm.FogProperty.MinSpeed}"
+                                                    StepFrequency="0.1"
+                                                    Value="{x:Bind viewModel.ShellVm.FogProperty.Speed, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="DepthHorizontal"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.FogProperty.ParallaxIntensityX, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="DepthVertical"
+                                                    Maximum="2.5"
+                                                    Minimum=".01"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.FogProperty.ParallaxIntensityY, Mode=TwoWay}" />
+                                                <Button x:Uid="ChangeBackground">
+                                                    <Button.Flyout>
+                                                        <Flyout
+                                                            Closing="Flyout_Closing"
+                                                            FlyoutPresenterStyle="{StaticResource BackgroundFlyoutPresenter}"
+                                                            Placement="Bottom">
+                                                            <StackPanel Spacing="4">
+                                                                <GridView
+                                                                    ItemTemplate="{StaticResource GridViewBackgroundDataTemplate}"
+                                                                    ItemsPanel="{StaticResource GridViewBackgroundPaneltemplate}"
+                                                                    ItemsSource="{x:Bind viewModel.DepthBackgrounds}"
+                                                                    SelectedItem="{x:Bind viewModel.SelectedFogBackground, Mode=TwoWay}" />
+                                                                <Button x:Uid="BrowseFile" Command="{x:Bind viewModel.ChangeBackgroundCommand}" />
+                                                            </StackPanel>
+                                                        </Flyout>
+                                                    </Button.Flyout>
+                                                </Button>
+                                            </StackPanel>
+                                        </controls:Case>
                                         <!--  Clouds  -->
-                                        <StackPanel Spacing="10" Visibility="{x:Bind viewModel.IsCloudsPropertyVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                                            <Slider
-                                                x:Uid="CloudScale"
-                                                Maximum="2"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.CloudsProperty.Scale, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="CloudIterations"
-                                                Maximum="10"
-                                                Minimum="0"
-                                                Value="{x:Bind viewModel.ShellVm.CloudsProperty.Iterations, Mode=TwoWay}" />
-                                            <Slider
-                                                x:Uid="ShaderSpeed"
-                                                Maximum="5"
-                                                Minimum="0"
-                                                StepFrequency="0.01"
-                                                Value="{x:Bind viewModel.ShellVm.CloudsProperty.Speed, Mode=TwoWay}" />
-                                            <CheckBox x:Uid="CloudDayNightShift" IsChecked="{x:Bind viewModel.ShellVm.CloudsProperty.IsDayNightShift, Mode=TwoWay}" />
-                                        </StackPanel>
-                                    </Grid>
+                                        <controls:Case Value="{x:Bind enums:ShaderTypes.clouds, Mode=OneWay}">
+                                            <StackPanel Spacing="10">
+                                                <Slider
+                                                    x:Uid="CloudScale"
+                                                    Maximum="2"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.CloudsProperty.Scale, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="CloudIterations"
+                                                    Maximum="10"
+                                                    Minimum="0"
+                                                    Value="{x:Bind viewModel.ShellVm.CloudsProperty.Iterations, Mode=TwoWay}" />
+                                                <Slider
+                                                    x:Uid="ShaderSpeed"
+                                                    Maximum="5"
+                                                    Minimum="0"
+                                                    StepFrequency="0.01"
+                                                    Value="{x:Bind viewModel.ShellVm.CloudsProperty.Speed, Mode=TwoWay}" />
+                                                <CheckBox x:Uid="CloudDayNightShift" IsChecked="{x:Bind viewModel.ShellVm.CloudsProperty.IsDayNightShift, Mode=TwoWay}" />
+                                            </StackPanel>
+                                        </controls:Case>
+                                    </controls:SwitchPresenter>
+
                                     <!--  Restore default  -->
                                     <Button
                                         Grid.Row="2"

@@ -6,6 +6,7 @@
     xmlns:converters="clr-namespace:Drizzle.UI.Avalonia.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="clr-namespace:Drizzle.Models;assembly=Drizzle.Models"
+    xmlns:enums="using:Drizzle.Models.Enums"
     xmlns:i18n="clr-namespace:Drizzle.UI.Avalonia.Strings"
     xmlns:labs="clr-namespace:Avalonia.Labs.Controls;assembly=Avalonia.Labs.Controls"
     xmlns:lottie="using:Avalonia.Labs.Lottie"
@@ -45,6 +46,7 @@
 
     <UserControl.Resources>
         <!--  Converters  -->
+        <converters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
         <converters:Vector3ToColorConverter x:Key="Vector3ToColorConverter" />
         <converters:WmoWeatherToAnimatedVisualConverter x:Key="WmoWeatherToAnimatedVisualConverter" />
         <converters:WmoWeatherToStringConverter x:Key="WmoWeatherToStringConverter" />
@@ -301,7 +303,13 @@
                     <!--  Customise  -->
                     <Grid Grid.Row="1">
                         <!--  Snow  -->
-                        <StackPanel IsVisible="{Binding IsSnowPropertyVisible}" Spacing="10">
+                        <StackPanel Spacing="10">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{StaticResource EnumToBoolConverter}">
+                                    <Binding Mode="OneWay" Path="SelectedShader" />
+                                    <Binding Mode="OneWay" Source="{x:Static enums:ShaderTypes.snow}" />
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
                             <StackPanel ToolTip.Tip="{Binding ShellVm.SnowProperty.Depth}">
                                 <TextBlock Text="{x:Static i18n:Resources.SnowDepth_Header}" />
                                 <Slider
@@ -365,7 +373,13 @@
                             <CheckBox Content="{x:Static i18n:Resources.ShaderFreezing_Content}" IsChecked="{Binding ShellVm.SnowProperty.IsBlur, Mode=TwoWay}" />
                         </StackPanel>
                         <!--  Rain  -->
-                        <StackPanel IsVisible="{Binding IsRainPropertyVisible}" Spacing="10">
+                        <StackPanel Spacing="10">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{StaticResource EnumToBoolConverter}">
+                                    <Binding Mode="OneWay" Path="SelectedShader" />
+                                    <Binding Mode="OneWay" Source="{x:Static enums:ShaderTypes.rain}" />
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
                             <StackPanel ToolTip.Tip="{Binding ShellVm.RainProperty.Intensity}">
                                 <TextBlock Text="{x:Static i18n:Resources.RainIntensity_Header}" />
                                 <Slider
@@ -432,7 +446,13 @@
                             <CheckBox Content="{x:Static i18n:Resources.RainLightning_Content}" IsChecked="{Binding ShellVm.RainProperty.IsLightning, Mode=TwoWay}" />
                         </StackPanel>
                         <!--  Depth  -->
-                        <StackPanel IsVisible="{Binding IsDepthPropertyVisible}" Spacing="10">
+                        <StackPanel Spacing="10">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{StaticResource EnumToBoolConverter}">
+                                    <Binding Mode="OneWay" Path="SelectedShader" />
+                                    <Binding Mode="OneWay" Source="{x:Static enums:ShaderTypes.depth}" />
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
                             <StackPanel ToolTip.Tip="{Binding ShellVm.DepthProperty.IntensityX}">
                                 <TextBlock Text="{x:Static i18n:Resources.DepthHorizontal_Header}" />
                                 <Slider
@@ -470,7 +490,13 @@
                             <CheckBox Content="{x:Static i18n:Resources.ShaderBlur_Content}" IsChecked="{Binding ShellVm.DepthProperty.IsBlur, Mode=TwoWay}" />
                         </StackPanel>
                         <!--  Fog  -->
-                        <StackPanel IsVisible="{Binding IsFogPropertyVisible}" Spacing="10">
+                        <StackPanel Spacing="10">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{StaticResource EnumToBoolConverter}">
+                                    <Binding Mode="OneWay" Path="SelectedShader" />
+                                    <Binding Mode="OneWay" Source="{x:Static enums:ShaderTypes.fog}" />
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
                             <StackPanel Spacing="10">
                                 <TextBlock Text="{x:Static i18n:Resources.FogColorGradient_Text}" />
                                 <ColorPicker HorizontalAlignment="Left" Color="{Binding ShellVm.FogProperty.Color1, Mode=TwoWay, Converter={StaticResource Vector3ToColorConverter}}" />
@@ -530,7 +556,13 @@
                             </Button>
                         </StackPanel>
                         <!--  Clouds  -->
-                        <StackPanel IsVisible="{Binding IsCloudsPropertyVisible}" Spacing="10">
+                        <StackPanel Spacing="10">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{StaticResource EnumToBoolConverter}">
+                                    <Binding Mode="OneWay" Path="SelectedShader" />
+                                    <Binding Mode="OneWay" Source="{x:Static enums:ShaderTypes.clouds}" />
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
                             <StackPanel ToolTip.Tip="{Binding ShellVm.CloudsProperty.Scale}">
                                 <TextBlock Text="{x:Static i18n:Resources.CloudScale_Header}" />
                                 <Slider

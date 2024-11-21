@@ -67,6 +67,9 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     [ObservableProperty]
     private ObservableCollection<ScreensaverModel> weathers = new();
 
+    [ObservableProperty]
+    private ShaderTypes selectedShader;
+
     private ScreensaverModel _selectedWeather;
     public ScreensaverModel SelectedWeather
     {
@@ -99,21 +102,6 @@ public sealed partial class ScreensaverViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isFullScreen;
-
-    [ObservableProperty]
-    private bool isRainPropertyVisible;
-
-    [ObservableProperty]
-    private bool isSnowPropertyVisible;
-
-    [ObservableProperty]
-    private bool isCloudsPropertyVisible;
-
-    [ObservableProperty]
-    private bool isDepthPropertyVisible;
-
-    [ObservableProperty]
-    private bool isFogPropertyVisible;
 
     [ObservableProperty]
     private bool isBusy;
@@ -169,25 +157,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
 
     private void UpdateWeatherSelection()
     {
-        IsRainPropertyVisible = IsSnowPropertyVisible = IsCloudsPropertyVisible = IsFogPropertyVisible = IsDepthPropertyVisible = false;
-        switch (ShellVm.SelectedWeatherAnimation.GetShader())
-        {
-            case ShaderTypes.clouds:
-                IsCloudsPropertyVisible = true;
-                break;
-            case ShaderTypes.rain:
-                IsRainPropertyVisible = true;
-                break;
-            case ShaderTypes.snow:
-                IsSnowPropertyVisible = true;
-                break;
-            case ShaderTypes.depth:
-                IsDepthPropertyVisible = true;
-                break;
-            case ShaderTypes.fog:
-                IsFogPropertyVisible = true;
-                break;
-        }
+        SelectedShader = ShellVm.SelectedWeatherAnimation.GetShader();
     }
 
     #region background selection
