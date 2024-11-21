@@ -48,14 +48,12 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         ShellVm.IsMouseDrag = true;
         defaultWeatherAnimation = this.ShellVm.SelectedWeatherAnimation;
 
-        UpdateWeatherSelection();
-        ShellVm.PropertyChanged += ShellVm_PropertyChanged;
-
         foreach (int i in Enum.GetValues(typeof(WmoWeatherCode)))
         {
             Weathers.Add(new ScreensaverModel(i, shellVm.IsSelectedLocationDaytime));
         }
         SelectedWeather = Weathers.FirstOrDefault(x => x.WeatherCode == (int)ShellVm.SelectedWeatherAnimation);
+        SelectedShader = ShellVm.SelectedWeatherAnimation.GetShader();
 
         AutoHideMenu = userSettings.Get<bool>(UserSettingsConstants.AutoHideScreensaverMenu);
 
@@ -76,12 +74,15 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         get => _selectedWeather;
         set
         {
+            // Only update when user selects new weather
             if (value.WeatherCode != (int)ShellVm.SelectedWeatherAnimation)
             {
-                // Change random background if switching from different shader type for better UX (shader image change have no transition)
+                // Change random background if switching from different weather (for the same shader) for better UX (shader image change have no transition)
                 var type1 = ((WmoWeatherCode)_selectedWeather.WeatherCode).GetWeather().Type;
                 var type2 = ((WmoWeatherCode)value.WeatherCode).GetWeather().Type;
                 ShellVm.SetWeatherAnimation((WmoWeatherCode)value.WeatherCode, type1 != type2);
+                SelectedShader = ShellVm.SelectedWeatherAnimation.GetShader();
+                UpdateBackgroundSelection();
             }
             SetProperty(ref _selectedWeather, value);
         }
@@ -137,27 +138,12 @@ public sealed partial class ScreensaverViewModel : ObservableObject
         }
 
         ShellVm.IsMouseDrag = false;
-        ShellVm.PropertyChanged -= ShellVm_PropertyChanged;
     }
 
     [RelayCommand]
     private void FullScreen()
     {
         IsFullScreen = navigator.ToFullscreen(!IsFullScreen);
-    }
-
-    private void ShellVm_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-    {
-        if (e.PropertyName == "SelectedWeatherAnimation")
-        {
-            UpdateWeatherSelection();
-            UpdateBackgroundSelection();
-        }
-    }
-
-    private void UpdateWeatherSelection()
-    {
-        SelectedShader = ShellVm.SelectedWeatherAnimation.GetShader();
     }
 
     #region background selection
@@ -234,7 +220,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     private async Task ChangeBackground()
     {
         IsBusy = true;
-        switch (((WmoWeatherCode)SelectedWeather.WeatherCode).GetShader())
+        switch (SelectedShader)
         {
             case ShaderTypes.rain:
                 {
@@ -306,7 +292,7 @@ public sealed partial class ScreensaverViewModel : ObservableObject
     [RelayCommand]
     private void DeleteBackground(UserImageModel obj)
     {
-        switch (((WmoWeatherCode)SelectedWeather.WeatherCode).GetShader())
+        switch (SelectedShader)
         {
             case ShaderTypes.rain:
                 if (obj is not null && obj.IsEditable)
