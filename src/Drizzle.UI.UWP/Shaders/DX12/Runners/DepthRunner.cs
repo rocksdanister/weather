@@ -6,7 +6,7 @@ using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using System;
 
-namespace Drizzle.UI.Shaders.Runners;
+namespace Drizzle.UI.Shaders.DX12.Runners;
 
 public sealed class DepthRunner : IShaderRunner
 {

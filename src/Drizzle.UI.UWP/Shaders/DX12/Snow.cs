@@ -1,6 +1,6 @@
 ﻿using ComputeSharp;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.DX12;
 
 /// <summary>
 /// Simple (but not cheap) snow made from multiple parallax layers with randomly positioned flakes and directions.

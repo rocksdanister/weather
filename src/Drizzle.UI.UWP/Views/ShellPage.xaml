@@ -53,7 +53,9 @@
                 IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
                 IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
                 Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
-                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
+                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}"
+                Visibility="Collapsed" />
+            <customControls:D2D1AnimatedPixelShaderPanel IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}" ShaderRunner="{x:Bind shellVm.SelectedShader.D2D1ShaderRunner, Mode=OneWay}" />
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"

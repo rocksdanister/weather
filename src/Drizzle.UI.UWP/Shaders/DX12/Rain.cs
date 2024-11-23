@@ -1,6 +1,6 @@
 ﻿using ComputeSharp;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.DX12;
 
 /// <summary>
 /// Rain effect shader

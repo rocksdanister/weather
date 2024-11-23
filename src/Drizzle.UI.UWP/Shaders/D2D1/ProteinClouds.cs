@@ -1,6 +1,7 @@
-﻿using ComputeSharp;
+using ComputeSharp;
+using ComputeSharp.D2D1;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.D2D1;
 
 /// <summary>
 /// Fully procedural 3D animated volume with three evaluations per step (for shading).
@@ -8,14 +9,21 @@ namespace Drizzle.UI.Shaders;
 /// <para>Created by nimitz (twitter: @stormoid).</para>
 /// <para>License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</para>
 /// </summary>
+[D2DInputCount(0)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Clouds : IPixelShader<float4>
+public readonly partial struct Clouds : ID2D1PixelShader
 {
     /// <summary>
     /// The current time Hlsl.Since the start of the application.
     /// </summary>
     private readonly float time;
+
+    /// <summary>
+    /// The dispatch size for the current output.
+    /// </summary>
+    private readonly int2 dispatchSize;
 
     private readonly float4 mouse;
 
@@ -71,7 +79,7 @@ public readonly partial struct Clouds : IPixelShader<float4>
         float trk = 1.0f;
         float dspAmp = 0.1f + (prm1 * 0.2f);
 
-        for (int i = 0; i < iterations; i++)
+        for (int i = 0; i < this.iterations; i++)
         {
             p += Hlsl.Sin((p.ZXY * 0.75f * trk) + (Time() * trk * 0.8f)) * dspAmp;
             d -= Hlsl.Abs(Hlsl.Dot(Hlsl.Cos(p), Hlsl.Sin(p.YZX)) * z);
@@ -160,9 +168,10 @@ public readonly partial struct Clouds : IPixelShader<float4>
     /// <inheritdoc/>
     public float4 Execute()
     {
-        float2 q = (float2)ThreadIds.XY / DispatchSize.XY;
-        float2 p = (ThreadIds.XY - (0.5f * (float2)DispatchSize.XY)) / DispatchSize.Y;
-        float2 bsMo = mouse.XY - 0.5f * (float2)DispatchSize.XY / DispatchSize.Y;
+        int2 xy = (int2)D2D.GetScenePosition().XY;
+        float2 q = (float2)xy / this.dispatchSize;
+        float2 p = (xy - (0.5f * (float2)this.dispatchSize)) / this.dispatchSize.Y;
+        float2 bsMo = mouse.XY - 0.5f * (float2)this.dispatchSize / this.dispatchSize.Y;
         float scaledTime = Time() * 3.0f;
         float3 ro = new(0, 0, scaledTime);
 

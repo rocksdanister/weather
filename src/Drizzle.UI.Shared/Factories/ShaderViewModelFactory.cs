@@ -4,7 +4,8 @@ using Drizzle.UI.Shared.ViewModels;
 using System;
 
 #if WINDOWS_UWP
-using Drizzle.UI.Shaders.Runners;
+using Drizzle.UI.Shaders.DX12.Runners;
+using Drizzle.UI.UWP.Shaders.D2D1.Runners;
 #endif
 
 namespace Drizzle.UI.Shared.Factories;
@@ -33,6 +34,16 @@ public class ShaderViewModelFactory : IShaderViewModelFactory
             ShaderTypes.depth => new DepthRunner(() => shaderVm.Model as DepthModel),
             ShaderTypes.fog => new WindRunner(() => shaderVm.Model as WindModel),
             ShaderTypes.tunnel => new TunnelRunner(() => shaderVm.Model as TunnelModel),
+            _ => throw new NotImplementedException(),
+        };
+        shaderVm.D2D1ShaderRunner = shaderType switch
+        {
+            ShaderTypes.clouds => new ProteinCloudsRunner(() => shaderVm.Model as CloudsModel),
+            ShaderTypes.rain => null,
+            ShaderTypes.snow => null,
+            ShaderTypes.depth => null,
+            ShaderTypes.fog => null,
+            ShaderTypes.tunnel => null,
             _ => throw new NotImplementedException(),
         };
 #else

@@ -1,7 +1,7 @@
 ﻿using ComputeSharp;
 using System;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.DX12;
 
 /// <summary>
 /// Parallax depth effect using depthmaps

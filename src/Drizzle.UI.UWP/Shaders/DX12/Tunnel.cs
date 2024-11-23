@@ -1,6 +1,6 @@
 ﻿using ComputeSharp;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.DX12;
 
 /// <summary>
 /// A 2D square tunnel.
