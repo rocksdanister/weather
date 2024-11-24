@@ -39,7 +39,9 @@ public sealed class CloudsRunner : ID2D1ShaderRunner, IDisposable
         int widthInPixels = sender.ConvertDipsToPixels((float)renderSize.Width, CanvasDpiRounding.Round);
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
+        // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);
+
         // Set the constant buffer
         this.pixelShaderEffect.ConstantBuffer = new Clouds((float)simulatedTime, 
             new int2(widthInPixels, heightInPixels),

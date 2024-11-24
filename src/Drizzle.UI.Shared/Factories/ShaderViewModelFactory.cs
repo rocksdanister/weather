@@ -39,7 +39,7 @@ public class ShaderViewModelFactory : IShaderViewModelFactory
         shaderVm.D2D1ShaderRunner = shaderType switch
         {
             ShaderTypes.clouds => new D2D1.CloudsRunner(() => shaderVm.Model as CloudsModel),
-            ShaderTypes.rain => null,
+            ShaderTypes.rain => new D2D1.RainRunner(() => shaderVm.Model as RainModel),
             ShaderTypes.snow => new D2D1.SnowRunner(() => shaderVm.Model as SnowModel),
             ShaderTypes.depth => null,
             ShaderTypes.fog => null,

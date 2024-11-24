@@ -11,28 +11,28 @@ using Windows.Foundation;
 
 namespace Drizzle.UI.UWP.Shaders.D2D1.Runners;
 
-public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
+public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
 {
-    private readonly PixelShaderEffect<Snow>? pixelShaderEffect;
-    private readonly Func<SnowModel> properties;
-    private readonly SnowModel currentProperties;
+    private readonly PixelShaderEffect<Rain>? pixelShaderEffect;
+    private readonly Func<RainModel> properties;
+    private readonly RainModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
 
-    public SnowRunner()
+    public RainRunner()
     {
-        this.pixelShaderEffect = new PixelShaderEffect<Snow>();
-        this.properties ??= () => new SnowModel();
-        this.currentProperties ??= new SnowModel();
+        this.pixelShaderEffect = new PixelShaderEffect<Rain>();
+        this.properties ??= () => new RainModel();
+        this.currentProperties ??= new RainModel();
     }
 
-    public SnowRunner(Func<SnowModel> properties) : this()
+    public RainRunner(Func<RainModel> properties) : this()
     {
         this.properties = properties;
         this.currentProperties = new(properties());
     }
 
-    public unsafe void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
         var canvasSize = sender.Size;
         var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
@@ -47,19 +47,20 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);
 
-        // Set the uniforms
-        this.pixelShaderEffect.ConstantBuffer = new Snow((float)simulatedTime,
+        // Set the constant buffer
+        this.pixelShaderEffect.ConstantBuffer = new Rain((float)simulatedTime,
             new int2(widthInPixels, heightInPixels),
             mouseOffset,
             currentProperties.Speed,
-            currentProperties.Depth,
-            currentProperties.Width,
+            currentProperties.Intensity,
+            currentProperties.Zoom,
+            currentProperties.Normal,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            currentProperties.Layers,
             currentProperties.PostProcessing,
-            currentProperties.IsLightning,
-            currentProperties.IsBlur);
+            currentProperties.IsPanning,
+            currentProperties.IsFreezing,
+            currentProperties.IsLightning);
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,
