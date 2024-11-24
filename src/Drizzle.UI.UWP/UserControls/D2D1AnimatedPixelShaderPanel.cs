@@ -20,7 +20,7 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
     /// </summary>
     private volatile ID2D1ShaderRunner? shaderRunner;
 
-    private double resolutionScale = 1f;
+    private double resolutionScale = 1d;
     private bool isPerformanceMetricVisible = false;
     private readonly Stopwatch performanceMetricStopWatch = new();
     private int frameCount = 0;
@@ -44,8 +44,7 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
 
         this.canvasAnimatedControl = (CanvasAnimatedControl)GetTemplateChild("PART_CanvasAnimatedControl")!;
         this.canvasAnimatedControl.Draw += CanvasAnimatedControl_Draw;
-
-        //this.canvasAnimatedControl.TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 24);
+        this.canvasAnimatedControl.TargetElapsedTime = TimeSpan.FromTicks(10000000 / (long)TargetFrameRate);
     }
 
     // Ensure the panel is not paused when the control is loaded
@@ -159,12 +158,33 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
     }
 
     public static readonly DependencyProperty ResolutionScaleProperty =
-        DependencyProperty.Register(nameof(ResolutionScale), typeof(double), typeof(D2D1AnimatedPixelShaderPanel), new PropertyMetadata(1f, OnResolutionScalePropertyChanged));
+        DependencyProperty.Register(nameof(ResolutionScale), typeof(double), typeof(D2D1AnimatedPixelShaderPanel), new PropertyMetadata(1d, OnResolutionScalePropertyChanged));
 
     private static void OnResolutionScalePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         D2D1AnimatedPixelShaderPanel @this = (D2D1AnimatedPixelShaderPanel)d;
         @this.resolutionScale = (double)e.NewValue;
+    }
+
+    public double TargetFrameRate
+    {
+        get { return (double)GetValue(TargetFrameRateProperty); }
+        set { SetValue(TargetFrameRateProperty, value); }
+    }
+
+    public static readonly DependencyProperty TargetFrameRateProperty =
+        DependencyProperty.Register(nameof(TargetFrameRate), typeof(double), typeof(D2D1AnimatedPixelShaderPanel), new PropertyMetadata(60d, OnTargetFrameRatePropertyChanged));
+
+    private static void OnTargetFrameRatePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        D2D1AnimatedPixelShaderPanel @this = (D2D1AnimatedPixelShaderPanel)d;
+        var targetFps = (double)e.NewValue;
+        if (@this.canvasAnimatedControl is { } canvasAnimatedControl)
+        {
+            // Default is 1/60th of a second.
+            // Ref: https://microsoft.github.io/Win2D/WinUI3/html/P_Microsoft_Graphics_Canvas_UI_Xaml_CanvasAnimatedControl_TargetElapsedTime.htm
+            canvasAnimatedControl.TargetElapsedTime = TimeSpan.FromTicks(10000000 / (long)targetFps);
+        }
     }
 
     public bool IsPerformanceMetricVisible
