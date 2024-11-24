@@ -40,7 +40,7 @@ public partial class ShellViewModel : ObservableObject
     private readonly ITimerService weatherRefreshTimer;
     private readonly ILogger logger;
 
-    private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.PartlyCloudy;
+    private readonly WmoWeatherCode defaultAnimation = WmoWeatherCode.ModerateSnowFall;
     private readonly SemaphoreSlim weatherUpdatingLock = new(1, 1);
     private readonly int maxPinnedLocations;
 
