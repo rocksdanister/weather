@@ -21,9 +21,15 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
 
     public RainRunner()
     {
-        this.pixelShaderEffect = new PixelShaderEffect<Rain>();
         this.properties ??= () => new RainModel();
         this.currentProperties ??= new RainModel();
+        this.pixelShaderEffect = new PixelShaderEffect<Rain>()
+        {
+            ResourceTextureManagers =
+            {
+                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath)
+            }
+        };
     }
 
     public RainRunner(Func<RainModel> properties) : this()

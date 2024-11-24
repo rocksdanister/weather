@@ -41,7 +41,7 @@ public class ShaderViewModelFactory : IShaderViewModelFactory
             ShaderTypes.clouds => new D2D1.CloudsRunner(() => shaderVm.Model as CloudsModel),
             ShaderTypes.rain => new D2D1.RainRunner(() => shaderVm.Model as RainModel),
             ShaderTypes.snow => new D2D1.SnowRunner(() => shaderVm.Model as SnowModel),
-            ShaderTypes.depth => null,
+            ShaderTypes.depth => new D2D1.DepthRunner(() => shaderVm.Model as DepthModel),
             ShaderTypes.fog => null,
             ShaderTypes.tunnel => null,
             _ => throw new NotImplementedException(),

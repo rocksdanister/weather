@@ -11,34 +11,34 @@ using Windows.Foundation;
 
 namespace Drizzle.UI.UWP.Shaders.D2D1.Runners;
 
-public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
+public sealed class DepthRunner : ID2D1ShaderRunner, IDisposable
 {
-    private readonly PixelShaderEffect<Snow>? pixelShaderEffect;
-    private readonly Func<SnowModel> properties;
-    private readonly SnowModel currentProperties;
+    private readonly PixelShaderEffect<Depth>? pixelShaderEffect;
+    private readonly Func<DepthModel> properties;
+    private readonly DepthModel currentProperties;
     private float4 mouseOffset = float4.Zero;
-    private double simulatedTime, previousTime;
 
-    public SnowRunner()
+    public DepthRunner()
     {
-        this.properties ??= () => new SnowModel();
-        this.currentProperties ??= new SnowModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Snow>()
+        this.properties ??= () => new DepthModel();
+        this.currentProperties ??= new DepthModel();
+        this.pixelShaderEffect = new PixelShaderEffect<Depth>()
         {
             ResourceTextureManagers =
             {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath)
+                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath),
+                [1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.DepthPath)
             }
         };
     }
 
-    public SnowRunner(Func<SnowModel> properties) : this()
+    public DepthRunner(Func<DepthModel> properties) : this()
     {
         this.properties = properties;
         this.currentProperties = new(properties());
     }
 
-    public unsafe void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
         var canvasSize = sender.Size;
         var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
@@ -47,25 +47,27 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (properties().ImagePath == null || currentProperties.ImagePath != properties().ImagePath)
+        if (properties().ImagePath == null 
+            || currentProperties.ImagePath != properties().ImagePath 
+            || properties().DepthPath == null 
+            || currentProperties.DepthPath != properties().DepthPath)
+        {
             this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
+            this.pixelShaderEffect.ResourceTextureManagers[1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().DepthPath);
+        }
 
         // Update uniforms
-        UpdateUniforms(args.Timing.TotalTime);
+        UpdateUniforms();
 
         // Set the uniforms
-        this.pixelShaderEffect.ConstantBuffer = new Snow((float)simulatedTime,
+        this.pixelShaderEffect.ConstantBuffer = new Depth(
             new int2(widthInPixels, heightInPixels),
+            new float4(currentProperties.Mouse.X, currentProperties.Mouse.Y, currentProperties.Mouse.W, currentProperties.Mouse.Z),
             mouseOffset,
-            currentProperties.Speed,
-            currentProperties.Depth,
-            currentProperties.Width,
-            currentProperties.Brightness,
+            new float2(currentProperties.IntensityX, currentProperties.IntensityY),
+            currentProperties.IsBlur,
             currentProperties.Saturation,
-            currentProperties.Layers,
-            currentProperties.PostProcessing,
-            currentProperties.IsLightning,
-            currentProperties.IsBlur);
+            currentProperties.Brightness);
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,
@@ -73,7 +75,7 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
             sourceRectangle: new Rect(0, 0, renderSize.Width, renderSize.Height));
     }
 
-    private void UpdateUniforms(TimeSpan timespan)
+    private void UpdateUniforms()
     {
         // Mouse
         currentProperties.Mouse = properties().Mouse;
@@ -82,10 +84,8 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         mouseOffset.X += (currentProperties.MouseSpeed * currentProperties.Mouse.X - mouseOffset.X) * currentProperties.MouseInertia;
         mouseOffset.Y += (currentProperties.MouseSpeed * currentProperties.Mouse.Y - mouseOffset.Y) * currentProperties.MouseInertia;
 
-        // Time, adjust delta instead of actual time/speed to avoid rewinding time
+        // Time
         currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
-        simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;
-        previousTime = timespan.TotalSeconds;
 
         // Shader specific
         properties().UniformFrameUpdate(currentProperties);
