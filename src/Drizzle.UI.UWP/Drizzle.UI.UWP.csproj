@@ -204,9 +204,9 @@
     <Compile Include="Services\ResourceService.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
-    <Compile Include="Shaders\D2D1\ProteinClouds.cs" />
+    <Compile Include="Shaders\D2D1\Clouds.cs" />
     <Compile Include="Shaders\D2D1\Runners\ID2D1ShaderRunner.cs" />
-    <Compile Include="Shaders\D2D1\Runners\ProteinCloudsRunner.cs" />
+    <Compile Include="Shaders\D2D1\Runners\CloudsRunner.cs" />
     <Compile Include="Shaders\DX12\Clouds.cs" />
     <Compile Include="Shaders\DX12\Depth.cs" />
     <Compile Include="Shaders\DX12\Rain.cs" />

@@ -4,8 +4,8 @@ using Drizzle.UI.Shared.ViewModels;
 using System;
 
 #if WINDOWS_UWP
-using Drizzle.UI.Shaders.DX12.Runners;
-using Drizzle.UI.UWP.Shaders.D2D1.Runners;
+using DX12 = Drizzle.UI.Shaders.DX12.Runners;
+using D2D1 = Drizzle.UI.UWP.Shaders.D2D1.Runners;
 #endif
 
 namespace Drizzle.UI.Shared.Factories;
@@ -28,17 +28,17 @@ public class ShaderViewModelFactory : IShaderViewModelFactory
         };
         shaderVm.Runner = shaderType switch
         {
-            ShaderTypes.clouds => new CloudsRunner(() => shaderVm.Model as CloudsModel),
-            ShaderTypes.rain => new RainRunner(() => shaderVm.Model as RainModel),
-            ShaderTypes.snow => new SnowRunner(() => shaderVm.Model as SnowModel),
-            ShaderTypes.depth => new DepthRunner(() => shaderVm.Model as DepthModel),
-            ShaderTypes.fog => new WindRunner(() => shaderVm.Model as WindModel),
-            ShaderTypes.tunnel => new TunnelRunner(() => shaderVm.Model as TunnelModel),
+            ShaderTypes.clouds => new DX12.CloudsRunner(() => shaderVm.Model as CloudsModel),
+            ShaderTypes.rain => new DX12.RainRunner(() => shaderVm.Model as RainModel),
+            ShaderTypes.snow => new DX12.SnowRunner(() => shaderVm.Model as SnowModel),
+            ShaderTypes.depth => new DX12.DepthRunner(() => shaderVm.Model as DepthModel),
+            ShaderTypes.fog => new DX12.WindRunner(() => shaderVm.Model as WindModel),
+            ShaderTypes.tunnel => new DX12.TunnelRunner(() => shaderVm.Model as TunnelModel),
             _ => throw new NotImplementedException(),
         };
         shaderVm.D2D1ShaderRunner = shaderType switch
         {
-            ShaderTypes.clouds => new ProteinCloudsRunner(() => shaderVm.Model as CloudsModel),
+            ShaderTypes.clouds => new D2D1.CloudsRunner(() => shaderVm.Model as CloudsModel),
             ShaderTypes.rain => null,
             ShaderTypes.snow => null,
             ShaderTypes.depth => null,
