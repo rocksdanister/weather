@@ -31,7 +31,11 @@ public sealed class TunnelRunner : IShaderRunner
     public bool TryExecute(IReadWriteNormalizedTexture2D<float4> texture, TimeSpan timespan, object parameter)
     {
         UpdateUniforms(texture.GraphicsDevice, timespan);
-        texture.GraphicsDevice.ForEach(texture, new Tunnel((float)simulatedTime, image, currentProperties.Brightness, currentProperties.Speed, currentProperties.IsSquare));
+        texture.GraphicsDevice.ForEach(texture, new Tunnel((float)simulatedTime, 
+            image, 
+            currentProperties.Brightness,
+            currentProperties.Speed, 
+            currentProperties.IsSquare));
 
         return true;
 

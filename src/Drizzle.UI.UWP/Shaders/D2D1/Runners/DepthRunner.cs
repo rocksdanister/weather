@@ -47,10 +47,7 @@ public sealed class DepthRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (properties().ImagePath == null 
-            || currentProperties.ImagePath != properties().ImagePath 
-            || properties().DepthPath == null 
-            || currentProperties.DepthPath != properties().DepthPath)
+        if (currentProperties.ImagePath != properties().ImagePath || currentProperties.DepthPath != properties().DepthPath)
         {
             this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
             this.pixelShaderEffect.ResourceTextureManagers[1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().DepthPath);

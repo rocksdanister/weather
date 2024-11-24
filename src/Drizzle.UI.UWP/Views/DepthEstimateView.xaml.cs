@@ -1,6 +1,7 @@
 ﻿using Drizzle.Common.Helpers;
 using Drizzle.ImageProcessing;
 using Drizzle.UI.Shared.ViewModels;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,13 +28,9 @@ namespace Drizzle.UI.UWP.Views
         {
             if (e.PropertyName == nameof(DepthEstimateViewModel.SelectedImage) && viewModel.SelectedImage is not null)
             {
-                // Workaround: ShaderPanel not running otherwise.
-                shaderPanel.IsPaused = true;
+                // Fix: Shader control not running, possibly dialog related issue?
                 await Task.Delay(100);
-                shaderPanel.IsPaused = false;
-
-                // Trigger fade in animation.
-                shaderPanel.Visibility = Visibility.Visible;
+                this.FindName("ShaderPanel");
             }
         }
 

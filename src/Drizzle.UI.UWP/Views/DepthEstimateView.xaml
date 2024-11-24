@@ -5,6 +5,7 @@
     xmlns:animations="using:CommunityToolkit.WinUI.Animations"
     xmlns:computesharp="using:ComputeSharp.Uwp"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
+    xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Drizzle.UI.UWP.Views"
@@ -33,21 +34,20 @@
             BorderBrush="{ThemeResource SystemAltHighColor}"
             BorderThickness="0"
             CornerRadius="5">
-            <computesharp:AnimatedComputeShaderPanel
-                x:Name="shaderPanel"
+            <customControls:D2D1AnimatedPixelShaderPanel
+                x:Name="ShaderPanel"
                 Width="500"
                 Height="350"
-                IsDynamicResolutionEnabled="False"
-                IsVerticalSyncEnabled="True"
+                x:Load="False"
                 ResolutionScale="{x:Bind viewModel.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
-                ShaderRunner="{x:Bind viewModel.SelectedShader.Runner, Mode=OneWay}">
+                ShaderRunner="{x:Bind viewModel.SelectedShader.D2D1ShaderRunner, Mode=OneWay}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         From="0"
                         To="1.0"
                         Duration="0:0:5" />
                 </animations:Implicit.ShowAnimations>
-            </computesharp:AnimatedComputeShaderPanel>
+            </customControls:D2D1AnimatedPixelShaderPanel>
         </Border>
         <!--<Border CornerRadius="5">
             <Border.Background>

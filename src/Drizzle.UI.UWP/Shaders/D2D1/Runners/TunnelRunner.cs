@@ -11,30 +11,27 @@ using Windows.Foundation;
 
 namespace Drizzle.UI.UWP.Shaders.D2D1.Runners;
 
-public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
+public sealed class TunnelRunner : ID2D1ShaderRunner, IDisposable
 {
-    private readonly PixelShaderEffect<Wind>? pixelShaderEffect;
-    private readonly Func<WindModel> properties;
-    private readonly WindModel currentProperties;
-    private float4 mouseOffset = float4.Zero;
+    private readonly PixelShaderEffect<Tunnel>? pixelShaderEffect;
+    private readonly Func<TunnelModel> properties;
+    private readonly TunnelModel currentProperties;
     private double simulatedTime, previousTime;
 
-    public WindRunner()
+    public TunnelRunner()
     {
-        this.properties ??= () => new WindModel();
-        this.currentProperties ??= new WindModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Wind>()
+        this.properties ??= () => new TunnelModel();
+        this.currentProperties ??= new TunnelModel();
+        this.pixelShaderEffect = new PixelShaderEffect<Tunnel>()
         {
             ResourceTextureManagers =
             {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath),
-                [1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.DepthPath)
+                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath)
             }
         };
-
     }
 
-    public WindRunner(Func<WindModel> properties) : this()
+    public TunnelRunner(Func<TunnelModel> properties) : this()
     {
         this.properties = properties;
         this.currentProperties = new(properties());
@@ -49,27 +46,18 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (currentProperties.ImagePath != properties().ImagePath || currentProperties.DepthPath != properties().DepthPath)
-        {
+        if (currentProperties.ImagePath != properties().ImagePath)
             this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
-            this.pixelShaderEffect.ResourceTextureManagers[1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().DepthPath);
-        }
 
         // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);
 
-        // Set the uniforms
-        this.pixelShaderEffect.ConstantBuffer = new Wind((float)simulatedTime,
+        // Set the constant buffer
+        this.pixelShaderEffect.ConstantBuffer = new Tunnel((float)simulatedTime,
             new int2(widthInPixels, heightInPixels),
-            new float4(currentProperties.Mouse.X, currentProperties.Mouse.Y, currentProperties.Mouse.W, currentProperties.Mouse.Z),
-            mouseOffset,
-            new float3(currentProperties.Color1.X, currentProperties.Color1.Y, currentProperties.Color1.Z),
-            new float3(currentProperties.Color2.X, currentProperties.Color2.Y, currentProperties.Color2.Z),
-            currentProperties.MaxSpeed - currentProperties.Speed + currentProperties.MinSpeed,
-            currentProperties.Amplitude,
-            new float2(currentProperties.ParallaxIntensityX, currentProperties.ParallaxIntensityY),
             currentProperties.Brightness,
-            currentProperties.Saturation);
+            currentProperties.Speed,
+            currentProperties.IsSquare);
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,
@@ -79,13 +67,6 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
 
     private void UpdateUniforms(TimeSpan timespan)
     {
-        // Mouse
-        currentProperties.Mouse = properties().Mouse;
-        currentProperties.MouseSpeed = properties().MouseSpeed;
-        currentProperties.MouseInertia = properties().MouseInertia;
-        mouseOffset.X += (currentProperties.MouseSpeed * currentProperties.Mouse.X - mouseOffset.X) * currentProperties.MouseInertia;
-        mouseOffset.Y += (currentProperties.MouseSpeed * currentProperties.Mouse.Y - mouseOffset.Y) * currentProperties.MouseInertia;
-
         // Time, adjust delta instead of actual time/speed to avoid rewinding time
         currentProperties.TimeMultiplier = MathUtil.Lerp(currentProperties.TimeMultiplier, properties().TimeMultiplier, 0.05f);
         simulatedTime += (timespan.TotalSeconds - previousTime) * currentProperties.TimeMultiplier;

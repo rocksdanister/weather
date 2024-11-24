@@ -212,8 +212,10 @@
     <Compile Include="Shaders\D2D1\Runners\CloudsRunner.cs" />
     <Compile Include="Shaders\D2D1\Runners\RainRunner.cs" />
     <Compile Include="Shaders\D2D1\Runners\SnowRunner.cs" />
+    <Compile Include="Shaders\D2D1\Runners\TunnelRunner.cs" />
     <Compile Include="Shaders\D2D1\Runners\WindRunner.cs" />
     <Compile Include="Shaders\D2D1\Snow.cs" />
+    <Compile Include="Shaders\D2D1\Tunnel.cs" />
     <Compile Include="Shaders\D2D1\Wind.cs" />
     <Compile Include="Shaders\DX12\Clouds.cs" />
     <Compile Include="Shaders\DX12\Depth.cs" />

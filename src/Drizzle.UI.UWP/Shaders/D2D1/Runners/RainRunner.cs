@@ -47,7 +47,7 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (properties().ImagePath == null || currentProperties.ImagePath != properties().ImagePath)
+        if (currentProperties.ImagePath != properties().ImagePath)
             this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
 
         // Update uniforms
