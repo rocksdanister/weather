@@ -1,5 +1,5 @@
-﻿using Drizzle.UI.UWP.Shaders.D2D1.Runners;
-using Microsoft.Graphics.Canvas.Text;
+﻿using Drizzle.UI.UWP.Extensions;
+using Drizzle.UI.UWP.Shaders.D2D1.Runners;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using System.Diagnostics;
@@ -86,7 +86,16 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
                 frameCount = 0;
                 performanceMetricStopWatch.Restart();
             }
-            args.DrawingSession.DrawText($"FPS: {fps:F2}, Scale: {resolutionScale}", 10, (float)sender.Size.Height - 25f, Windows.UI.Colors.White);
+
+            args.DrawingSession.DrawOverlayWithText(
+                text: $"FPS: {fps:F2} Scale: {resolutionScale:F2}",
+                fontSize: 21,
+                overlayX: 20f,
+                overlayY: (float)sender.Size.Height - 60f,
+                overlayPadding: 10f,
+                overlayColor: Windows.UI.Color.FromArgb(75, 0, 0, 0),
+                textColor: Windows.UI.Colors.White
+            );
         }
     }
 

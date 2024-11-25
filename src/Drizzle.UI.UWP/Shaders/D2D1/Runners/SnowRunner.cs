@@ -38,7 +38,7 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         this.currentProperties = new(properties());
     }
 
-    public unsafe void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
         var canvasSize = sender.Size;
         var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
