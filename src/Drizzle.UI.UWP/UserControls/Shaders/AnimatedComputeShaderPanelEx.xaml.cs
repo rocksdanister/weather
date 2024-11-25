@@ -5,7 +5,7 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace Drizzle.UI.UWP.UserControls;
+namespace Drizzle.UI.UWP.UserControls.Shaders;
 
 /// <summary>
 /// AnimatedComputeShaderPanel with shader switch transition effect.

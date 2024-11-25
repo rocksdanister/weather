@@ -14,6 +14,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:shaderControls="using:Drizzle.UI.UWP.UserControls.Shaders"
     xmlns:viewmodels="using:Drizzle.UI.Shared.ViewModels"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="mainPage"
@@ -49,12 +50,12 @@
 
         <!--  Background  -->
         <Grid Grid.RowSpan="2">
-            <!--<customControls:AnimatedComputeShaderPanelEx
+            <!--<shaderControls:AnimatedComputeShaderPanelEx
                 IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
                 IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
                 Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
                 Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />-->
-            <customControls:D2D1AnimatedPixelShaderPanel
+            <shaderControls:D2D1AnimatedPixelShaderPanel
                 IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
                 IsPerformanceMetricVisible="True"
                 ShaderRunner="{x:Bind shellVm.SelectedShader.D2D1ShaderRunner, Mode=OneWay}" />

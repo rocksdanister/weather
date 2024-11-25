@@ -244,15 +244,11 @@
     <Compile Include="UserControls\Cards\Compass.xaml.cs">
       <DependentUpon>Compass.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\D2D1AnimatedPixelShaderPanel.cs" />
     <Compile Include="UserControls\DailyGraph.xaml.cs">
       <DependentUpon>DailyGraph.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Cards\Humidity.xaml.cs">
       <DependentUpon>Humidity.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\AnimatedComputeShaderPanelEx.xaml.cs">
-      <DependentUpon>AnimatedComputeShaderPanelEx.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ImageEx.xaml.cs">
       <DependentUpon>ImageEx.xaml</DependentUpon>
@@ -263,6 +259,10 @@
     <Compile Include="UserControls\Cards\Pressure.xaml.cs">
       <DependentUpon>Pressure.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Shaders\AnimatedComputeShaderPanelEx.xaml.cs">
+      <DependentUpon>AnimatedComputeShaderPanelEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Shaders\D2D1AnimatedPixelShaderPanel.cs" />
     <Compile Include="UserControls\VolumeControl.xaml.cs">
       <DependentUpon>VolumeControl.xaml</DependentUpon>
     </Compile>
@@ -534,10 +534,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\D2D1AnimatedPixelShaderPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\DailyGraph.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -545,10 +541,6 @@
     <Page Include="UserControls\Cards\Humidity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\AnimatedComputeShaderPanelEx.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\ImageEx.xaml">
       <SubType>Designer</SubType>
@@ -561,6 +553,14 @@
     <Page Include="UserControls\Cards\Pressure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Shaders\AnimatedComputeShaderPanelEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Shaders\D2D1AnimatedPixelShaderPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\VolumeControl.xaml">
       <SubType>Designer</SubType>

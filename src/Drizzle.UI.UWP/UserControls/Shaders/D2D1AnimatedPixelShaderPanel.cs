@@ -5,7 +5,8 @@ using System;
 using System.Diagnostics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-namespace Drizzle.UI.UWP.UserControls;
+
+namespace Drizzle.UI.UWP.UserControls.Shaders;
 
 [TemplatePart(Name = "PART_CanvasAnimatedControl", Type = typeof(CanvasAnimatedControl))]
 public sealed class D2D1AnimatedPixelShaderPanel : Control

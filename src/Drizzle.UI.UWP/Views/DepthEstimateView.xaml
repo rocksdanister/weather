@@ -12,6 +12,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:shaderControls="using:Drizzle.UI.UWP.UserControls.Shaders"
     xmlns:toolkit="using:CommunityToolkit.WinUI.Controls"
     Loaded="Page_Loaded"
     Unloaded="Page_Unloaded"
@@ -34,7 +35,7 @@
             BorderBrush="{ThemeResource SystemAltHighColor}"
             BorderThickness="0"
             CornerRadius="5">
-            <customControls:D2D1AnimatedPixelShaderPanel
+            <shaderControls:D2D1AnimatedPixelShaderPanel
                 x:Name="ShaderPanel"
                 Width="500"
                 Height="350"
@@ -47,7 +48,7 @@
                         To="1.0"
                         Duration="0:0:5" />
                 </animations:Implicit.ShowAnimations>
-            </customControls:D2D1AnimatedPixelShaderPanel>
+            </shaderControls:D2D1AnimatedPixelShaderPanel>
         </Border>
         <!--<Border CornerRadius="5">
             <Border.Background>
