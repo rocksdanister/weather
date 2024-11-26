@@ -196,16 +196,20 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard
-                    Description="Visual rendering method"
-                    Header="Engine"
-                    IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                <labs:SettingsCard x:Uid="RendererSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEC87;" />
                     </labs:SettingsCard.HeaderIcon>
                     <labs:Segmented SelectedIndex="{x:Bind viewModel.SelectedShaderRendererIndex, Mode=TwoWay}">
                         <labs:SegmentedItem Content="DX12" />
-                        <labs:SegmentedItem Content="D2D1" />
+                        <labs:SegmentedItem>
+                            <TextBlock>
+                                <Run Text="D2D1" />
+                                <Run Foreground="{ThemeResource SystemAccentColorLight2}" Text="(" />
+                                <Run x:Uid="TitleRecommended" Foreground="{ThemeResource SystemAccentColorLight2}" />
+                                <Run Foreground="{ThemeResource SystemAccentColorLight2}" Text=")" />
+                            </TextBlock>
+                        </labs:SegmentedItem>
                         <labs:SegmentedItem Content="Skia" Visibility="Collapsed" />
                     </labs:Segmented>
                 </labs:SettingsCard>
@@ -243,7 +247,7 @@
                         IsChecked="{x:Bind viewModel.BackgroundPauseAudio, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
-                <labs:SettingsCard Header="Show diagnostics">
+                <labs:SettingsCard x:Uid="ShowDiagnosticsSettings">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEC7A;" />
                     </labs:SettingsCard.HeaderIcon>

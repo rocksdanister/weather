@@ -336,6 +336,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Restore Default</value>
   </data>
@@ -356,6 +362,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Speed</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Depth</value>
@@ -494,6 +503,9 @@
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressure</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Speed</value>
