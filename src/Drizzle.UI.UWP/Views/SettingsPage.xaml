@@ -196,6 +196,33 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
+                <labs:SettingsCard
+                    Description="Visual rendering method"
+                    Header="Engine"
+                    IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xEC87;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <labs:Segmented SelectedIndex="{x:Bind viewModel.SelectedShaderRendererIndex, Mode=TwoWay}">
+                        <labs:SegmentedItem Content="DX12" />
+                        <labs:SegmentedItem Content="D2D1" />
+                        <labs:SegmentedItem Content="Skia" Visibility="Collapsed" />
+                    </labs:Segmented>
+                </labs:SettingsCard>
+
+                <labs:SettingsCard x:Uid="FrameRateSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90D;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <labs:Segmented SelectedIndex="{x:Bind viewModel.SelectedTargetFrameRateIndex, Mode=TwoWay}">
+                        <labs:SegmentedItem Content="15" />
+                        <labs:SegmentedItem Content="24" />
+                        <labs:SegmentedItem Content="30" />
+                        <labs:SegmentedItem Content="45" />
+                        <labs:SegmentedItem Content="60" />
+                    </labs:Segmented>
+                </labs:SettingsCard>
+
                 <labs:SettingsCard x:Uid="PauseIfBackgroundSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE769;" />
@@ -216,16 +243,16 @@
                         IsChecked="{x:Bind viewModel.BackgroundPauseAudio, Mode=TwoWay}" />
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="FrameRateSettings" Visibility="Collapsed">
+                <labs:SettingsCard Header="Show diagnostics">
                     <labs:SettingsCard.HeaderIcon>
-                        <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE90D;" />
+                        <FontIcon Glyph="&#xEC7A;" />
                     </labs:SettingsCard.HeaderIcon>
-                    <Slider
-                        MinWidth="200"
-                        Maximum="120"
-                        Minimum="12"
-                        Value="60" />
+                    <CheckBox
+                        MinWidth="0"
+                        Padding="0"
+                        IsChecked="{x:Bind viewModel.DiagnosticsVisible, Mode=TwoWay}" />
                 </labs:SettingsCard>
+
                 <muxc:InfoBar
                     IsClosable="False"
                     IsIconVisible="False"

@@ -60,6 +60,12 @@ public static class UserSettingsConstants
 
     public const string SelectedMainGraphType = "SelectedMainGraphType";
 
+    public const string DiagnosticsVisible = "DiagnosticsVisible";
+
+    public const string SelectedShaderRenderer = "SelectedShaderRenderer";
+
+    public const string TargetFrameRate = "TargetFrameRate";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -86,6 +92,9 @@ public static class UserSettingsConstants
         { SelectedMainGraphType, GraphType.temperature },
         { SelectedPrecipitationUnit, PrecipitationUnits.mm },
         { SelectedLanguageCode, string.Empty }, //en-US, zh-CN
-        { UseSystemDefaultLanguage, true } // Ignores "SelectedLanguageCode"
+        { UseSystemDefaultLanguage, true }, // Ignores "SelectedLanguageCode"
+        { DiagnosticsVisible, false },
+        { SelectedShaderRenderer, ShaderRenderer.d2d1 },
+        { TargetFrameRate, 60 }
     };
 }

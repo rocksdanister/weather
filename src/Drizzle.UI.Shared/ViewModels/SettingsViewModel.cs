@@ -6,6 +6,7 @@ using Drizzle.Models;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Factories;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace Drizzle.UI.Shared.ViewModels;
 
 public sealed partial class SettingsViewModel : ObservableObject
 {
+    private readonly int[] frameRates = [15, 24, 30, 45, 60];
+
     private readonly IUserSettings userSettings;
     private readonly IWeatherClientFactory weatherClientFactory;
     private readonly IFileService fileService;
@@ -36,14 +39,17 @@ public sealed partial class SettingsViewModel : ObservableObject
         this.resources = resources;
 
         ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+        SelectedTargetFrameRateIndex = Array.IndexOf(frameRates, userSettings.Get<int>(UserSettingsConstants.TargetFrameRate));
         BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
         BackgroundPauseAudio = userSettings.Get<bool>(UserSettingsConstants.BackgroundPauseAudio);
+        DiagnosticsVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
         BackgroundBrightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
         Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
         SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
         SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
         SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         SelectedWeatherProviderIndex = (int)userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
+        SelectedShaderRendererIndex = (int)userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
 
         // Ref: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c
         Languages = [
@@ -161,6 +167,36 @@ public sealed partial class SettingsViewModel : ObservableObject
         }
     }
 
+    private int _selectedShaderRendererIndex;
+    public int SelectedShaderRendererIndex
+    {
+        get => _selectedShaderRendererIndex;
+        set
+        {
+            if (userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer) != (ShaderRenderer)value)
+                userSettings.SetAndSerialize(UserSettingsConstants.SelectedShaderRenderer, (ShaderRenderer)value);
+
+            SetProperty(ref _selectedShaderRendererIndex, value);
+        }
+    }
+
+    private int _selectedTargetFrameRateIndex;
+    public int SelectedTargetFrameRateIndex
+    {
+        get => _selectedTargetFrameRateIndex;
+        set
+        {
+            if (value < 0)
+                return;
+
+            var fps = frameRates[value];
+            if (userSettings.Get<int>(UserSettingsConstants.TargetFrameRate) != fps)
+                userSettings.Set(UserSettingsConstants.TargetFrameRate, fps);
+
+            SetProperty(ref _selectedTargetFrameRateIndex, value);
+        }
+    }
+
     private bool _backgroundPause;
     public bool BackgroundPause
     {
@@ -184,6 +220,19 @@ public sealed partial class SettingsViewModel : ObservableObject
                 userSettings.Set(UserSettingsConstants.BackgroundPauseAudio, value);
 
             SetProperty(ref _backgroundPauseAudio, value);
+        }
+    }
+
+    private bool _diagnosticVisible;
+    public bool DiagnosticsVisible
+    {
+        get => _diagnosticVisible;
+        set
+        {
+            if (userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible) != value)
+                userSettings.Set(UserSettingsConstants.DiagnosticsVisible, value);
+
+            SetProperty(ref _diagnosticVisible, value);
         }
     }
 

@@ -119,6 +119,15 @@ public partial class ShellViewModel : ObservableObject
                 case UserSettingsConstants.SelectedWeatherProvider:
                     await UpdateWeatherProvider();
                     break;
+                case UserSettingsConstants.SelectedShaderRenderer:
+                    UpdateShaderRenderer();
+                    break;
+                case UserSettingsConstants.TargetFrameRate:
+                    TargetFrameRate = userSettings.Get<int>(UserSettingsConstants.TargetFrameRate);
+                    break;
+                case UserSettingsConstants.DiagnosticsVisible:
+                    IsDiagnosticVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
+                    break;
             }
         };
 
@@ -133,6 +142,8 @@ public partial class ShellViewModel : ObservableObject
         cacheService.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
         maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
         IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+        TargetFrameRate = userSettings.Get<int>(UserSettingsConstants.TargetFrameRate);
+        IsDiagnosticVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
         SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);
         SelectedMainGraphTypeIndex = (int)userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
 
@@ -284,6 +295,12 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isHardwareAccelerated = true;
+
+    [ObservableProperty]
+    private int targetFrameRate = 60;
+
+    [ObservableProperty]
+    private bool isDiagnosticVisible = false;
 
     [ObservableProperty]
     private bool isHardwareAccelerationMissingNotify = false;
@@ -807,6 +824,11 @@ public partial class ShellViewModel : ObservableObject
             for (int i = 0; i < weatherVm.Daily.Count; i++)
                 weatherVm.Daily[i].DayGraph = graphs[i];
         }
+    }
+
+    private void UpdateShaderRenderer()
+    {
+        throw new NotImplementedException();
     }
 
     private void UpdateQualitySettings()
