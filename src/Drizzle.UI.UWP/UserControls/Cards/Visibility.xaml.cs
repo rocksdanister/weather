@@ -82,7 +82,7 @@ public sealed partial class Visibility : UserControl
         var visualBlurAmount = (1f - normalizedVisibility) * (maxVisualBlur - minVisualBlur);
         var textBlurAmount = (1f - normalizedVisibility) * (maxTextBlur - minTextBlur);
 
-        AnimationBlur.Amount = visualBlurAmount;
-        TextBlur.Amount = textBlurAmount;
+        AnimationBlur.BlurAmount = visualBlurAmount;
+        TextBlur.BlurAmount = textBlurAmount;
     }
 }

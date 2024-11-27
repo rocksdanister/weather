@@ -21,10 +21,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!--<media:AttachedCardShadow
-            x:Key="CommonShadow"
-            Offset="0"
-            Color="#FF000000" />-->
         <ThemeShadow x:Name="BackgroundGridShadow" />
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
@@ -32,6 +28,17 @@
         <customConverters:DateTimeToDayConverter x:Key="DateTimeToDayConverter" />
         <customConverters:DateTimeToDayNameConverter x:Key="DateTimeToDayNameConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
+
+        <media:AcrylicBrush
+            x:Key="AcrylicCardBrushHigh"
+            BlurAmount="24"
+            TextureUri="ms-appx:///Assets/Misc/noise_low.png"
+            TintOpacity="0" />
+        <media:AcrylicBrush
+            x:Key="AcrylicCardBrushLow"
+            BlurAmount="12"
+            TextureUri="ms-appx:///Assets/Misc/noise_low.png"
+            TintOpacity="0" />
 
         <Style x:Name="CardFlyout" TargetType="FlyoutPresenter">
             <Setter Property="MinWidth" Value="430" />
@@ -182,12 +189,10 @@
                 <!--  Day selector/Weekly  -->
                 <Border
                     Width="240"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <!--  x:Bind have bug here, ref:  -->
                     <ListView
                         Padding="0,2,0,2"
@@ -243,12 +248,10 @@
                 <!--  Hourly graph  -->
                 <Border
                     Width="540"
+                    Background="{StaticResource AcrylicCardBrushHigh}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="24" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -317,12 +320,10 @@
                     <Border
                         Width="240"
                         Height="175"
+                        Background="{StaticResource AcrylicCardBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -362,12 +363,10 @@
                     <Border
                         Width="290"
                         Height="175"
+                        Background="{StaticResource AcrylicCardBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -397,12 +396,10 @@
                     <Border
                         Width="240"
                         Height="175"
+                        Background="{StaticResource AcrylicCardBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -456,12 +453,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -500,12 +495,10 @@
                 <Border
                     Width="290"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -541,12 +534,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -585,12 +576,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -621,12 +610,10 @@
                 <Border
                     Width="290"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -657,12 +644,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource AcrylicCardBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"

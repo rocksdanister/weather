@@ -359,6 +359,7 @@
     <Content Include="Assets\Backgrounds\Snow\6.jpg" />
     <Content Include="Assets\Backgrounds\Snow\5.jpg" />
     <Content Include="Assets\Backgrounds\Snow\7.jpg" />
+    <Content Include="Assets\Misc\noise_low.png" />
     <Content Include="Assets\UserControls\chart_increasing_3d.png" />
     <Content Include="Assets\UserControls\icons8-barometer.svg" />
     <Content Include="Assets\icon_96.png" />
