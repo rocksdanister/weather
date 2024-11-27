@@ -66,6 +66,8 @@ public static class UserSettingsConstants
 
     public const string TargetFrameRate = "TargetFrameRate";
 
+    public const string UserPromptRendererSelection = "UserPromptRendererSelection";
+
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
     {
         { Performance, AppPerformance.performance },
@@ -95,6 +97,7 @@ public static class UserSettingsConstants
         { UseSystemDefaultLanguage, true }, // Ignores "SelectedLanguageCode"
         { DiagnosticsVisible, false },
         { SelectedShaderRenderer, ShaderRenderer.d2d1 },
-        { TargetFrameRate, 60 }
+        { TargetFrameRate, 60 },
+        { UserPromptRendererSelection, false }
     };
 }

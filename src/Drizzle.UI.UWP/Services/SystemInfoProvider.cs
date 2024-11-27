@@ -36,7 +36,7 @@ public class SystemInfoProvider : ISystemInfoProvider
         (IsAppUpdated, PreviousVersionInstalled) = DetectIfAppUpdated();
     }
 
-    public bool IsHardwareAccelerated => ComputeSharp.GraphicsDevice.GetDefault().IsHardwareAccelerated;
+    public bool IsDirectX12Supported => ComputeSharp.GraphicsDevice.GetDefault().IsHardwareAccelerated;
 
     public string GpuName => ComputeSharp.GraphicsDevice.GetDefault().Name;
 

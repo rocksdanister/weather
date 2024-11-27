@@ -50,11 +50,13 @@
                             SelectedItem="{x:Bind viewModel.SelectedLanguage, Mode=TwoWay}" />
                     </StackPanel>
                 </labs:SettingsCard>
+                <!--  IsOpen=false or Visibilty=Collapsed still leaves empty space, using x:Load workaround.  -->
                 <muxc:InfoBar
+                    x:Name="RestartNotify"
                     x:Uid="InfoSettingsRestartRequest"
+                    x:Load="{x:Bind viewModel.IsLanguageChanged, Mode=OneWay}"
                     IsClosable="False"
-                    IsOpen="{x:Bind viewModel.IsLanguageChanged, Mode=OneWay}"
-                    Visibility="{x:Bind viewModel.IsLanguageChanged, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    IsOpen="True" />
 
                 <labs:SettingsCard
                     x:Uid="OpenLogs"
@@ -184,7 +186,7 @@
                     Margin="1,0,0,5"
                     Style="{StaticResource BodyStrongTextBlockStyle}" />
 
-                <labs:SettingsCard x:Uid="QualitySettings" IsEnabled="{x:Bind viewModel.ShellVm.IsHardwareAccelerated, Mode=OneTime}">
+                <labs:SettingsCard x:Uid="QualitySettings">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE91B;" />
                     </labs:SettingsCard.HeaderIcon>
@@ -201,7 +203,7 @@
                         <FontIcon Glyph="&#xEC87;" />
                     </labs:SettingsCard.HeaderIcon>
                     <labs:Segmented SelectedIndex="{x:Bind viewModel.SelectedShaderRendererIndex, Mode=TwoWay}">
-                        <labs:SegmentedItem Content="DX12" />
+                        <labs:SegmentedItem Content="DX12" IsEnabled="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime}" />
                         <labs:SegmentedItem>
                             <TextBlock>
                                 <Run Text="D2D1" />
@@ -213,6 +215,20 @@
                         <labs:SegmentedItem Content="Skia" Visibility="Collapsed" />
                     </labs:Segmented>
                 </labs:SettingsCard>
+
+                <!--  IsOpen=false or Visibilty=Collapsed still leaves empty space, using x:Load workaround.  -->
+                <muxc:InfoBar
+                    x:Name="DX12SupportNotify"
+                    x:Load="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
+                    IsClosable="False"
+                    IsIconVisible="False"
+                    IsOpen="True"
+                    Severity="Error">
+                    <TextBlock
+                        x:Uid="DescPerformanceIssue"
+                        Padding="10"
+                        TextWrapping="WrapWholeWords" />
+                </muxc:InfoBar>
 
                 <labs:SettingsCard x:Uid="FrameRateSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>
@@ -256,17 +272,6 @@
                         Padding="0"
                         IsChecked="{x:Bind viewModel.DiagnosticsVisible, Mode=TwoWay}" />
                 </labs:SettingsCard>
-
-                <muxc:InfoBar
-                    IsClosable="False"
-                    IsIconVisible="False"
-                    IsOpen="{x:Bind viewModel.ShellVm.IsHardwareAccelerated, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
-                    Severity="Error">
-                    <TextBlock
-                        x:Uid="DescPerformanceIssue"
-                        Padding="10"
-                        TextWrapping="WrapWholeWords" />
-                </muxc:InfoBar>
 
                 <TextBlock
                     x:Uid="TitleAccessibility"

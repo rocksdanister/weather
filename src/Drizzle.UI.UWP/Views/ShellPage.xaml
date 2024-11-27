@@ -4,11 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animation="using:CommunityToolkit.WinUI.Animations"
     xmlns:computesharp="using:ComputeSharp.Uwp"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:Drizzle.Models"
+    xmlns:enums="using:Drizzle.Models.Enums"
     xmlns:icons="using:Drizzle.UI.UWP.AnimatedIcons"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -50,22 +52,28 @@
 
         <!--  Background  -->
         <Grid Grid.RowSpan="2">
-            <!--<shaderControls:AnimatedComputeShaderPanelEx
-                IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
-                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />-->
-            <shaderControls:D2D1AnimatedPixelShaderPanel
-                Margin="-5"
-                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                IsPerformanceMetricVisible="{x:Bind shellVm.IsDiagnosticVisible, Mode=OneWay}"
-                ResolutionScale="{x:Bind shellVm.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
-                ShaderRunner="{x:Bind shellVm.SelectedShader.D2D1ShaderRunner, Mode=OneWay}"
-                TargetFrameRate="{x:Bind shellVm.TargetFrameRate, Mode=OneWay}" />
-            <!--<shaderControls:D2D1AnimatedPixelShaderPanelEx
-                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
-                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />-->
+            <controls:SwitchPresenter Value="{x:Bind shellVm.SelectedShaderRenderer, Mode=OneWay}">
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.dx12}">
+                    <shaderControls:AnimatedComputeShaderPanelEx
+                        IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
+                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                        Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
+                        Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
+                </controls:Case>
+                <controls:Case IsDefault="True" Value="{x:Bind enums:ShaderRenderer.d2d1}">
+                    <shaderControls:D2D1AnimatedPixelShaderPanel
+                        Margin="-5"
+                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                        IsPerformanceMetricVisible="{x:Bind shellVm.IsDiagnosticVisible, Mode=OneWay}"
+                        ResolutionScale="{x:Bind shellVm.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
+                        ShaderRunner="{x:Bind shellVm.SelectedShader.D2D1ShaderRunner, Mode=OneWay}"
+                        TargetFrameRate="{x:Bind shellVm.TargetFrameRate, Mode=OneWay}" />
+                    <!--<shaderControls:D2D1AnimatedPixelShaderPanelEx
+                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                        Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
+                        Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />-->
+                </controls:Case>
+            </controls:SwitchPresenter>
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"
@@ -460,14 +468,14 @@
         </muxc:TeachingTip>
 
         <!--  Unsupported GPU notice  -->
-        <muxc:TeachingTip
+        <!--<muxc:TeachingTip
             BorderBrush="Red"
             BorderThickness="0,3,0,0"
             IsOpen="{x:Bind shellVm.IsHardwareAccelerationMissingNotify, Mode=OneTime}"
             PlacementMargin="0,32,-15,0"
             PreferredPlacement="TopRight">
             <local:UnsupportedGpuPage />
-        </muxc:TeachingTip>
+        </muxc:TeachingTip>-->
 
         <!--  Updated notification  -->
         <muxc:TeachingTip
