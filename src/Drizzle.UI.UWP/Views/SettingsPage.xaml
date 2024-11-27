@@ -205,12 +205,18 @@
                     <labs:Segmented SelectedIndex="{x:Bind viewModel.SelectedShaderRendererIndex, Mode=TwoWay}">
                         <labs:SegmentedItem Content="DX12" IsEnabled="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime}" />
                         <labs:SegmentedItem>
-                            <TextBlock>
-                                <Run Text="D2D1" />
-                                <Run Foreground="{ThemeResource SystemAccentColorLight2}" Text="(" />
-                                <Run x:Uid="TitleRecommended" Foreground="{ThemeResource SystemAccentColorLight2}" />
-                                <Run Foreground="{ThemeResource SystemAccentColorLight2}" Text=")" />
-                            </TextBlock>
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <TextBlock Text="D2D1" />
+                                <!--  Hide recommendation label if system is not recent.  -->
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    Visibility="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    <Run Foreground="{ThemeResource SystemAccentColorLight3}" Text="(" />
+                                    <Run x:Uid="TitleRecommended" Foreground="{ThemeResource SystemAccentColorLight3}" />
+                                    <Run Foreground="{ThemeResource SystemAccentColorLight3}" Text=")" />
+                                </TextBlock>
+                            </StackPanel>
                         </labs:SegmentedItem>
                         <labs:SegmentedItem Content="Skia" Visibility="Collapsed" />
                     </labs:Segmented>
