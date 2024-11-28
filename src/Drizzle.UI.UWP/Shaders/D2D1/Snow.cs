@@ -80,8 +80,11 @@ public readonly partial struct Snow : ID2D1PixelShader
         float T = time * speed;
         float3 acc = new float3(0f, 0f, 0f);
         float dof = 5f * Hlsl.Sin(T * .1f);
-        for (int i = 0; i < layers; i++)
+        for (int i = 0; i < 201; i++)
         {
+            if (i > layers)
+                break;
+
             float fi = (float)i;
             float2 q = uv * (1f + fi * depth);
             q += new float2(q.Y * (width * Mod(fi * 7.238917f, 1f) - width * .5f), T / (1f + fi * depth * .03f));
