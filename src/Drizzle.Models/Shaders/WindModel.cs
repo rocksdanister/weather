@@ -36,31 +36,36 @@ public partial class WindModel : ShaderModel
 
     public string? DepthPath { get; set; }
 
-    public WindModel(Uri shaderUri) : base(shaderUri, ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
+    public WindModel(Uri shaderUri, WindModel properties) : base(
+        shaderUri ?? properties?.ShaderUri,
+        ShaderTypes.fog,
+        scaleFactor: 0.75f,
+        maxScaleFactor: 1f,
+        mouseSpeed: -0.075f,
+        mouseInertia: 0.08f)
     {
+        if (properties != null)
+        {
+            this.Color1 = properties.Color1;
+            this.color2 = properties.Color2;
+            this.speed = properties.Speed;
+            this.Amplitude = properties.Amplitude;
+            this.ImagePath = properties.ImagePath;
+            this.DepthPath = properties.DepthPath;
+            this.Saturation = properties.Saturation;
+            this.parallaxIntensityX = properties.ParallaxIntensityX;
+            this.parallaxIntensityY = properties.ParallaxIntensityY;
+            this.IsDaytime = properties.IsDaytime;
+        }
+
         InitializeUniformMappings();
     }
 
-    public WindModel() : base(null, ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
-    {
-        InitializeUniformMappings();
-    }
+    public WindModel(Uri shaderUri) : this(shaderUri, null) { }
 
-    public WindModel(WindModel properties) : base(properties.ShaderUri, ShaderTypes.fog, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
-    {
-        this.Color1 = properties.Color1;
-        this.color2 = properties.Color2;
-        this.speed = properties.Speed;
-        this.Amplitude = properties.Amplitude;
-        this.ImagePath = properties.ImagePath;
-        this.DepthPath = properties.DepthPath;
-        this.Saturation = properties.Saturation;
-        this.parallaxIntensityX = properties.ParallaxIntensityX;
-        this.parallaxIntensityY = properties.ParallaxIntensityY;
-        this.IsDaytime = properties.IsDaytime;
+    public WindModel() : this(null, null) { }
 
-        InitializeUniformMappings();
-    }
+    public WindModel(WindModel properties) : this(null, properties) { }
 
     protected override void InitializeUniformMappings()
     {

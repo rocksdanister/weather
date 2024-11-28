@@ -21,28 +21,33 @@ public partial class DepthModel : ShaderModel
 
     public string? DepthPath { get; set; }
 
-    public DepthModel(Uri shaderUri) : base(shaderUri, ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
+    public DepthModel(Uri shaderUri, DepthModel properties) : base(
+        shaderUri ?? properties?.ShaderUri,
+        ShaderTypes.depth,
+        scaleFactor: 1f,
+        maxScaleFactor: 1f,
+        mouseSpeed: -0.075f,
+        mouseInertia: 0.08f)
     {
+        if (properties != null)
+        {
+            this.Mouse = properties.Mouse;
+            this.IntensityX = properties.IntensityX;
+            this.intensityY = properties.IntensityY;
+            this.ImagePath = properties.ImagePath;
+            this.DepthPath = properties.DepthPath;
+            this.Saturation = properties.Saturation;
+            this.IsDaytime = properties.IsDaytime;
+        }
+
         InitializeUniformMappings();
     }
 
-    public DepthModel() : base(null, ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
-    {
-        InitializeUniformMappings();
-    }
+    public DepthModel(Uri shaderUri) : this(shaderUri, null) { }
 
-    public DepthModel(DepthModel properties) : base(properties.ShaderUri, ShaderTypes.depth, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: -0.075f, mouseInertia: 0.08f)
-    {
-        this.Mouse = properties.Mouse;
-        this.IntensityX = properties.IntensityX;
-        this.intensityY = properties.IntensityY;
-        this.ImagePath = properties.ImagePath;
-        this.DepthPath = properties.DepthPath;
-        this.Saturation = properties.Saturation;
-        this.IsDaytime = properties.IsDaytime;
+    public DepthModel() : this(null, null) { }
 
-        InitializeUniformMappings();
-    }
+    public DepthModel(DepthModel properties) : this(null, properties) { }
 
     protected override void InitializeUniformMappings()
     {

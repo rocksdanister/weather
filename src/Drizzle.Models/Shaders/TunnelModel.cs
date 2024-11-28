@@ -16,25 +16,30 @@ namespace Drizzle.Models.Shaders
 
         public string? ImagePath { get; set; }
 
-        public TunnelModel(Uri shaderUri) : base(shaderUri, ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: 1f, mouseInertia: 1f)
+        public TunnelModel(Uri shaderUri, TunnelModel properties) : base(
+           shaderUri ?? properties?.ShaderUri,
+           ShaderTypes.tunnel,
+           scaleFactor: 1f,
+           maxScaleFactor: 1f,
+           mouseSpeed: 1f,
+           mouseInertia: 1f)
         {
+            if (properties != null)
+            {
+                this.ImagePath = properties.ImagePath;
+                this.IsSquare = properties.IsSquare;
+                this.speed = properties.Speed;
+                this.IsDaytime = properties.IsDaytime;
+            }
+
             InitializeUniformMappings();
         }
 
-        public TunnelModel() : base(null, ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: 1f, mouseInertia: 1f)
-        {
-            InitializeUniformMappings();
-        }
+        public TunnelModel(Uri shaderUri) : this(shaderUri, null) { }
 
-        public TunnelModel(TunnelModel properties) : base(properties.ShaderUri, ShaderTypes.tunnel, scaleFactor: 1f, maxScaleFactor: 1f, mouseSpeed: 1f, mouseInertia: 1f)
-        {
-            this.ImagePath = properties.ImagePath;
-            this.IsSquare = properties.IsSquare;
-            this.speed = properties.Speed;
-            this.IsDaytime = properties.IsDaytime;
+        public TunnelModel() : this(null, null) { }
 
-            InitializeUniformMappings();
-        }
+        public TunnelModel(TunnelModel properties) : this(null, properties) { }
 
         protected override void InitializeUniformMappings()
         {
