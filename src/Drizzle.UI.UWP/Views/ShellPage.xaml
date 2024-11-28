@@ -60,7 +60,7 @@
                         Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
                         Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
                 </controls:Case>
-                <controls:Case IsDefault="True" Value="{x:Bind enums:ShaderRenderer.d2d1}">
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.d2d1}">
                     <shaderControls:D2D1AnimatedPixelShaderPanel
                         Margin="-5"
                         IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
