@@ -41,7 +41,8 @@
                 Height="350"
                 x:Load="False"
                 ResolutionScale="{x:Bind viewModel.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
-                ShaderRunner="{x:Bind viewModel.SelectedShader.D2D1ShaderRunner, Mode=OneWay}">
+                ShaderRunner="{x:Bind viewModel.SelectedShader.D2D1ShaderRunner, Mode=OneWay}"
+                TargetFrameRate="30">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         From="0"
