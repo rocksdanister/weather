@@ -193,8 +193,8 @@
                     <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedAppPerformanceIndex, Mode=TwoWay}">
                         <ComboBoxItem x:Uid="QualityPotato" />
                         <ComboBoxItem x:Uid="QualityPerformance" />
-                        <ComboBoxItem x:Uid="QualityQuality" />
-                        <ComboBoxItem x:Uid="QualityDynamic" />
+                        <ComboBoxItem x:Uid="QualityQuality" IsEnabled="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime}" />
+                        <ComboBoxItem x:Uid="QualityDynamic" IsEnabled="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime}" />
                     </ComboBox>
                 </labs:SettingsCard>
 
