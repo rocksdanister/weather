@@ -101,8 +101,7 @@ namespace Drizzle.UI.UWP.Views
 
             this.Loaded += async (s, e) =>
             {
-                // Trying to call once page is ready to avoid ComputeSharp/UWP Windowsize issue.
-                await shellVm.RestoreWeather();
+                await shellVm.OnLoaded();
             };
 
             this.navigator.ContentPageChanged += (s, e) =>

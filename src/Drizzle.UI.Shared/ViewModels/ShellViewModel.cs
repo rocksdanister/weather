@@ -154,6 +154,22 @@ public partial class ShellViewModel : ObservableObject
         IsDirectX12Supported = systemInfo.IsDirectX12Supported;
         logger.LogInformation($"GPU: {systemInfo.GpuName}, DX12: {IsDirectX12Supported}");
 
+        // Refresh UI/Weather
+        weatherRefreshTimer = timerFactory.CreateTimer();
+        weatherRefreshTimer.TimerTick += WeatherRefreshTimer_Tick;
+        weatherRefreshTimer.Start(new TimeSpan(0, 5, 0));
+
+        // We are not checking last run update checked status to avoid spamming the user with notification.
+        appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
+        if (!BuildInfoUtil.IsDebugBuild())
+            appUpdater.Start();
+    }
+
+    /// <summary>
+    /// View is loaded.
+    /// </summary>
+    public async Task OnLoaded()
+    {
         if (!userSettings.Get<bool>(UserSettingsConstants.UserPromptRendererSelection))
         {
             // If the gpu is not recent, fallback to the lowest quality (shaders disabled.)
@@ -165,15 +181,8 @@ public partial class ShellViewModel : ObservableObject
             userSettings.Set(UserSettingsConstants.UserPromptRendererSelection, true);
         }
 
-        // Refresh UI/Weather
-        weatherRefreshTimer = timerFactory.CreateTimer();
-        weatherRefreshTimer.TimerTick += WeatherRefreshTimer_Tick;
-        weatherRefreshTimer.Start(new TimeSpan(0, 5, 0));
-
-        // We are not checking last run update checked status to avoid spamming the user with notification.
-        appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
-        if (!BuildInfoUtil.IsDebugBuild())
-            appUpdater.Start();
+        // Trying to call once page is ready to avoid ComputeSharp/UWP Windowsize issue.
+        await RestoreWeather();
     }
 
     public IReadOnlyList<ShaderViewModel> ShaderViewModels { get; private set; }

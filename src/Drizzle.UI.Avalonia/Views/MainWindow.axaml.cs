@@ -81,7 +81,7 @@ public partial class MainWindow : Window
             Grid.SetRow(MainCommandBar, 0);
         }
         // We are waiting for Window to be ready before running animations to avoid shader related issues.
-        await shellVm.RestoreWeather();
+        await shellVm.OnLoaded();
     }
 
     private void MainWindow_Deactivated(object? sender, System.EventArgs e)
