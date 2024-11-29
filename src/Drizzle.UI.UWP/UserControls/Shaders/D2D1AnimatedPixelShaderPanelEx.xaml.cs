@@ -102,6 +102,33 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
     public static readonly DependencyProperty ResolutionScaleShader2Property =
         DependencyProperty.Register(nameof(ResolutionScaleShader2), typeof(float), typeof(D2D1AnimatedPixelShaderPanelEx), new PropertyMetadata(1f));
 
+    public float TargetFrameRate
+    {
+        get { return (float)GetValue(TargetFrameRateProperty); }
+        set { SetValue(TargetFrameRateProperty, value); }
+    }
+
+    public static readonly DependencyProperty TargetFrameRateProperty =
+        DependencyProperty.Register(nameof(TargetFrameRate), typeof(float), typeof(D2D1AnimatedPixelShaderPanelEx), new PropertyMetadata(60f, OnDependencyPropertyChanged));
+
+    public float CappedFrameRate
+    {
+        get { return (float)GetValue(CappedFrameRateProperty); }
+        private set { SetValue(CappedFrameRateProperty, value); }
+    }
+
+    public static readonly DependencyProperty CappedFrameRateProperty =
+        DependencyProperty.Register(nameof(CappedFrameRate), typeof(float), typeof(D2D1AnimatedPixelShaderPanelEx), new PropertyMetadata(60f));
+
+    public bool IsPerformanceMetricVisible
+    {
+        get { return (bool)GetValue(IsPerformanceMetricVisibleProperty); }
+        set { SetValue(IsPerformanceMetricVisibleProperty, value); }
+    }
+
+    public static readonly DependencyProperty IsPerformanceMetricVisibleProperty =
+        DependencyProperty.Register(nameof(IsPerformanceMetricVisible), typeof(bool), typeof(D2D1AnimatedPixelShaderPanelEx), new PropertyMetadata(false));
+
     private static void OnDependencyPropertyChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
     {
         var obj = s as D2D1AnimatedPixelShaderPanelEx;
@@ -126,7 +153,14 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
 
                 obj.ShaderRunner1 = null;
             }
+
+            // Update shader preferences
             obj.UpdateQuality();
+            obj.UpdateFrameRate();
+        }
+        else if (e.Property == TargetFrameRateProperty)
+        {
+            obj.UpdateFrameRate();
         }
         else if (e.Property == QualityProperty)
         {
@@ -165,6 +199,14 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
             default:
                 throw new NotImplementedException();
         }
+    }
+
+    private void UpdateFrameRate()
+    {
+        if (Shader is null)
+            return;
+
+        CappedFrameRate = Math.Clamp(TargetFrameRate, 0f, Shader.Model.MaxFrameRate);
     }
 
     public D2D1AnimatedPixelShaderPanelEx()

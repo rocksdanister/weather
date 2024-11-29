@@ -30,6 +30,8 @@ public abstract class ShaderModel : ObservableObject
 
     public float MaxScaleFactor { get; }
 
+    public float MaxFrameRate { get; }
+
     public bool IsDaytime { get; set; }
 
     public IReadOnlyDictionary<string, UniformProperty> UniformMappings => uniformMappings;
@@ -41,7 +43,8 @@ public abstract class ShaderModel : ObservableObject
         float scaleFactor,
         float maxScaleFactor,
         float mouseSpeed,
-        float mouseInertia)
+        float mouseInertia,
+        float maxFrameRate = 60)
     {
         this.Type = type;
         this.ShaderUri = shaderUri;
@@ -49,6 +52,7 @@ public abstract class ShaderModel : ObservableObject
         this.MaxScaleFactor = maxScaleFactor;
         this.MouseInertia = mouseInertia;
         this.MouseSpeed = mouseSpeed;
+        this.MaxFrameRate = maxFrameRate;
     }
 
     protected virtual void InitializeUniformMappings()

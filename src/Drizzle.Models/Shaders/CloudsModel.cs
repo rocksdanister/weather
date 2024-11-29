@@ -26,7 +26,8 @@ public partial class CloudsModel : ShaderModel
         scaleFactor: 0.2f,
         maxScaleFactor: 0.4f,
         mouseSpeed: 1.5f,
-        mouseInertia: 0.08f)
+        mouseInertia: 0.08f,
+        maxFrameRate: 30)
     {
         if (properties != null)
         {

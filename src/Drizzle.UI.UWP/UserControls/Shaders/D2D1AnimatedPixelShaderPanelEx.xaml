@@ -19,9 +19,10 @@
     <Grid Padding="-5">
         <shaderControls:D2D1AnimatedPixelShaderPanel
             IsPaused="{x:Bind IsPausedShader1, Mode=OneWay}"
-            IsPerformanceMetricVisible="True"
+            IsPerformanceMetricVisible="{x:Bind IsPerformanceMetricVisible, Mode=OneWay}"
             ResolutionScale="{x:Bind ResolutionScaleShader1, Mode=OneWay}"
             ShaderRunner="{x:Bind ShaderRunner1, Mode=OneWay}"
+            TargetFrameRate="{x:Bind CappedFrameRate, Mode=OneWay}"
             Visibility="{x:Bind ShaderRunner1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
@@ -41,9 +42,10 @@
         </shaderControls:D2D1AnimatedPixelShaderPanel>
         <shaderControls:D2D1AnimatedPixelShaderPanel
             IsPaused="{x:Bind IsPausedShader2, Mode=OneWay}"
-            IsPerformanceMetricVisible="True"
+            IsPerformanceMetricVisible="{x:Bind IsPerformanceMetricVisible, Mode=OneWay}"
             ResolutionScale="{x:Bind ResolutionScaleShader2, Mode=OneWay}"
             ShaderRunner="{x:Bind ShaderRunner2, Mode=OneWay}"
+            TargetFrameRate="{x:Bind CappedFrameRate, Mode=OneWay}"
             Visibility="{x:Bind ShaderRunner2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
