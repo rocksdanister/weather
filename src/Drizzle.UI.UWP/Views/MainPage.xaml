@@ -29,17 +29,6 @@
         <customConverters:DateTimeToDayNameConverter x:Key="DateTimeToDayNameConverter" />
         <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
 
-        <media:AcrylicBrush
-            x:Key="AcrylicCardBrushHigh"
-            BlurAmount="24"
-            TextureUri="ms-appx:///Assets/Misc/noise_low.png"
-            TintOpacity="0" />
-        <media:AcrylicBrush
-            x:Key="AcrylicCardBrushLow"
-            BlurAmount="12"
-            TextureUri="ms-appx:///Assets/Misc/noise_low.png"
-            TintOpacity="0" />
-
         <Style x:Name="CardFlyout" TargetType="FlyoutPresenter">
             <Setter Property="MinWidth" Value="430" />
             <Setter Property="CornerRadius" Value="5" />
@@ -189,7 +178,7 @@
                 <!--  Day selector/Weekly  -->
                 <Border
                     Width="240"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
@@ -248,7 +237,7 @@
                 <!--  Hourly graph  -->
                 <Border
                     Width="540"
-                    Background="{StaticResource AcrylicCardBrushHigh}"
+                    Background="{StaticResource CardBlurBrushHigh}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -320,7 +309,7 @@
                     <Border
                         Width="240"
                         Height="175"
-                        Background="{StaticResource AcrylicCardBrushLow}"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
@@ -363,7 +352,7 @@
                     <Border
                         Width="290"
                         Height="175"
-                        Background="{StaticResource AcrylicCardBrushLow}"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
@@ -396,7 +385,7 @@
                     <Border
                         Width="240"
                         Height="175"
-                        Background="{StaticResource AcrylicCardBrushLow}"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
@@ -453,7 +442,7 @@
                 <Border
                     Width="240"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -495,7 +484,7 @@
                 <Border
                     Width="290"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -534,7 +523,7 @@
                 <Border
                     Width="240"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -576,7 +565,7 @@
                 <Border
                     Width="240"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -603,14 +592,17 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <cards:Visibility Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                        <cards:Visibility
+                            BlurBrush="{StaticResource CardBlurBrushLow}"
+                            Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Cloud Cover  -->
                 <Border
                     Width="290"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
@@ -644,7 +636,7 @@
                 <Border
                     Width="240"
                     Height="175"
-                    Background="{StaticResource AcrylicCardBrushLow}"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">

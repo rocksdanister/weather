@@ -183,12 +183,10 @@
             <!--  Hiding in fullscreen due to a bug in which the parts of mainpage sometimes do not render when navigating back  -->
             <Border
                 HorizontalAlignment="Left"
+                Background="{StaticResource CardBlurBrushLow}"
                 Shadow="{StaticResource BackgroundGridShadow}"
                 Style="{StaticResource CardBorder}"
                 Translation="0,0,8">
-                <Border.Background>
-                    <media:BackdropBlurBrush Amount="12" />
-                </Border.Background>
                 <Button
                     HorizontalAlignment="Left"
                     Command="{x:Bind viewModel.GoBackCommand}"
@@ -203,13 +201,11 @@
                 Spacing="5">
                 <!--  Fullscreen  -->
                 <Border
+                    Background="{StaticResource CardBlurBrushLow}"
                     CornerRadius="5"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button Command="{x:Bind viewModel.FullScreenCommand}">
                         <Grid>
                             <FontIcon Glyph="{x:Bind viewModel.IsFullScreen, Mode=OneWay, Converter={StaticResource BoolToFullScreenGlyphConverter}}" />
@@ -219,13 +215,11 @@
 
                 <!--  Settings Pane  -->
                 <Border
+                    Background="{StaticResource CardBlurBrushLow}"
                     CornerRadius="5"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button>
                         <FontIcon Glyph="&#xE790;" />
                         <Button.Flyout>
