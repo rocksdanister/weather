@@ -100,4 +100,6 @@ public static class UserSettingsConstants
         { TargetFrameRate, 60 },
         { UserPromptRendererSelection, false }
     };
+
+    public static int[] FrameRates { get; } = [15, 24, 30, 45, 60];
 }

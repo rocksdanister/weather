@@ -169,6 +169,7 @@
     <Compile Include="AnimatedIcons\Sunset.cs" />
     <Compile Include="AnimatedIcons\Thunderstorms.cs" />
     <Compile Include="AnimatedIcons\ThunderstormsExtreme.cs" />
+    <Compile Include="AnimatedIcons\Tweak.cs" />
     <Compile Include="AnimatedIcons\Water.cs" />
     <Compile Include="AnimatedIcons\Waves.cs" />
     <Compile Include="AnimatedIcons\Wind.cs" />

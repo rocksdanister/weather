@@ -176,7 +176,9 @@ public partial class ShellViewModel : ObservableObject
             if (!IsDirectX12Supported)
             {
                 userSettings.SetAndSerialize(UserSettingsConstants.Performance, AppPerformance.potato);
-                // TODO: Notify and prompt user to select different graphics api.
+                userSettings.Set(UserSettingsConstants.TargetFrameRate, UserSettingsConstants.FrameRates[1]);
+                // Notify and prompt user to select different graphics api.
+                IsDirectX12SupportNotify = true;
             }
             userSettings.Set(UserSettingsConstants.UserPromptRendererSelection, true);
         }
@@ -316,6 +318,9 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isDirectX12Supported = false;
+
+    [ObservableProperty]
+    private bool isDirectX12SupportNotify = false;
 
     [ObservableProperty]
     private int targetFrameRate = 60;

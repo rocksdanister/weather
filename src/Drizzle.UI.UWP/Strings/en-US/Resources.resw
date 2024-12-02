@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>The system graphics processor (GPU) does not support the required DX12 features, so some functionality is disabled.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Additional files need to be downloaded for this feature</value>
   </data>

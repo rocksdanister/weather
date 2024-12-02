@@ -16,8 +16,6 @@ namespace Drizzle.UI.Shared.ViewModels;
 
 public sealed partial class SettingsViewModel : ObservableObject
 {
-    private readonly int[] frameRates = [15, 24, 30, 45, 60];
-
     private readonly IUserSettings userSettings;
     private readonly IWeatherClientFactory weatherClientFactory;
     private readonly IFileService fileService;
@@ -39,7 +37,7 @@ public sealed partial class SettingsViewModel : ObservableObject
         this.resources = resources;
 
         ReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
-        SelectedTargetFrameRateIndex = Array.IndexOf(frameRates, userSettings.Get<int>(UserSettingsConstants.TargetFrameRate));
+        SelectedTargetFrameRateIndex = Array.IndexOf(UserSettingsConstants.FrameRates, userSettings.Get<int>(UserSettingsConstants.TargetFrameRate));
         BackgroundPause = userSettings.Get<bool>(UserSettingsConstants.BackgroundPause);
         BackgroundPauseAudio = userSettings.Get<bool>(UserSettingsConstants.BackgroundPauseAudio);
         DiagnosticsVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
@@ -189,7 +187,7 @@ public sealed partial class SettingsViewModel : ObservableObject
             if (value < 0)
                 return;
 
-            var fps = frameRates[value];
+            var fps = UserSettingsConstants.FrameRates[value];
             if (userSettings.Get<int>(UserSettingsConstants.TargetFrameRate) != fps)
                 userSettings.Set(UserSettingsConstants.TargetFrameRate, fps);
 

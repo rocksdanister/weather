@@ -198,6 +198,20 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
+                <!--  IsOpen=false or Visibilty=Collapsed still leaves empty space, using x:Load workaround.  -->
+                <muxc:InfoBar
+                    x:Name="DX12SupportNotify"
+                    x:Load="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
+                    IsClosable="False"
+                    IsIconVisible="False"
+                    IsOpen="True"
+                    Severity="Error">
+                    <TextBlock
+                        x:Uid="DescPerformanceIssue"
+                        Padding="10"
+                        TextWrapping="WrapWholeWords" />
+                </muxc:InfoBar>
+
                 <labs:SettingsCard x:Uid="RendererSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xEC87;" />
@@ -221,20 +235,6 @@
                         <labs:SegmentedItem Content="Skia" Visibility="Collapsed" />
                     </labs:Segmented>
                 </labs:SettingsCard>
-
-                <!--  IsOpen=false or Visibilty=Collapsed still leaves empty space, using x:Load workaround.  -->
-                <muxc:InfoBar
-                    x:Name="DX12SupportNotify"
-                    x:Load="{x:Bind viewModel.ShellVm.IsDirectX12Supported, Mode=OneTime, Converter={StaticResource BoolNegationConverter}}"
-                    IsClosable="False"
-                    IsIconVisible="False"
-                    IsOpen="True"
-                    Severity="Error">
-                    <TextBlock
-                        x:Uid="DescPerformanceIssue"
-                        Padding="10"
-                        TextWrapping="WrapWholeWords" />
-                </muxc:InfoBar>
 
                 <labs:SettingsCard x:Uid="FrameRateSettings" IsEnabled="{x:Bind viewModel.ShellVm.IsFallbackBackground, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}">
                     <labs:SettingsCard.HeaderIcon>

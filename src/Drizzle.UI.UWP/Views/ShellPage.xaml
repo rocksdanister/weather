@@ -460,24 +460,29 @@
             Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
 
         <!--  Welcome message  -->
-        <muxc:TeachingTip
+        <!--<muxc:TeachingTip
             BorderBrush="LightBlue"
             BorderThickness="0,3,0,0"
             IsOpen="{x:Bind shellVm.IsFirstRun, Mode=OneTime}"
             PlacementMargin="0,25,-15,0"
             PreferredPlacement="TopRight">
             <local:WelcomePage />
-        </muxc:TeachingTip>
+        </muxc:TeachingTip>-->
 
         <!--  Unsupported GPU notice  -->
-        <!--<muxc:TeachingTip
-            BorderBrush="Red"
+        <!--  IsOpen should be set on late (Page.OnLoaded) to overlap others notifications.  -->
+        <muxc:TeachingTip
+            ActionButtonCommand="{x:Bind shellVm.OpenSettingsCommand}"
+            BorderBrush="#c9b300"
             BorderThickness="0,3,0,0"
-            IsOpen="{x:Bind shellVm.IsHardwareAccelerationMissingNotify, Mode=OneTime}"
+            IsOpen="{x:Bind shellVm.IsDirectX12SupportNotify, Mode=OneWay}"
             PlacementMargin="0,32,-15,0"
             PreferredPlacement="TopRight">
+            <muxc:TeachingTip.ActionButtonContent>
+                <TextBlock x:Uid="SettingsTooltip" />
+            </muxc:TeachingTip.ActionButtonContent>
             <local:UnsupportedGpuPage />
-        </muxc:TeachingTip>-->
+        </muxc:TeachingTip>
 
         <!--  Updated notification  -->
         <muxc:TeachingTip
