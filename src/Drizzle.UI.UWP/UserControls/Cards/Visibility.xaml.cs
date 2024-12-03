@@ -53,7 +53,7 @@ public sealed partial class Visibility : UserControl
     }
 
     public static readonly DependencyProperty BlurBrushCloneProperty =
-        DependencyProperty.Register("BlurBrushClone", typeof(Brush), typeof(Visibility), new PropertyMetadata(new CommunityToolkit.WinUI.Media.BackdropBlurBrush()));
+        DependencyProperty.Register("BlurBrushClone", typeof(Brush), typeof(Visibility), new PropertyMetadata(Application.Current.Resources["CardBlurBrushLow"] as Brush));
 
     private static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

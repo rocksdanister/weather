@@ -14,7 +14,7 @@
                 <ResourceDictionary Source="UserControls/Shaders/D2D1AnimatedPixelShaderPanel.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <media:AcrylicBrush
+            <!--<media:AcrylicBrush
                 x:Key="CardBlurBrushHigh"
                 BlurAmount="24"
                 TextureUri="ms-appx:///Assets/Misc/noise_low.png"
@@ -23,7 +23,9 @@
                 x:Key="CardBlurBrushLow"
                 BlurAmount="12"
                 TextureUri="ms-appx:///Assets/Misc/noise_low.png"
-                TintOpacity="0" />
+                TintOpacity="0" />-->
+            <media:BackdropBlurBrush x:Key="CardBlurBrushHigh" Amount="24" />
+            <media:BackdropBlurBrush x:Key="CardBlurBrushLow" Amount="12" />
 
             <StaticResource x:Key="WindowCaptionBackground" ResourceKey="ApplicationPageBackgroundThemeBrush" />
             <StaticResource x:Key="WindowCaptionBackgroundDisabled" ResourceKey="ApplicationPageBackgroundThemeBrush" />
