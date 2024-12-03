@@ -220,7 +220,7 @@
     <value>Der UV-Index der Weltgesundheitsorganisation (UVI) misst die Stärke der Sonnenbrand erzeugenden UV-Strahlung. Es ist eine lineare Skala zwischen 0 und 11+, wobei höhere Werte für ein höheres Risiko beim Aussetzen von UV-Strahlen und eine erhöhte Wahrscheinlichkeit von Sonnenbränden und Hautschäden stehen, was letztendlich zu Hautkrebs führen kann.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Die Sichtbarkeit ist ein Maß für die Entfernung, bei der ein Objekt oder Licht klar erkannt werden kann. Ein Wert von mehr als 10 km gilt als gut und weniger als 1 km als schlecht.</value>
+    <value>Die Sichtweite ist ein Maß für die Entfernung, bei der ein Objekt oder Licht klar erkannt werden kann. Ein Wert von mehr als 10 km gilt als gut und weniger als 1 km als schlecht.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Die Windgeschwindigkeit ist die Geschwindigkeit, mit der sich die Luft horizontal an einem bestimmten Punkt vorbeibewegt. Sie ist eine grundlegende atmosphärische Größe, die durch Luftbewegungen von hohem zu niedrigem Druck verursacht wird, in der Regel durch Temperaturschwankungen. Windböen sind plötzliche Anstiege der Windgeschwindigkeit über die durchschnittliche Windgeschwindigkeit. Sie dauern in der Regel weniger als 20 Sekunden.</value>
@@ -231,11 +231,15 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Der System-Grafikprozessor (GPU) unterstützt nicht die benötigten DX12-Funktionen, daher sind einige Funktionen deaktiviert.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>Der Grafikprozessor auf Ihrem System erfüllt nicht die empfohlenen Anforderungen.
+Optimale Einstellungen wurden angewendet, um die beste Leistung für Ihr System zu gewährleisten. Sie können diese Einstellungen manuell anpassen, aber dies könnte die Leistung beeinträchtigen.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Für diese Funktion müssen zusätzliche Dateien heruntergeladen werden</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>Sehen Sie sich die Neuheiten an</value>
+    <value>Sehen Sie sich die Neuerungen an</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>Gefühlt</value>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Aktualisieren</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visuelle Rendering-Methode</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Grafik</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Standard wiederherstellen</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Geschwindigkeit</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Diagnoseprotokolle anzeigen</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Tiefe</value>
@@ -445,7 +458,7 @@
     <value>Über den UV-Index</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>Über Sichtbarkeit</value>
+    <value>Über Sichtweite</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Über die Windgeschwindigkeit und Windböen</value>
@@ -495,6 +508,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Luftdruck</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Empfohlen</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Geschwindigkeit</value>
   </data>
@@ -520,7 +536,7 @@
     <value>UV-Index</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Sichtbarkeit</value>
+    <value>Sichtweite</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Warnung</value>

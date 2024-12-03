@@ -127,13 +127,13 @@
     <value>Moderata</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
-    <value>Pericolosa per i gruppi sensibili</value>
+    <value>Insalubre per i gruppi sensibili</value>
   </data>
   <data name="AirQualityIndex3" xml:space="preserve">
-    <value>Pericolosa</value>
+    <value>Insalubre</value>
   </data>
   <data name="AirQualityIndex4" xml:space="preserve">
-    <value>Molto pericolosa</value>
+    <value>Molto insalubre</value>
   </data>
   <data name="AirQualityIndex5" xml:space="preserve">
     <value>Rischiosa</value>
@@ -202,7 +202,7 @@
     <value>L'Indice di Qualità dell'Aria è progettato per fornire informazioni sugli effetti sulla salute dei cinque inquinanti atmosferici più comuni. Si tratta di una scala che va da 0 a 500, con valori più elevati che indicano un inquinamento atmosferico più grave e maggiori rischi per la salute.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>La "nuvolosità" è il parametro che indica la copertura nuvolosa media di una porzione di cielo quando viene osservata da una specifica posizione.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La temperatura del punto di rugiada è una misura assoluta della quantità di vapore acqueo nell'aria. Quando la temperatura del punto di rugiada e la temperatura dell'aria sono uguali, l'umidità relativa è 100%. A questo punto, l'aria è completamente satura di vapore acqueo, portando a condensazione sotto forma di rugiada, nebbia, o nuvole.</value>
@@ -211,7 +211,7 @@
     <value>L'umidità relativa è una misura della quantità di vapore acqueo presente nell'aria rispetto alla quantità massima che l'aria potrebbe mantenere a tale temperatura. È espresso in percentuale e fornisce informazioni sulla vicinanza dell'aria alla saturazione.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Con "precipitazioni" si intendono, in meteorologia, tutti i fenomeni di trasferimento di acqua allo stato liquido o solido dall'atmosfera al suolo, come pioggia, neve, grandine, rugiada e brina.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>La pressione barometrica, nota anche come pressione atmosferica, è la misura della pressione dell'aria in una data zona.</value>
@@ -220,7 +220,7 @@
     <value>L'indice UV (UVI) dell'Organizzazione Mondiale della Sanità misura la forza della radiazione ultravioletta che provoca scottature. È una scala lineare che va da 0 a 11+, con valori più elevati che indicano un maggiore rischio di esposizione ai raggi UV e un aumento delle probabilità di scottature e danni cutanei che potrebbero in ultima analisi portare al cancro della pelle.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>La "visibilità" è la misura della distanza alla quale un oggetto o una luce possono essere chiaramente distinti. Un valore pari o superiore a 10 km è considerato buono,  basso de e inferiore a 1 km.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>La velocità del vento è la velocità con cui l'aria si muove orizzontalmente oltre un dato punto. Si tratta di una quantità atmosferica fondamentale causata dal passaggio di aria da alta a bassa pressione, di solito a causa di cambiamenti di temperatura. Le raffiche sono un improvviso aumento della velocità del vento sopra la sua velocità media. Di solito dura meno di 20 secondi.</value>
@@ -230,6 +230,10 @@
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Il processore grafico di sistema (GPU) non supporta le funzioni DX12 richieste, quindi alcune funzionalità sono disabilitate.</value>
+  </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>È necessario scaricare file aggiuntivi per questa funzionalità</value>
@@ -256,7 +260,7 @@
     <value>Errore</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Riavvia l'applicazione per rendere effettive le impostazioni.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribuisci a questo programma traducendolo in altre lingue.</value>
@@ -274,7 +278,7 @@
     <value>Aiuta a tradurre!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Uguale al sistema</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Scopri di più</value>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Aggiorna</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Ripristina Predefiniti</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Velocità</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Profondità</value>
@@ -427,7 +440,7 @@
     <value>Informazioni sull'Indice di Qualità dell'Aria (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>Cosa si intende per "nuvolosità"</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Informazioni sul punto di rugiada</value>
@@ -436,7 +449,7 @@
     <value>Informazioni sull'umidità relativa</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>Cosa si intende per "precipitazioni"</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Informazioni sulla pressione</value>
@@ -445,7 +458,7 @@
     <value>Informazioni sull'indice UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>Cosa si intende per "visibilità"</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Informazioni sulla velocità del vento e raffiche</value>
@@ -460,13 +473,13 @@
     <value>Qualità dell'aria</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>Nuvolosità</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Collaboratori</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Distanza</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Scarica</value>
@@ -490,13 +503,16 @@
     <value>Prestazioni</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>Precipitazioni</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressione</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Velocità</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sole</value>
@@ -511,7 +527,7 @@
     <value>Temperatura</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Aggiornamento disponibile!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aggiornamento completato</value>
@@ -520,7 +536,7 @@
     <value>Indice UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Visibilità</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Attenzione</value>

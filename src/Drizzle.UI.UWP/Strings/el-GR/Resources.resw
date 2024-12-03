@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Ο επεξεργαστής γραφικών συστήματος (GPU) δεν υποστηρίζει τα απαιτούμενα χαρακτηριστικά DX12, οπότε μερική λειτουργικότητα είναι απενεργοποιημένη.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>Ο επεξεργαστής γραφικών στο σύστημά σας δεν ικανοποιεί τις συνιστώμενες απαιτήσεις.
+Βέλτιστες ρυθμίσεις έχουν εφαρμοστεί για να εξασφαλιστεί η καλύτερη απόδοση για το σύστημά σας. Μπορείτε να προσαρμόσετε αυτές τις ρυθμίσεις χειροκίνητα, αλλά αυτό θα μπορούσε να επηρεάσει την απόδοση.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Πρέπει να κατέβουν επιπλέον αρχεία για αυτή τη δυνατότητα</value>
   </data>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Ανανέωση</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Μέθοδος οπτικής απεικόνισης</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Γραφικά</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Επαναφορά Προεπιλογών</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Ταχύτητα</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Εμφάνιση διαγνωστικών</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Βάθος</value>
@@ -494,6 +507,9 @@
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Πίεση</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Προτεινόμενο</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Ταχύτητα</value>

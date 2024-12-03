@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Bộ xử lý đồ họa hệ thống (GPU) không hỗ trợ các chức năng DX12 cần thiết, nên vài chức năng sẽ bị vô hiệu hóa.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Các tệp bổ sung cần được tải xuống cho tính năng này</value>
   </data>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Tải lại</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Cài đặt ban đầu</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Tốc độ</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Chiều sâu</value>
@@ -495,6 +508,9 @@
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Áp suất</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Đơn vị đo tốc độ</value>

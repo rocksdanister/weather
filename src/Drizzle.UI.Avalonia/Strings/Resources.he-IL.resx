@@ -232,6 +232,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>המעבד הגרפי של המערכת (GPU) אינו תומך בתכונות ה-DX12 הנדרשות, כך שחלק מהפונקציונליות מושבתת.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>נדרש להוריד קבצים נוספים עבור פעולה זו</value>
   </data>
@@ -257,7 +261,7 @@
     <value>שגיאה</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>אנא הפעל מחדש את האפליקציה כדי שההגדרות ייכנסו לתוקף.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>תרום לתוכנית זו על ידי תרגום לשפות אחרות.</value>
@@ -275,7 +279,7 @@
     <value>עזור לתרגם!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>זהה לשפת המערכת</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>למד עוד</value>
@@ -337,6 +341,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>רענן</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>שיטת עיבוד ויזואלי</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>גרפיקה</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>שחזר לברירת מחדל</value>
   </data>
@@ -357,6 +367,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>מהירות</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>הצג אבחון</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>עומק</value>
@@ -428,7 +441,7 @@
     <value>מידע על מדד איכות האוויר (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>אודות כמות ענן</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>מידע על נקודת הטל</value>
@@ -437,7 +450,7 @@
     <value>מידע על לחות יחסית</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>אודות משקע</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>מידע על לחץ</value>
@@ -446,7 +459,7 @@
     <value>מידע על מדד UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>אודות ראות</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>מידע על מהירות הרוח והמשבים</value>
@@ -461,13 +474,13 @@
     <value>איכות אוויר</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>כמות ענן</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>תורמים</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>מרחק</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>הורד</value>
@@ -491,10 +504,13 @@
     <value>ביצועים</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>משקע</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>לחץ</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>מומלץ</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>מהירות</value>
@@ -512,7 +528,7 @@
     <value>טמפרטורה</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>עדכון זמין!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>העדכון הושלם</value>
@@ -521,7 +537,7 @@
     <value>מדד UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>נראות</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>אזהרה</value>
