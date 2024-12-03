@@ -9,7 +9,8 @@ namespace Drizzle.UI.Shaders.D2D1;
 /// <para>Copyright (c) 2013 Andrew Baldwin (twitter: baldand, www: http://thndl.com).</para>
 /// <para>License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</para>
 /// </summary>
-[D2DInputCount(0)]
+[D2DInputCount(1)]
+[D2DInputComplex(0)]
 [D2DRequiresScenePosition]
 [D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
@@ -39,8 +40,7 @@ public readonly partial struct Snow : ID2D1PixelShader
 
     private readonly bool isBlur;
 
-    [D2DResourceTextureIndex(0)]
-    private readonly D2D1ResourceTexture2D<float4> texture;
+    private readonly int2 textureSize;
 
     // glsl style mod
     float Mod(float x, float y)
@@ -102,7 +102,7 @@ public readonly partial struct Snow : ID2D1PixelShader
 
         // fill scaling
         float screenAspect = (float)dispatchSize.X / dispatchSize.Y;
-        float textureAspect = (float)texture.Width / texture.Height;
+        float textureAspect = (float)textureSize.X / textureSize.Y;
         float scaleX = 1f, scaleY = 1f;
         if (textureAspect > screenAspect)
             scaleX = screenAspect / textureAspect;
@@ -110,7 +110,7 @@ public readonly partial struct Snow : ID2D1PixelShader
             scaleY = textureAspect / screenAspect;
         UV = new float2(scaleX, scaleY) * (UV - 0.5f) + 0.5f;
 
-        float3 col = texture.Sample(UV + (isBlur ? 0.005f : 0f) * (Rand(UV) - 0.5f)).RGB;
+        float3 col = D2D.SampleInput(0, UV + (isBlur ? 0.005f : 0f) * (Rand(UV) - 0.5f)).RGB;
 
         // Subtle color shift
         col *= Hlsl.Lerp(new float3(1f, 1f, 1f), new float3(.8f, .9f, 1.3f), postProcessing);

@@ -9,7 +9,9 @@ namespace Drizzle.UI.Shaders.D2D1;
 /// <para>Copyright 2014 Roman Bobniev (FatumR).</para>
 /// <para>Licensed under the Apache License, Version 2.0 (the "License").</para>
 /// </summary>
-[D2DInputCount(0)]
+[D2DInputCount(2)]
+[D2DInputComplex(0)]
+[D2DInputComplex(1)]
 [D2DRequiresScenePosition]
 [D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
@@ -37,11 +39,9 @@ public readonly partial struct Wind : ID2D1PixelShader
 
     private readonly float saturation;
 
-    [D2DResourceTextureIndex(0)]
-    private readonly D2D1ResourceTexture2D<float4> imageTexture;
+    private readonly int2 textureSize;
 
-    [D2DResourceTextureIndex(1)]
-    private readonly D2D1ResourceTexture2D<float4> depthTexture;
+    const float zoom = 1.1f;
 
     float rand(float2 co)
     {
@@ -124,10 +124,12 @@ public readonly partial struct Wind : ID2D1PixelShader
         float2 fragCoord = new(D2D.GetScenePosition().X, dispatchSize.Y - D2D.GetScenePosition().Y);
         float2 uv = fragCoord / dispatchSize.XY;
         uv.Y = 1.0f - uv.Y;
+        // Scale to hide edges.
+        uv = (uv - 0.5f) / zoom + 0.5f;
 
         // Fill scale
         float screenAspect = (float)dispatchSize.X / dispatchSize.Y;
-        float textureAspect = (float)imageTexture.Width / imageTexture.Height;
+        float textureAspect = (float)textureSize.X / textureSize.Y;
         float scaleX = 1f, scaleY = 1f;
         if (textureAspect > screenAspect)
             scaleX = screenAspect / textureAspect;
@@ -135,11 +137,11 @@ public readonly partial struct Wind : ID2D1PixelShader
             scaleY = textureAspect / screenAspect;
         uv = new Float2(scaleX, scaleY) * (uv - 0.5f) + 0.5f;
 
-        float depth = depthTexture.Sample(uv).R;
+        float depth = D2D.SampleInput(1, uv).R;
         float2 parallax = mouseOffset.XY * depth * parallaxIntensity;
 
         float3 rez = Hlsl.Lerp(color2, color1, complexFBM(uv));
-        float4 color = new float4(rez + imageTexture.Sample(uv + parallax).RGB, 1f);
+        float4 color = new(rez + D2D.SampleInput(0, uv + parallax).RGB, 1f);
 
         color = saturation < 1f ? Hlsl.Lerp(Desaturate(color), color, saturation) : color;
         return color * brightness * 0.75f;

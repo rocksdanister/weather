@@ -15,8 +15,7 @@
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
     </UserControl.Resources>
 
-    <!--  Cropping to hide depth shader edges.  -->
-    <Grid Padding="-5">
+    <Grid>
         <shaderControls:D2D1AnimatedPixelShaderPanel
             IsPaused="{x:Bind IsPausedShader1, Mode=OneWay}"
             IsPerformanceMetricVisible="{x:Bind IsPerformanceMetricVisible, Mode=OneWay}"

@@ -5,6 +5,7 @@ using Drizzle.UI.Shaders.D2D1;
 using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using Windows.Foundation;
@@ -18,17 +19,19 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
     private readonly RainModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
+    private readonly BorderEffect borderEffect;
+    private CanvasBitmap image;
 
     public RainRunner()
     {
         this.properties ??= () => new RainModel();
         this.currentProperties ??= new RainModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Rain>()
+        this.pixelShaderEffect = new PixelShaderEffect<Rain>();
+        // Droplets at borders will reflect this.
+        this.borderEffect = new BorderEffect
         {
-            ResourceTextureManagers =
-            {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath)
-            }
+            ExtendX = CanvasEdgeBehavior.Clamp,
+            ExtendY = CanvasEdgeBehavior.Clamp
         };
     }
 
@@ -47,8 +50,18 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (currentProperties.ImagePath != properties().ImagePath)
-            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
+        if (image == null
+            || image.Dpi != sender.Dpi
+            || image.Device != sender.Device
+            || currentProperties.ImagePath != properties().ImagePath)
+        {
+            borderEffect.Source = null;
+            image?.Dispose();
+            image = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().ImagePath, sender.Dpi);
+            borderEffect.Source = image;
+
+            this.pixelShaderEffect.Sources[0] = borderEffect;
+        }
 
         // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);
@@ -66,7 +79,8 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
             currentProperties.PostProcessing,
             currentProperties.IsPanning,
             currentProperties.IsFreezing,
-            currentProperties.IsLightning);
+            currentProperties.IsLightning,
+            new int2((int)image.Size.Width, (int)image.Size.Height));
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,

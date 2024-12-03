@@ -18,19 +18,13 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
     private readonly WindModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
+    private CanvasBitmap image, depth;
 
     public WindRunner()
     {
         this.properties ??= () => new WindModel();
         this.currentProperties ??= new WindModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Wind>()
-        {
-            ResourceTextureManagers =
-            {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath),
-                [1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.DepthPath)
-            }
-        };
+        this.pixelShaderEffect = new PixelShaderEffect<Wind>();
 
     }
 
@@ -49,10 +43,22 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (currentProperties.ImagePath != properties().ImagePath || currentProperties.DepthPath != properties().DepthPath)
+        if (image == null
+            || depth == null
+            || image.Dpi != sender.Dpi
+            || depth.Dpi != sender.Dpi
+            || image.Device != sender.Device
+            || depth.Device != sender.Device
+            || currentProperties.ImagePath != properties().ImagePath
+            || currentProperties.DepthPath != properties().DepthPath)
         {
-            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
-            this.pixelShaderEffect.ResourceTextureManagers[1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().DepthPath);
+            image?.Dispose();
+            depth?.Dispose();
+            image = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().ImagePath, sender.Dpi);
+            depth = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().DepthPath, sender.Dpi);
+
+            this.pixelShaderEffect.Sources[0] = image;
+            this.pixelShaderEffect.Sources[1] = depth;
         }
 
         // Update uniforms
@@ -69,7 +75,8 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
             currentProperties.Amplitude,
             new float2(currentProperties.ParallaxIntensityX, currentProperties.ParallaxIntensityY),
             currentProperties.Brightness,
-            currentProperties.Saturation);
+            currentProperties.Saturation,
+            new int2((int)image.Size.Width, (int)image.Size.Height));
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,

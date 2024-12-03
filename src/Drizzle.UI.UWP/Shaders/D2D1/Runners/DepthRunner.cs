@@ -17,19 +17,13 @@ public sealed class DepthRunner : ID2D1ShaderRunner, IDisposable
     private readonly Func<DepthModel> properties;
     private readonly DepthModel currentProperties;
     private float4 mouseOffset = float4.Zero;
+    private CanvasBitmap image, depth;
 
     public DepthRunner()
     {
         this.properties ??= () => new DepthModel();
         this.currentProperties ??= new DepthModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Depth>()
-        {
-            ResourceTextureManagers =
-            {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath),
-                [1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.DepthPath)
-            }
-        };
+        this.pixelShaderEffect = new PixelShaderEffect<Depth>();
     }
 
     public DepthRunner(Func<DepthModel> properties) : this()
@@ -47,10 +41,22 @@ public sealed class DepthRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (currentProperties.ImagePath != properties().ImagePath || currentProperties.DepthPath != properties().DepthPath)
+        if (image == null
+            || depth == null
+            || image.Dpi != sender.Dpi
+            || depth.Dpi != sender.Dpi
+            || image.Device != sender.Device
+            || depth.Device != sender.Device
+            || currentProperties.ImagePath != properties().ImagePath
+            || currentProperties.DepthPath != properties().DepthPath)
         {
-            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
-            this.pixelShaderEffect.ResourceTextureManagers[1] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().DepthPath);
+            image?.Dispose();
+            depth?.Dispose();
+            image = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().ImagePath, sender.Dpi);
+            depth = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().DepthPath, sender.Dpi);
+
+            this.pixelShaderEffect.Sources[0] = image;
+            this.pixelShaderEffect.Sources[1] = depth;
         }
 
         // Update uniforms
@@ -64,7 +70,8 @@ public sealed class DepthRunner : ID2D1ShaderRunner, IDisposable
             new float2(currentProperties.IntensityX, currentProperties.IntensityY),
             currentProperties.IsBlur,
             currentProperties.Saturation,
-            currentProperties.Brightness);
+            currentProperties.Brightness,
+            new int2((int)image.Size.Width, (int)image.Size.Height));
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,

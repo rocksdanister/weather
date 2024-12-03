@@ -1,6 +1,7 @@
 ﻿using ComputeSharp.D2D1.Uwp;
 using Drizzle.Common.Helpers;
 using Drizzle.Models.Shaders;
+using Drizzle.Models.Shaders.Uniform;
 using Drizzle.UI.Shaders.D2D1;
 using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
@@ -47,7 +48,10 @@ public sealed class TunnelRunner : ID2D1ShaderRunner, IDisposable
 
         // Update textures
         if (currentProperties.ImagePath != properties().ImagePath)
-            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
+        {
+            var uniform = this.properties().UniformMappings[nameof(TunnelModel.ImagePath)] as TextureProperty;
+            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath, uniform.WrapMode);
+        }
 
         // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);

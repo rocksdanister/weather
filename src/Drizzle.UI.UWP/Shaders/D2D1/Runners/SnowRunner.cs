@@ -18,18 +18,13 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
     private readonly SnowModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
+    private CanvasBitmap image;
 
     public SnowRunner()
     {
         this.properties ??= () => new SnowModel();
         this.currentProperties ??= new SnowModel();
-        this.pixelShaderEffect = new PixelShaderEffect<Snow>()
-        {
-            ResourceTextureManagers =
-            {
-                [0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(currentProperties.ImagePath)
-            }
-        };
+        this.pixelShaderEffect = new PixelShaderEffect<Snow>();
     }
 
     public SnowRunner(Func<SnowModel> properties) : this()
@@ -47,8 +42,16 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
 
         // Update textures
-        if (currentProperties.ImagePath != properties().ImagePath)
-            this.pixelShaderEffect.ResourceTextureManagers[0] = ComputeSharpUtil.CreateD2D1ResourceTextureManagerOrPlaceholder(properties().ImagePath);
+        if (image == null
+            || image.Dpi != sender.Dpi
+            || image.Device != sender.Device
+            || currentProperties.ImagePath != properties().ImagePath)
+        {
+            image?.Dispose();
+            image = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().ImagePath, sender.Dpi);
+
+            this.pixelShaderEffect.Sources[0] = image;
+        }
 
         // Update uniforms
         UpdateUniforms(args.Timing.TotalTime);
@@ -65,7 +68,8 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
             currentProperties.Layers,
             currentProperties.PostProcessing,
             currentProperties.IsLightning,
-            currentProperties.IsBlur);
+            currentProperties.IsBlur,
+            new int2((int)image.Size.Width, (int)image.Size.Height));
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,

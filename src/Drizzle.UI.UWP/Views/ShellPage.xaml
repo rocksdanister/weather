@@ -61,13 +61,6 @@
                         Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
                 </controls:Case>
                 <controls:Case Value="{x:Bind enums:ShaderRenderer.d2d1}">
-                    <!--<shaderControls:D2D1AnimatedPixelShaderPanel
-                        Margin="-5"
-                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                        IsPerformanceMetricVisible="{x:Bind shellVm.IsDiagnosticVisible, Mode=OneWay}"
-                        ResolutionScale="{x:Bind shellVm.SelectedShader.Model.ScaleFactor, Mode=OneWay}"
-                        ShaderRunner="{x:Bind shellVm.SelectedShader.D2D1ShaderRunner, Mode=OneWay}"
-                        TargetFrameRate="{x:Bind shellVm.TargetFrameRate, Mode=OneWay}" />-->
                     <shaderControls:D2D1AnimatedPixelShaderPanelEx
                         IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
                         IsPerformanceMetricVisible="{x:Bind shellVm.IsDiagnosticVisible, Mode=OneWay}"
