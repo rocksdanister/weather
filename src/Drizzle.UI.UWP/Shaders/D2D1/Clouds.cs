@@ -45,6 +45,8 @@ public readonly partial struct Clouds : ID2D1PixelShader
 
     private static readonly float3x3 M3 = new float3x3(0.33338f, 0.56034f, -0.71817f, -0.87887f, 0.32651f, -0.15323f, 0.15162f, 0.69596f, 0.61339f) * 1.93f;
 
+    const float zoom = 1.05f;
+
     private static float2x2 Rotate(in float a)
     {
         float c = Hlsl.Cos(a);
@@ -170,6 +172,8 @@ public readonly partial struct Clouds : ID2D1PixelShader
     {
         int2 xy = (int2)D2D.GetScenePosition().XY;
         float2 q = (float2)xy / this.dispatchSize;
+        // Scale to hide edges.
+        q = (q - 0.5f) / zoom + 0.5f;
         float2 p = (xy - (0.5f * (float2)this.dispatchSize)) / this.dispatchSize.Y;
         float2 bsMo = mouse.XY - 0.5f * (float2)this.dispatchSize / this.dispatchSize.Y;
         float scaledTime = Time() * 3.0f;

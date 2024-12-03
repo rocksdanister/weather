@@ -5,6 +5,7 @@ using Drizzle.UI.Shaders.D2D1;
 using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.UWP.Helpers;
 using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using Windows.Foundation;
@@ -18,6 +19,7 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
     private readonly SnowModel currentProperties;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
+    private readonly BorderEffect borderEffect;
     private CanvasBitmap image;
 
     public SnowRunner()
@@ -25,6 +27,12 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
         this.properties ??= () => new SnowModel();
         this.currentProperties ??= new SnowModel();
         this.pixelShaderEffect = new PixelShaderEffect<Snow>();
+        // Borders blur will sample this.
+        this.borderEffect = new BorderEffect
+        {
+            ExtendX = CanvasEdgeBehavior.Clamp,
+            ExtendY = CanvasEdgeBehavior.Clamp
+        };
     }
 
     public SnowRunner(Func<SnowModel> properties) : this()
@@ -47,10 +55,12 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
             || image.Device != sender.Device
             || currentProperties.ImagePath != properties().ImagePath)
         {
+            borderEffect.Source = null;
             image?.Dispose();
             image = ComputeSharpUtil.CreateCanvasBitmapOrPlaceholder(sender, properties().ImagePath, sender.Dpi);
+            borderEffect.Source = image;
 
-            this.pixelShaderEffect.Sources[0] = image;
+            this.pixelShaderEffect.Sources[0] = borderEffect;
         }
 
         // Update uniforms
