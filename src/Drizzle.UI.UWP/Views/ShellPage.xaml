@@ -21,10 +21,9 @@
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="mainPage"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
-    Background="Black"
+    Background="#212121"
     IsTabStop="True"
     mc:Ignorable="d">
-    <!--  Background is black for dip-to-black like shader transition effect  -->
 
     <Page.Resources>
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
@@ -67,6 +66,9 @@
                         Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
                         Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}"
                         TargetFrameRate="{x:Bind shellVm.TargetFrameRate, Mode=OneWay}" />
+                </controls:Case>
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.skia}">
+                    <TextBlock Foreground="Red">This renderer is not available in this version of application.</TextBlock>
                 </controls:Case>
             </controls:SwitchPresenter>
             <!--  Fallback background  -->

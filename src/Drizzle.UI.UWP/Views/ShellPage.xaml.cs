@@ -9,6 +9,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Graphics.Display;
 using Windows.UI;
@@ -102,6 +103,10 @@ namespace Drizzle.UI.UWP.Views
             this.Loaded += async (s, e) =>
             {
                 await shellVm.OnLoaded();
+                // Wait for shader to load.
+                await Task.Delay(1500);
+                // Background is black for dip-to-black like shader transition effect.
+                this.Background = new SolidColorBrush(Colors.Black);
             };
 
             this.navigator.ContentPageChanged += (s, e) =>

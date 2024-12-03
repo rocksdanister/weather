@@ -90,8 +90,8 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
             args.DrawingSession.DrawOverlayWithText(
                 text: $"D2D1 FPS: {fps:F2} Scale: {resolutionScale:F2}",
                 fontSize: 21,
-                overlayX: 60f,
-                overlayY: 60f,
+                overlayX: 75f,
+                overlayY: 57f,
                 overlayPadding: 10f,
                 overlayColor: Windows.UI.Color.FromArgb(75, 0, 0, 0),
                 textColor: Windows.UI.Colors.White
