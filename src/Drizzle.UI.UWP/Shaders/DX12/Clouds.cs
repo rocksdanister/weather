@@ -1,6 +1,6 @@
 ﻿using ComputeSharp;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.DX12;
 
 /// <summary>
 /// Fully procedural 3D animated volume with three evaluations per step (for shading).

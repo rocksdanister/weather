@@ -119,6 +119,15 @@ public partial class ShellViewModel : ObservableObject
                 case UserSettingsConstants.SelectedWeatherProvider:
                     await UpdateWeatherProvider();
                     break;
+                case UserSettingsConstants.SelectedShaderRenderer:
+                    SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
+                    break;
+                case UserSettingsConstants.TargetFrameRate:
+                    TargetFrameRate = userSettings.Get<int>(UserSettingsConstants.TargetFrameRate);
+                    break;
+                case UserSettingsConstants.DiagnosticsVisible:
+                    IsDiagnosticVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
+                    break;
             }
         };
 
@@ -133,18 +142,17 @@ public partial class ShellViewModel : ObservableObject
         cacheService.UseCache = userSettings.Get<bool>(UserSettingsConstants.CacheWeather);
         maxPinnedLocations = userSettings.Get<int>(UserSettingsConstants.MaxPinnedLocations);
         IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+        TargetFrameRate = userSettings.Get<int>(UserSettingsConstants.TargetFrameRate);
+        IsDiagnosticVisible = userSettings.Get<bool>(UserSettingsConstants.DiagnosticsVisible);
         SoundVolume = userSettings.Get<int>(UserSettingsConstants.SoundVolume);
+        SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
+        SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
         SelectedMainGraphTypeIndex = (int)userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
 
         IsFirstRun = systemInfo.IsFirstRun;
         IsAppUpdated = systemInfo.IsAppUpdated;
-        IsHardwareAccelerated = systemInfo.IsHardwareAccelerated;
-        logger.LogInformation($"GPU: {systemInfo.GpuName}, Hardware acceleration: {IsHardwareAccelerated}");
-
-        var quality = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
-        IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
-        // Alert user only on first run
-        IsHardwareAccelerationMissingNotify = !IsHardwareAccelerated && IsFirstRun;
+        IsDirectX12Supported = systemInfo.IsDirectX12Supported;
+        logger.LogInformation($"GPU: {systemInfo.GpuName}, DX12: {IsDirectX12Supported}");
 
         // Refresh UI/Weather
         weatherRefreshTimer = timerFactory.CreateTimer();
@@ -155,6 +163,28 @@ public partial class ShellViewModel : ObservableObject
         appUpdater.UpdateChecked += AppUpdater_UpdateChecked;
         if (!BuildInfoUtil.IsDebugBuild())
             appUpdater.Start();
+    }
+
+    /// <summary>
+    /// View is loaded.
+    /// </summary>
+    public async Task OnLoaded()
+    {
+        if (!userSettings.Get<bool>(UserSettingsConstants.UserPromptRendererSelection))
+        {
+            // If the gpu is not recent, fallback to the lowest quality (shaders disabled.)
+            if (!IsDirectX12Supported)
+            {
+                userSettings.SetAndSerialize(UserSettingsConstants.Performance, AppPerformance.potato);
+                userSettings.Set(UserSettingsConstants.TargetFrameRate, UserSettingsConstants.FrameRates[1]);
+                // Notify and prompt user to select different graphics api.
+                IsDirectX12SupportNotify = true;
+            }
+            userSettings.Set(UserSettingsConstants.UserPromptRendererSelection, true);
+        }
+
+        // Trying to call once page is ready to avoid ComputeSharp/UWP Windowsize issue.
+        await RestoreWeather();
     }
 
     public IReadOnlyList<ShaderViewModel> ShaderViewModels { get; private set; }
@@ -234,6 +264,26 @@ public partial class ShellViewModel : ObservableObject
         }
     }
 
+    [ObservableProperty]
+    private ShaderRenderer selectedShaderRenderer;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsFallbackBackground))]
+    [NotifyPropertyChangedFor(nameof(SelectedShaderQuality))]
+    private AppPerformance selectedAppPerformance;
+
+    public bool IsFallbackBackground =>
+        SelectedAppPerformance == AppPerformance.potato;
+
+    public ShaderQuality SelectedShaderQuality => SelectedAppPerformance switch
+    {
+        AppPerformance.potato => ShaderQuality.none,
+        AppPerformance.performance => ShaderQuality.optimized,
+        AppPerformance.quality => ShaderQuality.maximum,
+        AppPerformance.dynamic => ShaderQuality.dynamic,
+        _ => throw new NotImplementedException(),
+    };
+
     /// <summary>
     /// Is user idle
     /// </summary>
@@ -245,12 +295,6 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     private string fallbackBackground;
-
-    /// <summary>
-    /// Disable shader animation and use fallback image instead
-    /// </summary>
-    [ObservableProperty]
-    private bool isFallbackBackground = false;
 
     [ObservableProperty]
     private bool isReducedMotion = false;
@@ -274,19 +318,19 @@ public partial class ShellViewModel : ObservableObject
     private ShaderViewModel selectedShader;
 
     [ObservableProperty]
-    private ShaderQuality selectedShaderQuality;
-
-    [ObservableProperty]
     private bool isPausedShader = false;
 
     [ObservableProperty]
-    private bool isDynamicResolution = true;
+    private bool isDirectX12Supported = false;
 
     [ObservableProperty]
-    private bool isHardwareAccelerated = true;
+    private bool isDirectX12SupportNotify = false;
 
     [ObservableProperty]
-    private bool isHardwareAccelerationMissingNotify = false;
+    private int targetFrameRate = 60;
+
+    [ObservableProperty]
+    private bool isDiagnosticVisible = false;
 
     [ObservableProperty]
     private bool isFirstRun = false;
@@ -765,10 +809,6 @@ public partial class ShellViewModel : ObservableObject
 
     private void SetShader(ShaderTypes type)
     {
-        // CPU emulation, skip for better UX
-        if (!IsHardwareAccelerated)
-            return;
-
         // Turn off all animations
         if (IsFallbackBackground)
         {
@@ -785,14 +825,36 @@ public partial class ShellViewModel : ObservableObject
         var selection = ShaderViewModels.First(x => x.Model.Type == type);
         SelectedShader = selection;
 
-        // Reset config
-        UpdateShaderQuality();
+        // Reset global uniforms.
         UpdateBrightness();
         RainProperty.Mouse =
             CloudsProperty.Mouse =
             SnowProperty.Mouse =
             FogProperty.Mouse =
             DepthProperty.Mouse = Vector4.Zero;
+    }
+
+    private void UpdateMotionSettings()
+    {
+        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+        SetWeatherAnimation(SelectedWeatherAnimation);
+    }
+
+    private void UpdateQualitySettings()
+    {
+        SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
+        // Force update shader quality.
+        SetWeatherAnimation(SelectedWeatherAnimation);
+    }
+
+    private void UpdateBrightness()
+    {
+        var brightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
+        RainProperty.Brightness =
+            SnowProperty.Brightness =
+            FogProperty.Brightness =
+            DepthProperty.Brightness =
+            CloudsProperty.Brightness = brightness;
     }
 
     private void UpdateGraphs()
@@ -807,58 +869,6 @@ public partial class ShellViewModel : ObservableObject
             for (int i = 0; i < weatherVm.Daily.Count; i++)
                 weatherVm.Daily[i].DayGraph = graphs[i];
         }
-    }
-
-    private void UpdateQualitySettings()
-    {
-        var quality = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
-        IsFallbackBackground = quality == AppPerformance.potato || !IsHardwareAccelerated;
-        SetWeatherAnimation(SelectedWeatherAnimation);
-        // Force update since selected shader is unchanged.
-        UpdateShaderQuality();
-    }
-
-    private void UpdateMotionSettings()
-    {
-        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
-        SetWeatherAnimation(SelectedWeatherAnimation);
-    }
-
-    private void UpdateShaderQuality()
-    {
-        if (SelectedShader?.Model is null)
-            return;
-
-        switch (userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance))
-        {
-            case AppPerformance.performance:
-                {
-                    IsDynamicResolution = false;
-                    SelectedShaderQuality = ShaderQuality.optimized;
-                }
-                break;
-            case AppPerformance.quality:
-                {
-                    IsDynamicResolution = false;
-                    SelectedShaderQuality = ShaderQuality.maximum;
-                }
-                break;
-            case AppPerformance.dynamic:
-                {
-                    IsDynamicResolution = true;
-                }
-                break;
-        }
-    }
-
-    private void UpdateBrightness()
-    {
-        var brightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
-        RainProperty.Brightness =
-            SnowProperty.Brightness =
-            FogProperty.Brightness =
-            DepthProperty.Brightness =
-            CloudsProperty.Brightness = brightness;
     }
 
     private async Task UpdateWeatherProvider()

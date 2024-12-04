@@ -20,27 +20,33 @@ public partial class CloudsModel : ShaderModel
     [ObservableProperty]
     private bool isDayNightShift = true;
 
-    public CloudsModel(Uri shaderUri) : base(shaderUri, ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
+    public CloudsModel(Uri shaderUri, CloudsModel properties) : base(
+        shaderUri ?? properties?.ShaderUri,
+        ShaderTypes.clouds,
+        scaleFactor: 0.2f,
+        maxScaleFactor: 0.4f,
+        mouseSpeed: 1.5f,
+        mouseInertia: 0.08f,
+        maxFrameRate: 30)
     {
+        if (properties != null)
+        {
+            this.Speed = properties.Speed;
+            this.Scale = properties.Scale;
+            this.Mouse = properties.Mouse;
+            this.Saturation = properties.Saturation;
+            this.IsDayNightShift = properties.IsDayNightShift;
+            this.IsDaytime = properties.IsDaytime;
+        }
+
         InitializeUniformMappings();
     }
 
-    public CloudsModel() : base(null, ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
-    {
-        InitializeUniformMappings();
-    }
+    public CloudsModel(Uri shaderUri) : this(shaderUri, null) { }
 
-    public CloudsModel(CloudsModel properties) : base(properties.ShaderUri, ShaderTypes.clouds, scaleFactor: 0.2f, maxScaleFactor: 0.4f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
-    {
-        this.Speed = properties.Speed;
-        this.Scale = properties.Scale;
-        this.Mouse = properties.Mouse;
-        this.Saturation = properties.Saturation;
-        this.IsDayNightShift = properties.IsDayNightShift;
-        this.IsDaytime = properties.IsDaytime;
+    public CloudsModel() : this(null, null) { }
 
-        InitializeUniformMappings();
-    }
+    public CloudsModel(CloudsModel properties) : this(null, properties) { }
 
     protected override void InitializeUniformMappings()
     {

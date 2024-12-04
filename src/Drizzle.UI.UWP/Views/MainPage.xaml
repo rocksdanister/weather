@@ -21,10 +21,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!--<media:AttachedCardShadow
-            x:Key="CommonShadow"
-            Offset="0"
-            Color="#FF000000" />-->
         <ThemeShadow x:Name="BackgroundGridShadow" />
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
@@ -182,12 +178,10 @@
                 <!--  Day selector/Weekly  -->
                 <Border
                     Width="240"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,8">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <!--  x:Bind have bug here, ref:  -->
                     <ListView
                         Padding="0,2,0,2"
@@ -243,12 +237,10 @@
                 <!--  Hourly graph  -->
                 <Border
                     Width="540"
+                    Background="{StaticResource CardBlurBrushHigh}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="24" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -317,12 +309,10 @@
                     <Border
                         Width="240"
                         Height="175"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -362,12 +352,10 @@
                     <Border
                         Width="290"
                         Height="175"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -397,12 +385,10 @@
                     <Border
                         Width="240"
                         Height="175"
+                        Background="{StaticResource CardBlurBrushLow}"
                         Shadow="{StaticResource BackgroundGridShadow}"
                         Style="{StaticResource CardBorder}"
                         Translation="0,0,16">
-                        <Border.Background>
-                            <media:BackdropBlurBrush Amount="12" />
-                        </Border.Background>
                         <Button
                             Padding="0"
                             HorizontalAlignment="Stretch"
@@ -456,12 +442,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -500,12 +484,10 @@
                 <Border
                     Width="290"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -541,12 +523,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -585,12 +565,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -614,19 +592,20 @@
                                 </StackPanel>
                             </Flyout>
                         </Button.Flyout>
-                        <cards:Visibility Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}" Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
+                        <cards:Visibility
+                            BlurBrush="{StaticResource CardBlurBrushLow}"
+                            Unit="{x:Bind shellVm.SelectedWeather.VisibilityUnit, Mode=OneWay}"
+                            Value="{x:Bind shellVm.SelectedWeather.Visibility, Mode=OneWay}" />
                     </Button>
                 </Border>
                 <!--  Cloud Cover  -->
                 <Border
                     Width="290"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"
@@ -657,12 +636,10 @@
                 <Border
                     Width="240"
                     Height="175"
+                    Background="{StaticResource CardBlurBrushLow}"
                     Shadow="{StaticResource BackgroundGridShadow}"
                     Style="{StaticResource CardBorder}"
                     Translation="0,0,16">
-                    <Border.Background>
-                        <media:BackdropBlurBrush Amount="12" />
-                    </Border.Background>
                     <Button
                         Padding="0"
                         HorizontalAlignment="Stretch"

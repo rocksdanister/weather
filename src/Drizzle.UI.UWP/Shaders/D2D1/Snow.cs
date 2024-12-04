@@ -1,6 +1,7 @@
 ﻿using ComputeSharp;
+using ComputeSharp.D2D1;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.D2D1;
 
 /// <summary>
 /// Simple (but not cheap) snow made from multiple parallax layers with randomly positioned flakes and directions.
@@ -8,11 +9,16 @@ namespace Drizzle.UI.Shaders;
 /// <para>Copyright (c) 2013 Andrew Baldwin (twitter: baldand, www: http://thndl.com).</para>
 /// <para>License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</para>
 /// </summary>
+[D2DInputCount(1)]
+[D2DInputComplex(0)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Snow : IPixelShader<float4>
+public readonly partial struct Snow : ID2D1PixelShader
 {
     private readonly float time;
+
+    private readonly int2 dispatchSize;
 
     private readonly float4 mouse;
 
@@ -34,7 +40,7 @@ public readonly partial struct Snow : IPixelShader<float4>
 
     private readonly bool isBlur;
 
-    private readonly IReadOnlyNormalizedTexture2D<float4> texture;
+    private readonly int2 textureSize;
 
     // glsl style mod
     float Mod(float x, float y)
@@ -66,16 +72,19 @@ public readonly partial struct Snow : IPixelShader<float4>
 
     public float4 Execute()
     {
-        float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
+        float2 fragCoord = new(D2D.GetScenePosition().X, dispatchSize.Y - D2D.GetScenePosition().Y);
         float3x3 p = new float3x3(13.323122f, 23.5112f, 21.71123f, 21.1212f, 28.7312f, 11.9312f, 21.8112f, 14.7212f, 61.3934f);
-        float2 uv = mouse.XY + new float2(1f, (float)DispatchSize.Y / DispatchSize.X) * fragCoord.XY / DispatchSize.XY;// + u_mouse.xy / u_resolution.xy;
-        float2 UV = fragCoord.XY / DispatchSize.XY;
+        float2 uv = mouse.XY + new float2(1f, (float)dispatchSize.Y / dispatchSize.X) * fragCoord.XY / dispatchSize.XY;// + u_mouse.xy / u_resolution.xy;
+        float2 UV = fragCoord.XY / dispatchSize.XY;
         UV.Y = 1f - UV.Y;
         float T = time * speed;
         float3 acc = new float3(0f, 0f, 0f);
         float dof = 5f * Hlsl.Sin(T * .1f);
-        for (int i = 0; i < layers; i++)
+        for (int i = 0; i < 201; i++)
         {
+            if (i > layers)
+                break;
+
             float fi = (float)i;
             float2 q = uv * (1f + fi * depth);
             q += new float2(q.Y * (width * Mod(fi * 7.238917f, 1f) - width * .5f), T / (1f + fi * depth * .03f));
@@ -92,8 +101,8 @@ public readonly partial struct Snow : IPixelShader<float4>
         }
 
         // fill scaling
-        float screenAspect = (float)DispatchSize.X / DispatchSize.Y;
-        float textureAspect = (float)texture.Width / texture.Height;
+        float screenAspect = (float)dispatchSize.X / dispatchSize.Y;
+        float textureAspect = (float)textureSize.X / textureSize.Y;
         float scaleX = 1f, scaleY = 1f;
         if (textureAspect > screenAspect)
             scaleX = screenAspect / textureAspect;
@@ -101,7 +110,7 @@ public readonly partial struct Snow : IPixelShader<float4>
             scaleY = textureAspect / screenAspect;
         UV = new float2(scaleX, scaleY) * (UV - 0.5f) + 0.5f;
 
-        float3 col = texture.Sample(UV + (isBlur ? 0.005f : 0f) * (Rand(UV) - 0.5f)).RGB;
+        float3 col = D2D.SampleInput(0, UV + (isBlur ? 0.005f : 0f) * (Rand(UV) - 0.5f)).RGB;
 
         // Subtle color shift
         col *= Hlsl.Lerp(new float3(1f, 1f, 1f), new float3(.8f, .9f, 1.3f), postProcessing);

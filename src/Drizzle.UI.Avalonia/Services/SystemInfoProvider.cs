@@ -22,7 +22,7 @@ public class SystemInfoProvider : ISystemInfoProvider
 
     public bool IsTenFoot => false;
 
-    public bool IsHardwareAccelerated => true;
+    public bool IsDirectX12Supported => true;
 
     public bool IsFirstRun { get; }
 

@@ -4,13 +4,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
-    xmlns:local="using:Drizzle.UI.UWP">
+    xmlns:local="using:Drizzle.UI.UWP"
+    xmlns:media="using:CommunityToolkit.WinUI.Media">
 
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary Source="UserControls/Shaders/D2D1AnimatedPixelShaderPanel.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!--<media:AcrylicBrush
+                x:Key="CardBlurBrushHigh"
+                BlurAmount="24"
+                TextureUri="ms-appx:///Assets/Misc/noise_low.png"
+                TintOpacity="0" />
+            <media:AcrylicBrush
+                x:Key="CardBlurBrushLow"
+                BlurAmount="12"
+                TextureUri="ms-appx:///Assets/Misc/noise_low.png"
+                TintOpacity="0" />-->
+            <media:BackdropBlurBrush x:Key="CardBlurBrushHigh" Amount="24" />
+            <media:BackdropBlurBrush x:Key="CardBlurBrushLow" Amount="12" />
 
             <StaticResource x:Key="WindowCaptionBackground" ResourceKey="ApplicationPageBackgroundThemeBrush" />
             <StaticResource x:Key="WindowCaptionBackgroundDisabled" ResourceKey="ApplicationPageBackgroundThemeBrush" />

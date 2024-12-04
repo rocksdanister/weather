@@ -40,35 +40,40 @@ public partial class RainModel : ShaderModel
 
     public string? ImagePath { get; set; } = null;
 
-    public RainModel(Uri shaderUri) : base(shaderUri, ShaderTypes.rain, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 0.5f, mouseInertia: 0.04f)
+    public RainModel(Uri shaderUri, RainModel properties) : base(
+        shaderUri ?? properties?.ShaderUri,
+        ShaderTypes.rain,
+        scaleFactor: 0.75f,
+        maxScaleFactor: 1f,
+        mouseSpeed: 0.5f,
+        mouseInertia: 0.04f)
     {
+        if (properties != null)
+        {
+            this.Speed = properties.Speed;
+            this.MouseSpeed = properties.MouseSpeed;
+            this.MouseInertia = properties.MouseInertia;
+            this.Intensity = properties.Intensity;
+            this.Zoom = properties.Zoom;
+            this.Normal = properties.Normal;
+            this.IsPanning = properties.IsPanning;
+            this.IsFreezing = properties.IsFreezing;
+            this.IsLightning = properties.IsLightning;
+            this.Mouse = properties.Mouse;
+            this.ImagePath = properties.ImagePath;
+            this.Saturation = properties.Saturation;
+            this.PostProcessing = properties.PostProcessing;
+            this.IsDaytime = properties.IsDaytime;
+        }
+
         InitializeUniformMappings();
     }
 
-    public RainModel() : base(null, ShaderTypes.rain, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 0.5f, mouseInertia: 0.04f) 
-    {
-        InitializeUniformMappings();
-    }
+    public RainModel(Uri shaderUri) : this(shaderUri, null) { }
 
-    public RainModel(RainModel properties) : base(properties.ShaderUri, ShaderTypes.rain, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 0.5f, mouseInertia: 0.04f)
-    {
-        this.Speed = properties.Speed;
-        this.MouseSpeed = properties.MouseSpeed;
-        this.MouseInertia = properties.MouseInertia;
-        this.Intensity = properties.Intensity;
-        this.Zoom = properties.Zoom;
-        this.Normal = properties.Normal;
-        this.IsPanning = properties.IsPanning;
-        this.IsFreezing = properties.IsFreezing;
-        this.IsLightning = properties.IsLightning;
-        this.Mouse = properties.Mouse;
-        this.ImagePath = properties.ImagePath;
-        this.Saturation = properties.Saturation;
-        this.PostProcessing = properties.PostProcessing;
-        this.IsDaytime = properties.IsDaytime;
+    public RainModel() : this(null, null) { }
 
-        InitializeUniformMappings();
-    }
+    public RainModel(RainModel properties) : this(null, properties) { }
 
     protected override void InitializeUniformMappings()
     {

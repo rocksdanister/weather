@@ -403,6 +403,16 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The graphics processor on your system does not meet the recommended requirements.
+        ///Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance..
+        /// </summary>
+        public static string DescPerformanceNotify_Text {
+            get {
+                return ResourceManager.GetString("DescPerformanceNotify.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Additional files need to be downloaded for this feature.
         /// </summary>
         public static string DescriptionDownloadRequired_Text {
@@ -718,6 +728,24 @@ namespace Drizzle.UI.Avalonia.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visual rendering method.
+        /// </summary>
+        public static string RendererSettings_Description {
+            get {
+                return ResourceManager.GetString("RendererSettings.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphics.
+        /// </summary>
+        public static string RendererSettings_Header {
+            get {
+                return ResourceManager.GetString("RendererSettings.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restore Default.
         /// </summary>
         public static string RestoreDefault_Text {
@@ -777,6 +805,15 @@ namespace Drizzle.UI.Avalonia.Strings {
         public static string ShaderSpeed_Header {
             get {
                 return ResourceManager.GetString("ShaderSpeed.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show diagnostics.
+        /// </summary>
+        public static string ShowDiagnosticsSettings_Header {
+            get {
+                return ResourceManager.GetString("ShowDiagnosticsSettings.Header", resourceCulture);
             }
         }
         
@@ -1191,6 +1228,15 @@ namespace Drizzle.UI.Avalonia.Strings {
         public static string TitlePressure_Text {
             get {
                 return ResourceManager.GetString("TitlePressure.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recommended.
+        /// </summary>
+        public static string TitleRecommended_Text {
+            get {
+                return ResourceManager.GetString("TitleRecommended.Text", resourceCulture);
             }
         }
         

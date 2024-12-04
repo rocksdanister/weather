@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Hai, Saya Dani John juga dikenal sebagai Rockdanister. Saya membuat aplikasi yang menyenangkan seperti ini. Terima kasih telah meluangkan waktu untuk melihat karya saya.</value>
+    <value>Hai, saya Dani John, juga dikenal sebagai Rockdanister. Saya membuat aplikasi seru seperti ini. Terima kasih telah meluangkan waktu untuk melihat karya saya.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Baik</value>
@@ -154,7 +154,7 @@
     <value>Cari tempat</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Pemberitahuan software pihak ketiga</value>
+    <value>Pemberitahuan perangkat lunak pihak ketiga</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>Sesuaikan kecerahan latar belakang</value>
@@ -184,7 +184,7 @@
     <value>Sarankan fitur atau laporkan bug</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
-    <value>Kontak</value>
+    <value>Hubungi Kami</value>
   </data>
   <data name="CustomBackgroundSettings.Description" xml:space="preserve">
     <value>Gunakan gambar pilihan pengguna pada efek cuaca</value>
@@ -202,7 +202,7 @@
     <value>Indeks Kualitas Udara didesain untuk menyediakan tentang dampak kesehatan bagi lima pencemaran udara yang paling umum. Pada skala 0 hingga 500, dengan nilai yang lebih tinggi menandakan tahap pencemaran udara yang lebih serius.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>Banyaknya awan berarti seberapa luasnya bagian langit yang ditutupi awan rata-rata ketika diamati dari tempat tertentu.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Suhu titik embun merupakan ukuran absolut jumlah uap air di udara. Jika suhu titik embun dan suhu udara sama, maka kelembaban relatifnya adalah 100%. Pada titik ini, udara sudah jenuh sempurna dengan uap air sehingga menyebabkan kondensasi dalam bentuk embun, kabut, atau awan.</value>
@@ -211,7 +211,7 @@
     <value/>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Curah hujan adalah dalamnya air yang berkumpul di permukaan datar dari pengembunan uap air yang jatuh dari langit karena gravitasi. Contoh pengendapan adalah hujan and salju.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Tekanan Barometrik, juga dikenal sebagai tekanan atmosfer, adalah ukuran tekanan air di area tertentu.</value>
@@ -229,7 +229,11 @@
     <value>Memperkirakan tingkat kedalaman..</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>Sistem grafis (GPU) tidak mendukung fitur DX12 yang diperlukan, jadi beberapa funsionalitas akan dimatikan.</value>
+    <value>Prosesor grafis (GPU) tidak mendukung fitur DX12 yang diperlukan, jadi beberapa fungsi akan dimatikan.</value>
+  </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>File tambahan perlu diunduh untuk fitur ini</value>
@@ -256,7 +260,7 @@
     <value>Kesalahan</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Mohon mulai ulang Lively agar pengaturan dapat diterapkan.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Kontribusi ke aplikasi ini dengan menerjemahkan ke bahasa lain.</value>
@@ -274,7 +278,7 @@
     <value>Bantu Terjemahkan!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Sama dengan Sistem</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Selengkapnya</value>
@@ -292,13 +296,13 @@
     <value>Waktu jeda visual jika aplikasi tidak dilatar depan</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Kebijakan Pengumpulan Data</value>
+    <value>Kebijakan pengumpulan data</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
     <value>Dinamis</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Performa</value>
+    <value>Mantap</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
     <value>Kentang</value>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Perbarui</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Kembali ke Semula</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Kecepatan</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Kedalaman</value>
@@ -388,7 +401,7 @@
     <value>Lanjutkan</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>Aproksimasi Kedalaman AI</value>
+    <value>Perkiraan Kedalaman AI</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
     <value>Akses ke lokasi telah dimatikan, cek pengaturan Windows.</value>
@@ -427,7 +440,7 @@
     <value>Tentang Indeks Kualitas Udara</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>Tentang Banyaknya Awan</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Tentang Titik Embun</value>
@@ -436,7 +449,7 @@
     <value>Tentang Kelembaban Relatif</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>Tentang Pengendapan</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Tentang Tekanan</value>
@@ -445,7 +458,7 @@
     <value>Tentang Indeks UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>Tentang Keterlihatan</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Tentang kecepatan udara dan hembusan angin</value>
@@ -460,13 +473,13 @@
     <value>Kualitas Udara</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>Banyaknya Awan</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Kontributor</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Jarak</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Unduh</value>
@@ -487,16 +500,19 @@
     <value>Kelembaban</value>
   </data>
   <data name="TitlePerformance.Text" xml:space="preserve">
-    <value>Performa</value>
+    <value>Kinerja</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>Curah Hujan</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Tekanan</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>Kecepatan</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Matahari</value>
@@ -508,10 +524,10 @@
     <value>Matahari terbenam</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>Suhu</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Pembaruan Tersedia!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Pembaruan Selesai</value>
@@ -520,7 +536,7 @@
     <value>Indeks UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Keterlihatan</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Peringatan</value>
@@ -553,10 +569,10 @@
     <value>Penyedia</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>Suaian</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
-    <value>Hibrid</value>
+    <value>Hibrida</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
     <value>Imperial</value>
@@ -571,7 +587,7 @@
     <value>Satuan</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
-    <value>Situs Resmi</value>
+    <value>Situs resmi</value>
   </data>
   <data name="WebpageCard.Header" xml:space="preserve">
     <value>Situs</value>
@@ -601,7 +617,7 @@
     <value>Kabut tebal</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Kabut</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Gerimis Ringan</value>
@@ -613,10 +629,10 @@
     <value>Gerimis Lebat</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Light Freezing Drizzle</value>
+    <value>Gerimis Membeku Ringan</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Dense Freezing Drizzle</value>
+    <value>Gerimis Membeku Tebal</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
     <value>Debu</value>

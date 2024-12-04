@@ -4,24 +4,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animation="using:CommunityToolkit.WinUI.Animations"
     xmlns:computesharp="using:ComputeSharp.Uwp"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:converters="using:CommunityToolkit.WinUI.Converters"
     xmlns:customControls="using:Drizzle.UI.UWP.UserControls"
     xmlns:customConverters="using:Drizzle.UI.UWP.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:Drizzle.Models"
+    xmlns:enums="using:Drizzle.Models.Enums"
     xmlns:icons="using:Drizzle.UI.UWP.AnimatedIcons"
     xmlns:local="using:Drizzle.UI.UWP.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:CommunityToolkit.WinUI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:shaderControls="using:Drizzle.UI.UWP.UserControls.Shaders"
     xmlns:viewmodels="using:Drizzle.UI.Shared.ViewModels"
     xmlns:visuals="using:Drizzle.UI.UWP.AnimatedIcons"
     x:Name="mainPage"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="False"
-    Background="Black"
+    Background="#212121"
     IsTabStop="True"
     mc:Ignorable="d">
-    <!--  Background is black for dip-to-black like shader transition effect  -->
 
     <Page.Resources>
         <converters:StringFormatConverter x:Key="StringFormatConverter" />
@@ -49,11 +51,25 @@
 
         <!--  Background  -->
         <Grid Grid.RowSpan="2">
-            <customControls:AnimatedComputeShaderPanelEx
-                IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
-                IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
-                Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
-                Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
+            <controls:SwitchPresenter Value="{x:Bind shellVm.SelectedShaderRenderer, Mode=OneWay}">
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.dx12}">
+                    <shaderControls:AnimatedComputeShaderPanelEx
+                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                        Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
+                        Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />
+                </controls:Case>
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.d2d1}">
+                    <shaderControls:D2D1AnimatedPixelShaderPanelEx
+                        IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
+                        IsPerformanceMetricVisible="{x:Bind shellVm.IsDiagnosticVisible, Mode=OneWay}"
+                        Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
+                        Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}"
+                        TargetFrameRate="{x:Bind shellVm.TargetFrameRate, Mode=OneWay}" />
+                </controls:Case>
+                <controls:Case Value="{x:Bind enums:ShaderRenderer.skia}">
+                    <TextBlock Foreground="Red">This renderer is not available in this version of application.</TextBlock>
+                </controls:Case>
+            </controls:SwitchPresenter>
             <!--  Fallback background  -->
             <customControls:ImageEx
                 Source="{x:Bind shellVm.FallbackBackground, Mode=OneWay}"
@@ -153,7 +169,7 @@
                 Margin="28,0,0,0"
                 VerticalAlignment="Center"
                 Style="{StaticResource CaptionTextBlockStyle}"
-                Text="Lively Weather (Beta)"
+                Text="Lively Weather"
                 Visibility="Collapsed" />
         </Grid>
         <!--
@@ -438,22 +454,27 @@
             Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />
 
         <!--  Welcome message  -->
-        <muxc:TeachingTip
+        <!--<muxc:TeachingTip
             BorderBrush="LightBlue"
             BorderThickness="0,3,0,0"
             IsOpen="{x:Bind shellVm.IsFirstRun, Mode=OneTime}"
             PlacementMargin="0,25,-15,0"
             PreferredPlacement="TopRight">
             <local:WelcomePage />
-        </muxc:TeachingTip>
+        </muxc:TeachingTip>-->
 
         <!--  Unsupported GPU notice  -->
+        <!--  IsOpen should be set on late (Page.OnLoaded) to overlap others notifications.  -->
         <muxc:TeachingTip
-            BorderBrush="Red"
+            ActionButtonCommand="{x:Bind shellVm.OpenSettingsCommand}"
+            BorderBrush="#c9b300"
             BorderThickness="0,3,0,0"
-            IsOpen="{x:Bind shellVm.IsHardwareAccelerationMissingNotify, Mode=OneTime}"
+            IsOpen="{x:Bind shellVm.IsDirectX12SupportNotify, Mode=OneWay}"
             PlacementMargin="0,32,-15,0"
             PreferredPlacement="TopRight">
+            <muxc:TeachingTip.ActionButtonContent>
+                <TextBlock x:Uid="SettingsTooltip" />
+            </muxc:TeachingTip.ActionButtonContent>
             <local:UnsupportedGpuPage />
         </muxc:TeachingTip>
 

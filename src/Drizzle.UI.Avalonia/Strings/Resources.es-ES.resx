@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Tu tarjeta gráfica no soporta las funciones que ofrece Directx 12, así que algunas funciones están desactivadas.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Archivos adicionales necesitan ser descargados para esto</value>
   </data>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Actualizar</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Volver a Predeterminado</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Velocidad</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Profundidad</value>
@@ -495,8 +508,11 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Presión</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Km/h</value>
+    <value>Velocidad</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>Sol</value>
@@ -508,7 +524,7 @@
     <value>Anochecer</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Barcelona</value>
+    <value>Temperatura</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
     <value>Update Available!</value>

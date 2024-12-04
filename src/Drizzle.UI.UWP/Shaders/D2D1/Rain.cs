@@ -1,6 +1,7 @@
 ﻿using ComputeSharp;
+using ComputeSharp.D2D1;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.D2D1;
 
 /// <summary>
 /// Rain effect shader
@@ -8,14 +9,16 @@ namespace Drizzle.UI.Shaders;
 /// <para>Created by Martijn Steinrucken aka BigWings - 2017(Twitter:@The_ArtOfCode).</para>
 /// <para>License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</para>
 /// </summary>
+[D2DInputCount(1)]
+[D2DInputComplex(0)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Rain : IPixelShader<float4>
+public readonly partial struct Rain : ID2D1PixelShader
 {
-    /// <summary>
-    /// The current time Hlsl.Since the start of the application.
-    /// </summary>
     private readonly float time;
+
+    private readonly int2 dispatchSize;
 
     private readonly float4 mouse;
 
@@ -39,7 +42,7 @@ public readonly partial struct Rain : IPixelShader<float4>
 
     private readonly bool isLightning;
 
-    private readonly IReadOnlyNormalizedTexture2D<float4> texture;
+    private readonly int2 textureSize;
 
     //#define S(a, b, t) smoothstep(a, b, t)
     float S(float a, float b, float t)
@@ -167,15 +170,15 @@ public readonly partial struct Rain : IPixelShader<float4>
 
     public float4 Execute()
     {
-        float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
-        float2 uv = new float2(mouse.X, -1*mouse.Y) + (fragCoord.XY - (float2)DispatchSize.XY) / DispatchSize.Y;
-        float2 UV = fragCoord.XY / DispatchSize.XY;//-.5;
+        float2 fragCoord = new(D2D.GetScenePosition().X, dispatchSize.Y - D2D.GetScenePosition().Y);
+        float2 uv = new float2(mouse.X, -1*mouse.Y) + (fragCoord.XY - (float2)dispatchSize.XY) / dispatchSize.Y;
+        float2 UV = fragCoord.XY / dispatchSize.XY;//-.5;
         UV.Y = 1f - UV.Y;
         float T = time + (mouse.Y + mouse.X) * 4f;
 
         // fill scaling
-        float screenAspect = (float)DispatchSize.X / DispatchSize.Y;
-        float textureAspect = (float)texture.Width / texture.Height;
+        float screenAspect = (float)dispatchSize.X / dispatchSize.Y;
+        float textureAspect = (float)textureSize.X / textureSize.Y;
         float scaleX = 1f, scaleY = 1f;
         if (textureAspect > screenAspect)
             scaleX = screenAspect / textureAspect;
@@ -199,7 +202,7 @@ public readonly partial struct Rain : IPixelShader<float4>
         float cy = Drops(uv + e.YX, t, staticDrops, layer1, layer2).X;
         float2 n = new float2(cx - c.X, cy - c.X);      // expensive normals
 
-        float3 col = texture.Sample(UV + n + (isFreezing ? 0.01f : 0f) * (Rand(UV) - 0.5f)).RGB;//texture.Sample(UV + n).RGB;
+        float3 col = D2D.SampleInput(0, UV + n + (isFreezing ? 0.01f : 0f) * (Rand(UV) - 0.5f)).RGB;//texture.Sample(UV + n).RGB;
 
         // make time sync with first lightnoing
         t = (T + 3f) * 1f;

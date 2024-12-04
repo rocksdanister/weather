@@ -1,15 +1,18 @@
-﻿using ComputeSharp;
-using System;
-using ComputeSharp.Uwp;
-using Drizzle.Models.Shaders;
+﻿using ComputeSharp.D2D1.Uwp;
 using Drizzle.Common.Helpers;
-using Drizzle.Models.Shaders.Uniform;
+using Drizzle.Models.Shaders;
+using Drizzle.UI.Shaders.D2D1;
 using Drizzle.UI.Shared.Extensions;
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using System;
+using Windows.Foundation;
 
-namespace Drizzle.UI.Shaders.Runners;
+namespace Drizzle.UI.UWP.Shaders.D2D1.Runners;
 
-public sealed class CloudsRunner : IShaderRunner
+public sealed class CloudsRunner : ID2D1ShaderRunner, IDisposable
 {
+    private readonly PixelShaderEffect<Clouds>? pixelShaderEffect;
     private readonly Func<CloudsModel> properties;
     private readonly CloudsModel currentProperties;
     private float4 mouseOffset = float4.Zero;
@@ -17,6 +20,7 @@ public sealed class CloudsRunner : IShaderRunner
 
     public CloudsRunner()
     {
+        this.pixelShaderEffect = new PixelShaderEffect<Clouds>();
         this.properties ??= () => new CloudsModel();
         this.currentProperties ??= new CloudsModel();
     }
@@ -27,20 +31,32 @@ public sealed class CloudsRunner : IShaderRunner
         this.currentProperties = new(properties());
     }
 
-    public bool TryExecute(IReadWriteNormalizedTexture2D<float4> texture, TimeSpan timespan, object parameter)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
-        UpdateUniforms(timespan);
-        texture.GraphicsDevice.ForEach(texture, new Clouds((float)simulatedTime,
+        var canvasSize = sender.Size;
+        var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
+
+        int widthInPixels = sender.ConvertDipsToPixels((float)renderSize.Width, CanvasDpiRounding.Round);
+        int heightInPixels = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
+
+        // Update uniforms
+        UpdateUniforms(args.Timing.TotalTime);
+
+        // Set the constant buffer
+        this.pixelShaderEffect.ConstantBuffer = new Clouds((float)simulatedTime, 
+            new int2(widthInPixels, heightInPixels),
             mouseOffset,
-            currentProperties.Speed,
-            currentProperties.Scale,
+            currentProperties.Speed, currentProperties.Scale,
             currentProperties.Iterations,
             currentProperties.Brightness,
             currentProperties.Saturation,
-            currentProperties.IsDaytime, 
-            currentProperties.IsDayNightShift));
+            currentProperties.IsDaytime,
+            currentProperties.IsDayNightShift);
 
-        return true;
+        // Draw the shader
+        args.DrawingSession.DrawImage(image: this.pixelShaderEffect, 
+            destinationRectangle: new Rect(0, 0, canvasSize.Width, canvasSize.Height),
+            sourceRectangle: new Rect(0, 0, renderSize.Width, renderSize.Height));
     }
 
     private void UpdateUniforms(TimeSpan timespan)
@@ -59,5 +75,11 @@ public sealed class CloudsRunner : IShaderRunner
 
         // Shader specific
         properties().UniformFrameUpdate(currentProperties);
+    }
+
+    /// <inheritdoc/>
+    public void Dispose()
+    {
+        this.pixelShaderEffect?.Dispose();
     }
 }

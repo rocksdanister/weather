@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Oi, eu sou Dani John também conhecido como rocksdanister. Eu crio um softwares legais como esse. Obrigado pelo tempo investido para conferir o meu trabalho.</value>
+    <value>Oi, eu sou Dani John também conhecido como rocksdanister. Eu faço softwares legais como esse. Obrigado por reservar um tempo para conferir o meu trabalho.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Bom</value>
@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>O processador gráfico do sistema (GPU) não suporta os recursos DX12 necessários, então algumas funcionalidades estão desativadas.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>O processador de gráficos no sistema não atende aos requisitos recomendados.
+Configurações otimizadas foram aplicadas para garantir o melhor desempenho para o seu sistema. Você pode ajustar essas configurações manualmente, mas isso pode impactar o desempenho.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Arquivos adicionais precisam ser baixados para esta funcionalidade</value>
   </data>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Atualizar</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Método de renderização visual</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Gráficos</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Restaurar padrão</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Velocidade</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Mostrar diagnósticos</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Profundidade</value>
@@ -494,6 +507,9 @@
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Pressão</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recomendado</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Velocidade</value>

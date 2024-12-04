@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>システム グラフィックス プロセッサー (GPU) は必要な DX12 機能に対応していないため、一部の機能は無効になっています。</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>この機能を使用するには追加のファイルをダウンロードする必要があります</value>
   </data>
@@ -256,7 +260,7 @@
     <value>エラー</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>設定を適用するには、アプリを再起動してください。</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>他の言語に翻訳してこのプログラムに貢献してください！</value>
@@ -274,7 +278,7 @@
     <value>翻訳を助けてください！</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>システムのデフォルト</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>もっと詳しく</value>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>最新の情報に更新する</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>デフォルトに戻す</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>速度</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>奥行き</value>
@@ -466,7 +479,7 @@
     <value>貢献者</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>距離</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>ダウンロードする</value>
@@ -495,6 +508,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>気圧</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>速度</value>
   </data>
@@ -511,7 +527,7 @@
     <value>温度</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>更新プログラムが利用可能です！</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>更新完了</value>

@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Ahoj, jsem Dani John, také známý jako rocksdanister. Dělám zábavný software jako je tento. Děkuji za váš čas věnovaný mé práci.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Dobrá</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Mírné znečištění</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Nezdravá pro citlivé skupiny</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Nezdravá</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Velmi nezdravá</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Nebezpečná</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Skrývat menu při nečinnosti</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>O programu</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Nápověda</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Vyhledat místo</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Oznámení o softwaru třetích stran</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Upravit jas pozadí</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Jas</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Procházet</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Pozadí</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Zkontrolovat aktualizace</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Den/Noc</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iterace</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Měřítko</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Navrhněte funkci nebo nahlaste chybu</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Zahrnout uživatelem vybrané obrázky do efektů počasí</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Vlastní pozadí</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Horizontální posun</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Vertikální posun</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>AQI je navržen tak, aby poskytoval informace o zdravotních účincích pěti nejběžnějších látek znečišťujících ovzduší. Jde o stupnici, která se pohybuje od 0 do 500, přičemž vyšší hodnoty značí vážnější znečištění ovzduší a větší zdravotní rizika.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Množství oblačnosti se vztahuje k části oblohy, která je v průměru zakryta mraky při pozorování z určitého místa.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>Teplota rosného bodu je absolutní mírou množství vodní páry ve vzduchu. Když jsou teplota rosného bodu a teplota vzduchu stejné, relativní vlhkost je 100 %. V tomto okamžiku je vzduch zcela nasycen vodní párou, což vede ke kondenzaci v podobě rosy, mlhy nebo mraků.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Relativní vlhkost je mírou množství vodní páry přítomné ve vzduchu ve srovnání s maximálním množstvím, které může vzduch při dané teplotě pojmout. Vyjadřuje se v procentech a poskytuje informaci o tom, jak blízko je vzduch saturaci.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Srážky jsou dány hloubkou vody, která by se nahromadila na rovném povrchu z kondenzace atmosférické vodní páry padající z mraků vlivem gravitace. Zahrnuje různé formy, jako je déšť, sníh, plískanice a kroupy.</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Barometrický tlak, také známý jako atmosférický tlak, je mírou tlaku vzduchu v dané oblasti.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>UV index (UVI) Světové zdravotnické organizace měří sílu ultrafialového záření způsobujícího spálení. Jedná se o lineární stupnici, která se pohybuje od 0 do 11+, přičemž vyšší hodnoty indikují větší riziko vystavení UV záření a zvýšené šance na spálení a poškození kůže, které by v konečném důsledku mohlo vést k rakovině kůže.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Viditelnost je měřítkem vzdálenosti, na kterou lze objekt nebo světlo jasně rozeznat. Hodnota na nebo větší než 10 km je považována za dobrou a méně než 1 km za špatnou.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>Rychlost větru je rychlost, kterou se vzduch pohybuje horizontálně za daným bodem. Je to základní atmosférická veličina způsobená pohybem vzduchu z místa vysokého tlaku na místo s tlakem nízkým, obvykle v důsledku změn teploty. Poryvy jsou náhlé zvýšení rychlosti větru nad průměrnou rychlost větru. Obvykle to trvá méně než 20 sekund.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Odhaduji hloubku..</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>Systémový grafický procesor (GPU) nepodporuje požadované funkce DX12, takže některé prvky jsou zakázány.</value>
+  </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Pro tuto funkcionalitu je třeba stáhnout další soubory</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Podívejte se, co je nového</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Pocitová teplota</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplituda</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Barevný přechod</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Snímková frekvence animace</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Prosím restartujte aplikaci, aby se nastavení projevilo.</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Přispějte k tomuto programu překladem do jiných jazyků.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Pomoci s překladem</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>Po výběru jiného jazyka je třeba aplikaci restartovat</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Pomoci s překladem!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Stejný jako systémový</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Zjistit více</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Připnutá místa</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Otevřít logy</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pozastavit zvuk, když aplikace není v popředí</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pozastavit grafiku, když aplikace není v popředí</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Zásady shromažďování údajů</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dynamická</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>S ohledem na výkon</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>Brambora</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Kvalita</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Předvolba kvality vykreslení obrazu</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Kvalita</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intenzita</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Blesky</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Překrytí</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Posouvání</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Přiblížení</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Omezený pohyb</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Naposledy aktualizováno</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Aktualizovat</value>
+  </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Obnovit výchozí</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Šetřič obrazovky</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Rozmazat</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Námraza</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Dodatečné zpracování</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Rychlost</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Hloubka</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Vrstvy</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Šířka</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Softwarová licence</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Zvuk</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Ukažte lásku tím, že dáte hvězdičku</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Zdrojový Kód</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>O programu</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Pokračovat</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>AI odhadnutí hloubky</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Přístup k poloze byl odepřen, zkontrolujte nastavení Windows.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Přístup k poloze není specifikován, zkontrolujte nastavení Windows.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Nápověda</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Pro vybraného poskytovatele počasí chybí požadovaný klíč API, nastavení bylo vráceno.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automatický</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Tmavý</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Světlý</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Změnit barvu aplikace</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Motiv</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>O indexu kvality ovzduší (AQI)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>O oblačnosti</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>O rosném bodu</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>O relativní vlhkosti</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>O srážkách</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>O tlaku</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>O UV indexu</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>O viditelnosti</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>O rychlosti a poryvech větru</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Přístupnost</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Pro začátek přidejte místo.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Kvalita ovzduší</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Oblačnost</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>K vývoji přispěli</value>
+  </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Vzdálenost</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Stáhnout</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Požadováno stažení</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Načítání dat, počkejte prosím.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Obecné</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Dobrý den</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Vlhkost vzduchu</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Výkon</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Srážky</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Tlak</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Rychlost</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Slunce</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Úsvit</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Soumrak</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Teplota</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Aktualizace k dispozici!</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Aktualizace dokončena</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>UV index</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Viditelnost</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Počasí</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Vítr</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Snesitelný</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Vysoký</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Velmi vysoký</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API klíč</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Zadejte požadovaný API klíč</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Zdroj údajů o počasí</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Poskytovatel</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Vlastní</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hybridní</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperiální</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrické</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Použít systém jednotek</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Jednotky</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Oficiální webová stránka</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Vítejte v mé aplikaci počasí! Upozorňuji, že tato aplikace je stále ve verzi beta a některé funkce nemusí fungovat podle očekávání. Usilovně pracuji na jejím vylepšení. Díky za pochopení a trpělivost.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Jasno</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Převážně jasno</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Opar</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Polojasno</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Zataženo</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Mlha</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Mrznoucí mlha</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Kouřmo</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Lehké mrholení</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Střední mrholení</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Husté mrholení</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Lehké mrznoucí mrholení</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Husté mrznoucí mrholení</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Prašno</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Mírný déšť</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Střední déšť</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Hustý déšť</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Lehký mrznoucí déšť</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Hustý mrznoucí déšť</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Slabé sněžení</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Střední sněžení</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Husté sněžení</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Sněhová zrnka</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Lehká dešťová přeháňka</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Střední dešťová přeháňka</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Prudká dešťová přeháňka</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Lehká sněhová přeháňka</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Silná sněhová přeháňka</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Bouřka</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Bouřka se slabým krupobitím</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Bouřka se silným krupobitím</value>
+  </data>
+</root>

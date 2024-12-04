@@ -29,6 +29,7 @@
         <StackPanel
             Grid.Row="0"
             Margin="10,5,0,0"
+            Canvas.ZIndex="1"
             Opacity="0.4"
             Orientation="Horizontal"
             Spacing="4">
@@ -40,7 +41,7 @@
         </StackPanel>
 
         <Grid
-            Grid.Row="1"
+            Grid.RowSpan="2"
             HorizontalAlignment="Stretch"
             Visibility="{x:Bind Value, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <Grid.RowDefinitions>
@@ -52,14 +53,15 @@
                 Grid.Row="0"
                 Width="100"
                 Height="100"
+                Margin="0,20,0,0"
                 PlaybackRate="0.45">
                 <visuals:Eyes />
             </muxc:AnimatedVisualPlayer>
-            <Border Grid.Row="0" Margin="0,5,0,5">
-                <Border.Background>
-                    <media:BackdropBlurBrush x:Name="AnimationBlur" Amount="5" />
-                </Border.Background>
-            </Border>
+            <Border
+                x:Name="AnimationBlurControl"
+                Grid.RowSpan="2"
+                Margin="0,0,0,0"
+                Background="{x:Bind BlurBrushClone, Mode=OneWay}" />
             <TextBlock
                 Grid.Row="1"
                 FontSize="28"
@@ -68,11 +70,10 @@
                 <Run Text="{x:Bind Value, Mode=OneWay, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:F1}'}" />
                 <Run Text="{x:Bind UnitString, Mode=OneWay}" />
             </TextBlock>
-            <Border Grid.Row="1">
-                <Border.Background>
-                    <media:BackdropBlurBrush x:Name="TextBlur" Amount="1" />
-                </Border.Background>
-            </Border>
+            <Border
+                x:Name="TextBlurControl"
+                Grid.Row="1"
+                Background="{x:Bind BlurBrushClone, Mode=OneWay}" />
         </Grid>
 
         <muxc:AnimatedVisualPlayer

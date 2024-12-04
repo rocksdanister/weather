@@ -1,20 +1,22 @@
 ﻿using ComputeSharp;
-using System;
+using ComputeSharp.D2D1;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.D2D1;
 
 /// <summary>
 /// Parallax depth effect using depthmaps
 /// <para>Created by Dani John (https://github.com/rocksdanister).</para>
 /// <para>License MIT.</para>
 /// </summary>
+[D2DInputCount(2)]
+[D2DInputComplex(0)]
+[D2DInputComplex(1)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Depth : IPixelShader<float4>
+public readonly partial struct Depth : ID2D1PixelShader
 {
-    private readonly IReadOnlyNormalizedTexture2D<float4> imageTexture;
-
-    private readonly IReadOnlyNormalizedTexture2D<float4> depthTexture;
+    private readonly int2 dispatchSize;
 
     private readonly float4 mouse;
 
@@ -28,6 +30,10 @@ public readonly partial struct Depth : IPixelShader<float4>
 
     private readonly float brightness;
 
+    private readonly int2 textureSize;
+
+    const float zoom = 1.1f;
+
     //ref: https://stackoverflow.com/questions/9320953/what-algorithm-does-photoshop-use-to-desaturate-an-image
     float4 Desaturate(float4 color)
     {
@@ -38,13 +44,15 @@ public readonly partial struct Depth : IPixelShader<float4>
     /// <inheritdoc/>
     public float4 Execute()
     {
-        float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
-        float2 uv = fragCoord / DispatchSize.XY;
+        float2 fragCoord = new(D2D.GetScenePosition().X, dispatchSize.Y - D2D.GetScenePosition().Y);
+        float2 uv = fragCoord / dispatchSize.XY;
         uv.Y = 1.0f - uv.Y;
+        // Scale to hide edges.
+        uv = (uv - 0.5f) / zoom + 0.5f;
 
         // Fill scale
-        float screenAspect = (float)DispatchSize.X / DispatchSize.Y;
-        float textureAspect = (float)imageTexture.Width / imageTexture.Height;
+        float screenAspect = (float)dispatchSize.X / dispatchSize.Y;
+        float textureAspect = (float)textureSize.X / textureSize.Y;
         float scaleX = 1f, scaleY = 1f;
         if (textureAspect > screenAspect)
             scaleX = screenAspect / textureAspect;
@@ -52,7 +60,7 @@ public readonly partial struct Depth : IPixelShader<float4>
             scaleY = textureAspect / screenAspect;
         uv = new Float2(scaleX, scaleY) * (uv - 0.5f) + 0.5f;
 
-        float depth = depthTexture.Sample(uv).R;
+        float depth = D2D.SampleInput(1, uv).R;
         float2 parallax = mouseOffset.XY * depth * intensity;
 
         float4 color = float4.Zero;
@@ -65,14 +73,14 @@ public readonly partial struct Depth : IPixelShader<float4>
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    float2 offset = new float2(direction[0][x], direction[0][y]) / DispatchSize.XY;
-                    color += imageTexture.Sample(uv + parallax + offset) * kernel[x][y];
+                    float2 offset = new float2(direction[0][x], direction[0][y]) / dispatchSize.XY;
+                    color += D2D.SampleInput(0, uv + parallax + offset) * kernel[x][y];
                 }
             }
         }
         else
         {
-            color = new(imageTexture.Sample(uv + parallax).RGB, 1);
+            color = new(D2D.SampleInput(0, uv + parallax).RGB, 1);
         }
 
         color = saturation < 1f ? Hlsl.Lerp(Desaturate(color), color, saturation) : color;

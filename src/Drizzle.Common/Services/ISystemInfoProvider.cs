@@ -19,7 +19,7 @@ namespace Drizzle.Common.Services
         /// </summary>
         bool IsTenFoot { get; }
 
-        bool IsHardwareAccelerated { get; }
+        bool IsDirectX12Supported { get; }
 
         public bool IsFirstRun { get; }
 

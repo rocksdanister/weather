@@ -1,6 +1,7 @@
 ﻿using ComputeSharp;
+using ComputeSharp.D2D1;
 
-namespace Drizzle.UI.Shaders;
+namespace Drizzle.UI.Shaders.D2D1;
 
 /// <summary>
 /// A 2D square tunnel.
@@ -10,16 +11,15 @@ namespace Drizzle.UI.Shaders;
 /// <para>https://iquilezles.org/</para>
 /// <para>The MIT License.</para>
 /// </summary>
+[D2DInputCount(0)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Tunnel : IPixelShader<float4>
+public readonly partial struct Tunnel : ID2D1PixelShader
 {
-    /// <summary>
-    /// The current time Hlsl.Since the start of the application.
-    /// </summary>
     private readonly float time;
 
-    private readonly IReadOnlyNormalizedTexture2D<float4> texture;
+    private readonly int2 dispatchSize;
 
     private readonly float brightness;
 
@@ -27,13 +27,16 @@ public readonly partial struct Tunnel : IPixelShader<float4>
 
     private readonly bool isSquare;
 
+    [D2DResourceTextureIndex(0)]
+    private readonly D2D1ResourceTexture2D<float4> texture;
+
     const float kPi = 3.1415927f;
 
     /// <inheritdoc/>
     public float4 Execute()
     {
-        float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
-        float2 p = (2.0f * fragCoord - DispatchSize.XY) / DispatchSize.Y;
+        float2 fragCoord = new(D2D.GetScenePosition().X, dispatchSize.Y - D2D.GetScenePosition().Y);
+        float2 p = (2.0f * fragCoord - dispatchSize.XY) / dispatchSize.Y;
 
         float a = Hlsl.Atan(p.Y/p.X);
 

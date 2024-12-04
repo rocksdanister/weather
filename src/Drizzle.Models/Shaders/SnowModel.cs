@@ -31,34 +31,39 @@ public partial class SnowModel : ShaderModel
 
     public string? ImagePath { get; set; } = null;
 
-    public SnowModel(Uri shaderUri) : base(shaderUri, ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
+    public SnowModel(Uri shaderUri, SnowModel properties) : base(
+        shaderUri ?? properties?.ShaderUri,
+        ShaderTypes.snow,
+        scaleFactor: 0.75f,
+        maxScaleFactor: 1f,
+        mouseSpeed: 1.5f,
+        mouseInertia: 0.08f)
     {
+        if (properties != null)
+        {
+            this.Speed = properties.Speed;
+            this.MouseSpeed = properties.MouseSpeed;
+            this.MouseInertia = properties.MouseInertia;
+            this.TimeMultiplier = properties.TimeMultiplier;
+            this.Depth = properties.Depth;
+            this.Width = properties.Width;
+            this.Layers = properties.Layers;
+            this.Mouse = properties.Mouse;
+            this.IsBlur = properties.IsBlur;
+            this.Saturation = properties.Saturation;
+            this.IsLightning = properties.IsLightning;
+            this.PostProcessing = properties.PostProcessing;
+            this.IsDaytime = properties.IsDaytime;
+        }
+
         InitializeUniformMappings();
     }
 
-    public SnowModel() : base(null, ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 1.5f, mouseInertia: 0.08f) 
-    {
-        InitializeUniformMappings();
-    }
+    public SnowModel(Uri shaderUri) : this(shaderUri, null) { }
 
-    public SnowModel(SnowModel properties) : base(properties.ShaderUri, ShaderTypes.snow, scaleFactor: 0.75f, maxScaleFactor: 1f, mouseSpeed: 1.5f, mouseInertia: 0.08f)
-    {
-        this.Speed = properties.Speed;
-        this.MouseSpeed = properties.MouseSpeed;
-        this.MouseInertia = properties.MouseInertia;
-        this.TimeMultiplier = properties.TimeMultiplier;
-        this.Depth = properties.Depth;
-        this.Width = properties.Width;
-        this.Layers = properties.Layers;
-        this.Mouse = properties.Mouse;
-        this.IsBlur = properties.IsBlur;
-        this.Saturation = properties.Saturation;
-        this.IsLightning = properties.IsLightning;
-        this.PostProcessing = properties.PostProcessing;
-        this.IsDaytime = properties.IsDaytime;
+    public SnowModel() : this(null, null) { }
 
-        InitializeUniformMappings();
-    }
+    public SnowModel(SnowModel properties) : this(null, properties) { }
 
     protected override void InitializeUniformMappings()
     {

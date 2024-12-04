@@ -231,6 +231,10 @@
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>De grafische processor (GPU) van het systeem ondersteunt de vereiste DX12 functies niet, dus sommige functionaliteit is uitgeschakeld.</value>
   </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+  </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Voor deze functie moeten extra bestanden worden gedownload</value>
   </data>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Vernieuw</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Standaardinstellingen herstellen</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Snelheid</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Diepte</value>
@@ -494,6 +507,9 @@
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Luchtdruk</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Snelheid</value>

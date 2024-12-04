@@ -202,7 +202,7 @@
     <value>Hava Kalitesi İndeksi(AQI), en yaygın beş hava kirleticisinin sağlığa etkileri hakkında bilgi sağlamak üzere tasarlanmıştır. Daha yüksek değerlerin daha şiddetli hava kirliliği ve daha büyük sağlık tehlikelerine işaret ettiği, 0 ile 500 arasında değişen bir ölçektir.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>Bulut miktarı, belirli bir noktadan bakıldığında gökyüzünün bulutlar tarafından kaplanan ortalama miktarıdır.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Çiğlenme noktası sıcaklığı, havadaki su buharı miktarının mutlak bir ölçüsüdür. Çiğlenme noktası sıcaklığı ve hava sıcaklığı eşit olduğunda bağıl nem% 100'dür. Bu noktada, hava tamamen su buharı ile doyurulur ve çiğ, sis veya bulutlar şeklinde yoğunlaşmaya neden olur.</value>
@@ -211,7 +211,7 @@
     <value>Bağıl nem, havanın o sıcaklıkta tutabileceği maksimum miktara kıyasla havada bulunan su buharı miktarının bir ölçüsüdür. Yüzde olarak ifade edilir ve havanın doygunluğa ne kadar yakın olduğu hakkında bilgi sağlar.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Yağış, yer çekimi nedeniyle bulutlardan düşen atmosferik su buharının yoğunlaşması sonucu düz bir yüzeyde birikecek su derinliğidir. Yağmur, kar, sulu kar ve dolu gibi çeşitli formları içerir.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Atmosferik basınç olarak da bilinen barometrik basınç, belirli bir alandaki hava basıncının ölçüsüdür.</value>
@@ -230,6 +230,10 @@
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
     <value>Sistem grafik işlemcisi (GPU) gerekli DX12 özelliklerini desteklemez, bu nedenle bazı işlevler devre dışı bırakılır.</value>
+  </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>The graphics processor on your system does not meet the recommended requirements.
+Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Bu özellik için ek dosyaların indirilmesi gerekir</value>
@@ -256,7 +260,7 @@
     <value>Hata</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Ayarların etki edebilmesi için uygulamayı yeniden başlatın.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Bu programa diğer dillere çevirerek katkıda bulunun.</value>
@@ -274,7 +278,7 @@
     <value>Çevirmeye yardım et!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Sistem ile Aynı</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Daha Fazla Bilgi Edinin</value>
@@ -336,6 +340,12 @@
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>Yenile</value>
   </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Visual rendering method</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Graphics</value>
+  </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Varsayılanı Geri Yükle</value>
   </data>
@@ -356,6 +366,9 @@
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>Hız</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Show diagnostics</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Derinlik</value>
@@ -379,7 +392,7 @@
     <value>Kaynak Kodu</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>Hakkında</value>
+    <value>Hakkımda</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
     <value>İptal et</value>
@@ -394,7 +407,7 @@
     <value>Lokasyona erişim reddedildi, Windows ayarlarına bir göz atın.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Lokasyona erişimi belirtilmemiş, Windows ayarlarına bir göz atın.</value>
+    <value>Lokasyona erişim belirtilmemiş, Windows ayarlarına bir göz atın.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>Yardım</value>
@@ -418,7 +431,7 @@
     <value>Açık</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Uygulama rengini değiştirme</value>
+    <value>Uygulama rengini değiştir</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
     <value>Tema</value>
@@ -427,7 +440,7 @@
     <value>Hava Kalitesi Endeksi (AQI) Hakkında</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>Bulut Miktarı Nedir</value>
+    <value>Bulut Miktarı Hakkında</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Çiğlenme noktası hakkında</value>
@@ -436,7 +449,7 @@
     <value>Bağıl Nem Hakkında</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>Yağış Nedir</value>
+    <value>Yağış Hakkında</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Basınç Hakkında</value>
@@ -445,7 +458,7 @@
     <value>UV İndeksi Hakkında</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>Görüş Mesafesi Nedir</value>
+    <value>Görüş Mesafesi Hakkında</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Rüzgar Hızı ve Rüzgarlar Hakkında</value>
@@ -466,7 +479,7 @@
     <value>Katkıda Bulunanlar</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Mesafe</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>İndir</value>
@@ -495,6 +508,9 @@
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Basınç</value>
   </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Recommended</value>
+  </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Hız</value>
   </data>
@@ -511,7 +527,7 @@
     <value>Derece</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Güncelleme Mevcut!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Güncelleme tamamlandı</value>
