@@ -3,5 +3,6 @@
 public enum ShaderQuality
 {
     optimized,
-    maximum
+    maximum,
+    dynamic
 }

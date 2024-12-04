@@ -17,9 +17,9 @@ public sealed class SnowRunner : ID2D1ShaderRunner, IDisposable
     private readonly PixelShaderEffect<Snow>? pixelShaderEffect;
     private readonly Func<SnowModel> properties;
     private readonly SnowModel currentProperties;
+    private readonly BorderEffect borderEffect;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
-    private readonly BorderEffect borderEffect;
     private CanvasBitmap image;
 
     public SnowRunner()

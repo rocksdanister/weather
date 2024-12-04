@@ -314,9 +314,6 @@ public partial class ShellViewModel : ObservableObject
     private bool isPausedShader = false;
 
     [ObservableProperty]
-    private bool isDynamicResolution = true;
-
-    [ObservableProperty]
     private bool isDirectX12Supported = false;
 
     [ObservableProperty]
@@ -821,14 +818,57 @@ public partial class ShellViewModel : ObservableObject
         var selection = ShaderViewModels.First(x => x.Model.Type == type);
         SelectedShader = selection;
 
-        // Reset config
-        UpdateShaderQuality();
+        // Reset global uniforms.
         UpdateBrightness();
         RainProperty.Mouse =
             CloudsProperty.Mouse =
             SnowProperty.Mouse =
             FogProperty.Mouse =
             DepthProperty.Mouse = Vector4.Zero;
+    }
+
+    private void UpdateMotionSettings()
+    {
+        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
+        SetWeatherAnimation(SelectedWeatherAnimation);
+    }
+
+    private void UpdateShaderRenderer()
+    {
+        SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
+    }
+
+    private void UpdateQualitySettings()
+    {
+        SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
+        // Set this first so that SelectedShader.Model is not null (performance preset scaler values.)
+        SetWeatherAnimation(SelectedWeatherAnimation);
+        // Update shader quality preset.
+        switch (userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance))
+        {
+            case AppPerformance.performance:
+                SelectedShaderQuality = ShaderQuality.optimized;
+                break;
+            case AppPerformance.quality:
+                SelectedShaderQuality = ShaderQuality.maximum;
+                break;
+            case AppPerformance.dynamic:
+                SelectedShaderQuality = ShaderQuality.dynamic;
+                break;
+            case AppPerformance.potato:
+                // Nothing to do, IsFallbackBackground is true.
+                break;
+        }
+    }
+
+    private void UpdateBrightness()
+    {
+        var brightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
+        RainProperty.Brightness =
+            SnowProperty.Brightness =
+            FogProperty.Brightness =
+            DepthProperty.Brightness =
+            CloudsProperty.Brightness = brightness;
     }
 
     private void UpdateGraphs()
@@ -843,62 +883,6 @@ public partial class ShellViewModel : ObservableObject
             for (int i = 0; i < weatherVm.Daily.Count; i++)
                 weatherVm.Daily[i].DayGraph = graphs[i];
         }
-    }
-
-    private void UpdateShaderRenderer()
-    {
-        SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
-    }
-
-    private void UpdateQualitySettings()
-    {
-        SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
-        SetWeatherAnimation(SelectedWeatherAnimation);
-        // Force update since selected shader is unchanged.
-        UpdateShaderQuality();
-    }
-
-    private void UpdateMotionSettings()
-    {
-        IsReducedMotion = userSettings.Get<bool>(UserSettingsConstants.ReducedMotion);
-        SetWeatherAnimation(SelectedWeatherAnimation);
-    }
-
-    private void UpdateShaderQuality()
-    {
-        if (SelectedShader?.Model is null)
-            return;
-
-        switch (userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance))
-        {
-            case AppPerformance.performance:
-                {
-                    IsDynamicResolution = false;
-                    SelectedShaderQuality = ShaderQuality.optimized;
-                }
-                break;
-            case AppPerformance.quality:
-                {
-                    IsDynamicResolution = false;
-                    SelectedShaderQuality = ShaderQuality.maximum;
-                }
-                break;
-            case AppPerformance.dynamic:
-                {
-                    IsDynamicResolution = true;
-                }
-                break;
-        }
-    }
-
-    private void UpdateBrightness()
-    {
-        var brightness = userSettings.Get<float>(UserSettingsConstants.BackgroundBrightness);
-        RainProperty.Brightness =
-            SnowProperty.Brightness =
-            FogProperty.Brightness =
-            DepthProperty.Brightness =
-            CloudsProperty.Brightness = brightness;
     }
 
     private async Task UpdateWeatherProvider()

@@ -165,6 +165,7 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
         else if (e.Property == QualityProperty)
         {
             obj.UpdateQuality();
+            obj.UpdateFrameRate();
         }
         else if (e.Property == IsPausedProperty)
         {
@@ -181,6 +182,7 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
         switch (Quality)
         {
             case ShaderQuality.optimized:
+            case ShaderQuality.dynamic:
                 {
                     if (ShaderRunner1 is not null)
                         ResolutionScaleShader1 = Shader.Model.ScaleFactor;
@@ -206,7 +208,8 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
         if (Shader is null)
             return;
 
-        CappedFrameRate = Math.Clamp(TargetFrameRate, 0f, Shader.Model.MaxFrameRate);
+        CappedFrameRate = 
+            Quality == ShaderQuality.maximum ? TargetFrameRate : Math.Clamp(TargetFrameRate, 0f, Shader.Model.MaxFrameRate);
     }
 
     public D2D1AnimatedPixelShaderPanelEx()

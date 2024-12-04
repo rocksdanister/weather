@@ -78,7 +78,7 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
     public bool IsDynamicResolution
     {
         get { return (bool)GetValue(IsDynamicResolutionProperty); }
-        set { SetValue(IsDynamicResolutionProperty, value); }
+        private set { SetValue(IsDynamicResolutionProperty, value); }
     }
 
     public static readonly DependencyProperty IsDynamicResolutionProperty =
@@ -148,6 +148,7 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
         {
             case ShaderQuality.optimized:
                 {
+                    IsDynamicResolution = false;
                     if (ShaderRunner1 is not null)
                         ResolutionScaleShader1 = Shader.Model.ScaleFactor;
                     else if (ShaderRunner2 is not null)
@@ -156,10 +157,16 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
                 break;
             case ShaderQuality.maximum:
                 {
+                    IsDynamicResolution = false;
                     if (ShaderRunner1 is not null)
                         ResolutionScaleShader1 = Shader.Model.MaxScaleFactor;
                     else if (ShaderRunner2 is not null)
                         ResolutionScaleShader2 = Shader.Model.MaxScaleFactor;
+                }
+                break;
+            case ShaderQuality.dynamic:
+                {
+                    IsDynamicResolution = true;
                 }
                 break;
             default:

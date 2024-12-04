@@ -54,7 +54,6 @@
             <controls:SwitchPresenter Value="{x:Bind shellVm.SelectedShaderRenderer, Mode=OneWay}">
                 <controls:Case Value="{x:Bind enums:ShaderRenderer.dx12}">
                     <shaderControls:AnimatedComputeShaderPanelEx
-                        IsDynamicResolution="{x:Bind shellVm.IsDynamicResolution, Mode=OneWay}"
                         IsPaused="{x:Bind shellVm.IsPausedShader, Mode=OneWay}"
                         Quality="{x:Bind shellVm.SelectedShaderQuality, Mode=OneWay}"
                         Shader="{x:Bind shellVm.SelectedShader, Mode=OneWay}" />

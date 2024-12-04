@@ -17,9 +17,9 @@ public sealed class RainRunner : ID2D1ShaderRunner, IDisposable
     private readonly PixelShaderEffect<Rain>? pixelShaderEffect;
     private readonly Func<RainModel> properties;
     private readonly RainModel currentProperties;
+    private readonly BorderEffect borderEffect;
     private float4 mouseOffset = float4.Zero;
     private double simulatedTime, previousTime;
-    private readonly BorderEffect borderEffect;
     private CanvasBitmap image;
 
     public RainRunner()
