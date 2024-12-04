@@ -88,7 +88,7 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
             }
 
             args.DrawingSession.DrawOverlayWithText(
-                text: $"fps: {fps:F2} ({1f / fps:F3}ms) scale: {resolutionScale:F2}x",
+                text: $"fps: {fps:F2} ({1f / fps:F3}ms) scale: {resolutionScale * 100:F0}%",
                 fontSize: 21,
                 overlayX: 75f,
                 overlayY: 57f,

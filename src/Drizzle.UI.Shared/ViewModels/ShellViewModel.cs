@@ -120,7 +120,7 @@ public partial class ShellViewModel : ObservableObject
                     await UpdateWeatherProvider();
                     break;
                 case UserSettingsConstants.SelectedShaderRenderer:
-                    UpdateShaderRenderer();
+                    SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
                     break;
                 case UserSettingsConstants.TargetFrameRate:
                     TargetFrameRate = userSettings.Get<int>(UserSettingsConstants.TargetFrameRate);
@@ -269,10 +269,20 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsFallbackBackground))]
+    [NotifyPropertyChangedFor(nameof(SelectedShaderQuality))]
     private AppPerformance selectedAppPerformance;
 
     public bool IsFallbackBackground =>
         SelectedAppPerformance == AppPerformance.potato;
+
+    public ShaderQuality SelectedShaderQuality => SelectedAppPerformance switch
+    {
+        AppPerformance.potato => ShaderQuality.none,
+        AppPerformance.performance => ShaderQuality.optimized,
+        AppPerformance.quality => ShaderQuality.maximum,
+        AppPerformance.dynamic => ShaderQuality.dynamic,
+        _ => throw new NotImplementedException(),
+    };
 
     /// <summary>
     /// Is user idle
@@ -306,9 +316,6 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     private ShaderViewModel selectedShader;
-
-    [ObservableProperty]
-    private ShaderQuality selectedShaderQuality;
 
     [ObservableProperty]
     private bool isPausedShader = false;
@@ -833,32 +840,11 @@ public partial class ShellViewModel : ObservableObject
         SetWeatherAnimation(SelectedWeatherAnimation);
     }
 
-    private void UpdateShaderRenderer()
-    {
-        SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
-    }
-
     private void UpdateQualitySettings()
     {
         SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
-        // Set this first so that SelectedShader.Model is not null (performance preset scaler values.)
+        // Force update shader quality.
         SetWeatherAnimation(SelectedWeatherAnimation);
-        // Update shader quality preset.
-        switch (userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance))
-        {
-            case AppPerformance.performance:
-                SelectedShaderQuality = ShaderQuality.optimized;
-                break;
-            case AppPerformance.quality:
-                SelectedShaderQuality = ShaderQuality.maximum;
-                break;
-            case AppPerformance.dynamic:
-                SelectedShaderQuality = ShaderQuality.dynamic;
-                break;
-            case AppPerformance.potato:
-                // Nothing to do, IsFallbackBackground is true.
-                break;
-        }
     }
 
     private void UpdateBrightness()

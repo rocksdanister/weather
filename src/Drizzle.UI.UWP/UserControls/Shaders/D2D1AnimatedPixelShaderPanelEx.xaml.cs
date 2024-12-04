@@ -198,6 +198,11 @@ public sealed partial class D2D1AnimatedPixelShaderPanelEx : UserControl
                         ResolutionScaleShader2 = Shader.Model.MaxScaleFactor;
                 }
                 break;
+            case ShaderQuality.none:
+                {
+                    // Nothing to do here.
+                }
+                break;
             default:
                 throw new NotImplementedException();
         }

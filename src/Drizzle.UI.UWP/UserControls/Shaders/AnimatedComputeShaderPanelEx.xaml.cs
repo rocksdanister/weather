@@ -169,6 +169,11 @@ public sealed partial class AnimatedComputeShaderPanelEx : UserControl
                     IsDynamicResolution = true;
                 }
                 break;
+            case ShaderQuality.none:
+                {
+                    // Nothing to do here.
+                }
+                break;
             default:
                 throw new NotImplementedException();
         }
