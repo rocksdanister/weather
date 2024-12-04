@@ -76,7 +76,7 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
     {
         this.shaderRunner?.Execute(sender, args, resolutionScale);
 
-        if (isPerformanceMetricVisible)
+        if (shaderRunner != null && isPerformanceMetricVisible)
         {
             frameCount++;
             // Update every second
@@ -88,7 +88,7 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
             }
 
             args.DrawingSession.DrawOverlayWithText(
-                text: $"D2D1 FPS: {fps:F2} Scale: {resolutionScale:F2}",
+                text: $"fps: {fps:F2} ({1f / fps:F3}ms) scale: {resolutionScale:F2}x",
                 fontSize: 21,
                 overlayX: 75f,
                 overlayY: 57f,
