@@ -28,7 +28,7 @@ namespace Drizzle.Models.Shaders
             {
                 this.ImagePath = properties.ImagePath;
                 this.IsSquare = properties.IsSquare;
-                this.speed = properties.Speed;
+                this.Speed = properties.Speed;
                 this.IsDaytime = properties.IsDaytime;
             }
 

@@ -47,14 +47,14 @@ public partial class WindModel : ShaderModel
         if (properties != null)
         {
             this.Color1 = properties.Color1;
-            this.color2 = properties.Color2;
-            this.speed = properties.Speed;
+            this.Color2 = properties.Color2;
+            this.Speed = properties.Speed;
             this.Amplitude = properties.Amplitude;
             this.ImagePath = properties.ImagePath;
             this.DepthPath = properties.DepthPath;
             this.Saturation = properties.Saturation;
-            this.parallaxIntensityX = properties.ParallaxIntensityX;
-            this.parallaxIntensityY = properties.ParallaxIntensityY;
+            this.ParallaxIntensityX = properties.ParallaxIntensityX;
+            this.ParallaxIntensityY = properties.ParallaxIntensityY;
             this.IsDaytime = properties.IsDaytime;
         }
 
