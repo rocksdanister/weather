@@ -34,14 +34,11 @@
                     </ComboBox>
                 </labs:SettingsCard>
 
-                <labs:SettingsCard x:Uid="LanguageSettings" Padding="15,0,15,15">
+                <labs:SettingsCard x:Uid="LanguageSettings" Padding="15,35,15,35">
                     <labs:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE775;" />
                     </labs:SettingsCard.HeaderIcon>
-                    <StackPanel
-                        Padding="-150,75,0,0"
-                        Orientation="Horizontal"
-                        Spacing="2.5">
+                    <StackPanel Orientation="Horizontal" Spacing="2.5">
                         <HyperlinkButton x:Uid="LanguageSettingsHelpTranslate" NavigateUri="https://crwd.in/lively-weather" />
                         <ComboBox
                             MinWidth="165"
