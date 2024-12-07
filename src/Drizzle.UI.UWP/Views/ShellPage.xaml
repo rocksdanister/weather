@@ -329,13 +329,17 @@
                     <StackPanel
                         MinHeight="25"
                         Orientation="Horizontal"
-                        Spacing="2">
-                        <FontIcon
-                            Margin="0,2.5,5,0"
-                            FontSize="12"
-                            Glyph="&#xE72C;" />
-                        <TextBlock x:Uid="RefreshWeather" VerticalAlignment="Center" />
-                        <TextBlock VerticalAlignment="Center" Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                        Spacing="5">
+                        <Grid>
+                            <FontIcon
+                                VerticalAlignment="Center"
+                                FontSize="12"
+                                Glyph="&#xE72C;" />
+                        </Grid>
+                        <TextBlock VerticalAlignment="Center" FontSize="14">
+                            <Run x:Uid="RefreshWeather" />
+                            <Run Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                        </TextBlock>
                     </StackPanel>
                 </Button>
             </muxc:NavigationView.PaneFooter>
