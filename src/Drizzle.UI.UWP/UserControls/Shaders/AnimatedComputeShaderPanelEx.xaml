@@ -28,7 +28,7 @@
             Visibility="{x:Bind ShaderRunner1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    EasingMode="EaseOut"
+                    EasingMode="EaseIn"
                     EasingType="Linear"
                     From="0"
                     To="1.0"
@@ -51,7 +51,7 @@
             Visibility="{x:Bind ShaderRunner2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    EasingMode="EaseOut"
+                    EasingMode="EaseIn"
                     EasingType="Linear"
                     From="0"
                     To="1.0"

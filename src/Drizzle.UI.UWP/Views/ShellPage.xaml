@@ -330,12 +330,10 @@
                         MinHeight="25"
                         Orientation="Horizontal"
                         Spacing="5">
-                        <Grid>
-                            <FontIcon
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Glyph="&#xE72C;" />
-                        </Grid>
+                        <FontIcon
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Glyph="&#xE72C;" />
                         <TextBlock VerticalAlignment="Center" FontSize="14">
                             <Run x:Uid="RefreshWeather" />
                             <Run Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
