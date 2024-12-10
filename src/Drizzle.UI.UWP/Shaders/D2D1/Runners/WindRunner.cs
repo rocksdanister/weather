@@ -34,7 +34,7 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
         this.currentProperties = new(properties());
     }
 
-    public void Update(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args, double resolutionScale)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
         var canvasSize = sender.Size;
         var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
@@ -77,12 +77,6 @@ public sealed class WindRunner : ID2D1ShaderRunner, IDisposable
             currentProperties.Brightness,
             currentProperties.Saturation,
             new int2((int)image.Size.Width, (int)image.Size.Height));
-    }
-
-    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
-    {
-        var canvasSize = sender.Size;
-        var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect,

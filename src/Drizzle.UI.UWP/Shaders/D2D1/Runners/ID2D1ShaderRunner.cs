@@ -11,9 +11,4 @@ public interface ID2D1ShaderRunner
     /// Draws a new frame on a target <see cref="ICanvasAnimatedControl"/> instance.
     /// </summary>
     void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale);
-
-    /// <summary>
-    ///  Update any data, as necessary, for your app's animation.
-    /// </summary>
-    void Update(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args, double resolutionScale);
 }

@@ -31,7 +31,7 @@ public sealed class CloudsRunner : ID2D1ShaderRunner, IDisposable
         this.currentProperties = new(properties());
     }
 
-    public void Update(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args, double resolutionScale)
+    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
     {
         var canvasSize = sender.Size;
         var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
@@ -43,7 +43,7 @@ public sealed class CloudsRunner : ID2D1ShaderRunner, IDisposable
         UpdateUniforms(args.Timing.TotalTime);
 
         // Set the constant buffer
-        this.pixelShaderEffect.ConstantBuffer = new Clouds((float)simulatedTime,
+        this.pixelShaderEffect.ConstantBuffer = new Clouds((float)simulatedTime, 
             new int2(widthInPixels, heightInPixels),
             mouseOffset,
             currentProperties.Speed, currentProperties.Scale,
@@ -52,12 +52,6 @@ public sealed class CloudsRunner : ID2D1ShaderRunner, IDisposable
             currentProperties.Saturation,
             currentProperties.IsDaytime,
             currentProperties.IsDayNightShift);
-    }
-
-    public void Execute(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args, double resolutionScale)
-    {
-        var canvasSize = sender.Size;
-        var renderSize = new Size(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
 
         // Draw the shader
         args.DrawingSession.DrawImage(image: this.pixelShaderEffect, 

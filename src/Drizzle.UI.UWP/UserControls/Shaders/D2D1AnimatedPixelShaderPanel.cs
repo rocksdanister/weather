@@ -45,7 +45,6 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
 
         this.canvasAnimatedControl = (CanvasAnimatedControl)GetTemplateChild("PART_CanvasAnimatedControl")!;
         this.canvasAnimatedControl.Draw += CanvasAnimatedControl_Draw;
-        this.canvasAnimatedControl.Update += CanvasAnimatedControl_Update;
         this.canvasAnimatedControl.TargetElapsedTime = TimeSpan.FromTicks(10000000 / (long)TargetFrameRate);
     }
 
@@ -67,11 +66,6 @@ public sealed class D2D1AnimatedPixelShaderPanel : Control
         {
             canvasAnimatedControl.Paused = true;
         }
-    }
-
-    private void CanvasAnimatedControl_Update(ICanvasAnimatedControl sender, CanvasAnimatedUpdateEventArgs args)
-    {
-        this.shaderRunner?.Update(sender, args, resolutionScale);
     }
 
     /// <summary>
