@@ -28,6 +28,8 @@ public readonly partial struct Depth : IPixelShader<float4>
 
     private readonly float brightness;
 
+    const float zoom = 1.1f;
+
     //ref: https://stackoverflow.com/questions/9320953/what-algorithm-does-photoshop-use-to-desaturate-an-image
     float4 Desaturate(float4 color)
     {
@@ -41,6 +43,8 @@ public readonly partial struct Depth : IPixelShader<float4>
         float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
         float2 uv = fragCoord / DispatchSize.XY;
         uv.Y = 1.0f - uv.Y;
+        // Scale to hide edges.
+        uv = (uv - 0.5f) / zoom + 0.5f;
 
         // Fill scale
         float screenAspect = (float)DispatchSize.X / DispatchSize.Y;

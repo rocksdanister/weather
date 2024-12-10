@@ -1,6 +1,6 @@
 ﻿using Drizzle.Models.Enums;
 using Drizzle.UI.Shared.ViewModels;
-using Drizzle.UI.UWP.Shaders.D2D1.Runners;
+using Drizzle.UI.UWP.Shaders.D2D1.Common;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

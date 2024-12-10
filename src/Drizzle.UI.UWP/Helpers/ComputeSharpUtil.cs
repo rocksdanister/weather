@@ -6,6 +6,7 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using SixLabors.ImageSharp;
 using System;
+using System.Threading.Tasks;
 using Windows.Graphics.DirectX;
 using CSRgba32 = ComputeSharp.Rgba32;
 using ISRgba32 = SixLabors.ImageSharp.PixelFormats.Rgba32;
@@ -79,6 +80,20 @@ public static class ComputeSharpUtil
                 dpi);
         }
         return bitmap;
+    }
+
+    public static async Task<CanvasBitmap> CreateCanvasBitmapOrPlaceholderAsync(CanvasDevice device, string filePath, float dpi = 96)
+    {
+        if (!string.IsNullOrEmpty(filePath))
+            return await CanvasBitmap.LoadAsync(device, filePath, dpi);
+
+        return CanvasBitmap.CreateFromBytes(
+            device,
+            [0, 0, 0, 255],
+            1,
+            1,
+            DirectXPixelFormat.R8G8B8A8UIntNormalized,
+            dpi);
     }
 
     public static D2D1ResourceTextureManager CreateD2D1ResourceTextureManagerOrPlaceholder(string filePath, TextureWrapMode wrap = TextureWrapMode.clamp)

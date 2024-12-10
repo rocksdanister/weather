@@ -3,6 +3,7 @@ using Drizzle.Common.Helpers;
 using Drizzle.Models.Shaders;
 using Drizzle.UI.Shaders.D2D1;
 using Drizzle.UI.Shared.Extensions;
+using Drizzle.UI.UWP.Shaders.D2D1.Common;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;

@@ -1,11 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Drizzle.Models.Shaders;
-using Drizzle.Models.Enums;
-using System;
 
 #if WINDOWS_UWP
 using ComputeSharp.Uwp;
-using Drizzle.UI.UWP.Shaders.D2D1.Runners;
+using Drizzle.UI.UWP.Shaders.D2D1.Common;
 #endif
 
 namespace Drizzle.UI.Shared.ViewModels;

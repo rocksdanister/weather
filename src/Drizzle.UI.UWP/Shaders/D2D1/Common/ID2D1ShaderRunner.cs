@@ -1,6 +1,6 @@
 ﻿using Microsoft.Graphics.Canvas.UI.Xaml;
 
-namespace Drizzle.UI.UWP.Shaders.D2D1.Runners;
+namespace Drizzle.UI.UWP.Shaders.D2D1.Common;
 
 /// <summary>
 /// An interface for a shader runner to be used with a Win2D renderer.

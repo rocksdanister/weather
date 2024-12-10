@@ -1,5 +1,5 @@
 ﻿using Drizzle.UI.UWP.Extensions;
-using Drizzle.UI.UWP.Shaders.D2D1.Runners;
+using Drizzle.UI.UWP.Shaders.D2D1.Common;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using System.Diagnostics;

@@ -36,6 +36,8 @@ public readonly partial struct Wind : IPixelShader<float4>
 
     private readonly float saturation;
 
+    const float zoom = 1.1f;
+
     float rand(float2 co)
     {
         return Hlsl.Frac(Hlsl.Sin(Hlsl.Dot(co.XY, new float2(12.9898f, 78.233f))) * 43758.5453f);
@@ -117,6 +119,8 @@ public readonly partial struct Wind : IPixelShader<float4>
         float2 fragCoord = new(ThreadIds.X, DispatchSize.Y - ThreadIds.Y);
         float2 uv = fragCoord / DispatchSize.XY;
         uv.Y = 1.0f - uv.Y;
+        // Scale to hide edges.
+        uv = (uv - 0.5f) / zoom + 0.5f;
 
         // Fill scale
         float screenAspect = (float)DispatchSize.X / DispatchSize.Y;
