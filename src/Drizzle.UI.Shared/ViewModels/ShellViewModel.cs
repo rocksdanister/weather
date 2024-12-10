@@ -466,7 +466,11 @@ public partial class ShellViewModel : ObservableObject
     private async Task OpenAbout() => await dialogService.ShowAboutDialogAsync();
 
     [RelayCommand]
-    private async Task OpenSettings() => await dialogService.ShowSettingsDialogAsync();
+    private async Task OpenSettings() 
+    {
+        IsDirectX12SupportNotify = false;
+        await dialogService.ShowSettingsDialogAsync();
+    }
 
     /// <summary>
     /// Fetch and set weather animations.
