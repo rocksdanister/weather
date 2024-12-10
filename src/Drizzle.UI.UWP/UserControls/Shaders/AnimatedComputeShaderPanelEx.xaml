@@ -16,9 +16,8 @@
     <UserControl.Resources>
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
     </UserControl.Resources>
-
-    <!--  Cropping to hide depth shader edges.  -->
-    <Grid Padding="-5">
+    <!--  Workaround: Transition delay added to hide the previous texture showing before updating.  -->
+    <Grid>
         <computesharp:AnimatedComputeShaderPanel
             IsDynamicResolutionEnabled="{x:Bind IsDynamicResolution, Mode=OneWay}"
             IsPaused="{x:Bind IsPausedShader1, Mode=OneWay}"
@@ -28,11 +27,12 @@
             Visibility="{x:Bind ShaderRunner1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    EasingMode="EaseIn"
+                    Delay="0:0:0.35"
+                    EasingMode="EaseOut"
                     EasingType="Linear"
                     From="0"
                     To="1.0"
-                    Duration="0:0:1" />
+                    Duration="0:0:0.65" />
             </animation:Implicit.ShowAnimations>
             <animation:Implicit.HideAnimations>
                 <animation:OpacityAnimation
@@ -51,11 +51,12 @@
             Visibility="{x:Bind ShaderRunner2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    EasingMode="EaseIn"
+                    Delay="0:0:0.35"
+                    EasingMode="EaseOut"
                     EasingType="Linear"
                     From="0"
                     To="1.0"
-                    Duration="0:0:1" />
+                    Duration="0:0:0.65" />
             </animation:Implicit.ShowAnimations>
             <animation:Implicit.HideAnimations>
                 <animation:OpacityAnimation

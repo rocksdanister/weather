@@ -14,7 +14,7 @@
     <UserControl.Resources>
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
     </UserControl.Resources>
-    <!--  Workaround: Delay added to hide the previous texture showing before updating.  -->
+    <!--  Workaround: Transition delay added to hide the previous texture showing before updating.  -->
     <Grid>
         <shaderControls:D2D1AnimatedPixelShaderPanel
             IsPaused="{x:Bind IsPausedShader1, Mode=OneWay}"
@@ -25,12 +25,12 @@
             Visibility="{x:Bind ShaderRunner1, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    Delay="0:0:0.25"
-                    EasingMode="EaseIn"
+                    Delay="0:0:0.35"
+                    EasingMode="EaseOut"
                     EasingType="Linear"
                     From="0"
                     To="1.0"
-                    Duration="0:0:1" />
+                    Duration="0:0:0.65" />
             </animation:Implicit.ShowAnimations>
             <animation:Implicit.HideAnimations>
                 <animation:OpacityAnimation
@@ -49,12 +49,12 @@
             Visibility="{x:Bind ShaderRunner2, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}">
             <animation:Implicit.ShowAnimations>
                 <animation:OpacityAnimation
-                    Delay="0:0:0.25"
-                    EasingMode="EaseIn"
+                    Delay="0:0:0.35"
+                    EasingMode="EaseOut"
                     EasingType="Linear"
                     From="0"
                     To="1.0"
-                    Duration="0:0:1" />
+                    Duration="0:0:0.65" />
             </animation:Implicit.ShowAnimations>
             <animation:Implicit.HideAnimations>
                 <animation:OpacityAnimation
