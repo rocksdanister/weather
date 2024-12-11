@@ -75,6 +75,8 @@
                 <!--<ui:Effects.Shadow>
                     <media:AttachedCardShadow Offset="4" Color="{ThemeResource SystemAltMediumColor}" />
                 </ui:Effects.Shadow>-->
+                <!--  Image Source x:Bind will crash if null or empty string. Ref: https://stackoverflow.com/questions/31897154/xbind-image-with-null-string  -->
+                <!--  Here we are not displaying the view if image is not valid, so not a problem.  -->
                 <Border Height="250" CornerRadius="5">
                     <Image Source="{x:Bind viewModel.PreviewImage, Mode=OneWay}" Stretch="UniformToFill" />
                 </Border>

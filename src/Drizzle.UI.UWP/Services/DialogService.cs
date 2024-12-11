@@ -63,6 +63,7 @@ public class DialogService : IDialogService
 
     public async Task<string> ShowDepthCreationDialogAsync()
     {
+        var closeRequested = false;
         var vm = App.Services.GetRequiredService<DepthEstimateViewModel>();
         // Don't use Acrylic background since this operation can be heavy
         var depthDialog = new ContentDialog
@@ -77,7 +78,11 @@ public class DialogService : IDialogService
             IsPrimaryButtonEnabled = vm.IsModelExists,
             Background = (AcrylicBrush)Application.Current.Resources["AcrylicInAppFillColorBaseBrush"],
         };
-        vm.OnRequestClose += (_, _) => depthDialog.Hide();
+        vm.OnRequestClose += (_, _) =>
+        {
+            closeRequested = true;
+            depthDialog.Hide();
+        };
         depthDialog.Closing += (s, e) =>
         {
             if (e.Result == ContentDialogResult.Primary)
@@ -94,7 +99,8 @@ public class DialogService : IDialogService
         };
 
         await vm.AddImageCommand.ExecuteAsync(null);
-        await depthDialog.ShowAsync();
+        if (!closeRequested)
+            await depthDialog.ShowAsync();
         // Dispose resources
         vm.OnClose();
         return vm.DepthAssetDir;
