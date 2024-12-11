@@ -37,6 +37,8 @@ public readonly partial struct Clouds : IPixelShader<float4>
 
     private static readonly float3x3 M3 = new float3x3(0.33338f, 0.56034f, -0.71817f, -0.87887f, 0.32651f, -0.15323f, 0.15162f, 0.69596f, 0.61339f) * 1.93f;
 
+    const float zoom = 1.05f;
+
     private static float2x2 Rotate(in float a)
     {
         float c = Hlsl.Cos(a);
@@ -161,6 +163,8 @@ public readonly partial struct Clouds : IPixelShader<float4>
     public float4 Execute()
     {
         float2 q = (float2)ThreadIds.XY / DispatchSize.XY;
+        // Scale to hide edges.
+        q = (q - 0.5f) / zoom + 0.5f;
         float2 p = (ThreadIds.XY - (0.5f * (float2)DispatchSize.XY)) / DispatchSize.Y;
         float2 bsMo = mouse.XY - 0.5f * (float2)DispatchSize.XY / DispatchSize.Y;
         float scaledTime = Time() * 3.0f;
