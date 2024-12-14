@@ -1,6 +1,7 @@
 :root {
   --color-font1: white;
   --color-font2: rgba(255, 255, 255, 0.8);
+  --color-font3: rgba(255, 255, 255, 0.5);
   --font1: "Noto Sans", sans-serif;
   --font2: "Noto Sans", sans-serif;
 }
@@ -76,6 +77,11 @@ a {
 #dynamic-labels {
   transform: translateZ(25px);
   pointer-events: none;
+}
+
+#release-notes {
+  font-size: 14px;
+  color: var(--color-font3);
 }
 
 #app-icon {
