@@ -3,12 +3,13 @@ using CommunityToolkit.Mvvm.Input;
 using Drizzle.Common.Constants;
 using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
-using Drizzle.ImageProcessing;
 using Drizzle.Models;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Weather;
 using Drizzle.UI.Shared.Extensions;
 using Microsoft.Extensions.Logging;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -231,7 +232,11 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                         imagePath = FileUtil.NextAvailableFilename(imagePath);
                         using (stream)
                         {
-                            ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                            using var image = Image.Load(stream);
+                            //Resize input for performance and memory
+                            image.ResizeMax(1920);
+                            image.Mutate(x => x.GaussianBlur(12));
+                            image.Save(imagePath);
                         }
 
                         var selection = new UserImageModel(name, imagePath, null, DateTime.Now, true);
@@ -249,7 +254,11 @@ public sealed partial class ScreensaverViewModel : ObservableObject
                         imagePath = FileUtil.NextAvailableFilename(imagePath);
                         using (stream)
                         {
-                            ImageUtil.GaussianBlur(stream, imagePath, 12, 1920);
+                            using var image = Image.Load(stream);
+                            //Resize input for performance and memory
+                            image.ResizeMax(1920);
+                            image.Mutate(x => x.GaussianBlur(12));
+                            image.Save(imagePath);
                         }
 
                         var selection = new UserImageModel(name, imagePath, null, DateTime.Now, true);

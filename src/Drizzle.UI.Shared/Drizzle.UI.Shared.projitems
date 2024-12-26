@@ -9,6 +9,7 @@
     <Import_RootNamespace>AwesomeWeather.UI.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ImageExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ShaderExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\ITimerFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Factories\NLogConfigFactory.cs" />

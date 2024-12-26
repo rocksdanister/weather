@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using Drizzle.Common.Helpers;
 using Drizzle.Common.Services;
-using Drizzle.ImageProcessing;
 using Drizzle.ML.DepthEstimate;
 using Drizzle.Models.Enums;
 using Drizzle.Models.Shaders;
+using Drizzle.UI.Shared.Extensions;
 using Drizzle.UI.Shared.Factories;
 using Microsoft.Extensions.Logging;
 using SixLabors.ImageSharp;
@@ -119,7 +119,14 @@ public partial class DepthEstimateViewModel : ObservableObject
 
         // Resizing with blur to avoid aliasing on images with details.
         var shaderTexturePath = FileUtil.NextAvailableFilename(tempFilePath);
-        await Task.Run(() => ImageUtil.GaussianBlur(tempFilePath, shaderTexturePath, 1, 800));
+        await Task.Run(() =>
+        {
+            using var image = Image.Load(tempFilePath);
+            //Resize input for performance and memory
+            image.ResizeMax(800);
+            image.Mutate(x => x.GaussianBlur(1));
+            image.Save(shaderTexturePath);
+        });
         SelectedShaderProperties.ImagePath = shaderTexturePath;
 
         SelectedImage = tempFilePath;
@@ -168,7 +175,7 @@ public partial class DepthEstimateViewModel : ObservableObject
                     depthEstimate.LoadModel(modelPath);
                 var depthOutput = depthEstimate.Run(SelectedImage);
                 //Resize depth to same size as input
-                using var depthImage = ImageUtil.FloatArrayToImage(depthOutput.Depth, depthOutput.Width, depthOutput.Height);
+                using var depthImage = depthOutput.Depth.ToImage(depthOutput.Width, depthOutput.Height);
                 depthImage.Mutate(x =>
                 {
                     x.Resize(new ResizeOptions()

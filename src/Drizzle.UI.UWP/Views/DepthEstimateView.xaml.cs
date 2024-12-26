@@ -1,7 +1,4 @@
-﻿using Drizzle.Common.Helpers;
-using Drizzle.ImageProcessing;
-using Drizzle.UI.Shared.ViewModels;
-using System.Diagnostics;
+﻿using Drizzle.UI.Shared.ViewModels;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

@@ -685,10 +685,6 @@
       <Project>{1cc71c1d-6019-41fa-8226-b11d7c8d38e0}</Project>
       <Name>Drizzle.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Drizzle.ImageProcessing\Drizzle.ImageProcessing.csproj">
-      <Project>{3c878d0b-851c-406e-98cd-ba919dc6d844}</Project>
-      <Name>Drizzle.ImageProcessing</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Drizzle.ML\Drizzle.ML.csproj">
       <Project>{35150613-17c2-4df1-aeec-1d34a92af72d}</Project>
       <Name>Drizzle.ML</Name>
