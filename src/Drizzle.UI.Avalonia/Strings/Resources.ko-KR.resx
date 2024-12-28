@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>안녕하세요, 저는 Rocksdanister라고 알려진 Dani John입니다. 나는 이런 재미있는 소프트웨어를 만듭니다. 시간을 내어 내 작품을 봐주셔서 감사합니다.</value>
+    <value>안녕하세요, 저는 Rocksdanister라고 알려진 Dani John입니다. 저는 이런 유용한 소프트웨어를 만듭니다. 시간을 내어 제 작품을 봐주셔서 감사합니다.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>좋음</value>
@@ -154,7 +154,7 @@
     <value>장소 찾기</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>타사 소프트웨어 고지</value>
+    <value>소프트웨어 고지</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>배경 밝기 조절</value>
@@ -175,13 +175,13 @@
     <value>낮/밤</value>
   </data>
   <data name="CloudIterations.Header" xml:space="preserve">
-    <value>상세 표현 정도</value>
+    <value>반복 횟수</value>
   </data>
   <data name="CloudScale.Header" xml:space="preserve">
     <value>스케일</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>기능을 제안하거나 오류신고</value>
+    <value>기능 제안 및 오류 신고</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
     <value>문의하기</value>
@@ -202,38 +202,37 @@
     <value>AQI는 가장 흔한 5가지 대기 오염물질이 건강에 미치는 영향에 대한 정보를 제공하도록 설계되었습니다. 0에서 500까지의 척도이며, 값이 높을수록 대기 오염이 심하고 건강 위험이 더 크다는 것을 나타냅니다.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>구름 지수는 특정 위치에서 관찰했을 때 평균적으로 구름에 가려진 하늘의 비율입니다.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>이슬점 온도는 공기 중의 수증기 양을 절대적으로 측정한 것입니다. 이슬점 온도와 기온이 같을 때 상대습도는 100%입니다. 이 시점에서 공기는 수증기로 완전히 포화되어 이슬, 안개 또는 구름 형태의 응결이 발생합니다.</value>
+    <value>이슬 점 온도는 공기 중의 수증기 양을 절대적으로 측정한 것입니다. 이슬 점 온도와 기온이 같을 때 상대 습도는 100%입니다. 이 시점에서 공기는 수증기로 완전히 포화가 되어 이슬, 안개 또는 구름 형태로 발생합니다.</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
-    <value>상대습도는 해당 온도에서 공기가 보유할 수 있는 최대 수증기량과 비교하여 공기 중에 존재하는 수증기량을 측정한 것입니다. 이는 백분율로 표시되며 공기가 포화 상태에 얼마나 가까운지에 대한 정보를 제공합니다.</value>
+    <value>상대 습도는 해당 온도에서 공기가 보유할 수 있는 최대 수증기 수치와 비교하여 공기 중에 존재하는 수증기 수치를 측정합니다. 이는 백분율로 표시되며 공기가 포화 상태에 얼마나 가깝고 멀리 있는 여부에 대한 정보를 제공합니다.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>강수량은 중력에 의해 구름에서 떨어지는 대기 수증기의 압축으로 평평한 표면에 축적되는 물의 깊이입니다. 여기에는 비, 눈, 진눈깨비, 우박과 같은 다양한 형태가 포함됩니다.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
-    <value>대기압이라고도 알려진 기압은 특정 지역의 기압을 측정한 것입니다.</value>
+    <value>대기압으로 알려진 기압은 특정 지역의 기압을 측정한 값입니다.</value>
   </data>
   <data name="DescAboutUVIndex.Text" xml:space="preserve">
-    <value>세계보건기구의 UVI (자외선 지수) 는 일광화상을 유발하는 자외선의 강도를 측정합니다. 이는 0에서 11+ 범위의 선형 척도로, 값이 높을수록 자외선에 노출될 위험이 더 높고 일광화상 및 궁극적으로 피부암으로 이어질 수 있는 피부 손상 가능성이 높다는 것을 나타냅니다.</value>
+    <value>세계 보건 기구의 자외선 지수(UVI)는 일광 화상을 유발하는 자외선의 강도를 측정합니다. 이는 0 수치부터 11+ 범위의 척도로, 값이 높을수록 자외선에 노출될 위험이 더 높고 일광 화상 및 궁극적으로 피부 암으로 이어질 수 있는 피부 손상 가능성이 높다는 것을 나타냅니다.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>가시 거리는 물체와 빛을 명확하게 식별할 수 있는 거리를 측정합니다. 10 km 이상은 양호한 상태로 간주되고 1 km 미만은 식별 주의로 간주됩니다.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
-    <value>풍속은 공기가 특정 지점을 지나 수평으로 이동하는 속도입니다. 일반적으로 온도 변화로 인해 공기가 고압에서 저압으로 이동하면서 발생하는 기본 대기량입니다. 돌풍은 평균 풍속보다 풍속이 갑자기 증가하는 현상입니다. 일반적으로 지속 시간은 20초 미만입니다.</value>
+    <value>풍속은 공기가 특정 지점을 지나 수평으로 이동하는 속도입니다. 일반적으로 온도 변화로 인해 공기가 고기압에서 저기압으로 이동하면서 발생하는 기본 대기 수치에 해당합니다. 돌풍은 평균 풍속보다 풍속이 급격하게 증가하는 현상입니다. 일반적으로 지속 시간은 20 초 미만입니다.</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
     <value>대략적인 깊이</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>귀하의 그래픽 프로세서(GPU) 가 요구되는 DX12 기능을 지원하지 못합니다. 일부 기능이 활성화되지 않았습니다</value>
+    <value>기기의 그래픽 프로세서(GPU)가 요구되는 DX12 기능을 지원하지 못합니다. 일부 기능이 활성화되지 않았습니다</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>시스템의 그래픽 프로세서가 권장 요구 사항을 충족하지 않습니다. 최적의 설정이 적용되어 시스템의 최상의 성능을 보장합니다. 이러한 설정을 수동으로 조정할 수 있지만 성능에 영향을 미칠 수 있습니다.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>이 기능을 사용하려면 추가 파일을 다운로드해야 합니다</value>
@@ -248,10 +247,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>안개 농도</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>색 그라데이션</value>
+    <value>색 세부 설정</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
-    <value>애니메이션 초당 프레임</value>
+    <value>애니메이션 초 당 프레임</value>
   </data>
   <data name="FrameRateSettings.Header" xml:space="preserve">
     <value>프레임</value>
@@ -260,7 +259,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>오류</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>설정을 적용하려면 프로그램을 다시 시작하세요.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>이 프로그램을 다른 언어로 번역하여 기여해 주세요.</value>
@@ -269,16 +268,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>번역 참여하기</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>언어를 변경하려면, 앱을 재시작해야합니다.</value>
+    <value>언어를 변경하려면, 다시 시작해야 합니다.</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
     <value>언어</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>번역을 도와주십시오!</value>
+    <value>번역을 도와주세요!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>시스템 설정 값</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>자세히 알아보기</value>
@@ -290,10 +289,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>로그 열기</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>백그라운드로 전환 시 오디오 일시 중지</value>
+    <value>프로그램 최소화 시 오디오 일시 중지</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>백그라운드로 전환 시 배경화면 일시 중지</value>
+    <value>프로그램 최소화 시 배경 화면 일시 중지</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>데이터 수집 정책</value>
@@ -305,13 +304,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>성능</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>초저사양</value>
+    <value>최대 전력 효율</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
     <value>품질</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>렌더 품질 프리셋</value>
+    <value>품질 세부 설정</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
     <value>품질</value>
@@ -338,16 +337,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>최근 업데이트</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>새로고침</value>
+    <value>새로 고침</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>그래픽 렌더링 모델</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>그래픽 및 성능</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>기본값 복구</value>
+    <value>기본 값 복원</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>화면 보호기</value>
@@ -362,13 +361,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>동결</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>포스트 프로세싱</value>
+    <value>후 처리 작업</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
     <value>속도</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>진단 내용 보기</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>깊이</value>
@@ -380,7 +379,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>폭</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>소프트웨어 라이센스</value>
+    <value>소프트웨어 라이선스</value>
   </data>
   <data name="SoundControlTooltip.Text" xml:space="preserve">
     <value>소리</value>
@@ -404,10 +403,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>AI 깊이 계산</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>위치 서비스 엑세스가 거부되었습니다. 시스템 설정을 확인해주세요</value>
+    <value>위치 서비스 액세스가 거부되었습니다. 시스템 설정을 확인하세요</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>위치 서비스 엑세스가 거부되었습니다. 시스템 설정을 확인해주세요</value>
+    <value>위치 서비스 액세스가 지정되지 않았습니다. 시스템 설정을 확인하세요</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
     <value>도움말</value>
@@ -437,31 +436,31 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>테마</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>대기환경지수 (AQI) 란?</value>
+    <value>대기 환경 지수(AQI)에 대해</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>구름 수치에 대해</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>이슬점이란?</value>
+    <value>이슬 점에 대해</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>상대 습도란?</value>
+    <value>상대 습도에 대해</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>강수량에 대해</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>기압이란?</value>
+    <value>기압에 대해</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
     <value>자외선 지수에 대해</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>가시 거리에 대해</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>풍속과 돌풍에 대하여</value>
+    <value>풍속 및 돌풍에 대해</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
     <value>접근성</value>
@@ -470,16 +469,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>시작하기 위해 위치를 추가해주세요</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>대기질</value>
+    <value>대기 수치</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>구름 수치</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>후원자</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>거리</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>다운로드</value>
@@ -503,13 +502,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>성능</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>강수량</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>기압</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>기본 값</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>속도</value>
@@ -527,7 +526,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>온도</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>업데이트가 있습니다</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>업데이트 완료</value>
@@ -536,7 +535,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>자외선 지수</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>가시 거리</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>주의</value>
@@ -566,7 +565,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>날씨 데이터 소스</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>공급처</value>
+    <value>공급자</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
     <value>사용자 정의</value>
@@ -593,7 +592,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>웹사이트</value>
   </data>
   <data name="WelcomeMessageBeta.Text" xml:space="preserve">
-    <value>내 날씨 앱에 오신 것을 환영합니다! 이 앱은 아직 베타 버전이므로 일부 기능이 예상대로 작동하지 않을 수 있습니다. 앱을 개선하고 더 좋게 만들기 위해 열심히 노력하고 있습니다. 이해와 인내심에 감사드립니다.</value>
+    <value>내 날씨에 오신 것을 환영합니다! 아직 베타 버전이므로 일부 기능이 예상대로 작동하지 않을 수 있습니다. 날씨를 개선하고 더 좋게 만들기 위해 열심히 노력하고 있습니다. 이해와 인내심에 감사드립니다.</value>
   </data>
   <data name="WmoWeatherString0" xml:space="preserve">
     <value>맑음</value>
@@ -623,16 +622,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>가벼운 이슬</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>적당한 이슬비</value>
+    <value>적당한 이슬 비</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>짙은 이슬비</value>
+    <value>짙은 이슬 비</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>약한 우빙</value>
+    <value>약한 우박</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>약한 우빙</value>
+    <value>약한 우박</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
     <value>황사</value>
@@ -647,10 +646,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>폭우</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>약한 우빙</value>
+    <value>약한 비</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>강한 우빙</value>
+    <value>강한 비</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
     <value>약한 눈</value>
@@ -662,10 +661,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>폭설</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>싸락눈</value>
+    <value>옅은 눈</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
-    <value>약한 소낙눈</value>
+    <value>약한 눈</value>
   </data>
   <data name="WmoWeatherString81" xml:space="preserve">
     <value>일반 소나기</value>
@@ -674,7 +673,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>격렬한 소나기</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
-    <value>약한 소낙눈</value>
+    <value>약한 눈</value>
   </data>
   <data name="WmoWeatherString86" xml:space="preserve">
     <value>폭설</value>
@@ -683,9 +682,9 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>폭풍우</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>뇌우와 약한 우박</value>
+    <value>번개 동반 및 약한 우박</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>뇌우와 강한 우박</value>
+    <value>번개 동반 및 강한 우박</value>
   </data>
 </root>

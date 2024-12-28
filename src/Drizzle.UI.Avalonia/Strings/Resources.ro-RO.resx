@@ -232,8 +232,8 @@
     <value>Procesorul grafic de sistem (GPU) nu acceptă caracteristicile DX12 necesare, deci unele funcționalități sunt dezactivate.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>Procesorul grafic de pe sistemul dvs. nu îndeplinește cerințele recomandate.
+Au fost aplicate setări optime pentru a asigura cea mai bună performanță pentru sistemul dvs. Puteți ajusta aceste setări manual, dar acest lucru ar putea afecta performanța.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Pentru această caracteristică trebuiesc descărcate fișiere suplimentare</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Reîmprospătare</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Metoda de randare vizuală</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Grafică</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Restabilire valori implicite</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Viteză</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Afișare diagnostice</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Adâncime</value>
@@ -509,7 +509,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Presiune</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Recomandat</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Viteză</value>

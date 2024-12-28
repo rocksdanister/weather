@@ -344,7 +344,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Visual rendering method</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>الرسومات</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>إعادة ضبط الإعدادات</value>

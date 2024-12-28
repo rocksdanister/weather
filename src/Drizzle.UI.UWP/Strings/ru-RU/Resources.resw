@@ -124,7 +124,7 @@
     <value>Хорошее</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
-    <value>Умеренное</value>
+    <value>Умеренный</value>
   </data>
   <data name="AirQualityIndex2" xml:space="preserve">
     <value>Вредный для чувствительных групп</value>
@@ -232,8 +232,7 @@
     <value>Системный графический процессор (GPU) не поддерживает необходимые функции DX12, поэтому некоторые функции отключены.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>Ваш процессор не соответствует рекомендуемым требованиям. Оптимальные для вашей системы настройки были применены для обеспечения лучшей производительности. Вы можете изменить эти настройки, но это может отразиться на производительности.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Для работы этой функции необходимо загрузить дополнительные файлы</value>
@@ -278,7 +277,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Помогите с переводом!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Системная</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Подробнее</value>
@@ -341,10 +340,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Обновить</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Метод отрисовки</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Графика</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>По умолчанию</value>
@@ -368,7 +367,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Скорость</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Показывать диагностику</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Глубина</value>
@@ -479,7 +478,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Участники</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Расстояние</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Скачать</value>
@@ -509,7 +508,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Давление</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Рекомендуется</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Скорость</value>
