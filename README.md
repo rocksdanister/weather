@@ -17,7 +17,7 @@
 
 ## About
 
-https://github.com/rocksdanister/weather/assets/17554161/a9b25e5b-2d23-4dc0-9acc-a60b76f9faee
+https://github.com/user-attachments/assets/b4996b2e-a653-43dd-a3f8-4d3311959832
 
 Windows native weather app powered by DirectX12 animations.
 
