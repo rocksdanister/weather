@@ -33,7 +33,7 @@ public class HttpDownloadService : IDownloadService
                 progress?.Report((downloadedInMB, totalInMB));
             });
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
             try
             {
