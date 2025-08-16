@@ -4,5 +4,6 @@ public enum AppTheme
 {
     auto,
     dark,
-    light
+    light,
+    noire
 }
