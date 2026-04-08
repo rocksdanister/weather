@@ -155,6 +155,19 @@
 
                         <labs:SettingsCard>
                             <labs:SettingsCard.Header>
+                                <TextBlock x:Uid="TitlePressure" />
+                            </labs:SettingsCard.Header>
+                            <labs:SettingsCard.HeaderIcon>
+                                <FontIcon FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE901;" />
+                            </labs:SettingsCard.HeaderIcon>
+                            <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedPressureUnitIndex, Mode=TwoWay}">
+                                <labs:SegmentedItem>hPa/mb</labs:SegmentedItem>
+                                <labs:SegmentedItem>mmHg</labs:SegmentedItem>
+                            </labs:Segmented>
+                        </labs:SettingsCard>
+
+                        <labs:SettingsCard>
+                            <labs:SettingsCard.Header>
                                 <TextBlock x:Uid="TitlePrecipitation" />
                             </labs:SettingsCard.Header>
                             <labs:SettingsCard.HeaderIcon>

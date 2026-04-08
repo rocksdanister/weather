@@ -252,12 +252,14 @@ public sealed partial class SettingsViewModel : ObservableObject
                     SelectedTemperatureUnitIndex = (int)units.TemperatureUnit;
                     SelectedWindSpeedUnitIndex = (int)units.WindSpeedUnit;
                     SelectedVisibilityUnitIndex = (int)units.VisibilityUnit;
+                    SelectedPressureUnitIndex = (int)units.PressureUnit;
                     SelectedPrecipitationUnitIndex = (int)units.PrecipitationUnit;
                     break;
                 case WeatherUnits.custom:
                     SelectedTemperatureUnitIndex = (int)userSettings.GetAndDeserialize<TemperatureUnits>(UserSettingsConstants.SelectedTemperatureUnit);
                     SelectedWindSpeedUnitIndex = (int)userSettings.GetAndDeserialize<WindSpeedUnits>(UserSettingsConstants.SelectedWindSpeedUnit);
                     SelectedVisibilityUnitIndex = (int)userSettings.GetAndDeserialize<VisibilityUnits>(UserSettingsConstants.SelectedVisibilityUnit);
+                    SelectedPressureUnitIndex = (int)userSettings.GetAndDeserialize<PressureUnits>(UserSettingsConstants.SelectedPressureUnit);
                     SelectedPrecipitationUnitIndex = (int)userSettings.GetAndDeserialize<PrecipitationUnits>(UserSettingsConstants.SelectedPrecipitationUnit);
                     break;
             }
@@ -323,6 +325,21 @@ public sealed partial class SettingsViewModel : ObservableObject
                 userSettings.SetAndSerialize(UserSettingsConstants.SelectedPrecipitationUnit, value);
             }
             SetProperty(ref _selectedPrecipitationUnitIndex, value);
+        }
+    }
+
+    private int _selectedPressureUnitIndex;
+    public int SelectedPressureUnitIndex
+    {
+        get => _selectedPressureUnitIndex;
+        set
+        {
+            if ((WeatherUnits)SelectedWeatherUnitIndex == WeatherUnits.custom && userSettings.GetAndDeserialize<PressureUnits>(UserSettingsConstants.SelectedPressureUnit) != (PressureUnits)value)
+            {
+                customWeatherUnitValueChanged = true;
+                userSettings.SetAndSerialize(UserSettingsConstants.SelectedPressureUnit, value);
+            }
+            SetProperty(ref _selectedPressureUnitIndex, value);
         }
     }
 

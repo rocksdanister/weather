@@ -6,6 +6,7 @@ namespace Drizzle.Models.Weather
 {
     public enum PressureUnits
     {
-        hPa_mb
+        hPa_mb,
+        mmHg
     }
 }
