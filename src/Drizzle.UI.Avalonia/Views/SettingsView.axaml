@@ -197,6 +197,30 @@
                         </ui:SettingsExpanderItem.Footer>
                     </ui:SettingsExpanderItem>
 
+                    <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitlePressure_Text}">
+                        <ui:SettingsExpanderItem.IconSource>
+                            <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE901;" />
+                        </ui:SettingsExpanderItem.IconSource>
+                        <ui:SettingsExpanderItem.Footer>
+                            <Border
+                                BorderBrush="#11F2F2F2"
+                                BorderThickness="1"
+                                ClipToBounds="True"
+                                CornerRadius="5">
+                                <ListBox
+                                    Padding="-2.5"
+                                    Background="{DynamicResource SystemAltLowColor}"
+                                    Classes="WeatherUnitListBox"
+                                    IsEnabled="{Binding !IsPresetUnit}"
+                                    ItemsPanel="{StaticResource WeatherUnitListBoxItemPanelTemplate}"
+                                    SelectedIndex="{Binding SelectedPressureUnitIndex, Mode=TwoWay}">
+                                    <TextBlock HorizontalAlignment="Center">hPa/mb</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">mmHg</TextBlock>
+                                </ListBox>
+                            </Border>
+                        </ui:SettingsExpanderItem.Footer>
+                    </ui:SettingsExpanderItem>
+
                     <ui:SettingsExpanderItem Content="{x:Static i18n:Resources.TitlePrecipitation_Text}">
                         <ui:SettingsExpanderItem.IconSource>
                             <ui:FontIconSource FontFamily="{StaticResource CustomIconFonts}" Glyph="&#xE914;" />

@@ -69,6 +69,7 @@ public static class WeatherUtil
         return unit switch
         {
             PressureUnits.hPa_mb => "hPa/mb",
+            PressureUnits.mmHg => "mmHg",
             _ => throw new NotImplementedException(),
         };
     }
@@ -309,11 +310,35 @@ public static class WeatherUtil
                     break;
             }
 
-            //switch (forecast.Units.PressureUnit)
-            //{
-            //    case PressureUnits.hPa_mb:
-            //        break;
-            //}
+            switch (forecast.Units.PressureUnit)
+            {
+                case PressureUnits.hPa_mb:
+                    switch (toUnit.PressureUnit)
+                    {
+                        case PressureUnits.hPa_mb:
+                            break;
+                        case PressureUnits.mmHg:
+                            {
+                                weather.Pressure = HpaToMmHg(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)HpaToMmHg(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case PressureUnits.mmHg:
+                    switch (toUnit.PressureUnit)
+                    {
+                        case PressureUnits.hPa_mb:
+                            {
+                                weather.Pressure = MmHgToHpa(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)MmHgToHpa(x)).ToArray();
+                            }
+                            break;
+                        case PressureUnits.mmHg:
+                            break;
+                    }
+                    break;
+            }
         }
         forecast.Units = toUnit;
     }
@@ -344,6 +369,10 @@ public static class WeatherUtil
     public static float? MmtoInch(float? lenght) => lenght / 25.4f;
 
     public static float? InchToMm(float? lenght) => lenght * 25.4f;
+
+    public static float? HpaToMmHg(float? pressure) => pressure * 0.7500617f;
+
+    public static float? MmHgToHpa(float? pressure) => pressure / 0.7500617f;
 
     public enum WeatherSeverityLevel
     {
