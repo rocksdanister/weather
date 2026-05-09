@@ -24,7 +24,7 @@ namespace Drizzle.Models.Weather
                         TemperatureUnit = TemperatureUnits.fahrenheit;
                         WindSpeedUnit = WindSpeedUnits.mph;
                         VisibilityUnit = VisibilityUnits.mi;
-                        PressureUnit = PressureUnits.hPa_mb;
+                        PressureUnit = PressureUnits.inHg;
                         PrecipitationUnit = PrecipitationUnits.inch;
                     }
                     break;

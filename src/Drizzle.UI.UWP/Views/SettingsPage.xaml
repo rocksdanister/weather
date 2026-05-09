@@ -163,6 +163,7 @@
                             <labs:Segmented IsEnabled="{x:Bind viewModel.IsPresetUnit, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}" SelectedIndex="{x:Bind viewModel.SelectedPressureUnitIndex, Mode=TwoWay}">
                                 <labs:SegmentedItem>hPa/mb</labs:SegmentedItem>
                                 <labs:SegmentedItem>mmHg</labs:SegmentedItem>
+                                <labs:SegmentedItem>inHg</labs:SegmentedItem>
                             </labs:Segmented>
                         </labs:SettingsCard>
 

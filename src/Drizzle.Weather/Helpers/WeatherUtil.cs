@@ -70,6 +70,7 @@ public static class WeatherUtil
         {
             PressureUnits.hPa_mb => "hPa/mb",
             PressureUnits.mmHg => "mmHg",
+            PressureUnits.inHg => "inHg",
             _ => throw new NotImplementedException(),
         };
     }
@@ -323,6 +324,12 @@ public static class WeatherUtil
                                 weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)HpaToMmHg(x)).ToArray();
                             }
                             break;
+                        case PressureUnits.inHg:
+                            {
+                                weather.Pressure = HpaToInHg(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)HpaToInHg(x)).ToArray();
+                            }
+                            break;
                     }
                     break;
                 case PressureUnits.mmHg:
@@ -335,6 +342,31 @@ public static class WeatherUtil
                             }
                             break;
                         case PressureUnits.mmHg:
+                            break;
+                        case PressureUnits.inHg:
+                            {
+                                weather.Pressure = MmHgToInHg(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)MmHgToInHg(x)).ToArray();
+                            }
+                            break;
+                    }
+                    break;
+                case PressureUnits.inHg:
+                    switch (toUnit.PressureUnit)
+                    {
+                        case PressureUnits.hPa_mb:
+                            {
+                                weather.Pressure = InHgToHpa(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)InHgToHpa(x)).ToArray();
+                            }
+                            break;
+                        case PressureUnits.mmHg:
+                            {
+                                weather.Pressure = InHgToMmHg(weather.Pressure);
+                                weather.HourlyPressure = weather.HourlyPressure?.Select(x => (float)InHgToMmHg(x)).ToArray();
+                            }
+                            break;
+                        case PressureUnits.inHg:
                             break;
                     }
                     break;
@@ -373,6 +405,14 @@ public static class WeatherUtil
     public static float? HpaToMmHg(float? pressure) => pressure * 0.7500617f;
 
     public static float? MmHgToHpa(float? pressure) => pressure / 0.7500617f;
+
+    public static float? HpaToInHg(float? pressure) => pressure * 0.0295299831f;
+
+    public static float? InHgToHpa(float? pressure) => pressure / 0.0295299831f;
+
+    public static float? MmHgToInHg(float? pressure) => pressure * 0.0393700787f;
+
+    public static float? InHgToMmHg(float? pressure) => pressure / 0.0393700787f;
 
     public enum WeatherSeverityLevel
     {

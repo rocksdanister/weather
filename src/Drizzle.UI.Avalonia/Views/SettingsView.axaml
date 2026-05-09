@@ -216,6 +216,7 @@
                                     SelectedIndex="{Binding SelectedPressureUnitIndex, Mode=TwoWay}">
                                     <TextBlock HorizontalAlignment="Center">hPa/mb</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">mmHg</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">inHg</TextBlock>
                                 </ListBox>
                             </Border>
                         </ui:SettingsExpanderItem.Footer>
