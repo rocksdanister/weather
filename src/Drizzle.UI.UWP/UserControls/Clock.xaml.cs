@@ -1,4 +1,5 @@
-﻿using Drizzle.Weather.Helpers;
+﻿using Drizzle.Models.Enums;
+using Drizzle.Weather.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,6 +45,15 @@ namespace Drizzle.UI.UWP.UserControls
 
         public static readonly DependencyProperty TimeProperty =
             DependencyProperty.Register("Time", typeof(DateTime?), typeof(Clock), new PropertyMetadata(null));
+
+        public TimeFormats? TimeFormat
+        {
+            get => (TimeFormats?)GetValue(TimeFormatProperty);
+            set => SetValue(TimeFormatProperty, value);
+        }
+
+        public static readonly DependencyProperty TimeFormatProperty =
+            DependencyProperty.Register("TimeFormat", typeof(TimeFormats?), typeof(Clock), new PropertyMetadata(null));
 
         private readonly DispatcherTimer dispatcherTimer = new();
 

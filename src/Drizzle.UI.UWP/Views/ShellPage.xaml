@@ -35,7 +35,6 @@
         <converters:StringVisibilityConverter x:Key="StringVisibilityConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
         <customConverters:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-        <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
         <customConverters:AudioVolumeGlyphConverter x:Key="AudioVolumeGlyphConverter" />
     </Page.Resources>
 
@@ -336,7 +335,7 @@
                             Glyph="&#xE72C;" />
                         <TextBlock VerticalAlignment="Center" FontSize="14">
                             <Run x:Uid="RefreshWeather" />
-                            <Run Text="{x:Bind shellVm.SelectedLocation.FetchTime, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+                            <Run Text="{x:Bind customConverters:DateTimeToShortTimeConverter.FormatTime(shellVm.SelectedLocation.FetchTime, shellVm.SelectedTimeFormat), Mode=OneWay}" />
                         </TextBlock>
                     </StackPanel>
                 </Button>
@@ -451,6 +450,7 @@
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Opacity="0.6"
+            TimeFormat="{x:Bind shellVm.SelectedTimeFormat, Mode=OneWay}"
             TimeZone="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
             ToolTipService.ToolTip="{x:Bind shellVm.SelectedLocation.TimeZone, Mode=OneWay}"
             Visibility="{x:Bind shellVm.SelectedLocation, Mode=OneWay, Converter={StaticResource NullVisibilityConverter}}" />

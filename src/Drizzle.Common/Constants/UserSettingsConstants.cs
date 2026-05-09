@@ -12,6 +12,8 @@ public static class UserSettingsConstants
 
     public const string WeatherUnit = "WeatherUnit";
 
+    public const string TimeFormat = "TimeFormat";
+
     public const string Theme = "AppTheme";
 
     public const string AutoHideScreensaverMenu = "AutoHideScreensaverMenu";
@@ -72,6 +74,7 @@ public static class UserSettingsConstants
     {
         { Performance, AppPerformance.performance },
         { WeatherUnit, WeatherUnits.metric },
+        { TimeFormat, TimeFormats.system },
         { Theme, AppTheme.dark },
         { AutoHideScreensaverMenu, false },
         { IncludeUserImagesInShuffle, false },

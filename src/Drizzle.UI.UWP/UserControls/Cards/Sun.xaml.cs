@@ -1,4 +1,5 @@
-﻿using Drizzle.Weather.Helpers;
+﻿using Drizzle.Models.Enums;
+using Drizzle.Weather.Helpers;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -52,6 +53,15 @@ public sealed partial class Sun : UserControl
 
     public static readonly DependencyProperty TimeZoneProperty =
         DependencyProperty.Register("TimeZone", typeof(string), typeof(Sun), new PropertyMetadata(null));
+
+    public TimeFormats? TimeFormat
+    {
+        get => (TimeFormats?)GetValue(TimeFormatProperty);
+        set => SetValue(TimeFormatProperty, value);
+    }
+
+    public static readonly DependencyProperty TimeFormatProperty =
+        DependencyProperty.Register("TimeFormat", typeof(TimeFormats?), typeof(Sun), new PropertyMetadata(null));
 
     private readonly DispatcherTimer dispatcherTimer = new();
 

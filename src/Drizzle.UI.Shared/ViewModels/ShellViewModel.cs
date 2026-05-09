@@ -110,6 +110,9 @@ public partial class ShellViewModel : ObservableObject
                 case UserSettingsConstants.WeatherUnit:
                     await UpdateWeather();
                     break;
+                case UserSettingsConstants.TimeFormat:
+                    SelectedTimeFormat = userSettings.GetAndDeserialize<TimeFormats>(UserSettingsConstants.TimeFormat);
+                    break;
                 case UserSettingsConstants.BackgroundBrightness:
                     UpdateBrightness();
                     break;
@@ -148,6 +151,7 @@ public partial class ShellViewModel : ObservableObject
         SelectedAppPerformance = userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         SelectedShaderRenderer = userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
         SelectedMainGraphTypeIndex = (int)userSettings.GetAndDeserialize<GraphType>(UserSettingsConstants.SelectedMainGraphType);
+        SelectedTimeFormat = userSettings.GetAndDeserialize<TimeFormats>(UserSettingsConstants.TimeFormat);
 
         IsFirstRun = systemInfo.IsFirstRun;
         IsAppUpdated = systemInfo.IsAppUpdated;
@@ -331,6 +335,9 @@ public partial class ShellViewModel : ObservableObject
 
     [ObservableProperty]
     private bool isDiagnosticVisible = false;
+
+    [ObservableProperty]
+    private TimeFormats selectedTimeFormat;
 
     [ObservableProperty]
     private bool isFirstRun = false;

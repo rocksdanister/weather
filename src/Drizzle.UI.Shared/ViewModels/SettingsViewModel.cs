@@ -45,6 +45,7 @@ public sealed partial class SettingsViewModel : ObservableObject
         Custombackground = userSettings.Get<bool>(UserSettingsConstants.IncludeUserImagesInShuffle);
         SelectedAppThemeIndex = (int)userSettings.GetAndDeserialize<AppTheme>(UserSettingsConstants.Theme);
         SelectedWeatherUnitIndex = (int)userSettings.GetAndDeserialize<WeatherUnits>(UserSettingsConstants.WeatherUnit);
+        SelectedTimeFormatIndex = (int)userSettings.GetAndDeserialize<TimeFormats>(UserSettingsConstants.TimeFormat);
         SelectedAppPerformanceIndex = (int)userSettings.GetAndDeserialize<AppPerformance>(UserSettingsConstants.Performance);
         SelectedWeatherProviderIndex = (int)userSettings.GetAndDeserialize<WeatherProviders>(UserSettingsConstants.SelectedWeatherProvider);
         SelectedShaderRendererIndex = (int)userSettings.GetAndDeserialize<ShaderRenderer>(UserSettingsConstants.SelectedShaderRenderer);
@@ -261,6 +262,19 @@ public sealed partial class SettingsViewModel : ObservableObject
                     SelectedPrecipitationUnitIndex = (int)userSettings.GetAndDeserialize<PrecipitationUnits>(UserSettingsConstants.SelectedPrecipitationUnit);
                     break;
             }
+        }
+    }
+
+    private int _selectedTimeFormatIndex;
+    public int SelectedTimeFormatIndex
+    {
+        get => _selectedTimeFormatIndex;
+        set
+        {
+            if (userSettings.GetAndDeserialize<TimeFormats>(UserSettingsConstants.TimeFormat) != (TimeFormats)value)
+                userSettings.SetAndSerialize(UserSettingsConstants.TimeFormat, value);
+
+            SetProperty(ref _selectedTimeFormatIndex, value);
         }
     }
 

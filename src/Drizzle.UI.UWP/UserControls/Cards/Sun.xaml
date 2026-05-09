@@ -16,7 +16,6 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <customConverters:DateTimeToShortTimeConverter x:Key="DateTimeToShortTimeConverter" />
         <customConverters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
     </UserControl.Resources>
 
@@ -80,7 +79,7 @@
                 x:Uid="TitleSunrise"
                 FontSize="10"
                 Opacity="0.4" />
-            <TextBlock FontSize="12" Text="{x:Bind Sunrise, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}" />
+            <TextBlock FontSize="12" Text="{x:Bind customConverters:DateTimeToShortTimeConverter.FormatTime(Sunrise, TimeFormat), Mode=OneWay}" />
         </StackPanel>
         <StackPanel
             Grid.Row="2"
@@ -95,7 +94,7 @@
                 TextAlignment="Right" />
             <TextBlock
                 FontSize="12"
-                Text="{x:Bind Sunset, Mode=OneWay, Converter={StaticResource DateTimeToShortTimeConverter}}"
+                Text="{x:Bind customConverters:DateTimeToShortTimeConverter.FormatTime(Sunset, TimeFormat), Mode=OneWay}"
                 TextAlignment="Right" />
         </StackPanel>
 

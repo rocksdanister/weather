@@ -1,11 +1,12 @@
-﻿using Drizzle.Models.UserControls;
+﻿using Drizzle.Models.Enums;
+using Drizzle.Models.UserControls;
+using Drizzle.UI.UWP.Converters;
 using Microsoft.Graphics.Canvas.Brushes;
 using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -79,6 +80,15 @@ namespace Drizzle.UI.UWP.UserControls
         public static readonly DependencyProperty StartTimeProperty =
             DependencyProperty.Register("StartTime", typeof(DateTime), typeof(DailyGraph), new PropertyMetadata(DateTime.Today));
 
+        public TimeFormats? TimeFormat
+        {
+            get => (TimeFormats?)GetValue(TimeFormatProperty);
+            set => SetValue(TimeFormatProperty, value);
+        }
+
+        public static readonly DependencyProperty TimeFormatProperty =
+            DependencyProperty.Register("TimeFormat", typeof(TimeFormats?), typeof(DailyGraph), new PropertyMetadata(null, OnTimeFormatChanged));
+
         /// <summary>
         /// Hours between the data points
         /// </summary>
@@ -128,6 +138,17 @@ namespace Drizzle.UI.UWP.UserControls
         private Color labelColor = Color.FromArgb(100, 255, 255, 255);
         private Color lineColor = Color.FromArgb(50, 255, 255, 255);
         private Color textColor = Colors.White;
+
+        private static void OnTimeFormatChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is DailyGraph graph)
+            {
+                if (!graph.IsLoaded)
+                    return;
+
+                graph.canvas?.Invalidate();
+            }
+        }
 
         public DailyGraph()
         {
@@ -192,7 +213,7 @@ namespace Drizzle.UI.UWP.UserControls
             // Starting pt
             using var cpb = new CanvasPathBuilder(args.DrawingSession);
             cpb.BeginFigure(graphStartPos);
-            DrawText(GetElapsedTimeString(StartTime, 0), args, xLabelOffset + graphMargin, labelColor); // X-axis
+            DrawText(GetElapsedTimeString(StartTime, 0, TimeFormat), args, xLabelOffset + graphMargin, labelColor); // X-axis
             DrawText(string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[0]), args, graphStartPos + yLabelOffset + graphMargin, textColor); // Y-axis
             double total = normalizedData[0];
             iconPts?.Add(iconOffset + graphMargin);
@@ -220,7 +241,7 @@ namespace Drizzle.UI.UWP.UserControls
                 if (i % step == 0 && Math.Abs(pos.X - canvas.ActualWidth) > 30)
                 {
                     // All the pts are used for graph but label is skipped in between if not enough space.
-                    var timeString = GetElapsedTimeString(StartTime, Interval * i);
+                    var timeString = GetElapsedTimeString(StartTime, Interval * i, TimeFormat);
                     var formattedValue = string.Format(CultureInfo.InvariantCulture, ValueFormat, Value[i]);
                     DrawText(timeString, args, new Vector2(pos.X, 0) + xLabelOffset, labelColor); // X-axis
                     DrawText(formattedValue, args, pos + yLabelOffset, textColor); // Y-axis
@@ -311,9 +332,9 @@ namespace Drizzle.UI.UWP.UserControls
             return newStart + ((value - oldStart) * scale);
         }
 
-        private static string GetElapsedTimeString(DateTime start, int elapsed)
+        private static string GetElapsedTimeString(DateTime start, int elapsed, TimeFormats? format)
         {
-            return start.AddHours(elapsed).ToString("HH:mm");
+            return DateTimeToShortTimeConverter.GraphFormatTime(start.AddHours(elapsed), format);
         }
     }
 }

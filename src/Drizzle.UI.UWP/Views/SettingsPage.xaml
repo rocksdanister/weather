@@ -168,6 +168,17 @@
                     </labs:SettingsExpander.Items>
                 </labs:SettingsExpander>
 
+                <labs:SettingsCard x:Uid="TimeFormatSettings">
+                    <labs:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xED5A;" />
+                    </labs:SettingsCard.HeaderIcon>
+                    <ComboBox MinWidth="165" SelectedIndex="{x:Bind viewModel.SelectedTimeFormatIndex, Mode=TwoWay}">
+                        <ComboBoxItem x:Uid="TimeFormatSettingsItemSystemDefault" />
+                        <ComboBoxItem x:Uid="TimeFormatSettingsItem12Hr" />
+                        <ComboBoxItem x:Uid="TimeFormatSettingsItem24Hr" />
+                    </ComboBox>
+                </labs:SettingsCard>
+
                 <labs:SettingsCard
                     x:Uid="CustomBackgroundSettings"
                     IsEnabled="False"
