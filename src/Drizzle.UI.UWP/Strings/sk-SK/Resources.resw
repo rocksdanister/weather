@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -202,7 +202,7 @@
     <value>AQI je navrhnuté tak, aby poskytovalo informáciu o účinkoch piatich najčastejších znečisťovateľov vzduchu na zdravie. Je to škála od 0 do 500, pričom čím je číslo vyššie, tým je vzduch viacej znečistený, čo predstavuje väčšie zdravotné riziko.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>Množstvo oblakov vyjadruje časť oblohy zatienenej oblakmi za bežných okolností, pozorovanej z určitého miesta.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Teplota rosného bodu je absolútna miera vodnej pary vo vzduchu. Keď je teplota rosného bodu a teplota vzduchu rovnaká, relatívna vlhkosť sa rovná 100%. V tomto bode je vzduch plne nasýtený vodnou parou, čo vedie ku kondenzácii vo forme rosy, hmly alebo oblakov.</value>
@@ -211,7 +211,7 @@
     <value>Relatívna vlhkosť je miera množstva vodnej pary vo vzduchu v porovnaní s maximálnym množstvom, ktorým sa dokáže vzduch pri danej teplote nasýtiť. Je vyjadrená percentuálne a poskytuje informáciu o tom, ako je vzduch ďaleko od saturácie.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Zrážky vyjadrujú množstvo vody, ktoré sa nazbiera na rovnej ploche vyzrážaním atmosferickej vodnej pary dopadajúcej z oblakov kvôli gravitačnej sile. Zahŕňa rozné formy ako dážď, sneh, poľadovica a krupobitie.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Barometrický tlak, tiež známy ako atmosferický tlak, je miera tlaku vzduchu v danej oblasti.</value>
@@ -220,7 +220,7 @@
     <value>UV index stanovený organizáciou The World Health Organization (UVI) merá silu ultrafialového žiarenia. Je to lineárna škála od 0 do 11+, pričom čím je číslo vyššie, tým väčšie je riziko vystavenia UV žiareniu, čo spôsobuje opálenie a poškodenie kože, čo v konečnom prípade môže viesť ku rakovine kože.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>Viditelňosť je veličina, ktorá vyjadruje vzdialenosť, pri ktorej je možné jednoznačne rozlišovať objekty a svetlo. Hodnota vyššia ako 10 km je považovaná za dobrú a hodnota menšia ako 1 km za slabú.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Sila vetra je rýchlosť, ktorou sa vietor hýbe horizontálne nad stanovený bod. Je to základná atmosferická kvantita, spôsobená pohybom vetra z vyššieho do nižšieho tlaku dôsledkom zmien v teplote. Nárazové vetry su náhle zmeny v rýchlosti vetra nad priemernú rýchlosť vetra. Obvykle trvajú menej ako 20 sekúnd.</value>
@@ -232,8 +232,8 @@
     <value>Systémový grafický procesor (GPU) nepodporuje potrebné funkcie DX12, niektoré funkcie aplikácie sú nedostupné.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>Váš grafický procesor nespĺňa odporúčané požiadavky.
+Boli aplikované optimálne nastavenia, aby sa zaistil najlepší výkon pre váš systém. Ich manuálna zmena môže ovplyvniť výkon.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Pre túto funkciu je potrebné stiahnuť doplnkové súbory</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Chyba</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Prosím, reštartujte aplikáciu, aby sa zmeny aplikovali.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Prispejte k tejto aplikácii jej prekladom do iných jazykov.</value>
@@ -278,7 +278,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Pomôžte s prekladmi!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Rovnaký ako systémový</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Ďalšie informácie</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Obnoviť</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Rendrovacie rozhranie</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Grafika</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Obnoviť pôvodné</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Rýchlosť</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Zobraziť diagnostiku</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Hĺbka</value>
@@ -440,7 +440,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>O indexe kvality ovzdušia (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>O oblačnosti</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>O rosnom bode</value>
@@ -449,7 +449,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>O relatívnej vlhkosti</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>O zrážkach</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>O tlaku</value>
@@ -458,7 +458,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>O UV indexe</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>O viditeľnosti</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>O rýchlosti vetra a nárazových vetroch</value>
@@ -473,13 +473,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Kvalita ovzdušia</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>Oblačnosť</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Prispievatelia</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Vzdialenosť</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Stiahnuť</value>
@@ -503,13 +503,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Výkon</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>Zrážky</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Tlak</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Odporúčané</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Rýchlosť</value>
@@ -527,7 +527,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Teplota</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>K dispozícii je aktualizácia!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Aktualizácia dokončená</value>
@@ -536,7 +536,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>UV index</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Viditeľnosť</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Upozornenie</value>
@@ -617,7 +617,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Usadzujúca riedka hmla</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>Opar</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
     <value>Slabé mrholenie</value>
@@ -662,7 +662,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Silné sneženie</value>
   </data>
   <data name="WmoWeatherString77" xml:space="preserve">
-    <value>Snow Grains</value>
+    <value>Snehové zrná</value>
   </data>
   <data name="WmoWeatherString80" xml:space="preserve">
     <value>Mierne dažďové prehánky</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Búrka so silným krupobitím</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

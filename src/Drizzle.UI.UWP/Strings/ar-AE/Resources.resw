@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>مرحباً, أنا داني جون المعروف أيضاً باسم روكسدانستر. أصنع برمجيات ممتعه كهذه. شكرا لإستغراقك الوقت في النظر إلى عملي.</value>
+    <value>مرحباً, أنا داني جون المعروف أيضاً باسم روكسانديستر. أصنع برمجيات ممتعه كهذه. شكرًا لأخذ بعض الوقت في النظر إلى عملي.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>جيد</value>
@@ -193,7 +193,7 @@
     <value>خلفية مخصصة</value>
   </data>
   <data name="DepthHorizontal.Header" xml:space="preserve">
-    <value>افقي</value>
+    <value>أفقي</value>
   </data>
   <data name="DepthVertical.Header" xml:space="preserve">
     <value>عمودي</value>
@@ -202,7 +202,7 @@
     <value>صممت مبادرة نوعية الهواء لتوفير معلومات عن الآثار الصحية الناجمة عن الملوثات الخمسة أكثر حدوثًا. وهو مقياس يتراوح بين صفر و500 مقياس، وتشير القيم الأعلى إلى حدوث تلوث أكثر حدة للهواء وإلى مخاطر صحية أكبر.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>تشير كمية السحب إلى الجزء الذي تحجبه السحب في المتوسط ​​​​عند ملاحظته من موقع معين.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>درجة حرارة داو هي قياس مطلق لكمية بخار المياه في الهواء. وعندما تتساوى درجة حرارة نقطة القطع ودرجة حرارة الهواء تكون الرطوبة النسبية 100 في المئة. وعند هذه النقطة، يكون الهواء مشبعا تماما ببخار الماء، مما يؤدي إلى تكثيف في شكل غطاء أو ضباب أو سحاب.</value>
@@ -211,7 +211,7 @@
     <value>الرطوبة النسبية هي مقياس لكمية بخار الماء الموجود في الهواء بالمقارنة مع الحد الأقصى للكمية التي يمكن أن يحملها الهواء عند تلك الحرارة. وهو يعبر عنه كنسبة مئوية ويوفر معلومات عن مدى قرب الهواء من التشبع.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>الهطول هو عمق الماء الذي يتراكم على سطح مستوٍ نتيجة تكثف بخار الماء الجوي المتساقط من السحب بفعل الجاذبية. ويشمل أشكالًا مختلفة، مثل المطر والثلج والبرد.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>الضغط البارومتري، المعروف أيضا بالضغط الجوي، هو مقياس ضغط الهواء في منطقة معينة.</value>
@@ -220,7 +220,7 @@
     <value>يقيس مؤشر الأشعة فوق البنفسجية لمنظمة الصحة العالمية قوة الأشعة فوق البنفسجية المنتجة من الشمس. وهو مقياس خطي يتراوح بين صفر و 11 +، مع قيم أعلى تشير إلى وجود خطر أكبر للتعرض للأشعة فوق البنفسجية وزيادة فرص حدوث حروق وتلف الجلد الذي يمكن أن يؤدي في نهاية المطاف إلى سرطان الجلد.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>الرؤية هي مقياس للمسافة التي يُمكن تمييز جسم أو ضوء بوضوح عندها. تُعتبر الرؤية جيدة إذا كانت المسافة 10 كم أو أكثر، وأقل من 1 كم سيئة.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>سرعة الرياح هي المعدل الذي يتحرك فيه الهواء أفقيًا فوق نقطة معينة. وهي كمية أساسية في الغلاف الجوي ناجمة عن الانتقال من الضغط المرتفع إلى الضغط المنخفض، عادة ما يكون بسبب التغيرات في درجة الحرارة. الهبوب هي زيادة مفاجئة في سرعة الرياح فوق متوسط سرعة الرياح. عادةً ما يستمر أقل من 20 ثانية.</value>
@@ -232,14 +232,14 @@
     <value>معالج رسوم النظام (GPU) لا يدعم ميزات DX12 المطلوبة، لذلك تم تعطيل بعض الوظائف.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>معالج الرسومات في نظامك لا يلبي المتطلبات الموصى بها.
+تم تطبيق الإعدادات المثالية لضمان أفضل أداء لنظامك. يمكنك ضبط هذه الإعدادات يدويًا، ولكن قد يؤثر ذلك على الأداء.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>يجب تحميل ملفات أضافية لهذه المِيزة</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>انظر إلى الجديد</value>
+    <value>تحقق من الجديد</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>الملموسة</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>خطأ</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>يرجى إعادة تشغيل التطبيق لكي يتم تطبيق الإعدادات.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>ساهم في هذا البرنامج من خلال الترجمة.</value>
@@ -278,7 +278,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>ساعدنا في الترجمة!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>نفس النظام</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>معرفة المزيد</value>
@@ -305,7 +305,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>الأداء</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>أبو كلب</value>
+    <value>بطاطس</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
     <value>الجودة</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>تحديث</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>طريقة العرض المرئي</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>الرسومات</value>
+    <value>الرسوميات</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>إعادة ضبط الإعدادات</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>السرعة</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>عرض التشخيصات</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>العمق</value>
@@ -398,7 +398,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>إلغاء</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>التالي</value>
+    <value>استمر</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
     <value>العمق التقريبي باستخدام الذكاء الاصطناعي</value>
@@ -410,7 +410,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>الوصول إلى الموقع غير محدد، تحقق من إعدادات Windows.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>المساعدة</value>
+    <value>مساعدة</value>
   </data>
   <data name="StringOk" xml:space="preserve">
     <value>موافق</value>
@@ -440,7 +440,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>حول مؤشر جودة الهواء (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>حول كمية السحب</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>حول نقطة ديو</value>
@@ -449,7 +449,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>حول الرطوبة النسبية</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>حول الهطول</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>حول الضغط</value>
@@ -458,7 +458,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>حول فهرس الأشعة فوق البنفسجية</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>حول الرؤية</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>حول سرعة الرياح و الهبوب</value>
@@ -473,13 +473,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>جودة الهواء</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>كمية السحاب</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>المساهمون</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>المسافة</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>تنزيل</value>
@@ -503,13 +503,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>الأداء</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>الهطول</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>الضغط</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>موصى به</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>السرعة</value>
@@ -527,7 +527,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>درجة الحرارة</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>تحديث متوفر!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>اكتمل التحديث</value>
@@ -536,7 +536,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>مؤشر الأشعة فوق البنفسجية</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>الرؤية</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>تحذير</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>عاصفة مع حبات ثلج كثيفة</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

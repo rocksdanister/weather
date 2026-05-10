@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>Salut, je suis Dani John aussi connu comme rocksdanister. Je fais des logiciels amusants comme celui-ci. Merci d'avoir pris le temps de regarder mon travail.</value>
+    <value>Salut, je suis Dani John, aussi connu sous le nom de rocksdanister. Je crée des logiciels amusant comme celui-ci. Merci d'avoir pris le temps de regarder mon travail.</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
     <value>Satisfaisant</value>
@@ -154,7 +154,7 @@
     <value>Rechercher un lieu</value>
   </data>
   <data name="Attribution.Content" xml:space="preserve">
-    <value>Notice logiciel tierce</value>
+    <value>Avis relatif aux logiciels tiers</value>
   </data>
   <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
     <value>Ajuster la luminosité de l'arrière-plan</value>
@@ -199,10 +199,10 @@
     <value>Vertical</value>
   </data>
   <data name="DescAboutAQI.Text" xml:space="preserve">
-    <value>AQI est l'abréviation de "Air Quality Index" (Indice de Qualité de l’Air). Comme son nom le laisse entendre, il s’agit d’un indicateur qui permet d’évaluer la qualité de l’air dans son ensemble avec une seule valeur.</value>
+    <value>L'Indice de qualité de l'air fournit des informations sur les effets sur la santé des cinq polluants atmosphériques les plus courants. C'est une échelle allant de 0 à 500, les valeurs les plus élevées indiquant une pollution atmosphérique plus grave et des risques sanitaires plus importants.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>La quantité de nuages correspond à la fraction du ciel masquée par les nuages en moyenne lorsqu'ils sont observés à partir d'un endroit donné.</value>
+    <value>La quantité de nuages correspond à la part du ciel qui est masquée par des nuages en moyenne lorsqu'on l'observe à partir d'un endroit donné.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La température du point de rosée est une mesure absolue de la quantité de vapeur d'eau dans l'air. Lorsque la température du point de rosée et la température de l’air sont égales, l’humidité relative est de 100%. A ce stade, l'air est complètement saturé de vapeur d'eau, ce qui conduit à la condensation sous forme de rosée, de brouillard ou de nuages.</value>
@@ -232,8 +232,8 @@
     <value>Le processeur graphique du système (GPU) ne prend pas en charge les fonctionnalités DX12 requises, donc certaines fonctionnalités sont désactivées.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>Le processeur de votre système ne correspond pas au caractéristique d'un processeur recommandé.
+Des paramètres optimaux ont été appliqués pour assurer les meilleures performances de votre système. Vous pouvez ajuster ces paramètres manuellement, mais cela aurait une chance d'affecter les performances.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Des fichiers supplémentaires doivent être téléchargés pour cette fonctionnalité</value>
@@ -248,7 +248,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Amplitude</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
-    <value>Dégradé de couleur</value>
+    <value>Dégradé</value>
   </data>
   <data name="FrameRateSettings.Description" xml:space="preserve">
     <value>Animation d'images</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Erreur</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Lively doit être redémarrée pour que les nouveaux paramètres prennent effet.</value>
+    <value>Veuillez redémarrer l'application pour que les paramètres prennent effet.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribuez à ce programme en le traduisant dans d'autres langues.</value>
@@ -275,7 +275,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Langue</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>Aide-nous à traduire !</value>
+    <value>Aidez-nous à traduire !</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
     <value>Identique au système</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Actualiser</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Méthode de rendu visuel</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Graphiques</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Restaurer les paramètres par défaut</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Vitesse</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Afficher les diagnostiques</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Profondeur</value>
@@ -509,7 +509,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Pression</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Recommandé</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Vitesse</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Orage avec grêle lourde</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

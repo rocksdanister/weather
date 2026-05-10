@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -202,7 +202,7 @@
     <value>El índice de calidad del aire (ICA) está diseñado para proporcionar información sobre los efectos para la salud de los cinco contaminantes del aire más comunes. Se trata de una escala que va de 0 a 500, en la que los valores más altos indican una contaminación del aire más grave y mayores riesgos para la salud.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>La cantidad de nubes se refiere a la fracción del cielo oscurecida por nubes en promedio cuando se observa desde un lugar en particular.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>La temperatura de rocío es una medición absoluta de la cantidad de vapor de agua en el aire. Cuando la temperatura de rocío y la del aire son iguales, la humedad relativa es 100 %. En este punto, el aire está completamente saturado con vapor de agua, produciendo condensación en la forma de rocío, niebla o nubes.</value>
@@ -211,7 +211,7 @@
     <value>La humedad relativa es una medición de la cantidad de vapor de agua presente en el aire comparada a la máxima cantidad que el aire puede contener a esa temperatura. Se expresa como un porcentaje y muestra información sobre la cercanía del aire a la saturación.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>La precipitación es la profundidad del agua que se acumularía sobre una superficie plana a partir de la condensación de vapor de agua atmosférica que cae de las nubes debido al tiro gravitacional. Incluye varias formas como la lluvia, la nieve, la nieve y el granizo.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>La presión barométrica, también conocida como presión atmosférica, es la medición de la presión del aire en un área.</value>
@@ -220,7 +220,7 @@
     <value>El Índice UV de la Organización Mundial de la Salud (UVI) mide la fuerza de radiación ultravioleta que quema la piel. Es una escala lineal que va de 0 a 11+, con valores más altos indicando un mayor riesgo de exposición a rayos UV y mayores posibilidades de quemaduras en la piel que podrían producir cancer de piel.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>La visibilidad es una medida de la distancia a la que un objeto o la luz pueden ser claramente discernidos. Un valor mayor a 10 km se considera bueno e inferior a 1 km pobre.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Velocidad del viento es la tasa a la cual el viento se mueve horizontalmente en un punto. Es una cantidad fundamental atmosférica causada por el aire moviéndose de alta a baja presión, normalmente a causa de cambios de temperatura. Las ráfagas son picos repentinos de velocidad del viento sobre de la media y duran menos de 20 segundos.</value>
@@ -232,8 +232,8 @@
     <value>Tu tarjeta gráfica no soporta las funciones que ofrece Directx 12, así que algunas funciones están desactivadas.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>El procesador de gráficos del sistema no cumple los requisitos recomendados.
+Se han aplicado configuraciones óptimas para garantizar el mejor rendimiento para su sistema. Puede ajustar esta configuración manualmente, pero esto podría afectar el rendimiento.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Archivos adicionales necesitan ser descargados para esto</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Error</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Reinicie la aplicación para que la configuración surta efecto.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Contribuye a esta aplicación traduciéndolo a otros idiomas.</value>
@@ -269,7 +269,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Ayúdanos a Traducir</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>Es necesario reiniciar la aplicación cuando se selecciona otro idioma.</value>
+    <value>Es necesario reiniciar la aplicación cuando se selecciona otro idioma</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
     <value>Idioma</value>
@@ -278,7 +278,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>¡Ayuda a traducir!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Igual que el sistema</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Saber más</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Actualizar</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Método de renderizado visual</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Gráficos</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Volver a Predeterminado</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Velocidad</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Mostrar diagnósticos</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Profundidad</value>
@@ -440,7 +440,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Acerca del Índice de Calidad del Aire (ICA)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>Acerca de "Porcentaje de Nubes"</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
     <value>Acerca de la Temperatura de Rocío</value>
@@ -449,7 +449,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Acerca de la Humedad Relativa</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>Acerca de "Precipitación"</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
     <value>Acerca de la Presión</value>
@@ -458,7 +458,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Acerca del Índice UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>Acerca de "Visibilidad"</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
     <value>Acerca de la Velocidad del Viento</value>
@@ -473,13 +473,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Calidad del Aire</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>Porcentaje de nubes</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
     <value>Contribuyentes</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Distancia</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Descargar</value>
@@ -503,13 +503,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Rendimiento</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>Precipitación</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>Presión</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Recomendado</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Velocidad</value>
@@ -527,7 +527,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Temperatura</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>¡Actualización disponible!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Actualización completada</value>
@@ -536,7 +536,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Índice UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Visibilidad</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Advertencia</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Tormenta eléctrica con lluvia fuerte</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

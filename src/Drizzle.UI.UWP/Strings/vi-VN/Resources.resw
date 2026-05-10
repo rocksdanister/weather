@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -232,8 +232,8 @@
     <value>Bộ xử lý đồ họa hệ thống (GPU) không hỗ trợ các chức năng DX12 cần thiết, nên vài chức năng sẽ bị vô hiệu hóa.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>Bộ xử lý đồ họa trên hệ thống của bạn không đáp ứng các yêu cầu được khuyến nghị.
+Các thiết lập tối ưu đã được áp dụng để đảm bảo hiệu suất tốt nhất cho hệ thống của bạn. Bạn có thể điều chỉnh các thiết lập này theo cách thủ công, nhưng điều này có thể ảnh hưởng đến hiệu suất.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>Các tệp bổ sung cần được tải xuống cho tính năng này</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Lỗi</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>Xin hãy khởi động lại phần mềm để xác nhận cài đặt.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>Đóng góp vào chương trình này bằng cách dịch nó sang các ngôn ngữ khác.</value>
@@ -278,7 +278,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Tham gia dịch!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>Giống với Hệ thống</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>Tìm hiểu thêm</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Tải lại</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>Phương thức kết xuất đồ hoạ</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>Đồ họa</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>Cài đặt ban đầu</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Tốc độ</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>Hiển thị chẩn đoán</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>Chiều sâu</value>
@@ -480,7 +480,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Người đóng góp</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>Khoảng cách</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
     <value>Tải về</value>
@@ -510,7 +510,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Áp suất</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>Khuyến nghị</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>Đơn vị đo tốc độ</value>
@@ -528,7 +528,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Nhiệt độ</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>Đã có bản cập nhật!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
     <value>Cập nhật hoàn tất</value>
@@ -689,17 +689,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Có giông với mưa đá lớn</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

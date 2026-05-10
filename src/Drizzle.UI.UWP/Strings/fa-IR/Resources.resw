@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -202,7 +202,7 @@
     <value>AQI به منظور ارائه اطلاعات در مورد اثرات سلامتی پنج آلاینده رایج هوا طراحی شده است. این معیار از 0 تا 500 متغیر است، مقادیر بالاتر نشان دهنده آلودگی شدید هوا و خطرات سلامتی بیشتر است.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>بخشی از آسمان که برطبق برآورد از یک نوع اَبر در تراز معینی یا از انواع اَبر در ترازهای گوناگون پوشیده می شود</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>دمای نقطه شبنم یک معیار اندازه گیری مطلق مقدار بخار آب موجود در هوا است. هنگامی که دمای نقطه شبنم و دمای هوا برابر باشد، رطوبت نسبی 100٪ است. در این نقطه، هوا کاملاً با بخار آب اشباع می شود و منجر به تراکم به شکل شبنم، مه یا ابر می شود.</value>
@@ -211,7 +211,7 @@
     <value>رطوبت نسبی معیار اندازه گیری مقدار بخار آب موجود در هوا در مقایسه با حداکثر مقداری است که هوا می تواند در آن دما نگه دارد. این معیار به صورت درصد بیان می شود و اطلاعاتی در مورد رسیدن هوا به درجه اشباع ارائه می دهد.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>بارش به عمق آبی گفته می شود که از تراکم بخار آب اتمسفر که در اثر کشش گرانشی از ابرها می ریزد، روی یک سطح صاف جمع می شود. این شامل اشکال مختلف مانند باران، برف، ریز تگرگ و تگرگ است.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>فشار هوا که به عنوان فشار اتمسفر نیز شناخته می شود، معیار اندازه گیری فشار هوا در یک منطقه معین است.</value>
@@ -220,7 +220,7 @@
     <value>شاخص UV سازمان جهانی بهداشت (UVI) قدرت پرتوهای فرابنفش تولید کننده آفتاب سوختگی را اندازه گیری می کند. این یک مقیاس خطی است که از 0 تا 11+ متغیر است، مقادیر بالاتر نشان دهنده افزایش خطر قرار گرفتن در معرض اشعه ماوراء بنفش و افزایش احتمال آفتاب سوختگی و آسیب دیدن پوست است که در نهایت می تواند منجر به سرطان پوست شود.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>"میزان دید" اندازه گیری فاصله ای است که در آن یک جسم یا نور به وضوح قابل تشخیص است. مقداری در 10 کیلومتر یا بیشتر از آن خوب و کمتر از 1 کیلومتر ضعیف در نظر گرفته می شود.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>سرعت باد کمیتی است که در آن هوا به صورت افقی از نقطه ای معین عبور می کند. این یک کمیت جوی بنیادی است که در اثر حرکت هوا از فشار بالا به پایین، معمولاً به دلیل تغییرات دما ایجاد می شود. وزش باد افزایش ناگهانی سرعت باد بیش از سرعت متوسط باد است. معمولا کمتر از 20 ثانیه طول می کشد.</value>
@@ -232,20 +232,20 @@
     <value>پردازنده گرافیکی سیستم (GPU) از ویژگی های مورد نیاز DX12 پشتیبانی نمی کند، بنابراین برخی از عملکردها غیرفعال هستند.</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>پردازنده گرافیکی سیستم شما الزامات توصیه شده را برآورده نمی کند.
+تنظیمات بهینه برای اطمینان از بهترین عملکرد برای سیستم شما اعمال شده است. ممکن است این تنظیمات را به صورت دستی تنظیم کنید، اما این می تواند بر عملکرد تأثیر بگذارد.</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>برای این ویژگی لازم هست که فایل های بیشتری دانلود شود</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>Check out what's new</value>
+    <value>اطلاعات جدید دربارۀ این نسخه</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
-    <value>احساس میکند</value>
+    <value>حس واقعی</value>
   </data>
   <data name="FogAmplitude.Header" xml:space="preserve">
-    <value>دامنه مه</value>
+    <value>دامنه</value>
   </data>
   <data name="FogColorGradient.Text" xml:space="preserve">
     <value>طیف رنگ</value>
@@ -260,7 +260,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>خطا</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>Please restart application for settings to take effect.</value>
+    <value>لطفاً برنامه را مجدداً راه‌ اندازی کنید تا تنظیمات اعمال شوند.</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>با ترجمه آن به زبان های دیگر در این برنامه مشارکت کنید.</value>
@@ -278,7 +278,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>کمک به ترجمه!</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>Same as System</value>
+    <value>مشابۀ تظیمات سیستم</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>بیشتر بیاموزید</value>
@@ -287,205 +287,205 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>مکانهای پین شده</value>
   </data>
   <data name="OpenLogs.Header" xml:space="preserve">
-    <value>Open logs</value>
+    <value>باز کردن گزارش ها (logs)</value>
   </data>
   <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
-    <value>Pause audio when application not foreground</value>
+    <value>صدا را متوقف کن وقتی که برنامه در پیش زمینه نیست</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>Pause visual when application not foreground</value>
+    <value>تصویر را متوقف کن وقتی که برنامه در پیش زمینه نیست</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Data collection policy</value>
+    <value>سیاست جمع‌ آوری داده ها</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>Dynamic</value>
+    <value>پویا(متحرک)</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>Performance</value>
+    <value>کارایی</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>کیفیت وضوح پایین</value>
+    <value>سیب زمینی(کیفیت وضوح پایین)</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>Quality</value>
+    <value>کیفیت</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
-    <value>Visual render quality preset</value>
+    <value>کیفیت رندر از پیش تعیین شده</value>
   </data>
   <data name="QualitySettings.Header" xml:space="preserve">
     <value>کیفیت</value>
   </data>
   <data name="RainIntensity.Header" xml:space="preserve">
-    <value>Intensity</value>
+    <value>شدت</value>
   </data>
   <data name="RainLightning.Content" xml:space="preserve">
-    <value>Lightning</value>
+    <value>رعد</value>
   </data>
   <data name="RainNormal.Header" xml:space="preserve">
-    <value>Normal</value>
+    <value>عادی (وضوح)</value>
   </data>
   <data name="RainPanning.Content" xml:space="preserve">
-    <value>Panning</value>
+    <value>پنینگ (افق گرد)</value>
   </data>
   <data name="RainZoom.Header" xml:space="preserve">
-    <value>Zoom</value>
+    <value>بزرگنمایی</value>
   </data>
   <data name="ReduceMotionSettings.Header" xml:space="preserve">
-    <value>Reduced motion</value>
+    <value>کاهش حرکت</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>Last updated</value>
+    <value>بروز شده در</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
-    <value>Refresh</value>
+    <value>تازه کردن</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>روش رندر بصری</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>گرافیک</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
-    <value>Restore Default</value>
+    <value>بازیابی به پیش فرض</value>
   </data>
   <data name="ScreensaverTooltip.Text" xml:space="preserve">
     <value>Screensaver</value>
   </data>
   <data name="SettingsTooltip.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>تنظیمات</value>
   </data>
   <data name="ShaderBlur.Content" xml:space="preserve">
-    <value>Blur</value>
+    <value>تاری</value>
   </data>
   <data name="ShaderFreezing.Content" xml:space="preserve">
-    <value>Freezing</value>
+    <value>انجماد</value>
   </data>
   <data name="ShaderPostProcessing.Header" xml:space="preserve">
-    <value>Post Processing</value>
+    <value>بهبود کیفیت تصویر</value>
   </data>
   <data name="ShaderSpeed.Header" xml:space="preserve">
-    <value>Speed</value>
+    <value>سرعت</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>آمار عملکرد</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
-    <value>Depth</value>
+    <value>عمق</value>
   </data>
   <data name="SnowLayers.Header" xml:space="preserve">
-    <value>Layers</value>
+    <value>لایه ها</value>
   </data>
   <data name="SnowWidth.Header" xml:space="preserve">
-    <value>Width</value>
+    <value>عرض</value>
   </data>
   <data name="SoftwareLicense.Content" xml:space="preserve">
-    <value>Software license</value>
+    <value>مجوز نرم‌افزار</value>
   </data>
   <data name="SoundControlTooltip.Text" xml:space="preserve">
-    <value>Sound</value>
+    <value>صدا</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>Show some love by dropping a star</value>
+    <value>علاقه ی خود را به برنامه با دادن ستاره ثابت کنید</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
-    <value>Source Code</value>
+    <value>کد منبع</value>
   </data>
   <data name="StringAbout" xml:space="preserve">
-    <value>About</value>
+    <value>درباره</value>
   </data>
   <data name="StringCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>انصراف</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>Continue</value>
+    <value>ادامه</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI Depth Approximation</value>
+    <value>عمق تقریبی با استفاده از هوش مصنوعی</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
-    <value>Access to location is denied, check Windows settings.</value>
+    <value>دسترسی به موقعیت مکانی ممنوع است، تنظیمات ویندوز را بررسی کنید.</value>
   </data>
   <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
-    <value>Access to location is unspecified, check Windows settings.</value>
+    <value>دسترسی به مکان نامشخص است، تنظیمات ویندوز را بررسی کنید.</value>
   </data>
   <data name="StringHelp" xml:space="preserve">
-    <value>Help</value>
+    <value>راهنما(کمک)</value>
   </data>
   <data name="StringOk" xml:space="preserve">
-    <value>Ok</value>
+    <value>تأیید</value>
   </data>
   <data name="StringSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>تنظیمات</value>
   </data>
   <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
-    <value>Required API key is missing for the selected weather provider, settings reverted.</value>
+    <value>کلید API مورد نیاز برای ارائه دهنده آب و هوا انتخاب شده وجود ندارد، تنظیمات به حالت قبل برگشت.</value>
   </data>
   <data name="ThemeAuto.Content" xml:space="preserve">
-    <value>Auto</value>
+    <value>اتوماتیک (خودکار)</value>
   </data>
   <data name="ThemeDark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>تاریک</value>
   </data>
   <data name="ThemeLight.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>روشن</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>Change the application color</value>
+    <value>تغییر رنگ برنامه</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
-    <value>Theme</value>
+    <value>تِم (پوسته)</value>
   </data>
   <data name="TitleAboutAQI.Text" xml:space="preserve">
-    <value>About Air Quality Index (AQI)</value>
+    <value>درباره شاخص کیفیت هوا (AQI)</value>
   </data>
   <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
-    <value>About Cloud Amount</value>
+    <value>دربارۀ مقدار ابر</value>
   </data>
   <data name="TitleAboutDewPoint.Text" xml:space="preserve">
-    <value>About Dew point</value>
+    <value>دربارۀ نقطه شبنم</value>
   </data>
   <data name="TitleAboutHumidity.Text" xml:space="preserve">
-    <value>About Relative Humidity</value>
+    <value>دربارۀ رطوبت نسبی</value>
   </data>
   <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
-    <value>About Precipitation</value>
+    <value>دربارۀ بارندگی</value>
   </data>
   <data name="TitleAboutPressure.Text" xml:space="preserve">
-    <value>About Pressure</value>
+    <value>دربارۀ فشار</value>
   </data>
   <data name="TitleAboutUVIndex.Text" xml:space="preserve">
-    <value>About the UV Index</value>
+    <value>دربارۀ شاخص UV</value>
   </data>
   <data name="TitleAboutVisibility.Text" xml:space="preserve">
-    <value>About Visibility</value>
+    <value>دربارۀ میزان دید</value>
   </data>
   <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
-    <value>About Wind Speed and Gusts</value>
+    <value>درباره سرعت باد و وزش باد</value>
   </data>
   <data name="TitleAccessibility.Text" xml:space="preserve">
-    <value>Accessibility</value>
+    <value>امکانات</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>Add a location to get started.</value>
+    <value>برای شروع یک مکان اضافه کنید.</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
-    <value>Air Quality</value>
+    <value>کیفیت هوا</value>
   </data>
   <data name="TitleCloudAmount.Text" xml:space="preserve">
-    <value>Cloud Amount</value>
+    <value>تراکم ابر</value>
   </data>
   <data name="TitleContributors.Text" xml:space="preserve">
-    <value>Contributors</value>
+    <value>مشارکت کنندگان</value>
   </data>
   <data name="TitleDistance.Text" xml:space="preserve">
-    <value>Distance</value>
+    <value>فاصله</value>
   </data>
   <data name="TitleDownload.Content" xml:space="preserve">
-    <value>Download</value>
+    <value>دانلود</value>
   </data>
   <data name="TitleDownloadRequired.Text" xml:space="preserve">
-    <value>Download Required</value>
+    <value>دانلود موردنیاز</value>
   </data>
   <data name="TitleFetchingData.Text" xml:space="preserve">
     <value>در حال واکشی داده ها، لطفاً صبر کنید.</value>
@@ -503,16 +503,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>کارایی</value>
   </data>
   <data name="TitlePrecipitation.Text" xml:space="preserve">
-    <value>Precipitation</value>
+    <value>میزان بارندگی</value>
   </data>
   <data name="TitlePressure.Text" xml:space="preserve">
     <value>فشار</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>توصیه شده</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
-    <value>Speed</value>
+    <value>سرعت</value>
   </data>
   <data name="TitleSun.Text" xml:space="preserve">
     <value>خورشید</value>
@@ -524,19 +524,19 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>غروب آفتاب</value>
   </data>
   <data name="TitleTemperature.Text" xml:space="preserve">
-    <value>Temperature</value>
+    <value>دما</value>
   </data>
   <data name="TitleUpdateAvailable.Text" xml:space="preserve">
-    <value>Update Available!</value>
+    <value>به روزرسانی موجود است!</value>
   </data>
   <data name="TitleUpdateComplete.Text" xml:space="preserve">
-    <value>Update Completed</value>
+    <value>به‌روزرسانی تکمیل شد</value>
   </data>
   <data name="TitleUVIndex.Text" xml:space="preserve">
-    <value>شاخص پرتو فرا بنفش</value>
+    <value>شاخص UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>میزان دید</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>هشدار</value>
@@ -557,10 +557,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>بسیار زیاد</value>
   </data>
   <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
-    <value>API key</value>
+    <value>کلید API</value>
   </data>
   <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
-    <value>Enter the required API key</value>
+    <value>کلید API مویرد نظر را وارد کنید</value>
   </data>
   <data name="WeatherProviderSettings.Description" xml:space="preserve">
     <value>منبع داده های آب و هوا</value>
@@ -569,13 +569,13 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>تامین کننده</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
-    <value>Custom</value>
+    <value>سفارشی</value>
   </data>
   <data name="WeatherUnitHybrid.Content" xml:space="preserve">
     <value>ترکیبی</value>
   </data>
   <data name="WeatherUnitImperial.Content" xml:space="preserve">
-    <value>امپراتوری</value>
+    <value>بریتانیایی</value>
   </data>
   <data name="WeatherUnitMetric.Content" xml:space="preserve">
     <value>متریک‌</value>
@@ -602,7 +602,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>عمدتا صاف</value>
   </data>
   <data name="WmoWeatherString10" xml:space="preserve">
-    <value>Mist</value>
+    <value>مه</value>
   </data>
   <data name="WmoWeatherString2" xml:space="preserve">
     <value>تا حدی ابری</value>
@@ -611,31 +611,31 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>ابری</value>
   </data>
   <data name="WmoWeatherString45" xml:space="preserve">
-    <value>مه</value>
+    <value>مه غلیظ</value>
   </data>
   <data name="WmoWeatherString48" xml:space="preserve">
     <value>رسوب یخزده مه</value>
   </data>
   <data name="WmoWeatherString5" xml:space="preserve">
-    <value>Haze</value>
+    <value>ریزگرد</value>
   </data>
   <data name="WmoWeatherString51" xml:space="preserve">
-    <value>نم نم باران خفیف</value>
+    <value>نم نم باران سبک</value>
   </data>
   <data name="WmoWeatherString53" xml:space="preserve">
-    <value>بازان ریز</value>
+    <value>نم نم باران متوسط</value>
   </data>
   <data name="WmoWeatherString55" xml:space="preserve">
-    <value>باران انبوه</value>
+    <value>نم نم باران شدید</value>
   </data>
   <data name="WmoWeatherString56" xml:space="preserve">
-    <value>Light Freezing Drizzle</value>
+    <value>نم نم باران به همراه یخ</value>
   </data>
   <data name="WmoWeatherString57" xml:space="preserve">
-    <value>Dense Freezing Drizzle</value>
+    <value>باران انبوه به همراه یخ</value>
   </data>
   <data name="WmoWeatherString6" xml:space="preserve">
-    <value>Dust</value>
+    <value>گرد و غبار</value>
   </data>
   <data name="WmoWeatherString61" xml:space="preserve">
     <value>باران خفیف</value>
@@ -647,10 +647,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>باران شدید</value>
   </data>
   <data name="WmoWeatherString66" xml:space="preserve">
-    <value>Light Freezing Rain</value>
+    <value>باران و یخ سبک</value>
   </data>
   <data name="WmoWeatherString67" xml:space="preserve">
-    <value>Heavy Freezing Rain</value>
+    <value>باران و برف سنگین</value>
   </data>
   <data name="WmoWeatherString71" xml:space="preserve">
     <value>بارش خفیف برف</value>
@@ -671,7 +671,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>بارش باران ملایم</value>
   </data>
   <data name="WmoWeatherString82" xml:space="preserve">
-    <value>بارش باران شذید</value>
+    <value>بارش باران شدید</value>
   </data>
   <data name="WmoWeatherString85" xml:space="preserve">
     <value>بارش سبک برف</value>
@@ -680,25 +680,27 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Heavy Snow Showers</value>
   </data>
   <data name="WmoWeatherString95" xml:space="preserve">
-    <value>Thunderstorm</value>
+    <value>رعد و برق</value>
   </data>
   <data name="WmoWeatherString96" xml:space="preserve">
-    <value>Thunderstorm with Light Hail</value>
+    <value>رعد و برق به همراه تگرگ سبک</value>
   </data>
   <data name="WmoWeatherString99" xml:space="preserve">
-    <value>Thunderstorm with Heavy Hail</value>
+    <value>رعد و برق به همراه تگرگ شدید</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

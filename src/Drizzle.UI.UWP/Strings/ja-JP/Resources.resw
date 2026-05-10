@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -181,7 +181,7 @@
     <value>スケール</value>
   </data>
   <data name="ContactCard.Description" xml:space="preserve">
-    <value>機能を提案するか、バグを報告する</value>
+    <value>機能を提案またはバグを報告する</value>
   </data>
   <data name="ContactCard.Header" xml:space="preserve">
     <value>お問い合わせ</value>
@@ -232,8 +232,8 @@
     <value>システム グラフィックス プロセッサー (GPU) は必要な DX12 機能に対応していないため、一部の機能は無効になっています。</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>お使いのシステムのグラフィックプロセッサが推奨要件を満たしていません。
+お使いのシステムに最適なパフォーマンスを保つために、最適な設定が適用されています。これらの設定を手動で調整することもできますが、パフォーマンスに影響を与える可能性があります。</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
     <value>この機能を使用するには追加のファイルをダウンロードする必要があります</value>
@@ -281,7 +281,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>システムのデフォルト</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
-    <value>もっと詳しく</value>
+    <value>詳細</value>
   </data>
   <data name="LocationNavView.PaneTitle" xml:space="preserve">
     <value>ピン留めした地域</value>
@@ -296,19 +296,19 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>ウィンドウがアクティブでないときにビジュアルを一時停止する</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>データ収集ポリシー</value>
+    <value>データ収集に関する方針</value>
   </data>
   <data name="QualityDynamic.Content" xml:space="preserve">
-    <value>より高い品質</value>
+    <value>最高設定</value>
   </data>
   <data name="QualityPerformance.Content" xml:space="preserve">
-    <value>パフォーマンス優先</value>
+    <value>処理優先</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>より低い品質</value>
+    <value>最小設定</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>クオリティ優先</value>
+    <value>描画優先</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
     <value>ビジュアル レンダリング品質のプリセット</value>
@@ -341,10 +341,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>最新の情報に更新する</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>ビジュアル・レンダリング方法</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>グラフィック</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>デフォルトに戻す</value>
@@ -368,7 +368,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>速度</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>診断結果を表示する</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>奥行き</value>
@@ -386,7 +386,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>サウンド</value>
   </data>
   <data name="SourceCodeCard.Description" xml:space="preserve">
-    <value>星を付けて感謝を伝える</value>
+    <value>みんなの気持ちを星で表そう！</value>
   </data>
   <data name="SourceCodeCard.Header" xml:space="preserve">
     <value>ソース コード</value>
@@ -398,10 +398,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>キャンセル</value>
   </data>
   <data name="StringContinue" xml:space="preserve">
-    <value>続ける</value>
+    <value>次へ</value>
   </data>
   <data name="StringDepthApprox" xml:space="preserve">
-    <value>AI 深度の近似</value>
+    <value>Al 深さの近似値</value>
   </data>
   <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
     <value>位置情報へのアクセスが拒否されました。Windows の設定をご確認ください。</value>
@@ -509,7 +509,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>気圧</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>おすすめ</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>速度</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>激しくひょうを伴う雷雨</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

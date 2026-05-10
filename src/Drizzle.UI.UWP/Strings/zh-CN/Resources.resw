@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutMe.Text" xml:space="preserve">
-    <value>我是Dani John，也叫 rocksdanister 。我喜欢开发有趣的产品，感谢使用我的产品。</value>
+    <value>我是Dani John，也叫 rocksdanister 。我喜欢开发类似该软件的有趣产品，感谢使用我的产品。</value>
   </data>
   <data name="AirQualityIndex0" xml:space="preserve">
-    <value>优良</value>
+    <value>良好</value>
   </data>
   <data name="AirQualityIndex1" xml:space="preserve">
     <value>适中</value>
@@ -139,7 +139,7 @@
     <value>危险</value>
   </data>
   <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
-    <value>空闲状态下隐藏菜单</value>
+    <value>总是在空闲时隐藏菜单</value>
   </data>
   <data name="AppBarAbout.Label" xml:space="preserve">
     <value>关于</value>
@@ -205,13 +205,13 @@
     <value>云量系于特定位置观测时天空被云层遮蔽之部分。</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
-    <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。</value>
+    <value>露点温度是空气中水蒸气含量的绝对量度。 当露点温度与空气温度相等时，相对湿度为100%。 此时，空气中的水蒸气完全饱和，导致以露水、雾或云的形式凝结。(相关天气有：雨)</value>
   </data>
   <data name="DescAboutHumidity.Text" xml:space="preserve">
     <value>相对湿度是空气中存在的水蒸气量与该温度下空气所能容纳的最大水蒸气量相比的量度。 它以百分比表示，提供有关空气接近饱和程度的信息。</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>降水量系由于重力而降落之大气层凝结水汽落于平坦地表时的水深。降水包括多种形式，如雨、雪、雨夹雪及冰雹。</value>
+    <value>降水量为降水落于平坦地表所累积的水深。降水实际上是大气层凝结的水汽，其由于重力而降落到地面，即称为降水。具体来说，降水包括多种形式，如雨、雪、雨夹雪及冰雹。</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>气压，也称为大气压力，是给定区域内气压的测量值。</value>
@@ -226,20 +226,20 @@
     <value>风速是空气水平移动经过给定点的速率。 它是由空气从高压移动到低压而引起的基本大气量，通常是由于温度的变化。 阵风是指风速突然增加到高于平均风速。 它通常持续不到 20 秒。</value>
   </data>
   <data name="DescDepthApproximating.Text" xml:space="preserve">
-    <value>近似景深</value>
+    <value>接近的深度。。</value>
   </data>
   <data name="DescPerformanceIssue.Text" xml:space="preserve">
-    <value>系统图形处理器 (GPU) 不支持所需的 DX12 功能，因此某些功能被禁用。</value>
+    <value>您系统上的图形处理器 (GPU) 不支持所需的 DirectX 12 功能，因此某些功能已被禁用。</value>
   </data>
   <data name="DescPerformanceNotify.Text" xml:space="preserve">
-    <value>The graphics processor on your system does not meet the recommended requirements.
-Optimal settings have been applied to ensure the best performance for your system. You may adjust these settings manually, but this could impact performance.</value>
+    <value>您系统上的图形处理器不符合推荐的要求。
+已应用了适用于您系统的最佳设置。您可以手动调整这些设置，但这可能会影响性能。</value>
   </data>
   <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
-    <value>需要为此功能下载附加文件</value>
+    <value>该功能需要下载额外的附件</value>
   </data>
   <data name="DescUpdateComplete.Text" xml:space="preserve">
-    <value>查看新变化</value>
+    <value>来看看有有什么新动向吧</value>
   </data>
   <data name="FeelsLikeTemperature.Text" xml:space="preserve">
     <value>体感温度</value>
@@ -260,25 +260,26 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>错误</value>
   </data>
   <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
-    <value>请重新启动应用以使设置生效。</value>
+    <value>您需要重启应用来使用这些设置。</value>
   </data>
   <data name="InfoTranslation.Message" xml:space="preserve">
     <value>将其翻译成其他语言，对本应用作出贡献。</value>
   </data>
   <data name="InfoTranslation.Title" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>协助我们翻译</value>
   </data>
   <data name="LanguageSettings.Description" xml:space="preserve">
-    <value>选择另一种语言时需要重启应用程序</value>
+    <value>重启程序以更改语言
+</value>
   </data>
   <data name="LanguageSettings.Header" xml:space="preserve">
     <value>语言</value>
   </data>
   <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
-    <value>帮助我们翻译</value>
+    <value>协助我们翻译！</value>
   </data>
   <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
-    <value>系统语言</value>
+    <value>使用系统语言</value>
   </data>
   <data name="LearnMore.Content" xml:space="preserve">
     <value>了解更多</value>
@@ -293,7 +294,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>当程序不在前台时关闭音频</value>
   </data>
   <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
-    <value>当程序不在前台时暂停视觉效果</value>
+    <value>程序在后台时暂停视觉效果</value>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>数据收集政策</value>
@@ -305,10 +306,10 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>性能</value>
   </data>
   <data name="QualityPotato.Content" xml:space="preserve">
-    <value>土豆</value>
+    <value>流畅</value>
   </data>
   <data name="QualityQuality.Content" xml:space="preserve">
-    <value>质量</value>
+    <value>高质量</value>
   </data>
   <data name="QualitySettings.Description" xml:space="preserve">
     <value>视觉渲染质量预设</value>
@@ -335,16 +336,16 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>减少界面动画效果</value>
   </data>
   <data name="RefreshWeather.Text" xml:space="preserve">
-    <value>最后更新于</value>
+    <value>数据最后更新于</value>
   </data>
   <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
     <value>刷新</value>
   </data>
   <data name="RendererSettings.Description" xml:space="preserve">
-    <value>Visual rendering method</value>
+    <value>可视化渲染方法</value>
   </data>
   <data name="RendererSettings.Header" xml:space="preserve">
-    <value>Graphics</value>
+    <value>图像显示</value>
   </data>
   <data name="RestoreDefault.Text" xml:space="preserve">
     <value>预设</value>
@@ -368,7 +369,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>速度</value>
   </data>
   <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
-    <value>Show diagnostics</value>
+    <value>显示诊断信息</value>
   </data>
   <data name="SnowDepth.Header" xml:space="preserve">
     <value>深度</value>
@@ -431,7 +432,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>浅色</value>
   </data>
   <data name="ThemeSettings.Description" xml:space="preserve">
-    <value>更改程序外观颜色</value>
+    <value>更改应用外观颜色</value>
   </data>
   <data name="ThemeSettings.Header" xml:space="preserve">
     <value>主题</value>
@@ -467,7 +468,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>无障碍功能</value>
   </data>
   <data name="TitleAddLocation.Text" xml:space="preserve">
-    <value>添加一个位置以开始。</value>
+    <value>使用应用前请添加一个位置。</value>
   </data>
   <data name="TitleAirQuality.Text" xml:space="preserve">
     <value>空气质量</value>
@@ -509,7 +510,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>气压</value>
   </data>
   <data name="TitleRecommended.Text" xml:space="preserve">
-    <value>Recommended</value>
+    <value>建议</value>
   </data>
   <data name="TitleSpeed.Text" xml:space="preserve">
     <value>速度</value>
@@ -566,7 +567,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>天气数据源</value>
   </data>
   <data name="WeatherProviderSettings.Header" xml:space="preserve">
-    <value>提供者</value>
+    <value>供应者</value>
   </data>
   <data name="WeatherUnitCustom.Content" xml:space="preserve">
     <value>自定义</value>
@@ -688,17 +689,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>雷暴 伴有大冰雹</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>

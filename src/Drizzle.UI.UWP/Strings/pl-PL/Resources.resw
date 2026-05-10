@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -202,7 +202,7 @@
     <value>Celem AQI jest dostarczanie informacji na temat skutków zdrowotnych pięciu najpowszechniejszych zanieczyszczeń powietrza. Jest to skala mieszcząca się w zakresie od 0 do 500, przy czym wyższe wartości wskazują na poważniejsze zanieczyszczenie powietrza i większe zagrożenia dla zdrowia.</value>
   </data>
   <data name="DescAboutCloudAmount.Text" xml:space="preserve">
-    <value>Cloud amount refers to the fraction of the sky obscured by clouds on average when observed from a particular location.</value>
+    <value>Ilość w chmurze odnosi się do ułamka nieba zasłoniętego przeciętnie przez chmury, gdy obserwuje się je z określonego miejsca.</value>
   </data>
   <data name="DescAboutDewPoint.Text" xml:space="preserve">
     <value>Temperatura punktu rosy jest bezwzględną miarą ilości pary wodnej w powietrzu. Jeżeli temperatura punktu rosy i temperatura powietrza są równe, wilgotność względna wynosi 100 %. W tym momencie powietrze jest całkowicie nasycone odparowaniem wody, co prowadzi do kondensacji w postaci dech, mgły lub chmur.</value>
@@ -211,7 +211,7 @@
     <value>Wilgotność względna jest miarą ilości pary wodnej znajdującej się w powietrzu w porównaniu do maksymalnej ilości, jaką powietrze może utrzymać w tej temperaturze. Jest wyrażony jako procent i dostarcza informacji na temat tego, jak blisko powietrza jest nasycone.</value>
   </data>
   <data name="DescAboutPrecipitation.Text" xml:space="preserve">
-    <value>Precipitation is the depth of water that would accumulate on a flat surface from the condensation of atmospheric water vapor falling from clouds due to gravitational pull. It includes various forms such as rain, snow, sleet, and hail.</value>
+    <value>Głębokość opadów jest to głębokość wody, która gromadzi się na płaskiej powierzchni z kondensacji atmosferycznej pary wodnej spadającej z chmur wskutek napędu grawitacyjnego. Obejmuje ona różne formy, takie jak deszcz, śnieg, śnieg i grad.</value>
   </data>
   <data name="DescAboutPressure.Text" xml:space="preserve">
     <value>Ciśnienie barometryczne, znane również jako ciśnienie atmosferyczne, jest miarą ciśnienia powietrza na danym obszarze.</value>
@@ -220,7 +220,7 @@
     <value>Wskaźnik UV Światowej Organizacji Zdrowia (UVI) mierzy wytrzymałość promieniowania ultrafioletowego wytwarzającego oparzenie słoneczne. Jest to skala liniowa wahająca się od 0 do 11+, z wyższymi wartościami wskazującymi na większe ryzyko narażenia na promieniowanie UV i zwiększone ryzyko oparzeń słonecznych i uszkodzeń skóry, które mogą ostatecznie prowadzić do raka skóry.</value>
   </data>
   <data name="DescAboutVisibility.Text" xml:space="preserve">
-    <value>Visibility is a measure of the distance at which an object or light can be clearly discerned. A value at or greater than 10 km is considered good and less than 1 km poor.</value>
+    <value>Widoczność jest miarą odległości, przy której można wyraźnie odróżnić obiekt lub światło. Wartość na lub większą niż 10 km uważa się za dobrą i mniej niż 1 km biedną.</value>
   </data>
   <data name="DescAboutWindSpeed.Text" xml:space="preserve">
     <value>Prędkość wiatru jest szybkością, z jaką powietrze porusza się poziomo po danym punkcie. Jest to podstawowa ilość atmosferyczna spowodowana przechodzeniem powietrza z wysokiego do niskiego ciśnienia, zazwyczaj z powodu zmian temperatury. Gusty to nagły wzrost prędkości wiatru powyżej średniej prędkości wiatru. Zwykle trwa mniej niż 20 sekund.</value>
@@ -536,7 +536,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Indeks UV</value>
   </data>
   <data name="TitleVisibility.Text" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Widoczność</value>
   </data>
   <data name="TitleWarning.Text" xml:space="preserve">
     <value>Ostrzeżenie</value>
@@ -584,7 +584,7 @@ Optimal settings have been applied to ensure the best performance for your syste
     <value>Wyświetl pomiary w</value>
   </data>
   <data name="WeatherUnitSettings.Header" xml:space="preserve">
-    <value>Jednostka </value>
+    <value>Jednostka</value>
   </data>
   <data name="WebpageCard.Description" xml:space="preserve">
     <value>Oficjalna strona internetowa</value>
@@ -688,17 +688,19 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="WmoWeatherString99" xml:space="preserve">
     <value>Burza z ciężkim gradem</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TimeFormatSettingsItemSystemDefault.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Same as System</value>
   </data>
-  <data name="TimeFormatSettingsItem12Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12-hour</value>
   </data>
-  <data name="TimeFormatSettingsItem24Hr.Content" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24-hour</value>
   </data>
-  <data name="TimeFormatSettings.Header" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Time format</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
   </data>
 </root>
