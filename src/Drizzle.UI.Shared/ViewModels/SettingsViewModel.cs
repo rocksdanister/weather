@@ -84,6 +84,7 @@ public sealed partial class SettingsViewModel : ObservableObject
             new() { DisplayName = "中文", Code = "zh-CN" }, // Chinese (Simplified)
             new() { DisplayName = "中文 (繁體)", Code = "zh-Hant" }, // Chinese (Traditional)
             new() { DisplayName = "Čeština", Code = "cs-CZ" }, // Czech
+            new() { DisplayName = "Lietuvių", Code = "lt-LT" }, // Lithuanian
         ];
         SelectedLanguage = userSettings.Get<bool>(UserSettingsConstants.UseSystemDefaultLanguage) ? 
             Languages[0] : Languages.FirstOrDefault(x => x.Code == userSettings.Get<string>(UserSettingsConstants.SelectedLanguageCode)) ?? Languages[0];

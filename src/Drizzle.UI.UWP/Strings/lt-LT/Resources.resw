@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMe.Text" xml:space="preserve">
+    <value>Sveiki, aš esu Dani John, taip pat žinomas kaip rocksdanister. Kuriu įdomias programas, kaip ši. Ačiū, kad skyrėte laiko peržiūrėti mano programėles.</value>
+  </data>
+  <data name="AirQualityIndex0" xml:space="preserve">
+    <value>Gera</value>
+  </data>
+  <data name="AirQualityIndex1" xml:space="preserve">
+    <value>Vidutiniška</value>
+  </data>
+  <data name="AirQualityIndex2" xml:space="preserve">
+    <value>Nesveika rizikos grupės asmenims</value>
+  </data>
+  <data name="AirQualityIndex3" xml:space="preserve">
+    <value>Prasta</value>
+  </data>
+  <data name="AirQualityIndex4" xml:space="preserve">
+    <value>Labai prasta</value>
+  </data>
+  <data name="AirQualityIndex5" xml:space="preserve">
+    <value>Kenksminga</value>
+  </data>
+  <data name="AlwaysHideScreensaverMenu.Content" xml:space="preserve">
+    <value>Slėpti meniu neaktyvumo metu</value>
+  </data>
+  <data name="AppBarAbout.Label" xml:space="preserve">
+    <value>Apie</value>
+  </data>
+  <data name="AppBarHelp.Label" xml:space="preserve">
+    <value>Pagalba</value>
+  </data>
+  <data name="AppBarSettings.Label" xml:space="preserve">
+    <value>Parametrai</value>
+  </data>
+  <data name="AppTitlebarSearch.PlaceholderText" xml:space="preserve">
+    <value>Ieškoti vietą</value>
+  </data>
+  <data name="Attribution.Content" xml:space="preserve">
+    <value>Trečiosios šalies programinės įrangos pranešimas</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Description" xml:space="preserve">
+    <value>Pritaikykite fono šviesumą</value>
+  </data>
+  <data name="BackgroundBrightnessSettings.Header" xml:space="preserve">
+    <value>Šviesumas</value>
+  </data>
+  <data name="BrowseFile.Content" xml:space="preserve">
+    <value>Naršyti</value>
+  </data>
+  <data name="ChangeBackground.Content" xml:space="preserve">
+    <value>Fonas</value>
+  </data>
+  <data name="CheckUpdate.Content" xml:space="preserve">
+    <value>Tikrinti, ar yra atnaujinimų</value>
+  </data>
+  <data name="CloudDayNightShift.Content" xml:space="preserve">
+    <value>Diena/Naktis</value>
+  </data>
+  <data name="CloudIterations.Header" xml:space="preserve">
+    <value>Iteracija</value>
+  </data>
+  <data name="CloudScale.Header" xml:space="preserve">
+    <value>Skalė</value>
+  </data>
+  <data name="ContactCard.Description" xml:space="preserve">
+    <value>Pasiūlykite funkciją arba praneškite apie klaidą</value>
+  </data>
+  <data name="ContactCard.Header" xml:space="preserve">
+    <value>Susisiekite</value>
+  </data>
+  <data name="CustomBackgroundSettings.Description" xml:space="preserve">
+    <value>Įtraukti vartotojo pasirinktus paveikslėlius į oro efektus</value>
+  </data>
+  <data name="CustomBackgroundSettings.Header" xml:space="preserve">
+    <value>Pasirinktinis fonas</value>
+  </data>
+  <data name="DepthHorizontal.Header" xml:space="preserve">
+    <value>Horizontalus</value>
+  </data>
+  <data name="DepthVertical.Header" xml:space="preserve">
+    <value>Vertikalus</value>
+  </data>
+  <data name="DescAboutAQI.Text" xml:space="preserve">
+    <value>Oro kokybės indeksas („AQI“) skirtas informuoti apie penkių dažniausiai pasitaikančių oro teršalų poveikį sveikatai. Tai skalė nuo 0 iki 500 — kuo rodiklis aukštesnis, tuo oro tarša didesnė ir tuo rimtesnė grėsmė sveikatai.</value>
+  </data>
+  <data name="DescAboutCloudAmount.Text" xml:space="preserve">
+    <value>Debesuotumas rodo, kokia dangaus dalis yra vidutiniškai uždengta debesų, stebint iš konkrečios vietos.</value>
+  </data>
+  <data name="DescAboutDewPoint.Text" xml:space="preserve">
+    <value>Rasos taško temperatūra yra absoliutus oro drėgmės matas. Kai rasos taško temperatūra ir oro temperatūra sutampa, santykinis drėgnumas siekia 100%. Tokiu atveju oras yra visiškai prisotintas vandens garų, todėl susidaro kondensatas — rasa, rūkas arba debesys.</value>
+  </data>
+  <data name="DescAboutHumidity.Text" xml:space="preserve">
+    <value>Santykinis drėgnumas parodo, kiek vandens garų yra ore, palyginti su didžiausiu kiekiu, kurį oras gali sulaikyti esant tam tikrai temperatūrai. Jis išreiškiamas procentais ir rodo, kaip arti prisotinimo yra oras.</value>
+  </data>
+  <data name="DescAboutPrecipitation.Text" xml:space="preserve">
+    <value>Krituliai — tai vandens sluoksnio storis, kuris susikauptų ant plokščio paviršiaus iš atmosferos vandens garų, gravitacijos veikiamų iškrintančių iš debesų. Tai apima įvairias formas: lietų, sniegą, šlapdrybą ir krušą</value>
+  </data>
+  <data name="DescAboutPressure.Text" xml:space="preserve">
+    <value>Barometrinis slėgis, dar vadinamas atmosferos slėgiu, yra oro slėgio tam tikroje vietoje matas.</value>
+  </data>
+  <data name="DescAboutUVIndex.Text" xml:space="preserve">
+    <value>Pasaulio sveikatos organizacijos UV indeksas (UVI) matuoja saulės nudegimą sukeliančios ultravioletinės spinduliuotės intensyvumą. Tai tiesinė skalė nuo 0 iki 11+, kurioje aukštesnės reikšmės rodo didesnę UV spindulių poveikio riziką ir didesnę tikimybę nusideginti bei pažeisti odą, o tai vėliau gali sukelti odos vėžį.</value>
+  </data>
+  <data name="DescAboutVisibility.Text" xml:space="preserve">
+    <value>Matomumas — tai atstumas, iš kurio objektą ar šviesą galima aiškiai įžiūrėti. Reikšmė nuo 10 km ir daugiau laikoma gera, o mažiau nei 1 km — prasta.</value>
+  </data>
+  <data name="DescAboutWindSpeed.Text" xml:space="preserve">
+    <value>15:50Vėjo greitis — tai oro judėjimo horizontalia kryptimi greitis pro tam tikrą tašką. Tai pagrindinis atmosferos rodiklis, atsirandantis dėl oro judėjimo iš aukšto į žemą slėgį, paprastai dėl temperatūros pokyčių. Vėjo gūsiai — tai staigus vėjo greičio padidėjimas virš vidutinio vėjo greičio. Paprastai jie trunka mažiau nei 20 sekundžių.</value>
+  </data>
+  <data name="DescDepthApproximating.Text" xml:space="preserve">
+    <value>Gylis skaičiuojamas...</value>
+  </data>
+  <data name="DescPerformanceIssue.Text" xml:space="preserve">
+    <value>Sistemos grafikos procesorius (GPU) nepalaiko reikiamų DX12 funkcijų, todėl kai kurios galimybės išjungtos.</value>
+  </data>
+  <data name="DescPerformanceNotify.Text" xml:space="preserve">
+    <value>Jūsų sistemos grafikos procesorius neatitinka rekomenduojamų reikalavimų. 
+Pritaikyti optimalūs nustatymai, kad sistema veiktų kuo geriau. Galite juos keisti rankiniu būdu, tačiau tai gali paveikti našumą.</value>
+  </data>
+  <data name="DescriptionDownloadRequired.Text" xml:space="preserve">
+    <value>Norint naudoti šią funkciją, reikia atsisiųsti papildomų failų</value>
+  </data>
+  <data name="DescUpdateComplete.Text" xml:space="preserve">
+    <value>Peržiūrėkite, kas naujo</value>
+  </data>
+  <data name="FeelsLikeTemperature.Text" xml:space="preserve">
+    <value>Juntamoji</value>
+  </data>
+  <data name="FogAmplitude.Header" xml:space="preserve">
+    <value>Amplitudė</value>
+  </data>
+  <data name="FogColorGradient.Text" xml:space="preserve">
+    <value>Spalvų gradientas</value>
+  </data>
+  <data name="FrameRateSettings.Description" xml:space="preserve">
+    <value>Animacijos kadrų dažnis</value>
+  </data>
+  <data name="FrameRateSettings.Header" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="InfoError.Title" xml:space="preserve">
+    <value>Klaida</value>
+  </data>
+  <data name="InfoSettingsRestartRequest.Message" xml:space="preserve">
+    <value>Paleiskite programą iš naujo, kad nustatymai įsigaliotų.</value>
+  </data>
+  <data name="InfoTranslation.Message" xml:space="preserve">
+    <value>Prisidėkite prie šios programos išvertimo.</value>
+  </data>
+  <data name="InfoTranslation.Title" xml:space="preserve">
+    <value>Padėkite išversti</value>
+  </data>
+  <data name="LanguageSettings.Description" xml:space="preserve">
+    <value>Norint pakeisti kalbą, programėlę reikia paleisti iš naujo.</value>
+  </data>
+  <data name="LanguageSettings.Header" xml:space="preserve">
+    <value>Kalba</value>
+  </data>
+  <data name="LanguageSettingsHelpTranslate.Content" xml:space="preserve">
+    <value>Padėkite išversti!</value>
+  </data>
+  <data name="LanguageSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Pagal sistemą</value>
+  </data>
+  <data name="LearnMore.Content" xml:space="preserve">
+    <value>Sužinokite daugiau</value>
+  </data>
+  <data name="LocationNavView.PaneTitle" xml:space="preserve">
+    <value>Prisegtos vietovės</value>
+  </data>
+  <data name="OpenLogs.Header" xml:space="preserve">
+    <value>Atidaryti išrašus</value>
+  </data>
+  <data name="PauseIfBackgroundAudioSettings.Header" xml:space="preserve">
+    <value>Pristabdyti garsą, kai programa nėra aktyvi</value>
+  </data>
+  <data name="PauseIfBackgroundSettings.Header" xml:space="preserve">
+    <value>Pristabdyti vaizdą, kai programa nėra aktyvi</value>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Duomenų rinkimo politika</value>
+  </data>
+  <data name="QualityDynamic.Content" xml:space="preserve">
+    <value>Dinaminis</value>
+  </data>
+  <data name="QualityPerformance.Content" xml:space="preserve">
+    <value>Našumas</value>
+  </data>
+  <data name="QualityPotato.Content" xml:space="preserve">
+    <value>„Bulvinis“</value>
+  </data>
+  <data name="QualityQuality.Content" xml:space="preserve">
+    <value>Kokybė</value>
+  </data>
+  <data name="QualitySettings.Description" xml:space="preserve">
+    <value>Vizualinio renderavimo kokybės šablonas</value>
+  </data>
+  <data name="QualitySettings.Header" xml:space="preserve">
+    <value>Kokybė</value>
+  </data>
+  <data name="RainIntensity.Header" xml:space="preserve">
+    <value>Intensyvumas</value>
+  </data>
+  <data name="RainLightning.Content" xml:space="preserve">
+    <value>Žaibavimas</value>
+  </data>
+  <data name="RainNormal.Header" xml:space="preserve">
+    <value>Normalumas</value>
+  </data>
+  <data name="RainPanning.Content" xml:space="preserve">
+    <value>Slinkimas</value>
+  </data>
+  <data name="RainZoom.Header" xml:space="preserve">
+    <value>Priartinimas</value>
+  </data>
+  <data name="ReduceMotionSettings.Header" xml:space="preserve">
+    <value>Sumažinti judėjimą</value>
+  </data>
+  <data name="RefreshWeather.Text" xml:space="preserve">
+    <value>Paskutinį kartą atnaujinta</value>
+  </data>
+  <data name="RefreshWeatherTooltip.Text" xml:space="preserve">
+    <value>Atnaujinti</value>
+  </data>
+  <data name="RendererSettings.Description" xml:space="preserve">
+    <value>Vizualinio renderavimo būdas</value>
+  </data>
+  <data name="RendererSettings.Header" xml:space="preserve">
+    <value>Grafikos</value>
+  </data>
+  <data name="RestoreDefault.Text" xml:space="preserve">
+    <value>Atkurti numatytuosius</value>
+  </data>
+  <data name="ScreensaverTooltip.Text" xml:space="preserve">
+    <value>Ekrano užsklanda</value>
+  </data>
+  <data name="SettingsTooltip.Text" xml:space="preserve">
+    <value>Parametrai</value>
+  </data>
+  <data name="ShaderBlur.Content" xml:space="preserve">
+    <value>Suliejimas</value>
+  </data>
+  <data name="ShaderFreezing.Content" xml:space="preserve">
+    <value>Užšalimas</value>
+  </data>
+  <data name="ShaderPostProcessing.Header" xml:space="preserve">
+    <value>Tolesnis apdorojimas</value>
+  </data>
+  <data name="ShaderSpeed.Header" xml:space="preserve">
+    <value>Greitis</value>
+  </data>
+  <data name="ShowDiagnosticsSettings.Header" xml:space="preserve">
+    <value>Rodyti diagnostikas</value>
+  </data>
+  <data name="SnowDepth.Header" xml:space="preserve">
+    <value>Gylis</value>
+  </data>
+  <data name="SnowLayers.Header" xml:space="preserve">
+    <value>Sluoksniai</value>
+  </data>
+  <data name="SnowWidth.Header" xml:space="preserve">
+    <value>Plotis</value>
+  </data>
+  <data name="SoftwareLicense.Content" xml:space="preserve">
+    <value>Programinės įrangos licencija</value>
+  </data>
+  <data name="SoundControlTooltip.Text" xml:space="preserve">
+    <value>Garsas</value>
+  </data>
+  <data name="SourceCodeCard.Description" xml:space="preserve">
+    <value>Parodyk palaikymą palikdamas žvaigždutę</value>
+  </data>
+  <data name="SourceCodeCard.Header" xml:space="preserve">
+    <value>Išeitinis kodas</value>
+  </data>
+  <data name="StringAbout" xml:space="preserve">
+    <value>Apie</value>
+  </data>
+  <data name="StringCancel" xml:space="preserve">
+    <value>Atšaukti</value>
+  </data>
+  <data name="StringContinue" xml:space="preserve">
+    <value>Tęsti</value>
+  </data>
+  <data name="StringDepthApprox" xml:space="preserve">
+    <value>DI Gylio apskaičiavimas</value>
+  </data>
+  <data name="StringGeolocationErrorAccessDenied" xml:space="preserve">
+    <value>Prieiga prie buvimo vietos yra uždrausta, patikrinkite „Windows" parametrus.</value>
+  </data>
+  <data name="StringGeolocationErrorAccessUnspecified" xml:space="preserve">
+    <value>Prieiga prie buvimo vietos yra nežinoma, patikrinkite „Windows" parametrus.</value>
+  </data>
+  <data name="StringHelp" xml:space="preserve">
+    <value>Pagalba</value>
+  </data>
+  <data name="StringOk" xml:space="preserve">
+    <value>Gerai</value>
+  </data>
+  <data name="StringSettings" xml:space="preserve">
+    <value>Parametrai</value>
+  </data>
+  <data name="StringWeatherKeyMissingRestoredDefault" xml:space="preserve">
+    <value>Nėra reikiamo API rakto pasirinktam orų tiekėjui. Nustatymai grąžinami.</value>
+  </data>
+  <data name="ThemeAuto.Content" xml:space="preserve">
+    <value>Automatinis</value>
+  </data>
+  <data name="ThemeDark.Content" xml:space="preserve">
+    <value>Tamsus</value>
+  </data>
+  <data name="ThemeLight.Content" xml:space="preserve">
+    <value>Šviesus</value>
+  </data>
+  <data name="ThemeSettings.Description" xml:space="preserve">
+    <value>Keisti programėlės spalvą</value>
+  </data>
+  <data name="ThemeSettings.Header" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="TitleAboutAQI.Text" xml:space="preserve">
+    <value>Apie oro kokybės indeksą („AQI“)</value>
+  </data>
+  <data name="TitleAboutCloudAmount.Text" xml:space="preserve">
+    <value>Apie debesuotumą</value>
+  </data>
+  <data name="TitleAboutDewPoint.Text" xml:space="preserve">
+    <value>Apie rasos tašką</value>
+  </data>
+  <data name="TitleAboutHumidity.Text" xml:space="preserve">
+    <value>Apie santykinį drėgnumą</value>
+  </data>
+  <data name="TitleAboutPrecipitation.Text" xml:space="preserve">
+    <value>Apie kritulius</value>
+  </data>
+  <data name="TitleAboutPressure.Text" xml:space="preserve">
+    <value>Apie slėgį</value>
+  </data>
+  <data name="TitleAboutUVIndex.Text" xml:space="preserve">
+    <value>Apie UV indeksą</value>
+  </data>
+  <data name="TitleAboutVisibility.Text" xml:space="preserve">
+    <value>Apie matomumą</value>
+  </data>
+  <data name="TitleAboutWindSpeed.Text" xml:space="preserve">
+    <value>Apie vėjo greitį ir gūsius</value>
+  </data>
+  <data name="TitleAccessibility.Text" xml:space="preserve">
+    <value>Prieinamumas</value>
+  </data>
+  <data name="TitleAddLocation.Text" xml:space="preserve">
+    <value>Pridėkite vietovę, kad pradėtumėte.</value>
+  </data>
+  <data name="TitleAirQuality.Text" xml:space="preserve">
+    <value>Oro kokybė</value>
+  </data>
+  <data name="TitleCloudAmount.Text" xml:space="preserve">
+    <value>Debesuotumas</value>
+  </data>
+  <data name="TitleContributors.Text" xml:space="preserve">
+    <value>Bendraautoriai</value>
+  </data>
+  <data name="TitleDistance.Text" xml:space="preserve">
+    <value>Atstumas</value>
+  </data>
+  <data name="TitleDownload.Content" xml:space="preserve">
+    <value>Atsisiųsti</value>
+  </data>
+  <data name="TitleDownloadRequired.Text" xml:space="preserve">
+    <value>Reikiamas atsiuntimas</value>
+  </data>
+  <data name="TitleFetchingData.Text" xml:space="preserve">
+    <value>Duomenys gaunami, prašome palaukti.</value>
+  </data>
+  <data name="TitleGeneral.Text" xml:space="preserve">
+    <value>Bendrieji</value>
+  </data>
+  <data name="TitleHello.Text" xml:space="preserve">
+    <value>Sveiki</value>
+  </data>
+  <data name="TitleHumidity.Text" xml:space="preserve">
+    <value>Drėgnis</value>
+  </data>
+  <data name="TitlePerformance.Text" xml:space="preserve">
+    <value>Našumas</value>
+  </data>
+  <data name="TitlePrecipitation.Text" xml:space="preserve">
+    <value>Krituliai</value>
+  </data>
+  <data name="TitlePressure.Text" xml:space="preserve">
+    <value>Slėgis</value>
+  </data>
+  <data name="TitleRecommended.Text" xml:space="preserve">
+    <value>Rekomenduojama</value>
+  </data>
+  <data name="TitleSpeed.Text" xml:space="preserve">
+    <value>Greitis</value>
+  </data>
+  <data name="TitleSun.Text" xml:space="preserve">
+    <value>Saulė</value>
+  </data>
+  <data name="TitleSunrise.Text" xml:space="preserve">
+    <value>Saulėtekis</value>
+  </data>
+  <data name="TitleSunset.Text" xml:space="preserve">
+    <value>Saulėlydis</value>
+  </data>
+  <data name="TitleTemperature.Text" xml:space="preserve">
+    <value>Temperatūra</value>
+  </data>
+  <data name="TitleUpdateAvailable.Text" xml:space="preserve">
+    <value>Galimas atnaujinimas!</value>
+  </data>
+  <data name="TitleUpdateComplete.Text" xml:space="preserve">
+    <value>Atnaujinimas baigtas</value>
+  </data>
+  <data name="TitleUVIndex.Text" xml:space="preserve">
+    <value>UV Indeksas</value>
+  </data>
+  <data name="TitleVisibility.Text" xml:space="preserve">
+    <value>Matomumas</value>
+  </data>
+  <data name="TitleWarning.Text" xml:space="preserve">
+    <value>Dėmesio</value>
+  </data>
+  <data name="TitleWeather.Text" xml:space="preserve">
+    <value>Orai</value>
+  </data>
+  <data name="TitleWind.Text" xml:space="preserve">
+    <value>Vėjas</value>
+  </data>
+  <data name="UVIndex0" xml:space="preserve">
+    <value>Geras</value>
+  </data>
+  <data name="UVIndex1" xml:space="preserve">
+    <value>Aukštas</value>
+  </data>
+  <data name="UVIndex2" xml:space="preserve">
+    <value>Labai aukštas</value>
+  </data>
+  <data name="WeatherProviderKeySettings.Header" xml:space="preserve">
+    <value>API raktas</value>
+  </data>
+  <data name="WeatherProviderKeySettingsTextbox.PlaceholderText" xml:space="preserve">
+    <value>Įveskite reikiamą API raktą</value>
+  </data>
+  <data name="WeatherProviderSettings.Description" xml:space="preserve">
+    <value>Orų šaltinis</value>
+  </data>
+  <data name="WeatherProviderSettings.Header" xml:space="preserve">
+    <value>Teikėjas</value>
+  </data>
+  <data name="WeatherUnitCustom.Content" xml:space="preserve">
+    <value>Pasirinktinis</value>
+  </data>
+  <data name="WeatherUnitHybrid.Content" xml:space="preserve">
+    <value>Hibridinis</value>
+  </data>
+  <data name="WeatherUnitImperial.Content" xml:space="preserve">
+    <value>Imperinis</value>
+  </data>
+  <data name="WeatherUnitMetric.Content" xml:space="preserve">
+    <value>Metrinis</value>
+  </data>
+  <data name="WeatherUnitSettings.Description" xml:space="preserve">
+    <value>Matavimo vieneto sistema yra</value>
+  </data>
+  <data name="WeatherUnitSettings.Header" xml:space="preserve">
+    <value>Matavimo vienetas</value>
+  </data>
+  <data name="WebpageCard.Description" xml:space="preserve">
+    <value>Oficiali svetainė</value>
+  </data>
+  <data name="WebpageCard.Header" xml:space="preserve">
+    <value>Svetainė</value>
+  </data>
+  <data name="WelcomeMessageBeta.Text" xml:space="preserve">
+    <value>Sveiki atvykę į mano orų programą! Atkreipkite dėmesį, kad programa vis dar yra beta versijoje ir kai kurios funkcijos gali veikti netinkamai. Stengiuosi nuolat tobulinti programą. Ačiū už supratingumą ir kantrybę.</value>
+  </data>
+  <data name="WmoWeatherString0" xml:space="preserve">
+    <value>Giedra</value>
+  </data>
+  <data name="WmoWeatherString1" xml:space="preserve">
+    <value>Daugiausiai giedra</value>
+  </data>
+  <data name="WmoWeatherString10" xml:space="preserve">
+    <value>Migla</value>
+  </data>
+  <data name="WmoWeatherString2" xml:space="preserve">
+    <value>Debesuota su pragiedruliais</value>
+  </data>
+  <data name="WmoWeatherString3" xml:space="preserve">
+    <value>Apsiniaukę</value>
+  </data>
+  <data name="WmoWeatherString45" xml:space="preserve">
+    <value>Rūkas</value>
+  </data>
+  <data name="WmoWeatherString48" xml:space="preserve">
+    <value>Šarmos rūkas</value>
+  </data>
+  <data name="WmoWeatherString5" xml:space="preserve">
+    <value>Migla</value>
+  </data>
+  <data name="WmoWeatherString51" xml:space="preserve">
+    <value>Silpna dulksna</value>
+  </data>
+  <data name="WmoWeatherString53" xml:space="preserve">
+    <value>Vidutinė dulksna</value>
+  </data>
+  <data name="WmoWeatherString55" xml:space="preserve">
+    <value>Gausi dulksna</value>
+  </data>
+  <data name="WmoWeatherString56" xml:space="preserve">
+    <value>Silpna šąlanti dulksna</value>
+  </data>
+  <data name="WmoWeatherString57" xml:space="preserve">
+    <value>Gausi šąlanti dulksna</value>
+  </data>
+  <data name="WmoWeatherString6" xml:space="preserve">
+    <value>Dulkėta</value>
+  </data>
+  <data name="WmoWeatherString61" xml:space="preserve">
+    <value>Silpnas lietus</value>
+  </data>
+  <data name="WmoWeatherString63" xml:space="preserve">
+    <value>Vidutinis lietus</value>
+  </data>
+  <data name="WmoWeatherString65" xml:space="preserve">
+    <value>Smarkus lietus</value>
+  </data>
+  <data name="WmoWeatherString66" xml:space="preserve">
+    <value>Silpnas šąlantis lietus</value>
+  </data>
+  <data name="WmoWeatherString67" xml:space="preserve">
+    <value>Smarkus šąlantis lietus</value>
+  </data>
+  <data name="WmoWeatherString71" xml:space="preserve">
+    <value>Silpnas snygis</value>
+  </data>
+  <data name="WmoWeatherString73" xml:space="preserve">
+    <value>Vidutinis snygis</value>
+  </data>
+  <data name="WmoWeatherString75" xml:space="preserve">
+    <value>Gausus snygis</value>
+  </data>
+  <data name="WmoWeatherString77" xml:space="preserve">
+    <value>Sniego kruopos</value>
+  </data>
+  <data name="WmoWeatherString80" xml:space="preserve">
+    <value>Silpnos liūtys</value>
+  </data>
+  <data name="WmoWeatherString81" xml:space="preserve">
+    <value>Vidutiniškos liūtys</value>
+  </data>
+  <data name="WmoWeatherString82" xml:space="preserve">
+    <value>Stiprios liūtys</value>
+  </data>
+  <data name="WmoWeatherString85" xml:space="preserve">
+    <value>Silpnos sniego liūtys</value>
+  </data>
+  <data name="WmoWeatherString86" xml:space="preserve">
+    <value>Stiprios sniego liūtys</value>
+  </data>
+  <data name="WmoWeatherString95" xml:space="preserve">
+    <value>Perkūnija</value>
+  </data>
+  <data name="WmoWeatherString96" xml:space="preserve">
+    <value>Perkūnija su silpna kruša</value>
+  </data>
+  <data name="WmoWeatherString99" xml:space="preserve">
+    <value>Perkūnija su stipria kruša</value>
+  </data>
+  <data name="TimeFormatSettingsItemSystemDefault.Content" xml:space="preserve">
+    <value>Pagal sistemą</value>
+  </data>
+  <data name="TimeFormatSettingsItem12Hr.Content" xml:space="preserve">
+    <value>12 valandų</value>
+  </data>
+  <data name="TimeFormatSettingsItem24Hr.Content" xml:space="preserve">
+    <value>24 valandų</value>
+  </data>
+  <data name="TimeFormatSettings.Header" xml:space="preserve">
+    <value>Laiko formatas</value>
+  </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
+  </data>
+</root>
