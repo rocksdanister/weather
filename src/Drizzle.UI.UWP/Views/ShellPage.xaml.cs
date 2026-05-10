@@ -383,6 +383,12 @@ namespace Drizzle.UI.UWP.Views
             shellVm.ErrorMessage = null;
         }
 
+        private void ServerUnavailableInfoBar_Closed(Microsoft.UI.Xaml.Controls.InfoBar sender, Microsoft.UI.Xaml.Controls.InfoBarClosedEventArgs args)
+        {
+            // Clear status
+            shellVm.IsServerUnavailable = false;
+        }
+
         private void NavView_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             // Don't sent it to the grid/page, navView is closed when clicking outside by using page.PointerPressed event.

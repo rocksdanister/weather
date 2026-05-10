@@ -700,4 +700,7 @@ Optimal settings have been applied to ensure the best performance for your syste
   <data name="TimeFormatSettings.Header" xml:space="preserve">
     <value>Time format</value>
   </data>
+  <data name="InfoServerUnavailableError.Message" xml:space="preserve">
+    <value>Weather service is temporarily unavailable.</value>
+  </data>
 </root>

@@ -19,6 +19,9 @@ using System.Numerics;
 using Drizzle.UI.Shared.Factories;
 using Drizzle.UI.Shared.Extensions;
 using Drizzle.Common.Helpers;
+using System.Net.Http;
+
+
 
 #if WINDOWS_UWP
 using CommunityToolkit.WinUI.Collections;
@@ -381,6 +384,9 @@ public partial class ShellViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool isServerUnavailable = false;
+
+    [ObservableProperty]
     private bool isWorking = false;
 
     [ObservableProperty]
@@ -433,7 +439,7 @@ public partial class ShellViewModel : ObservableObject
         catch (Exception ex)
         {
             logger.LogError(ex.ToString());
-            ErrorMessage = ex.ToString();
+            ShowError(ex);
         }
     }
 
@@ -519,7 +525,7 @@ public partial class ShellViewModel : ObservableObject
         catch (Exception ex)
         {
             logger.LogError(ex.ToString());
-            ErrorMessage = ex.ToString();
+            ShowError(ex);
         }
     }
 
@@ -673,13 +679,21 @@ public partial class ShellViewModel : ObservableObject
         catch (Exception ex)
         {
             logger.LogError(ex.ToString());
-            ErrorMessage = ex.ToString();
+            ShowError(ex);
         }
         finally
         {
             IsWorking = false;
             IsFetchingLocation = false;
         }
+    }
+
+    private void ShowError(Exception ex)
+    {
+        if (ex is HttpRequestException)
+            IsServerUnavailable = true;
+        else
+            ErrorMessage = ex.ToString();
     }
 
     /// <summary>

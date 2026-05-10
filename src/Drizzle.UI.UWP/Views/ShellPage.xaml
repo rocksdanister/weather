@@ -490,7 +490,7 @@
             <local:UpdateCompletePage />
         </muxc:TeachingTip>
 
-        <!--  Show errors if any  -->
+        <!--  Show generic errors if any  -->
         <muxc:InfoBar
             x:Uid="InfoError"
             Grid.Row="1"
@@ -511,6 +511,22 @@
                 </ScrollViewer>
                 <HyperlinkButton x:Uid="LearnMore" NavigateUri="https://github.com/rocksdanister/weather/wiki/Frequently-Asked-Questions-(FAQ)" />
             </StackPanel>
+        </muxc:InfoBar>
+        <!--  Show custom errors if any  -->
+        <muxc:InfoBar
+            x:Uid="InfoServerUnavailableError"
+            Grid.Row="1"
+            Canvas.ZIndex="2"
+            Closed="ServerUnavailableInfoBar_Closed"
+            IsOpen="{x:Bind shellVm.IsServerUnavailable, Mode=OneWay}"
+            Severity="Warning"
+            Visibility="{x:Bind shellVm.IsServerUnavailable, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <animation:Implicit.ShowAnimations>
+                <animation:OpacityAnimation
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:0.5" />
+            </animation:Implicit.ShowAnimations>
         </muxc:InfoBar>
 
         <VisualStateManager.VisualStateGroups>
