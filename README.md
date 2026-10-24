@@ -14,6 +14,7 @@
 - [Features](#features)
 - [Download](#download)
 - [Building](#building)
+- [License](#license)
 
 ## About
 
@@ -60,3 +61,8 @@ https://apps.microsoft.com/store/detail/9PP0MFQFVSC5
 ## Building
 
 Instructions for building the application can be found [here.](https://github.com/rocksdanister/weather/wiki/Building)
+
+## License
+
+Source code is MIT, except some bundled shaders, which keep their original licenses.  
+See THIRD-PARTY-NOTICES.md.
